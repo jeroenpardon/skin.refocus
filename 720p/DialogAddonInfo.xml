@@ -19,7 +19,7 @@
 				<description>heading label</description>
 				<width>669</width>
 				<label>$INFO[ListItem.Property(Addon.Name)]</label>
-				<include>dialogHeading</include>
+				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
 				<posx>519</posx>
@@ -81,28 +81,28 @@
 					<description>Type</description>
 					<width>532</width>
 					<label>[B]$LOCALIZE[146,,:][/B] $INFO[ListItem.Property(Addon.Type)]</label>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 				<control type="label">
 					<description>Author</description>
 					<posy>40</posy>
 					<width>532</width>
 					<label>[B]$LOCALIZE[21863]:[/B] $INFO[ListItem.Property(Addon.Creator)]</label>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 				<control type="label">
 					<description>Version</description>
 					<posy>80</posy>
 					<width>532</width>
 					<label>[B]$LOCALIZE[24051][/B] $INFO[ListItem.Property(Addon.Version)]</label>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 				<control type="label">
 					<description>Rating</description>
 					<posy>120</posy>
 					<width>532</width>
 					<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Property(Addon.Rating)]</label>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 				<control type="label">
 					<description>Summary</description>
@@ -111,7 +111,7 @@
 					<label>[B]$LOCALIZE[24052]:[/B] $INFO[ListItem.Property(Addon.Disclaimer)]</label>
 					<scrollout>false</scrollout>
 					<pauseatend>2000</pauseatend>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 				<control type="textbox" id="400">
 					<description>Description</description>
@@ -121,7 +121,7 @@
 					<height>195</height>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<font>smallAlt</font>
-					<include>dialogTextBox</include>
+					<include>dialog_Textbox</include>
 					<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
 				</control>
 				<control type="textbox" id="400">
@@ -132,7 +132,7 @@
 					<height>145</height>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<font>smallAlt</font>
-					<include>dialogTextBox</include>
+					<include>dialog_Textbox</include>
 					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 				</control>
 			</control>
@@ -164,14 +164,14 @@
 					<posx>65</posx>
 					<width>630</width>
 					<label>[B]$LOCALIZE[24096][/B]</label>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 				<control type="label">
 					<posx>65</posx>
 					<posy>24</posy>
 					<width>630</width>
 					<label>$INFO[ListItem.Property(Addon.Broken)]</label>
-					<include>dialogLabel</include>
+					<include>dialog_Label</include>
 				</control>
 			</control>
 
