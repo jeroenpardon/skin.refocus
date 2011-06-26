@@ -1,0 +1,272 @@
+﻿<includes>
+<!---POSTER------>
+	<include name="view_SlidePoster">
+		<control type="fixedlist" id="52">
+			<viewtype label="Slide">wrap</viewtype>
+			<posx>-2</posx>
+			<posy>90</posy>
+			<width>1450</width>
+			<height>425</height>
+			<onup>6000</onup>
+			<ondown>72</ondown>
+			<onleft>52</onleft>
+			<onright>52</onright>
+			<orientation>horizontal</orientation>
+			<focusposition>1</focusposition>
+			<pagecontrol>72</pagecontrol>
+			<scrolltime>200</scrolltime>
+			<preloaditems>4</preloaditems>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			<itemlayout height="400" width="205">
+				<control type="image">
+					<width>228</width>
+					<height>316</height>
+					<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<bordersize>22</bordersize>
+					<aspectratio align="center">stretch</aspectratio>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="image">
+					<width>228</width>
+					<height>316</height>
+					<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<bordersize>22</bordersize>
+					<aspectratio align="center">stretch</aspectratio>
+					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				</control>
+				<control type="image">
+					<posx>174</posx>
+					<posy>262</posy>
+					<include>watchedOverlay</include>
+					<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="400" width="205">
+				<control type="image">
+					<width>228</width>
+					<height>316</height>
+					<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<bordersize>22</bordersize>
+					<aspectratio align="center">stretch</aspectratio>
+					<include>focus_SlidePoster</include>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="image">
+					<width>228</width>
+					<height>316</height>
+					<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<bordersize>22</bordersize>
+					<aspectratio align="center">stretch</aspectratio>
+					<include>focus_SlidePoster</include>
+					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				</control>
+				<control type="image">
+					<posx>174</posx>
+					<posy>262</posy>
+					<include>watchedOverlay</include>
+					<include>focus_SlidePoster</include>
+					<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+			</focusedlayout>
+		</control>	
+	</include>
+
+
+<!---SLIDE VIEW WIDE------>
+	<include name="view_SlideLandscape">
+		<control type="fixedlist" id="521">
+			<viewtype label="WideSlide">wrap</viewtype>
+			<posx>-610</posx>
+			<posy>130</posy>
+			<width>2200</width>
+			<height>430</height>
+			<onleft>521</onleft>
+			<onright>521</onright>
+			<onup>6000</onup>
+			<ondown>72</ondown>
+			<scrolltime>200</scrolltime>
+			<pagecontrol>72</pagecontrol>
+			<orientation>horizontal</orientation>
+			<focusposition>2</focusposition>
+			<preloaditems>4</preloaditems>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles]]</visible>
+			<include condition="Window.IsVisible(videolibrary)">SlideWideVideo</include>
+			<include condition="Window.IsVisible(musiclibrary)">SlideWideMusic</include>
+		</control>	
+	</include>
+	<include name="SlideWideVideo">
+		<itemlayout width="425" height="300">
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<visible>Container.Content(tvshows)</visible>
+			</control>
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">scale</aspectratio>
+				<visible>Container.Content(episodes) | Container.Content(files)</visible>
+			</control>
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/music_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">scale</aspectratio>
+				<visible>Container.Content(musicvideos)</visible>
+			</control>
+			<control type="image">
+				<posx>396</posx>
+				<posy>219</posy>
+				<include>watchedOverlay</include>
+				<visible>!Control.HasFocus(8000) + [Container.Content(overlay.episodes) | Skin.HasSetting(overlay.tvshows) | Container.Content(overlay.movies) | Container.Content(videofiles) + Skin.HasSetting(overlay.files)]</visible>
+			</control>
+		</itemlayout>
+		<focusedlayout width="425" height="300">
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<bordertexture border="27">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<visible>Container.Content(movies)</visible>
+				<include>focus_SlideWide</include>
+			</control>
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<bordertexture border="27">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<visible>Container.Content(tvshows)</visible>
+				<include>focus_SlideWide</include>
+			</control>
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">scale</aspectratio>
+				<include>focus_SlideWide</include>
+				<visible>Container.Content(episodes) | Container.Content(files)</visible>
+			</control>
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/music_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">scale</aspectratio>
+				<include>focus_SlideWide</include>
+				<visible>Container.Content(musicvideos)</visible>
+			</control>
+			<control type="image">
+				<posx>396</posx>
+				<posy>219</posy>
+				<include>watchedOverlay</include>
+				<include>focus_SlideWide</include>
+				<visible>!Control.HasFocus(8000) + [Container.Content(overlay.episodes) | Skin.HasSetting(overlay.tvshows) | Container.Content(overlay.movies) | Container.Content(videofiles) + Skin.HasSetting(overlay.files)]</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="SlideWideMusic">
+		<itemlayout width="425" height="300">
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<visible>Container.Content(artists)</visible>
+			</control>
+		</itemlayout>
+		<focusedlayout width="425" height="300">
+			<control type="image">
+				<width>450</width>
+				<height>272</height>
+				<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<bordertexture border="27">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<visible>Container.Content(artists)</visible>
+				<include>focus_SlideWide</include>
+			</control>
+		</focusedlayout>
+	</include>
+
+
+<!---ALBUMS------>
+	<include name="view_SlideMusic">
+		<control type="wraplist" id="52">
+			<viewtype label="Slide">wrap</viewtype>
+			<posx>-55</posx>
+			<posy>105</posy>
+			<width>1400</width>
+			<height>600</height>
+			<onleft>52</onleft>
+			<onright>52</onright>
+			<onup>6000</onup>
+			<ondown>72</ondown>
+			<pagecontrol>72</pagecontrol>
+			<orientation>horizontal</orientation>
+			<scrolltime>150</scrolltime>
+			<focusposition>1</focusposition>
+			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs)]</visible>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<itemlayout height="226" width="280">
+				<control type="image">
+					<width>300</width>
+					<height>300</height>
+					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="27" width="400" height="315">frames/frame_Landscape.png</bordertexture>
+					<bordersize>27</bordersize>
+					<aspectratio>scale</aspectratio>
+				</control>
+			</itemlayout>
+			<focusedlayout height="250" width="280">	
+				<control type="image">
+					<width>300</width>
+					<height>300</height>
+					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="27" width="400" height="315">frames/frame_Landscape.png</bordertexture>
+					<bordersize>27</bordersize>
+					<aspectratio>scale</aspectratio>
+					<include>albumSlideFocus</include>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+</includes>

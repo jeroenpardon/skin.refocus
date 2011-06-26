@@ -1,0 +1,388 @@
+﻿<includes>
+
+<!--- LIST VIEW ----
+	<include name="view_ListMusic">
+		<control type="list" id="50">
+			<viewtype label="535">List</viewtype>
+			<posy>90</posy>
+			<width>700</width>
+			<height>610</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>50</onup>
+			<ondown>50</ondown>
+			<focusposition>3</focusposition>
+			<scrolltime>150</scrolltime>	
+			<wraparound>yes</wraparound>
+			<pagecontrol>70</pagecontrol>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			
+			<itemlayout condition="[IsEmpty(Container.FolderPath) | Container.Content(musicfiles)] | [SubString(Container.FolderPath,addons) + !Container.HasFolders]]" width="625" height="40">
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>listMenu</include>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="[IsEmpty(Container.FolderPath) | Container.Content(musicfiles)] | [SubString(Container.FolderPath,addons) + !Container.HasFolders]]" width="625" height="40">
+				<control type="image">
+					<posy>-28</posy>
+					<width>650</width>
+					<height>100</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+					<visible>!ControlGroup(6000).HasFocus</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>listMenuFocus</include>
+				</control>
+			</focusedlayout>
+			
+			<itemlayout condition="SubString(Container.FolderPath,addons) + Container.HasFiles" width="625" height="67">
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+					<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Property(Addon.Name)]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+					<font>listInfo</font>
+					<textcolor>Color2</textcolor>
+					<include>listMenu</include>
+				</control>
+				<control type="image">
+					<posx>475</posx>
+					<posy>12</posy>
+					<width>128</width>
+					<height>22</height>
+					<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
+					<colordiffuse>Color7</colordiffuse>
+					<aspectratio align="right">keep</aspectratio>
+					<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="SubString(Container.FolderPath,addons) + Container.HasFiles" width="625" height="67">
+				<control type="image">
+					<posy>-30</posy>
+					<width>650</width>
+					<height>128</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+					<visible>!ControlGroup(6000).HasFocus</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+					<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Property(Addon.Name)]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+					<font>listInfo</font>
+					<include>listMenuFocus</include>
+				</control>
+				<control type="image">
+					<posx>475</posx>
+					<posy>12</posy>
+					<width>128</width>
+					<height>22</height>
+					<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
+					<aspectratio align="right">keep</aspectratio>
+				</control>
+			</focusedlayout>
+
+			<itemlayout condition="Window.IsActive(musicplaylist)" width="625" height="67">
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>listMenu</include>
+					<visible>IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>25</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Artist]</label>
+					<font>listInfo</font>
+					<textcolor>Color2</textcolor>
+					<include>listMenu</include>
+				</control>		
+				<control type="label">
+					<posx>600</posx>
+					<posy>25</posy>
+					<width>500</width>
+					<label>$INFO[ListItem.Duration]</label>
+					<align>right</align>
+					<font>smallCaps</font>
+					<textcolor>Color2</textcolor>
+					<include>listMenu</include>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="image">
+					<posx>475</posx>
+					<posy>10</posy>
+					<width>128</width>
+					<height>22</height>
+					<info>ListItem.StarRating</info>
+					<aspectratio align="right">keep</aspectratio>
+					<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="Window.IsActive(musicplaylist)" width="625" height="67">
+				<control type="image">
+					<posy>-30</posy>
+					<width>650</width>
+					<height>128</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+					<visible>!ControlGroup(6000).HasFocus</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+					<visible>IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>25</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Artist]</label>
+					<font>listInfo</font>
+					<include>listMenuFocus</include>
+				</control>
+				<control type="label">
+					<posx>600</posx>
+					<posy>25</posy>
+					<width>500</width>
+					<label>$INFO[ListItem.Duration]</label>
+					<align>right</align>
+					<font>smallCaps</font>
+					<selectedcolor>Focused</selectedcolor>
+					<include>listMenuFocus</include>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="image">
+					<posx>475</posx>
+					<posy>10</posy>
+					<width>128</width>
+					<height>22</height>
+					<info>ListItem.StarRating</info>
+					<aspectratio align="right">keep</aspectratio>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+			</focusedlayout>
+			
+			<itemlayout condition="IsEmpty(Container.FolderPath)" width="625" height="40">
+				<control type="label">
+					<posx>40</posx>
+					<width>570</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>listMenu</include>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="625" height="40">
+				<control type="image">
+					<posy>-28</posy>
+					<width>625</width>
+					<height>100</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>570</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>listMenuFocus</include>
+				</control>
+			</focusedlayout>
+	
+			<itemlayout condition="Container.Content(albums) | Container.Content(songs) | Container.Content(artists)" width="770" height="67">
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Album]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+					<visible>Container.Content(songs)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+					<visible>IsEmpty(ListItem.Album) + IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Artist]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+					<include>listMenu</include>
+					<visible>!IsEmpty(ListItem.Album) | Container.Content(songs)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+					<include>listMenu</include>
+					<visible>Container.Content(artists)</visible>
+				</control>
+				<control type="label">
+					<posx>600</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Duration]</label>
+					<font>info</font>
+					<align>right</align>
+					<textcolor>Color2</textcolor>
+					<include>listMenu</include>
+					<visible>Container.Content(songs)</visible>
+				</control>
+				<control type="image">
+					<posx>475</posx>
+					<posy>13</posy>
+					<width>128</width>
+					<height>22</height>
+					<info>ListItem.StarRating</info>
+					<aspectratio align="right">keep</aspectratio>
+					<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="Container.Content(albums) | Container.Content(songs) | Container.Content(artists)" width="770" height="67">
+				<control type="image">
+					<posy>-28</posy>
+					<width>650</width>
+					<height>122</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+					<visible>!ControlGroup(6000).HasFocus</visible>
+					<include>fadeinout</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Album]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+					<visible>IsEmpty(ListItem.Album) + IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+					<visible>Container.Content(songs)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>25</posy>
+					<width>485</width>
+					<label>$INFO[ListItem.Artist]</label>
+					<font>info</font>
+					<include>listMenuFocus</include>
+					<visible>!Container.Content(artists)</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+					<font>info</font>
+					<include>listMenuFocus</include>
+					<visible>Container.Content(artists)</visible>
+				</control>
+				<control type="label">
+					<posx>600</posx>
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Duration]</label>
+					<font>info</font>
+					<align>right</align>
+					<include>listMenuFocus</include>
+					<visible>Container.Content(songs)</visible>
+				</control>
+				<control type="image">
+					<posx>475</posx>
+					<posy>13</posy>
+					<width>128</width>
+					<height>22</height>
+					<info>ListItem.StarRating</info>
+					<aspectratio align="right">keep</aspectratio>
+					<animation effect="fade" start="30" end="200" time="250" condition="true">Conditional</animation>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>------>
+
+
+<!--- SLIDE VIEW ---------->				
+	
+</includes>

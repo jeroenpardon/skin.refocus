@@ -1,0 +1,55 @@
+﻿<window id="2904">
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<visible>Player.HasVideo + !Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614)]</visible>
+			<control type="label" id="200">
+				<description>Line 1 Label</description>
+				<posx>180r</posx>
+				<label>[UPPERCASE]$INFO[VideoPlayer.Title][/UPPERCASE]</label>
+				<include>notificationTop</include>
+			</control>
+			<control type="label" id="201">
+				<description>Line 2 Label</description>
+				<posx>180r</posx>
+				<label>[UPPERCASE]$INFO[VideoPlayer.Genre][/UPPERCASE]</label>
+				<include>notificationBottom</include>
+				<visible>VideoPlayer.Content(movies)</visible>
+			</control>
+			<control type="label" id="203">
+				<description>Line 2 Label</description>
+				<posx>180r</posx>
+				<label>[UPPERCASE]$INFO[VideoPlayer.TVShowTitle][/UPPERCASE]</label>
+				<include>notificationBottom</include>
+				<visible>VideoPlayer.Content(episodes)</visible>
+			</control>
+			<control type="label" id="204">
+				<description>Line 2 Label</description>
+				<posx>180r</posx>
+				<label>[UPPERCASE]$INFO[VideoPlayer.Artist][/UPPERCASE]</label>
+				<include>notificationBottom</include>
+				<visible>VideoPlayer.Content(musicvideos)</visible>
+			</control>
+			<control type="label" id="201">
+				<description>Line 2 Label</description>
+				<posx>180r</posx>
+				<label>[UPPERCASE]$INFO[VideoPlayer.ChannelName][/UPPERCASE]</label>
+				<include>notificationBottom</include>
+			</control>
+			<control type="label" id="1">
+				<posx>170r</posx>
+				<label>$INFO[VideoPlayer.TimeRemaining(hh:mm:ss)]</label>
+				<include>notificationSide</include>
+			</control>
+		</control>
+	</controls>
+</window>
+
+
+
+
+

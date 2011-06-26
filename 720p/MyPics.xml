@@ -1,0 +1,190 @@
+﻿<window id="2">
+	<defaultcontrol always="true">50</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<views>50,53,531,573,574</views>
+
+	<controls>
+		<include>themeBackground2</include>
+		<control type="group">
+			<include>view_List</include>
+			<include>PageControls</include>
+			<control type="label">
+				<label>[LOWERCASE]$LOCALIZE[1][/LOWERCASE]</label>
+				<include>PageLabel</include>
+				<visible>!stringcompare(container.folderpath,plugin://pictures/)</visible>
+				<visible>!Container.Scrolling</visible>
+			</control>
+
+<!-- FAKE INFO BUTTON ----------------------------------------------->	
+			<control type="button" id="8000">
+				<label>SHOULD NOT SEE ME</label>
+				<onup>53</onup>
+				<ondown>53</ondown>
+				<onleft>53</onleft>
+				<onright>53</onright>
+				<width>200</width>
+				<visible allowhiddenfocus="true">false</visible>
+			</control>
+
+<!--- LIST VIEW -------------------------->
+			<control type="group">
+				<include>infoDialogHide</include>
+				<include>toggle_Menu</include>
+				<include>transition_Container</include>
+				<visible>Control.IsVisible(50) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons) + !substring(container.folderpath,plugin://plugin.image)</visible>
+				<control type="group">
+					<posx>650</posx>
+					<posy>60</posy>
+					<include>transition2</include>
+					<control type="image">
+						<width>580</width>
+						<height>650</height>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+						<bordersize>22</bordersize>
+						<aligny>top</aligny>
+						<aspectratio align="center">keep</aspectratio>
+						<include>thumbFadeTime</include>
+						<visible>ListItem.IsFolder</visible>
+					</control>
+					<control type="image">
+						<width>580</width>
+						<height>650</height>
+						<texture fallback="thumbs/picture_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="31" width="400" height="315">frames/frame_Square.png</bordertexture>
+						<bordersize>22</bordersize>
+						<aligny>top</aligny>
+						<aspectratio align="center">keep</aspectratio>
+						<include>thumbFadeTime</include>
+						<visible>!ListItem.IsFolder</visible>
+					</control>
+				</control>
+			</control>
+		</control>
+
+		<include>info_AddonList</include>
+
+<!----- THUMBNAILS VIEW ----->
+		<include>view_IconLandscape</include>
+		<control type="group">
+			<visible>Control.IsVisible(573)</visible>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<posx>85</posx>
+			<posy>640</posy>
+			<control type="label">
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<font>title</font>
+				<textcolor>Color1</textcolor>
+				<align>left</align>
+				<width>900</width>
+			</control>
+			<control type="label">
+				<posy>25</posy>
+				<label>$INFO[ListItem.PictureResolution]$INFO[ListItem.PictureDateTime, • ]</label>
+				<font>info</font>
+				<textcolor>Color2</textcolor>
+				<align>left</align>
+				<width>750</width>
+			</control>
+		</control>
+		
+		<!--- addons ------>
+		<include>view_Addons</include>
+		<include>info_AddonThumbs</include>
+
+<!----- GALLERY VIEW ----->	
+		<control type="group">
+			<posx>265</posx>
+			<posy>105</posy>
+			<visible>Control.IsVisible(53)</visible>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>infoDialogHide</include>
+			<control type="group">
+				<control type="label">
+					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<width>750</width>
+					<visible>![Control.HasFocus(8000)]</visible>
+				</control>
+				<control type="label">
+					<posx>750</posx>
+					<label>[UPPERCASE]$INFO[Container(53).ListItem(1).Label][/UPPERCASE]</label>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<width>750</width>
+					<visible>Control.IsVisible(53) + ![Control.HasFocus(8000)]</visible>
+					<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+				</control>
+			</control>
+			<control type="group">
+				<posy>480</posy>
+				<control type="label">
+					<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
+					<font>normalCaps</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<width>940</width>
+				</control>
+				<control type="label">
+					<posy>23</posy>
+					<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
+					<font>normalCaps</font>
+					<textcolor>Color2</textcolor>
+					<align>left</align>
+					<width>750</width>
+				</control>
+				<control type="label">
+					<posy>46</posy>
+					<label>[UPPERCASE]$INFO[ListItem.PictureDateTime][/UPPERCASE]</label>
+					<font>normalCaps</font>
+					<textcolor>Color2</textcolor>
+					<align>left</align>
+					<width>750</width>
+				</control>
+			</control>
+		</control>
+		
+		
+		
+		<include>allscreens</include>
+		<include>nav_Indicator</include>
+		
+		<include>view_Gallery</include>
+		<include>view_GalleryFull</include>
+		
+		<control type="image">
+			<include>screentype</include>	
+			<aspectratio align="left">stretch</aspectratio>
+			<texture>home/menuBackground.png</texture>
+			<include>fadeinout</include>
+			<visible>Control.IsVisible(531) + ControlGroup(6000).HasFocus()</visible>
+		</control>
+		
+		<control type="group">
+			<posy>336</posy>
+			<visible>Control.IsVisible(531) + System.IdleTime(3)</visible>
+			<control type="image">
+				<posx>20</posx>
+				<width>48</width>
+				<height>48</height>
+				<texture>views/scrollLeftIndicator.png</texture>
+				<aspectratio>keep</aspectratio>
+				<include>fadeinout</include>
+			</control>
+			<control type="image">
+				<posx>1212</posx>
+				<width>48</width>
+				<height>48</height>
+				<texture>views/scrollRightIndicator.png</texture>
+				<aspectratio>keep</aspectratio>
+				<include>fadeinout</include>
+			</control>
+		</control>
+
+		
+		<include>FilesMenu</include>
+	</controls>
+</window>

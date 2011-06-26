@@ -1,0 +1,202 @@
+﻿<includes>
+	<include name="LibraryMusicMenu">
+		<control type="group">
+			<visible>!Skin.HasSetting(global.kiosk)</visible>
+			<control type="group" id="6000">
+				<posx>-275</posx>
+				<posy>20</posy>
+				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus(0) + !Skin.HasSetting(global.kiosk)</visible>
+				<onright>50</onright>
+				<include>pagemenus</include>
+				<include>transition_WindowMenu</include>
+				<include>toggle_NumItems-menumove</include>
+	
+				<control type="button" id="1">
+					<description>Choose Viewtype</description>
+					<label>[UPPERCASE]$LOCALIZE[31930][/UPPERCASE]</label>
+					<onleft>1</onleft>
+					<onright>50</onright>
+					<onup>90</onup>
+					<ondown>3</ondown>
+					<onclick>SetFocus(40)</onclick>
+					<include>contextButton</include>
+					<visible allowhiddenfocus="true">![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="grouplist" id="40">
+					<onup>40</onup>
+					<ondown>40</ondown>
+					<onleft>-</onleft>
+					<onright>1</onright>
+					<itemgap>-125</itemgap>
+					<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
+					<control type="button" id="41">
+						<description>list</description>
+						<label>$LOCALIZE[535]</label>
+						<onleft>1</onleft>
+						<onright>1</onright>
+						<onup>1</onup>
+						<onclick>Container.SetViewMode(50)</onclick>
+						<include>contextButton</include>
+					</control>
+					<control type="button" id="42">
+						<description>slide</description>
+						<label>$LOCALIZE[31003]</label>
+						<onleft>1</onleft>
+						<onright>1</onright>
+						<onclick>Container.SetViewMode(52)</onclick>
+						<include>contextButton</include>
+						<visible>!Container.Content(artists) + !IsEmpty(container.folderpath) + !substring(container.folderpath,addons://sources/) + !substring(container.folderpath,plugin://)</visible>
+					</control>
+					<control type="button" id="43">
+						<label>$LOCALIZE[31003]</label>
+						<onleft>1</onleft>
+						<onright>1</onright>
+						<onclick>Container.SetViewMode(521)</onclick>
+						<include>contextButton</include>
+						<visible>Container.Content(artists)</visible>
+					</control>
+					<control type="button" id="44">
+						<description>thumbnails</description>
+						<label>$LOCALIZE[31014]</label>
+						<onleft>1</onleft>
+						<onright>1</onright>
+						<onclick>Container.SetViewMode(572)</onclick>
+						<include>contextButton</include>
+						<visible>[Container.Content(albums) | Container.Content(songs)] + !stringcompare(container.folderpath,addons://sources/)</visible>
+					</control>
+					<control type="button" id="45">
+						<description>thumbnails info</description>
+						<label>$LOCALIZE[31014]</label>
+						<onleft>1</onleft>
+						<onright>1</onright>
+						<onclick>Container.SetViewMode(574)</onclick>
+						<include>contextButton</include>
+						<visible>stringcompare(container.folderpath,addons://sources/audio/) | substring(container.folderpath,plugin://)</visible>
+					</control>
+					<control type="button" id="46">
+						<label>$LOCALIZE[31014]</label>
+						<onleft>1</onleft>
+						<onright>1</onright>
+						<onclick>Container.SetViewMode(573)</onclick>
+						<include>contextButton</include>
+						<visible>Container.Content(artists)</visible>
+					</control>
+				</control>
+	
+				<control type="button" id="3">
+					<description>Sort by button</description>
+					<posy>43</posy>
+					<label>103</label>
+					<onright>50</onright>
+					<onup>1</onup>
+					<ondown>4</ondown>
+					<include>contextButton</include>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="togglebutton" id="4">
+					<description>ascending / descending</description>
+					<posy>86</posy>
+					<label>$LOCALIZE[584]</label>
+					<altlabel>$LOCALIZE[585]</altlabel>
+					<onright>50</onright>
+					<onup>3</onup>
+					<ondown>5</ondown>
+					<include>contextButton</include>
+					<onclick>Container.SortDirection</onclick>
+					<onclick>Container.SortDirection</onclick>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="togglebutton" id="5">
+					<description>Library button</description>
+					<posy>129</posy>
+					<label>$LOCALIZE[29800]</label>
+					<altlabel>$LOCALIZE[31901]</altlabel>
+					<onclick>ReplaceWindow(mymusicfiles)</onclick>
+					<selected>Window.IsVisible(mymusiclibrary)</selected>
+					<onright>50</onright>
+					<onup>4</onup>
+					<ondown>8</ondown>
+					<include>contextButton</include>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="button" id="8">
+					<description>Search button</description>
+					<posy>172</posy>
+					<label>137</label>
+					<onright>50</onright>
+					<onup>5</onup>
+					<ondown>19</ondown>
+					<include>contextButton</include>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="button" id="19">
+					<description>Filter Button</description>
+					<posy>215</posy>
+					<label>587</label>
+					<onright>50</onright>
+					<onup>8</onup>
+					<ondown>16</ondown>
+					<include>contextButton</include>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="button" id="16">
+					<description>Party Mode button</description>
+					<posy>258</posy>
+					<label>589</label>
+					<onright>50</onright>
+					<onup>19</onup>
+					<ondown>30</ondown>
+					<include>contextButton</include>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="button" id="30">
+					<description>Favourites Button</description>
+					<posy>301</posy>
+					<label>1036</label>
+					<onright>50</onright>
+					<onclick>ActivateWindow(Favourites)</onclick>
+					<onup>16</onup>
+					<ondown>90</ondown>
+					<include>contextButton</include>
+					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
+				</control>
+	
+				<control type="button" id="90">
+					<description>THUMBS: info</description>
+					<label>$LOCALIZE[31975]</label>
+					<posy>344</posy>
+					<onleft>2</onleft>
+					<onright>50</onright>
+					<onup>30</onup>
+					<ondown>1</ondown>
+					<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
+					<onclick>Container.SetViewMode(574)</onclick>
+					<selected>!Skin.HasSetting(thumbInfo)</selected>
+					<include>contextButton</include>
+					<visible>Control.IsVisible(572) + !ControlGroup(40).HasFocus()</visible>
+				</control>
+				<control type="button" id="90">
+					<description>THUMBS: no info</description>
+					<label>$LOCALIZE[31974]</label>
+					<posy>344</posy>
+					<onleft>2</onleft>
+					<onright>50</onright>
+					<onup>30</onup>
+					<ondown>1</ondown>
+					<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
+					<onclick>Container.SetViewMode(572)</onclick>
+					<selected>Skin.HasSetting(thumbInfo)</selected>
+					<include>contextButton</include>
+					<visible>Control.IsVisible(574) + !ControlGroup(40).HasFocus()</visible>
+				</control>			
+			</control>
+		</control>
+	</include>
+</includes>

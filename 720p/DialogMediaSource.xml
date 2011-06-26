@@ -1,0 +1,226 @@
+﻿<window id="129">
+	<defaultcontrol always="true">10</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>290</posx>
+		<posy>104</posy>
+	</coordinates>
+	<include>dialogOpen</include>
+
+	<controls>
+		<control type="image">
+			<width>700</width>
+			<height>512</height>
+			<include>dialogWindow</include>
+		</control>
+		<control type="label" id="2">
+			<description>heading label</description>
+			<width>632</width>
+			<posx>34</posx>
+			<include>dialogHeading</include>
+		</control>
+
+		<!--sources--->
+		<control type="group">
+			<posx>19</posx>
+			<posy>75</posy>
+			<control type="label">
+				<posx>14</posx>
+				<width>613</width>
+				<height>36</height>
+				<align>left</align>
+				<textcolor>Color4</textcolor>	
+				<font>smallerCaps</font>
+				<label>[B]$LOCALIZE[1021][/B]</label>
+			</control>
+			<control type="image">
+				<posy>40</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posy>80</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posy>120</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posy>160</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posy>200</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posy>240</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="list" id="10">
+				<posy>40</posy>
+				<width>543</width>
+				<height>200</height>
+				<onup>9001 </onup>
+				<onleft>-</onleft>
+				<onright>9000</onright>
+				<ondown>12</ondown>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="40">
+					<control type="label">
+						<width>543</width>
+						<info>ListItem.Label</info>
+						<focusedcolor>Selected</focusedcolor>
+						<include>dialog_CommonListItem</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="40">
+					<control type="image">
+						<width>543</width>
+						<height>40</height>
+						<texture border="3">dialogs/list-focus.png</texture>
+						<visible>Control.HasFocus(10)</visible>
+					</control>
+					<control type="label">
+						<width>512</width>
+						<info>ListItem.Label</info>
+						<textcolor>Color4</textcolor>
+						<focusedcolor>Selected</focusedcolor>
+						<include>dialog_CommonListItemFocus</include>
+						<visible>!Control.HasFocus(10)</visible>
+					</control>
+					<control type="label">
+						<width>512</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItemFocus</include>
+						<visible>Control.HasFocus(10)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<!---browse controls--->
+			<control type="group" id="9000">
+				<posx>543</posx>
+				<posy>40</posy>
+				<animation effect="slide" end="0,40" time="0" condition="Container(10).Row(1)">Conditional</animation>
+				<animation effect="slide" end="0,80" time="0" condition="Container(10).Row(2)">Conditional</animation>
+				<animation effect="slide" end="0,120" time="0" condition="Container(10).Row(3)">Conditional</animation>
+				<animation effect="slide" end="0,160" time="0" condition="Container(10).Row(4)">Conditional</animation>
+				<animation effect="slide" end="0,200" time="0" condition="Container(10).Row(5)">Conditional</animation>
+				<control type="image">
+					<posy>1</posy>
+					<height>39</height>
+					<include>dialogSeparatorVertical</include>
+				</control>
+				<control type="image">
+					<posx>40</posx>
+					<posy>1</posy>
+					<height>39</height>
+					<include>dialogSeparatorVertical</include>
+				</control>
+				<control type="image">
+					<posx>80</posx>
+					<posy>1</posy>
+					<height>39</height>
+					<include>dialogSeparatorVertical</include>
+				</control>
+				<control type="button" id="11">
+					<description>Browse Button</description>
+					<label>-</label>
+					<onup>10</onup>
+					<onleft>10</onleft>
+					<onright>14</onright>
+					<ondown>10</ondown>
+					<texturenofocus border="0">dialogs/button_Inline-edit.png</texturenofocus>
+					<texturefocus border="0">dialogs/button_Inline-edit-focus.png</texturefocus>
+					<include>dialog_Button-inline</include>
+				</control>
+				<control type="button" id="14">
+					<description>Remove Path Button</description>
+					<posx>40</posx>
+					<label>-</label>
+					<onup>10</onup>
+					<onleft>11</onleft>
+					<onright>13</onright>
+					<ondown>10</ondown>
+					<texturenofocus border="0">dialogs/button_Inline-remove.png</texturenofocus>
+					<texturefocus border="0">dialogs/button_Inline-remove-focus.png</texturefocus>
+					<include>dialog_Button-inline</include>
+				</control>
+				<control type="button" id="13">
+					<description>Add Path Button</description>
+					<posx>80</posx>
+					<label>-</label>
+					<onup>10</onup>
+					<onleft>14</onleft>
+					<onright>-</onright>
+					<ondown>10</ondown>
+					<texturenofocus border="0">dialogs/button_Inline-add.png</texturenofocus>
+					<texturefocus border="0">dialogs/button_Inline-add-focus.png</texturefocus>
+					<include>dialog_Button-inline</include>
+				</control>
+			</control>
+		</control>
+		
+		<!---set source name--->
+		<control type="group">
+			<posx>19</posx>
+			<posy>330</posy>
+			<control type="image">
+				<posy>40</posy>
+				<width>663</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="label">
+				<posx>14</posx>
+				<width>613</width>
+				<height>40</height>
+				<align>left</align>
+				<textcolor>Color4</textcolor>	
+				<font>smallerCaps</font>
+				<label>[B]$LOCALIZE[1022][/B]</label>
+			</control>
+			<control type="button" id="12">
+				<description>Name Button</description>
+				<posx>0</posx>
+				<posy>40</posy>
+				<width>663</width>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>10</onup>
+				<ondown>9001</ondown>
+				<height>40</height>
+				<include>dialogListButton</include>
+			</control>
+		</control>
+		<!---confirm buttons--->
+		<control type="group" id="9001">
+			<posx>418</posx>
+			<posy>435</posy>
+			<control type="button" id="18">
+				<description>Ok Button</description>
+				<label>186</label>
+				<onleft>19</onleft>
+				<onright>19</onright>
+				<onup>12</onup>
+				<ondown>10</ondown>
+				<include>dialogButton</include>
+			</control>
+			<control type="button" id="19">
+				<description>Cancel Button</description>
+				<posx>130</posx>
+				<label>222</label>
+				<onup>12</onup>
+				<onleft>18</onleft>
+				<onright>18</onright>
+				<ondown>10</ondown>
+				<include>dialogButton</include>
+			</control>
+		</control>
+	</controls>
+</window>

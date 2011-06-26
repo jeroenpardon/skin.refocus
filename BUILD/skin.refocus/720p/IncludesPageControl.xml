@@ -1,0 +1,124 @@
+﻿<includes>
+	<include name="PageControls">
+
+		<control type="scrollbar" id="70">
+			<description>list, banner</description>
+			<posx>1245</posx>
+			<posy>89</posy>
+			<height>601</height>
+			<onleft>50</onleft>
+			<include>fadeinout</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible allowhiddenfocus="true">[Control.IsVisible(50)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(70)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="71">
+			<description>big list</description>
+			<posx>1245</posx>
+			<posy>102</posy>
+			<height>582</height>
+			<onleft>50</onleft>
+			<include>fadeinout</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible allowhiddenfocus="true">[Control.IsVisible(51)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(71)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="72">
+			<description>slide poster, wide, episode</description>
+			<posx>30</posx>
+			<posy>395</posy>
+			<width>1220</width>
+			<onup>50</onup>
+			<orientation>horizontal</orientation>
+			<include>xScroller</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<include>transition_Container</include>
+			<animation effect="slide" end="0,-34" time="0" condition="[Container.Content(episodes)] + Control.IsVisible(58)">Conditional</animation>
+			<animation effect="slide" end="0,8" time="0" condition="[Container.Content(albums) + Control.IsVisible(52)]">Conditional</animation>
+			<animation effect="slide" end="0,-12" time="0" condition="[Container.Content(files) | Container.Content(musicvideos)] + Control.IsVisible(58)">Conditional</animation>
+			<visible allowhiddenfocus="true">[Control.IsVisible(52) | Control.IsVisible(55) | Control.IsVisible(58)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(72)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="83">
+			<description>thumbnails</description>
+			<posx>1245</posx>
+			<posy>96</posy>
+			<height>498</height>
+			<onleft>50</onleft>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible allowhiddenfocus="true">[Control.IsVisible(57) | Control.IsVisible(573)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(83)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+		
+		<control type="scrollbar" id="85">
+			<description>thumbnails</description>
+			<posx>1245</posx>
+			<posy>124</posy>
+			<height>530</height>
+			<onleft>50</onleft>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible allowhiddenfocus="true">Control.IsVisible(575) + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(85)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="76">
+			<description>thumbnails albums + artists</description>
+			<posx>1245</posx>
+			<posy>118</posy>
+			<height>492</height>
+			<onleft>50</onleft>
+			<include>fadeinout</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible allowhiddenfocus="true">[Container.Content(albums) | Container.Content(artists) | Container.Content(songs)] + [Control.IsVisible(573) | Control.IsVisible(572)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(76)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="78">
+			<description>thumbnails info</description>
+			<posx>1245</posx>
+			<posy>113</posy>
+			<height>552</height>
+			<onleft>50</onleft>
+			<include>fadeinout</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<visible allowhiddenfocus="true">!Control.IsVisible(50) + [Control.IsVisible(571) | Control.IsVisible(574)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(78)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="79">
+			<description>live tv list</description>
+			<posx>1245</posx>
+			<posy>92</posy>
+			<height>580</height>
+			<onleft>11</onleft>
+			<include>transition_Container</include>
+			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<visible allowhiddenfocus="true">Window.IsActive(600) + Control.IsVisible(11) + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(79)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+
+		<control type="scrollbar" id="80">
+			<description>live tv guide</description>
+			<posx>1245</posx>
+			<posy>135</posy>
+			<height>440</height>
+			<onleft>11</onleft>
+			<include>transition_Container</include>
+			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<visible allowhiddenfocus="true">[Window.IsActive(600) + [Control.IsVisible(15) | Control.IsVisible(16)]] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(80)]</visible>
+			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+		</control>
+	</include>	
+</includes>

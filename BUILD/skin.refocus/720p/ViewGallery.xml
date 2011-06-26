@@ -1,0 +1,181 @@
+﻿<includes>
+<!--- GALLERY VIEW --->	
+	<include name="view_Gallery">																					
+		<control type="group">
+			<visible>Control.IsVisible(53)</visible>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<include>infoDialogHide</include>
+			<control type="image">
+				<posy>106</posy>
+				<width>1280</width>
+				<height>478</height>
+				<aspectratio align="center">stretch</aspectratio>
+				<texture border="29">frames/frame_Gallery.png</texture>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(2)] + Control.IsVisible(53)</visible>
+				<include>transition_Container</include>
+				<include>toggle_Menu</include>
+				<include>infoDialogHide</include>
+			</control>
+		</control>
+	
+		<control type="wraplist" id="53">
+			<viewtype label="Gallery">bigwrap</viewtype>
+			<posx>-485</posx>
+			<posy>135</posy>
+			<width>1900</width>
+			<height>800</height>
+			<onleft>53</onleft>
+			<onright>53</onright>
+			<onup>6000</onup>
+			<ondown>8000</ondown>
+			<scrolltime>200</scrolltime>
+			<orientation>horizontal</orientation>
+			<focusposition>1</focusposition>
+			<preloaditems>4</preloaditems>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<include>infoDialogHide</include>
+			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)]</visible>
+			<itemlayout height="800" width="749">
+				<control type="largeimage">
+					<width>750</width>
+					<height>422</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="largeimage">
+					<width>750</width>
+					<height>422</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				<control type="image">
+					<width>750</width>
+					<height>422</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+					<visible>Window.IsActive(2)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>300</posy>
+					<width>750</width>
+					<height>96</height>
+					<texture background="true">$INFO[ListItem.path]logo.png</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
+				</control>
+				<control type="image">
+					<posx>718</posx>
+					<posy>390</posy>
+					<include>watchedOverlay</include>
+					<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+					<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="800" width="750">
+				<control type="largeimage">
+					<width>750</width>
+					<height>422</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(movies)</visible>
+					<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+				</control>
+				<control type="largeimage">
+					<width>750</width>
+					<height>422</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(tvshows)</visible>
+					<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.TVShowTitle)">Conditional</animation>
+				</control>
+				<control type="image">
+					<width>750</width>
+					<height>422</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+					<visible>Window.IsActive(2)</visible>
+					<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000)">Conditional</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>300</posy>
+					<width>750</width>
+					<height>96</height>
+					<texture background="true">$INFO[ListItem.path]logo.png</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
+					<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000)">Conditional</animation>
+				</control>
+				<control type="image">
+					<posx>718</posx>
+					<posy>390</posy>
+					<include>watchedOverlay</include>
+					<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+
+	<include name="view_GalleryFull">																																																																
+		<control type="wraplist" id="531">
+			<viewtype label="Gallery">bigicons</viewtype>
+			<width>1280</width>
+			<height>720</height>
+			<onleft>56</onleft>
+			<onright>56</onright>
+			<onup>6000</onup>
+			<ondown>8000</ondown>
+			<scrolltime>300</scrolltime>
+			<preloaditems>2</preloaditems>
+			<orientation>horizontal</orientation>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(2)]</visible>
+			<itemlayout height="720" width="1280">
+				<control type="largeimage">
+					<include>screentype</include>
+					<aspectratio>keep</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="largeimage">
+					<include>screentype</include>
+					<aspectratio>keep</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				<control type="image">
+					<include>screentype</include>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+					<visible>Window.IsActive(2)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="720" width="1280">
+				<control type="largeimage">
+					<include>screentype</include>
+					<aspectratio aligny="left">scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="largeimage">
+					<include>screentype</include>
+					<aspectratio>keep</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				<control type="image">
+					<include>screentype</include>
+					<aspectratio>scale</aspectratio>
+					<texture background="true" fallback="special://skin/backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+					<visible>Window.IsActive(2)</visible>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+</includes>

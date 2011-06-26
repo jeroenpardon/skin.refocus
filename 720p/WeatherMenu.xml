@@ -1,0 +1,44 @@
+﻿<includes>
+	<include name="WeatherMenu">
+		<control type="group">
+			<visible>!Skin.HasSetting(global.kiosk)</visible>
+			
+			<control type="grouplist" id="6000">
+				<posx>-275</posx>
+				<posy>20</posy>
+				<onright>8000</onright>
+				<onup>6000</onup>
+				<ondown>6000</ondown>
+				<onleft>-</onleft>
+				<onright>1</onright>
+				<itemgap>-125</itemgap>
+				<include>pagemenus</include>
+				<include>transition_Container</include>
+				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
+				
+				<control type="button" id="2">
+					<description>Refresh</description>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<include>contextButton</include>
+				</control>
+				<control type="button" id="4">
+					<description>Settings</description>
+					<label>5</label>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
+					<include>contextButton</include>
+				</control>
+				<control type="button" id="30">
+					<description>Favourites</description>
+					<label>$LOCALIZE[1036]</label>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<onclick>ActivateWindow(Favourites)</onclick>
+					<include>contextButton</include>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,158 @@
+﻿<window id="0">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+
+	<controls>
+<!-- BACKGROUND MEDIA -------------------------------------------------------------------------------------------------------------------------->
+	<!-- global background --->
+		<control type="largeimage">
+			<aspectratio>scale</aspectratio>
+			<include>screentype</include>
+			<texture background="true">special://skin/backgrounds/background.png</texture>
+			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)]</visible>
+			<animation type="WindowOpen" condition="Window.Previous(2999)">
+				<effect type="fade" start="0" end="100" time="600" delay="0" />
+			</animation>
+			<animation type="WindowOpen" condition="!Window.Previous(2999)">
+				<effect type="fade" start="0" end="100" time="200" delay="0" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="200" delay="0" />
+			</animation>
+		</control>
+	<!-- slideshow --->
+		<include>slideshows</include>
+	<!-- background video --->
+		<control type="videowindow">
+			<include>screentype</include>
+			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(28)</visible>
+		</control>
+	<!-- weather fanart --->
+		<control type="multiimage" id="1">
+			<include>screentype</include>
+			<aspectratio>scale</aspectratio>
+			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
+			<timeperimage>7000</timeperimage>
+			<fadetime>350</fadetime>
+			<randomize>true</randomize>
+			<loop>yes</loop>
+			<include>fadeinout</include>
+			<visible allowhiddenfocus="true">[Container(9000).HasFocus(9) | Container(1140).HasFocus(3)] + Skin.HasSetting(fanart.weather)</visible>
+		</control>
+	<!-- now playing fanart --->
+		<control type="largeimage">
+			<include>screentype</include>
+			<aspectratio>scale</aspectratio>
+			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+			<fadetime>850</fadetime>
+			<visible allowhiddenfocus="true">Container(9000).HasFocus(14) + Skin.HasSetting(homemenu.playing)</visible>
+			<include>fadeinout</include>
+		</control>
+	<!-- menu shade --->
+		<control type="image">
+			<include>screentype</include>
+			<aspectratio align="left">stretch</aspectratio>
+			<texture>home/menuBackground.png</texture>
+		</control>
+	<!-- toast overlay --->
+		<control type="image" id="1">
+			<include>screentype</include>
+			<texture border="16">overlays/vignette.png</texture>
+			<visible>Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)</visible>
+			<include>transition_Toast</include>
+		</control>
+		
+<!-- TIME -------------------------------------------------------------------------------------------------------------------------->
+	<control type="group">
+		<include>fadeinout</include>
+		<visible>Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
+		<include>clock</include>
+	</control>
+
+<!-- RSS FEED -------------------------------------------------------------------------------------------------------------------------->
+		<control type="group">
+			<posy>684</posy>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(home.stats)</visible>
+			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
+			<control type="image">
+				<posy>0</posy>
+				<width>1281</width>
+				<height>52</height>
+				<texture border="0">home/homeRSS.png</texture>
+			</control>	
+			<control type="rss" id="1">
+				<posy>10</posy>
+				<include>screenwidth</include>
+				<font>rss</font>
+				<urlset>1</urlset>
+				<height>32</height>
+				<aligny>center</aligny>
+				<textcolor>Color1</textcolor>
+				<titlecolor>Color2</titlecolor>
+				<headlinecolor>Color1</headlinecolor>
+				<highlightcolor>Focused</highlightcolor>
+				<include>fadeinout</include>
+			</control>
+		</control>
+
+<!-- LIBRARY STATS -------------------------------------------------------------------------------------------------------------------------->	
+		<control type="group">
+			<posy>684</posy>
+			<visible>Skin.HasSetting(home.stats)</visible>
+			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
+			<control type="image">
+				<posy>0</posy>
+				<width>1281</width>
+				<height>52</height>
+				<texture border="0">home/homeRSS.png</texture>
+			</control>	
+			<control type="fadelabel" id="1">
+				<posy>10</posy>
+				<include>screenwidth</include>
+				<font>rss</font>
+				<align>center</align>
+				<label>[COLOR=Color1]$INFO[Window.Property(Movies.Count)] $LOCALIZE[20342][/COLOR]  $INFO[Window.Property(Movies.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Episodes.Count)] $LOCALIZE[20360][/COLOR]  $INFO[Window.Property(Episodes.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Music.ArtistsCount)] $LOCALIZE[133][/COLOR] $INFO[Window.Property(Music.AlbumsCount)] $LOCALIZE[132] $INFO[Window.Property(Music.SongsCount)] $LOCALIZE[134]</label>
+				<label>$LOCALIZE[31095]: [COLOR=Color1]$INFO[Window.Property(LatestMovie.1.Title),, • ]$INFO[Window.Property(LatestMovie.2.Title),, • ]$INFO[Window.Property(LatestMovie.3.Title),, • ]$INFO[Window.Property(LatestMovie.4.Title),, • ]$INFO[Window.Property(LatestMovie.5.Title)][/COLOR]</label>
+				<label>$LOCALIZE[31094]: [COLOR=Color1]$INFO[Window.Property(LatestEpisode.1.ShowTitle),,: ]$INFO[Window.Property(LatestEpisode.1.EpisodeTitle),, • ]$INFO[Window.Property(LatestEpisode.2.ShowTitle),,: ]$INFO[Window.Property(LatestEpisode.2.EpisodeTitle),, • ]$INFO[Window.Property(LatestEpisode.3.ShowTitle),,: ]$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)][/COLOR]</label>
+				<pauseatend>6000</pauseatend>
+				<scroll>false</scroll>
+				<scrollout>false</scrollout>
+				<aligny>center</aligny>
+				<textcolor>Color2</textcolor>
+				<include>fadeinout</include>
+				<visible>![Container(9000).HasFocus(3) + !IsEmpty(PVR.NextRecordingDateTime)]</visible>
+			</control>
+			<control type="label" id="1">
+				<posy>8</posy>
+				<include>screenwidth</include>
+				<font>rss</font>
+				<align>center</align>
+				<label>[COLOR=Color2]$LOCALIZE[19157]: [/COLOR]$INFO[PVR.NextRecordingTitle], $INFO[PVR.NextRecordingDateTime] - $INFO[PVR.NextRecordingChannel]</label>
+				<aligny>center</aligny>
+				<textcolor>Color1</textcolor>
+				<include>fadeinout</include>
+				<visible>Container(9000).HasFocus(3) + !IsEmpty(PVR.NextRecordingDateTime)</visible>
+			</control>
+		</control>
+
+<!-- CALL MENU -------------------------------------------------------------------------------------------------------------------------->
+	<include>HomeMenu</include>
+	
+	<control type="group" id="6100">
+		<posx>20</posx>
+		<posy>20</posy>
+		<include>transition_Indicator</include>
+		<control type="image">
+			<width>48</width>
+			<height>48</height>
+			<texture>navigation/left.png</texture>
+			<colordiffuse>Color1</colordiffuse>
+			<include>fadeinout</include>
+			<animation effect="slide" end="0,-10" time="0" condition="Control.HasFocus(1150)">Conditional</animation>
+			<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180)]</visible>
+		</control>
+	</control>
+  </controls>
+</window>

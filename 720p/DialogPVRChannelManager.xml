@@ -1,0 +1,359 @@
+﻿<window id="605">
+	<defaultcontrol always="true">34</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<include>dialogOpen</include>
+
+	<coordinates>
+		<system>1</system>
+		<posx>190</posx>
+		<posy>25</posy>
+	</coordinates>
+
+	<controls>
+		<control type="group">			
+			<control type="image">
+				<width>900</width>
+				<height>670</height>
+				<include>dialogWindow</include>
+			</control>
+			<control type="label" id="1">
+				<description>heading label</description>
+				<width>862</width>
+				<scroll>true</scroll>
+				<label>$LOCALIZE[19199] - $LOCALIZE[19023]</label>
+				<include>dialogHeading</include>
+				<visible>IsEmpty(Window.Property(IsRadio))</visible>
+			</control>
+			<control type="label" id="1">
+				<description>heading label</description>
+				<width>862</width>
+				<scroll>true</scroll>
+				<label>$LOCALIZE[19199] - $LOCALIZE[19024]</label>
+				<include>dialogHeading</include>
+				<visible>!IsEmpty(Window.Property(IsRadio))</visible>
+			</control>
+
+			<control type="image">
+				<posx>19</posx>
+				<posy>75</posy>
+				<width>862</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posx>350</posx>
+				<posy>514</posy>
+				<width>532</width>
+				<include>dialogSeparator</include>
+			</control>
+			<control type="image">
+				<posx>350</posx>
+				<posy>115</posy>
+				<width>1</width>
+				<height>398</height>
+				<texture>dialogs/separator-y.png</texture>
+			</control>
+
+			<control type="button" id ="34">
+				<description>TV/Radio Button</description>
+				<posx>19</posx>
+				<posy>75</posy>
+				<width>863</width>
+				<label>19024</label>
+				<onup>9000</onup>
+				<ondown>20</ondown>
+				<include>dialogListButton</include>
+				<visible>IsEmpty(Window.Property(IsRadio))</visible>
+			</control>
+			<control type="button" id ="34">
+				<description>TV/Radio Button</description>
+				<posx>19</posx>
+				<posy>75</posy>
+				<width>863</width>
+				<label>19023</label>
+				<onup>9000</onup>
+				<ondown>20</ondown>
+				<include>dialogListButton</include>
+				<visible>!IsEmpty(Window.Property(IsRadio))</visible>
+			</control>
+			
+			<control type="group" id="6000">
+				<control type="list" id="20">
+					<posx>19</posx>
+					<posy>115</posy>
+					<width>414</width>
+					<height>400</height>
+					<onup>34</onup>
+					<ondown>20</ondown>
+					<onleft>7</onleft>
+					<onright>8000</onright>
+					<pagecontrol>60</pagecontrol>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="40">
+						<control type="image">
+							<width>331</width>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="image">
+							<posx>300</posx>
+							<posy>8</posy>
+							<width>24</width>
+							<height>24</height>
+							<texture>dialogs/changed.png</texture>
+							<visible>ListItem.Property(Changed)</visible>
+						</control>
+						<control type="label">
+							<posx>20</posx>
+							<width>50</width>
+							<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
+							<include>dialog_CommonListItem</include>
+							<visible>ListItem.Property(ActiveChannel)</visible>
+						</control>
+						<control type="label">
+							<posx>65</posx>
+							<width>190</width>
+							<label>$INFO[ListItem.Property(Name)]</label>
+							<include>dialog_CommonListItem</include>
+							<visible>ListItem.Property(ActiveChannel)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<width>331</width>
+							<include>dialog_CommonList</include>
+							<visible>!Control.HasFocus(20)</visible>
+						</control>
+						<control type="image">
+							<width>331</width>
+							<include>dialog_CommonListFocus</include>
+							<visible>Control.HasFocus(20)</visible>
+						</control>
+						<control type="image">
+							<posx>300</posx>
+							<posy>8</posy>
+							<width>24</width>
+							<height>24</height>
+							<texture>dialogs/changed-focus.png</texture>
+							<visible>ListItem.Property(Changed)</visible>
+						</control>
+						<control type="label">
+							<posx>20</posx>
+							<width>50</width>
+							<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
+							<visible>!Control.HasFocus(20)</visible>
+							<textcolor>Selected</textcolor>
+							<include>dialog_CommonListItemFocus</include>
+							<visible>ListItem.Property(ActiveChannel)</visible>
+						</control>
+						<control type="label">
+							<posx>20</posx>
+							<width>50</width>
+							<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
+							<visible>Control.HasFocus(20)</visible>
+							<include>dialog_CommonListItemFocus</include>
+							<visible>ListItem.Property(ActiveChannel)</visible>
+						</control>
+						<control type="label">
+							<posx>65</posx>
+							<width>190</width>
+							<label>$INFO[ListItem.Property(Name)]</label>
+							<visible>!Control.HasFocus(20)</visible>
+							<include>dialog_CommonListItemFocus</include>
+							<visible>!Control.HasFocus(20) + ListItem.Property(ActiveChannel)</visible>
+						</control>
+						<control type="label">
+							<posx>65</posx>
+							<width>190</width>
+							<label>$INFO[ListItem.Property(Name)]</label>
+							<include>dialog_CommonListItemFocus</include>
+							<visible>Control.HasFocus(20) + ListItem.Property(ActiveChannel)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+			
+				<control type="group" id="8000">
+					<posx>350</posx>
+					<posy>115</posy>
+					<control type="radiobutton" id ="7">
+						<description>active</description>	
+						<posy>0</posy>
+						<width>532</width>
+						<label>19074</label>
+						<onleft>20</onleft>
+						<onright>7000</onright>
+						<onup>9</onup>
+						<ondown>14</ondown>
+						<include>dialogRadio</include>
+					</control>
+					<control type="button" id ="14">
+						<description>client</description>	
+						<posy>40</posy>
+						<width>532</width>
+						<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
+						<onleft>20</onleft>
+						<onright>7000</onright>
+						<onup>7</onup>
+						<ondown>8</ondown>
+						<include>dialogListButton</include>
+					</control>
+					<control type="edit" id ="8">
+						<description>channel name</description>
+						<posy>80</posy>
+						<width>532</width>
+						<label>19201</label>
+						<onright>7000</onright>
+						<onleft>20</onleft>
+						<onup>14</onup>
+						<ondown>11</ondown>
+						<include>dialogListButton</include>
+					</control>
+					<control type="spincontrolex" id ="11">
+						<description>Group selection</description>
+						<posy>120</posy>
+						<width>532</width>
+						<label>19207</label>
+						<onright>7000</onright>
+						<onleft>20</onleft>
+						<onup>8</onup>
+						<ondown>12</ondown>
+						<include>dialogSpin</include>
+					</control>
+					<control type="radiobutton" id ="12">
+						<description>activate epg</description>
+						<posy>160</posy>
+						<width>532</width>
+						<label>19206</label>
+						<onleft>20</onleft>
+						<onright>7000</onright>
+						<onup>11</onup>
+						<ondown>13</ondown>
+						<include>dialogRadio</include>
+					</control>
+					<control type="spincontrolex" id ="13">
+						<description>epg source</description>
+						<posy>200</posy>
+						<width>532</width>
+						<label>19200</label>
+						<onright>7000</onright>
+						<onleft>20</onleft>
+						<onup>12</onup>
+						<ondown>9</ondown>
+						<include>dialogSpin</include>
+					</control>
+					<control type="button" id ="9">
+						<description>channel icon label</description>
+						<posy>240</posy>
+						<width>532</width>
+						<label>19202</label>
+						<onleft>20</onleft>
+						<onright>7000</onright>
+						<onup>13</onup>
+						<ondown>7</ondown>
+						<include>dialogListButton</include>
+					</control>
+					<control type="image" id ="10">
+						<description>channel icon</description>
+						<posx>10</posx>
+						<posy>290</posy>
+						<width>532</width>
+						<height>100</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
+						<visible>IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="image" id ="10">
+						<description>channel icon</description>
+						<posx>0</posx>
+						<posy>290</posy>
+						<width>532</width>
+						<height>100</height>
+						<aspectratio>keep</aspectratio>
+						<info>ListItem.Property(Icon)</info>
+						<visible>!IsEmpty(ListItem.Icon)</visible>
+					</control>
+				</control>
+			</control>
+
+			<control type="group" id="7000">
+				<posx>34</posx>
+				<posy>540</posy>
+				<control type="button" id ="31">
+					<description>Edit channel Button</description>
+					<width>200</width>
+					<label>19203</label>
+					<onleft>30</onleft>
+					<onright>32</onright>
+					<onup>6000</onup>
+					<ondown>9000</ondown>
+					<include>dialogButton</include>
+				</control>
+				<control type="button" id ="32">
+					<description>Delete channel Button</description>
+					<posx>210</posx>
+					<width>200</width>
+					<label>19211</label>
+					<onleft>31</onleft>
+					<onright>33</onright>
+					<onup>6000</onup>
+					<ondown>9000</ondown>
+					<include>dialogButton</include>
+				</control>
+				<control type="button" id ="33">
+					<description>New channel Button</description>
+					<posx>420</posx>
+					<width>200</width>
+					<label>19204</label>
+					<onleft>32</onleft>
+					<onright>30</onright>
+					<onup>6000</onup>
+					<ondown>9000</ondown>
+					<include>dialogButton</include>
+				</control>
+				<control type="button" id ="30">
+					<description>Group Manager Button</description>
+					<posx>630</posx>
+					<width>200</width>
+					<label>19205</label>
+					<onleft>33</onleft>
+					<onright>31</onright>
+					<onup>6000</onup>
+					<ondown>9000</ondown>
+					<include>dialogButton</include>
+				</control>
+			</control>
+
+			<control type="group" id="9000">
+				<posx>485</posx>
+				<posy>592</posy>
+				<control type="button" id="4">
+					<description>OK</description>
+					<label>186</label>
+					<onup>7000</onup>
+					<onleft>5</onleft>
+					<onright>5</onright>
+					<ondown>34</ondown>
+					<include>dialogButton</include>
+				</control>
+				<control type="button" id="5">
+					<description>Apply changes</description>
+					<posx>130</posx>
+					<label>Apply</label>
+					<onup>7000</onup>
+					<onleft>4</onleft>
+					<onright>6</onright>
+					<ondown>34</ondown>
+					<include>dialogButton</include>
+				</control>
+				<control type="button" id="6">
+					<description>Cancel</description>
+					<posx>260</posx>
+					<label>222</label>
+					<onup>7000</onup>
+					<onleft>5</onleft>
+					<onright>4</onright>
+					<ondown>31</ondown>
+					<include>dialogButton</include>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
