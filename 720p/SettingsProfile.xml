@@ -6,7 +6,6 @@
 	<controls>
 		<include>themeBackground2</include>
 		<include>allscreens</include>
-		
 		<control type="label">
 			<include>PageLabel</include>
 			<label>$LOCALIZE[5] [COLOR=Color2]$LOCALIZE[13200][/COLOR]</label>
@@ -29,32 +28,25 @@
 				<posy>45</posy>
 				<label>31021</label>
 				<onfocus>Skin.SetString(ProfileSettings,2)</onfocus>
-				<onright>5</onright>
+				<onright>2</onright>
 				<onup>10</onup>
 				<ondown>10</ondown>
 				<include>categoryButton</include>
 			</control>
 		</control>
 		
-		<control type="radiobutton" id="4">
+		<control type="group">
 			<posx>340</posx>
 			<posy>105</posy>
-			<width>850</width>
-			<height>45</height>
-			<onleft>9000</onleft>
-			<label>$LOCALIZE[31026]</label>
-			<include>settingsButton</include>
-			<visible>Skin.String(ProfileSettings,1)</visible>
 			<include>transition_Container</include>
-		</control>
-
-		<control type="group" id="5">
-			<posx>340</posx>
-			<posy>105</posy>
-			<include>pageslide</include>
-			<visible>Skin.String(ProfileSettings,2)</visible>
-			<include>transition_Container</include>
-
+			<control type="radiobutton" id="4">
+				<width>850</width>
+				<height>45</height>
+				<onleft>9000</onleft>
+				<label>$LOCALIZE[31026]</label>
+				<include>settingsButton</include>
+				<visible>Skin.String(ProfileSettings,1)</visible>
+			</control>
 			<control type="list" id="2">
 				<width>850</width>
 				<height>600</height>
@@ -63,6 +55,7 @@
 				<onup>2</onup>
 				<ondown>2</ondown>
 				<viewtype label="List">List</viewtype>
+				<visible>Skin.String(ProfileSettings,2)</visible>
 				<itemlayout height="45">
 					<control type="label">
 						<posx>25</posx>
@@ -77,7 +70,7 @@
 						<posx>830</posx>
 						<posy>3</posy>
 						<width>400</width>
-						<height>45</height>
+						<height>35</height>
 						<textcolor>Color2</textcolor>
 						<info>ListItem.Label2</info>
 						<font>normal</font>
@@ -113,7 +106,6 @@
 				</focusedlayout>
 			</control>
 		</control>
-		
 		<control type="image">
 			<posx>311</posx>
 			<posy>15</posy>
@@ -122,8 +114,6 @@
 			<texture>settings/separator.png</texture>
 			<aspectratio align="right">stretch</aspectratio>
 			<include>transition_Container</include>
-			<visible>!Window.IsActive(progressdialog)</visible>
 		</control>
-		
 	</controls>
 </window>
