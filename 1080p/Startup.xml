@@ -1,31 +1,24 @@
 ﻿<window>
 	<defaultcontrol always="true">8999</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-
 	<controls>
-	
 		<control type="videowindow" id="1">
 			<posx>600</posx>
 			<posy>338</posy>
 			<width>720</width>
 			<height>405</height>
 		</control>
-		
 		<control type="button" id="8999">
-			<description>call recently added</description>
 			<onfocus>PlayMedia(special://skin/intro/intro.m4v,1)</onfocus>
 			<onfocus>SetFocus(10)</onfocus>
 			<label>SHOULD NOT SEE ME</label>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-		
 		<control type="button" id="10">
-			<onfocus>XBMC.RunScript(script.recentlyadded,limit=5&amp;albums=False&amp;unplayed=True&amp;totals=True)</onfocus>
 			<onfocus>ReplaceWindow(Home)</onfocus>
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
 			<animation effect="fade" delay="4900" end="100" time="350">Focus</animation>
 		</control>
-
 	</controls>
 </window>
