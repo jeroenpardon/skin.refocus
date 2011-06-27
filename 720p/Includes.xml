@@ -975,19 +975,19 @@
 					<control type="button" id="602">
 						<width>234</width>
 						<label>$LOCALIZE[250]</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Addon.Default.Set(xbmc.player.musicviz)</onclick>
 					</control>
 					<control type="button" id="603">
 						<width>234</width>
 						<label>$LOCALIZE[13388]</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>XBMC.ActivateWindow(122)</onclick>
 					</control>
 					<control type="button" id="604">
 						<width>234</width>
 						<label>LastFM Love</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(MusicOSD,true)</onclick>
 						<onclick>XBMC.LastFM.Love</onclick>
 						<visible>LastFM.RadioPlaying</visible>
@@ -995,7 +995,7 @@
 					<control type="button" id="605">
 						<width>234</width>
 						<label>LastFM Ban</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(MusicOSD,true)</onclick>
 						<onclick>XBMC.LastFM.Ban</onclick>
 						<visible>LastFM.RadioPlaying</visible>
@@ -1013,18 +1013,18 @@
 						<usealttexture>IsEmpty(Skin.String(addon.lyrics.path))</usealttexture>
 						<alttexturefocus border="3">dialogs/list-focus.png</alttexturefocus>
 						<alttexturenofocus border="3">dialogs/list-nofocus.png</alttexturenofocus>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 					</control>
 					<control type="button" id="607">
 						<width>234</width>
 						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>XBMC.PlayerControl(Random)</onclick>
 					</control>
 					<control type="button" id="608">
 						<width>234</width>
 						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>XBMC.PlayerControl(Repeat)</onclick>
 					</control>
 				</control>
@@ -1155,7 +1155,7 @@
 					<control type="button" id="602">
 						<width>234</width>
 						<label>teletext</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(teletext)</onclick>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -1163,14 +1163,14 @@
 					<control type="button" id="603">
 						<width>234</width>
 						<label>$LOCALIZE[13395]</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(123)</onclick>
 					</control>
 					<control type="button" id="604">
 						<width>234</width>
 						<label>audio settings</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(124)</onclick>
 					</control>
@@ -1186,13 +1186,13 @@
 						<usealttexture>IsEmpty(Skin.String(addon.subtitles.path))</usealttexture>
 						<alttexturefocus border="3">dialogs/list-focus.png</alttexturefocus>
 						<alttexturenofocus border="3">dialogs/list-nofocus.png</alttexturenofocus>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<visible>Videoplayer.Content(movies) | Videoplayer.Content(episodes)</visible>
 					</control>
 					<control type="button" id="606">
 						<width>234</width>
 						<label>$LOCALIZE[298]</label>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(125)</onclick>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
@@ -1202,7 +1202,7 @@
 						<label>$LOCALIZE[19029]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(PVROSDGuide)</onclick>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="button" id="608">
@@ -1210,7 +1210,7 @@
 						<label>$LOCALIZE[33061]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>PlayerControl(ShowVideoMenu)</onclick>
-						<include>dialogListButton</include>
+						<include>dialog_Button-list</include>
 						<visible>VideoPlayer.HasMenu</visible>
 					</control>
 				</control>
