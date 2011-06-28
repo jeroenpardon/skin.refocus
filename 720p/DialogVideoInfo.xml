@@ -105,70 +105,70 @@
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[515] [COLOR=Color1]$INFO[ListItem.Genre][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.Genre) + Container.Content(movies)</visible>
 			</control>
 			<control type="label">
 				<width>770</width>
 				<label>$LOCALIZE[31089] [COLOR=Color1]$INFO[ListItem.Episode] $LOCALIZE[20360][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="label">
 				<width>770</width>
 				<label>$LOCALIZE[16101] [COLOR=Color1]$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[20360][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="label">
 				<width>770</width>
 				<label>$LOCALIZE[20416] [COLOR=Color1]$INFO[ListItem.Date][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.Date) + [Container.Content(tvshows) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[20417] [COLOR=Color1]$INFO[ListItem.Writer][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.Writer) + [Container.Content(movies) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[20339] [COLOR=Color1]$INFO[ListItem.Director][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.Director) + [Container.Content(movies) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[572] [COLOR=Color1]$INFO[ListItem.Studio][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.Studio)</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[180] [COLOR=Color1]$INFO[ListItem.Duration] $LOCALIZE[12391][/COLOR]</label>
 				<scroll>true</scroll>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.Duration)</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[248] [COLOR=Color1]$INFO[ListItem.AudioLanguage][/COLOR]</label>
 				<scroll>true</scroll>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.AudioLanguage)</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[287] [COLOR=Color1]$INFO[ListItem.SubtitleLanguage][/COLOR]</label>
 				<scroll>true</scroll>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[563] [COLOR=Color1]$INFO[ListItem.MPAA][/COLOR]</label>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>!IsEmpty(ListItem.MPAA)</visible>
 			</control>
 			<control type="label">
@@ -176,7 +176,7 @@
 				<label>[COLOR=Color2]$LOCALIZE[573][/COLOR] $INFO[ListItem.Path]</label>
 				<haspath>true</haspath>
 				<textcolor>Color1</textcolor>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 				<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
 			</control>
 			<control type="label">
@@ -184,7 +184,7 @@
 				<width>740</width>
 				<label></label>
 				<height>10</height>
-				<include>infoDialogMeta</include>
+				<include>label_Small-caps</include>
 			</control>
 			
 			<!--- common functions -------------------------------------------->
@@ -196,7 +196,7 @@
 					<onleft>6000</onleft>
 					<onright>5</onright>
 					<ondown>50</ondown>
-					<include>infodialog_Button</include>
+					<include>button_Inline</include>
 					<visible>[Container.Content(episodes) | Container.Content(musicvideos)] | [Container.Content(movies) + !System.HasAddon(script.cinema.experience)]</visible>
 				</control>
 				<control type="button" id="8">
@@ -204,7 +204,7 @@
 					<onleft>6000</onleft>
 					<onright>5</onright>
 					<ondown>50</ondown>
-					<include>infodialog_Button</include>
+					<include>button_Inline</include>
 					<onclick>Playlist.Clear</onclick> 
 					<onclick>Dialog.Close(MovieInformation)</onclick> 
 					<onclick>XBMC.RunScript(script.cinema.experience,movietitles)</onclick>
@@ -215,7 +215,7 @@
 					<onleft>6000</onleft>
 					<onright>5</onright>
 					<ondown>50</ondown>
-					<include>infodialog_Button</include>
+					<include>button_Inline</include>
 					<visible>Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="5">
@@ -225,7 +225,7 @@
 					<onleft>8</onleft>
 					<onright>11</onright>
 					<ondown>50</ondown>
-					<include>infodialog_Button</include>
+					<include>button_Inline</include>
 				</control>
 				<control type="button" id="11">
 					<description>Trailer</description>
@@ -234,7 +234,7 @@
 					<onleft>5</onleft>
 					<onright>-</onright>
 					<ondown>50</ondown>
-					<include>infodialog_Button</include>
+					<include>button_Inline</include>
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
 				</control>
 			</control>
