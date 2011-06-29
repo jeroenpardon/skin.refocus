@@ -12,11 +12,7 @@
 		<control type="group">			
 			<control type="image">
 				<width>890</width>
-<<<<<<< HEAD
 				<height>580</height>
-=======
-				<height>585</height>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 				<include>dialogWindow</include>
 			</control>
 			<control type="label" id="1">
@@ -38,18 +34,8 @@
 				<posx>19</posx>
 				<posy>75</posy>
 				<width>890</width>
-<<<<<<< HEAD
-=======
 				<include>dialog_Separator</include>
 			</control>
-			<!--
-			<control type="image">
-				<posx>350</posx>
-				<posy>514</posy>
-				<width>532</width>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
-				<include>dialog_Separator</include>
-			</control>-->
 			<control type="image">
 				<posx>449</posx>
 				<posy>115</posy>
@@ -59,39 +45,19 @@
 			<control type="image">
 				<posx>449</posx>
 				<posy>194</posy>
-<<<<<<< HEAD
 				<width>423</width>
 				<include>dialog_Separator</include>
 			</control>
-			
-			<!--toggle tv/radio--->
-=======
-				<width>430</width>
-				<include>dialog_Separator</include>
-			</control>
 
+			<!--toggle tv/radio--->
 			<control type="button" id="34">
 				<description>TV/Radio Button</description>
 				<posx>19</posx>
 				<posy>75</posy>
 				<width>853</width>
 				<label>19024</label>
-				<onup>9000</onup>
-				<ondown>20</ondown>
-				<include>dialog_Button-list</include>
-				<visible>IsEmpty(Window.Property(IsRadio))</visible>
-			</control>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
-			<control type="button" id="34">
-				<description>TV/Radio Button</description>
-				<posx>19</posx>
-				<posy>75</posy>
-				<width>853</width>
-<<<<<<< HEAD
-				<label>19024</label>
-=======
-				<label>19023</label>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
+				<onleft>30</onleft>
+				<onright>6</onright>
 				<onup>9000</onup>
 				<ondown>20</ondown>
 				<height>40</height>
@@ -100,7 +66,7 @@
 				 <subtype>float</subtype>
 				<include>dialog_Spin</include>
 			</control>
-			
+
 			<!---channel list--->
 			<control type="group" id="6000">
 				<posx>19</posx>
@@ -110,11 +76,7 @@
 					<height>360</height>
 					<onup>34</onup>
 					<ondown>20</ondown>
-<<<<<<< HEAD
-					<onleft>-</onleft>
-=======
-					<onleft>7</onleft>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
+					<onleft>30</onleft>
 					<onright>7000</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -190,7 +152,7 @@
 						</control>
 						<control type="label">
 							<posx>65</posx>
-							<width>230</width>
+							<width>190</width>
 							<label>$INFO[ListItem.Property(Name)]</label>
 							<textcolor>Selected</textcolor>
 							<include>dialog_CommonListItemFocus</include>
@@ -210,34 +172,21 @@
 					<animation effect="slide" end="0,280" time="0" condition="Container(20).Row(7)">Conditional</animation>
 					<animation effect="slide" end="0,320" time="0" condition="Container(20).Row(8)">Conditional</animation>
 					<animation effect="slide" end="0,360" time="0" condition="Container(20).Row(9)">Conditional</animation>
-<<<<<<< HEAD
 					<visible>!Container(20).Scrolling</visible>
 					<control type="image">
 						<posy>0</posy>
-=======
-					<control type="image">
-						<posy>1</posy>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 						<height>39</height>
 						<include>dialog_Separator-y</include>
 					</control>
 					<control type="image">
 						<posx>40</posx>
-<<<<<<< HEAD
 						<posy>0</posy>
-=======
-						<posy>1</posy>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 						<height>39</height>
 						<include>dialog_Separator-y</include>
 					</control>
 					<control type="image">
 						<posx>80</posx>
-<<<<<<< HEAD
 						<posy>0</posy>
-=======
-						<posy>1</posy>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 						<height>39</height>
 						<include>dialog_Separator-y</include>
 					</control>
@@ -278,26 +227,18 @@
 					</control>
 				</control>
 			</control>
-			
-<<<<<<< HEAD
+
 			<!---right pane--->			
 			<control type="grouplist" id="8000">
 				<posx>449</posx>
 				<posy>115</posy>
 				<width>423</width>
-=======
-			
-			<control type="grouplist" id="8000">
-				<posx>449</posx>
-				<posy>115</posy>
-				<width>430</width>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 				<height>600</height>
 				<onleft>6000</onleft>
+				<onright>-</onright>
 				<onup>8000</onup>
-				<ondown>8000</ondown>
+				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-<<<<<<< HEAD
 				<control type="image" id ="10">
 					<description>channel icon</description>
 					<width>423</width>
@@ -305,86 +246,6 @@
 					<aspectratio align="center">keep</aspectratio>
 					<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
 					<visible>IsEmpty(ListItem.Icon)</visible>
-=======
-				
-				<control type="image" id ="10">
-					<description>channel icon</description>
-					<width>430</width>
-					<height>80</height>
-					<aspectratio align="left">keep</aspectratio>
-					<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
-					<visible>IsEmpty(ListItem.Icon)</visible>
-				</control>
-				<control type="image" id ="10">
-					<description>channel icon</description>
-					<width>430</width>
-					<height>80</height>
-					<aspectratio>keep</aspectratio>
-					<info>ListItem.Property(Icon)</info>
-					<visible>!IsEmpty(ListItem.Icon)</visible>
-				</control>
-				
-				<control type="radiobutton" id ="7">
-					<description>active</description>	
-					<label>19074</label>
-					<width>430</width>
-					<include>dialog_Radio</include>
-				</control>
-				<control type="button" id ="14">
-					<description>client</description>	
-					<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
-					<width>430</width>
-					<include>dialog_Button-list</include>
-				</control>
-				<control type="edit" id ="8">
-					<description>channel name</description>
-					<label>19201</label>
-					<width>430</width>
-					<include>dialog_Button-list</include>
-				</control>
-				<control type="spincontrolex" id ="11">
-					<description>Group selection</description>
-					<label>19207</label>
-					<width>430</width>
-					<include>dialog_Spin</include>
-				</control>
-				<control type="radiobutton" id ="12">
-					<description>activate epg</description>
-					<label>19206</label>
-					<width>430</width>
-					<include>dialog_Radio</include>
-				</control>
-				<control type="spincontrolex" id ="13">
-					<description>epg source</description>
-					<label>19200</label>
-					<width>430</width>
-					<include>dialog_Spin</include>
-				</control>
-				<control type="button" id ="9">
-					<description>channel icon label</description>
-					<label>19202</label>
-					<width>430</width>
-					<include>dialog_Button-list</include>
-				</control>
-				
-			</control>
-
-			
-			
-
-			<!--<control type="group" id="7000">
-				<posx>34</posx>
-				<posy>540</posy>
-				<control type="button" id ="31">
-					<description>Edit channel Button</description>
-					<width>200</width>
-					<label>19203</label>
-					<onleft>30</onleft>
-					<onright>32</onright>
-					<onup>6000</onup>
-					<ondown>9000</ondown>
-					<include>dialog_Button</include>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 				</control>
 				<control type="image" id ="10">
 					<description>channel icon</description>
@@ -418,7 +279,6 @@
 					<width>423</width>
 					<include>dialog_Spin</include>
 				</control>
-<<<<<<< HEAD
 				<control type="radiobutton" id ="12">
 					<description>activate epg</description>
 					<label>19206</label>
@@ -438,75 +298,49 @@
 					<include>dialog_Button-list</include>
 				</control>
 			</control>
-			
+
 			<!---confirm controls--->
 			<control type="group" id="9000">
 				<posx>34</posx>
 				<posy>502</posy>
 				<control type="button" id ="30">
 					<description>Group Manager Button</description>
-=======
-				
-			</control>-->
-
-			<control type="group" id="9000">
-				<posx>34</posx>
-				<posy>505</posy>
-				<control type="button" id ="30">
-					<description>Group Manager Button</description>
-					<posx>0</posx>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
 					<width>200</width>
 					<label>$LOCALIZE[19205]</label>
-					<onleft>33</onleft>
-					<onright>31</onright>
+					<onleft>6</onleft>
+					<onright>5</onright>
 					<onup>6000</onup>
-					<ondown>9000</ondown>
+					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
 				<control type="button" id="5">
 					<description>Apply changes</description>
-<<<<<<< HEAD
 					<posx>442</posx>
 					<label>$LOCALIZE[31991]</label>
-=======
-					<posx>412</posx>
-					<label>Apply</label>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
-					<onup>7000</onup>
-					<onleft>4</onleft>
-					<onright>6</onright>
+					<onup>8000</onup>
+					<onleft>30</onleft>
+					<onright>4</onright>
 					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
 				<control type="button" id="4">
 					<description>OK</description>
-<<<<<<< HEAD
 					<posx>572</posx>
 					<label>$LOCALIZE[186]</label>
-=======
-					<posx>542</posx>
-					<label>186</label>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
-					<onup>7000</onup>
+					<onup>8000</onup>
 					<onleft>5</onleft>
-					<onright>5</onright>
+					<onright>6</onright>
 					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
 				<control type="button" id="6">
 					<description>Cancel</description>
-<<<<<<< HEAD
 					<posx>702</posx>
 					<label>$LOCALIZE[222]</label>
-=======
-					<posx>672</posx>
-					<label>222</label>
->>>>>>> c939943a625c519906698856c8d1433d3f0b4287
-					<onup>7000</onup>
-					<onleft>5</onleft>
-					<onright>4</onright>
-					<ondown>31</ondown>
+					<onup>8000</onup>
+					<onleft>4</onleft>
+					<onright>30</onright>
+					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
 			</control>
