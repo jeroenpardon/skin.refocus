@@ -25,7 +25,7 @@
 						<visible>Library.HasContent(movies)</visible>
 					</item>
 					<item id="2">
-						<label>$LOCALIZE[31023]</label>
+						<label>$LOCALIZE[20343]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<visible>Library.HasContent(tvshows)</visible>
@@ -43,10 +43,10 @@
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(videomenu.recentvideo)</visible>
 					</item>
 					<item id="5">
-						<label>$LOCALIZE[31024]</label>
+						<label>$LOCALIZE[20389]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<visible>Library.HasContent(musicvideos)</visible>
+						<visible>Library.HasContent(musicvideos) + Skin.HasSetting(videomenu.musicvideos)</visible>
 					</item>
 					<item id="6">
 						<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
@@ -168,7 +168,7 @@
 						<visible>Skin.HasSetting(musicmenu.lastfm)</visible>
 					</item>
 					<item id="9">
-						<label>$LOCALIZE[31024]</label>
+						<label>$LOCALIZE[20389]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<visible>Library.HasContent(musicvideos)</visible>

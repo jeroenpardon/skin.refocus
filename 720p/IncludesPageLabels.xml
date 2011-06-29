@@ -68,14 +68,28 @@
 			<description>tvshows folders</description>
 			<label>$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://2/,Left) + ![stringcompare(Container.FolderPath,videodb://2/) | Container.Content(episodes)]</visible>
+			<visible>Substring(Container.FolderPath,videodb://2/,Left) + ![stringcompare(Container.FolderPath,videodb://2/) | Container.Content(episodes) | Container.Content(seasons)]</visible>
 		</control>
+		<control type="label">
+			<description>seasons / episodes</description>
+			<label>$INFO[ListItem.TVShowTitle]</label>
+			<include>PageLabel</include>
+			<visible>!IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
+		</control>
+		<control type="label">
+			<description>seasons / episodes</description>
+			<label>$LOCALIZE[20343]</label>
+			<include>PageLabel</include>
+			<visible>IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
+		</control>
+		<!--
 		<control type="label">
 			<description>episodes</description>
 			<label>$INFO[ListItem.TVShowTitle] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>Substring(Container.FolderPath,videodb://2/,Left) + Container.Content(episodes)</visible>
 		</control>
+		-->
 		<control type="label">
 			<description>new episodes</description>
 			<label>$LOCALIZE[31925]</label>

@@ -212,7 +212,7 @@
 				<height>32</height>
 				<info>ListItem.StarRating</info>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | ListItem.IsFolder] + IsEmpty(ListItem.Property(ReleaseDate))</visible>
+				<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate))</visible>
 			</control>
 			<control type="image">
 				<width>96</width>

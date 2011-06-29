@@ -337,6 +337,14 @@
 							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
 							<align>left</align>
 							<include>Heading3</include>
+							<visible>IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
+						</control>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
+							<align>left</align>
+							<include>Heading3</include>
+							<visible>!IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
 						</control>
 					</control>
 					<control type="group">
