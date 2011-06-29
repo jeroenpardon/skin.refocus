@@ -20,8 +20,11 @@
 		<include>themeBackground2</include>
 		<include>pagelabels_Video</include>
 		<include>libClock</include>
+		<include>scrollOffset</include>
+		<include>PageControls</include>
 		
 		
+		<!---dev mode--->
 		<control type="label">
 			<posx>1280</posx>
 			<posy>20r</posy>
@@ -32,8 +35,9 @@
 			<textcolor>yellow</textcolor>
 			<visible>Skin.HasSetting(dev.enable)</visible>
 		</control>
-		<include>scrollOffset</include>
-		<include>PageControls</include>
+		
+		
+		
 
 		<control type="group">
 			<description>Small Media Window</description>
@@ -55,45 +59,42 @@
 			<include>view_TV-now</include>
 			<include>view_EPG-timeline</include>
 			<include>view_EPG-channels</include>
+			<include>view_TV-channels</include>
+			<include>view_TV-radiochannels</include>
 		</control>
 
 
 <!-- CHANNEL LIST -------------------------------------------------------------------->
 		<control type="group">
-			<include>view_TV-channels</include>
-			<include>view_TV-radiochannels</include>
+			<description>Channels group</description>
+			<posx>610</posx>
+			<posy>115</posy>
+			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,345" time="250" easing="Out" tween="Cubic" reversible="true" condition="Player.HasVideo">Conditional</animation>
+			<include>flags_PVR</include>
 			<include>transition_Container</include>
-
+			<visible>Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)</visible>
 			<control type="group">
-				<description>Channels group</description>
-				<posx>610</posx>
-				<posy>115</posy>
-				<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,345" time="250" easing="Out" tween="Cubic" reversible="true" condition="Player.HasVideo">Conditional</animation>
-				<visible>Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)</visible>
-				<include>flags_PVR</include>
+				<posx>143</posx>
 				<control type="label" id="1">
-					<posx>138</posx>
-					<posy>5</posy>
 					<width>480</width>
-					<height>30</height>
 					<label>$INFO[ListItem.Title]</label>
 					<textcolor>Color1</textcolor>
 					<font>title</font>
 				</control>
 				<control type="label" id="2">
-					<posx>138</posx>
-					<posy>35</posy>
+					<posy>25</posy>
 					<width>480</width>
-					<height>20</height>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, • ]</label>
 					<textcolor>Color2</textcolor>
 					<font>smallCaps</font>
 				</control>
+			</control>
+			<control type="group">
+				<posy>60</posy>
 				<control type="textbox" id="5">
 					<description>tv program description</description>
 					<visible>Player.HasVideo + VideoPlayer.Content(livetv) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
-					<posy>74</posy>
 					<width>610</width>
 					<height>165</height>
 					<aligny>top</aligny>
@@ -105,7 +106,6 @@
 				<control type="textbox" id="5">
 					<description>tv program description</description>
 					<visible>!Player.HasVideo + !VideoPlayer.Content(livetv)</visible>
-					<posy>74</posy>
 					<width>610</width>
 					<height>350</height>
 					<aligny>top</aligny>
@@ -115,7 +115,7 @@
 					<autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
 				</control>
 			</control>
-		</control>		
+		</control>
 
 
 <!-- GUIDE TIMELINE ---------------------------------------------------------------------------->
