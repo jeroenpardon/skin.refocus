@@ -6,27 +6,25 @@
 	<coordinates>
 		<system>1</system>
 		<posx>190</posx>
-		<posy>25</posy>
+		<posy>68</posy>
 	</coordinates>
 
 	<controls>
 		<control type="group">			
 			<control type="image">
-				<width>900</width>
-				<height>670</height>
+				<width>890</width>
+				<height>585</height>
 				<include>dialogWindow</include>
 			</control>
 			<control type="label" id="1">
-				<description>heading label</description>
-				<width>862</width>
+				<width>822</width>
 				<scroll>true</scroll>
 				<label>$LOCALIZE[19199] - $LOCALIZE[19023]</label>
 				<include>dialog_Windowtitle</include>
 				<visible>IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
 			<control type="label" id="1">
-				<description>heading label</description>
-				<width>862</width>
+				<width>822</width>
 				<scroll>true</scroll>
 				<label>$LOCALIZE[19199] - $LOCALIZE[19024]</label>
 				<include>dialog_Windowtitle</include>
@@ -36,38 +34,45 @@
 			<control type="image">
 				<posx>19</posx>
 				<posy>75</posy>
-				<width>862</width>
+				<width>890</width>
 				<include>dialog_Separator</include>
 			</control>
+			<!--
 			<control type="image">
 				<posx>350</posx>
 				<posy>514</posy>
 				<width>532</width>
 				<include>dialog_Separator</include>
-			</control>
+			</control>-->
 			<control type="image">
-				<posx>350</posx>
+				<posx>449</posx>
 				<posy>115</posy>
-				<height>398</height>
+				<height>360</height>
 				<include>dialog_Separator-y</include>
 			</control>
+			<control type="image">
+				<posx>449</posx>
+				<posy>194</posy>
+				<width>430</width>
+				<include>dialog_Separator</include>
+			</control>
 
-			<control type="button" id ="34">
+			<control type="button" id="34">
 				<description>TV/Radio Button</description>
 				<posx>19</posx>
 				<posy>75</posy>
-				<width>863</width>
+				<width>853</width>
 				<label>19024</label>
 				<onup>9000</onup>
 				<ondown>20</ondown>
 				<include>dialog_Button-list</include>
 				<visible>IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
-			<control type="button" id ="34">
+			<control type="button" id="34">
 				<description>TV/Radio Button</description>
 				<posx>19</posx>
 				<posy>75</posy>
-				<width>863</width>
+				<width>853</width>
 				<label>19023</label>
 				<onup>9000</onup>
 				<ondown>20</ondown>
@@ -76,20 +81,20 @@
 			</control>
 			
 			<control type="group" id="6000">
+				<posx>19</posx>
+				<posy>115</posy>
 				<control type="list" id="20">
-					<posx>19</posx>
-					<posy>115</posy>
-					<width>414</width>
-					<height>400</height>
+					<width>430</width>
+					<height>360</height>
 					<onup>34</onup>
 					<ondown>20</ondown>
 					<onleft>7</onleft>
-					<onright>8000</onright>
+					<onright>7000</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
 					<itemlayout height="40">
 						<control type="image">
-							<width>331</width>
+							<width>430</width>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="image">
@@ -109,7 +114,7 @@
 						</control>
 						<control type="label">
 							<posx>65</posx>
-							<width>190</width>
+							<width>230</width>
 							<label>$INFO[ListItem.Property(Name)]</label>
 							<include>dialog_CommonListItem</include>
 							<visible>ListItem.Property(ActiveChannel)</visible>
@@ -117,12 +122,11 @@
 					</itemlayout>
 					<focusedlayout height="40">
 						<control type="image">
-							<width>331</width>
+							<width>430</width>
 							<include>dialog_CommonList</include>
-							<visible>!Control.HasFocus(20)</visible>
 						</control>
 						<control type="image">
-							<width>331</width>
+							<width>310</width>
 							<include>dialog_CommonListFocus</include>
 							<visible>Control.HasFocus(20)</visible>
 						</control>
@@ -161,118 +165,157 @@
 						</control>
 						<control type="label">
 							<posx>65</posx>
-							<width>190</width>
+							<width>230</width>
 							<label>$INFO[ListItem.Property(Name)]</label>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>Control.HasFocus(20) + ListItem.Property(ActiveChannel)</visible>
 						</control>
 					</focusedlayout>
 				</control>
-			
-				<control type="group" id="8000">
-					<posx>350</posx>
-					<posy>115</posy>
-					<control type="radiobutton" id ="7">
-						<description>active</description>	
-						<posy>0</posy>
-						<width>532</width>
-						<label>19074</label>
+				<!---browse controls--->
+				<control type="group" id="7000">
+					<posx>310</posx>
+					<animation effect="slide" end="0,40" time="0" condition="Container(20).Row(1)">Conditional</animation>
+					<animation effect="slide" end="0,80" time="0" condition="Container(20).Row(2)">Conditional</animation>
+					<animation effect="slide" end="0,120" time="0" condition="Container(20).Row(3)">Conditional</animation>
+					<animation effect="slide" end="0,160" time="0" condition="Container(20).Row(4)">Conditional</animation>
+					<animation effect="slide" end="0,200" time="0" condition="Container(20).Row(5)">Conditional</animation>
+					<animation effect="slide" end="0,240" time="0" condition="Container(20).Row(6)">Conditional</animation>
+					<animation effect="slide" end="0,280" time="0" condition="Container(20).Row(7)">Conditional</animation>
+					<animation effect="slide" end="0,320" time="0" condition="Container(20).Row(8)">Conditional</animation>
+					<animation effect="slide" end="0,360" time="0" condition="Container(20).Row(9)">Conditional</animation>
+					<control type="image">
+						<posy>1</posy>
+						<height>39</height>
+						<include>dialog_Separator-y</include>
+					</control>
+					<control type="image">
+						<posx>40</posx>
+						<posy>1</posy>
+						<height>39</height>
+						<include>dialog_Separator-y</include>
+					</control>
+					<control type="image">
+						<posx>80</posx>
+						<posy>1</posy>
+						<height>39</height>
+						<include>dialog_Separator-y</include>
+					</control>
+					<control type="button" id="31">
+						<description>Browse Button</description>
+						<label>-</label>
+						<onup>20</onup>
 						<onleft>20</onleft>
-						<onright>7000</onright>
-						<onup>9</onup>
-						<ondown>14</ondown>
-						<include>dialog_Radio</include>
+						<onright>32</onright>
+						<ondown>20</ondown>
+						<texturenofocus border="0">dialogs/button_Inline-edit.png</texturenofocus>
+						<texturefocus border="0">dialogs/button_Inline-edit-focus.png</texturefocus>
+						<include>dialog_Button-inline</include>
 					</control>
-					<control type="button" id ="14">
-						<description>client</description>	
-						<posy>40</posy>
-						<width>532</width>
-						<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
-						<onleft>20</onleft>
-						<onright>7000</onright>
-						<onup>7</onup>
-						<ondown>8</ondown>
-						<include>dialog_Button-list</include>
+					<control type="button" id="32">
+						<description>Remove Path Button</description>
+						<posx>40</posx>
+						<label>-</label>
+						<onup>20</onup>
+						<onleft>31</onleft>
+						<onright>33</onright>
+						<ondown>20</ondown>
+						<texturenofocus border="0">dialogs/button_Inline-remove.png</texturenofocus>
+						<texturefocus border="0">dialogs/button_Inline-remove-focus.png</texturefocus>
+						<include>dialog_Button-inline</include>
 					</control>
-					<control type="edit" id ="8">
-						<description>channel name</description>
-						<posy>80</posy>
-						<width>532</width>
-						<label>19201</label>
-						<onright>7000</onright>
-						<onleft>20</onleft>
-						<onup>14</onup>
-						<ondown>11</ondown>
-						<include>dialog_Button-list</include>
-					</control>
-					<control type="spincontrolex" id ="11">
-						<description>Group selection</description>
-						<posy>120</posy>
-						<width>532</width>
-						<label>19207</label>
-						<onright>7000</onright>
-						<onleft>20</onleft>
-						<onup>8</onup>
-						<ondown>12</ondown>
-						<include>dialog_Spin</include>
-					</control>
-					<control type="radiobutton" id ="12">
-						<description>activate epg</description>
-						<posy>160</posy>
-						<width>532</width>
-						<label>19206</label>
-						<onleft>20</onleft>
-						<onright>7000</onright>
-						<onup>11</onup>
-						<ondown>13</ondown>
-						<include>dialog_Radio</include>
-					</control>
-					<control type="spincontrolex" id ="13">
-						<description>epg source</description>
-						<posy>200</posy>
-						<width>532</width>
-						<label>19200</label>
-						<onright>7000</onright>
-						<onleft>20</onleft>
-						<onup>12</onup>
-						<ondown>9</ondown>
-						<include>dialog_Spin</include>
-					</control>
-					<control type="button" id ="9">
-						<description>channel icon label</description>
-						<posy>240</posy>
-						<width>532</width>
-						<label>19202</label>
-						<onleft>20</onleft>
-						<onright>7000</onright>
-						<onup>13</onup>
-						<ondown>7</ondown>
-						<include>dialog_Button-list</include>
-					</control>
-					<control type="image" id ="10">
-						<description>channel icon</description>
-						<posx>10</posx>
-						<posy>290</posy>
-						<width>532</width>
-						<height>100</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
-						<visible>IsEmpty(ListItem.Icon)</visible>
-					</control>
-					<control type="image" id ="10">
-						<description>channel icon</description>
-						<posx>0</posx>
-						<posy>290</posy>
-						<width>532</width>
-						<height>100</height>
-						<aspectratio>keep</aspectratio>
-						<info>ListItem.Property(Icon)</info>
-						<visible>!IsEmpty(ListItem.Icon)</visible>
+					<control type="button" id="33">
+						<description>Add Path Button</description>
+						<posx>80</posx>
+						<label>-</label>
+						<onup>20</onup>
+						<onleft>32</onleft>
+						<onright>8000</onright>
+						<ondown>20</ondown>
+						<texturenofocus border="0">dialogs/button_Inline-add.png</texturenofocus>
+						<texturefocus border="0">dialogs/button_Inline-add-focus.png</texturefocus>
+						<include>dialog_Button-inline</include>
 					</control>
 				</control>
 			</control>
+			
+			
+			<control type="grouplist" id="8000">
+				<posx>449</posx>
+				<posy>115</posy>
+				<width>430</width>
+				<height>600</height>
+				<onleft>6000</onleft>
+				<onup>8000</onup>
+				<ondown>8000</ondown>
+				<itemgap>0</itemgap>
+				
+				<control type="image" id ="10">
+					<description>channel icon</description>
+					<width>430</width>
+					<height>80</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
+					<visible>IsEmpty(ListItem.Icon)</visible>
+				</control>
+				<control type="image" id ="10">
+					<description>channel icon</description>
+					<width>430</width>
+					<height>80</height>
+					<aspectratio>keep</aspectratio>
+					<info>ListItem.Property(Icon)</info>
+					<visible>!IsEmpty(ListItem.Icon)</visible>
+				</control>
+				
+				<control type="radiobutton" id ="7">
+					<description>active</description>	
+					<label>19074</label>
+					<width>430</width>
+					<include>dialog_Radio</include>
+				</control>
+				<control type="button" id ="14">
+					<description>client</description>	
+					<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
+					<width>430</width>
+					<include>dialog_Button-list</include>
+				</control>
+				<control type="edit" id ="8">
+					<description>channel name</description>
+					<label>19201</label>
+					<width>430</width>
+					<include>dialog_Button-list</include>
+				</control>
+				<control type="spincontrolex" id ="11">
+					<description>Group selection</description>
+					<label>19207</label>
+					<width>430</width>
+					<include>dialog_Spin</include>
+				</control>
+				<control type="radiobutton" id ="12">
+					<description>activate epg</description>
+					<label>19206</label>
+					<width>430</width>
+					<include>dialog_Radio</include>
+				</control>
+				<control type="spincontrolex" id ="13">
+					<description>epg source</description>
+					<label>19200</label>
+					<width>430</width>
+					<include>dialog_Spin</include>
+				</control>
+				<control type="button" id ="9">
+					<description>channel icon label</description>
+					<label>19202</label>
+					<width>430</width>
+					<include>dialog_Button-list</include>
+				</control>
+				
+			</control>
 
-			<control type="group" id="7000">
+			
+			
+
+			<!--<control type="group" id="7000">
 				<posx>34</posx>
 				<posy>540</posy>
 				<control type="button" id ="31">
@@ -307,9 +350,15 @@
 					<ondown>9000</ondown>
 					<include>dialog_Button</include>
 				</control>
+				
+			</control>-->
+
+			<control type="group" id="9000">
+				<posx>34</posx>
+				<posy>505</posy>
 				<control type="button" id ="30">
 					<description>Group Manager Button</description>
-					<posx>630</posx>
+					<posx>0</posx>
 					<width>200</width>
 					<label>19205</label>
 					<onleft>33</onleft>
@@ -318,23 +367,9 @@
 					<ondown>9000</ondown>
 					<include>dialog_Button</include>
 				</control>
-			</control>
-
-			<control type="group" id="9000">
-				<posx>485</posx>
-				<posy>592</posy>
-				<control type="button" id="4">
-					<description>OK</description>
-					<label>186</label>
-					<onup>7000</onup>
-					<onleft>5</onleft>
-					<onright>5</onright>
-					<ondown>34</ondown>
-					<include>dialog_Button</include>
-				</control>
 				<control type="button" id="5">
 					<description>Apply changes</description>
-					<posx>130</posx>
+					<posx>412</posx>
 					<label>Apply</label>
 					<onup>7000</onup>
 					<onleft>4</onleft>
@@ -342,9 +377,19 @@
 					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
+				<control type="button" id="4">
+					<description>OK</description>
+					<posx>542</posx>
+					<label>186</label>
+					<onup>7000</onup>
+					<onleft>5</onleft>
+					<onright>5</onright>
+					<ondown>34</ondown>
+					<include>dialog_Button</include>
+				</control>
 				<control type="button" id="6">
 					<description>Cancel</description>
-					<posx>260</posx>
+					<posx>672</posx>
 					<label>222</label>
 					<onup>7000</onup>
 					<onleft>5</onleft>
