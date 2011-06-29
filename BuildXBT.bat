@@ -53,6 +53,7 @@ xcopy "language\Dutch" "BUILD\skin.refocus\language\Dutch" /E /Q /I /Y
 xcopy "language\Korean" "BUILD\skin.refocus\language\Korean" /E /Q /I /Y
 xcopy "language\Romanian" "BUILD\skin.refocus\language\Romanian" /E /Q /I /Y
 xcopy "language\Swedish" "BUILD\skin.refocus\language\Swedish" /E /Q /I /Y
+xcopy "language\Russian" "BUILD\skin.refocus\language\Russian" /E /Q /I /Y
 xcopy "*.xml" "BUILD\skin.refocus\" /Q /I /Y
 xcopy "*.txt" "BUILD\skin.refocus\" /Q /I /Y
 xcopy "*.png" "BUILD\skin.refocus\" /Q /I /Y
