@@ -44,7 +44,7 @@
 			</control>
 			<control type="image">
 				<posx>449</posx>
-				<posy>194</posy>
+				<posy>474</posy>
 				<width>423</width>
 				<include>dialog_Separator</include>
 			</control>
@@ -239,22 +239,7 @@
 				<onup>8000</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				<control type="image" id ="10">
-					<description>channel icon</description>
-					<width>423</width>
-					<height>80</height>
-					<aspectratio align="center">keep</aspectratio>
-					<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
-					<visible>IsEmpty(ListItem.Icon)</visible>
-				</control>
-				<control type="image" id ="10">
-					<description>channel icon</description>
-					<width>423</width>
-					<height>80</height>
-					<aspectratio>keep</aspectratio>
-					<info>ListItem.Property(Icon)</info>
-					<visible>!IsEmpty(ListItem.Icon)</visible>
-				</control>
+				
 				<control type="radiobutton" id ="7">
 					<description>active</description>	
 					<label>19074</label>
@@ -296,6 +281,22 @@
 					<label>19202</label>
 					<width>423</width>
 					<include>dialog_Button-list</include>
+				</control>
+				<control type="image" id ="10">
+					<description>channel icon</description>
+					<width>423</width>
+					<height>80</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
+					<visible>IsEmpty(ListItem.Icon)</visible>
+				</control>
+				<control type="image" id ="10">
+					<description>channel icon</description>
+					<width>423</width>
+					<height>80</height>
+					<aspectratio>keep</aspectratio>
+					<info>ListItem.Property(Icon)</info>
+					<visible>!IsEmpty(ListItem.Icon)</visible>
 				</control>
 			</control>
 
