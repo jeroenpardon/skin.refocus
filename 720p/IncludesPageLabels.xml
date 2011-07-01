@@ -74,7 +74,7 @@
 			<description>seasons / episodes</description>
 			<label>$INFO[ListItem.TVShowTitle]</label>
 			<include>PageLabel</include>
-			<visible>!IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
+			<visible>!IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | Container.Content(episodes)] + !stringcompare(Container.FolderPath,videodb://5/)</visible>
 		</control>
 		<control type="label">
 			<description>seasons / episodes</description>
