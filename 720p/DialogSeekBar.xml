@@ -1,10 +1,9 @@
 ﻿<window id="115">
 	<defaultcontrol>901</defaultcontrol>
-	
+	<visible>Window.IsActive(fullscreenvideo) + ![Window.IsVisible(script-XBMC-Subtitles-main.xml) | Window.IsActive(101) | Window.IsActive(2901)] + [Player.Caching | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]</visible>
 	<controls>
 		<include>clock</include>
 		<control type="group" id="213">
-			<visible>Window.IsActive(fullscreenvideo) + ![Window.IsVisible(script-XBMC-Subtitles-main.xml) | Window.IsActive(101) | Window.IsActive(2901)] + [Player.Caching | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]</visible>
 			<posy>635</posy>
 			<animation type="WindowOpen">
 				<effect type="slide" start="0,100" end="0,0" tween="Cubic" center="auto" easing="Out" time="400" />
