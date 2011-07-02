@@ -1,10 +1,8 @@
 ﻿<window id="2001">
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-	
 	<controls>
-	
-<!-- TRIGGER BUTTONS ------------------------------------------------------------------------------------------>
+<!---TRIGGER------>
 		<control type="button" id="7000">
 			<label>SHOULD NOT SEE ME</label>
 			<onleft>6000</onleft>
@@ -12,9 +10,7 @@
 			<width>200</width>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-
-
-<!-- PAGELABELS ------------------------------------------------------------------------------------------------->
+<!---PAGELABELS------>
 		<control type="label">
 			<label>[LOWERCASE][COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Album][/LOWERCASE]</label>
 			<include>PageLabel</include>
@@ -25,16 +21,13 @@
 			<include>PageLabel</include>
 			<visible>Container.Content(artists)</visible>
 		</control>
-
-
-<!--- ALBUMS ---------------------------------------------------------------------------------------------------------------------->
+<!---ALBUMS------>
 		<control type="group">
 			<posx>425</posx>
 			<posy>60</posy>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<visible>Container.Content(albums) | Container.Content(artists)</visible>
-	
 			<control type="grouplist" id="1000">
 				<posy>50</posy>
 				<itemgap>6</itemgap>
@@ -44,8 +37,7 @@
 					<include>label_Small-caps</include>
 					<visible>!IsEmpty(ListItem.Genre)</visible>
 				</control>
-				
-				<!--- albums ------------------------------------------> 
+				<!---albums--->
 				<control type="label">
 					<width>785</width>
 					<label>$LOCALIZE[175] [COLOR=Color1]$INFO[ListItem.Property(Album_Mood)][/COLOR]</label>
@@ -82,8 +74,7 @@
 					<include>label_Small-caps</include>
 					<visible>!IsEmpty(ListItem.Path)</visible>
 				</control>
-				
-				<!--- artists ------------------------------------------> 
+				<!---artists--->
 				<control type="label">
 					<width>770</width>
 					<label>$LOCALIZE[21893] [COLOR=Color1]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
@@ -132,15 +123,13 @@
 					<include>label_Small-caps</include>
 					<visible>!IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 				</control>
-				
 				<control type="label">
 					<description>spacer</description>
 					<width>785</width>
 					<label></label>
 					<include>label_Small-caps</include>
 				</control>
-
-				<!--- common functions -------------------------------------------->
+				<!---common functions--->
 				<control type="group" id="8000">
 					<height>45</height>
 					<control type="button" id="8">
@@ -162,7 +151,6 @@
 						<include>button_Inline</include>
 					</control>
 				</control>
-				
 				<!--- descriptions -------------------------------------------->
 				<control type="textbox" id="4">
 					<width>740</width>
@@ -178,82 +166,68 @@
 					<font>descriptionSmall</font>
 					<visible>Container.Content(albums)</visible>
 				</control>
+				<!---discography--->
+				<control type="list" id="50">
+					<width>785</width>
+					<height>325</height>
+					<onleft>8000</onleft>
+					<onright>8000</onright>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="42">
+						<control type="image">
+							<width>785</width>
+							<height>40</height>
+							<texture border="8">epg/column_focus2.png</texture>
+							<colordiffuse>tv3</colordiffuse>
+						</control>
+						<control type="label">
+							<posx>15</posx>
+							<width>570</width>
+							<height>35</height>
+							<label>$INFO[ListItem.Label]</label>
+							<include>listMenu</include>
+						</control>
+						<control type="label">
+							<posx>770</posx>
+							<width>300</width>
+							<height>35</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Duration]</label>
+							<textcolor>Color2</textcolor>
+							<include>listMenu</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="42">
+						<control type="image">
+							<width>785</width>
+							<height>40</height>
+							<texture border="8">epg/column_focus.png</texture>
+							<colordiffuse>tv3</colordiffuse>
+						</control>
+						<control type="label">
+							<posx>15</posx>
+							<width>570</width>
+							<height>35</height>
+							<label>$INFO[ListItem.Label]</label>
+							<include>listMenu</include>
+						</control>
+						<control type="label">
+							<posx>770</posx>
+							<width>300</width>
+							<height>35</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Duration]</label>
+							<textcolor>Color1</textcolor>
+							<include>listMenu</include>
+						</control>
+					</focusedlayout>
+				</control>
 			</control>
 		</control>
-
-
-<!----- DISCOGRAPHY ------------------------------------------------------------------------------------------------------------------>
-		<control type="group" id="9001">
-			<include>transition_Container</include>
-			<include>toggle_Menu</include>
-			<control type="list" id="50">
-				<posx>425</posx>
-				<posy>375</posy>
-				<width>785</width>
-				<height>294</height>
-				<onleft>8000</onleft>
-				<onright>-</onright>
-				<onup>50</onup>
-				<ondown>50</ondown>
-				<orientation>vertical</orientation>
-				<pagecontrol>60</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<include>transition_Container</include>
-				<itemlayout height="42">
-					<control type="image">
-						<posy>0</posy>
-						<width>785</width>
-						<height>40</height>
-						<texture border="8">epg/column_focus2.png</texture>
-						<colordiffuse>tv3</colordiffuse>
-					</control>
-					<control type="label">
-						<posx>15</posx>
-						<width>570</width>
-						<height>35</height>
-						<label>$INFO[ListItem.Label]</label>
-						<include>listMenu</include>
-					</control>
-					<control type="label">
-						<posx>770</posx>
-						<width>300</width>
-						<height>35</height>
-						<align>right</align>
-						<label>$INFO[ListItem.Duration]</label>
-						<textcolor>Color2</textcolor>
-						<include>listMenu</include>
-					</control>
-				</itemlayout>
-				<focusedlayout height="42">
-					<control type="image">
-						<posy>0</posy>
-						<width>785</width>
-						<height>40</height>
-						<texture border="8">epg/column_focus.png</texture>
-						<colordiffuse>tv3</colordiffuse>
-					</control>
-					<control type="label">
-						<posx>15</posx>
-						<width>570</width>
-						<height>35</height>
-						<label>$INFO[ListItem.Label]</label>
-						<include>listMenu</include>
-					</control>
-					<control type="label">
-						<posx>770</posx>
-						<width>300</width>
-						<height>35</height>
-						<align>right</align>
-						<label>$INFO[ListItem.Duration]</label>
-						<textcolor>Color1</textcolor>
-						<include>listMenu</include>
-					</control>
-				</focusedlayout>
-			</control>
-		</control>
-
-
-<!--- THUMBNAILS --------------------------------------------------------------------------------------------------------------------------------->
+<!---THUMBNAILS------>
 	<control type="group">
 		<posx>10</posx>
 		<posy>80</posy>
@@ -286,9 +260,7 @@
 		<include>toggle_Menu</include>
 		<visible>!Container.Content(artists)</visible>
 	</control>		
-
 	<include>InfoDialogMenuM</include>
 	<include>nav_Indicator-info</include>
-	
 	</controls>
 </window>
