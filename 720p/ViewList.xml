@@ -194,7 +194,7 @@
 				<label>$INFO[ListItem.Label]</label>
 				<font>listBig</font>
 				<include>listMenuFocus</include>
-				<visible>!Container.Content(episodes)</visible>
+				<visible>!Container.Content(episodes) | IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>

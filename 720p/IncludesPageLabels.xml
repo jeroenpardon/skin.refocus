@@ -74,13 +74,13 @@
 			<description>seasons / episodes</description>
 			<label>$INFO[ListItem.TVShowTitle]</label>
 			<include>PageLabel</include>
-			<visible>!IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | Container.Content(episodes)] + !stringcompare(Container.FolderPath,videodb://5/)</visible>
+			<visible>![IsEmpty(ListItem.TVShowTitle) | IsEmpty(ListItem.Title)] + [Container.Content(seasons) | Container.Content(episodes)] + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
 		</control>
 		<control type="label">
 			<description>seasons / episodes</description>
 			<label>$LOCALIZE[20343]</label>
 			<include>PageLabel</include>
-			<visible>IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | [Container.Content(episodes) + !stringcompare(Container.FolderPath,videodb://5/)]]</visible>
+			<visible>IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | [Container.Content(episodes) + !stringcompare(Container.FolderPath,videodb://5/)]] + </visible>
 		</control>
 		<!--
 		<control type="label">
