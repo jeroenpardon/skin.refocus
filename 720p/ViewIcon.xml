@@ -195,12 +195,13 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(files) | Window.IsActive(mypictures) | Container.Content(artists) | Container.Content(musicvideos)] + Container.HasFiles</visible>
-			<include condition="Window.IsVisible(videolibrary)">IconWideVideo</include>
+			<visible>[Container.Content(files) | Window.IsActive(mypictures) | Container.Content(artists)] + Container.HasFiles</visible>
+			<!--<include condition="Window.IsVisible(videolibrary)">IconWideVideo</include>-->
 			<include condition="Window.IsVisible(musiclibrary)">IconWideMusic</include>
 			<include condition="Window.IsVisible(pictures)">IconWidePictures</include>
 		</control>
 	</include>
+	<!--
 	<include name="IconWideVideo">
 		<itemlayout height="170" width="220">
 			<control type="image">
@@ -256,6 +257,7 @@
 			</control>
 		</focusedlayout>
 	</include>
+	-->
 	<include name="IconWideMusic">
 		<itemlayout height="170" width="220">
 			<control type="image">

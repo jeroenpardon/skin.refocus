@@ -2,7 +2,7 @@
 
 <!--- STUDIO ---------------------------------------->
 	<include name="flag_Studio">
-		<texture fallback="flags/studios/default.png">$INFO[Listitem.studio,flags/studios/,.png]</texture>
+		<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
 		<width>128</width>
 		<height>64</height>
 	</include>
@@ -18,13 +18,13 @@
 
 <!--- NETWORK ---------------------------------------->	
 	<include name="flag_Network">
-		<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/networks/,.png]</texture>
+		<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
 		<width>128</width>
 		<height>64</height>
 		<visible>!IsEmpty(ListItem.Title)</visible>
 	</include>
 	<include name="flag_Network-mono">
-		<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
+		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
 		<width>128</width>
 		<height>64</height>
 		<visible>!IsEmpty(ListItem.Title)</visible>
@@ -88,63 +88,56 @@
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.VideoResolution,flags/type/,.png]</texture>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.VideoCodec,flags/type/,.png]</texture>
+				<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color7</colordiffuse>
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.AudioCodec,flags/type/,.png]</texture>
+				<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color7</colordiffuse>
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.VideoAspect,flags/type/,.png]</texture>
+				<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color7</colordiffuse>
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<colordiffuse>Color7</colordiffuse>
-				<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/studios/,.png]</texture>
+				<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
 				<width>128</width>
 				<height>72</height>
-				<colordiffuse>Color7</colordiffuse>
-				<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/networks/,.png]</texture>
+				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<colordiffuse>Color7</colordiffuse>
-				<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/networks/,.png]</texture>
+				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>Container.Content(episodes)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<colordiffuse>Color7</colordiffuse>
-				<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/labels/,.png]</texture>
+				<texture>$INFO[Listitem.studio,flags/labels/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
 			</control>
 		</control>
@@ -176,10 +169,10 @@
 
 <!--- LABEL ---------------------------------------->
 	<include name="flag_Label">
-			<texture fallback="-flags/default.png">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
+			<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
 	</include>
 	<include name="flag_Label-play">
-		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
+		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
 		<colordiffuse>Color1</colordiffuse>
 	</include>
 	<include name="flags_Label-info">
@@ -236,120 +229,4 @@
 			</control>
 		</control>
 	</include>
-	
-	
-<!--flagsPVR--->
-<!--labelFlagsInfo-->
-<!--typeFlagsInfo--->
-
-	
-	<!---
-	<include name="flags_50">
-		<control type="grouplist">
-			<itemgap>20</itemgap>
-			<orientation>vertical</orientation>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="center">keep</aspectratio>
-				<include>flag_Network</include>
-				<visible>!IsEmpty(ListItem.Title) + [Container.Content(tvshows) | Container.Content(episodes)]</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>38</height>
-				<aspectratio align="center">keep</aspectratio>
-				<include>flag_Res</include>
-				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="center">keep</aspectratio>
-				<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="center">keep</aspectratio>
-				<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
-				<visible>Container.Content(musicvideos)</visible>
-			</control>
-		</control>
-	</include>
-	
-	
-	
-	
-	typeFlagsInfoAlt
-	<include name="typeFlagsInfoAlt">
-		<control type="grouplist" id="100">
-			<width>900</width>
-			<height>64</height>
-			<itemgap>20</itemgap>
-			<orientation>horizontal</orientation>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.VideoResolution,flags/type/mono/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color4</colordiffuse>
-				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.VideoCodec,flags/type/mono/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color4</colordiffuse>
-				<visible>!IsEmpty(Listitem.VideoCodec)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.AudioCodec,flags/type/mono/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color4</colordiffuse>
-				<visible>!IsEmpty(Listitem.AudioCodec)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.VideoAspect,flags/type/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color4</colordiffuse>
-				<visible>!IsEmpty(Listitem.VideoAspect)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<colordiffuse>Color4</colordiffuse>
-				<texture fallback="-flags/default.png">$INFO[Listitem.studio,flags/labels/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-			</control>
-		</control>
-	</include>
-	
-	<include name="typeFlagsFS">
-		<control type="grouplist" id="100">
-			<width>1280</width>
-			<height>128</height>
-			<itemgap>5</itemgap>
-			<orientation>vertical</orientation>
-			<control type="image">
-				<width>128</width>
-				<height>128</height>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color1</colordiffuse>
-				<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/mono/,.png]</texture>
-				<visible>VideoPlayer.Content(episodes)</visible>
-			</control>
-			<control type="image">
-				<include>flag_Studio-mono-play</include>
-				<visible>VideoPlayer.Content(movies)</visible>
-			</control>
-		</control>
-	</include>
-	--->
 </includes>
