@@ -152,19 +152,26 @@
 
 <!--- RES ---------------------------------------->
 	<include name="flag_Res">
-		<texture fallback="flags/type/res_default.png">$INFO[Listitem.VideoResolution,flags/type/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/,.png]</texture>
+		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
 	</include>
 	<include name="flag_Res-Mono">
-		<texture fallback="flags/type/mono/res_default.png">$INFO[Listitem.VideoResolution,flags/type/mono/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/mono/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
 	</include>
 	<include name="flag_Res-play">
-		<texture fallback="flags/type/mono/res_default.png">$INFO[Listitem.VideoPlayer,flags/type/mono/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/mono/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
 	</include>
 	<include name="flag_Res-Mono-play">
-		<texture fallback="flags/type/mono/res_default.png">$INFO[Listitem.VideoPlayer,flags/type/mono/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/mono/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
+	</include>
+
+<!--- RES ---------------------------------------->
+	<include name="flag_Audio">
+		<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
 	</include>
 
 <!--- LABEL ---------------------------------------->
@@ -218,6 +225,13 @@
 				<height>34</height>
 				<aspectratio align="center">keep</aspectratio>
 				<include>flag_Res</include>
+				<visible>!Container.Content(tvshows) + IsEmpty(ListItem.Property(ReleaseDate)) + !ListItem.IsFolder</visible>
+			</control>
+			<control type="image">
+				<width>53</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<include>flag_Audio</include>
 				<visible>!Container.Content(tvshows) + IsEmpty(ListItem.Property(ReleaseDate)) + !ListItem.IsFolder</visible>
 			</control>
 		</control>
