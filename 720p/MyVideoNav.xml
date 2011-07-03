@@ -309,11 +309,11 @@
 						<visible>Container.Content(movies)</visible>
 						<control type="label">
 							<width>920</width>
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, ]$LOCALIZE[12391]$INFO[ListItem.Genre, • ]</label>
+							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, • ]</label>
 							<align>left</align>
 							<textcolor>Color2</textcolor>
 							<include>Heading3</include>
-							<visible>IsEmpty(ListItem.Property(ReleaseDate)) + !ListItem.IsFolder</visible>
+							<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
 						</control>
 						<control type="label">
 							<width>980</width>
@@ -328,7 +328,7 @@
 							<align>left</align>
 							<textcolor>Color2</textcolor>
 							<include>Heading3</include>
-							<visible>ListItem.IsFolder + !IsEmpty(ListItem.Title)</visible>
+							<visible>ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/,left)</visible>
 						</control>
 					</control>
 					<control type="group">
@@ -508,7 +508,7 @@
 							<textcolor>Color2</textcolor>
 							<width>750</width>
 							<!---is movie set--->
-							<visible>Container.Content(movies) + ListItem.IsFolder + !IsEmpty(ListItem.Title)</visible>
+							<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb,left) + !IsEmpty(ListItem.Title)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Property(ReleaseDate)$INFO[ListItem.Genre, • ]]</label>
@@ -575,11 +575,12 @@
 					<visible>!IsEmpty(ListItem.Genre) + Container.Content(movies)</visible>
 				</control>
 				<control type="label" id="1">
+					<!--is movie set-->
 					<width>450</width>
 					<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
 					<font>info</font>
 					<textcolor>Color2</textcolor>
-					<visible>Container.Content(movies) + ListItem.IsFolder + !IsEmpty(ListItem.Title)</visible>
+					<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/,left) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
@@ -685,6 +686,12 @@
 				<control type="group">
 					<visible>Container.Content(movies)</visible>
 					<control type="label">
+						<label>$INFO[ListItem.Label]</label>
+						<font>title</font>
+						<width>750</width>
+						<visible>IsEmpty(ListItem.Title + IsEmpty(ListItem.TVShowTitle)</visible>
+					</control>
+					<control type="label">
 						<label>$INFO[ListItem.Title]</label>
 						<font>title</font>
 						<width>750</width>
@@ -717,12 +724,6 @@
 			<control type="group">
 				<posx>265</posx>
 				<posy>585</posy>
-				<control type="label">
-					<label>$INFO[ListItem.Label]</label>
-					<font>normalCaps</font>
-					<width>940</width>
-					<visible>ListItem.IsFolder + [IsEmpty(ListItem.Title) | IsEmpty(ListItem.TVShowTitle)]</visible>
-				</control>
 				<control type="group">
 					<visible>Container.Content(movies)</visible>
 					<control type="label">
@@ -755,7 +756,7 @@
 						<font>smallCaps</font>
 						<textcolor>Color2</textcolor>
 						<width>750</width>
-						<visible>ListItem.IsFolder + !IsEmpty(ListItem.Title)</visible>
+						<visible>ListItem.IsFolder + Substring(Container.FolderPath,videodb,left) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<posy>47</posy>
