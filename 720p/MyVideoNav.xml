@@ -503,6 +503,13 @@
 							<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))</visible>
 						</control>
 						<control type="label">
+							<label>$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Genre]</label>
+							<font>info</font>
+							<textcolor>Color2</textcolor>
+							<width>750</width>
+							<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))</visible>
+						</control>
+						<control type="label">
 							<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
 							<font>info</font>
 							<textcolor>Color2</textcolor>
@@ -587,7 +594,14 @@
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
 					<font>info</font>
 					<textcolor>Color2</textcolor>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))</visible>
+				</control>
+				<control type="label" id="1">
+					<width>450</width>
+					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+					<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
