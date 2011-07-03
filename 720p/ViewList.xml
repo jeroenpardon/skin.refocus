@@ -72,6 +72,13 @@
 				<visible>Container.Content(movies)</visible>
 				<control type="label">
 					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<font>listBig</font>
+					<include>listMenu</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
 					<posy>28</posy>
 					<width>510</width>
 					<label>$INFO[ListItem.Genre]</label>
@@ -172,14 +179,6 @@
 			</control>
 		</itemlayout>
 		<focusedlayout width="625" height="67">
-			<!--<control type="image">
-				<posy>-5</posy>
-				<width>640</width>
-				<height>83</height>
-				<texture border="11,11,11,11">views/list-focus2.png</texture>
-				<include>focus_ListScroll</include>
-				<visible>!ControlGroup(6000).HasFocus</visible>
-			</control>-->
 			<control type="image">
 				<posy>-30</posy>
 				<width>650</width>
@@ -206,6 +205,13 @@
 			</control>
 			<control type="group">
 				<visible>Container.Content(movies)</visible>
+				<control type="label">
+					<posx>40</posx>
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<font>listBig</font>
+					<include>listMenuFocus</include>
+				</control>
 				<control type="label">
 					<posx>40</posx>
 					<posy>28</posy>
