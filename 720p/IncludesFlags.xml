@@ -88,7 +88,7 @@
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.VideoResolution,flags/video/,.png]</texture>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
 			</control>
@@ -145,23 +145,23 @@
 
 <!--- RES ---------------------------------------->
 	<include name="flag_Res">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/,.png]</texture>
-		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+		<visible>!IsEmpty(Listitem.VideoResolution)</visible>
 	</include>
 	<include name="flag_Res-Mono">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/mono/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/mono/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
 	</include>
 	<include name="flag_Res-play">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/mono/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
 	</include>
 	<include name="flag_Res-Mono-play">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/mono/,.png]</texture>
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/mono/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
 	</include>
 
-<!--- RES ---------------------------------------->
+<!--- AUDIO CHANNELS ---------------------------------------->
 	<include name="flag_Audio">
 		<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
 		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
