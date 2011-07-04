@@ -24,7 +24,7 @@
 					<ondown>3</ondown>
 					<onright>50</onright>
 					<onclick>SetFocus(40)</onclick>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="grouplist" id="40">
@@ -39,14 +39,14 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 					</control>
 						<control type="button" id="42">
 						<label>$LOCALIZE[31014]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(573)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
 					</control>
 					<control type="button" id="44">
@@ -54,7 +54,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(574)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>substring(container.folderpath,addons://sources/image/)</visible>
 					</control>
 					<control type="button" id="45">
@@ -62,7 +62,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(53)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
 					</control>
 				</control>
@@ -73,7 +73,7 @@
 					<onright>50</onright>
 					<onup>1</onup>
 					<ondown>4</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 				<control type="togglebutton" id="4">
@@ -84,7 +84,7 @@
 					<onright>50</onright>
 					<onup>3</onup>
 					<ondown>6</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<onclick>Container.SortDirection</onclick>
 					<onclick>Container.SortDirection</onclick>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
@@ -96,7 +96,7 @@
 					<onup>4</onup>
 					<ondown>7</ondown>
 					<label>108</label>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 					<control type="button" id="7">
@@ -107,7 +107,7 @@
 					<onup>6</onup>
 					<ondown>9</ondown>
 					<label>361</label>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 				<control type="button" id="9">
@@ -117,7 +117,7 @@
 					<onup>7</onup>
 					<ondown>30</ondown>
 					<label>13319</label>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 				<control type="button" id="30">
@@ -128,7 +128,7 @@
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<onup>9</onup>
 					<ondown>90</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>	
 				<control type="button" id="90">
@@ -142,7 +142,7 @@
 					<onclick>Skin.ToggleSetting(galleryFull)</onclick>
 					<onclick>Container.SetViewMode(53)</onclick>
 					<selected>!Skin.HasSetting(galleryFull)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(531) + ![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 				<control type="button" id="90">
@@ -156,7 +156,7 @@
 					<onclick>Skin.ToggleSetting(galleryFull)</onclick>
 					<onclick>Container.SetViewMode(531)</onclick>
 					<selected>Skin.HasSetting(galleryFull)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(53) + ![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 			</control>
@@ -172,7 +172,7 @@
 					<ondown>3</ondown>
 					<onright>50</onright>
 					<onclick>SetFocus(40)</onclick>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
 					<enable>false</enable>
 				</control>
@@ -184,7 +184,7 @@
 					<onright>50</onright>
 					<onup>1</onup>
 					<ondown>4</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="togglebutton" id="4">
@@ -196,7 +196,7 @@
 					<onright>50</onright>
 					<onup>3</onup>
 					<ondown>5</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<onclick>Container.SortDirection</onclick>
 					<onclick>Container.SortDirection</onclick>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
@@ -209,7 +209,7 @@
 					<onup>4</onup>
 					<ondown>30</ondown>
 					<onclick>ReplaceWindow(MusicLibrary)</onclick>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 				<control type="button" id="30">
@@ -221,7 +221,7 @@
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<onup>5</onup>
 					<ondown>1</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 			</control>
@@ -237,7 +237,7 @@
 					<ondown>3</ondown>
 					<onright>50</onright>
 					<onclick>SetFocus(40)</onclick>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="grouplist" id="40">
@@ -253,14 +253,14 @@
 						<onright>1</onright>
 						<onup>1</onup>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 					</control>
 					<control type="button" id="42">
 						<label>$LOCALIZE[31014]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(574)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container.HasFiles + !IsEmpty(Container.FolderPath) + substring(container.folderpath,addons://sources/)</visible>
 					</control>
 				</control>
@@ -271,7 +271,7 @@
 					<onright>50</onright>
 					<onup>1</onup>
 					<ondown>30</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="button" id="30">
@@ -282,7 +282,7 @@
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<onup>3</onup>
 					<ondown>1</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 			</control>
@@ -299,7 +299,7 @@
 					<ondown>13</ondown>
 					<onright>50</onright>
 					<onclick>SetFocus(40)</onclick>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="grouplist" id="40">
@@ -315,14 +315,14 @@
 						<onright>1</onright>
 						<onup>1</onup>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 					</control>
 					<control type="button" id="43">
 						<label>$LOCALIZE[31014]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(574)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>!IsEmpty(Container.FolderPath)</visible>
 					</control>
 				</control>
@@ -334,7 +334,7 @@
 					<onright>50</onright>
 					<onup>1</onup>
 					<ondown>30</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="button" id="30">
@@ -345,7 +345,7 @@
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<onup>13</onup>
 					<ondown>5</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="togglebutton" id="5">
@@ -356,7 +356,7 @@
 					<onright>50</onright>
 					<onup>30</onup>
 					<ondown>1</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 			</control>						

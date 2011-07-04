@@ -33,18 +33,24 @@
 	<include file="ViewGallery.xml">-</include>
 	<include file="ViewsTV.xml">-</include>
 	
-<!---GLOBAL VARS------->
-	<include name="screentype">
+<!---GLOBAL------>
+	<include name="global_Includes">
+		<include>global_Clock</include>
+		<include>global_Sortletter</include>
+		<include>global_Itemcount</include>	
+		<include>global_Devmode</include>
+	</include>
+	
+	<include name="global_Screentype">
 		<width>1280</width>
 		<height>720</height>
 		<aspectratio>scale</aspectratio>
 	</include>
-	<include name="screenwidth">
+	<include name="global_Screenwidth">
 		<width>1280</width>
 	</include>
-	<include name="allscreens">
-		<include>libClock</include>
-		<include>scrollOffset</include>
+	
+	<include name="global_Itemcount">
 		<control type="label">
 			<posx>38</posx>
 			<posy>58</posy>
@@ -55,6 +61,20 @@
 			<include>transition_PageLabel</include>
 			<visible>Skin.HasSetting(numitems.enable) + [Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 		</control>
+	</include>
+	<include name="global_Sortletter">
+		<control type="label" id="9900">
+			<posx>34</posx>
+			<posy>20</posy>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>pagelabel</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>
+			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])]</visible>
+		</control>
+	</include>
+	<include name="global_Devmode">
 		<control type="label">
 			<posx>0</posx>
 			<posy>22r</posy>
@@ -73,7 +93,7 @@
 			<visible>Skin.HasSetting(dev.enable)</visible>
 		</control>
 	</include>
-	<include name="libClock">
+	<include name="global_Clock">
 		<control type="label" id="200">
 			<posx>25r</posx>
 			<label>[B]$INFO[System.Time][/B]</label>
@@ -148,18 +168,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="scrollOffset">
-		<control type="label" id="9900">
-			<posx>34</posx>
-			<posy>20</posy>
-			<width>950</width>
-			<aligny>center</aligny>
-			<font>pagelabel</font>
-			<textcolor>Color1</textcolor>
-			<label>[B]$INFO[ListItem.SortLetter][/B]</label>
-			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])]</visible>
-		</control>
-	</include>
+	
 	<include name="xScroller">
 		<showonepage>true</showonepage>
 		<height>8</height>

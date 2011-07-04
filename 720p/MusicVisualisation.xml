@@ -3,12 +3,12 @@
 	<controls>
 		<control type="visualisation" id="2">
 			<description>visualisation</description>
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<visible>IsEmpty(MusicPlayer.Property(Fanart_Image) + !Skin.HasSetting(fanart.visualization) | Skin.HasSetting(fanart.visualization.blend)</visible>
 		</control>
 		<control type="image">
 			<description>Fanart image</description>
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<texture fallback="special://skin/backgrounds/artist.png">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
 			<visible>Skin.HasSetting(fanart.visualization)</visible>
 			<include>transition_Fanart</include>
@@ -19,7 +19,7 @@
 			<visible>Player.ShowCodec</visible>
 			<include>codecInfo</include>
 			<control type="image" id="1">
-				<include>screenwidth</include>
+				<include>global_Screenwidth</include>
 				<height>120</height>
 				<texture flipy="false">OSD/controlsFrame.png</texture>
 			</control>

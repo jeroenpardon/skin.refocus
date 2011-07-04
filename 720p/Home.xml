@@ -7,7 +7,7 @@
 	<!-- global background --->
 		<control type="largeimage">
 			<aspectratio>scale</aspectratio>
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<texture background="true">special://skin/backgrounds/background.png</texture>
 			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)]</visible>
 			<animation type="WindowOpen" condition="Window.Previous(2999)">
@@ -20,16 +20,26 @@
 				<effect type="fade" start="100" end="0" time="200" delay="0" />
 			</animation>
 		</control>
-		<include>themeBackground2</include>
-		<include>slideshows</include>
+		<include>global_Background</include>
+		
+	<!-- slideshows--->
+		<include>home_Slideshows</include>
+		
 	<!-- background video --->
-		<control type="videowindow">
-			<include>screentype</include>
-			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(28)</visible>
+		<control type="image">
+			<aspectratio>stretch</aspectratio>
+			<include>global_Screentype</include>
+			<texture>black.png</texture>
+			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
 		</control>
+		<control type="videowindow">
+			<include>global_Screentype</include>
+			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist)</visible>
+		</control>
+		
 	<!-- weather fanart --->
 		<control type="multiimage" id="1">
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
 			<timeperimage>7000</timeperimage>
@@ -41,7 +51,7 @@
 		</control>
 	<!-- now playing fanart --->
 		<control type="largeimage">
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<aspectratio>scale</aspectratio>
 			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
 			<fadetime>850</fadetime>
@@ -50,13 +60,13 @@
 		</control>
 	<!-- menu shade --->
 		<control type="image">
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground.png</texture>
 		</control>
 	<!-- toast overlay --->
 		<control type="image" id="1">
-			<include>screentype</include>
+			<include>global_Screentype</include>
 			<texture border="16">overlays/vignette.png</texture>
 			<visible>Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)</visible>
 			<include>transition_Toast</include>
@@ -83,7 +93,7 @@
 			</control>	
 			<control type="rss" id="1">
 				<posy>10</posy>
-				<include>screenwidth</include>
+				<include>global_Screenwidth</include>
 				<font>rss</font>
 				<urlset>1</urlset>
 				<height>32</height>
@@ -110,7 +120,7 @@
 			</control>	
 			<control type="fadelabel" id="1">
 				<posy>10</posy>
-				<include>screenwidth</include>
+				<include>global_Screenwidth</include>
 				<font>rss</font>
 				<align>center</align>
 				<label>[COLOR=Color1]$INFO[Window.Property(Movies.Count)] $LOCALIZE[20342][/COLOR]  $INFO[Window.Property(Movies.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Episodes.Count)] $LOCALIZE[20360][/COLOR]  $INFO[Window.Property(Episodes.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Music.ArtistsCount)] $LOCALIZE[133][/COLOR] $INFO[Window.Property(Music.AlbumsCount)] $LOCALIZE[132] $INFO[Window.Property(Music.SongsCount)] $LOCALIZE[134]</label>
@@ -126,7 +136,7 @@
 			</control>
 			<control type="label" id="1">
 				<posy>8</posy>
-				<include>screenwidth</include>
+				<include>global_Screenwidth</include>
 				<font>rss</font>
 				<align>center</align>
 				<label>[COLOR=Color2]$LOCALIZE[19157]: [/COLOR]$INFO[PVR.NextRecordingTitle], $INFO[PVR.NextRecordingDateTime] - $INFO[PVR.NextRecordingChannel]</label>
