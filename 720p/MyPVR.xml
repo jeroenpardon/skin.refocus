@@ -59,8 +59,8 @@
 			<include>view_TV-now</include>
 			<include>view_EPG-timeline</include>
 			<include>view_EPG-channels</include>
-			<include>view_TV-channels</include>
-			<include>view_TV-radiochannels</include>
+			<include>view_TVChannels</include>
+			<include>view_RadioChannels</include>
 		</control>
 
 
@@ -411,21 +411,21 @@
 						<posx>220</posx>
 						<width>507</width>
 						<height>42</height>
-						<texture border="4">epg/column.png</texture>
+						<texture border="4">views/column.png</texture>
 						<colordiffuse>tv3</colordiffuse>
 					</control>
 					<control type="image">
 						<posx>729</posx>
 						<width>321</width>
 						<height>42</height>
-						<texture border="4">epg/column.png</texture>
+						<texture border="4">views/column.png</texture>
 						<colordiffuse>tv3</colordiffuse>
 					</control>
 					<control type="image">
 						<posx>1053</posx>
 						<width>132</width>
 						<height>42</height>
-						<texture border="4">epg/column_right.png</texture>
+						<texture border="4">views/column_right.png</texture>
 						<colordiffuse>tv3</colordiffuse>
 					</control>
 
@@ -459,7 +459,7 @@
 						<width>205</width>
 						<font>smallCaps</font>
 						<label>$INFO[ListItem.ChannelNumber]</label>
-						<include>pvr_Column</include>
+						<include>column_Label</include>
 					</control>
 					<control type="label" id="1">
 						<posx>200</posx>
@@ -467,7 +467,7 @@
 						<font>smallCaps</font>
 						<align>right</align>
 						<label>$INFO[ListItem.ChannelName]</label>
-						<include>pvr_Column</include>
+						<include>column_Label</include>
 					</control>
 					<control type="label">
 						<posx>235</posx>
@@ -542,7 +542,7 @@
 						<width>205</width>
 						<font>smallCaps</font>
 						<label>$INFO[ListItem.ChannelNumber]</label>
-						<include>pvr_Column-focus</include>
+						<include>column_Label-focus</include>
 					</control>
 					<control type="label" id="1">
 						<posx>200</posx>
@@ -550,7 +550,7 @@
 						<font>smallCaps</font>
 						<align>right</align>
 						<label>$INFO[ListItem.ChannelName]</label>
-						<include>pvr_Column-focus</include>
+						<include>column_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>235</posx>

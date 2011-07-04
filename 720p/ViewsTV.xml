@@ -1,127 +1,69 @@
 <includes>
-	<include name="view_TV-channels">
+	<include name="view_TVChannels">
 		<control type="list" id="11">
-			<viewtype label="535">list</viewtype> 	
-			<posy>100</posy>
-			<width>700</width>
-			<height>594</height>
-			<onup>11</onup>
-			<ondown>11</ondown>
-			<onleft>6000</onleft>
-			<onright>79</onright>
-			<pagecontrol>79</pagecontrol>
-			<scrolltime>150</scrolltime>
-			<orientation>vertical</orientation>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<itemlayout width="625" height="65">
-				<control type="label">
-					<posx>40</posx>
-					<width>500</width>
-					<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
-					<font>listBig</font>
-					<include>listMenu</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<posy>27</posy>
-					<width>500</width>
-					<label>$INFO[ListItem.Title]</label>
-					<font>listInfo</font>
-					<textcolor>Color2</textcolor>
-					<include>listMenu</include>
-				</control>
-			</itemlayout>
-			<focusedlayout width="625" height="65">
-				<control type="image">
-					<posy>-28</posy>
-					<width>550</width>
-					<height>128</height>
-					<texture border="0,30,0,30">views/list-focus.png</texture>
-					<visible>!ControlGroup(6000).HasFocus</visible>
-					<include>fadeinout</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<width>500</width>
-					<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
-					<font>listBig</font>
-					<include>listMenuFocus</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<posy>27</posy>
-					<width>500</width>
-					<label>$INFO[ListItem.Title]</label>
-					<font>listInfo</font>
-					<include>listMenuFocus</include>
-				</control>
-			</focusedlayout>
+			<include>ListChannels</include>
 		</control>
 	</include>
-	
-	<include name="view_TV-radiochannels">
-		<control type="list" id="12">
-			<viewtype label="535">list</viewtype> 	
-			<posy>100</posy>
-			<width>550</width>
-			<height>594</height>
-			<onup>12</onup>
-			<ondown>12</ondown>
-			<onleft>6000</onleft>
-			<onright>60</onright>
-			<pagecontrol>60</pagecontrol>
-			<scrolltime>150</scrolltime>
-			<orientation>vertical</orientation>
-			<include>transition_Container</include>
-			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			
-			<itemlayout width="625" height="65">
-				<control type="label">
-					<posx>40</posx>
-					<width>660</width>
-					<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
-					<font>listBig</font>
-					<include>listMenu</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<posy>27</posy>
-					<width>660</width>
-					<label>$INFO[ListItem.Title]</label>
-					<font>listInfo</font>
-					<textcolor>Color2</textcolor>
-					<include>listMenu</include>
-				</control>
-			</itemlayout>
-			<focusedlayout width="625" height="65">
-				<control type="image">
-					<posy>-28</posy>
-					<width>550</width>
-					<height>128</height>
-					<texture border="0,30,0,30">views/list-focus.png</texture>
-					<visible>!ControlGroup(6000).HasFocus</visible>
-					<include>fadeinout</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<width>660</width>
-					<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
-					<font>listBig</font>
-					<include>listMenuFocus</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<posy>27</posy>
-					<width>660</width>
-					<label>$INFO[ListItem.Title]</label>
-					<font>listInfo</font>
-					<include>listMenuFocus</include>
-				</control>
-			</focusedlayout>
+	<include name="view_RadioChannels">		
+		<control type="list" id="12">	
+			<include>ListChannels</include>
 		</control>
 	</include>
+	<include name="ListChannels">
+		<viewtype label="535">list</viewtype> 	
+		<posy>90</posy>
+		<width>625</width>
+		<height>612</height>
+		<onup>11</onup>
+		<ondown>11</ondown>
+		<onleft>6000</onleft>
+		<onright>79</onright>
+		<pagecontrol>79</pagecontrol>
+		<scrolltime>150</scrolltime>
+		<orientation>vertical</orientation>
+		<include>transition_Container</include>
+		<include>infoDialogHide</include>
+		<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+		<itemlayout width="625" height="67">
+			<control type="label">
+				<posx>40</posx>
+				<width>500</width>
+				<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
+				<include>list_Label</include>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>500</width>
+				<label>$INFO[ListItem.Title]</label>
+				<include>list_Label-sub</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="625" height="67">
+			<control type="image">
+				<posy>-30</posy>
+				<width>650</width>
+				<height>128</height>
+				<texture border="0,30,0,30">views/list-focus.png</texture>
+				<include>focus_ListScroll</include>
+				<visible>!ControlGroup(6000).HasFocus</visible>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<width>500</width>
+				<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
+				<include>list_Label-focus</include>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>500</width>
+				<label>$INFO[ListItem.Title]</label>
+				<include>list_Label-sub-focus</include>
+			</control>
+		</focusedlayout>
+	</include>
+
 
 <!-- RECORDINGS VIEW --------------------------------------------------------------------------------------->
 	<include name="view_TV-recordings">
@@ -324,21 +266,21 @@
 					<posx>235</posx>
 					<width>553</width>
 					<info>ListItem.Title</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label">
 					<posx>880</posx>
 					<width>553</width>
 					<font>smallCaps</font>
 					<info>ListItem.StartDate</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 			</focusedlayout>
 		</control>
 	</include>
 
 
-<!-- GUIDE CHANNEL VIEW--------------------------------------------------------------->
+<!-- EPG Channels--------------------------------------------------------------->
 	<include name="view_EPG-channels">
 		<control type="list" id="15">
 			<posx>39</posx>
@@ -357,21 +299,21 @@
 				<control type="image" id="1">
 					<width>220</width>
 					<height>42</height>
-					<texture border="8">epg/column_left.png</texture>
+					<texture border="8">views/column_left.png</texture>
 					<colordiffuse>tv2</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>220</posx>
 					<width>642</width>
 					<height>42</height>
-					<texture border="4">epg/column.png</texture>
+					<texture border="4">views/column.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>865</posx>
 					<width>321</width>
 					<height>42</height>
-					<texture border="4">epg/column_right.png</texture>
+					<texture border="4">views/column_right.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
 				<control type="image">
@@ -403,27 +345,27 @@
 					<width>203</width>
 					<font>smallCaps</font>
 					<label>$INFO[ListItem.StartTime]</label>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 				<control type="label">
 					<posx>235</posx>
 					<width>553</width>
 					<info>ListItem.Title</info>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 				<control type="label">
 					<posx>880</posx>
 					<width>553</width>
 					<font>smallCaps</font>
 					<info>ListItem.StartDate</info>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 			</itemlayout>
 			<focusedlayout height="44">
 				<control type="image">
 					<width>1185</width>
 					<height>42</height>
-					<texture border="4">epg/column_focus.png</texture>
+					<texture border="4">views/column_focus.png</texture>
 					<colordiffuse>tv1</colordiffuse>
 				</control>
 				<control type="image">
@@ -458,20 +400,20 @@
 					<width>203</width>
 					<font>smallCaps</font>
 					<label>$INFO[ListItem.StartTime]</label>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label">
 					<posx>235</posx>
 					<width>553</width>
 					<info>ListItem.Title</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label">
 					<posx>880</posx>
 					<width>553</width>
 					<font>smallCaps</font>
 					<info>ListItem.StartDate</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 			</focusedlayout>
 		</control>
@@ -497,28 +439,28 @@
 				<control type="image" id="1">
 					<width>220</width>
 					<height>42</height>
-					<texture border="8">epg/column_left.png</texture>
+					<texture border="8">views/column_left.png</texture>
 					<colordiffuse>tv2</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>220</posx>
 					<width>693</width>
 					<height>42</height>
-					<texture border="4">epg/column.png</texture>
+					<texture border="4">views/column.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>916</posx>
 					<width>132</width>
 					<height>42</height>
-					<texture border="4">epg/column.png</texture>
+					<texture border="4">views/column.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>1050</posx>
 					<width>136</width>
 					<height>42</height>
-					<texture border="4">epg/column_right.png</texture>
+					<texture border="4">views/column_right.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
 				<control type="image">
@@ -550,7 +492,7 @@
 					<width>205</width>
 					<font>smallCaps</font>
 					<label>$INFO[ListItem.ChannelNumber]</label>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 				<control type="label" id="1">
 					<posx>200</posx>
@@ -558,26 +500,26 @@
 					<font>smallCaps</font>
 					<label>$INFO[ListItem.ChannelName]</label>
 					<align>right</align>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 				<control type="label">
 					<posx>235</posx>
 					<width>553</width>
 					<info>ListItem.Title</info>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 				<control type="label">
 					<posx>931</posx>
 					<width>553</width>
 					<font>smallCaps</font>
 					<info>ListItem.StartTime</info>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 				<control type="label">
 					<posx>1065</posx>
 					<width>400</width>
 					<info>ListItem.Duration</info>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 			</itemlayout>
 			<focusedlayout height="44">
@@ -585,7 +527,7 @@
 					<posx>0</posx>
 					<width>1185</width>
 					<height>42</height>
-					<texture border="4">epg/column_focus.png</texture>
+					<texture border="4">views/column_focus.png</texture>
 					<colordiffuse>tv1</colordiffuse>
 				</control>
 				<control type="image">
@@ -620,7 +562,7 @@
 					<width>205</width>
 					<font>smallCaps</font>
 					<label>$INFO[ListItem.ChannelNumber]</label>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label" id="1">
 					<posx>200</posx>
@@ -628,33 +570,33 @@
 					<font>smallCaps</font>
 					<align>right</align>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label">
 					<posx>235</posx>
 					<width>553</width>
 					<info>ListItem.Title</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label">
 					<posx>931</posx>
 					<width>553</width>
 					<font>smallCaps</font>
 					<info>ListItem.StartTime</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 				<control type="label">
 					<posx>1065</posx>
 					<width>400</width>
 					<info>ListItem.Duration</info>
-					<include>pvr_Column-focus</include>
+					<include>column_Label-focus</include>
 				</control>
 			</focusedlayout>
 		</control>
 	</include>
 
 
-<!--- GUIDE TIMELINE VIEW ---------------------------------------------------------------------------------------------->
+<!---EPG TIMELINE---------------------------------------------------------------------------------------------->
 	<include name="view_EPG-timeline">
 		<control type="epggrid" id="10">
 			<description>EPG Grid</description>
@@ -686,69 +628,48 @@
 					<selectedcolor>selected</selectedcolor>
 				</control>
 			</rulerlayout>
-
 			<channellayout height="44" width="220">
 				<animation effect="fade" start="110" time="200">UnFocus</animation>
 				<control type="image" id="1">
-					<posx>0</posx>
-					<posy>0</posy>
 					<width>220</width>
 					<height>42</height>
-					<texture border="8">epg/column_left.png</texture>
+					<texture border="8">views/column_left.png</texture>
 					<colordiffuse>tv2</colordiffuse>
 				</control>
 				<control type="label" id="1">
 					<posx>15</posx>
 					<width>205</width>
-					<height>40</height>
-					<font>smallCaps</font>
-					<aligny>center</aligny>
-					<textcolor>Color1</textcolor>
-					<selectedcolor>Color7</selectedcolor>
 					<label>$INFO[ListItem.ChannelNumber]</label>
+					<include>column_Label</include>
 				</control>
 				<control type="label" id="1">
 					<posx>200</posx>
 					<width>150</width>
-					<height>40</height>
-					<font>smallCaps</font>
-					<aligny>center</aligny>
-					<textcolor>Color1</textcolor>
-					<selectedcolor>Color1</selectedcolor>
 					<align>right</align>
 					<label>$INFO[ListItem.ChannelName]</label>
+					<include>column_Label</include>
 				</control>
 			</channellayout>
 			<focusedchannellayout height="44" width="220">
 				<animation effect="fade" start="110" time="200">OnFocus</animation>
 				<control type="image" id="1">
-					<posx>0</posx>
-					<posy>0</posy>
 					<width>220</width>
 					<height>42</height>
-					<texture border="8">epg/genre.png</texture>
+					<texture border="8">views/column_left.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
 				<control type="label" id="1">
 					<posx>15</posx>
 					<width>205</width>
-					<height>40</height>
-					<font>smallCaps</font>
-					<aligny>center</aligny>
-					<textcolor>Color1</textcolor>
-					<selectedcolor>Color7</selectedcolor>
 					<label>$INFO[ListItem.ChannelNumber]</label>
+					<include>column_Label</include>
 				</control>
 				<control type="label" id="1">
 					<posx>200</posx>
 					<width>150</width>
-					<height>40</height>
-					<font>smallCaps</font>
-					<aligny>center</aligny>
-					<textcolor>Color1</textcolor>
-					<selectedcolor>Color1</selectedcolor>
 					<align>right</align>
 					<label>$INFO[ListItem.ChannelName]</label>
+					<include>column_Label</include>
 				</control>
 			</focusedchannellayout>
 
@@ -756,72 +677,72 @@
 				<control type="image" id="2">
 					<description>movie / drama</description>
 					<colordiffuse>ff8b5015</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),16)</visible>
 				</control>
 				<control type="image" id="3">
 					<description>news</description>
 					<colordiffuse>ff446444</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),32)</visible>
 				</control>
 				<control type="image" id="4">
 					<description>show / gameshow</description>
 					<colordiffuse>ff8d8c17</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),48)</visible>
 				</control>
 				<control type="image" id="5">
 					<description>sports</description>
 					<colordiffuse>ff930d1d</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),64)</visible>
 				</control>
 				<control type="image" id="6">
 					<description>children</description>
 					<colordiffuse>ff13897a</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),80)</visible>
 				</control>
 				<control type="image" id="7">
 					<description>music / ballet / dance</description>
 					<colordiffuse>ff2d9234</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),96)</visible>
 				</control>
 				<control type="image" id="8">
 					<description>arts / culture</description>
 					<colordiffuse>ff022788</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),112)</visible>
 				</control>
 				<control type="image" id="9">
 					<description>social / political / economics</description>
 					<colordiffuse>ff641864</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),128)</visible>
 				</control>
 				<control type="image" id="10">
 					<description>education / science / factual</description>
 					<colordiffuse>ff797a7c</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),144)</visible>
 				</control>
 				<control type="image" id="11">
 					<description>leisure / hobbies</description>
 					<colordiffuse>ff5a5a7e</colordiffuse>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<visible>stringcompare(ListItem.Property(GenreType),160)</visible>
 				</control>
 				<control type="image" id="12">
 					<description>special event</description>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<colordiffuse>ff1a6973</colordiffuse>
 					<visible>stringcompare(ListItem.Property(GenreType),176)</visible>
 				</control>
 				<control type="image" id="13">
 					<description>other / unknown</description>
-					<include>pvr_Column-genre</include>
+					<include>column</include>
 					<colordiffuse>ff651765</colordiffuse>
 					<visible>stringcompare(ListItem.Property(GenreType),0) | stringcompare(ListItem.Property(GenreType),240)</visible>
 				</control>
@@ -829,24 +750,83 @@
 					<posx>8</posx>
 					<width>85</width>
 					<info>ListItem.Label</info>
-					<include>pvr_Column</include>
+					<include>column_Label</include>
 				</control>
 			</itemlayout>
 			<focusedlayout height="44" width="100">
 				<control type="image" id="14">
 					<width>98</width>
-					<height>42</height>
-					<texture border="4">epg/column.png</texture>
+					<include>column</include>
 					<colordiffuse>ff000000</colordiffuse>
 				</control>
 				<control type="label" id="1">
 					<posx>8</posx>
 					<width>85</width>
 					<info>ListItem.Label</info>
-					<textcolor>Color1</textcolor>
-					<include>pvr_Column-focus</include>
+					<include>column_Label</include>
 				</control>
 			</focusedlayout>
 		</control>
-	</include>	
+	</include>
+	
+	
+	<!--
+	<include name="view_TV-radiochannels">
+		<control type="list" id="12">
+			<viewtype label="535">list</viewtype> 	
+			<posy>90</posy>
+			<width>625</width>
+			<height>612</height>
+			<onup>11</onup>
+			<ondown>11</ondown>
+			<onleft>6000</onleft>
+			<onright>79</onright>
+			<pagecontrol>79</pagecontrol>
+			<scrolltime>150</scrolltime>
+			<orientation>vertical</orientation>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<itemlayout width="625" height="67">
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
+					<include>list_Label</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>500</width>
+					<label>$INFO[ListItem.Title]</label>
+					<include>list_Label-sub</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="625" height="67">
+				<control type="image">
+					<posy>-30</posy>
+					<width>650</width>
+					<height>128</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+					<include>focus_ListScroll</include>
+					<visible>!ControlGroup(6000).HasFocus</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>[B]$INFO[ListItem.ChannelNumber][/B]  $INFO[ListItem.Label]</label>
+					<include>list_Label-focus</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>500</width>
+					<label>$INFO[ListItem.Title]</label>
+					<include>list_Label-sub-focus</include>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+
+	-->
 </includes>

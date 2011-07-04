@@ -40,7 +40,6 @@
 		<include>global_Itemcount</include>	
 		<include>global_Devmode</include>
 	</include>
-	
 	<include name="global_Screentype">
 		<width>1280</width>
 		<height>720</height>
@@ -49,7 +48,6 @@
 	<include name="global_Screenwidth">
 		<width>1280</width>
 	</include>
-	
 	<include name="global_Itemcount">
 		<control type="label">
 			<posx>38</posx>
@@ -97,34 +95,14 @@
 		<control type="label" id="200">
 			<posx>25r</posx>
 			<label>[B]$INFO[System.Time][/B]</label>
-			<include>notificationTop</include>
+			<include>toast_Top</include>
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(shutdownmenu) | Window.IsActive(videoplaylist)</visible>
-			<animation type="WindowOpen">
-				<effect type="rotatex" time="600" center="0,0" start="380" end="0" tween="cubic" easing="out" />
-				<effect type="fade" time="400" center="640,360" start="0" end="100" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="fade" time="250" center="640,360" start="100" end="0" />
-			</animation>
-			<animation type="Conditional" condition="Player.Muted">
-				<effect type="slide" time="0" start="0" end="-50" />
-			</animation>
 		</control>
 		<control type="label" id="200">
 			<posx>25r</posx>
 			<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
-			<include>notificationBottom</include>
+			<include>toast_Bottom</include>
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
-			<animation type="WindowOpen">
-				<effect type="rotatex" time="600" center="0,0" start="380" end="0" tween="cubic" easing="out" />
-				<effect type="fade" time="400" center="640,360" start="0" end="100" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="fade" time="250" center="640,360" start="100" end="0" />
-			</animation>
-			<animation type="Conditional" condition="Player.Muted">
-				<effect type="slide" time="0" start="0" end="-50" />
-			</animation>
 		</control>
 	</include>
 
@@ -168,8 +146,7 @@
 			</control>
 		</control>
 	</include>
-	
-	<include name="xScroller">
+	<include name="scrollbar_X">
 		<showonepage>true</showonepage>
 		<height>8</height>
 		<texturesliderbackground border="8,1,8,1">views/scrollBackgroundHorizontal.png</texturesliderbackground>		
@@ -181,13 +158,6 @@
 	<include name="autoscroll">
 		<autoscroll delay="6000" time="3000" repeat="10000"></autoscroll>
 	</include>
-
-
-
-
-
-
-
 
 
 <!---LABELS------>
@@ -343,8 +313,8 @@
 		<textoffsety>2</textoffsety>
 		<textcolor>Color1</textcolor>
 		<focusedcolor>Color1</focusedcolor>
-		<texturenofocus border="8">epg/column_focus2.png</texturenofocus>
-		<texturefocus border="8">epg/column_focus.png</texturefocus>
+		<texturenofocus border="8">views/column_focus2.png</texturenofocus>
+		<texturefocus border="8">views/column_focus.png</texturefocus>
 		<colordiffuse>tv3</colordiffuse>
 	</include>
 
@@ -394,39 +364,29 @@
 	</include>
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-<!---PVR------>
-	<include name="pvr_Column">
+<!---COLUMNS------>
+	<include name="column">
+		<width>98</width>
+		<height>42</height>
+		<texture border="8">views/column.png</texture>
+	</include>
+	<include name="column_Label">
 		<height>38</height>
 		<font>listAlt</font>
 		<textcolor>Color1</textcolor>
 		<selectedcolor>Selected</selectedcolor>
 	</include>
-	<include name="pvr_Column-focus">
+	<include name="column_Label-focus">
 		<height>38</height>
 		<font>listAlt</font>
 		<textcolor>Focused</textcolor>
 		<selectedcolor>Selected</selectedcolor>
 	</include>
-	<include name="pvr_Column-genre">
-		<width>98</width>
-		<height>42</height>
-		<texture border="8">epg/column.png</texture>
-	</include>
+	
 
 <!---NOTIFICATIONS------>
-	<include name="notificationTop">
+	<!--notificationTop-->
+	<include name="toast_Top">
 		<posy>7</posy>
 		<width>340</width>
 		<align>right</align>
@@ -437,14 +397,9 @@
 		<scrollout>false</scrollout>
 		<pauseatend>2000</pauseatend>
 		<include>transition_Toast</include>
-		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(614)]">
-			<effect type="slide" time="0" start="0" end="-60" />
-		</animation>
-		<animation type="Conditional" condition="Player.Muted + [Window.IsActive(videoscan) | Window.IsActive(musicscan)]">
-			<effect type="slide" time="0" start="0" end="-60" />
-		</animation>
 	</include>
-	<include name="notificationBottom">
+	<!--notificationBottom-->
+	<include name="toast_Bottom">
 		<posy>26</posy>
 		<width>340</width>
 		<align>right</align>
@@ -455,14 +410,9 @@
 		<scroll>false</scroll>
 		<pauseatend>2000</pauseatend>
 		<include>transition_Toast</include>
-		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(614)]">
-			<effect type="slide" time="0" start="0" end="-60" />
-		</animation>
-		<animation type="Conditional" condition="Player.Muted + [Window.IsActive(videoscan) | Window.IsActive(musicscan)]">
-			<effect type="slide" time="0" start="0" end="-60" />
-		</animation>
 	</include>
-	<include name="notificationSide">
+	<!--notificationSide-->
+	<include name="toast_Side">
 		<posy>22</posy>
 		<align>left</align>
 		<aligny>center</aligny>
@@ -476,7 +426,8 @@
 			<effect type="slide" time="0" start="0" end="-60" />
 		</animation>
 	</include>
-	<include name="notificationIcon">
+	<!--notificationIcon-->
+	<include name="toast_Icon">
 		<posx>60r</posx>
 		<posy>16</posy>
 		<width>42</width>
