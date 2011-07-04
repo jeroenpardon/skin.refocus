@@ -1,0 +1,86 @@
+﻿<includes>
+	<include name="clock">
+		<control type="label" id="200">
+			<posx>25r</posx>
+			<label>[B]$INFO[System.Time][/B]</label>
+			<shadowcolor>black</shadowcolor>
+			<include>notificationTop</include>
+			<visible>![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
+			<include>fadeinout</include>		
+		</control>
+		<control type="label" id="200">
+			<posx>25r</posx>
+			<label>$INFO[System.Date]</label>
+			<textcolor>Color1</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<include>fadeinout</include>	
+			<include>notificationBottom</include>
+			<visible>!Window.IsActive(fullscreenvideo)</visible>
+		</control>
+		<control type="label" id="200">
+			<posx>25r</posx>
+			<label>$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
+			<textcolor>Color1</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<include>fadeinout</include>	
+			<include>notificationBottom</include>		
+			<visible>!Window.IsActive(home) + ![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
+		</control>
+	</include>
+	<include name="homeMenusLayout">
+		<itemlayout width="1200" height="55">
+			<control type="label">
+				<posx>20</posx>
+				<posy>70</posy>
+				<posy>100</posy>
+				<width>1200</width>
+				<height>52</height>
+				<font>homeMenu</font>
+				<align>left</align>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>Color0</textcolor>
+			</control>
+		</itemlayout>			
+		<focusedlayout width="1200" height="55">
+			<control type="image">
+				<posy>0</posy>
+				<width>375</width>
+				<height>209</height>
+				<aspectratio align="left">stretch</aspectratio>
+				<texture border="1">home/menuSelect.png</texture>
+				<include>home_ListScroll</include>
+				<animation effect="fade" start="100" end="50" time="350" condition="System.IdleTime(5)">Conditional</animation>
+			</control>
+			<control type="image">
+				<posy>0</posy>
+				<width>950</width>
+				<height>209</height>
+				<aspectratio align="left">stretch</aspectratio>
+				<texture border="80,0,0,0">home/menuSelect.png</texture>
+				<include>home_ListScroll</include>
+				<visible allowhiddenfocus="true">[Container(9000).HasFocus(9) | Container(9000).HasFocus(14) | Container(9000).HasFocus(15)]</visible>	
+			</control>
+			<control type="label">
+				<posy>70</posy>
+				<posx>20</posx>
+				<width>1200</width>
+				<height>52</height>
+				<font>homeMenu</font>
+				<align>left</align>
+				<textcolor>Color5</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>![Container(9000).HasFocus(9) | Container(9000).HasFocus(14) | Container(9000).HasFocus(15)] + ![Window.IsActive(playercontrols) | Container(9000).HasFocus(14)]</visible>
+			</control>
+			<control type="label">
+				<posy>74</posy>
+				<posx>15</posx>
+				<width>1300</width>
+				<height>52</height>
+				<font>homeMenuInfo</font>
+				<align>left</align>
+				<textcolor>ff000000</textcolor>
+				<label>[LOWERCASE]$INFO[ListItem.Label2][/LOWERCASE]</label>
+			</control>
+		</focusedlayout>
+	</include>
+</includes>

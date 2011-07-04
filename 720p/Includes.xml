@@ -17,11 +17,14 @@
 	<include file="WeatherMenu.xml">-</include>
 	<include file="InfoDialogMenu.xml">-</include>
 	<include file="TVMenu.xml">-</include>
+	<include file="IncludesBackgrounds.xml">-</include>
 	<include file="IncludesFlags.xml">-</include>
+	<include file="IncludesHome.xml">-</include>
 	<include file="IncludesPageLabels.xml">-</include>
 	<include file="IncludesAnimations.xml">-</include>
 	<include file="IncludesDialogs.xml">-</include>
 	<include file="IncludesPageControl.xml">-</include>
+	<include file="IncludesPlayerControl.xml">-</include>
 	<include file="IncludesScripts.xml">-</include>
 	<include file="ViewIcon.xml">-</include>
 	<include file="ViewList.xml">-</include>
@@ -106,116 +109,6 @@
 	</include>
 
 
-<!---BACKGROUNDS / FANART------>
-	<include name="themeBackground2">
-		<control type="image">
-			<description>movies bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/movies.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + [Container.Content(movies) | Window.IsActive(21) | Window.IsActive(22) | Window.IsActive(23) | Window.IsActive(24) | Window.IsActive(25)]+ ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>tvshows bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/tvshows.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + [Container.Content(tvshows) | Container.Content(seasons)  | Container.Content(episodes) | stringcompare(container.folderpath,videodb://2/) | stringcompare(container.folderpath,videodb://5/)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>livetv bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/livetv.jpg</texture>
-			<visible>!Skin.HasSetting(fanart.global) + [Window.IsActive(600) | Window.IsActive(tvsettings)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>music bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/music.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + [Window.IsActive(501) | Window.IsActive(502)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>pictures bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/pictures.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + Window.IsActive(2) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>settings bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/settings.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + [Window.IsActive(12) | Window.IsActive(10019) | Window.IsActive(10018) | Window.IsActive(10017) | Window.IsActive(10016) | Window.IsActive(10015) | Window.IsActive(10014) | Window.IsActive(10013) | Window.IsActive(10012) | Window.IsActive(10003) | Window.IsActive(10004) | Window.IsActive(10007) | Window.IsActive(10034)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>skin bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/skin.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + Window.IsActive(59) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>skin bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/programs.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + Window.IsActive(programs) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<description>skin bg</description>
-			<include>screentype</include>
-			<texture background="true">backgrounds/addons.png</texture>
-			<visible>!Skin.HasSetting(fanart.global) + Window.IsActive(addonbrowser) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + ![Control.IsVisible(56)]</visible>
-			<include>screentype</include>
-			<include>fanartFadeTime</include>
-			<include>transition_Fanart</include>
-		</control>
-		<control type="image">
-			<aspectratio>stretch</aspectratio>
-			<include>screentype</include>
-			<texture>black.png</texture>
-			<visible>Player.HasVideo + Skin.HasSetting(backgroundvideo.global)</visible>
-		</control>
-		<control type="videowindow">
-			<include>screentype</include>
-			<visible>Skin.HasSetting(backgroundvideo.global) + ![Window.IsActive(pictures) + Control.IsVisible(56)]</visible>
-		</control>
-		<control type="image">
-			<aspectratio>scale</aspectratio>
-			<include>screentype</include>
-			<texture background="true">backgrounds/background.png</texture>
-			<visible>[![Window.IsActive(2) + Control.IsVisible(52)] + !Window.IsActive(2006)]</visible>
-			<include>transition_BG</include>
-		</control>
-		<control type="image">
-			<aspectratio>scale</aspectratio>
-			<include>screentype</include>
-			<texture background="true">overlays/vignette.png</texture>
-			<visible>[![Window.IsActive(2) + Control.IsVisible(52)] + !Window.IsActive(2006)] + Skin.HasSetting(fanart.global.alt)</visible>
-			<include>transition_BG</include>
-		</control>
-	</include>
-	<include name="slideshows">
-		<control type="multiimage" id="1">
-			<imagepath>special://profile/Thumbnails/Video/Fanart/</imagepath>
-			<visible>!Skin.HasSetting(slideshow.fanart) + ![Player.HasVideo + !Skin.HasSetting(backgroundvideo.home)] + !ControlGroup(2100).HasFocus</visible>
-			<include>home_Slideshow</include>
-		</control>
-		<control type="multiimage" id="1">
-			<info>Skin.String(slideshow.custom)</info>
-			<visible>Skin.HasSetting(slideshow.fanart) + ![Player.HasVideo + !Skin.HasSetting(backgroundvideo.home)]</visible>
-			<include>home_Slideshow</include>
-		</control>
-	</include>
-
 <!--- NAVIGATION ------>
 	<include name="nav_Indicator">
 		<control type="group" id="6100">
@@ -227,14 +120,14 @@
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
-				<texture>views/indicator_Left.png</texture>
+				<texture>navigation/indicator_Left.png</texture>
 				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(572) | Control.IsVisible(575) | Window.IsActive(weather) | Window.IsActive(600)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<animation effect="rotate" center="auto" start="0" end="-180" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
-				<texture>views/indicator_Up.png</texture>
+				<texture>navigation/indicator_Up.png</texture>
 				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<animation effect="rotate" center="auto" start="0" end="-90" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
 			</control>
@@ -250,7 +143,7 @@
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
-				<texture>views/indicator_Left.png</texture>
+				<texture>navigation/indicator_Left.png</texture>
 				<animation effect="rotate" center="auto" start="0" end="-180" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
 			</control>
 		</control>
@@ -281,95 +174,159 @@
 	</include>
 
 
-<!---HOMESCREEN------>	
-	<include name="homeMenusLayout">
-		<itemlayout width="1200" height="55">
-			<control type="label">
-				<posx>20</posx>
-				<posy>70</posy>
-				<posy>100</posy>
-				<width>1200</width>
-				<height>52</height>
-				<font>homeMenu</font>
-				<align>left</align>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>Color0</textcolor>
-			</control>
-		</itemlayout>			
-		<focusedlayout width="1200" height="55">
-			<control type="image">
-				<posy>0</posy>
-				<width>375</width>
-				<height>209</height>
-				<aspectratio align="left">stretch</aspectratio>
-				<texture border="1">home/menuSelect.png</texture>
-				<include>home_ListScroll</include>
-				<animation effect="fade" start="100" end="50" time="350" condition="System.IdleTime(5)">Conditional</animation>
-			</control>
-			<control type="image">
-				<posy>0</posy>
-				<width>950</width>
-				<height>209</height>
-				<aspectratio align="left">stretch</aspectratio>
-				<texture border="80,0,0,0">home/menuSelect.png</texture>
-				<include>home_ListScroll</include>
-				<visible allowhiddenfocus="true">[Container(9000).HasFocus(9) | Container(9000).HasFocus(14) | Container(9000).HasFocus(15)]</visible>	
-			</control>
-			<control type="label">
-				<posy>70</posy>
-				<posx>20</posx>
-				<width>1200</width>
-				<height>52</height>
-				<font>homeMenu</font>
-				<align>left</align>
-				<textcolor>Color5</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>![Container(9000).HasFocus(9) | Container(9000).HasFocus(14) | Container(9000).HasFocus(15)] + ![Window.IsActive(playercontrols) | Container(9000).HasFocus(14)]</visible>
-			</control>
-			<control type="label">
-				<posy>74</posy>
-				<posx>15</posx>
-				<width>1300</width>
-				<height>52</height>
-				<font>homeMenuInfo</font>
-				<align>left</align>
-				<textcolor>ff000000</textcolor>
-				<label>[LOWERCASE]$INFO[ListItem.Label2][/LOWERCASE]</label>
-			</control>
-		</focusedlayout>
-	</include>
-	<include name="clock">
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>[B]$INFO[System.Time][/B]</label>
-			<shadowcolor>black</shadowcolor>
-			<include>notificationTop</include>
-			<visible>![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
-			<include>fadeinout</include>		
-		</control>
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>$INFO[System.Date]</label>
-			<textcolor>Color1</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<include>fadeinout</include>	
-			<include>notificationBottom</include>
-			<visible>!Window.IsActive(fullscreenvideo)</visible>
-		</control>
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
-			<textcolor>Color1</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<include>fadeinout</include>	
-			<include>notificationBottom</include>		
-			<visible>!Window.IsActive(home) + ![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
-		</control>
-	</include>
 
 
-<!---CONTROLS------>
-	<!--infodialog_Button-->
+
+
+
+
+
+<!---LABELS------>
+	<!--weatherLabel-->
+	<include name="label_Weather">
+		<width>430</width>
+		<height>40</height>
+		<font>small</font>
+		<textcolor>Color1</textcolor>
+		<aligny>center</aligny>
+	</include>
+	<!--sysInfoLabel-->
+	<include name="label_Systeminfo">
+		<width>800</width>
+		<textcolor>Color7</textcolor>
+		<align>left</align>
+		<font>normal</font>
+	</include>
+	<!--infodialog-->
+	<include name="label_Small-caps">
+		<height>20</height>
+		<aligny>center</aligny>
+		<font>smallCaps</font>
+		<textcolor>Color2</textcolor>
+	</include>
+	<!--user_LoginLabel-->
+	<include name="label_Login">
+		<width>300</width>
+		<font>username</font>
+		<align>center</align>
+		<textcolor>Color5</textcolor>
+		<include>focus_SlideLoginUser</include>
+		<visible>![Container(52).OnNext | Container(52).OnPrevious] + ![Container.Scrolling + Container(52).Scrolling]</visible>
+	</include>
+
+<!---LIST LABELS------>
+	<include name="list_Label-single">
+		<height>40</height>
+		<font>list</font>
+		<aligny>center</aligny>
+		<textcolor>Color1</textcolor>
+		<scroll>false</scroll>
+	</include>
+	<!--listMenu-->
+	<include name="list_Label">
+		<height>40</height>
+		<font>listBig</font>
+		<aligny>center</aligny>
+		<textcolor>Color1</textcolor>
+		<selectedcolor>Selected</selectedcolor>
+		<scroll>false</scroll>
+	</include>
+	<!--listMenuFocus-->
+	<include name="list_Label-focus">
+		<height>40</height>
+		<font>listBig</font>
+		<aligny>center</aligny>
+		<textcolor>Focused</textcolor>
+		<selectedcolor>Color5</selectedcolor>
+		<scroll>false</scroll>
+	</include>
+	<include name="list_Label-sub">
+		<height>40</height>
+		<font>listInfo</font>
+		<aligny>center</aligny>
+		<textcolor>Color2</textcolor>
+		<selectedcolor>Selected</selectedcolor>
+		<scroll>false</scroll>
+	</include>
+	<include name="list_Label-sub-focus">
+		<height>40</height>
+		<font>listInfo</font>
+		<aligny>center</aligny>
+		<textcolor>Focused</textcolor>
+		<selectedcolor>Focused</selectedcolor>
+		<scroll>false</scroll>
+	</include>
+	
+	<!--Heading1-->
+	<include name="info_Title">
+		<height>28</height>
+		<aligny>center</aligny>
+		<font>title</font>
+		<textcolor>Color1</textcolor>
+	</include>
+	<include name="info_TitleSmall">
+		<height>26</height>
+		<aligny>center</aligny>
+		<font>normalCaps</font>
+		<textcolor>Color1</textcolor>
+	</include>
+	<!--Heading3-->
+	<include name="info_Sub">
+		<height>25</height>
+		<aligny>center</aligny>
+		<font>info</font>
+		<textcolor>Color2</textcolor>
+	</include>
+	<!--
+	<include name="Heading2">
+		<height>24</height>
+		<aligny>center</aligny>
+		<font>mediumCaps</font>
+		<textcolor>Color2</textcolor>
+	</include>
+	-->
+
+<!---BUTTONS------>
+	<!--contextButton-->
+	<include name="button_Menu">
+		<width>400</width>
+		<height>170</height>
+		<font>pagemenu</font>
+		<textcolor>Color1</textcolor>
+		<focusedcolor>Color5</focusedcolor>
+		<textoffsety>60</textoffsety>
+		<textoffsetx>35</textoffsetx>
+		<texturenofocus>-</texturenofocus>
+		<texturefocus>home/menuSelect.png</texturefocus>
+		<alttexturefocus>home/menuSelect.png</alttexturefocus>
+		<alttexturenofocus>-</alttexturenofocus>
+	</include>
+	<!--categoryButton-->
+	<include name="button_Category">
+		<width>325</width>
+		<height>50</height>
+		<font>category</font>
+		<align>right</align>
+		<textoffsety>3</textoffsety>
+		<textoffsetx>25</textoffsetx>
+		<textcolor>Color1</textcolor>
+		<texturefocus border="13,6,13,6">settings/list-focusRev.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+	</include>
+	<!--settingsButton-->
+	<include name="button_Settings">
+		<width>850</width>
+		<height>46</height>
+		<font>normal</font>
+		<textoffsetx>30</textoffsetx>
+		<textoffsety>7</textoffsety>
+		<textcolor>Color1</textcolor>
+		<focusedcolor>black</focusedcolor>
+		<texturefocus border="13,6,13,6">settings/list-focus.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<radioheight>24</radioheight>
+		<radiowidth>77</radiowidth>
+	</include>
 	<include name="button_Inline">
 		<width>125</width>
 		<font>normal</font>
@@ -381,134 +338,13 @@
 		<texturefocus border="8">epg/column_focus.png</texturefocus>
 		<colordiffuse>tv3</colordiffuse>
 	</include>
-	<include name="sysInfoLabel">
-		<width>800</width>
-		<textcolor>Color7</textcolor>
-		<align>left</align>
-		<font>normal</font>
-	</include>
-
-<!--infoDialogMeta-->
-	<include name="label_Small-caps">
-		<height>20</height>
-		<aligny>center</aligny>
-		<font>smallCaps</font>
-		<textcolor>Color2</textcolor>
-	</include>
-	<include name="infoDialogMeta2">
-		<height>22</height>
-		<aligny>center</aligny>
-		<font>normal</font>
-		<textcolor>Color2</textcolor>
-	</include>
-	
-	<include name="weatherLabel">
-		<width>430</width>
-		<height>40</height>
-		<align>left</align>
-		<aligny>center</aligny>
-		<textcolor>Color1</textcolor>
-		<font>small</font>
-	</include>
-	<include name="contextButton">
-		<textcolor>Color1</textcolor>
-		<font>pagemenu</font>
-		<focusedcolor>Color5</focusedcolor>
-		<width>400</width>
-		<texturenofocus>-</texturenofocus>
-		<texturefocus>home/menuSelect.png</texturefocus>
-		<alttexturefocus>home/menuSelect.png</alttexturefocus>
-		<alttexturenofocus>-</alttexturenofocus>
-		<height>170</height>
-		<align>left</align>
-		<textoffsety>60</textoffsety>
-		<textoffsetx>35</textoffsetx>
-		<pulseonselect>false</pulseonselect>
-	</include>
-	<include name="categoryButton">
-		<texturefocus border="13,6,13,6">settings/list-focusRev.png</texturefocus>
-		<texturenofocus>-</texturenofocus>
-		<textoffsety>3</textoffsety>
-		<textoffsetx>25</textoffsetx>
-		<font>category</font>
-		<height>50</height>
-		<textcolor>Color1</textcolor>
-		<align>right</align>
-		<width>325</width>
-	</include>
-	<include name="settingsButton">
-		<texturefocus border="13,6,13,6">settings/list-focus.png</texturefocus>
-		<texturenofocus>-</texturenofocus>
-		<textoffsetx>30</textoffsetx>
-		<textoffsety>7</textoffsety>
-		<height>46</height>
-		<font>normal</font>
-		<textcolor>Color1</textcolor>
-		<focusedcolor>black</focusedcolor>
-		<width>850</width>
-		<radioheight>24</radioheight>
-		<radiowidth>77</radiowidth>
-	</include>
-	<include name="user_LoginLabel">
-		<width>300</width>
-		<align>center</align>
-		<font>username</font>
-		<textcolor>Color5</textcolor>
-		<include>focus_SlideLoginUser</include>
-		<visible>![Container(52).OnNext | Container(52).OnPrevious] + ![Container.Scrolling + Container(52).Scrolling]</visible>
-	</include>
-
-
-<!-- VIEWTYPES ------------------------------------------------------------------------->
-	<include name="watchedOverlay">
-		<width>32</width>
-		<height>32</height>
-		<texture>$INFO[ListItem.Overlay]</texture>
-		<aspectratio align="right">keep</aspectratio>
-		<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | Container.Content(Files) + !substring(Container.FolderPath,plugin://)</visible>
-	</include>
-	<include name="listMenu">
-		<height>40</height>
-		<font>list</font>
-		<aligny>center</aligny>
-		<textcolor>Color1</textcolor>
-		<scroll>false</scroll>
-	</include>
-	<include name="listMenuFocus">
-		<height>40</height>
-		<font>list</font>
-		<aligny>center</aligny>
-		<textcolor>Color5</textcolor>
-		<scroll>false</scroll>
-	</include>
-	<include name="Heading1">
-		<height>35</height>
-		<aligny>center</aligny>
-		<font>title</font>
-		<textcolor>Color1</textcolor>
-	</include>
-	<include name="Heading2">
-		<height>24</height>
-		<aligny>center</aligny>
-		<font>mediumCaps</font>
-		<textcolor>Color2</textcolor>
-	</include>
-	<include name="Heading3">
-		<height>22</height>
-		<aligny>center</aligny>
-		<font>info</font>
-		<textcolor>Color2</textcolor>
-		<selectedcolor>Selected</selectedcolor>
-	</include>
-
 
 <!---THUMBS------>
-	<include name="thumb_Landscape-List">
-		<posx>22</posx>
-		<posy>22</posy>
-		<width>542</width>
-		<height>305</height>
-		<aspectratio align="center">scale</aspectratio>
+	<include name="frame_Poster-List">
+		<width>452</width>
+		<height>646</height>
+		<texture background="true" border="31">frames/frame_Square.png</texture>
+		<aspectratio align="center">stretch</aspectratio>
 		<include>thumbFadeTime</include>
 	</include>
 	<include name="frame_Landscape-List">
@@ -526,11 +362,12 @@
 		<aspectratio align="center">scale</aspectratio>
 		<include>thumbFadeTime</include>
 	</include>
-	<include name="frame_Poster-List">
-		<width>452</width>
-		<height>646</height>
-		<texture background="true" border="31">frames/frame_Square.png</texture>
-		<aspectratio align="center">stretch</aspectratio>
+	<include name="thumb_Landscape-List">
+		<posx>22</posx>
+		<posy>22</posy>
+		<width>542</width>
+		<height>305</height>
+		<aspectratio align="center">scale</aspectratio>
 		<include>thumbFadeTime</include>
 	</include>
 	<include name="art_TVShowLogo">
@@ -539,12 +376,26 @@
 		<include>thumbFadeTime</include>
 		<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
 	</include>
-	<include name="art_Clear">
-		<texture background="true">$INFO[VideoPlayer.Path]clearart.png</texture>
-		<aspectratio align="center">keep</aspectratio>
-		<include>thumbFadeTime</include>
-
+	<include name="watchedOverlay">
+		<width>32</width>
+		<height>32</height>
+		<texture>$INFO[ListItem.Overlay]</texture>
+		<aspectratio align="right">keep</aspectratio>
+		<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | Container.Content(Files) + !substring(Container.FolderPath,plugin://)</visible>
 	</include>
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
 
 <!---PVR------>
 	<include name="pvr_Column">
@@ -705,7 +556,6 @@
 			<control type="textbox" id="4">
 				<width>405</width>
 				<height>413</height>
-				<align>left</align>
 				<aligny>top</aligny>
 				<label>$INFO[ListItem.Property(Addon.Description)]</label>
 				<textcolor>Color1</textcolor>
@@ -715,7 +565,6 @@
 			<control type="textbox" id="4">
 				<width>405</width>
 				<height>413</height>
-				<align>left</align>
 				<aligny>top</aligny>
 				<label>$INFO[ListItem.Plot]</label>
 				<textcolor>Color1</textcolor>
@@ -738,7 +587,6 @@
 			<visible>Control.IsVisible(50) + Container.Content(artists)</visible>
 			<control type="Label">
 				<width>520</width>
-				<align>left</align>
 				<aligny>top</aligny>
 				<height>22</height>
 				<label>$LOCALIZE[21894] [COLOR=Color1]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
@@ -748,7 +596,6 @@
 			</control>
 			<control type="Label">
 				<width>520</width>
-				<align>left</align>
 				<aligny>top</aligny>
 				<height>22</height>
 				<label>$LOCALIZE[21893] [COLOR=Color1]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
@@ -758,7 +605,6 @@
 			</control>
 			<control type="Label">
 				<width>520</width>
-				<align>left</align>
 				<aligny>top</aligny>
 				<height>32</height>
 				<label>$LOCALIZE[21898] [COLOR=Color1]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
@@ -769,7 +615,6 @@
 			<control type="textbox">
 				<width>525</width>
 				<height>190</height>
-				<align>left</align>
 				<aligny>top</aligny>
 				<label>$INFO[ListItem.Property(Artist_Description)]</label>
 				<textcolor>Color7</textcolor>
@@ -824,7 +669,6 @@
 
 <!-- MUSIC OSD / SLIDESHOW ---------------------------------------------------------------------------------->
 	<include name="musicOSDInfo">	
-		
 		<control type="group">
 			<posy>200</posy>
 			<control type="group">
@@ -856,7 +700,6 @@
 					<textcolor>Color3</textcolor>
 				</control>
 			</control>
-			
 			<control type="group" id="1">
 				<posx>200</posx>
 				<posy>323</posy>
@@ -898,546 +741,6 @@
 						<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
 						<font>osd2</font>
 						<textcolor>Color2</textcolor>
-					</control>
-				</control>
-				
-			</control>
-		</control>
-		
-		
-		
-		
-		
-		
-		<!---<control type="image">
-			<include>screentype</include>
-			<texture>overlays/weatherOverlay.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<include>transition_OSD</include>
-			<visible>Player.ShowInfo + ![Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-XBMC_Lyrics-main.xml)]</visible>
-		</control>
-		<control type="group">
-			<posx>10</posx>
-			<posy>460</posy>
-			<include>transition_OSD</include>
-			<visible>Player.ShowInfo + ![Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-XBMC_Lyrics-main.xml)]</visible>
-			<control type="group">
-				<control type="image">
-					<width>256</width>
-					<height>256</height>
-					<texture fallback="thumbs/album.png" background="true">$INFO[MusicPlayer.Cover]</texture>
-					<bordertexture border="28" width="192" height="192">frames/frame_Landscape.png</bordertexture>
-					<bordersize>27</bordersize>
-					<aspectratio>scale</aspectratio>
-				</control>
-			</control>
-			<control type="group">
-				<posx>265</posx>
-				<posy>38</posy>
-				<control type="label">
-					<posy>0</posy>
-					<width>1080</width>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>special1</font>
-					<textcolor>Color1</textcolor>
-				</control>
-				<control type="label">
-					<posy>30</posy>
-					<width>1080</width>
-					<label>$INFO[MusicPlayer.Artist]</label>
-					<font>special4</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>57</posy>
-					<width>1200</width>
-					<label>$INFO[MusicPlayer.Album]</label>
-					<font>normalCaps</font>
-					<textcolor>Color3</textcolor>
-				</control>	
-				<control type="label">
-					<posy>102</posy>
-					<width>1080</width>
-					<label>$INFO[MusicPlayer.Time,, | ]$INFO[MusicPlayer.Duration]</label>
-					<font>special5</font>
-					<textcolor>Color3</textcolor>
-				</control>
-				<control type="label">
-					<posy>160</posy>
-					<width>1080</width>
-					<label>[COLOR=Color2]$LOCALIZE[209]: [/COLOR]$INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] [COLOR=Color2]($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])[/COLOR]</label>
-					<font>smallCaps</font>
-					<textcolor>Color1</textcolor>
-					<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
-				</control>
-			</control>
-		</control>-->
-	</include>
-
-
-<!---GLOBAL MEDIA CONTROLS------>
-	<include name="globalMusicControls">
-		<control type="group">
-			<control type="group" id="600">
-				<posx>514</posx>
-				<posy>368</posy>
-				<visible allowhiddenfocus="true">ControlGroup(600).HasFocus</visible>
-				<include>toggle_PlayerMenu</include>
-				<control type="image">
-					<width>252</width>
-					<height>267</height>
-					<texture>osd/settingsMenu.png</texture>
-				</control>
-				<control type="grouplist" id="601">
-					<posx>9</posx>
-					<posy>8</posy>
-					<width>234</width>
-					<height>225</height>
-					<align>top</align>
-					<onleft>701</onleft>
-					<onright>701</onright>
-					<onup>599</onup>
-					<ondown>599</ondown>
-					<itemgap>0</itemgap>
-					<control type="button" id="602">
-						<width>234</width>
-						<label>$LOCALIZE[250]</label>
-						<include>dialog_Button-list</include>
-						<onclick>Addon.Default.Set(xbmc.player.musicviz)</onclick>
-					</control>
-					<control type="button" id="603">
-						<width>234</width>
-						<label>$LOCALIZE[13388]</label>
-						<include>dialog_Button-list</include>
-						<onclick>XBMC.ActivateWindow(122)</onclick>
-					</control>
-					<control type="button" id="604">
-						<width>234</width>
-						<label>LastFM Love</label>
-						<include>dialog_Button-list</include>
-						<onclick>Dialog.Close(MusicOSD,true)</onclick>
-						<onclick>XBMC.LastFM.Love</onclick>
-						<visible>LastFM.RadioPlaying</visible>
-					</control>
-					<control type="button" id="605">
-						<width>234</width>
-						<label>LastFM Ban</label>
-						<include>dialog_Button-list</include>
-						<onclick>Dialog.Close(MusicOSD,true)</onclick>
-						<onclick>XBMC.LastFM.Ban</onclick>
-						<visible>LastFM.RadioPlaying</visible>
-					</control>
-					<control type="togglebutton" id="606">
-						<width>234</width>
-						<label>$LOCALIZE[31981]</label>
-						<onclick>-</onclick>
-						<onclick>Close</onclick>
-						<onclick>XBMC.RunScript($INFO[Skin.String(addon.lyrics.path)])</onclick>
-						<altclick>Skin.SetAddon(addon.lyrics.path,xbmc.python.lyrics)</altclick>
-						<onclick>Close</onclick>
-						<altclick>Close</altclick>
-						<altclick>XBMC.RunScript($INFO[Skin.String(addon.lyrics.path)])</altclick>
-						<usealttexture>IsEmpty(Skin.String(addon.lyrics.path))</usealttexture>
-						<alttexturefocus border="3">dialogs/list-focus.png</alttexturefocus>
-						<alttexturenofocus border="3">dialogs/list-nofocus.png</alttexturenofocus>
-						<include>dialog_Button-list</include>
-					</control>
-					<control type="button" id="607">
-						<width>234</width>
-						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
-						<include>dialog_Button-list</include>
-						<onclick>XBMC.PlayerControl(Random)</onclick>
-					</control>
-					<control type="button" id="608">
-						<width>234</width>
-						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
-						<include>dialog_Button-list</include>
-						<onclick>XBMC.PlayerControl(Repeat)</onclick>
-					</control>
-				</control>
-			</control>
-			<control type="image">
-				<posx>618</posx>
-				<posy>595</posy>
-				<width>45</width>
-				<height>45</height>
-				<texture>osd/openSettings.png</texture>
-				<visible>!ControlGroup(600).HasFocus</visible>
-				<include>fadeinout</include>
-			</control>
-			<control type="group" id="599">
-				<posx>465</posx>
-				<posy>630</posy>
-				<control type="image" id="1">
-					<width>350</width>
-					<height>72</height>
-					<texture border="48,33,48,33">osd/playerControlsPanel.png</texture>
-				</control>
-				<include>toggle_PlayerControls</include>
-				<control type="group">
-					<posy>13</posy>
-					<control type="button" id="700">
-						<posx>13</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-prev-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-prev.png</texturenofocus>
-						<onup>600</onup>
-						<onleft>705</onleft>
-						<onright>701</onright>
-						<onclick>PlayerControl(Previous)</onclick>
-					</control>
-					<control type="button" id="701">
-						<posx>68</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-rwd-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-rwd.png</texturenofocus>
-						<onup>600</onup>
-						<onleft>700</onleft>
-						<onright>702</onright>
-						<onclick>PlayerControl(Rewind)</onclick>
-					</control>
-					<control type="togglebutton" id="702">
-						<posx>123</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-pause-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-pause.png</texturenofocus>
-						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-						<alttexturefocus>osd/osd-button-play-focus.png</alttexturefocus>
-						<alttexturenofocus>osd/osd-button-play.png</alttexturenofocus>
-						<onup>600</onup>
-						<onleft>701</onleft>
-						<onright>703</onright>
-						<onclick>PlayerControl(Play)</onclick>
-					</control>
-					<control type="button" id="703">
-						<posx>178</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-stop-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-stop.png</texturenofocus>
-						<onleft>702</onleft>
-						<onright>704</onright>
-						<onup>600</onup>
-						<onclick>PlayerControl(Stop)</onclick>
-					</control>
-					<control type="button" id="704">
-						<posx>233</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-fwd-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-fwd.png</texturenofocus>
-						<onleft>703</onleft>
-						<onright>705</onright>
-						<onup>600</onup>
-						<onclick>PlayerControl(Forward)</onclick>
-					</control>
-					<control type="button" id="705">
-						<posx>288</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-next-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-next.png</texturenofocus>
-						<onleft>704</onleft>
-						<onright>700</onright>
-						<onup>600</onup>
-						<onclick>PlayerControl(Next)</onclick>
-					</control>
-				</control>
-			</control>
-		</control>
-	</include>
-	
-	<include name="globalVideoControls">
-		<control type="group">
-			<control type="group" id="600">
-				<posx>514</posx>
-				<posy>368</posy>
-				<visible allowhiddenfocus="true">ControlGroup(600).HasFocus</visible>
-				<include>toggle_PlayerMenu</include>
-				<control type="image">
-					<width>252</width>
-					<height>267</height>
-					<texture>osd/settingsMenu.png</texture>
-				</control>
-				<control type="grouplist" id="601">
-					<posx>9</posx>
-					<posy>8</posy>
-					<width>234</width>
-					<height>225</height>
-					<align>top</align>
-					<onleft>701</onleft>
-					<onright>701</onright>
-					<onup>599</onup>
-					<ondown>599</ondown>
-					<itemgap>0</itemgap>
-					<control type="button" id="602">
-						<width>234</width>
-						<label>teletext</label>
-						<include>dialog_Button-list</include>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(teletext)</onclick>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="button" id="603">
-						<width>234</width>
-						<label>$LOCALIZE[13395]</label>
-						<include>dialog_Button-list</include>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(123)</onclick>
-					</control>
-					<control type="button" id="604">
-						<width>234</width>
-						<label>audio settings</label>
-						<include>dialog_Button-list</include>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(124)</onclick>
-					</control>
-					<control type="togglebutton" id="605">
-						<width>234</width>
-						<label>$LOCALIZE[31980]</label>
-						<onclick>-</onclick>
-						<onclick>Close</onclick>
-						<onclick>XBMC.RunScript($INFO[Skin.String(addon.subtitles.path)])</onclick>
-						<altclick>Skin.SetAddon(addon.subtitles.path,xbmc.python.subtitles)</altclick>
-						<altclick>Close</altclick>
-						<altclick>XBMC.RunScript($INFO[Skin.String(addon.subtitles.path)])</altclick>
-						<usealttexture>IsEmpty(Skin.String(addon.subtitles.path))</usealttexture>
-						<alttexturefocus border="3">dialogs/list-focus.png</alttexturefocus>
-						<alttexturenofocus border="3">dialogs/list-nofocus.png</alttexturenofocus>
-						<include>dialog_Button-list</include>
-						<visible>Videoplayer.Content(movies) | Videoplayer.Content(episodes)</visible>
-					</control>
-					<control type="button" id="606">
-						<width>234</width>
-						<label>$LOCALIZE[298]</label>
-						<include>dialog_Button-list</include>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(125)</onclick>
-						<visible>!VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="button" id="607">
-						<width>TV Guide</width>
-						<label>$LOCALIZE[19029]</label>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(PVROSDGuide)</onclick>
-						<include>dialog_Button-list</include>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="button" id="608">
-						<width>DVD Menu</width>
-						<label>$LOCALIZE[33061]</label>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>PlayerControl(ShowVideoMenu)</onclick>
-						<include>dialog_Button-list</include>
-						<visible>VideoPlayer.HasMenu</visible>
-					</control>
-				</control>
-			</control>
-			<control type="image">
-				<posx>618</posx>
-				<posy>595</posy>
-				<width>45</width>
-				<height>45</height>
-				<texture>osd/openSettings.png</texture>
-				<visible>!ControlGroup(600).HasFocus</visible>
-				<include>fadeinout</include>
-			</control>
-			<control type="group" id="599">
-				<posx>465</posx>
-				<posy>630</posy>
-				<control type="image" id="1">
-					<width>350</width>
-					<height>72</height>
-					<texture border="48,33,48,33">osd/playerControlsPanel.png</texture>
-				</control>
-				<include>toggle_PlayerControls</include>
-				<control type="group">
-					<posy>13</posy>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-					<control type="button" id="700">
-						<posx>13</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-prev-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-prev.png</texturenofocus>
-						<onup>600</onup>
-						<onleft>705</onleft>
-						<onright>701</onright>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Previous)</onclick>
-					</control>
-					<control type="button" id="701">
-						<posx>68</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-rwd-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-rwd.png</texturenofocus>
-						<onup>600</onup>
-						<onleft>700</onleft>
-						<onright>702</onright>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Rewind)</onclick>
-					</control>
-					<control type="togglebutton" id="702">
-						<posx>123</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-pause-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-pause.png</texturenofocus>
-						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-						<alttexturefocus>osd/osd-button-play-focus.png</alttexturefocus>
-						<alttexturenofocus>osd/osd-button-play.png</alttexturenofocus>
-						<onup>600</onup>
-						<onleft>701</onleft>
-						<onright>703</onright>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Play)</onclick>
-					</control>
-					<control type="button" id="703">
-						<posx>178</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-stop-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-stop.png</texturenofocus>
-						<onleft>702</onleft>
-						<onright>704</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Stop)</onclick>
-					</control>
-					<control type="button" id="704">
-						<posx>233</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-fwd-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-fwd.png</texturenofocus>
-						<onleft>703</onleft>
-						<onright>705</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Forward)</onclick>
-					</control>
-					<control type="button" id="705">
-						<posx>288</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-next-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-next.png</texturenofocus>
-						<onleft>704</onleft>
-						<onright>700</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Next)</onclick>
-					</control>
-				</control>
-				<control type="group">
-					<posx>0</posx>
-					<posy>13</posy>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
-					<control type="button" id="700">
-						<posx>13</posx>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-guide-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-guide.png</texturenofocus>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onleft>705</onleft>
-						<onright>701</onright>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(PVROSDChannels)</onclick>
-					</control>
-					<control type="togglebutton" id="701">
-						<posx>68</posx>
-						<width>48</width>
-						<height>48</height>
-						<texturefocus>osd/osd-button-pause-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-pause.png</texturenofocus>
-						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-						<alttexturefocus>osd/osd-button-play-focus.png</alttexturefocus>
-						<alttexturenofocus>osd/osd-button-play.png</alttexturenofocus>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onleft>700</onleft>
-						<onright>702</onright>
-						<onclick>PlayerControl(Play)</onclick>
-					</control>
-					<control type="button" id="702">
-						<posx>123</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-stop-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-stop.png</texturenofocus>
-						<onleft>701</onleft>
-						<onright>703</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Stop)</onclick>
-					</control>
-					<control type="button" id="703">
-						<posx>178</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-channelup-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-channelup.png</texturenofocus>
-						<onleft>702</onleft>
-						<onright>704</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Previous)</onclick>
-					</control>
-					<control type="button" id="704">
-						<posx>233</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-channeldown-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-channeldown.png</texturenofocus>
-						<onleft>703</onleft>
-						<onright>705</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Next)</onclick>
-					</control>
-					<control type="togglebutton" id="705">
-						<posx>288</posx>
-						<posy>0</posy>
-						<width>48</width>
-						<height>48</height>
-						<font>-</font>
-						<texturefocus>osd/osd-button-record-focus.png</texturefocus>
-						<texturenofocus>osd/osd-button-record.png</texturenofocus>
-						<usealttexture>Player.Recording</usealttexture>
-						<alttexturefocus>osd/osd-button-recording-focus.png</alttexturefocus>
-						<alttexturenofocus>osd/osd-button-recording.png</alttexturenofocus>
-						<onleft>704</onleft>
-						<onright>700</onright>
-						<onup>600</onup>
-						<ondown>-</ondown>
-						<onclick>PlayerControl(Record)</onclick>
-						<enable>Player.CanRecord</enable>
-						<animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
 					</control>
 				</control>
 			</control>

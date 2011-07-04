@@ -19,7 +19,7 @@
 					<onup>90</onup>
 					<ondown>3</ondown>
 					<onclick>SetFocus(40)</onclick>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible allowhiddenfocus="true">![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -37,7 +37,7 @@
 						<onright>1</onright>
 						<onup>1</onup>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 					</control>
 					<control type="button" id="42">
 						<description>slide</description>
@@ -45,7 +45,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(52)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>!Container.Content(artists) + !IsEmpty(container.folderpath) + !substring(container.folderpath,addons://sources/) + !substring(container.folderpath,plugin://)</visible>
 					</control>
 					<control type="button" id="43">
@@ -53,7 +53,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(521)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container.Content(artists)</visible>
 					</control>
 					<control type="button" id="44">
@@ -62,7 +62,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(572)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>[Container.Content(albums) | Container.Content(songs)] + !stringcompare(container.folderpath,addons://sources/)</visible>
 					</control>
 					<control type="button" id="45">
@@ -71,7 +71,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(574)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>stringcompare(container.folderpath,addons://sources/audio/) | substring(container.folderpath,plugin://)</visible>
 					</control>
 					<control type="button" id="46">
@@ -79,7 +79,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(573)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container.Content(artists)</visible>
 					</control>
 				</control>
@@ -91,7 +91,7 @@
 					<onright>50</onright>
 					<onup>1</onup>
 					<ondown>4</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -103,7 +103,7 @@
 					<onright>50</onright>
 					<onup>3</onup>
 					<ondown>5</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<onclick>Container.SortDirection</onclick>
 					<onclick>Container.SortDirection</onclick>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
@@ -119,7 +119,7 @@
 					<onright>50</onright>
 					<onup>4</onup>
 					<ondown>8</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -130,7 +130,7 @@
 					<onright>50</onright>
 					<onup>5</onup>
 					<ondown>19</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -141,7 +141,7 @@
 					<onright>50</onright>
 					<onup>8</onup>
 					<ondown>16</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -152,7 +152,7 @@
 					<onright>50</onright>
 					<onup>19</onup>
 					<ondown>30</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -164,7 +164,7 @@
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<onup>16</onup>
 					<ondown>90</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>![ControlGroup(40).HasFocus() | ControlGroup(80).HasFocus()]</visible>
 				</control>
 	
@@ -179,7 +179,7 @@
 					<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
 					<onclick>Container.SetViewMode(574)</onclick>
 					<selected>!Skin.HasSetting(thumbInfo)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(572) + !ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="button" id="90">
@@ -193,7 +193,7 @@
 					<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
 					<onclick>Container.SetViewMode(572)</onclick>
 					<selected>Skin.HasSetting(thumbInfo)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(574) + !ControlGroup(40).HasFocus()</visible>
 				</control>			
 			</control>

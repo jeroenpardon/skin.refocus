@@ -20,7 +20,7 @@
 					<ondown>3</ondown>
 					<onclick>SetFocus(40)</onclick>
 					<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 				</control>
 	
 				<control type="grouplist" id="40">
@@ -36,7 +36,7 @@
 						<onright>1</onright>
 						<onup>1</onup>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 					</control>
 					<control type="button" id="402">
 						<description>big list</description>
@@ -44,7 +44,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(51)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>[Container.Content(episodes) | Container.Content(movies) | Container.Content(tvshows)] + !substring(Container.FolderPath,plugin://)</visible>
 					</control>
 					
@@ -54,7 +54,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(52)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 					</control>
 					<control type="button" id="404">
@@ -63,7 +63,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(521)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]]</visible>
 					</control>
 	
@@ -73,7 +73,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(57)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !substring(Container.FolderPath,plugin://)] | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 					</control>
 					<control type="button" id="406">
@@ -82,7 +82,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(573)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container.Content(musicvideos) | [substring(Container.FolderPath,plugin://) + !Container.HasFolders] + !IsEmpty(Container.FolderPath)] + !stringcompare(Container.FolderPath,sources://video/) + !substring(Container.FolderPath,special://videoplaylists/) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 					</control>
 					<control type="button" id="407">
@@ -91,7 +91,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(574)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>substring(Container.FolderPath,addons://)</visible>
 					</control>
 					<control type="button" id="408">
@@ -100,7 +100,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(575)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>!substring(Container.FolderPath,plugin://) + [Container.Content(episodes) | [Container.Content(files) + Container.HasFiles]]</visible>
 					</control>
 
@@ -110,7 +110,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(541)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable)</visible>
 					</control>
 					<control type="button" id="410">
@@ -119,7 +119,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(54)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + !substring(Container.FolderPath,plugin://)</visible>
 					</control>
 
@@ -128,7 +128,7 @@
 						<onleft>1</onleft>
 						<onright>1</onright>
 						<onclick>Container.SetViewMode(53)</onclick>
-						<include>contextButton</include>
+						<include>button_Menu</include>
 						<visible>[Container.Content(tvshows) | Container.Content(movies)] + !substring(container.folderpath,plugin://)</visible>
 					</control>
 				</control>
@@ -140,7 +140,7 @@
 					<onright>50</onright>
 					<onup>1</onup>
 					<ondown>4</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -152,7 +152,7 @@
 					<onright>50</onright>
 					<onup>3</onup>
 					<ondown>14</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<onclick>Container.SortDirection</onclick>
 					<onclick>Container.SortDirection</onclick>
 					<visible>!ControlGroup(40).HasFocus()</visible>
@@ -166,7 +166,7 @@
 					<onright>50</onright>
 					<onup>4</onup>
 					<ondown>8</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -177,7 +177,7 @@
 					<onright>50</onright>
 					<onup>14</onup>
 					<ondown>19</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -188,7 +188,7 @@
 					<onright>50</onright>
 					<onup>8</onup>
 					<ondown>16</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -199,7 +199,7 @@
 					<onright>50</onright>
 					<onup>19</onup>
 					<ondown>17</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 					<enable>Container.Content(musicvideos)</enable>
 				</control>
@@ -212,7 +212,7 @@
 					<onright>50</onright>
 					<onup>16</onup>
 					<ondown>11</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -225,7 +225,7 @@
 					<ondown>30</ondown>
 					<onclick>PlayMedia($INFO[ListItem.Trailer])</onclick>
 					<enable>!IsEmpty(ListItem.Trailer)</enable>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -237,7 +237,7 @@
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<onup>11</onup>
 					<ondown>90</ondown>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -252,7 +252,7 @@
 					<onclick>Container.SetViewMode(52)</onclick>
 					<onclick>Skin.ToggleSetting(slideViewFanart)</onclick>
 					<selected>Skin.HasSetting(slideViewFanart)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(521) + [Container.Content(movies) | Container.Content(tvshows)] + !ControlGroup(40).HasFocus()+ !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 				</control>
 				<control type="button" id="90">
@@ -266,7 +266,7 @@
 					<onclick>Container.SetViewMode(521)</onclick>
 					<onclick>Skin.ToggleSetting(slideViewFanart)</onclick>
 					<selected>!Skin.HasSetting(slideViewFanart)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows)] + !ControlGroup(40).HasFocus() + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 				</control>
 	
@@ -281,7 +281,7 @@
 					<onclick>Skin.ToggleSetting(galleryFull)</onclick>
 					<onclick>Container.SetViewMode(53)</onclick>
 					<selected>!Skin.HasSetting(galleryFull)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)] + !ControlGroup(40).HasFocus()</visible>
 				</control>
 				<control type="button" id="90">
@@ -295,7 +295,7 @@
 					<onclick>Skin.ToggleSetting(galleryFull)</onclick>
 					<onclick>Container.SetViewMode(531)</onclick>
 					<selected>Skin.HasSetting(galleryFull)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(tvshows)] + !ControlGroup(40).HasFocus()</visible>
 				</control>
 	
@@ -310,7 +310,7 @@
 					<ondown>1</ondown>
 					<onclick>Skin.ToggleSetting(ListViewFanart)</onclick>
 					<selected>!Skin.HasSetting(ListViewFanart)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(50) + !ControlGroup(40).HasFocus() + [Container.Content(movies) | Container.Content(tvshows)] + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 				</control>
 	
@@ -325,7 +325,7 @@
 					<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
 					<onclick>Container.SetViewMode(571)</onclick>
 					<selected>!Skin.HasSetting(thumbInfo)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(57) + !ControlGroup(40).HasFocus() + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
 				</control>
 				<control type="button" id="90">
@@ -339,7 +339,7 @@
 					<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
 					<onclick>Container.SetViewMode(57)</onclick>
 					<selected>Skin.HasSetting(thumbInfo)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(571) + !ControlGroup(40).HasFocus() + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
 				</control>
 	
@@ -354,7 +354,7 @@
 					<ondown>1</ondown>
 					<onclick>Skin.ToggleSetting(biglist.posters)</onclick>
 					<selected>Skin.ToggleSetting(biglist.posters)</selected>
-					<include>contextButton</include>
+					<include>button_Menu</include>
 					<visible>Control.IsVisible(51) + !ControlGroup(40).HasFocus()+ !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 				</control>
 			</control>

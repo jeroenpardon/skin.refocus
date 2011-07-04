@@ -96,7 +96,6 @@
 					<control type="textbox">
 						<width>525</width>
 						<height>244</height>
-						<align>left</align>
 						<aligny>top</aligny>
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>Color7</textcolor>
@@ -106,7 +105,6 @@
 					<control type="textbox">
 						<width>525</width>
 						<height>244</height>
-						<align>left</align>
 						<aligny>top</aligny>
 						<label>$INFO[Container.ShowPlot]</label>
 						<textcolor>Color7</textcolor>
@@ -255,14 +253,13 @@
 				<control type="label">
 					<width>1080</width>
 					<label>$INFO[ListItem.Title]</label>
-					<textcolor>title</textcolor>
-					<include>Heading1</include>
+					<include>info_Title</include>
 					<visible>![Container.Content(seasons) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="label">
 					<width>1080</width>
 					<label>$INFO[ListItem.Label]</label>
-					<include>Heading1</include>
+					<include>info_Title</include>
 					<visible>Container.Content(seasons) | IsEmpty(ListItem.Title) | Container.Content(files)</visible>
 				</control>
 				<control type="group">
@@ -272,7 +269,7 @@
 						<control type="label">
 							<width>1080</width>
 							<label>$INFO[ListItem.Title]</label>
-							<include>Heading1</include>	
+							<include>info_Title</include>	
 						</control>
 					</control>
 					<control type="group">
@@ -280,7 +277,7 @@
 						<control type="label">
 							<width>1080</width>
 							<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-							<include>Heading1</include>	
+							<include>info_Title</include>	
 						</control>
 					</control>
 				</control>
@@ -290,15 +287,13 @@
 						<posy>32</posy>
 						<width>980</width>
 						<label>$INFO[ListItem.Label2]</label>
-						<align>left</align>
-						<include>Heading3</include>
+						<include>info_Sub</include>
 					</control>
 					<control type="label">
 						<posy>56</posy>
 						<width>980</width>
 						<label>$INFO[ListItem.Date]</label>
-						<align>left</align>
-						<include>Heading3</include>
+						<include>info_Sub</include>
 					</control>
 				</control>
 				<!---line 2------>
@@ -310,24 +305,19 @@
 						<control type="label">
 							<width>920</width>
 							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, • ]</label>
-							<align>left</align>
-							<textcolor>Color2</textcolor>
-							<include>Heading3</include>
+							<include>info_Sub</include>
 							<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
 						</control>
 						<control type="label">
 							<width>980</width>
 							<label>$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Duration,, ]$LOCALIZE[12391]$INFO[ListItem.Genre, • ]</label>
-							<align>left</align>
-							<include>Heading3</include>
+							<include>info_Sub</include>
 							<visible>!IsEmpty(ListItem.Property(ReleaseDate))</visible>
 						</control>
 						<control type="label">
 							<width>920</width>
 							<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-							<align>left</align>
-							<textcolor>Color2</textcolor>
-							<include>Heading3</include>
+							<include>info_Sub</include>
 							<visible>ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/,left)</visible>
 						</control>
 					</control>
@@ -336,15 +326,13 @@
 						<control type="label">
 							<width>980</width>
 							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-							<align>left</align>
-							<include>Heading3</include>
+							<include>info_Sub</include>
 							<visible>IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
 						</control>
 						<control type="label">
 							<width>980</width>
 							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-							<align>left</align>
-							<include>Heading3</include>
+							<include>info_Sub</include>
 							<visible>!IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
 						</control>
 					</control>
@@ -353,8 +341,7 @@
 						<control type="label">
 							<width>980</width>
 							<label>$INFO[ListItem.Artist,, • ]$INFO[ListItem.Duration,, ]$LOCALIZE[31100]</label>
-							<align>left</align>
-							<include>Heading3</include>
+							<include>info_Sub</include>
 						</control>
 					</control>
 					<control type="group">
@@ -364,8 +351,7 @@
 							<control type="label">
 								<width>980</width>
 								<label>$LOCALIZE[31087] $INFO[ListItem.Season,, - ]$LOCALIZE[31088] $INFO[ListItem.Episode,, • ]$INFO[ListItem.Date]</label>
-								<align>left</align>
-								<include>Heading3</include>
+								<include>info_Sub</include>
 								<visible>!stringcompare(container.folderpath,videodb://5/)</visible>
 							</control>
 						</control>
@@ -374,16 +360,14 @@
 							<control type="label">
 								<width>980</width>
 								<label>$LOCALIZE[31087,, •] $INFO[ListItem.Season,, - ]$LOCALIZE[31088] $INFO[ListItem.Episode,, • ]$INFO[ListItem.Date]</label>
-								<align>left</align>
-								<include>Heading3</include>
+								<include>info_Sub</include>
 							</control>
 						</control>
 					</control>
 					<control type="label">
 						<width>980</width>
 						<label>$LOCALIZE[31072]</label>
-						<align>left</align>
-						<include>Heading3</include>
+						<include>info_Sub</include>
 						<visible>Container.Content(seasons)</visible>
 					</control>
 					<!---plot------>
@@ -395,7 +379,7 @@
 							<align>left</align>
 							<aligny>top</aligny>
 							<label>$INFO[ListItem.PlotOutline]</label>
-							<textcolor>Color1</textcolor>
+							<textcolor>Color7</textcolor>
 							<font>descriptionSmall</font>
 							<visible>!IsEmpty(ListItem.Plotoutline)</visible>
 						</control>
@@ -466,89 +450,77 @@
 					<posy>640</posy>
 					<control type="label">
 						<label>$INFO[ListItem.Label]</label>
-						<font>title</font>
-						<textcolor>Color1</textcolor>
 						<width>1100</width>
+						<include>info_Title</include>
 						<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[ListItem.Title]</label>
-						<font>title</font>
-						<textcolor>Color1</textcolor>
 						<width>1100</width>
+						<include>info_Title</include>
 						<visible>!IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[ListItem.TVShowTitle]</label>
-						<font>title</font>
-						<textcolor>Color1</textcolor>
 						<width>900</width>
+						<include>info_Title</include>
 						<visible>Container.Content(tvshows)</visible>
 					</control>
 					<control type="label">
-						<label>$INFO[ListItem.Label]</label>
-						<font>title</font>
-						<textcolor>Color1</textcolor>
+						<label>$INFO[ListItem.Label]</label>	
 						<width>900</width>
+						<include>info_Title</include>
 						<visible>Container.Content(seasons) | [Container.Content(tvshows) + IsEmpty(ListItem.TVShowTitle)] | [Container.Content(movies) + IsEmpty(ListItem.Title)]</visible>
 					</control>
 					<!---line 2--->
 					<control type="group">
-						<posy>25</posy>
+						<posy>28</posy>
 						<control type="label">
 							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Genre]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))</visible>
 						</control>
 						<control type="label">
 							<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<!---is movie set--->
 							<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb,left) + !IsEmpty(ListItem.Title)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Property(ReleaseDate)$INFO[ListItem.Genre, • ]]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
+							<include>info_Sub</include>
 							<width>750</width>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Artist]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<visible>Container.Content(musicvideos)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<visible>!IsEmpty(ListItem.TVShowTitle) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<visible>!IsEmpty(ListItem.TVShowTitle) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Date]</label>
-							<font>info</font>
-							<textcolor>Color2</textcolor>
 							<width>750</width>
+							<include>info_Sub</include>
 							<visible>Container.Content(files)</visible>
 						</control>
 					</control>
@@ -563,72 +535,62 @@
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Title]</label>
-					<textcolor>Color1</textcolor>
-					<font>normalCaps</font>
+					<include>info_Title</include>
 					<visible>!IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>Color1</textcolor>
-					<font>normalCaps</font>
+					<include>info_Title</include>
 					<visible>IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Genre]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>!IsEmpty(ListItem.Genre) + Container.Content(movies)</visible>
 				</control>
 				<control type="label" id="1">
 					<!--is movie set-->
 					<width>450</width>
 					<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/,left) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ,,]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(tvshows) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ,,]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(tvshows) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(seasons)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Studio]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>Container.Content(tvshows)</visible>
 				</control>
 				<control type="image">
@@ -640,11 +602,11 @@
 				</control>
 				<control type="label" id="1">
 					<label></label>
+					<height>10</height>
 				</control>
 				<control type="textbox" id="4">
 					<width>450</width>
 					<height>413</height>
-					<align>left</align>
 					<aligny>top</aligny>
 					<label>$INFO[ListItem.Plot]</label>
 					<textcolor>Color7</textcolor>
@@ -654,7 +616,6 @@
 				<control type="textbox" id="4">
 					<width>450</width>
 					<height>413</height>
-					<align>left</align>
 					<aligny>top</aligny>
 					<label>$INFO[Container.ShowPlot]</label>
 					<textcolor>Color7</textcolor>
@@ -701,20 +662,20 @@
 					<visible>Container.Content(movies)</visible>
 					<control type="label">
 						<label>$INFO[ListItem.Label]</label>
-						<font>title</font>
 						<width>750</width>
+						<include>info_Title</include>
 						<visible>IsEmpty(ListItem.Title + IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[ListItem.Title]</label>
-						<font>title</font>
 						<width>750</width>
+						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posx>750</posx>
 						<label>$INFO[Container(53).ListItem(1).Title]</label>
-						<font>title</font>
 						<width>750</width>
+						<include>info_Title</include>
 						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
 					</control>
 				</control>
@@ -722,14 +683,14 @@
 					<visible>Container.Content(tvshows)</visible>
 					<control type="label">
 						<label>$INFO[ListItem.TVShowTitle]</label>
-						<font>title</font>
 						<width>750</width>
+						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posx>750</posx>
 						<label>$INFO[Container(53).ListItem(1).TVShowTitle]</label>
-						<font>title</font>
 						<width>750</width>
+						<include>info_Title</include>
 						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
 					</control>
 				</control>
@@ -742,64 +703,59 @@
 					<visible>Container.Content(movies)</visible>
 					<control type="label">
 						<label>$INFO[ListItem.Tagline]</label>
-						<font>normalCaps</font>
 						<width>940</width>
+						<include>info_TitleSmall</include>
 					</control>
 					<control type="label">
 						<label>$INFO[ListItem.PlotOutline]</label>
-						<font>normalCaps</font>
 						<width>940</width>
+						<include>info_TitleSmall</include>
 						<visible>IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[ListItem.Plot]</label>
-						<font>normalCaps</font>
 						<width>940</width>
+						<include>info_TitleSmall</include>
 						<visible>IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="label">
 						<posy>24</posy>
 						<label>$INFO[ListItem.Genre,, • ]$INFO[ListItem.Year]</label>
-						<font>normalCaps</font>
-						<textcolor>Color2</textcolor>
+						<include>info_Sub</include>
 						<width>750</width>
 					</control>
 					<control type="label">
 						<posy>24</posy>
 						<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-						<font>smallCaps</font>
-						<textcolor>Color2</textcolor>
 						<width>750</width>
+						<include>info_Sub</include>
 						<visible>ListItem.IsFolder + Substring(Container.FolderPath,videodb,left) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<posy>47</posy>
 						<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
-						<font>smallCaps</font>
-						<textcolor>Color2</textcolor>
 						<width>750</width>
+						<include>info_Sub</include>
 					</control>
 				</control>
 				<control type="group">
 					<visible>Container.Content(tvshows)</visible>
 					<control type="label">
 						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-						<font>info</font>
 						<width>900</width>
+						<include>info_TitleSmall</include>
 					</control>
 					<control type="label">
 						<posy>24</posy>
 						<label>$INFO[ListItem.Genre]</label>
-						<font>normalCaps</font>
-						<textcolor>Color2</textcolor>
 						<width>750</width>
+						<include>info_Sub</include>
 					</control>
 					<control type="label">
 						<posy>47</posy>
 						<label>$INFO[ListItem.Date]</label>
-						<font>smallCaps</font>
-						<textcolor>Color2</textcolor>
 						<width>750</width>
+						<include>info_Sub</include>
 					</control>
 				</control>
 			</control>
@@ -937,7 +893,7 @@
 		<control type="grouplist">
 			<posx>695</posx>
 			<posy>95</posy>
-			<itemgap>2</itemgap>
+			<itemgap>0</itemgap>
 			<include>toggle_Menu</include>
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
@@ -945,39 +901,34 @@
 			<control type="label" id="1">
 				<width>500</width>
 				<label>$INFO[ListItem.Title]</label>
-				<textcolor>Color1</textcolor>
-				<font>normalCaps</font>
+				<include>info_Title</include>
 			</control>
 			<control type="label" id="1">
 				<width>500</width>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>Color1</textcolor>
-				<font>normalCaps</font>
+				<include>info_Title</include>
 				<visible>IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label" id="1">
 				<width>500</width>
 				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</label>
-				<font>info</font>
-				<textcolor>Color2</textcolor>
+				<include>info_Sub</include>
 				<visible>IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
 			</control>
 			<control type="label" id="1">
 				<width>500</width>
 				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</label>
-				<font>info</font>
-				<textcolor>Color2</textcolor>
+				<include>info_Sub</include>
 				<visible>!IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
 			</control>
-			<control type="image">
-				<width>128</width>
-				<height>32</height>
-				<info>ListItem.StarRating</info>
-				<aspectratio align="left">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.Title)</visible>
+			<control type="label" id="1">
+				<width>500</width>
+				<label>$INFO[ListItem.Studio]</label>
+				<include>info_Sub</include>
 			</control>
 			<control type="label" id="1">
 				<label></label>
+				<height>10</height>
 			</control>
 			<control type="textbox" id="4">
 				<width>500</width>
@@ -985,7 +936,7 @@
 				<align>left</align>
 				<aligny>top</aligny>
 				<label>$INFO[ListItem.Plot]</label>
-				<textcolor>Color1</textcolor>
+				<textcolor>Color7</textcolor>
 				<font>descriptionSmall</font>
 			</control>
 			<control type="label" id="1">
