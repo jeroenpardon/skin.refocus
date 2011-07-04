@@ -32,7 +32,7 @@
 	<include file="ViewBanner.xml">-</include>
 	<include file="ViewGallery.xml">-</include>
 	<include file="ViewsTV.xml">-</include>
-	
+
 <!---GLOBAL------>
 	<include name="global_Includes">
 		<include>global_Clock</include>
@@ -365,10 +365,31 @@
 
 
 <!---COLUMNS------>
+	<include name="column_Header">
+		<height>20</height>
+		<font>titleLow</font>
+		<textcolor>Color2</textcolor>
+		<aligny>center</aligny>
+	</include>
 	<include name="column">
 		<width>98</width>
 		<height>42</height>
 		<texture border="8">views/column.png</texture>
+	</include>
+	<include name="column_Single">
+		<width>98</width>
+		<height>42</height>
+		<texture border="8">views/column_Single.png</texture>
+	</include>
+	<include name="column_Left">
+		<width>98</width>
+		<height>42</height>
+		<texture border="8">views/column_Left.png</texture>
+	</include>
+	<include name="column_Right">
+		<width>98</width>
+		<height>42</height>
+		<texture border="8">views/column_Right.png</texture>
 	</include>
 	<include name="column_Label">
 		<height>38</height>
@@ -705,5 +726,50 @@
 				</control>
 			</control>
 		</control>
+	</include>
+	
+	<include name="filemanager_Pane">
+		<itemlayout height="44">
+			<control type="image">
+				<posx>0</posx>
+				<width>568</width>
+				<colordiffuse>tv3</colordiffuse>
+				<include>column_Single</include>
+			</control>
+			<control type="label">
+				<posx>15</posx>
+				<width>400</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>column_Label</include>
+			</control>
+			<control type="label">
+				<posx>550</posx>
+				<width>400</width>
+				<align>right</align>
+				<label>$INFO[ListItem.Label2]</label>
+				<include>column_Label</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="550" height="44">
+			<control type="image">
+				<posx>0</posx>
+				<width>568</width>
+				<colordiffuse>tv1</colordiffuse>
+				<include>column_Single</include>
+			</control>
+			<control type="label">
+				<posx>15</posx>
+				<width>400</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>column_Label-focus</include>
+			</control>
+			<control type="label">
+				<posx>550</posx>
+				<width>400</width>
+				<align>right</align>
+				<label>$INFO[ListItem.Label2]</label>
+				<include>column_Label-focus</include>
+			</control>
+		</focusedlayout>
 	</include>
 </includes>
