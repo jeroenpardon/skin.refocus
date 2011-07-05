@@ -158,86 +158,35 @@
 		
 <!---PVR--->
 		<control type="label">
-			<label>[COLOR=Color2]$INFO[Control.GetLabel(29)][/COLOR] $INFO[Control.GetLabel(30)]</label>
+			<label>$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[19019][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Window.IsActive(600)</visible>
-		</control>
-		<control type="label" id="29">
-			<!--category-->
-			<visible>false</visible>
-		</control>
-		<control type="label" id="30">
-			<!--sub category-->
-			<visible>false</visible>
-		</control>
-		
-		<!--
-		<control type="label">
-			<description>new movies</description>
-			<label>$LOCALIZE[31926]</label>
-			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://4/,Left)</visible>
-		</control>-->
-		
-		<!--
-		<control type="label">
-			<description>tvshows node</description>
-			<label>$LOCALIZE[20343]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(Container.FolderPath,videodb://2/)</visible>
+			<visible>Control.IsVisible(11)</visible>
 		</control>
 		<control type="label">
-			<description>tvshows folders</description>
-			<label>$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
+			<label>$LOCALIZE[19021] [COLOR=Color2]$LOCALIZE[19019][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://2/,Left) + ![stringcompare(Container.FolderPath,videodb://2/) | Container.Content(episodes) | Container.Content(seasons)]</visible>
+			<visible>Control.IsVisible(12)</visible>
 		</control>
 		<control type="label">
-			<description>seasons / episodes</description>
-			<label>$INFO[ListItem.TVShowTitle]</label>
+			<label>$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[22020][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>![IsEmpty(ListItem.TVShowTitle) | IsEmpty(ListItem.Title)] + [Container.Content(seasons) | Container.Content(episodes)] + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
+			<visible>Control.IsVisible(10) | Control.IsVisible(15) | Control.IsVisible(16)</visible>
 		</control>
 		<control type="label">
-			<description>seasons / episodes</description>
-			<label>$LOCALIZE[20343]</label>
+			<label>$LOCALIZE[19163]</label>
 			<include>PageLabel</include>
-			<visible>IsEmpty(ListItem.TVShowTitle) + [Container.Content(seasons) | [Container.Content(episodes) + !stringcompare(Container.FolderPath,videodb://5/)]] + </visible>
-		</control>
-		<!--
-		<control type="label">
-			<description>episodes</description>
-			<label>$INFO[ListItem.TVShowTitle] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://2/,Left) + Container.Content(episodes)</visible>
-		</control>
-		
-		<control type="label">
-			<description>new episodes</description>
-			<label>$LOCALIZE[31925]</label>
-			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://5/,Left)</visible>
-		</control>-->
-
-		<!--<control type="label">
-			<description>music videos node</description>
-			<label>$LOCALIZE[20389]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(Container.FolderPath,videodb://3/)</visible>
+			<visible>Control.IsVisible(13)</visible>
 		</control>
 		<control type="label">
-			<description>movies folders</description>
-			<label>$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
+			<label>$LOCALIZE[31085]</label>
 			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://3/,Left) + !stringcompare(Container.FolderPath,videodb://3/)</visible>
+			<visible>Control.IsVisible(14)</visible>
 		</control>
 		<control type="label">
-			<description>new music videos</description>
-			<label>$LOCALIZE[31931]</label>
+			<label>$LOCALIZE[137]</label>
 			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://6/,Left)</visible>
-		</control>-->
-
+			<visible>Control.IsVisible(17)</visible>
+		</control>
 	</include>
 
 
