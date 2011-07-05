@@ -58,7 +58,48 @@
 				<ondown>20</ondown>
 				<scrolltime>1</scrolltime>
 				<animation effect="fade" start="100" end="60" time="200" condition="Control.HasFocus(21)">Conditional</animation>
-				<include>filemanager_Pane</include>
+				<itemlayout height="44">
+					<control type="image">
+						<posx>0</posx>
+						<width>568</width>
+						<colordiffuse>tv3</colordiffuse>
+						<include>column_Left</include>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<width>400</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>column_Label</include>
+					</control>
+					<control type="label">
+						<posx>550</posx>
+						<width>400</width>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>column_Label</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="550" height="44">
+					<control type="image">
+						<posx>0</posx>
+						<width>568</width>
+						<colordiffuse>tv1</colordiffuse>
+						<include>column_Left</include>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<width>400</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>column_Label-focus</include>
+					</control>
+					<control type="label">
+						<posx>550</posx>
+						<width>400</width>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>column_Label-focus</include>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="list" id="21">
 				<posx>642</posx>
@@ -71,7 +112,48 @@
 				<ondown>21</ondown>
 				<scrolltime>1</scrolltime>
 				<animation effect="fade" start="100" end="60" time="200" condition="Control.HasFocus(20)">Conditional</animation>
-				<include>filemanager_Pane</include>
+				<itemlayout height="44">
+					<control type="image">
+						<posx>0</posx>
+						<width>568</width>
+						<colordiffuse>tv3</colordiffuse>
+						<include>column_Right</include>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<width>400</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>column_Label</include>
+					</control>
+					<control type="label">
+						<posx>550</posx>
+						<width>400</width>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>column_Label</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="550" height="44">
+					<control type="image">
+						<posx>0</posx>
+						<width>568</width>
+						<colordiffuse>tv1</colordiffuse>
+						<include>column_Right</include>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<width>400</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>column_Label-focus</include>
+					</control>
+					<control type="label">
+						<posx>550</posx>
+						<width>400</width>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>column_Label-focus</include>
+					</control>
+				</focusedlayout>
 			</control>
 		</control>
 	</controls>

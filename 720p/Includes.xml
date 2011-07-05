@@ -198,6 +198,7 @@
 		<font>list</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
+		<selectedcolor>Focused</selectedcolor>
 		<scroll>false</scroll>
 	</include>
 	<!--listMenu-->
@@ -725,50 +726,5 @@
 				</control>
 			</control>
 		</control>
-	</include>
-	
-	<include name="filemanager_Pane">
-		<itemlayout height="44">
-			<control type="image">
-				<posx>0</posx>
-				<width>568</width>
-				<colordiffuse>tv3</colordiffuse>
-				<include>column_Single</include>
-			</control>
-			<control type="label">
-				<posx>15</posx>
-				<width>400</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>column_Label</include>
-			</control>
-			<control type="label">
-				<posx>550</posx>
-				<width>400</width>
-				<align>right</align>
-				<label>$INFO[ListItem.Label2]</label>
-				<include>column_Label</include>
-			</control>
-		</itemlayout>
-		<focusedlayout width="550" height="44">
-			<control type="image">
-				<posx>0</posx>
-				<width>568</width>
-				<colordiffuse>tv1</colordiffuse>
-				<include>column_Single</include>
-			</control>
-			<control type="label">
-				<posx>15</posx>
-				<width>400</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>column_Label-focus</include>
-			</control>
-			<control type="label">
-				<posx>550</posx>
-				<width>400</width>
-				<align>right</align>
-				<label>$INFO[ListItem.Label2]</label>
-				<include>column_Label-focus</include>
-			</control>
-		</focusedlayout>
 	</include>
 </includes>

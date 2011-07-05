@@ -5,7 +5,6 @@
 	<controls>
 		<include>global_Background</include>
 		<include>global_Includes</include>
-		
 		<control type="label">
 			<include>PageLabel</include>
 			<label>[LOWERCASE][COLOR=Color2]$LOCALIZE[2][/COLOR] $LOCALIZE[10503][/LOWERCASE]</label>
@@ -54,21 +53,11 @@
 				<posx>210</posx>
 				<width>550</width>
 				<label>$LOCALIZE[744]</label>
-				<font>titleLow</font>
-				<textcolor>Color2</textcolor>
-			</control>	
-			<control type="label">
-				<description>right column label</description>
-				<posx>725</posx>
-				<width>550</width>
-				<label>$LOCALIZE[559]</label>
-				<font>titleLow</font>
-				<textcolor>Color2</textcolor>
+				<include>column_Header</include>
 			</control>
-			
 			<control type="list" id="50">
 				<posx>198</posx>
-				<posy>45</posy>
+				<posy>40</posy>
 				<width>510</width>
 				<height>528</height>
 				<onleft>9001</onleft>
@@ -79,71 +68,57 @@
 				<animation effect="fade" start="100" end="60" time="200" condition="Control.HasFocus(100)">Conditional</animation>
 				<itemlayout height="44">
 					<control type="image">
-						<posx>0</posx>
 						<width>510</width>
-						<height>42</height>
-						<texture border="4">views/column_right.png</texture>
 						<colordiffuse>tv3</colordiffuse>
+						<include>column</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Color1</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_Label</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Color1</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_Label</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="550" height="44">
 					<control type="image">
-						<posx>0</posx>
 						<width>510</width>
-						<height>42</height>
-						<texture border="4">views/column_right.png</texture>
 						<colordiffuse>tv1</colordiffuse>
+						<include>column</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Focused</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Focused</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_Label-focus</include>
 					</control>
 				</focusedlayout>
 			</control>
-
+			<control type="label">
+				<description>right column label</description>
+				<posx>725</posx>
+				<width>550</width>
+				<label>$LOCALIZE[559]</label>
+				<include>column_Header</include>
+			</control>
 			<control type="list" id="100">
 				<posx>710</posx>
-				<posy>45</posy>
+				<posy>40</posy>
 				<width>510</width>
 				<height>528</height>
 				<onleft>50</onleft>
@@ -154,64 +129,44 @@
 				<animation effect="fade" start="100" end="60" time="200" condition="Control.HasFocus(50)">Conditional</animation>
 				<itemlayout height="44">
 					<control type="image">
-						<posx>0</posx>
 						<width>510</width>
-						<height>42</height>
-						<texture border="4">views/column_focus.png</texture>
 						<colordiffuse>tv3</colordiffuse>
+						<include>column_Right</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Color1</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_Label</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Color1</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_Label</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="550" height="44">
 					<control type="image">
-						<posx>0</posx>
 						<width>510</width>
-						<height>42</height>
-						<texture border="4">views/column_focus.png</texture>
 						<colordiffuse>tv1</colordiffuse>
+						<include>column_Right</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Focused</textcolor>
-						<selectedcolor>red</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
-						<height>38</height>
-						<font>normalAlt</font>
-						<align>left</align>
-						<textcolor>Focused</textcolor>
-						<selectedcolor>Selected</selectedcolor>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_Label-focus</include>
 					</control>
 				</focusedlayout>
 			</control>
