@@ -52,7 +52,7 @@
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>500</width>
-				<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime, � ]</label>
+				<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime, • ]</label>
 				<include>list_Label-sub</include>
 				<visible>Control.IsVisible(13)</visible>
 			</control>
@@ -78,6 +78,15 @@
 				<width>500</width>
 				<label>$INFO[ListItem.Title]</label>
 				<include>list_Label-sub-focus</include>
+				<visible>!Control.IsVisible(13)</visible>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>500</width>
+				<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime, • ]</label>
+				<include>list_Label-sub-focus</include>
+				<visible>Control.IsVisible(13)</visible>
 			</control>
 		</focusedlayout>
 	</include>

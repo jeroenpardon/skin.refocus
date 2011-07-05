@@ -9,14 +9,13 @@
 	<include file="HomeSettingsMenu.xml">-</include>
 	<include file="HomeExitMenu.xml">-</include>
 	<include file="HomeRecent.xml">-</include>
-	<include file="LibraryVideoMenu.xml">-</include>
-	<include file="LibraryMusicMenu.xml">-</include>
-	<include file="LibraryPlaylistMenu.xml">-</include>
-	<include file="LibraryPlaylistMenu.xml">-</include>
-	<include file="FilesMenu.xml">-</include>
-	<include file="WeatherMenu.xml">-</include>
-	<include file="InfoDialogMenu.xml">-</include>
-	<include file="TVMenu.xml">-</include>
+	<include file="MenuInfo.xml">-</include>
+	<include file="MenuFiles.xml">-</include>
+	<include file="MenuVideo.xml">-</include>
+	<include file="MenuMusic.xml">-</include>
+	<include file="MenuPlaylist.xml">-</include>
+	<include file="MenuWeather.xml">-</include>
+	<include file="MenuTV.xml">-</include>
 	<include file="IncludesBackgrounds.xml">-</include>
 	<include file="IncludesFlags.xml">-</include>
 	<include file="IncludesHome.xml">-</include>
@@ -32,7 +31,7 @@
 	<include file="ViewBanner.xml">-</include>
 	<include file="ViewGallery.xml">-</include>
 	<include file="ViewsTV.xml">-</include>
-
+	
 <!---GLOBAL------>
 	<include name="global_Includes">
 		<include>global_Clock</include>
@@ -376,14 +375,6 @@
 		<height>42</height>
 		<texture border="8">views/column.png</texture>
 	</include>
-<<<<<<< HEAD
-	<include name="column_Single">
-		<width>98</width>
-		<height>42</height>
-		<texture border="8">views/column_Single.png</texture>
-	</include>
-=======
->>>>>>> e7590bb29352df29eee17525c9989419165690d4
 	<include name="column_Left">
 		<width>98</width>
 		<height>42</height>
@@ -737,7 +728,7 @@
 				<posx>0</posx>
 				<width>568</width>
 				<colordiffuse>tv3</colordiffuse>
-				<include>column_Single</include>
+				<include>column</include>
 			</control>
 			<control type="label">
 				<posx>15</posx>
@@ -758,7 +749,7 @@
 				<posx>0</posx>
 				<width>568</width>
 				<colordiffuse>tv1</colordiffuse>
-				<include>column_Single</include>
+				<include>column</include>
 			</control>
 			<control type="label">
 				<posx>15</posx>
