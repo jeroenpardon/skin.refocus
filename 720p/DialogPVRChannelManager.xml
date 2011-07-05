@@ -80,18 +80,10 @@
 					<onright>7000</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout height="40">
+					<itemlayout height="40" width="430">
 						<control type="image">
 							<width>430</width>
 							<include>dialog_CommonList</include>
-						</control>
-						<control type="image">
-							<posx>300</posx>
-							<posy>8</posy>
-							<width>24</width>
-							<height>24</height>
-							<texture>dialogs/changed.png</texture>
-							<visible>ListItem.Property(Changed)</visible>
 						</control>
 						<control type="label">
 							<posx>20</posx>
@@ -104,11 +96,22 @@
 							<posx>65</posx>
 							<width>230</width>
 							<label>$INFO[ListItem.Property(Name)]</label>
+							<font>smallAlt</font>
 							<include>dialog_CommonListItem</include>
 							<visible>ListItem.Property(ActiveChannel)</visible>
 						</control>
+						<!--
+						<control type="image">
+							<posx>300</posx>
+							<posy>8</posy>
+							<width>24</width>
+							<height>24</height>
+							<texture>dialogs/changed.png</texture>
+							<visible>ListItem.Property(Changed)</visible>
+						</control>
+						-->
 					</itemlayout>
-					<focusedlayout height="40">
+					<focusedlayout height="40" width="430">
 						<control type="image">
 							<width>430</width>
 							<include>dialog_CommonList</include>
@@ -118,6 +121,43 @@
 							<include>dialog_CommonListFocus</include>
 							<visible>Control.HasFocus(20)</visible>
 						</control>
+						<control type="group">
+							<posx>5</posx>
+							<visible>ListItem.Property(ActiveChannel)</visible>
+							<control type="label">
+								<width>50</width>
+								<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
+								<textcolor>Selected</textcolor>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>!Control.HasFocus(20)</visible>
+							</control>
+							<control type="label">
+								<width>50</width>
+								<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>Control.HasFocus(20)</visible>
+							</control>
+						</control>
+						<control type="group">
+							<posx>50</posx>
+							<visible>ListItem.Property(ActiveChannel)</visible>
+							<control type="label">
+								<width>190</width>
+								<label>$INFO[ListItem.Property(Name)]</label>
+								<font>smallAlt</font>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>Control.HasFocus(20)</visible>
+							</control>
+							<control type="label">
+								<width>190</width>
+								<label>$INFO[ListItem.Property(Name)]</label>
+								<font>smallAlt</font>
+								<textcolor>Selected</textcolor>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>!Control.HasFocus(20)</visible>
+							</control>
+						</control>
+						<!--
 						<control type="image">
 							<posx>300</posx>
 							<posy>8</posy>
@@ -126,38 +166,7 @@
 							<texture>dialogs/changed-focus.png</texture>
 							<visible>ListItem.Property(Changed)</visible>
 						</control>
-						<control type="label">
-							<posx>20</posx>
-							<width>50</width>
-							<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
-							<visible>!Control.HasFocus(20)</visible>
-							<textcolor>Selected</textcolor>
-							<include>dialog_CommonListItemFocus</include>
-							<visible>ListItem.Property(ActiveChannel)</visible>
-						</control>
-						<control type="label">
-							<posx>20</posx>
-							<width>50</width>
-							<label>[B]$INFO[ListItem.Property(Number)][/B]</label>
-							<visible>Control.HasFocus(20)</visible>
-							<include>dialog_CommonListItemFocus</include>
-							<visible>ListItem.Property(ActiveChannel)</visible>
-						</control>
-						<control type="label">
-							<posx>65</posx>
-							<width>190</width>
-							<label>$INFO[ListItem.Property(Name)]</label>
-							<include>dialog_CommonListItemFocus</include>
-							<visible>Control.HasFocus(20) + ListItem.Property(ActiveChannel)</visible>
-						</control>
-						<control type="label">
-							<posx>65</posx>
-							<width>190</width>
-							<label>$INFO[ListItem.Property(Name)]</label>
-							<textcolor>Selected</textcolor>
-							<include>dialog_CommonListItemFocus</include>
-							<visible>!Control.HasFocus(20) + ListItem.Property(ActiveChannel)</visible>
-						</control>
+						-->
 					</focusedlayout>
 				</control>
 				<!---browse controls--->
@@ -256,6 +265,7 @@
 					<description>channel name</description>
 					<label>19201</label>
 					<width>423</width>
+					<font>smallAlt</font>
 					<include>dialog_Button-list</include>
 				</control>
 				<control type="spincontrolex" id ="11">
