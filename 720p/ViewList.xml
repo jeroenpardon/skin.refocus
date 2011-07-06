@@ -182,11 +182,10 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Artist]</label>
-				<font>listInfo</font>
-				<include>list_Label-sub-focus</include>
+				<width>440</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>list_Label-focus</include>
+				<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
 			</control>
 			<control type="group">
 				<posx>40</posx>
@@ -758,6 +757,14 @@
 				<label>$INFO[ListItem.Date]$INFO[ListItem.PictureResolution, • ]</label>
 				<include>list_Label-sub</include>
 			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>560</width>
+				<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+				<include>list_Label-sub</include>
+				<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
+			</control>
 		</itemlayout>
 		<focusedlayout condition="Container.HasFiles" width="625" height="67">
 			<control type="image">
@@ -781,9 +788,16 @@
 				<label>$INFO[ListItem.Date]$INFO[ListItem.PictureResolution, • ]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>560</width>
+				<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+				<include>list_Label-sub-focus</include>
+				<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
+			</control>
 		</focusedlayout>
 	</include>
-
 
 <!--ADDONS------>
 	<include name="ListAddons">

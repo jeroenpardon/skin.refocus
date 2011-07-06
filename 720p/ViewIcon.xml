@@ -311,45 +311,95 @@
 
 <!---SQUARE ADD-ONS------>
 	<include name="view_IconSquare">
-		<control type="panel" id="574">
-			<viewtype label="Thumbnails">bigicons</viewtype>
-			<posx>35</posx>
-			<posy>115</posy>
-			<width>760</width>
-			<height>540</height>
-			<onleft>6000</onleft>
-			<onright>78</onright>
-			<onup>574</onup>
-			<ondown>574</ondown>
-			<preloaditems>4</preloaditems>
-			<scrolltime>150</scrolltime>
-			<pagecontrol>78</pagecontrol>
+		<control type="group">
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
-			<include>toggle_Menu</include>	
-			<visible>substring(Container.FolderPath,addons://) + ![IsEmpty(Container.FolderPath)]</visible>
-			<itemlayout height="180" width="180">
-				<control type="image">
-					<width>176</width>
-					<height>176</height>
-					<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<include>fadeinout</include>
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(574)</visible>
+			<!--info-->
+			<control type="grouplist" id="1000">
+				<posx>800</posx>
+				<posy>120</posy>
+				<itemgap>2</itemgap>
+				<control type="label" id="1">
+					<width>405</width>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>Color1</textcolor>
+					<font>normalCaps</font>
 				</control>
-			</itemlayout>											
-			<focusedlayout height="180" width="180">
-				<control type="image">
-					<width>176</width>
-					<height>176</height>
-					<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<include>focus_Thumbs</include>
+				<control type="label">
+					<width>405</width>
+					<label>$LOCALIZE[31979]: $INFO[ListItem.Property(Addon.Version)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+					<visible>!IsEmpty(ListItem.Property(Addon.Version))</visible>
 				</control>
-			</focusedlayout>
+				<control type="image">
+					<width>405</width>
+					<height>25</height>
+					<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
+					<aspectratio align="left">keep</aspectratio>
+					<visible>!IsEmpty(ListItem.Property(Addon.StarRating))</visible>
+				</control>
+				<control type="label">
+					<label></label>
+				</control>
+				<control type="textbox" id="4">
+					<width>405</width>
+					<height>413</height>
+					<aligny>top</aligny>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<textcolor>Color1</textcolor>
+					<font>descriptionSmall</font>
+					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+				</control>
+				<control type="textbox" id="4">
+					<width>405</width>
+					<height>413</height>
+					<aligny>top</aligny>
+					<label>$INFO[ListItem.Plot]</label>
+					<textcolor>Color1</textcolor>
+					<font>descriptionSmall</font>
+					<visible>!IsEmpty(ListItem.Plot)</visible>
+				</control>
+			</control>
+			<!--container-->
+			<control type="panel" id="574">
+				<viewtype label="Thumbnails">bigicons</viewtype>
+				<posx>35</posx>
+				<posy>115</posy>
+				<width>760</width>
+				<height>540</height>
+				<onleft>6000</onleft>
+				<onright>78</onright>
+				<onup>574</onup>
+				<ondown>574</ondown>
+				<preloaditems>4</preloaditems>
+				<scrolltime>150</scrolltime>
+				<pagecontrol>78</pagecontrol>
+				<visible>substring(Container.FolderPath,addons://) + ![IsEmpty(Container.FolderPath)]</visible>
+				<itemlayout height="180" width="180">
+					<control type="image">
+						<width>176</width>
+						<height>176</height>
+						<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+					</control>
+				</itemlayout>											
+				<focusedlayout height="180" width="180">
+					<control type="image">
+						<width>176</width>
+						<height>176</height>
+						<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<include>focus_Thumbs</include>
+					</control>
+				</focusedlayout>
+			</control>
 		</control>
 	</include>
 
