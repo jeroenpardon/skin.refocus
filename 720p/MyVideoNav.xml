@@ -653,48 +653,7 @@
 					<visible>Container.Content(tvshows)</visible>
 				</control>
 			</control>
-			<!---strip top------>
-			<control type="group">
-				<posx>265</posx>
-				<posy>102</posy>
-				<visible>!Control.HasFocus(8000)</visible>
-				<control type="group">
-					<visible>Container.Content(movies)</visible>
-					<control type="label">
-						<label>$INFO[ListItem.Label]</label>
-						<width>750</width>
-						<include>info_Title</include>
-						<visible>IsEmpty(ListItem.Title + IsEmpty(ListItem.TVShowTitle)</visible>
-					</control>
-					<control type="label">
-						<label>$INFO[ListItem.Title]</label>
-						<width>750</width>
-						<include>info_Title</include>
-					</control>
-					<control type="label">
-						<posx>750</posx>
-						<label>$INFO[Container(53).ListItem(1).Title]</label>
-						<width>750</width>
-						<include>info_Title</include>
-						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Container.Content(tvshows)</visible>
-					<control type="label">
-						<label>$INFO[ListItem.TVShowTitle]</label>
-						<width>750</width>
-						<include>info_Title</include>
-					</control>
-					<control type="label">
-						<posx>750</posx>
-						<label>$INFO[Container(53).ListItem(1).TVShowTitle]</label>
-						<width>750</width>
-						<include>info_Title</include>
-						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
-					</control>
-				</control>
-			</control>
+
 			<!---strip bottom------>
 			<control type="group">
 				<posx>265</posx>
@@ -763,13 +722,6 @@
 		<include>view_Gallery</include>
 		<!---fullscreen/expanded------>
 		<control type="image">
-			<include>screentype</include>
-			<aspectratio align="left">stretch</aspectratio>
-			<texture>home/menuBackground.png</texture>
-			<include>fadeinout</include>
-			<visible>Control.IsVisible(531) + ControlGroup(6000).HasFocus()</visible>
-		</control>
-		<control type="image">
 			<posx>-20</posx>
 			<posy>505</posy>
 			<width>1320</width>
@@ -781,27 +733,7 @@
 			<include>infoDialogHide</include>
 			<visible>[Control.IsVisible(53) + Control.HasFocus(8000)] | [Control.IsVisible(531) + !Control.HasFocus(8000)] + !ControlGroup(6000).HasFocus() + !Container.Content(episodes)</visible>
 		</control>
-		<!---scroll indicators------->
-		<control type="group">
-			<posy>336</posy>
-			<visible>Control.IsVisible(531) + System.IdleTime(3) + ![ControlGroup(6000).HasFocus() | Container.Content(episodes) | Window.IsActive(movieinformation)]</visible>
-			<control type="image">
-				<posx>20</posx>
-				<width>48</width>
-				<height>48</height>
-				<texture>views/scrollLeftIndicator.png</texture>
-				<aspectratio>keep</aspectratio>
-				<include>fadeinout</include>
-			</control>
-			<control type="image">
-				<posx>1212</posx>
-				<width>48</width>
-				<height>48</height>
-				<texture>views/scrollRightIndicator.png</texture>
-				<aspectratio>keep</aspectratio>
-				<include>fadeinout</include>
-			</control>
-		</control>
+		
 		<!---info frame------>
 		<control type="group">
 			<posy>544</posy>

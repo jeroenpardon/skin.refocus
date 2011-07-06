@@ -1,23 +1,46 @@
 ﻿<includes>
-<!--- GALLERY VIEW --->	
-	<include name="view_Gallery">																					
+<!---STRIP LAYOUT------>	
+	<include name="view_Gallery">
+		<!---strip top------>
 		<control type="group">
-			<visible>Control.IsVisible(53)</visible>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
+			<visible>Control.IsVisible(53) + !Control.HasFocus(8000)</visible>
+			<control type="group">
+				<posx>265</posx>
+				<posy>102</posy>
+				<control type="group">
+					<control type="label">
+						<label>$INFO[ListItem.Label]</label>
+						<width>750</width>
+						<include>info_Title</include>
+						<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
+					</control>
+					<control type="label">
+						<label>$INFO[ListItem.Title]</label>
+						<width>750</width>
+						<include>info_Title</include>
+					</control>
+					<control type="label">
+						<posx>750</posx>
+						<label>$INFO[Container(53).ListItem(1).Label]</label>
+						<width>750</width>
+						<include>info_Title</include>
+						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+					</control>
+				</control>
+			</control>
+			<!---frame--->																	
 			<control type="image">
 				<posy>106</posy>
 				<width>1280</width>
 				<height>478</height>
 				<aspectratio align="center">stretch</aspectratio>
 				<texture border="29">frames/frame_Gallery.png</texture>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(2)] + Control.IsVisible(53)</visible>
-				<include>transition_Container</include>
-				<include>toggle_Menu</include>
-				<include>infoDialogHide</include>
 			</control>
 		</control>
+		<!--container--->
 		<control type="wraplist" id="53">
 			<viewtype label="Gallery">wrap</viewtype>
 			<posx>-485</posx>
@@ -39,7 +62,16 @@
 			<include condition="Window.IsVisible(pictures)">GalleryPictures</include>
 			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)]</visible>
 		</control>
-	</include>	
+		<!---window menu shade-->
+		<control type="image">
+			<include>global_Screentype</include>
+			<aspectratio align="left">stretch</aspectratio>
+			<texture>home/menuBackground.png</texture>
+			<include>fadeinout</include>
+			<visible>ControlGroup(6000).HasFocus()</visible>
+		</control>
+	</include>
+	<!---container contents--->
 	<include name="GalleryVideo">
 		<itemlayout height="800" width="749">
 			<control type="image">
@@ -126,7 +158,7 @@
 		</focusedlayout>
 	</include>
 
-
+<!---FULLSCREEN LAYOUT------>
 	<include name="view_GalleryFull">																																																																
 		<control type="wraplist" id="531">
 			<viewtype label="Gallery">bigwrap</viewtype>
@@ -145,17 +177,38 @@
 			<include condition="Window.IsVisible(pictures)">GalleryFullPictures</include>		
 			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(2)]</visible>
 		</control>
+		<!---scroll indicators------->
+		<control type="group">
+			<posy>336</posy>
+			<include>fadeinout</include>
+			<visible>Control.IsVisible(531) + System.IdleTime(3) + ![ControlGroup(6000).HasFocus() | Window.IsActive(movieinformation)]</visible>
+			<control type="image">
+				<posx>20</posx>
+				<width>48</width>
+				<height>48</height>
+				<texture>views/scrollLeftIndicator.png</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="image">
+				<posx>1212</posx>
+				<width>48</width>
+				<height>48</height>
+				<texture>views/scrollRightIndicator.png</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+		</control>
 	</include>
+	<!---container contents--->
 	<include name="GalleryFullVideo">
 		<itemlayout height="720" width="1280">
 			<control type="image">
-				<include>screentype</include>
+				<include>global_Screentype</include>
 				<aspectratio>keep</aspectratio>
 				<texture background="true" fallback="backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
-				<include>screentype</include>
+				<include>global_Screentype</include>
 				<aspectratio>keep</aspectratio>
 				<texture background="true" fallback="backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
@@ -170,13 +223,13 @@
 		</itemlayout>
 		<focusedlayout height="720" width="1280">
 			<control type="image">
-				<include>screentype</include>
+				<include>global_Screentype</include>
 				<aspectratio aligny="left">scale</aspectratio>
 				<texture background="true" fallback="backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
-				<include>screentype</include>
+				<include>global_Screentype</include>
 				<aspectratio>keep</aspectratio>
 				<texture background="true" fallback="backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
