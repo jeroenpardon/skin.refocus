@@ -110,7 +110,7 @@
 				<onfocus>Skin.SetString(SkinSettings,6)</onfocus>
 				<onright>600</onright>
 				<onup>14</onup>
-				<ondown>17</ondown>
+				<ondown>16</ondown>
 				<include>button_Category</include>
 			</control>
 			<control type="image">
@@ -120,6 +120,24 @@
 				<aspectratio align="right">stretch</aspectratio>
 				<width>325</width>
 				<visible>ControlGroup(600).HasFocus</visible>
+			</control>
+			<control type="button" id="16">
+				<description>OSD</description>
+				<posy>252</posy>
+				<label>OSD</label>
+				<onfocus>Skin.SetString(SkinSettings,7)</onfocus>
+				<onright>700</onright>
+				<onup>15</onup>
+				<ondown>17</ondown>
+				<include>button_Category</include>
+			</control>
+			<control type="image">
+				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
+				<posy>252</posy>
+				<height>50</height>
+				<aspectratio align="right">stretch</aspectratio>
+				<width>325</width>
+				<visible>ControlGroup(700).HasFocus</visible>
 			</control>
 			<!--
 			<control type="button" id="16">
@@ -143,10 +161,10 @@
 			-->
 			<control type="button" id="17">
 				<description>Skin credits</description>
-				<posy>252</posy>
+				<posy>294</posy>
 				<label>$LOCALIZE[31909] reFocus</label>
 				<onfocus>Skin.SetString(SkinSettings,8)</onfocus>
-				<onup>15</onup>
+				<onup>16</onup>
 				<ondown>10</ondown>
 				<include>button_Category</include>
 			</control>
@@ -697,7 +715,28 @@
 			</control>
 		</control>
 
-
+<!---OSD------>
+		<control type="grouplist" id="700">
+			<posx>340</posx>
+			<posy>93</posy>
+			<width>850</width>
+			<height>605</height>
+			<onleft>9001</onleft>
+			<onright>9001</onright>
+			<onup>700</onup>
+			<ondown>700</ondown>
+			<itemgap>0</itemgap>
+			<visible>Skin.String(SkinSettings,7)</visible>
+			<include>transition_Container</include>
+			<control type="radiobutton" id="701">
+				<description>show progressbar</description>
+				<label>31917</label>
+				<onclick>Skin.ToggleSetting(osd.progressbar)</onclick>
+				<selected>Skin.HasSetting(osd.progressbar)</selected>
+				<include>button_Settings</include>
+			</control>
+		</control>
+		
 <!--- ADDONS SETTINGS 		
 		<control type="grouplist" id="700">
 			<posx>340</posx>

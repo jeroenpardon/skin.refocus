@@ -1,13 +1,27 @@
 ﻿<window type="dialog" id="142">
-	<defaultcontrol always="true">100</defaultcontrol>
+	<defaultcontrol>7000</defaultcontrol>
 	
 	<controls>
+	<!---TRIGGERS------>
+		<control type="button" id="6000">
+			<label>SHOULD NOT SEE ME</label>
+			<onup>-</onup>
+			<ondown>7000</ondown>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+		<control type="button" id="7000">
+			<label>SHOULD NOT SEE ME</label>
+			<onup>6000</onup>
+			<ondown>-</ondown>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+		
 		<include>clock</include>
 		<control type="group">
-			<posy>200</posy>
+			<posy>300</posy>
+			<animation effect="slide" start="0,0" end="0,-500" time="250" tween="Cubic" easing="in" condition="Control.HasFocus(6000)">Conditional</animation>
 			<control type="group">
-				<posy>100</posy>
-				<visible>[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]</visible>
+				<posy>0</posy>
 				<control type="image">
 					<height>200</height>
 					<include>screenwidth</include>
@@ -23,50 +37,31 @@
 					<include>transition_OSD</include>
 				</control>
 			</control>
-			<control type="group">
-				<posy>169</posy>
-				<visible>VideoPlayer.Content(files)</visible>
-				<control type="image">
-					<height>200</height>
-					<include>screenwidth</include>
-					<texture>OSD/infoOverlayTop.png</texture>
-					<include>transition_OSD2</include>
-				</control>
-				<control type="image" id="1">
-					<posy>200</posy>
-					<height>140</height>
-					<include>screenwidth</include>
-					<texture border="0,1,0,11">OSD/infoOverlay.png</texture>
-					<include>transition_OSD</include>
-				</control>
-			</control>
 			<!--now watching------>
 			<control type="group">
 				<posx>200</posx>
-				<posy>252</posy>
+				<posy>152</posy>
 				<include>transition_OSD3</include>
 				<control type="label">	
 					<width>1080</width>
 					<label>$LOCALIZE[31905]</label>
 					<font>osd3</font>
 					<textcolor>Color3</textcolor>
-					<visible>!VideoPlayer.Content(files)</visible>
-				</control>
-				<control type="label">	
-					<posy>70</posy>
-					<width>1080</width>
-					<label>$LOCALIZE[31905]</label>
-					<font>osd3</font>
-					<textcolor>Color3</textcolor>
-					<visible>VideoPlayer.Content(files)</visible>
 				</control>
 			</control>
 	
 		<!---FLAGS------>
 			<control type="group">
 				<posx>40</posx>
-				<posy>285</posy>
+				<posy>185</posy>
 				<include>transition_OSD</include>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_VideoCodec-play</include>
+					<visible>VideoPlayer.Content(files)</visible>
+				</control>
 				<control type="image">
 					<width>128</width>
 					<height>128</height>
@@ -102,30 +97,12 @@
 					<height>64</height>
 					<aspectratio align="center">keep</aspectratio>
 					<include>flag_HD-play</include>
-					<visible>!VideoPlayer.Content(files)</visible>
-				</control>
-				<control type="group">
-					<visible>VideoPlayer.Content(files)</visible>
-					<control type="image">
-						<posx>1135</posx>
-						<posy>85</posy>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio align="center">keep</aspectratio>
-						<include>flag_HD-play</include>	
-					</control>
-					<control type="image">
-						<posy>65</posy>
-						<width>128</width>
-						<height>128</height>
-						<aspectratio align="center">keep</aspectratio>
-						<include>flag_VideoCodec-play</include>
-					</control>
 				</control>
 			</control>
+			<!--
 			<control type="image">
 				<posx>1175</posx>
-				<posy>175</posy>
+				<posy>75</posy>
 				<width>64</width>
 				<height>64</height>
 				<aspectratio align="center">keep</aspectratio>
@@ -133,9 +110,11 @@
 				<include>transition_OSD</include>
 				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(files)] + ![Window.IsActive(2901)]</visible>
 			</control>
+			-->
+			<!--
 			<control type="image">
 				<posx>40</posx>
-				<posy>188</posy>
+				<posy>88</posy>
 				<include>transition_OSD</include>
 				<width>128</width>
 				<height>72</height>
@@ -143,14 +122,14 @@
 				<include>labelFlag</include>
 				<visible>VideoPlayer.Content(musicvideos)</visible>
 			</control>
+			-->
 
 		<!---INFO------>
 			<control type="group">
 				<posx>200</posx>
-				<posy>323</posy>
+				<posy>223</posy>
 				<include>transition_OSD</include>
-				<include>fadeinout</include>
-				<visible>!VideoPlayer.Content(files)</visible>
+				<!--line 1------>
 				<control type="label">
 					<width>970</width>
 					<label>$INFO[VideoPlayer.Title]</label>
@@ -160,25 +139,28 @@
 				<!--line 2------>
 				<control type="group">
 					<posy>30</posy>
+					<control type="label" id="1">
+						<width>1000</width>
+						<label>$INFO[Player.FolderPath]</label>
+						<include>info_Sub</include>
+						<visible>VideoPlayer.Content(files)</visible>
+					</control>
 					<control type="label">
 						<width>1000</width>
 						<label>$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</label>
-						<font>osd2</font>
-						<textcolor>Color2</textcolor>
+						<include>info_Sub</include>
 						<visible>VideoPlayer.Content(movies)</visible>
 					</control>
 					<control type="label" id="1">
 						<width>1000</width>
 						<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
-						<textcolor>Color2</textcolor>
-						<font>osd2</font>
+						<include>info_Sub</include>
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
 						<width>1000</width>
 						<label>$INFO[VideoPlayer.ChannelName]</label>
-						<font>osd2</font>
-						<textcolor>Color2</textcolor>
+						<include>info_Sub</include>
 						<visible>VideoPlayer.Content(livetv)</visible>
 					</control>
 					<control type="label">
@@ -186,8 +168,7 @@
 						<width>1000</width>
 						<align>right</align>
 						<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
-						<font>osd2</font>
-						<textcolor>Color2</textcolor>
+						<include>info_Sub</include>
 					</control>
 				</control>
 				<!---music videos------>
@@ -222,45 +203,46 @@
 					<posy>60</posy>
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 					<control type="textbox" id="8">
-						<width>1040</width>
 						<height>87</height>
-						<aligny>top</aligny>
 						<label>$INFO[VideoPlayer.PlotOutline]</label>
-						<visible>!IsEmpty(VideoPlayer.PlotOutline)</visible>
-						<textcolor>Color1</textcolor>
-						<font>description</font>
+						<include>description_OSD</include>
+						<visible>!IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
 					</control>
 					<control type="textbox" id="8">
-						<width>1040</width>
 						<height>87</height>
-						<aligny>top</aligny>
 						<label>$INFO[VideoPlayer.Plot]</label>
-						<visible>IsEmpty(VideoPlayer.PlotOutline)</visible>
-						<textcolor>Color1</textcolor>
-						<font>descriptionSmall</font>
+						<include>description_OSD</include>
+						<visible>IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
+					</control>
+					<control type="textbox" id="8">
+						<height>60</height>
+						<label>$INFO[VideoPlayer.PlotOutline]</label>
+						<include>description_OSD</include>
+						<visible>!IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
+					</control>
+					<control type="textbox" id="8">
+						<height>60</height>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<include>description_OSD</include>
+						<visible>IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
 					</control>
 				</control>
+				<control type="progress" id="1">
+					<posy>130</posy>
+					<width>1040</width>
+					<height>18</height>
+					<texturebg border="10">dialogs/progressBackground.png</texturebg>
+					<info>Player.Progress</info>
+					<visible>Skin.HasSetting(osd.progressbar)</visible>
+				</control>
 			</control>
-			<!---files------>
+			<!---files
 			<control type="group" id="1">
 				<posx>200</posx>
 				<posy>389</posy>
 				<visible>VideoPlayer.Content(files)</visible>
 				<include>transition_OSD</include>
-				<control type="label" id="1">
-					<width>1140</width>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<textcolor>Color1</textcolor>
-					<font>osd1</font>
-				</control>
-				<control type="label" id="1">
-					<posy>30</posy>
-					<width>900</width>
-					<label>$INFO[Player.FolderPath]</label>
-					<textcolor>Color2</textcolor>
-					<font>osd2</font>
-					<visible>VideoPlayer.Content(files)</visible>
-				</control>
+				
 				<control type="label">
 					<posx>1035</posx>
 					<posy>30</posy>
@@ -271,6 +253,7 @@
 					<textcolor>Color2</textcolor>
 				</control>
 			</control>
+			------>
 		</control>
 	</controls>
 </window>
