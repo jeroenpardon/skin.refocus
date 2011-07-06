@@ -60,23 +60,15 @@
 				<include>list_Label</include>
 				<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
 			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Artist]</label>
-				<include>list_Label-sub</include>
-			</control>
 			<control type="group">
+				<posx>40</posx>
 				<visible>Container.Content(movies)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>list_Label</include>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>510</width>
 					<label>$INFO[ListItem.Genre]</label>
@@ -84,7 +76,6 @@
 					<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>510</width>
 					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
@@ -92,15 +83,14 @@
 				</control>
 			</control>
 			<control type="group">
+				<posx>40</posx>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>list_Label</include>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
@@ -108,30 +98,27 @@
 				</control>
 			</control>
 			<control type="group">
+				<posx>40</posx>
 				<visible>Container.Content(episodes)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Label]</label>
 					<include>list_Label</include>
 					<visible>IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>list_Label</include>
 					<visible>!stringcompare(Container.FolderPath,videodb://5/)</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</label>
 					<include>list_Label</include>
 					<visible>stringcompare(Container.FolderPath,videodb://5/)</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
@@ -139,9 +126,24 @@
 				</control>
 			</control>
 			<control type="group">
+				<posx>40</posx>
+				<visible>Container.Content(musicvideos)</visible>
+				<control type="label">
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<include>list_Label</include>
+				</control>
+				<control type="label">
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Artist]</label>
+					<include>list_Label-sub</include>
+				</control>
+			</control>
+			<control type="group">
+				<posx>40</posx>
 				<visible>stringcompare(Container.FolderPath,addons://sources/video/)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
@@ -180,14 +182,6 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
-				<font>listBig</font>
-				<include>list_Label-focus</include>
-				<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
 				<posy>28</posy>
 				<width>560</width>
 				<label>$INFO[ListItem.Artist]</label>
@@ -195,15 +189,14 @@
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="group">
+				<posx>40</posx>
 				<visible>Container.Content(movies)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>list_Label-focus</include>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>510</width>
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
@@ -211,7 +204,6 @@
 					<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>510</width>
 					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
@@ -219,15 +211,14 @@
 				</control>
 			</control>
 			<control type="group">
+				<posx>40</posx>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>list_Label-focus</include>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
@@ -235,23 +226,21 @@
 				</control>
 			</control>
 			<control type="group">
+				<posx>40</posx>
 				<visible>Container.Content(episodes)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>list_Label-focus</include>
 					<visible>!stringcompare(Container.FolderPath,videodb://5/)</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<width>440</width>
 					<label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</label>
 					<include>list_Label-focus</include>
 					<visible>stringcompare(Container.FolderPath,videodb://5/)</visible>
 				</control>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
@@ -259,9 +248,24 @@
 				</control>
 			</control>
 			<control type="group">
+				<posx>40</posx>
+				<visible>Container.Content(musicvideos)</visible>
+				<control type="label">
+					<width>440</width>
+					<label>$INFO[ListItem.Title]</label>
+					<include>list_Label-focus</include>
+				</control>
+				<control type="label">
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Artist]</label>
+					<include>list_Label-sub-focus</include>
+				</control>
+			</control>
+			<control type="group">
+				<posx>40</posx>
 				<visible>stringcompare(Container.FolderPath,addons://sources/video/)</visible>
 				<control type="label">
-					<posx>40</posx>
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Property(Addon.Summary)]</label>

@@ -54,43 +54,43 @@
 			<control type="label">
 				<width>780</width>
 				<label>$INFO[ListItem.Tagline]</label>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="label">
 				<width>780</width>
 				<label>$INFO[ListItem.Title]</label>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<visible>Container.Content(episodes)</visible>
 			</control>
 			<control type="label">
 				<width>750</width>
 				<label>$INFO[ListItem.PlotOutline]</label>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<visible>Container.Content(movies) + !Control.IsVisible(50) + IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.Property(ReleaseDate)) + !IsEmpty(ListItem.PlotOutline)</visible>
 			</control>
 			<control type="label">
 				<width>750</width>
 				<label>$INFO[ListItem.Plot]</label>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<visible>Container.Content(movies) + !Control.IsVisible(50) + [IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline) + IsEmpty(ListItem.Property(ReleaseDate))]</visible>
 			</control>
 			<control type="label">
 				<width>780</width>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<label>$INFO[ListItem.Property(ReleaseDate)]</label>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="label">
 				<width>780</width>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<label>$INFO[ListItem.Genre]</label>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="label">
 				<width>780</width>
 				<label>$INFO[ListItem.Artist]</label>
-				<include>Heading1</include>
+				<include>info_Title</include>
 				<visible>Container.Content(musicvideos) + !Window.IsActive(videofiles)</visible>
 			</control>
 		</control>
