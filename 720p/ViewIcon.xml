@@ -195,7 +195,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(files) | Window.IsActive(mypictures) | Container.Content(artists)] + Container.HasFiles</visible>
+			<visible>[[Container.Content(files) + Container.HasFiles] | Window.IsActive(mypictures) | Container.Content(artists)]</visible>
 			<!--<include condition="Window.IsVisible(videolibrary)">IconWideVideo</include>-->
 			<include condition="Window.IsVisible(musiclibrary)">IconWideMusic</include>
 			<include condition="Window.IsVisible(pictures)">IconWidePictures</include>

@@ -65,103 +65,130 @@
 				<colordiffuse>Color7</colordiffuse>
 				<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
 			</control>
+			<!---flags------>
+			<control type="image">
+				<posx>220</posx>
+				<posy>600</posy>
+				<width>128</width>
+				<height>32</height>
+				<info>ListItem.StarRating</info>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(songs)</visible>
+			</control>
+			<!--info------>
 			<control type="group">
 				<posx>220</posx>
 				<posy>462</posy>
 				<control type="label">
 					<width>1080</width>
 					<label>$INFO[ListItem.Label]</label>
-					<include>Heading1</include>	
-					<visible>IsEmpty(ListItem.Artist) + IsEmpty(ListItem.Title) + IsEmpty(ListItem.Album)</visible>
+					<include>info_Title</include>
+					<visible>!Container.Content(songs) | [Container.Content(songs) + IsEmpty(ListItem.Title)]</visible>
 				</control>
 				<control type="label">
-					<posy>35</posy>
-					<width>980</width>
-					<label>$INFO[ListItem.Artist] • $INFO[ListItem.Year] • $INFO[ListItem.Genre]</label>
-					<align>left</align>
-					<include>Heading3</include>
-					<visible>!IsEmpty(ListItem.Album) + !Container.Content(songs)</visible>
-				</control>
-				<control type="label">
-					<posy>35</posy>
-					<width>980</width>
-					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
-					<align>left</align>
-					<include>Heading3</include>
-					<visible>!Container.Content(songs)</visible>
-				</control>
-				<control type="group">
-					<visible>Container.Content(Artists)</visible>
-					<control type="label">
-						<width>1080</width>
-						<label>$INFO[ListItem.Artist]</label>
-						<include>Heading1</include>	
-					</control>
-					<control type="textbox" id="8">
-						<posy>62</posy>
-						<width>980</width>
-						<height>170</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<label>$INFO[ListItem.Property(Artist_Description)]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Container.Content(albums)</visible>
-					<control type="label">
-						<width>1080</width>
-						<label>$INFO[ListItem.Album]</label>
-						<include>Heading1</include>	
-					</control>
-					<control type="textbox" id="8">
-						<posy>62</posy>
-						<width>980</width>
-						<height>170</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<label>$INFO[ListItem.Property(Album_Description)]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
-					</control>
-				</control>
-				<control type="group">
+					<width>1080</width>
+					<label>$INFO[ListItem.Title]</label>
+					<include>info_Title</include>
 					<visible>Container.Content(songs)</visible>
+				</control>
+				<control type="group">
+					<visible>Container.Content(files)</visible>
 					<control type="label">
-						<width>1080</width>
-						<label>$INFO[ListItem.Title]</label>
-						<include>Heading1</include>	
-					</control>
-					<control type="label">
-						<posy>35</posy>
+						<posy>32</posy>
 						<width>980</width>
-						<label>$INFO[ListItem.Artist]</label>
-						<align>left</align>
-						<include>Heading3</include>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>info_Sub</include>
 					</control>
 					<control type="label">
-						<posy>60</posy>
+						<posy>56</posy>
 						<width>980</width>
-						<label>$INFO[ListItem.Album] ($INFO[ListItem.Year])</label>
-						<align>left</align>
-						<include>Heading3</include>
-						<visible>!IsEmpty(ListItem.Title)</visible>
+						<label>$INFO[ListItem.Date]</label>
+						<include>info_Sub</include>
+					</control>
+				</control>
+				<!---line 2------>
+				<control type="group">
+					<posy>32</posy>
+					<control type="group">
+						<visible>Container.Content(albums)</visible>
+						<control type="label">
+							<width>920</width>
+							<label>$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]$INFO[ListItem.Genre, • ]</label>
+							<include>info_Sub</include>
+							<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Container.Content(artists)</visible>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+							<include>info_Sub</include>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Container.Content(musicvideos)</visible>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Artist,, • ]$INFO[ListItem.Duration,, ]$LOCALIZE[31100]</label>
+							<include>info_Sub</include>
+						</control>
+					</control>
+					<control type="grouplist">
+						<itemgap>0</itemgap>
+						<visible>Container.Content(songs)</visible>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Artist]</label>
+							<include>info_Sub</include>
+						</control>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Album]</label>
+							<include>info_Sub</include>
+						</control>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Duration]</label>
+							<include>info_Sub</include>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Container.Content(musicvideos)</visible>
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Artist,, • ]$INFO[ListItem.Duration,, ]$LOCALIZE[31100]</label>
+							<include>info_Sub</include>
+						</control>
 					</control>
 					<control type="label">
-						<posy>85</posy>
 						<width>980</width>
-						<label>$INFO[ListItem.Duration]</label>
-						<align>left</align>
-						<include>Heading3</include>
+						<label>$LOCALIZE[31072]</label>
+						<include>info_Sub</include>
+						<visible>Container.Content(seasons)</visible>
 					</control>
-					<control type="image">
-						<posy>125</posy>
-						<width>128</width>
-						<height>25</height>
-						<info>ListItem.StarRating</info>
-						<colordiffuse>Color1</colordiffuse>
-						<aspectratio align="left">keep</aspectratio>
+					<!---plot------>
+					<control type="group">
+						<posy>30</posy>
+						<visible>!Container.Content(songs)</visible>
+						<control type="textbox">
+							<width>960</width>
+							<height>170</height>
+							<align>left</align>
+							<aligny>top</aligny>
+							<label>$INFO[ListItem.Property(Album_Description)]</label>
+							<textcolor>Color7</textcolor>
+							<font>descriptionSmall</font>
+						</control>
+						<control type="textbox">
+							<width>960</width>
+							<height>170</height>
+							<align>left</align>
+							<aligny>top</aligny>
+							<label>$INFO[ListItem.Property(Artist_Description)]</label>
+							<textcolor>Color7</textcolor>
+							<font>descriptionSmall</font>
+						</control>
 					</control>
 				</control>
 			</control>
@@ -180,72 +207,56 @@
 			</control>
 			<control type="group">
 				<posx>60</posx>
-				<posy>635</posy>
+				<posy>640</posy>
 				<visible>Control.IsVisible(572)</visible>
 				<control type="label">
-					<align>left</align>
-					<label>$INFO[ListItem.Label]</label>
-					<include>screenwidth</include>
-					<include>Heading1</include>
-					<visible>IsEmpty(ListItem.Album) + IsEmpty(ListItem.Artist)</visible>
+					<label>$INFO[ListItem.Lasbel]</label>
+					<include>info_Title</include>
+
 				</control>
 				<control type="group">
 					<visible>Container.Content(albums)</visible>
 					<control type="label">
-						<align>left</align>
 						<label>$INFO[ListItem.Album]</label>
-						<include>screenwidth</include>
-						<include>Heading1</include>
+						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posy>30</posy>
-						<align>left</align>
 						<label>$INFO[ListItem.Artist,, • ]$INFO[ListItem.Year,, • ]$INFO[ListItem.Genre]</label>
-						<include>screenwidth</include>
-						<include>Heading3</include>
+						<include>info_Sub</include>
 					</control>
 				</control>
 				<control type="group">
 					<visible>Container.Content(songs)</visible>
 					<control type="label">
-						<align>left</align>
 						<label>$INFO[ListItem.Title]</label>
-						<include>screenwidth</include>
-						<include>Heading1</include>
+						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posy>30</posy>
-						<align>left</align>
 						<label>$INFO[ListItem.Artist,, • ]$INFO[ListItem.Album]</label>
-						<include>screenwidth</include>
-						<include>Heading3</include>
+						<include>info_Sub</include>
 					</control>
 				</control>
 			</control>
 			<control type="group">
 				<posx>90</posx>
-				<posy>635</posy>
+				<posy>640</posy>
 				<visible>Control.IsVisible(573) + Container.Content(artists)</visible>
 				<control type="label">
-					<align>left</align>
 					<label>$INFO[ListItem.Label]</label>
-					<include>screenwidth</include>
-					<include>Heading1</include>
+					<include>info_Title</include>
 				</control>
 				<control type="label">
 					<posy>30</posy>
-					<align>left</align>
 					<label>$INFO[ListItem.Property(Artist_Genre),, • ]$INFO[ListItem.Property(Artist_Born),$LOCALIZE[21893] ]</label>
-					<include>screenwidth</include>
-					<include>Heading3</include>
+					<include>info_Sub</include>
 					<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 				</control>
 				<control type="label">
 					<posy>30</posy>
-					<align>left</align>
 					<label>$INFO[ListItem.Property(Artist_Genre),, • ]$INFO[ListItem.Property(Artist_Formed),$LOCALIZE[21894] ]</label>
-					<include>screenwidth</include>
-					<include>Heading3</include>
+					<include>info_Sub</include>
 					<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				</control>
 			</control>

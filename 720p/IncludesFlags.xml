@@ -170,11 +170,20 @@
 <!--- LABEL ---------------------------------------->
 	<include name="flag_Label">
 			<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
+			<width>128</width>
+			<height>64</height>
+	</include>
+	<include name="flag_Label-video">
+			<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
+			<width>128</width>
+			<height>64</height>
 	</include>
 	<include name="flag_Label-play">
-		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
+		<texture>$INFO[VideoPlayer.studio,flags/labels/,.png]</texture>
 		<colordiffuse>Color1</colordiffuse>
 	</include>
+	
+	
 	<include name="flags_Label-info">
 		<control type="grouplist" id="100">
 			<itemgap>20</itemgap>

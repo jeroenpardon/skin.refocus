@@ -33,7 +33,7 @@
 			<description>pictures bg</description>
 			<include>global_Screentype</include>
 			<texture background="true">backgrounds/pictures.png</texture>
-			<visible>Skin.HasSetting(fanart.global) + Window.IsActive(2) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+			<visible>Skin.HasSetting(fanart.global) + Window.IsActive(2) + !Control.IsVisible(531) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Fanart</include>
 		</control>
 		<control type="image">
@@ -79,20 +79,20 @@
 		</control>
 		<control type="videowindow">
 			<include>global_Screentype</include>
-			<visible>Skin.HasSetting(backgroundvideo.global) + ![Window.IsActive(pictures) + Control.IsVisible(56)]</visible>
+			<visible>Skin.HasSetting(backgroundvideo.global) + ![Window.IsActive(pictures) + Control.IsVisible(531)]</visible>
 		</control>
 		<control type="image">
 			<aspectratio>scale</aspectratio>
 			<include>global_Screentype</include>
 			<texture background="true">backgrounds/background.png</texture>
-			<visible>[![Window.IsActive(2) + Control.IsVisible(52)] + !Window.IsActive(2006)]</visible>
+			<visible>[![Window.IsActive(2) + Control.IsVisible(531)] + !Window.IsActive(2006)]</visible>
 			<include>transition_BG</include>
 		</control>
 		<control type="image">
 			<aspectratio>scale</aspectratio>
 			<include>global_Screentype</include>
 			<texture background="true">overlays/vignette.png</texture>
-			<visible>[![Window.IsActive(2) + Control.IsVisible(52)] + !Window.IsActive(2006)] + Skin.HasSetting(fanart.global.alt)</visible>
+			<visible>[![Window.IsActive(2) + Control.IsVisible(531)] + !Window.IsActive(2006)] + Skin.HasSetting(fanart.global.alt)</visible>
 			<include>transition_BG</include>
 		</control>
 	</include>
