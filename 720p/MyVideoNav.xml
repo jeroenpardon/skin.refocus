@@ -183,18 +183,6 @@
 		<include>info_AddonThumbs</include>
 
 <!---BIG LIST------>
-		<control type="image">
-			<posx>29</posx>
-			<posy>237</posy>
-			<width>1205</width>
-			<height>146</height>
-			<texture border="10">views/list-focus-bigAlt.png</texture>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<include>toggle_Menu</include>
-			<animation effect="slide" start="0,0" end="0,8" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
-			<visible>![Window.IsActive(movieinformation)] + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)] + Control.IsVisible(51)</visible>
-		</control>
 		<include>view_BigList</include>
 
 <!---SLIDE------>
@@ -653,7 +641,6 @@
 					<visible>Container.Content(tvshows)</visible>
 				</control>
 			</control>
-
 			<!---strip bottom------>
 			<control type="group">
 				<posx>265</posx>

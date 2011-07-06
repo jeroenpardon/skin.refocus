@@ -887,411 +887,424 @@
 
 <!--- BIG LIST ---------->
 	<include name="view_BigList">
-		<control type="fixedlist" id="51">
-			<viewtype label="537">biglist</viewtype> 
-			<posx>30</posx>
-			<posy>88</posy>
-			<width>1400</width>
-			<height>598</height>
-			<onleft>6000</onleft>
-			<onright>71</onright>
-			<onup>51</onup>
-			<ondown>51</ondown>
-			<scrolltime>150</scrolltime>
-			<preloaditems>4</preloaditems>
-			<pagecontrol>71</pagecontrol>
-			<orientation>vertical</orientation>
-			<focusposition>1</focusposition>
+		<control type="group">
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<animation effect="slide" start="0,0" end="0,8" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
-			<visible>![Container.Content(musicvideos) | Container.Content(files) | substring(container.folderpath,plugin://) | substring(container.folderpath,addons://)]</visible>
-			<itemlayout condition="Container.Content(episodes) | [!Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]"width="625" height="150">
-				<control type="image">
-					<width>247</width>
-					<height>144</height>
-					<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-					<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<width>247</width>
-					<height>144</height>
-					<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-					<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-				<control type="image">
-					<width>247</width>
-					<height>144</height>
-					<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>scale</aspectratio>
-					<visible>Container.Content(episodes)</visible>
-				</control>
-				<control type="label" id="1">
-					<posy>2</posy>
-					<posx>260</posx>
-					<width>770</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label</include>
-					<visible>!Container.Content(episodes)</visible>
-				</control>
-				<control type="label" id="1">
-					<posx>260</posx>
-					<posy>28</posy>
-					<width>770</width>
-					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-					<include>list_Label-sub</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="group">
-					<posx>260</posx>
-					<posy>40</posy>
-					<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-						<include>list_Label-sub</include>
-						<visible>IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
+			<!---selector--->
+			<control type="image">
+				<posx>29</posx>
+				<posy>237</posy>
+				<width>1205</width>
+				<height>146</height>
+				<texture border="10">views/list-focus-bigAlt.png</texture>
+				<animation effect="slide" start="0,0" end="0,8" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
+				<visible>![Window.IsActive(movieinformation)] + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)] + Control.IsVisible(51)</visible>
+			</control>
+			<!--container--->
+			<control type="fixedlist" id="51">
+				<viewtype label="537">biglist</viewtype> 
+				<posx>30</posx>
+				<posy>88</posy>
+				<width>1400</width>
+				<height>598</height>
+				<onleft>6000</onleft>
+				<onright>71</onright>
+				<onup>51</onup>
+				<ondown>51</ondown>
+				<scrolltime>150</scrolltime>
+				<preloaditems>4</preloaditems>
+				<pagecontrol>71</pagecontrol>
+				<orientation>vertical</orientation>
+				<focusposition>1</focusposition>
+				<animation effect="slide" start="0,0" end="0,8" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
+				<visible>![Container.Content(musicvideos) | Container.Content(files) | substring(container.folderpath,plugin://) | substring(container.folderpath,addons://)]</visible>
+				<itemlayout condition="Container.Content(episodes) | [!Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]"width="625" height="150">
+					<control type="image">
+						<width>247</width>
+						<height>144</height>
+						<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<visible>Container.Content(movies)</visible>
+					</control>
+					<control type="image">
+						<width>247</width>
+						<height>144</height>
+						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="image">
+						<width>247</width>
+						<height>144</height>
+						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>scale</aspectratio>
+						<visible>Container.Content(episodes)</visible>
 					</control>
 					<control type="label" id="1">
+						<posy>2</posy>
+						<posx>260</posx>
 						<width>770</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-						<include>list_Label-sub</include>
-						<visible>!IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-					</control>
-				</control>
-				<control type="group">
-					<posx>260</posx>
-					<posy>2</posy>
-					<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
-					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.Title]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<include>list_Label</include>
-						<visible>![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]</visible>
+						<visible>!Container.Content(episodes)</visible>
 					</control>
 					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-						<include>list_Label</include>
-						<visible>stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)</visible>
-					</control>
-					<control type="label" id="1">
+						<posx>260</posx>
 						<posy>28</posy>
 						<width>770</width>
-						<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
-						<include>list_Label-sub</include>
-					</control>
-				</control>
-				<control type="textbox" id="4">
-					<posx>260</posx>
-					<posy>65</posy>
-					<width>930</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
-					<font>descriptionSmall</font>
-				</control>
-				<control type="image">
-					<posx>209</posx>
-					<posy>106</posy>
-					<width>32</width>
-					<height>32</height>
-					<include>watchedOverlay</include>
-				</control>
-				<control type="image">
-					<posx>1060</posx>
-					<posy>35</posy>
-					<width>128</width>
-					<height>32</height>
-					<info>ListItem.StarRating</info>
-					<aspectratio align="right">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="image">
-					<posx>1155</posx>
-					<posy>8</posy>
-					<width>32</width>
-					<height>32</height>
-					<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
-					<aspectratio align="right">keep</aspectratio>
-				</control>
-			</itemlayout>
-			<focusedlayout condition="Container.Content(episodes) | [!Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]" width="625" height="150">
-				<control type="image">
-					<width>247</width>
-					<height>144</height>
-					<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>scale</aspectratio>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<width>247</width>
-					<height>144</height>
-					<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>scale</aspectratio>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-				<control type="image">
-					<width>247</width>
-					<height>144</height>
-					<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>scale</aspectratio>
-					<visible>Container.Content(episodes)</visible>
-				</control>
-				<control type="label" id="1">
-					<posx>260</posx>
-					<posy>2</posy>
-					<width>770</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label-focus</include>
-					<visible>!Container.Content(episodes)</visible>
-				</control>
-				<control type="label" id="1">
-					<posx>260</posx>
-					<posy>28</posy>
-					<width>770</width>
-					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-					<include>list_Label-sub-focus</include>
-					<visible>Container.Content(movies) + !IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="group">
-					<posx>260</posx>
-					<posy>28</posy>
-					<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-						<include>list_Label-sub-focus</include>
-						<visible>IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-					</control>
-					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-						<include>list_Label-sub-focus</include>
-						<visible>!IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-					</control>
-				</control>
-				<control type="group">
-					<posx>260</posx>
-					<posy>2</posy>
-					<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
-					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.Title]</label>
-						<include>list_Label-focus</include>
-						<visible>![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]</visible>
-					</control>
-					<control type="label" id="1">
-						<width>770</width>
-						<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-						<include>list_Label-focus</include>
-						<visible>stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)</visible>
-					</control>
-					<control type="label" id="1">
-						<posy>28</posy>
-						<width>770</width>
-						<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
-						<include>list_Label-sub-focus</include>
-					</control>
-				</control>
-				<control type="textbox" id="4">
-					<posx>260</posx>
-					<posy>65</posy>
-					<width>930</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
-					<font>descriptionSmall</font>
-					<textcolor>Focused</textcolor>
-				</control>
-				<control type="image">
-					<posx>209</posx>
-					<posy>106</posy>
-					<width>32</width>
-					<height>32</height>
-					<include>watchedOverlay</include>
-				</control>
-				<control type="image">
-					<posx>1060</posx>
-					<posy>35</posy>
-					<width>128</width>
-					<height>32</height>
-					<info>ListItem.StarRating</info>
-					<aspectratio align="right">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="image">
-					<posx>1155</posx>
-					<posy>10</posy>
-					<width>32</width>
-					<height>32</height>
-					<texture>$INFO[ListItem.VideoResolution,flags/hd/mono/,.png]</texture>
-					<aspectratio align="right">keep</aspectratio>
-					<colordiffuse>Color4</colordiffuse>
-				</control>
-			</focusedlayout>
-
-			<itemlayout condition="Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]"width="625" height="150">
-				<control type="image">
-					<width>100</width>
-					<height>144</height>
-					<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<width>100</width>
-					<height>144</height>
-					<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-				<control type="label" id="1">
-					<posx>120</posx>
-					<posy>2</posy>
-					<width>770</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label</include>
-				</control>
-				<control type="group">
-					<posx>120</posx>
-					<posy>28</posy>
-					<control type="label" id="1">
-						<width>900</width>
 						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
 						<include>list_Label-sub</include>
 						<visible>Container.Content(movies)</visible>
 					</control>
-					<control type="label" id="1">
-						<width>975</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-						<include>list_Label-sub</include>
-						<visible>Container.Content(tvshows)</visible>
+					<control type="group">
+						<posx>260</posx>
+						<posy>28</posy>
+						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
+							<include>list_Label-sub</include>
+							<visible>IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
+						</control>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
+							<include>list_Label-sub</include>
+							<visible>!IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
+						</control>
 					</control>
-				</control>
-				<control type="textbox" id="4">
-					<posx>120</posx>
-					<posy>67</posy>
-					<width>1070</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
-					<font>descriptionSmall</font>
-				</control>
-				<control type="image">
-					<posx>62</posx>
-					<posy>106</posy>
-					<include>watchedOverlay</include>
-				</control>
-				<control type="image">
-					<posx>1060</posx>
-					<posy>35</posy>
-					<width>128</width>
-					<height>32</height>
-					<info>ListItem.StarRating</info>
-					<aspectratio align="right">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="image">
-					<posx>1155</posx>
-					<posy>10</posy>
-					<width>32</width>
-					<height>32</height>
-					<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
-					<aspectratio align="right">keep</aspectratio>
-				</control>
-			</itemlayout>
-			<focusedlayout condition="Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]" width="625" height="150">
-				<control type="image">
-					<width>100</width>
-					<height>144</height>
-					<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<width>100</width>
-					<height>144</height>
-					<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-				<control type="label" id="1">
-					<posx>120</posx>
-					<posy>2</posy>
-					<width>770</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label-focus</include>
-				</control>
-				<control type="group">
-					<posx>120</posx>
-					<posy>28</posy>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-					<control type="label" id="1">
-						<width>900</width>
-						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-						<include>list_Label-sub-focus</include>
+					<control type="group">
+						<posx>260</posx>
+						<posy>2</posy>
+						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.Title]</label>
+							<include>list_Label</include>
+							<visible>![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]</visible>
+						</control>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
+							<include>list_Label</include>
+							<visible>stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)</visible>
+						</control>
+						<control type="label" id="1">
+							<posy>28</posy>
+							<width>770</width>
+							<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
+							<include>list_Label-sub</include>
+						</control>
+					</control>
+					<control type="textbox" id="4">
+						<posx>260</posx>
+						<posy>65</posy>
+						<width>930</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
+						<font>descriptionSmall</font>
+					</control>
+					<control type="image">
+						<posx>209</posx>
+						<posy>106</posy>
+						<width>32</width>
+						<height>32</height>
+						<include>watchedOverlay</include>
+					</control>
+					<control type="image">
+						<posx>1060</posx>
+						<posy>35</posy>
+						<width>128</width>
+						<height>32</height>
+						<info>ListItem.StarRating</info>
+						<aspectratio align="right">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="image">
+						<posx>1155</posx>
+						<posy>8</posy>
+						<width>32</width>
+						<height>32</height>
+						<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
+						<aspectratio align="right">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout condition="Container.Content(episodes) | [!Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]" width="625" height="150">
+					<control type="image">
+						<width>247</width>
+						<height>144</height>
+						<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>scale</aspectratio>
 						<visible>Container.Content(movies)</visible>
 					</control>
-					<control type="label" id="1">
-						<width>900</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-						<include>list_Label-sub-focus</include>
+					<control type="image">
+						<width>247</width>
+						<height>144</height>
+						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>scale</aspectratio>
 						<visible>Container.Content(tvshows)</visible>
 					</control>
-				</control>
-				<control type="textbox" id="4">
-					<posx>120</posx>
-					<posy>67</posy>
-					<width>1070</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
-					<font>descriptionSmall</font>
-					<textcolor>Focused</textcolor>
-				</control>
-				<control type="image">
-					<posx>62</posx>
-					<posy>106</posy>
-					<include>watchedOverlay</include>
-				</control>
-				<control type="image">
-					<posx>1060</posx>
-					<posy>35</posy>
-					<width>128</width>
-					<height>32</height>
-					<info>ListItem.StarRating</info>
-					<aspectratio align="right">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="image">
-					<posx>1155</posx>
-					<posy>10</posy>
-					<width>32</width>
-					<height>32</height>
-					<texture>$INFO[ListItem.VideoResolution,flags/hd/mono/,.png]</texture>
-					<colordiffuse>Color4</colordiffuse>
-					<aspectratio align="right">keep</aspectratio>
-				</control>
-			</focusedlayout>
+					<control type="image">
+						<width>247</width>
+						<height>144</height>
+						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>scale</aspectratio>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					<control type="label" id="1">
+						<posx>260</posx>
+						<posy>2</posy>
+						<width>770</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>list_Label-focus</include>
+						<visible>!Container.Content(episodes)</visible>
+					</control>
+					<control type="label" id="1">
+						<posx>260</posx>
+						<posy>28</posy>
+						<width>770</width>
+						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+						<include>list_Label-sub-focus</include>
+						<visible>Container.Content(movies) + !IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="group">
+						<posx>260</posx>
+						<posy>28</posy>
+						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
+							<include>list_Label-sub-focus</include>
+							<visible>IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
+						</control>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
+							<include>list_Label-sub-focus</include>
+							<visible>!IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
+						</control>
+					</control>
+					<control type="group">
+						<posx>260</posx>
+						<posy>2</posy>
+						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.Title]</label>
+							<include>list_Label-focus</include>
+							<visible>![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]</visible>
+						</control>
+						<control type="label" id="1">
+							<width>770</width>
+							<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
+							<include>list_Label-focus</include>
+							<visible>stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)</visible>
+						</control>
+						<control type="label" id="1">
+							<posy>28</posy>
+							<width>770</width>
+							<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
+							<include>list_Label-sub-focus</include>
+						</control>
+					</control>
+					<control type="textbox" id="4">
+						<posx>260</posx>
+						<posy>65</posy>
+						<width>930</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
+						<font>descriptionSmall</font>
+						<textcolor>Focused</textcolor>
+					</control>
+					<control type="image">
+						<posx>209</posx>
+						<posy>106</posy>
+						<width>32</width>
+						<height>32</height>
+						<include>watchedOverlay</include>
+					</control>
+					<control type="image">
+						<posx>1060</posx>
+						<posy>35</posy>
+						<width>128</width>
+						<height>32</height>
+						<info>ListItem.StarRating</info>
+						<aspectratio align="right">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="image">
+						<posx>1155</posx>
+						<posy>10</posy>
+						<width>32</width>
+						<height>32</height>
+						<texture>$INFO[ListItem.VideoResolution,flags/hd/mono/,.png]</texture>
+						<aspectratio align="right">keep</aspectratio>
+						<colordiffuse>Color4</colordiffuse>
+					</control>
+				</focusedlayout>
+	
+				<itemlayout condition="Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]"width="625" height="150">
+					<control type="image">
+						<width>100</width>
+						<height>144</height>
+						<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<visible>Container.Content(movies)</visible>
+					</control>
+					<control type="image">
+						<width>100</width>
+						<height>144</height>
+						<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="label" id="1">
+						<posx>120</posx>
+						<posy>2</posy>
+						<width>770</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>list_Label</include>
+					</control>
+					<control type="group">
+						<posx>120</posx>
+						<posy>28</posy>
+						<control type="label" id="1">
+							<width>900</width>
+							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+							<include>list_Label-sub</include>
+							<visible>Container.Content(movies)</visible>
+						</control>
+						<control type="label" id="1">
+							<width>975</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
+							<include>list_Label-sub</include>
+							<visible>Container.Content(tvshows)</visible>
+						</control>
+					</control>
+					<control type="textbox" id="4">
+						<posx>120</posx>
+						<posy>67</posy>
+						<width>1070</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
+						<font>descriptionSmall</font>
+					</control>
+					<control type="image">
+						<posx>62</posx>
+						<posy>106</posy>
+						<include>watchedOverlay</include>
+					</control>
+					<control type="image">
+						<posx>1060</posx>
+						<posy>35</posy>
+						<width>128</width>
+						<height>32</height>
+						<info>ListItem.StarRating</info>
+						<aspectratio align="right">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="image">
+						<posx>1155</posx>
+						<posy>10</posy>
+						<width>32</width>
+						<height>32</height>
+						<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
+						<aspectratio align="right">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout condition="Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]" width="625" height="150">
+					<control type="image">
+						<width>100</width>
+						<height>144</height>
+						<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<visible>Container.Content(movies)</visible>
+					</control>
+					<control type="image">
+						<width>100</width>
+						<height>144</height>
+						<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="label" id="1">
+						<posx>120</posx>
+						<posy>2</posy>
+						<width>770</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>list_Label-focus</include>
+					</control>
+					<control type="group">
+						<posx>120</posx>
+						<posy>28</posy>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<control type="label" id="1">
+							<width>900</width>
+							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+							<include>list_Label-sub-focus</include>
+							<visible>Container.Content(movies)</visible>
+						</control>
+						<control type="label" id="1">
+							<width>900</width>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
+							<include>list_Label-sub-focus</include>
+							<visible>Container.Content(tvshows)</visible>
+						</control>
+					</control>
+					<control type="textbox" id="4">
+						<posx>120</posx>
+						<posy>67</posy>
+						<width>1070</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
+						<font>descriptionSmall</font>
+						<textcolor>Focused</textcolor>
+					</control>
+					<control type="image">
+						<posx>62</posx>
+						<posy>106</posy>
+						<include>watchedOverlay</include>
+					</control>
+					<control type="image">
+						<posx>1060</posx>
+						<posy>35</posy>
+						<width>128</width>
+						<height>32</height>
+						<info>ListItem.StarRating</info>
+						<aspectratio align="right">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="image">
+						<posx>1155</posx>
+						<posy>10</posy>
+						<width>32</width>
+						<height>32</height>
+						<texture>$INFO[ListItem.VideoResolution,flags/hd/mono/,.png]</texture>
+						<colordiffuse>Color4</colordiffuse>
+						<aspectratio align="right">keep</aspectratio>
+					</control>
+				</focusedlayout>
+			</control>
 		</control>
 	</include>
 </includes>
