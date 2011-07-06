@@ -1,4 +1,4 @@
-﻿<includes>
+﻿﻿<includes>
 <!---STRIP LAYOUT------>	
 	<include name="view_Gallery">
 		<!---strip top------>
@@ -62,24 +62,8 @@
 			<include condition="Window.IsVisible(pictures)">GalleryPictures</include>
 			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)]</visible>
 		</control>
-		<!---window menu shade-->
-		<control type="image">
-<<<<<<< HEAD
-			<include>global_Screentype</include>
-=======
-			<include>screentype</include>
->>>>>>> 2d5f8d8516131ec23d204973a815590d1210280d
-			<aspectratio align="left">stretch</aspectratio>
-			<texture>home/menuBackground.png</texture>
-			<include>fadeinout</include>
-			<visible>ControlGroup(6000).HasFocus()</visible>
-		</control>
 	</include>
-<<<<<<< HEAD
 	<!---container contents--->
-=======
-		
->>>>>>> 2d5f8d8516131ec23d204973a815590d1210280d
 	<include name="GalleryVideo">
 		<itemlayout height="800" width="749">
 			<control type="image">
@@ -185,15 +169,19 @@
 			<include condition="Window.IsVisible(pictures)">GalleryFullPictures</include>		
 			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(2)]</visible>
 		</control>
+		<!---window menu shade-->
+		<control type="image">
+			<include>global_Screentype</include>
+			<aspectratio align="left">stretch</aspectratio>
+			<texture>home/menuBackground.png</texture>
+			<include>fadeinout</include>
+			<visible>Control.IsVisible(531) + ControlGroup(6000).HasFocus()</visible>
+		</control>
 		<!---scroll indicators------->
 		<control type="group">
 			<posy>336</posy>
 			<include>fadeinout</include>
-<<<<<<< HEAD
 			<visible>Control.IsVisible(531) + System.IdleTime(3) + ![ControlGroup(6000).HasFocus() | Window.IsActive(movieinformation)]</visible>
-=======
-			<visible>System.IdleTime(3) + ![ControlGroup(6000).HasFocus() | Window.IsActive(movieinformation)]</visible>
->>>>>>> 2d5f8d8516131ec23d204973a815590d1210280d
 			<control type="image">
 				<posx>20</posx>
 				<width>48</width>
