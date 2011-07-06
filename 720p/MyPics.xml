@@ -101,31 +101,11 @@
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
 			<control type="group">
-				<control type="label">
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-					<font>title</font>
-					<textcolor>Color1</textcolor>
-					<align>left</align>
-					<width>750</width>
-					<visible>![Control.HasFocus(8000)]</visible>
-				</control>
-				<control type="label">
-					<posx>750</posx>
-					<label>[UPPERCASE]$INFO[Container(53).ListItem(1).Label][/UPPERCASE]</label>
-					<font>title</font>
-					<textcolor>Color1</textcolor>
-					<width>750</width>
-					<visible>Control.IsVisible(53) + ![Control.HasFocus(8000)]</visible>
-					<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
-				</control>
-			</control>
-			<control type="group">
 				<posy>480</posy>
 				<control type="label">
 					<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
 					<font>normalCaps</font>
 					<textcolor>Color1</textcolor>
-					<align>left</align>
 					<width>940</width>
 				</control>
 				<control type="label">
@@ -133,7 +113,6 @@
 					<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
 					<font>normalCaps</font>
 					<textcolor>Color2</textcolor>
-					<align>left</align>
 					<width>750</width>
 				</control>
 				<control type="label">
@@ -141,49 +120,15 @@
 					<label>[UPPERCASE]$INFO[ListItem.PictureDateTime][/UPPERCASE]</label>
 					<font>normalCaps</font>
 					<textcolor>Color2</textcolor>
-					<align>left</align>
 					<width>750</width>
 				</control>
 			</control>
 		</control>
 		
-		
-		
 		<include>global_Includes</include>
 		<include>nav_Indicator</include>
 		<include>view_Gallery</include>
 		<include>view_GalleryFull</include>
-		
-		<control type="image">
-			<include>screentype</include>	
-			<aspectratio align="left">stretch</aspectratio>
-			<texture>home/menuBackground.png</texture>
-			<include>fadeinout</include>
-			<visible>Control.IsVisible(531) + ControlGroup(6000).HasFocus()</visible>
-		</control>
-		
-		<control type="group">
-			<posy>336</posy>
-			<visible>Control.IsVisible(531) + System.IdleTime(3)</visible>
-			<control type="image">
-				<posx>20</posx>
-				<width>48</width>
-				<height>48</height>
-				<texture>views/scrollLeftIndicator.png</texture>
-				<aspectratio>keep</aspectratio>
-				<include>fadeinout</include>
-			</control>
-			<control type="image">
-				<posx>1212</posx>
-				<width>48</width>
-				<height>48</height>
-				<texture>views/scrollRightIndicator.png</texture>
-				<aspectratio>keep</aspectratio>
-				<include>fadeinout</include>
-			</control>
-		</control>
-
-		
 		<include>menu_Files</include>
 	</controls>
 </window>
