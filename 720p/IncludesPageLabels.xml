@@ -9,7 +9,7 @@
 		<include>transition_PageLabel</include>
 		<animation effect="slide" end="0,-3" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
 		<animation effect="slide" end="25" condition="Skin.HasSetting(indicator.enable) + Control.IsVisible(6100)">Conditional</animation>
-		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900) + !Window.IsActive(movieinformation) + !Control.IsVisible(531)</visible>
+		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900) + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Control.IsVisible(531)</visible>
 	</include>
 	<include name="PageLabelInfo">
 		<posx>34</posx>
@@ -26,7 +26,6 @@
 	
 <!-- VIDEO PAGELABELS -------------------------------------------------------------------------------------------->			
 	<include name="pagelabels_Video">
-		
 
 <!---SOURCES--->
 		<control type="label">
@@ -195,94 +194,34 @@
 <!-- MUSIC PAGELABELS -------------------------------------------------------------------------------------------->		
 	<include name="pagelabels_Music">
 		<control type="label">
-			<description>music files</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[744][/COLOR]</label>
+			<description>sources</description>
+			<label>$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
+			<visible>Container.Content(Files)</visible>
 			<include>PageLabel</include>
-			<visible>Window.IsActive(501) + !stringcompare(container.folderpath,plugin://music/) + !Window.IsActive(2001)</visible>
 		</control>
 		<control type="label">
-			<description>music library</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[14022][/COLOR]</label>
+			<description>library</description>
+			<label>$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
+			<visible>![substring(Container.FolderPath,musicdb://6/) | substring(Container.FolderPath,musicdb://7/)]</visible>
 			<include>PageLabel</include>
-			<visible>IsEmpty(container.folderpath) + !Window.IsActive(501)</visible>
 		</control>
 		<control type="label">
-			<description>music albums</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[132][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>!Window.IsActive(2001) + Container.Content(albums) + ![stringcompare(container.folderpath,musicdb://6/) | stringcompare(container.folderpath,musicdb://7/) | stringcompare(container.folderpath,musicdb://8/)]</visible>
-		</control>
-		<control type="label">
-			<description>music genres</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[135][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>Container.Content(genres)</visible>
-		</control>
-		<control type="label">
-			<description>music artists</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[133][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>Container.Content(artists) + !Window.IsActive(2001)</visible>
-		</control>
-		<control type="label">
-			<description>music songs</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[134][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>Container.Content(songs) + !Window.IsActive(2001)</visible>
-		</control>
-		<control type="label">
-			<description>music top100</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[271][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,musicdb://5/)</visible>
-		</control>
-		<control type="label">
-			<description>recent music albums</description>
+			<description>new albums</description>
 			<label>$LOCALIZE[31932]</label>
+			<visible>substring(Container.FolderPath,musicdb://6/)</visible>
 			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,musicdb://6/) + !Window.IsActive(2001)</visible>
 		</control>
 		<control type="label">
-			<description>recently played albums</description>
+			<description>recent albums</description>
 			<label>$LOCALIZE[31941]</label>
+			<visible>substring(Container.FolderPath,musicdb://7/)</visible>
 			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,musicdb://7/) + !Window.IsActive(2001)</visible>
-		</control>
-		<control type="label">
-			<description>music compilations</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[521][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,musicdb://8/) + !Window.IsActive(2001)</visible>
-		</control>
-		<control type="label">
-			<description>music years</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[652][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,musicdb://9/)</visible>
-		</control>
-		<control type="label">
-			<description>music playlists</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[136][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,special://musicplaylists/)</visible>
-		</control>
-		<control type="label">
-			<description>music videos</description>
-			<label>$LOCALIZE[20389]</label>
-			<include>PageLabel</include>
-			<visible>stringcompare(container.folderpath,videodb://3/) + !Window.IsActive(2003)</visible>
 		</control>
 		<control type="label">
 			<description>music add-ons</description>
 			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>stringcompare(Container.folderpath,addons://sources/audio/) | substring(container.folderpath,plugin://)</visible>
-		</control>
-		<control type="label">
-			<description>music lastfm</description>
-			<label>$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>substring(container.folderpath,lastfm://)</visible>
+			<visible>substring(container.folderpath,plugin://)</visible>
 		</control>
 	</include>
 
