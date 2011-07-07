@@ -7,9 +7,7 @@
 		<posx>203</posx>
 		<posy>75</posy>
 	</coordinates>
-	
 	<visible>Player.HasVideo</visible>
-
 	<controls>
 		<control type="image">
 			<width>875</width>
@@ -17,7 +15,6 @@
 			<include>dialogWindow</include>
 		</control>
 		<control type="label">
-			<description>heading label</description>
 			<posx>19</posx>
 			<width>837</width>
 			<posx>34</posx>
@@ -42,33 +39,24 @@
 			<width>839</width>
 			<include>dialog_Separator</include>
 		</control>
-		
-	
+		<!--search result-->
 		<control type="label" id="100">
 			<description>textarea</description>
-			<posx>19</posx>
-			<posy>53</posy>
+			<posy>62</posy>
 			<width>837</width>
-			<height>40</height>
-			<font>smallAlt</font>
-			<textcolor>Color4</textcolor>
-			<align>center</align>
 			<wrapmultiline>false</wrapmultiline>
+			<include>dialog_Line</include>
 		</control>
-	
 		<control type="image" id="110">
 			<description>Service Logo</description>
-			<posx>20</posx>
-			<posy>18</posy>
-			<width>250</width>
-			<height>40</height>
-			<aspectratio>keep</aspectratio>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
 			<visible>false</visible>
 		</control>	
-
-
-<!-- ** Required ** Do not change <id>or<type>-->
 		<control type="group" id="250">
+			<!--local subtitle available-->
 			<control type="group">
 				<posx>34</posx>
 				<posy>507</posy>
@@ -91,9 +79,84 @@
 					</control>
 				</control>
 			</control>
-
-
-<!-- ** Required ** Do not change <id>or<type>-->
+			<!--left pane-->
+			<control type="group" id="250">
+				<control type="list" id="150">
+					<posx>19</posx>
+					<posy>95</posy>
+					<width>230</width>
+					<height>404</height>
+					<onleft>120</onleft>
+					<onright>120</onright>
+					<onup>150</onup>
+					<ondown>150</ondown>
+					<viewtype label="535">list</viewtype>
+					<scrolltime>200</scrolltime>
+					<itemlayout width="400" height="40">
+						<control type="image">
+							<width>224</width>
+							<height>40</height>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>230</width>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!ListItem.property(man)</visible>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<width>230</width>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>ListItem.property(man)</visible>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="400" height="40">
+						<control type="image">
+							<width>224</width>
+							<height>40</height>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(150)</visible>
+							<control type="image">
+								<width>224</width>
+								<include>dialog_CommonListFocus</include>
+							</control>
+							<control type="label">
+								<width>230</width>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>!ListItem.property(man)</visible>
+								<include>dialog_CommonListItemFocus</include>
+							</control>
+							<control type="label">
+								<width>230</width>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>ListItem.property(man)</visible>
+								<include>dialog_CommonListItemFocus</include>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(150)</visible>
+							<control type="label">
+								<width>230</width>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>!ListItem.property(man)</visible>
+								<textcolor>Selected</textcolor>
+								<include>dialog_CommonListItemFocus</include>
+							</control>
+							<control type="label">
+								<width>230</width>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>ListItem.property(man)</visible>
+								<textcolor>Selected</textcolor>
+								<include>dialog_CommonListItemFocus</include>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+			<!--right pane-->
 			<control type="list" id="120">
 				<viewtype label="535">list</viewtype>
 				<posx>243</posx>
@@ -110,33 +173,23 @@
 					<control type="image">
 						<width>614</width>
 						<height>80</height>
-						<texture border="3">dialogs/list-nofocus.png</texture>
+						<include>dialog_CommonList</include>
 					</control>
 					<control type="label">
 						<posx>19</posx>
 						<posy>9</posy>
 						<width>510</width>
-						<height>30</height>
 						<font>listAlt</font>
-						<align>left</align>
-						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>Color4</textcolor>
-						<focusedcolor>Selected</focusedcolor>
-						<selectedcolor>Selected</selectedcolor>
+						<include>dialog_CommonListItem</include>
 					</control>
 					<control type="label">
 						<posx>19</posx>
 						<posy>31</posy>
 						<width>530</width>
-						<height>35</height>
 						<font>smallerCaps</font>
-						<align>left</align>
-						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>Color4</textcolor>
-						<focusedcolor>Selected</focusedcolor>
-						<selectedcolor>Selected</selectedcolor>
+						<include>dialog_CommonListItem</include>
 					</control>
 					<control type="image">
 						<posx>573</posx>
@@ -145,7 +198,7 @@
 						<height>24</height>
 						<texture>addons/subtitles/icon_sync.png</texture>
 						<colordiffuse>Color4</colordiffuse>
-						<visible>ListItem.property(sync)</visible>
+						<visible>ListItem.Property(sync)</visible>
 					</control>
 					<control type="image">
 						<posx>510</posx>
@@ -162,27 +215,23 @@
 						<control type="image">
 							<width>614</width>
 							<height>80</height>
-							<texture border="3">dialogs/list-focus.png</texture>
+							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="label">
 							<posx>19</posx>
 							<posy>9</posy>
 							<width>510</width>
-							<height>30</height>
 							<font>listAlt</font>
-							<aligny>center</aligny>
 							<info>ListItem.Label2</info>
-							<textcolor>Color1</textcolor>
+							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="label">
 							<posx>19</posx>
 							<posy>31</posy>
 							<width>530</width>
-							<height>35</height>
 							<font>smallerCaps</font>
-							<aligny>center</aligny>
 							<info>ListItem.Label</info>
-							<textcolor>Color1</textcolor>
+							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="image">
 							<posx>510</posx>
@@ -191,6 +240,15 @@
 							<height>17</height>
 							<texture>addons/subtitles/info_window_icon_rating_star_$INFO[ListItem.ActualIcon].png</texture>
 							<colordiffuse>Color1</colordiffuse>
+						</control>
+						<control type="image">
+							<posx>573</posx>
+							<posy>11</posy>
+							<width>24</width>
+							<height>24</height>
+							<texture>addons/subtitles/icon_sync.png</texture>
+							<colordiffuse>Color1</colordiffuse>
+							<visible>ListItem.Property(sync)</visible>
 						</control>
 					</control>
 					<control type="group">
@@ -204,21 +262,19 @@
 							<posx>19</posx>
 							<posy>9</posy>
 							<width>510</width>
-							<height>30</height>
 							<font>listAlt</font>
-							<aligny>center</aligny>
 							<info>ListItem.Label2</info>
 							<textcolor>Selected</textcolor>
+							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="label">
 							<posx>19</posx>
 							<posy>31</posy>
 							<width>530</width>
-							<height>35</height>
 							<font>smallerCaps</font>
-							<aligny>center</aligny>
 							<info>ListItem.Label</info>
 							<textcolor>Selected</textcolor>
+							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="image">
 							<posx>510</posx>
@@ -228,123 +284,14 @@
 							<texture>addons/subtitles/info_window_icon_rating_star_$INFO[ListItem.ActualIcon].png</texture>
 							<colordiffuse>Selected</colordiffuse>
 						</control>
-					</control>
-					<control type="image">
-						<posx>573</posx>
-						<posy>11</posy>
-						<width>24</width>
-						<height>24</height>
-						<texture>addons/subtitles/icon_sync.png</texture>
-						<colordiffuse>Color1</colordiffuse>
-						<visible>ListItem.property(sync)</visible>
-					</control>
-				</focusedlayout>
-			</control>
-		</control>
-	
-		<control type="group" id="250">
-			<control type="list" id="150">
-				<posx>19</posx>
-				<posy>95</posy>
-				<width>230</width>
-				<height>404</height>
-				<onleft>120</onleft>
-				<onright>120</onright>
-				<onup>150</onup>
-				<ondown>150</ondown>
-				<viewtype label="535">list</viewtype>
-				<scrolltime>200</scrolltime>
-				<itemlayout width="400" height="40">
-					<control type="image">
-						<width>224</width>
-						<height>40</height>
-						<texture border="3">dialogs/list-nofocus.png</texture>
-					</control>
-					<control type="label">
-						<width>230</width>
-						<info>ListItem.Label</info>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>Color4</textcolor>
-						<focusedcolor>Selected</focusedcolor>
-						<font>small</font>
-						<textoffsetx>15</textoffsetx>
-						<textoffsety>5</textoffsety>
-						<height>35</height>
-						<visible>!ListItem.property(man)</visible>
-					</control>
-					<control type="label">
-						<width>230</width>
-						<info>ListItem.Label</info>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>Color5</textcolor>
-						<focusedcolor>Selected</focusedcolor>
-						<font>small</font>
-						<textoffsetx>15</textoffsetx>
-						<textoffsety>5</textoffsety>
-						<height>35</height>
-						<visible>ListItem.property(man)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout width="400" height="40">
-					<control type="image">
-						<width>224</width>
-						<height>40</height>
-						<texture border="3">dialogs/list-nofocus.png</texture>
-					</control>
-					<control type="group">
-						<visible>Control.HasFocus(150)</visible>
 						<control type="image">
-							<width>224</width>
-							<height>40</height>
-							<texture border="3">dialogs/list-focus.png</texture>
-						</control>
-						<control type="label">
-							<width>230</width>
-							<info>ListItem.Label</info>
-							<textoffsetx>15</textoffsetx>
-							<textcolor>Color1</textcolor>
-							<focusedcolor>Selected</focusedcolor>
-							<font>small</font>
-							<textoffsetx>15</textoffsetx>
-							<textoffsety>5</textoffsety>
-							<height>35</height>
-							<visible>!ListItem.property(man)</visible>
-						</control>
-						<control type="label">
-							<width>230</width>
-							<info>ListItem.Label</info>
-							<textoffsetx>15</textoffsetx>
-							<textcolor>Color1</textcolor>
-							<font>small</font>
-							<textoffsetx>15</textoffsetx>
-							<textoffsety>5</textoffsety>
-							<height>35</height>
-							<visible>ListItem.property(man)</visible>
-						</control>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(150)</visible>
-						<control type="label">
-							<width>230</width>
-							<info>ListItem.Label</info>
-							<textoffsetx>15</textoffsetx>
-							<textcolor>Selected</textcolor>
-							<font>small</font>
-							<textoffsetx>15</textoffsetx>
-							<textoffsety>5</textoffsety>
-							<height>35</height>
-							<visible>!ListItem.property(man)</visible>
-						</control>
-						<control type="label">
-							<width>230</width>
-							<info>ListItem.Label</info>
-							<textoffsetx>15</textoffsetx>
-							<textcolor>Selected</textcolor>
-							<font>small</font>
-							<textoffsetx>15</textoffsetx>
-							<textoffsety>5</textoffsety>
-							<height>35</height>
-							<visible>ListItem.property(man)</visible>
+							<posx>573</posx>
+							<posy>11</posy>
+							<width>24</width>
+							<height>24</height>
+							<texture>addons/subtitles/icon_sync.png</texture>
+							<colordiffuse>Selected</colordiffuse>
+							<visible>ListItem.Property(sync)</visible>
 						</control>
 					</control>
 				</focusedlayout>
