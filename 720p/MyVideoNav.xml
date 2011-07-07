@@ -174,59 +174,17 @@
 		</control>
 		<include>info_MusicList</include>
 		<include>info_AddonList</include>
-
 <!---BIG LIST------>
 		<include>view_BigList</include>
-
 <!---SLIDE------>
 		<control type="group">
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<include>infoDialogHide</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521)</visible>
-			<!---flags------>
-			<control type="group">
-				<control type="image">
-					<posx>60</posx>
-					<posy>459</posy>
-					<aspectratio align="right">keep</aspectratio>
-					<include>flag_Studio</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<posx>60</posx>
-					<posy>459</posy>
-					<aspectratio align="right">keep</aspectratio>
-					<include>flag_Network</include>
-					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<posx>60</posx>
-					<posy>459</posy>
-					<aspectratio align="right">keep</aspectratio>
-					<include>flag_Label-video</include>
-					<visible>Container.Content(musicvideos)</visible>
-				</control>
-				<control type="image">
-					<posx>60</posx>
-					<posy>459</posy>
-					<aspectratio align="right">keep</aspectratio>
-					<include>flag_Network</include>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-				<control type="group">
-					<posx>222</posx>
-					<posy>660</posy>
-					<include>flags52</include>
-					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
-				</control>
-				<control type="group">
-					<posx>215</posx>
-					<posy>660</posy>
-					<include>flags52</include>
-					<visible>[Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(ListItem.Title)</visible>
-				</control>
-			</control>
+			<!--flags-->
+			<include>flags_Slide-studio</include>
+			<include>flags_Slide-media</include>
 			<!---info------>
 			<control type="group">
 				<posx>220</posx>
@@ -262,6 +220,7 @@
 						</control>
 					</control>
 				</control>
+				<!---line 2------>
 				<control type="group">
 					<visible>Container.Content(files)</visible>
 					<control type="label">
@@ -277,7 +236,6 @@
 						<include>info_Sub</include>
 					</control>
 				</control>
-				<!---line 2------>
 				<control type="group">
 					<posy>32</posy>
 					<visible>!IsEmpty(ListItem.Title)</visible>
@@ -351,39 +309,39 @@
 						<include>info_Sub</include>
 						<visible>Container.Content(seasons)</visible>
 					</control>
-					<!---plot------>
-					<control type="group">
-						<posy>30</posy>
-						<control type="textbox">
-							<width>960</width>
-							<height>110</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.PlotOutline]</label>
-							<textcolor>Color7</textcolor>
-							<font>descriptionSmall</font>
-							<visible>!IsEmpty(ListItem.Plotoutline)</visible>
-						</control>
-						<control type="textbox">
-							<width>960</width>
-							<height>110</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.Plot]</label>
-							<textcolor>Color7</textcolor>
-							<font>descriptionSmall</font>
-							<visible>IsEmpty(ListItem.Plotoutline)</visible>
-						</control>
-						<control type="textbox">
-							<width>960</width>
-							<height>138</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[Container.ShowPlot]</label>
-							<textcolor>Color7</textcolor>
-							<font>descriptionSmall</font>
-							<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
-						</control>
+				</control>
+				<!---plot------>
+				<control type="group">
+					<posy>60</posy>
+					<control type="textbox">
+						<width>960</width>
+						<height>110</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<label>$INFO[ListItem.PlotOutline]</label>
+						<textcolor>Color7</textcolor>
+						<font>descriptionSmall</font>
+						<visible>!IsEmpty(ListItem.Plotoutline)</visible>
+					</control>
+					<control type="textbox">
+						<width>960</width>
+						<height>110</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>Color7</textcolor>
+						<font>descriptionSmall</font>
+						<visible>IsEmpty(ListItem.Plotoutline)</visible>
+					</control>
+					<control type="textbox">
+						<width>960</width>
+						<height>138</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<label>$INFO[Container.ShowPlot]</label>
+						<textcolor>Color7</textcolor>
+						<font>descriptionSmall</font>
+						<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 				</control>
 			</control>
@@ -399,32 +357,7 @@
 			<control type="group">
 				<visible>Control.IsVisible(57) | Control.IsVisible(573)</visible>
 				<!---flags------>
-				<control type="group">
-					<posx>235r</posx>
-					<posy>630</posy>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-					<control type="image">
-						<width>128</width>
-						<height>64</height>
-						<aspectratio align="right">keep</aspectratio>
-						<include>flag_Studio</include>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="image">
-						<width>128</width>
-						<height>64</height>
-						<aspectratio align="right">keep</aspectratio>
-						<include>flag_Network</include>
-						<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
-					</control>
-					<control type="image">
-						<width>128</width>
-						<height>64</height>
-						<aspectratio align="right">keep</aspectratio>
-						<include>flag_Label</include>
-						<visible>Container.Content(musicvideos)</visible>
-					</control>
-				</control>
+				<include>flags_Thumbnails-studio</include>
 				<!---large grid------>
 				<control type="group">
 					<posx>85</posx>
@@ -616,25 +549,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<!---flags------>
-			<control type="group">
-				<posx>105</posx>
-				<posy>590</posy>
-				<visible>!IsEmpty(ListItem.Title)</visible>
-				<control type="image">
-					<width>128</width>
-					<height>64</height>
-					<aspectratio align="right">keep</aspectratio>
-					<include>flag_Studio</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<width>128</width>
-					<height>64</height>
-					<aspectratio align="right">keep</aspectratio>
-					<include>flag_Network</include>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-			</control>
+			<include>flags_Gallery-studio</include>
 			<!---strip bottom------>
 			<control type="group">
 				<posx>265</posx>
@@ -701,6 +616,7 @@
 			</control>
 		</control>
 		<include>view_Gallery</include>
+		
 		<!---fullscreen/expanded------>
 		<control type="group">
 			<posy>496</posy>

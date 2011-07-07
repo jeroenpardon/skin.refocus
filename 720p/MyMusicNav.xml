@@ -7,6 +7,11 @@
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<include>PageControls</include>
+		
+		<include>nav_Indicator</include>
+		<include>pagelabels_Music</include>
+		<include>global_Sortletter</include>
+		
 		<include>view_SlideMusic</include>
 		<include>view_IconSquare2</include>
 		<include>view_SlideLandscape</include>
@@ -56,24 +61,10 @@
 			<include>transition_Info</include>
 			<include>infoDialogHide</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521)</visible>
+			<!--flags--->
 			<control type="image">
-				<posx>60</posx>
-				<posy>458</posy>
-				<width>128</width>
-				<height>64</height>
 				<aspectratio align="right">keep</aspectratio>
-				<colordiffuse>Color7</colordiffuse>
-				<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-			</control>
-			<!---flags------>
-			<control type="image">
-				<posx>220</posx>
-				<posy>600</posy>
-				<width>128</width>
-				<height>32</height>
-				<info>ListItem.StarRating</info>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(songs)</visible>
+				<include>flag_Label</include>
 			</control>
 			<!--info------>
 			<control type="group">
@@ -199,21 +190,13 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<control type="group">
-				<posx>1090</posx>
-				<posy>632</posy>
-				<include>labelFlags57</include>
-				<visible>Control.IsVisible(572) + Container.Content(albums)</visible>
-			</control>
+			<!--flags--->
+			<include>flags_Thumbnails-studio</include>
+			<!--info--->
 			<control type="group">
 				<posx>60</posx>
 				<posy>640</posy>
 				<visible>Control.IsVisible(572)</visible>
-				<control type="label">
-					<label>$INFO[ListItem.Lasbel]</label>
-					<include>info_Title</include>
-
-				</control>
 				<control type="group">
 					<visible>Container.Content(albums)</visible>
 					<control type="label">
@@ -263,10 +246,7 @@
 		</control>
 
 		<include>info_AddonThumbs</include>
-		<include>pagelabels_Music</include>
 		<include>musicOverlay</include>
-		<include>indicatorScrolling</include>
 		<include>LibraryMusicMenu</include>
-		<include>nav_Indicator</include>
 	</controls>
 </window>

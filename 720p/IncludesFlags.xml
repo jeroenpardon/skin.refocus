@@ -169,14 +169,14 @@
 
 <!--- LABEL ---------------------------------------->
 	<include name="flag_Label">
-			<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-			<width>128</width>
-			<height>64</height>
+		<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
+		<width>128</width>
+		<height>64</height>
 	</include>
 	<include name="flag_Label-video">
-			<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
-			<width>128</width>
-			<height>64</height>
+		<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
+		<width>128</width>
+		<height>64</height>
 	</include>
 	<include name="flag_Label-play">
 		<texture>$INFO[VideoPlayer.studio,flags/labels/,.png]</texture>
@@ -208,13 +208,16 @@
 	</include>
 
 <!--- GROUPS ---------------------------------------->
-	<include name="flags52">
+	<!--flags52-->
+	<include name="flags_Slide-media">
 		<control type="grouplist">
+			<posx>222</posx>
+			<posy>660</posy>
 			<width>900</width>
 			<height>64</height>
 			<itemgap>10</itemgap>
 			<orientation>horizontal</orientation>
-			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(58)] + !IsEmpty(ListItem.Title)</visible>
+			<visible>Control.IsVisible(52) | Control.IsVisible(521)</visible>
 			<control type="image">
 				<width>128</width>
 				<height>32</height>
@@ -235,6 +238,79 @@
 				<aspectratio align="center">keep</aspectratio>
 				<include>flag_Audio</include>
 				<visible>!Container.Content(tvshows) + IsEmpty(ListItem.Property(ReleaseDate)) + !ListItem.IsFolder</visible>
+			</control>
+		</control>
+	</include>
+	<include name="flags_Slide-studio">
+		<control type="group">
+			<posx>60</posx>
+			<posy>459</posy>
+			<control type="image">
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Studio</include>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="image">
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Network</include>
+				<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+			<control type="image">
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Label-video</include>
+				<visible>Container.Content(musicvideos)</visible>
+			</control>
+			<control type="image">
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Network</include>
+				<visible>Container.Content(tvshows)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="flags_Thumbnails-studio">
+		<control type="group">
+			<posx>235r</posx>
+			<posy>630</posy>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Studio</include>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Network</include>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<control type="image">
+				<posx>50</posx>
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Label</include>
+			</control>
+		</control>
+	</include>
+	<include name="flags_Gallery-studio">
+		<control type="group">
+			<posx>105</posx>
+			<posy>590</posy>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Studio</include>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Network</include>
+				<visible>Container.Content(tvshows)</visible>
 			</control>
 		</control>
 	</include>
