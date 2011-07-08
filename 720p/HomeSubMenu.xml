@@ -242,7 +242,7 @@
 						<label>$LOCALIZE[8]</label>
 						<onclick>ActivateWindow(2600)</onclick>
 						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<visible>!Skin.HasSetting(homemenu.weather)</visible>
+						<visible>!Skin.HasSetting(homemenu.weather) + Weather.IsFetched</visible>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[7]</label>
