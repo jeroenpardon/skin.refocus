@@ -91,17 +91,34 @@
 		</control>
 	</include>
 	<include name="global_Clock">
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>[B]$INFO[System.Time][/B]</label>
-			<include>toast_Top</include>
+		<control type="group">
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(shutdownmenu) | Window.IsActive(videoplaylist)</visible>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[B]$INFO[System.Time][/B]</label>
+				<include>toast_Top</include>
+			</control>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
+				<include>toast_Bottom</include>
+			</control>
 		</control>
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
-			<include>toast_Bottom</include>
-			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
+	</include>
+	<include name="clock">
+		<control type="group">
+			<visible>!Window.IsActive(infodialog)</visible>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[B]$INFO[System.Time][/B]</label>
+				<include>toast_Top</include>
+			</control>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
+				<textcolor>Color1</textcolor>
+				<include>toast_Bottom</include>
+			</control>
 		</control>
 	</include>
 
