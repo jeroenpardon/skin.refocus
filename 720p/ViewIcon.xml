@@ -23,7 +23,7 @@
 				<control type="image">
 					<width>177</width>
 					<height>250</height>
-					<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 					<bordertexture border="6" width="177" height="250">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
@@ -32,7 +32,7 @@
 				<control type="image">
 					<width>177</width>
 					<height>250</height>
-					<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 					<bordertexture border="6" width="177" height="250">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
@@ -51,7 +51,7 @@
 				<control type="image">
 					<width>177</width>
 					<height>250</height>
-					<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 					<bordertexture border="6" width="177" height="250">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
@@ -61,7 +61,7 @@
 				<control type="image">
 					<width>177</width>
 					<height>250</height>
-					<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 					<bordertexture border="6" width="177" height="250">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
@@ -115,7 +115,7 @@
 					<width>113</width>
 					<height>170</height>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/tvshow_portrait.png">$INFO[ListItem.Thumb]</texture>
+					<texture background="true" fallback="thumbs/tvshow_portrait.jpg">$INFO[ListItem.Thumb]</texture>
 					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
@@ -124,7 +124,7 @@
 					<width>113</width>
 					<height>170</height>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/movie_portrait.png">$INFO[ListItem.Thumb]</texture>
+					<texture background="true" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
 					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="image">
@@ -150,7 +150,7 @@
 					<width>113</width>
 					<height>170</height>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/tvshow_portrait.png">$INFO[ListItem.Thumb]</texture>
+					<texture background="true" fallback="thumbs/tvshow_portrait.jpg">$INFO[ListItem.Thumb]</texture>
 					<include>focus_ThumbPosterInfo</include>
 					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				</control>
@@ -160,7 +160,7 @@
 					<width>113</width>
 					<height>170</height>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/movie_portrait.png">$INFO[ListItem.Thumb]</texture>
+					<texture background="true" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
 					<include>focus_ThumbPosterInfo</include>
 					<visible>Container.Content(movies)</visible>
 				</control>
@@ -201,63 +201,7 @@
 			<include condition="Window.IsVisible(pictures)">IconWidePictures</include>
 		</control>
 	</include>
-	<!--
-	<include name="IconWideVideo">
-		<itemlayout height="170" width="220">
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/music_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<visible>Container.Content(musicvideos)</visible>
-			</control>
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/video_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<visible>Container.Content(files) + Container.HasFiles</visible>
-			</control>
-			<control type="image">
-				<posx>177</posx>
-				<posy>127</posy>
-				<include>watchedOverlay</include>
-			</control>
-		</itemlayout>											
-		<focusedlayout height="170" width="220">
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/music_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<include>focus_WideThumbs</include>
-				<visible>Container.Content(musicvideos)</visible>
-			</control>
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/video_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<include>focus_WideThumbs</include>
-				<visible>Container.Content(files)</visible>
-			</control>
-			<control type="image">
-				<posx>177</posx>
-				<posy>127</posy>
-				<include>watchedOverlay</include>
-				<include>focus_WideThumbs</include>
-			</control>
-		</focusedlayout>
-	</include>
-	-->
+	
 	<include name="IconWideMusic">
 		<itemlayout height="170" width="220">
 			<control type="image">
@@ -288,7 +232,7 @@
 			<control type="image">
 				<width>215</width>
 				<height>165</height>
-				<texture fallback="thumbs/picture_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<texture fallback="thumbs/picture_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
 				<bordersize>6</bordersize>
 				<aspectratio>scale</aspectratio>
@@ -299,7 +243,7 @@
 			<control type="image">
 				<width>215</width>
 				<height>165</height>
-				<texture fallback="thumbs/picture_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<texture fallback="thumbs/picture_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
 				<bordersize>6</bordersize>
 				<aspectratio>scale</aspectratio>

@@ -169,61 +169,52 @@
 				<!---discography--->
 				<control type="list" id="50">
 					<width>785</width>
-					<height>325</height>
+					<height>352</height>
 					<onleft>8000</onleft>
 					<onright>8000</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<orientation>vertical</orientation>
 					<scrolltime>200</scrolltime>
-					<itemlayout height="42">
+					<itemlayout height="44">
 						<control type="image">
 							<width>785</width>
-							<height>40</height>
-							<texture border="8">epg/column_focus2.png</texture>
-							<colordiffuse>tv3</colordiffuse>
+							<include>column_Single</include>
 						</control>
 						<control type="label">
 							<posx>15</posx>
-							<width>570</width>
-							<height>35</height>
+							<width>655</width>
 							<label>$INFO[ListItem.Label]</label>
-							<include>listMenu</include>
+							<include>column_Label</include>
 						</control>
 						<control type="label">
 							<posx>770</posx>
-							<width>300</width>
-							<height>35</height>
+							<width>100</width>
 							<align>right</align>
 							<label>$INFO[ListItem.Duration]</label>
-							<textcolor>Color2</textcolor>
-							<include>listMenu</include>
+							<include>column_Label</include>
 						</control>
 					</itemlayout>
-					<focusedlayout height="42">
+					<focusedlayout height="44">
 						<control type="image">
 							<width>785</width>
-							<height>40</height>
-							<texture border="8">epg/column_focus.png</texture>
-							<colordiffuse>tv3</colordiffuse>
+							<include>column_Single-focus</include>
 						</control>
 						<control type="label">
 							<posx>15</posx>
-							<width>570</width>
-							<height>35</height>
+							<width>655</width>
 							<label>$INFO[ListItem.Label]</label>
-							<include>listMenu</include>
+							<include>column_Label-focus</include>
 						</control>
 						<control type="label">
 							<posx>770</posx>
-							<width>300</width>
-							<height>35</height>
+							<width>100</width>
 							<align>right</align>
 							<label>$INFO[ListItem.Duration]</label>
-							<textcolor>Color1</textcolor>
-							<include>listMenu</include>
+							<include>column_Label-focus</include>
 						</control>
 					</focusedlayout>
+				
 				</control>
 			</control>
 		</control>

@@ -69,7 +69,7 @@
 						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/music_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="thumbs/music_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Landscape-List</include>
 						<visible>Container.Content(musicvideos)</visible>
 					</control>
@@ -121,22 +121,22 @@
 						<include>frame_Poster-List</include>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/movie_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Portrait-List</include>
 						<visible>Container.Content(movies)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Portrait-List</include>
 						<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/tvshow_portrait.png" background="true">$INFO[Container.TVShowThumb]</texture>
+						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[Container.TVShowThumb]</texture>
 						<include>thumb_Portrait-List</include>
-						<visible>Container.Content(seasons) + IsEmpty(ListItem.Title)</visible>
+						<visible>Container.Content(seasons) + SubString(ListItem.Icon,default)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/actor_portrait.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Portrait-List</include>
 						<visible>Container.Content(actors)</visible>
 					</control>
@@ -621,11 +621,12 @@
 			<include>infoDialogHide</include>
 			<animation effect="slide" start="0,600" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,600" easing="Out" tween="Quadratic" time="350">Hidden</animation>
-			<visible>[Control.IsVisible(53) + Control.HasFocus(8000)] | [Control.IsVisible(531) + Control.HasFocus(8000)] + !ControlGroup(6000).HasFocus()</visible>
+			<visible>[[Control.IsVisible(53) + Control.HasFocus(8000)] | Control.IsVisible(531)] + !ControlGroup(6000).HasFocus()</visible>
 			<control type="image">
 				<width>1280</width>
 				<height>225</height>
 				<texture border="0,0,0,15">osd/fullscreenInfo.png</texture>
+				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="group">
 				<posx>20</posx>

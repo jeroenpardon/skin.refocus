@@ -6,7 +6,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(53) + !Control.HasFocus(8000)</visible>
+			<visible>Control.IsVisible(53)</visible>
 			<control type="group">
 				<posx>265</posx>
 				<posy>102</posy>
@@ -70,14 +70,14 @@
 				<width>750</width>
 				<height>422</height>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
 				<width>750</width>
 				<height>422</height>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="image">
@@ -100,7 +100,7 @@
 				<width>750</width>
 				<height>422</height>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 			</control>
@@ -108,7 +108,7 @@
 				<width>750</width>
 				<height>422</height>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
 				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.TVShowTitle)">Conditional</animation>
 			</control>
@@ -134,7 +134,7 @@
 				<width>750</width>
 				<height>422</height>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+				<texture background="true" fallback="backgrounds/pictures.jpg">$INFO[ListItem.FilenameAndPath]</texture>
 				<visible>Window.IsActive(2)</visible>
 			</control>
 		</itemlayout>
@@ -143,7 +143,7 @@
 				<width>750</width>
 				<height>422</height>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+				<texture background="true" fallback="backgrounds/pictures.jpg">$INFO[ListItem.FilenameAndPath]</texture>
 				<visible>Window.IsActive(2)</visible>
 				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000)">Conditional</animation>
 			</control>
@@ -204,13 +204,13 @@
 			<control type="image">
 				<include>global_Screentype</include>
 				<aspectratio>keep</aspectratio>
-				<texture background="true" fallback="backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
 				<include>global_Screentype</include>
 				<aspectratio>keep</aspectratio>
-				<texture background="true" fallback="backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="image">
@@ -225,13 +225,13 @@
 			<control type="image">
 				<include>global_Screentype</include>
 				<aspectratio aligny="left">scale</aspectratio>
-				<texture background="true" fallback="backgrounds/movies.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
 				<include>global_Screentype</include>
 				<aspectratio>keep</aspectratio>
-				<texture background="true" fallback="backgrounds/tvshows.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true" fallback="backgrounds/tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="image">
@@ -248,7 +248,7 @@
 			<control type="image">
 				<include>global_Screentype</include>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+				<texture background="true" fallback="backgrounds/pictures.jpg">$INFO[ListItem.FilenameAndPath]</texture>
 				<visible>Window.IsActive(2)</visible>
 			</control>
 		</itemlayout>
@@ -256,7 +256,7 @@
 			<control type="image">
 				<include>global_Screentype</include>
 				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="backgrounds/pictures.png">$INFO[ListItem.FilenameAndPath]</texture>
+				<texture background="true" fallback="backgrounds/pictures.jpg">$INFO[ListItem.FilenameAndPath]</texture>
 				<visible>Window.IsActive(2)</visible>
 			</control>
 		</focusedlayout>
