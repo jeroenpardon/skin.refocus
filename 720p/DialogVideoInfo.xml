@@ -50,7 +50,6 @@
 			<posy>97</posy>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
-			<visible>!Window.IsActive(101)</visible>
 			<control type="label">
 				<width>780</width>
 				<label>$INFO[ListItem.Tagline]</label>
@@ -67,13 +66,13 @@
 				<width>750</width>
 				<label>$INFO[ListItem.PlotOutline]</label>
 				<include>info_Title</include>
-				<visible>Container.Content(movies) + !Control.IsVisible(50) + IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.Property(ReleaseDate)) + !IsEmpty(ListItem.PlotOutline)</visible>
+				<visible>Container.Content(movies) + IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.Property(ReleaseDate)) + !IsEmpty(ListItem.PlotOutline)</visible>
 			</control>
 			<control type="label">
 				<width>750</width>
 				<label>$INFO[ListItem.Plot]</label>
 				<include>info_Title</include>
-				<visible>Container.Content(movies) + !Control.IsVisible(50) + [IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline) + IsEmpty(ListItem.Property(ReleaseDate))]</visible>
+				<visible>Container.Content(movies) + [IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline) + IsEmpty(ListItem.Property(ReleaseDate))]</visible>
 			</control>
 			<control type="label">
 				<width>780</width>
@@ -96,7 +95,6 @@
 		</control>
 		
 		<control type="grouplist" id="1000">
-			<visible>!Window.IsActive(101)</visible>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<posx>470</posx>
@@ -306,10 +304,9 @@
 <!-- IMAGES ------------------------------------------------------------------------------------------------------>
 		<control type="group">
 			<posy>65</posy>
-			<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !Window.IsActive(101)</visible>
+			<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
-			
 			<control type="image">
 				<include>frame_Poster-List</include>
 				<visible>!Container.Content(musicvideos)</visible>
