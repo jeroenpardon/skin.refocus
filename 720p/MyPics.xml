@@ -92,31 +92,28 @@
 		<control type="group">
 			<posx>265</posx>
 			<posy>105</posy>
-			<visible>Control.IsVisible(53)</visible>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
+			<visible>Control.IsVisible(53)</visible>
 			<control type="group">
 				<posy>480</posy>
 				<control type="label">
 					<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
-					<font>normalCaps</font>
-					<textcolor>Color1</textcolor>
 					<width>940</width>
+					<include>info_TitleSmall</include>
 				</control>
 				<control type="label">
 					<posy>23</posy>
 					<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
-					<font>normalCaps</font>
-					<textcolor>Color2</textcolor>
 					<width>750</width>
+					<include>info_Sub</include>
 				</control>
 				<control type="label">
 					<posy>46</posy>
 					<label>[UPPERCASE]$INFO[ListItem.PictureDateTime][/UPPERCASE]</label>
-					<font>normalCaps</font>
-					<textcolor>Color2</textcolor>
 					<width>750</width>
+					<include>info_Sub</include>
 				</control>
 			</control>
 		</control>
