@@ -624,7 +624,7 @@
 			<include>infoDialogHide</include>
 			<animation effect="slide" start="0,600" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,600" easing="Out" tween="Quadratic" time="350">Hidden</animation>
-			<visible>[Control.IsVisible(53) + Control.HasFocus(8000)] | [Control.IsVisible(531) + !Control.HasFocus(8000)] + !ControlGroup(6000).HasFocus() + !Container.Content(episodes)</visible>
+			<visible>[Control.IsVisible(53) + Control.HasFocus(8000)] | [Control.IsVisible(531) + Control.HasFocus(8000)] + !ControlGroup(6000).HasFocus()</visible>
 			<control type="image">
 				<width>1280</width>
 				<height>225</height>
