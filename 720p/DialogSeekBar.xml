@@ -1,25 +1,25 @@
 ﻿<window id="115">
 	<defaultcontrol>`100</defaultcontrol>
-	<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + !Window.IsActive(fullscreeninfo)</visible>
+	<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(fullscreeninfo) | Window.IsActive(infodialog) | Player.ShowCodec]</visible>
 	<controls>
 		<include>clock</include>
 		<control type="group" id="213">
-			<posy>635</posy>
+			<posy>0</posy>
 			<animation type="WindowOpen">
-				<effect type="slide" start="0,100" end="0,0" tween="Cubic" center="auto" easing="Out" time="400" />
+				<effect type="slide" start="0,-72" end="0,0" tween="Cubic" center="auto" easing="Out" time="250" />
 			</animation>
 			<animation type="WindowClose">
-				<effect type="slide" start="0,0" end="0,100" tween="Cubic" center="auto" easing="Out" time="400" />
+				<effect type="slide" start="0,0" end="0,-72" tween="Cubic" center="auto" easing="Out" time="250" />
 			</animation>
 			<control type="image" id="1">
 				<include>global_Screenwidth</include>
-				<height>230</height>
-				<texture flipy="false">OSD/fullscreenInfo.png</texture>
+				<height>72</height>
+				<texture flipy="false" border="48,33,48,33">osd/seekbar.png</texture>
 			</control>
 			<control type="progress" id="1">
 				<description>Progressbar</description>
 				<posx>255</posx>
-				<posy>47</posy>
+				<posy>12</posy>
 				<width>770</width>
 				<height>22</height>
 				<info>Player.CacheLevel</info>
@@ -31,7 +31,7 @@
 			</control>
 			<control type="progress" id="1">
 				<posx>255</posx>
-				<posy>47</posy>
+				<posy>22</posy>
 				<width>770</width>
 				<height>22</height>
 				<texturebg border="10">dialogs/progressBackground.png</texturebg>
@@ -39,7 +39,7 @@
 			</control>
 			<control type="group" id="901">
 				<posx>250</posx>
-				<posy>37</posy>
+				<posy>12</posy>
 				<control type="label">
 					<label>$LOCALIZE[773] $INFO[Player.SeekOffset]</label>
 					<include>dialog_Label-seekbar</include>
@@ -110,7 +110,7 @@
 			</control>
 			<control type="group" id="901">
 				<posx>250r</posx>
-				<posy>37</posy>
+				<posy>12</posy>
 				<control type="label" id="22">
 					<width>250</width>
 					<align>left</align>
