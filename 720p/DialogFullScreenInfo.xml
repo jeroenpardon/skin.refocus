@@ -99,30 +99,6 @@
 					<include>flag_HD-play</include>
 				</control>
 			</control>
-			<!--
-			<control type="image">
-				<posx>1175</posx>
-				<posy>75</posy>
-				<width>64</width>
-				<height>64</height>
-				<aspectratio align="center">keep</aspectratio>
-				<include>hdFlag</include>
-				<include>transition_OSD</include>
-				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(files)] + ![Window.IsActive(2901)]</visible>
-			</control>
-			-->
-			<!--
-			<control type="image">
-				<posx>40</posx>
-				<posy>88</posy>
-				<include>transition_OSD</include>
-				<width>128</width>
-				<height>72</height>
-				<aspectratio align="center">keep</aspectratio>
-				<include>labelFlag</include>
-				<visible>VideoPlayer.Content(musicvideos)</visible>
-			</control>
-			-->
 
 		<!---INFO------>
 			<control type="group">
@@ -236,24 +212,6 @@
 					<visible>Skin.HasSetting(osd.progressbar)</visible>
 				</control>
 			</control>
-			<!---files
-			<control type="group" id="1">
-				<posx>200</posx>
-				<posy>389</posy>
-				<visible>VideoPlayer.Content(files)</visible>
-				<include>transition_OSD</include>
-				
-				<control type="label">
-					<posx>1035</posx>
-					<posy>30</posy>
-					<width>1000</width>
-					<align>right</align>
-					<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
-					<font>osd2</font>
-					<textcolor>Color2</textcolor>
-				</control>
-			</control>
-			------>
 		</control>
 	</controls>
 </window>
