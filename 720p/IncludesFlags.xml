@@ -256,7 +256,7 @@
 			<control type="image">
 				<aspectratio align="right">keep</aspectratio>
 				<include>flag_Network</include>
-				<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 			</control>
 			<control type="image">
 				<aspectratio align="right">keep</aspectratio>
@@ -265,8 +265,8 @@
 			</control>
 			<control type="image">
 				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Network</include>
-				<visible>Container.Content(tvshows)</visible>
+				<include>flag_Label</include>
+				<visible>Window.IsVisible(musiclibrary)</visible>
 			</control>
 		</control>
 	</include>

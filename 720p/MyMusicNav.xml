@@ -6,12 +6,10 @@
 	<controls>
 		<include>global_Background</include>
 		<include>global_Includes</include>
-		<include>PageControls</include>
-		
-		<include>nav_Indicator</include>
-		<include>pagelabels_Music</include>
 		<include>global_Sortletter</include>
-		
+		<include>nav_Indicator</include>
+		<include>PageControls</include>
+		<include>pagelabels_Music</include>
 		<include>view_SlideMusic</include>
 		<include>view_IconSquare2</include>
 		<include>view_SlideLandscape</include>
@@ -61,11 +59,7 @@
 			<include>transition_Info</include>
 			<include>infoDialogHide</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521)</visible>
-			<!--flags--->
-			<control type="image">
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Label</include>
-			</control>
+			<include>flags_Slide-studio</include>
 			<!--info------>
 			<control type="group">
 				<posx>220</posx>
@@ -190,7 +184,7 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(573)</visible>
+			<visible>Control.IsVisible(573) | Control.IsVisible(572)</visible>
 			<!--flags--->
 			<include>flags_Thumbnails-studio</include>
 			<!--info--->
