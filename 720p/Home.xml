@@ -148,21 +148,20 @@
 		</control>
 
 <!-- CALL MENU -------------------------------------------------------------------------------------------------------------------------->
-	<include>HomeMenu</include>
-	
-	<control type="group" id="6100">
-		<posx>20</posx>
-		<posy>20</posy>
-		<include>transition_Indicator</include>
-		<control type="image">
-			<width>48</width>
-			<height>48</height>
-			<texture>navigation/left.png</texture>
-			<colordiffuse>Color1</colordiffuse>
-			<include>fadeinout</include>
-			<animation effect="slide" end="0,-10" time="100" condition="Control.HasFocus(1150)">Conditional</animation>
-			<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180)]</visible>
+		<include>HomeMenu</include>
+		<control type="group" id="6100">
+			<posx>20</posx>
+			<posy>20</posy>
+			<include>transition_Indicator</include>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>navigation/left.png</texture>
+				<colordiffuse>Color1</colordiffuse>
+				<include>fadeinout</include>
+				<animation effect="slide" end="0,-10" time="100" condition="Control.HasFocus(1150)">Conditional</animation>
+				<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180)]</visible>
+			</control>
 		</control>
-	</control>
-  </controls>
+	</controls>
 </window>

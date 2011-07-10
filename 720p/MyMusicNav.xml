@@ -31,22 +31,19 @@
 		<include>view_List</include>
 		<!--- landscape ------>
 		<control type="group">
+			<posx>655</posx>
+			<posy>68</posy>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
 			<include>transition_Container</include>
-			<visible>Control.IsVisible(50) + !substring(container.folderpath,plugin://)</visible>
-			<control type="group">
-				<posx>655</posx>
-				<posy>68</posy>
-				<visible>Container.Content(artists)</visible>
-				<control type="image">
-					<include>frame_Landscape-List</include>
-					<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
-				</control>
-				<control type="image">
-					<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-					<include>thumb_Landscape-List</include>
-				</control>
+			<visible>Control.IsVisible(50) + Container.Content(artists) + !substring(container.folderpath,plugin://)</visible>
+			<control type="image">
+				<include>frame_Landscape-List</include>
+				<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
+			</control>
+			<control type="image">
+				<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<include>thumb_Landscape-List</include>
 			</control>
 		</control>
 		<!--- info ------>
