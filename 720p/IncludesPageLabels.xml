@@ -92,7 +92,7 @@
 			<!--tvshows videodb-->
 			<label>$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>SubString(Container.FolderPath,videodb://2/,left) + !stringcompare(Container.FolderPath,videodb://2/)</visible>
+			<visible>SubString(Container.FolderPath,videodb://2/,left) + !stringcompare(Container.FolderPath,videodb://2/) + !Container.Content(seasons) + !Container.Content(episodes)</visible>
 		</control>
 
 <!---SEASONS--->
