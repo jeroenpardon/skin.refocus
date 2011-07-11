@@ -1,6 +1,7 @@
 ﻿<window id="2000">
 	<defaultcontrol>3</defaultcontrol>
 	<include>dialogOpen</include>
+	<zorder>2</zorder>
 	<coordinates>
 		<system>1</system>
 		<posx>340</posx>
@@ -19,13 +20,6 @@
 				<width>582</width>
 				<scroll>true</scroll>
 				<include>dialog_Windowtitle</include>
-			</control>
-			<control type="image">
-				<posx>147</posx>
-				<posy>76</posy>
-				<height>384</height>
-				<include>dialog_Separator-y</include>
-				<visible>Control.IsVisible(6)</visible>
 			</control>
 			<control type="group">
 				<posx>19</posx>
@@ -87,8 +81,14 @@
 						<control type="image">
 							<width>128</width>
 							<height>128</height>
-							<aspectratio align="left">keep</aspectratio>
+							<aspectratio align="center">keep</aspectratio>
 							<texture fallback="thumbs/addon.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<posx>128</posx>
+							<posy>0</posy>
+							<height>128</height>
+							<include>dialog_Separator-y</include>
 						</control>
 						<control type="label">
 							<posx>150</posx>
@@ -123,7 +123,7 @@
 						<control type="image">
 							<width>128</width>
 							<height>128</height>
-							<aspectratio align="left">keep</aspectratio>
+							<aspectratio align="center">keep</aspectratio>
 							<texture fallback="thumbs/addon.png">$INFO[ListItem.Icon]</texture>
 						</control>	
 						<control type="label">

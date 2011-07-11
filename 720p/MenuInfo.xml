@@ -1,6 +1,6 @@
 ﻿<includes>
-	<include name="InfoDialogMenu">
-
+	<include name="menu_Info-video">
+			
 		<control type="group">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
 			<control type="group" id="6000">
@@ -28,7 +28,7 @@
 					<ondown>12</ondown>
 					<onright>8000</onright>
 					<include>button_Menu</include>
-					<onclick>SetFocus(5000)</onclick>
+					<onclick>SetFocus(8000)</onclick>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="10">
@@ -39,7 +39,7 @@
 					<ondown>12</ondown>
 					<onright>8000</onright>
 					<include>button_Menu</include>
-					<onclick>SetFocus(5000)</onclick>
+					<onclick>SetFocus(8000)</onclick>
 					<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
 				</control>
 				<control type="button" id="12">
@@ -50,6 +50,7 @@
 					<ondown>55</ondown>
 					<onright>8000</onright>
 					<include>button_Menu</include>
+					<onclick>SetFocus(8000)</onclick>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="55">
@@ -60,7 +61,7 @@
 					<ondown>56</ondown>
 					<onright>8000</onright>
 					<include>button_Menu</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,clearart=False,showthumb=False,poster=False,banner=False,showname=$INFO[ListItem.TVShowTitle])</onclick>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
 				</control>
 				<control type="button" id="56">
@@ -71,14 +72,14 @@
 					<ondown>6</ondown>
 					<onright>8000</onright>
 					<include>button_Menu</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,Banner=True,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
 				</control>
 			</control>
 		</control>
 	</include>
 
-	<include name="InfoDialogMenuM">
+	<include name="menu_Info-music">
 		<control type="group">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
 			
