@@ -2,7 +2,6 @@
 	<include name="WeatherMenu">
 		<control type="group">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
-			
 			<control type="grouplist" id="6000">
 				<posx>-275</posx>
 				<posy>20</posy>
@@ -12,10 +11,9 @@
 				<onleft>-</onleft>
 				<onright>1</onright>
 				<itemgap>-125</itemgap>
-				<include>pagemenus</include>
+				<include>MenuOpen</include>
 				<include>transition_Container</include>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
-				
 				<control type="button" id="2">
 					<description>Refresh</description>
 					<onleft>1</onleft>

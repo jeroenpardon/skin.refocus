@@ -7,10 +7,9 @@
 				<posy>20</posy>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus(0) + !Skin.HasSetting(global.kiosk)</visible>
 				<onright>50</onright>
-				<include>pagemenus</include>
-				<include>transition_WindowMenu</include>
+				<include>MenuOpen</include>
+				<include>transition_Menu</include>
 				<include>toggle_NumItems-menumove</include>
-	
 				<control type="button" id="1">
 					<description>Choose Viewtype</description>
 					<label>[UPPERCASE]$LOCALIZE[31930][/UPPERCASE]</label>
@@ -30,8 +29,8 @@
 					<onright>1</onright>
 					<itemgap>-125</itemgap>
 					<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
+					<!--list-->
 					<control type="button" id="41">
-						<description>list</description>
 						<label>$LOCALIZE[535]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
@@ -41,8 +40,8 @@
 						<onclick>SetFocus(50)</onclick>
 						<include>button_Menu</include>
 					</control>
+					<!--slide-->
 					<control type="button" id="42">
-						<description>slide</description>
 						<label>$LOCALIZE[31003]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
@@ -62,8 +61,8 @@
 						<include>button_Menu</include>
 						<visible>Container.Content(artists)</visible>
 					</control>
+					<!--thumbnails-->
 					<control type="button" id="44">
-						<description>thumbnails</description>
 						<label>$LOCALIZE[31014]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
@@ -74,7 +73,6 @@
 						<visible>[Container.Content(albums) | Container.Content(songs)] + !stringcompare(container.folderpath,addons://sources/)</visible>
 					</control>
 					<control type="button" id="45">
-						<description>thumbnails info</description>
 						<label>$LOCALIZE[31014]</label>
 						<onleft>1</onleft>
 						<onright>1</onright>
@@ -180,9 +178,9 @@
 						<onright>50</onright>
 						<onup>30</onup>
 						<ondown>1</ondown>
-						<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
+						<onclick>Skin.ToggleSetting(view.thumbnails.info)</onclick>
 						<onclick>Container.SetViewMode(574)</onclick>
-						<selected>!Skin.HasSetting(thumbInfo)</selected>
+						<selected>!Skin.HasSetting(view.thumbnails.info)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(572)</visible>
 					</control>
@@ -194,9 +192,9 @@
 						<onright>50</onright>
 						<onup>30</onup>
 						<ondown>1</ondown>
-						<onclick>Skin.ToggleSetting(thumbInfo)</onclick>
+						<onclick>Skin.ToggleSetting(view.thumbnails.info)</onclick>
 						<onclick>Container.SetViewMode(572)</onclick>
-						<selected>Skin.HasSetting(thumbInfo)</selected>
+						<selected>Skin.HasSetting(view.thumbnails.info)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(574)</visible>
 					</control>

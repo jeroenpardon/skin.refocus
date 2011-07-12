@@ -7,8 +7,8 @@
 				<posy>20</posy>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
 				<onright>50</onright>
-				<include>pagemenus</include>
-				<include>transition_WindowMenu</include>
+				<include>MenuOpen</include>
+				<include>transition_Menu</include>
 				<include>toggle_NumItems-menumove</include>
 			<!---PICTURES------>			
 				<control type="group">
@@ -146,9 +146,9 @@
 							<onright>50</onright>
 							<onup>30</onup>
 							<ondown>1</ondown>
-							<onclick>Skin.ToggleSetting(galleryFull)</onclick>
+							<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
 							<onclick>Container.SetViewMode(53)</onclick>
-							<selected>!Skin.HasSetting(galleryFull)</selected>
+							<selected>!Skin.HasSetting(view.gallery.full)</selected>
 							<include>button_Menu</include>
 							<visible>Control.IsVisible(531)</visible>
 						</control>
@@ -160,9 +160,9 @@
 							<onright>50</onright>
 							<onup>30</onup>
 							<ondown>1</ondown>
-							<onclick>Skin.ToggleSetting(galleryFull)</onclick>
+							<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
 							<onclick>Container.SetViewMode(531)</onclick>
-							<selected>Skin.HasSetting(galleryFull)</selected>
+							<selected>Skin.HasSetting(view.gallery.full)</selected>
 							<include>button_Menu</include>
 							<visible>Control.IsVisible(53)</visible>
 						</control>

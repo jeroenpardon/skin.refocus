@@ -9,8 +9,8 @@
 				<width>800</width>
 				<height>800</height>
 				<orientation>vertical</orientation>
-				<include>pagemenus</include>
-				<include>transition_WindowMenu</include>
+				<include>MenuOpen</include>
+				<include>transition_Menu</include>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk) + ![Window.IsActive(101) | Window.IsActive(filebrowser)]</visible>
 				<control type="button" id="6">
 					<label>$LOCALIZE[184]</label>
@@ -84,7 +84,6 @@
 	<include name="menu_Info-music">
 		<control type="group">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
-			
 			<control type="group" id="6000">
 				<posx>-275</posx>
 				<posy>20</posy>
@@ -92,7 +91,7 @@
 				<height>800</height>
 				<onright>8000</onright>
 				<orientation>vertical</orientation>
-				<include>pagemenus</include>
+				<include>MenuOpen</include>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Window.IsActive(101) + !Skin.HasSetting(global.kiosk)</visible>
 				<control type="button" id="6">
 					<posy>0</posy>
