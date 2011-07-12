@@ -1,74 +1,67 @@
 ﻿<includes>
-	
 	<include name="recent_Episode-Thumb">
 		<width>325</width>
 		<height>183</height>
 		<include>fadeinout</include>
 	</include>
-	
-	
-	
 	<include name="recent_Episode">
 	<control type="grouplist">
 		<align>left</align>
 		<width>325</width>
 		<height>183</height>
 		<orientation>horizontal</orientation>
-
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.1.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.1.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.2.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.2.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.3.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.3.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.4.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.4.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.5.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.5.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.6.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.6.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.7.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.7.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.8.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.8.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.9.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.9.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.Label)</visible>
 			</control>
 			<control type="image">
 				<include>recent_Episode-Thumb</include>
-				<texture background="true" diffuse="tv-landscape/landscapematteFO.png">$INFO[Window(Home).Property(LatestEpisode.10.Thumb)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(LatestEpisode.10.Thumb)]</texture>
 				<visible>StringCompare(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.Label)</visible>
 			</control>
 		</control>
 	</include>
-	
-	
 	<include name="recent_Episode-label">
 		<width>800</width>
 		<height>60</height>
@@ -76,8 +69,6 @@
 		<include>fadeinout</include>
 		<font>smallCaps</font>
 	</include>
-	
-	
 	<include name="recent_Episode-title">
 		<control type="label">
 			<include>recent_Episode-label</include>
@@ -229,8 +220,6 @@
 			<visible>StringCompare(Window(Home).Property(LatestEpisode.30.ShowTitle),ListItem.Label)</visible>
 		</control>
 	</include>
-	
-	
 	<include name="nextaired_Episode-label">
 		<width>800</width>
 		<height>60</height>
@@ -238,8 +227,6 @@
 		<include>fadeinout</include>
 		<font>smallCaps</font>
 	</include>
-	
-	
 	<include name="nextaired_Episode-title">
 		<control type="label">
 			<include>nextaired_Episode-label</include>
@@ -391,7 +378,6 @@
 			<visible>StringCompare(Window(Home).Property(NextAired.30.ShowTitle),ListItem.Label)</visible>
 		</control>
 	</include>
-	
 	<include name="nextaired_Airs-label">
 		<width>800</width>
 		<height>60</height>
@@ -400,7 +386,6 @@
 		<font>smallCaps</font>
 		<textcolor>Color2</textcolor>
 	</include>
-	
 	<include name="nextaired_Episode-airs">
 		<control type="label">
 			<include>nextaired_Airs-label</include>
@@ -552,5 +537,4 @@
 			<visible>StringCompare(Window(Home).Property(NextAired.30.ShowTitle),ListItem.Label)</visible>
 		</control>
 	</include>
-	
 </includes>
