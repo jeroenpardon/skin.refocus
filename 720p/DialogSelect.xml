@@ -16,7 +16,6 @@
 				<include>dialogWindow</include>
 			</control>
 			<control type="label" id="1">
-				<description>heading label</description>
 				<width>582</width>
 				<scroll>true</scroll>
 				<include>dialog_Windowtitle</include>
@@ -90,28 +89,27 @@
 							<height>128</height>
 							<include>dialog_Separator-y</include>
 						</control>
-						<control type="label">
+						<control type="group">
 							<posx>150</posx>
-							<posy>14</posy>
-							<width>473</width>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
-							<font>listBig</font>
-							<include>dialog_CommonListItem</include>
-						</control>
-						<control type="label">
-							<posx>150</posx>
-							<posy>44</posy>
-							<width>450</width>
-							<label>$INFO[ListItem.Label2]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-						<control type="label">
-							<posx>150</posx>
-							<posy>70</posy>
-							<width>450</width>
-							<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31106] ]</label>
-							<include>dialog_CommonListItem</include>
-							<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
+							<control type="label">
+								<posy>14</posy>
+								<width>473</width>
+								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<font>listBig</font>
+								<include>dialog_CommonListItem</include>
+							</control>
+							<control type="label">
+								<posy>44</posy>
+								<width>450</width>
+								<label>$INFO[ListItem.Label2]</label>
+								<include>dialog_CommonListItem</include>
+							</control>
+								<posy>70</posy>
+								<width>450</width>
+								<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31106] ]</label>
+								<include>dialog_CommonListItem</include>
+								<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
+							</control>
 						</control>
 					</itemlayout>
 					<focusedlayout width="600" height="128">
@@ -125,29 +123,29 @@
 							<height>128</height>
 							<aspectratio align="center">keep</aspectratio>
 							<texture fallback="thumbs/addon.png">$INFO[ListItem.Icon]</texture>
-						</control>	
-						<control type="label">
-							<posx>150</posx>
-							<posy>14</posy>
-							<width>473</width>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
-							<font>listBig</font>
-							<include>dialog_CommonListItemFocus</include>
 						</control>
-						<control type="label">
+						<control type="group">
 							<posx>150</posx>
-							<posy>44</posy>
-							<width>450</width>
-							<label>$INFO[ListItem.Label2]</label>
-							<include>dialog_CommonListItemFocus</include>
-						</control>
-						<control type="label">
-							<posx>150</posx>
-							<posy>70</posy>
-							<width>450</width>
-							<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31106] ]</label>
-							<include>dialog_CommonListItemFocus</include>
-							<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
+							<control type="label">
+								<posy>14</posy>
+								<width>473</width>
+								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<font>listBig</font>
+								<include>dialog_CommonListItemFocus</include>
+							</control>
+							<control type="label">
+								<posy>44</posy>
+								<width>450</width>
+								<label>$INFO[ListItem.Label2]</label>
+								<include>dialog_CommonListItemFocus</include>
+							</control>
+							<control type="label">
+								<posy>70</posy>
+								<width>450</width>
+								<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31106] ]</label>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
+							</control>
 						</control>
 					</focusedlayout>
 				</control>

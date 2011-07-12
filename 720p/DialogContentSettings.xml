@@ -30,43 +30,42 @@
 					<font>smallerCaps</font>
 					<label>[B]$LOCALIZE[20344][/B]</label>
 				</control>
-				<control type="image">
+				<control type="group">
 					<posy>40</posy>
-					<width>613</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="spincontrolex" id="3">
-					<description>Content Picker</description>
-					<posy>40</posy>
-					<width>613</width>
-					<label>-</label>
-					<font>-</font>
-					<onleft>-</onleft>
-					<onup>9001</onup>
-					<ondown>4</ondown>
-					<texturefocus border="3">dialogs/list-focus.png</texturefocus>
-					<texturenofocus border="3">dialogs/list-nofocus.png</texturenofocus>
-					<include>dialog_Spin</include>
-				</control>
-				<control type="label">
-					<posx>10</posx>
-					<posy>40</posy>
-					<width>556</width>
-					<height>36</height>
-					<textcolor>Color4</textcolor>	
-					<font>small</font>
-					<label>$INFO[Control.GetLabel(3)]</label>
-					<visible>!Control.HasFocus(3)</visible>
-				</control>
-				<control type="label">
-					<posx>10</posx>
-					<posy>40</posy>
-					<width>556</width>
-					<height>36</height>
-					<textcolor>Color1</textcolor>	
-					<font>small</font>
-					<label>$INFO[Control.GetLabel(3)]</label>
-					<visible>Control.HasFocus(3)</visible>
+					<control type="image">
+						<width>613</width>
+						<include>dialog_Separator</include>
+					</control>
+					<control type="spincontrolex" id="3">
+						<description>Content Picker</description>
+						<width>613</width>
+						<label>-</label>
+						<font>-</font>
+						<onleft>-</onleft>
+						<onup>9001</onup>
+						<ondown>4</ondown>
+						<texturefocus border="3">dialogs/list-focus.png</texturefocus>
+						<texturenofocus border="3">dialogs/list-nofocus.png</texturenofocus>
+						<include>dialog_Spin</include>
+					</control>
+					<control type="label">
+						<posx>10</posx>
+						<width>556</width>
+						<height>36</height>
+						<textcolor>Color4</textcolor>	
+						<font>small</font>
+						<label>$INFO[Control.GetLabel(3)]</label>
+						<visible>!Control.HasFocus(3)</visible>
+					</control>
+					<control type="label">
+						<posx>10</posx>
+						<width>556</width>
+						<height>36</height>
+						<textcolor>Color1</textcolor>	
+						<font>small</font>
+						<label>$INFO[Control.GetLabel(3)]</label>
+						<visible>Control.HasFocus(3)</visible>
+					</control>
 				</control>
 			</control>
 			<!---scrapers--->
@@ -137,11 +136,6 @@
 			<control type="group" id="9005">
 				<posy>230</posy>
 				<animation effect="slide" start="0,0" end="0,-135"  time="0" condition="SubString(Control.GetLabel(3),$LOCALIZE[231])">Conditional</animation>
-				<control type="image">
-					<posy>40</posy>
-					<width>613</width>
-					<include>dialog_Separator</include>
-				</control>
 				<control type="label">
 					<posx>14</posx>
 					<width>613</width>
@@ -149,6 +143,11 @@
 					<textcolor>Color4</textcolor>
 					<font>smallerCaps</font>
 					<label>[B]$LOCALIZE[33063][/B]</label>
+				</control>
+				<control type="image">
+					<posy>40</posy>
+					<width>613</width>
+					<include>dialog_Separator</include>
 				</control>
 				<control type="grouplist" id="5">
 				<description>control area</description>
