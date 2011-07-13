@@ -629,7 +629,7 @@
 		<control type="group">
 			<posy>300</posy>
 			<include>transition_OSD</include>
-			<visible>Player.ShowInfo | Window.IsActive(MusicOSD) | Window.IsActive(fullscreeninfo)</visible>
+			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist)]</visible>
 			<!--overlays-->
 			<control type="image">
 				<height>200</height>
@@ -648,6 +648,8 @@
 				<posx>40</posx>
 				<posy>184</posy>
 				<control type="image">
+					<width>128</width>
+					<height>128</height>
 					<aspectratio align="center">keep</aspectratio>
 					<include>flag_Label-audio</include>
 				</control>
@@ -699,6 +701,7 @@
 			<control type="group" id="1">
 				<posx>200</posx>
 				<posy>223</posy>
+				<!--line 1------>
 				<control type="label">
 					<width>970</width>
 					<label>$INFO[MusicPlayer.Title]</label>
@@ -711,7 +714,7 @@
 					<font>osd1</font>
 					<textcolor>Color1</textcolor>
 				</control>
-				<!--line 1------>
+				<!--line 2------>
 				<control type="group">
 					<posy>30</posy>
 					<!--music-->
@@ -737,7 +740,7 @@
 							<width>1000</width>
 							<label>$INFO[Player.FolderPath]</label>
 							<include>info_Sub</include>
-							<visible>VideoPlayer.Content(files)</visible>
+							<visible>VideoPlayer.Content(files) + Player.HasVideo</visible>
 						</control>
 						<control type="label">
 							<width>1000</width>
@@ -815,7 +818,7 @@
 			<font>osd3</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_OSD2</include>
-			<visible>Player.ShowInfo | Window.IsActive(MusicOSD) | Window.IsActive(fullscreeninfo)</visible>
+			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist)]</visible>
 		</control>
 	</include>
 </includes>

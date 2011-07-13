@@ -475,20 +475,7 @@
 
 
 <!-- OSD --------------------------------------------------------------------------------------------------------->	
-	<include name="state_OSD">
-		<animation type="WindowOpen">
-			<effect type="slide" start="0,75" end="0,0" tween="Cubic" easing="Out" time="250" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="slide" start="0,0" end="0,75" tween="Cubic" easing="Out" time="250" />
-		</animation>
-		<animation type="Visible">
-			<effect type="slide" start="0,75" end="0,0" tween="Cubic" easing="Out" time="250" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="slide" start="0,0" end="0,75" tween="Cubic" easing="Out" time="250" />
-		</animation>
-	</include>
+
 	<include name="toggle_PlayerMenu">
 		<animation type="Visible">
 			<effect type="fade" start="0" end="100" tween="Quadratic" easing="Out" time="250" />
@@ -498,21 +485,22 @@
 			<effect type="fade" start="100" end="0" tween="Quadratic" easing="In" time="250" />
 			<effect type="slide" start="0,0" end="0,10" tween="Quadratic" easing="In" time="250" />
 		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="200"/>
+		</animation>
 	</include>
 	<include name="toggle_PlayerControls">
 		<animation type="WindowOpen">
-			<effect type="zoom" tween="Cubic" start="95" end="100" center="640,661" time="200" easing="Out"/>
-			<effect type="fade" start="0" end="100" time="200" easing="In"/>
+			<effect type="fade" start="0" end="100" time="200"/>
 		</animation>
 		<animation type="WindowClose">
-			<effect type="zoom" tween="Cubic" start="100" end="95" center="640,661" time="200" easing="Out"/>
-			<effect type="fade" start="100" end="0" time="200" delay="0" easing="In"/>
+			<effect type="fade" start="100" end="0" time="200"/>
 		</animation>
 		<animation type="Visible">
-			<effect type="fade" start="100" end="0" time="250" delay="0" easing="In"/>
+			<effect type="fade" start="100" end="0" time="250"/>
 		</animation>
 		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" time="250" delay="0" easing="In"/>
+			<effect type="fade" start="100" end="0" time="250"/>
 		</animation>
 	</include>
 	<include name="codecInfo">
