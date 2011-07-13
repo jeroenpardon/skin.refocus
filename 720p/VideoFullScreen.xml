@@ -1,5 +1,5 @@
 ﻿<window id="2005">
-	 <backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">503</defaultcontrol>
 	<controls>
 		<control type="image" id="1">
 			<include>global_Screentype</include>
@@ -41,5 +41,123 @@
 				</control>
 			</control>
 		</control>
+		<!--pvr stream info-->
+		<control type="group">
+			<posx>5</posx>
+			<posy>128</posy>
+			<visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + System.GetBool(pvrplayback.signalquality)</visible>
+			<control type="image" id="1">
+				<width>1270</width>
+				<height>226</height>
+				<texture border="16">black.png</texture>
+			</control>
+			<control type="group">
+				<posx>10</posx>
+				<control type="label">
+					<description>Header</description>
+					<posy>5</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19005][/B]</label>
+					<textcolor>Color2</textcolor>
+					<font>smallerCaps</font>
+				</control>
+				<control type="label">
+					<description>Backend</description>
+					<posy>31</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19012]:[/B] $INFO[PVR.ActStreamClient]</label>
+					<font>smallerCaps</font>
+					<textcolor>Color1</textcolor>
+				</control>
+				<control type="label">
+					<description>Device</description>
+					<posy>58</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19006]:[/B] $INFO[PVR.ActStreamDevice]</label>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
+				</control>
+				<control type="label">
+					<description>signal</description>
+					<posy>85</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19008]:[/B] $INFO[PVR.ActStreamStatus]</label>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
+				</control>
+				<control type="progress">
+					<description>signal progressbar</description>
+					<posx>220</posx>
+					<posy>85</posy>
+					<width>910</width>
+					<height>14</height>
+					<info>PVR.ActStreamProgrSignal</info>
+				</control>
+				<control type="label">
+					<description>SNR</description>
+					<posy>112</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19009]:[/B] $INFO[PVR.ActStreamSNR]</label>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
+				</control>
+				<control type="progress">
+					<description>SNR progressbar</description>
+					<posx>220</posx>
+					<posy>112</posy>
+					<width>910</width>
+					<height>14</height>
+					<overlaytexture>-</overlaytexture>
+					<info>PVR.ActStreamProgrSNR</info>
+				</control>
+				<control type="label">
+					<description>SNR</description>
+					<posy>139</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19010]:[/B] $INFO[PVR.ActStreamBER]</label>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
+				</control>
+				<control type="label">
+					<description>UNC</description>
+					<posy>166</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19011]:[/B] $INFO[PVR.ActStreamUNC]</label>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
+				</control>
+				<control type="label">
+					<description>encryption</description>
+					<posy>193</posy>
+					<width>1260</width>
+					<label>[B]$LOCALIZE[19015]:[/B] $INFO[PVR.ActStreamEncryptionName]</label>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
+				</control>
+			</control>
+		</control>
+		<!--
+		<control type="selectbutton" id="503">
+			<posx>440</posx>
+			<posy>100</posy>
+			<width>400</width>
+			<height>96</height>
+			<font>smallCaps</font>
+			<textcolor>Color4</textcolor>
+			<aligny>center</aligny>
+			<onleft>503</onleft>
+			<onright>503</onright>
+			<onup>500</onup>
+			<ondown>500</ondown>
+			<texturebg border="29">dialogs/dialogWindow.png</texturebg>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<textureleft>dialogs/scrollLeftIndicator.png</textureleft>
+			<textureleftfocus>dialogs/scrollLeftIndicator.png</textureleftfocus>
+			<textureright>dialogs/scrollRightIndicator.png</textureright>
+			<texturerightfocus>dialogs/scrollRightIndicator.png</texturerightfocus>
+			<include>fadeinout</include>
+		</control>
+		-->
 	</controls>
 </window>
