@@ -85,32 +85,24 @@
 						<aspectratio align="center">stretch</aspectratio>
 						<texture>1black.png</texture>
 					</control>
-					<control type="image">
+					<control type="group">
 						<posx>625</posx>
-						<posy>22</posy>
-						<width>22</width>
-						<height>22</height>
-						<texture>epg/status_none.png</texture>
-						<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
-						<colordiffuse>Color4</colordiffuse>
-					</control>
-					<control type="image">
-						<posx>625</posx>
-						<posy>22</posy>
-						<width>22</width>
-						<height>22</height>
-						<texture>epg/status_timer.png</texture>
-						<visible>ListItem.HasTimer</visible>
-						<colordiffuse>Color4</colordiffuse>
-					</control>
-					<control type="image">
-						<posx>625</posx>
-						<posy>22</posy>
-						<width>22</width>
-						<height>22</height>
-						<texture>epg/status_recording.png</texture>
-						<visible>ListItem.IsRecording</visible>
-						<colordiffuse>Color4</colordiffuse>
+						<posy>25</posy>
+						<control type="image">
+							<texture>epg/status_none.png</texture>
+							<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
+							<include>dialog_PVRstatus</include>
+						</control>
+						<control type="image">
+							<texture>epg/status_timer.png</texture>
+							<visible>ListItem.HasTimer</visible>
+							<include>dialog_PVRstatus</include>
+						</control>
+						<control type="image">
+							<texture>epg/status_recording.png</texture>
+							<visible>ListItem.IsRecording</visible>
+							<include>dialog_PVRstatus</include>
+						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout width="663" height="72">
@@ -144,32 +136,24 @@
 						<aspectratio align="center">keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
-					<control type="image">
+					<control type="group">
 						<posx>625</posx>
-						<posy>22</posy>
-						<width>22</width>
-						<height>22</height>
-						<texture>epg/status_none.png</texture>
-						<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
-						<colordiffuse>Selected</colordiffuse>
-					</control>
-					<control type="image">
-						<posx>625</posx>
-						<posy>22</posy>
-						<width>22</width>
-						<height>22</height>
-						<texture>epg/status_timer.png</texture>
-						<visible>ListItem.HasTimer</visible>
-						<colordiffuse>Selected</colordiffuse>
-					</control>
-					<control type="image">
-						<posx>625</posx>
-						<posy>22</posy>
-						<width>22</width>
-						<height>22</height>
-						<texture>epg/status_recording.png</texture>
-						<visible>ListItem.IsRecording</visible>
-						<colordiffuse>Selected</colordiffuse>
+						<posy>25</posy>
+						<control type="image">
+							<texture>epg/status_none.png</texture>
+							<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
+							<include>dialog_PVRstatus-focus</include>
+						</control>
+						<control type="image">
+							<texture>epg/status_timer.png</texture>
+							<visible>ListItem.HasTimer</visible>
+							<include>dialog_PVRstatus-focus</include>
+						</control>
+						<control type="image">
+							<texture>epg/status_recording.png</texture>
+							<visible>ListItem.IsRecording</visible>
+							<include>dialog_PVRstatus-focus</include>
+						</control>
 					</control>
 				</focusedlayout>
 			</control>
