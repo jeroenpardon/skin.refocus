@@ -25,13 +25,13 @@
 				<include>dialog_Separator</include>
 			</control>
 			<control type="label" id="4">
-				<description>No presets Label</description>
+				<description>no presets</description>
+				<posx>34</posx>
 				<posy>220</posy>
-				<width>563</width>
+				<width>543</width>
 				<align>center</align>
-				<label>13389</label>
-				<textcolor>Color4</textcolor>
-				<font>normal</font>
+				<label>$LOCALIZE[13389]</label>
+				<include>dialog_Label-pages</include>
 			</control>
 			<control type="list" id="2">
 				<posy>75</posy>
@@ -71,14 +71,9 @@
 			<posx>34</posx>
 			<posy>405</posy>
 			<width>534</width>
-			<height>30</height>
-			<align>center</align>
-			<aligny>center</aligny>
-			<font>small</font>
 			<label>$INFO[Container(2).CurrentPage]/$INFO[Container(2).NumPages]</label>
 			<visible>!Control.IsVisible(451) + !Control.IsVisible(4)</visible>
-			<textcolor>Color4</textcolor>
-			<shadowcolor>fff4f4f4</shadowcolor>
+			<include>dialog_Label-pages</include>
 		</control>
 	</controls>
 </window>

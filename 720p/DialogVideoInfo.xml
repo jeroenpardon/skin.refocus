@@ -3,7 +3,7 @@
 	<allowoverlay>no</allowoverlay>
 	<controls>
 
-<!-- TRIGGER BUTTONS ------------------------------------------------------------------------------------------>
+<!---TRIGGER BUTTONS------>
 		<control type="button" id="5000">
 			<label>SHOULD NOT SEE ME</label>
 			<onleft>6000</onleft>
@@ -14,7 +14,7 @@
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
 
-<!-- PAGELABELS ------------------------------------------------------------------------------------------------->
+<!---PAGELABELS------>
 		<control type="label">
 			<label>[COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Title]</label>
 			<font>pagelabelAlt</font>
@@ -43,12 +43,13 @@
 			<visible>Container.Content(musicvideos)</visible>
 		</control>
 
-<!-- INFO ------------------------------------------------------------------------------------------------->
+<!---INFO------>
 		<control type="group">
 			<posx>470</posx>
 			<posy>97</posy>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
+			<!--header-->
 			<control type="label">
 				<width>780</width>
 				<label>$INFO[ListItem.Tagline]</label>
@@ -92,7 +93,7 @@
 				<visible>Container.Content(musicvideos) + !Window.IsActive(videofiles)</visible>
 			</control>
 		</control>
-		
+		<!--info-->
 		<control type="grouplist" id="1000">
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
@@ -183,8 +184,7 @@
 				<height>10</height>
 				<include>label_Small-caps</include>
 			</control>
-			
-			<!--- common functions -------------------------------------------->
+			<!--common functions-->
 			<control type="group" id="8000">
 				<height>45</height>
 				<defaultcontrol always="true">8</defaultcontrol>
@@ -235,6 +235,7 @@
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
 				</control>
 			</control>
+			<!--plot-->
 			<control type="textbox" id="400">
 				<width>740</width>
 				<height>137</height>
@@ -256,8 +257,7 @@
 				<font>descriptionSmall</font>
 				<visible>!Control.IsVisible(50) + Container.Content(musicvideos)</visible>
 			</control>
-			
-			<!--- cast list ------>
+			<!--cast list-->
 			<control type="list" id="50">
 				<width>1200</width>
 				<height>176</height>
@@ -292,6 +292,7 @@
 				</focusedlayout>
 			</control>
 		</control>
+		<!--flags-->
 		<control type="group">
 			<posx>470</posx>
 			<posy>610</posy>
@@ -300,7 +301,7 @@
 			<include>toggle_Menu</include>
 		</control>
 
-<!-- IMAGES ------------------------------------------------------------------------------------------------------>
+<!---IMAGES------>
 		<control type="group">
 			<posy>65</posy>
 			<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
@@ -330,7 +331,6 @@
 				<include>thumb_Portrait-List</include>
 				<visible>Control.IsVisible(50) + !Container.Content(musicvideos)</visible>
 			</control>
-
 			<control type="image">
 				<width>450</width>
 				<height>273</height>
@@ -342,8 +342,8 @@
 			</control>
 		</control>
 
-	<include>menu_Info-video</include>
-	<include>nav_Indicator-info</include>
-
+<!---INCLUDES------>
+		<include>menu_Info-video</include>
+		<include>nav_Indicator-info</include>
 	</controls>
 </window>

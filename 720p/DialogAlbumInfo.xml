@@ -2,6 +2,7 @@
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
+	
 <!---TRIGGER------>
 		<control type="button" id="7000">
 			<label>SHOULD NOT SEE ME</label>
@@ -10,6 +11,7 @@
 			<width>200</width>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
+		
 <!---PAGELABELS------>
 		<control type="label">
 			<label>[LOWERCASE][COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Album][/LOWERCASE]</label>
@@ -21,6 +23,7 @@
 			<include>PageLabelInfo</include>
 			<visible>Container.Content(artists)</visible>
 		</control>
+		
 <!---ALBUMS------>
 		<control type="group">
 			<posx>425</posx>
@@ -37,7 +40,7 @@
 					<include>label_Small-caps</include>
 					<visible>!IsEmpty(ListItem.Genre)</visible>
 				</control>
-				<!---albums--->
+				<!--albums-->
 				<control type="label">
 					<width>785</width>
 					<label>$LOCALIZE[175] [COLOR=Color1]$INFO[ListItem.Property(Album_Mood)][/COLOR]</label>
@@ -74,7 +77,7 @@
 					<include>label_Small-caps</include>
 					<visible>!IsEmpty(ListItem.Path)</visible>
 				</control>
-				<!---artists--->
+				<!--artists-->
 				<control type="label">
 					<width>770</width>
 					<label>$LOCALIZE[21893] [COLOR=Color1]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
@@ -129,7 +132,7 @@
 					<label></label>
 					<include>label_Small-caps</include>
 				</control>
-				<!---common functions--->
+				<!--common functions-->
 				<control type="group" id="8000">
 					<height>45</height>
 					<control type="button" id="8">
@@ -151,7 +154,7 @@
 						<include>button_Inline</include>
 					</control>
 				</control>
-				<!--- descriptions -------------------------------------------->
+				<!--descriptions--->
 				<control type="textbox" id="4">
 					<width>740</width>
 					<height>325</height>
@@ -166,7 +169,7 @@
 					<font>descriptionSmall</font>
 					<visible>Container.Content(albums)</visible>
 				</control>
-				<!---discography--->
+				<!--discography-->
 				<control type="list" id="50">
 					<width>785</width>
 					<height>308</height>
@@ -217,40 +220,45 @@
 				</control>
 			</control>
 		</control>
-<!---THUMBNAILS------>
-	<control type="group">
-		<posx>10</posx>
-		<posy>80</posy>
-		<include>transition_Container</include>
-		<include>toggle_Menu</include>
-		<control type="image">
-			<width>400</width>
-			<height>400</height>
-			<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
-			<bordertexture border="31">frames/frame_Square.png</bordertexture>
-			<bordersize>22</bordersize>
-			<aspectratio>scale</aspectratio>
-			<visible>Container.Content(albums)</visible>
+
+<!---IMAGES------>
+		<control type="group">
+			<posx>10</posx>
+			<posy>80</posy>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<control type="image">
+				<width>400</width>
+				<height>400</height>
+				<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio>scale</aspectratio>
+				<visible>Container.Content(albums)</visible>
+			</control>
+			<control type="image">
+				<width>400</width>
+				<height>400</height>
+				<texture fallback="thumbs/artist.png" background="true">$INFO[ListItem.Thumb]</texture>
+				<bordertexture border="31">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(artists)</visible>
+			</control>
 		</control>
-		<control type="image">
-			<width>400</width>
-			<height>400</height>
-			<texture fallback="thumbs/artist.png" background="true">$INFO[ListItem.Thumb]</texture>
-			<bordertexture border="31">frames/frame_Square.png</bordertexture>
-			<bordersize>22</bordersize>
-			<aspectratio align="center">keep</aspectratio>
-			<visible>Container.Content(artists)</visible>
+
+<!---FLAGS------>
+		<control type="group">
+			<posx>150</posx>
+			<posy>500</posy>
+			<include>flags_Label-info</include>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<visible>!Container.Content(artists)</visible>
 		</control>
-	</control>
-	<control type="group">
-		<posx>150</posx>
-		<posy>500</posy>
-		<include>flags_Label-info</include>
-		<include>transition_Container</include>
-		<include>toggle_Menu</include>
-		<visible>!Container.Content(artists)</visible>
-	</control>		
-	<include>menu_Info-music</include>
-	<include>nav_Indicator-info</include>
+
+<!---INCLUDES------>	
+		<include>menu_Info-music</include>
+		<include>nav_Indicator-info</include>
 	</controls>
 </window>
