@@ -42,17 +42,17 @@
 	<!---PREVIEW------>
 		<control type="group">
 			<description>Small Media Window</description>
-			<posx>610</posx>
-			<posy>100</posy>
+			<posx>675</posx>
+			<posy>90</posy>
 			<visible>Player.HasVideo + VideoPlayer.Content(livetv) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
 			<control type="image">
-				<width>610</width>
-				<height>343</height>
+				<width>545</width>
+				<height>305</height>
 				<texture>black.png</texture>
 			</control>
 			<control type="videowindow">
-				<width>610</width>
-				<height>343</height>
+				<width>545</width>
+				<height>305</height>
 			</control>
 		</control>
 
@@ -101,6 +101,7 @@
 			<visible>Control.IsVisible(13)</visible>
 			<control type="group">
 				<control type="group">
+					<visible>!Player.HasVideo</visible>
 					<posx>655</posx>
 					<posy>68</posy>
 					<control type="image">
