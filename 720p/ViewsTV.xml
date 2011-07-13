@@ -15,9 +15,58 @@
 	</include>
 	<include name="view_TV-recordings">
 		<control type="list" id="13">
+			<viewtype label="535">list</viewtype> 	
+			<posy>90</posy>
+			<width>625</width>
+			<height>612</height>
 			<onup>13</onup>
 			<ondown>13</ondown>
-			<include>ListChannels</include>
+			<onleft>6000</onleft>
+			<onright>79</onright>
+			<pagecontrol>79</pagecontrol>
+			<scrolltime>150</scrolltime>
+			<orientation>vertical</orientation>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<itemlayout width="625" height="67">
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.Label]</label>
+					<include>list_Label</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>500</width>
+					<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime, • ]</label>
+					<include>list_Label-sub</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="625" height="67">
+				<control type="image">
+					<posy>-30</posy>
+					<width>650</width>
+					<height>128</height>
+					<texture border="0,30,0,30">views/list-focus.png</texture>
+					<include>focus_ListScroll</include>
+					<visible>!ControlGroup(6000).HasFocus</visible>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<width>500</width>
+					<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.Label]</label>
+					<include>list_Label-focus</include>
+				</control>
+				<control type="label">
+					<posx>40</posx>
+					<posy>28</posy>
+					<width>500</width>
+					<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime, • ]</label>
+					<include>list_Label-sub-focus</include>
+				</control>
+			</focusedlayout>
 		</control>
 	</include>
 	<include name="ListChannels">
@@ -101,8 +150,8 @@
 			<onup>15</onup>
 			<ondown>15</ondown>
 			<onleft>6000</onleft>
-			<onright>80</onright>
-			<pagecontrol>80</pagecontrol>
+			<onright>79</onright>
+			<pagecontrol>79</pagecontrol>
 			<scrolltime>200</scrolltime>
 			<include>transition_Container</include>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
