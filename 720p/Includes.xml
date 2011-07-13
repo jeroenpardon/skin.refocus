@@ -111,12 +111,14 @@
 			<control type="label" id="200">
 				<posx>25r</posx>
 				<label>[B]$INFO[System.Time][/B]</label>
+				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
 			</control>
 			<control type="label" id="200">
 				<posx>25r</posx>
 				<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
 				<textcolor>Color1</textcolor>
+				<shadowcolor>black</shadowcolor>
 				<include>toast_Bottom</include>
 			</control>
 		</control>
@@ -624,7 +626,7 @@
 	</include>
 
 
-<!-- MUSIC OSD / SLIDESHOW ---------------------------------------------------------------------------------->
+<!-- OSD / SLIDESHOW ---------------------------------------------------------------------------------->
 	<include name="osd_Info">	
 		<control type="group">
 			<posy>300</posy>
@@ -646,7 +648,7 @@
 			<!--flags-->
 			<control type="group">
 				<posx>40</posx>
-				<posy>184</posy>
+				<posy>185</posy>
 				<control type="image">
 					<width>128</width>
 					<height>128</height>
@@ -689,7 +691,7 @@
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="image">
-					<posx>1135</posx>
+					<posx>1136</posx>
 					<posy>16</posy>
 					<width>64</width>
 					<height>64</height>
@@ -715,100 +717,122 @@
 					<textcolor>Color1</textcolor>
 				</control>
 				<!--line 2------>
-				<control type="group">
+				<!--music-->
+				<control type="grouplist">
 					<posy>30</posy>
-					<!--music-->
-					<control type="group">
-						<control type="label">
-							<width>1000</width>
-							<label>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album]</label>
-							<font>osd2</font>
-							<textcolor>Color2</textcolor>
-						</control>
-						<control type="label">
-							<posy>50</posy>
-							<width>1000</width>
-							<label>[COLOR=Color2]$LOCALIZE[209]: [/COLOR]$INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] [COLOR=Color2]($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])[/COLOR]</label>
-							<font>osd2</font>
-							<textcolor>Color2</textcolor>
-							<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
-						</control>
-					</control>
-					<!--video-->
-					<control type="group">
-						<control type="label" id="1">
-							<width>1000</width>
-							<label>$INFO[Player.FolderPath]</label>
-							<include>info_Sub</include>
-							<visible>VideoPlayer.Content(files) + Player.HasVideo</visible>
-						</control>
-						<control type="label">
-							<width>1000</width>
-							<label>$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</label>
-							<include>info_Sub</include>
-							<visible>VideoPlayer.Content(movies)</visible>
-						</control>
-						<control type="label" id="1">
-							<width>1000</width>
-							<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
-							<include>info_Sub</include>
-							<visible>VideoPlayer.Content(episodes)</visible>
-						</control>
-						<control type="label">
-							<width>1000</width>
-							<label>$INFO[VideoPlayer.ChannelName]</label>
-							<include>info_Sub</include>
-							<visible>VideoPlayer.Content(livetv)</visible>
-						</control>
-					</control>
-					<!---plot------>
-					<control type="group">
-						<posy>30</posy>
-						<visible>!VideoPlayer.Content(musicvideos)</visible>
-						<control type="textbox" id="8">
-							<height>87</height>
-							<label>$INFO[VideoPlayer.PlotOutline]</label>
-							<include>description_OSD</include>
-							<visible>!IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
-						</control>
-						<control type="textbox" id="8">
-							<height>87</height>
-							<label>$INFO[VideoPlayer.Plot]</label>
-							<include>description_OSD</include>
-							<visible>IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
-						</control>
-						<control type="textbox" id="8">
-							<height>60</height>
-							<label>$INFO[VideoPlayer.PlotOutline]</label>
-							<include>description_OSD</include>
-							<visible>!IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
-						</control>
-						<control type="textbox" id="8">
-							<height>60</height>
-							<label>$INFO[VideoPlayer.Plot]</label>
-							<include>description_OSD</include>
-							<visible>IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
-						</control>
-					</control>
-					<!--progress-->
 					<control type="label">
-						<posx>1035</posx>
 						<width>1000</width>
-						<align>right</align>
-						<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
+						<label>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album]</label>
 						<font>osd2</font>
 						<textcolor>Color2</textcolor>
 					</control>
-					<control type="progress" id="1">
-						<posy>100</posy>
-						<width>1040</width>
-						<height>18</height>
-						<texturebg border="10">dialogs/progressBackground.png</texturebg>
-						<info>Player.Progress</info>
-						<visible>Skin.HasSetting(osd.progressbar)</visible>
+					<control type="label">
+						<posy>50</posy>
+						<width>1000</width>
+						<label>[COLOR=Color2]$LOCALIZE[209]: [/COLOR]$INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] [COLOR=Color2]($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])[/COLOR]</label>
+						<font>osd2</font>
+						<textcolor>Color2</textcolor>
+						<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
 					</control>
 				</control>
+				<!--video-->
+				<control type="grouplist">
+					<posy>30</posy>
+					<control type="label" id="1">
+						<width>1000</width>
+						<label>$INFO[Player.FolderPath]</label>
+						<include>info_Sub</include>
+						<visible>VideoPlayer.Content(files) + Player.HasVideo</visible>
+					</control>
+					<control type="label">
+						<width>1000</width>
+						<label>$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</label>
+						<include>info_Sub</include>
+						<visible>VideoPlayer.Content(movies)</visible>
+					</control>
+					<control type="label" id="1">
+						<width>1000</width>
+						<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
+						<include>info_Sub</include>
+						<visible>VideoPlayer.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<width>1000</width>
+						<label>$INFO[VideoPlayer.ChannelName]</label>
+						<include>info_Sub</include>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+				</control>
+				<!---music videos------>
+				<control type="grouplist">
+					<posy>30</posy>
+					<itemgap>0</itemgap>
+					<visible>VideoPlayer.Content(musicvideos)</visible>
+					<control type="label">
+						<width>1000</width>
+						<label>$LOCALIZE[557][COLOR=Color1]$INFO[VideoPlayer.Artist, ][/COLOR]</label>
+						<include>info_Sub</include>
+					</control>
+					<control type="label">
+						<width>1000</width>
+						<label>$LOCALIZE[558][COLOR=Color1]$INFO[VideoPlayer.Album, ][/COLOR]</label>
+						<include>info_Sub</include>
+					</control>
+					<control type="label">
+						<width>1000</width>
+						<label>$LOCALIZE[562][COLOR=Color1]$INFO[VideoPlayer.Year, ][/COLOR]</label>
+						<include>info_Sub</include>
+					</control>
+				</control>
+				<!---plot------>
+				<control type="group">
+					<posy>60</posy>
+					<visible>!VideoPlayer.Content(musicvideos)</visible>
+					<control type="textbox" id="8">
+						<height>87</height>
+						<label>$INFO[VideoPlayer.PlotOutline]</label>
+						<include>description_OSD</include>
+						<visible>!IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
+					</control>
+					<control type="textbox" id="8">
+						<height>87</height>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<include>description_OSD</include>
+						<visible>IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
+					</control>
+					<control type="textbox" id="8">
+						<height>60</height>
+						<label>$INFO[VideoPlayer.PlotOutline]</label>
+						<include>description_OSD</include>
+						<visible>!IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
+					</control>
+					<control type="textbox" id="8">
+						<height>60</height>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<include>description_OSD</include>
+						<visible>IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
+					</control>
+				</control>
+				<!--progress-->
+				<control type="label">
+					<posx>1038</posx>
+					<posy>30</posy>
+					<width>1000</width>
+					<align>right</align>
+					<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
+					<font>osd2</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="progress" id="1">
+					<posy>135</posy>
+					<width>1038</width>
+					<height>18</height>
+					<texturebg border="10">dialogs/progressBackground.png</texturebg>
+					<info>Player.Progress</info>
+					<visible>Skin.HasSetting(osd.progressbar)</visible>
+				</control>
 			</control>
+
 		</control>
 		<control type="label">
 			<posx>200</posx>
