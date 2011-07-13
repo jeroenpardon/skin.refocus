@@ -289,6 +289,7 @@
 		</animation>
 	</include>
 	<include name="transition_OSD">
+		<!--
 		<animation type="WindowOpen" condition="Control.HasFocus(7000)">
 			<effect type="slide" start="0,200" end="0,0" tween="Cubic" center="auto" easing="Out" time="400" />
 			<effect type="fade" start="0" end="100" easing="Out" time="400" />
@@ -296,7 +297,26 @@
 		<animation type="WindowOpen" condition="Control.HasFocus(6000)">
 			<effect type="slide" start="0,-200" end="0,0" tween="Cubic" center="auto" easing="Out" time="400" />
 			<effect type="fade" start="0" end="100" easing="Out" time="400" />
+		</animation>-->
+		
+		<animation type="WindowOpen">
+			<effect type="slide" start="0,200" end="0,0" tween="Cubic" center="auto" easing="Out" time="400" />
+			<effect type="fade" start="0" end="100" easing="Out" time="400" />
 		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="0,200" tween="Cubic" center="auto" easing="Out" time="400" />
+			<effect type="fade" start="100" end="0" easing="Out" time="400" />
+		</animation>
+		<animation type="Visible">
+			<effect type="slide" start="0,200" end="0,0" tween="Cubic" center="auto" easing="Out" time="400" />
+			<effect type="fade" start="0" end="100" easing="Out" time="400" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="slide" start="0,0" end="0,200" tween="Cubic" center="auto" easing="Out" time="400" />
+			<effect type="fade" start="100" end="0" easing="Out" time="400" />
+		</animation>
+		
+		<!--
 		<animation type="WindowClose" condition="Control.HasFocus(7000)">
 			<effect type="slide" start="0,0" end="0,200" tween="Cubic" center="auto" easing="In" time="400" />
 			<effect type="fade" start="100" end="0" delay="0" reversible="true" time="250" />
@@ -308,36 +328,24 @@
 		<animation type="Conditional" condition="Control.HasFocus(6000) + [Window.IsActive(infodialog) | Window.IsActive(videoscan)]">
 			<effect type="fade" start="100" end="0" easing="Out" time="400" />
 		</animation>
+		-->
 	</include>
 	<include name="transition_OSD2">
 		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" delay="200" reversible="true" time="350" />
+			<effect type="fade" start="0" end="100" delay="200" reversible="true" easing="Out" time="350" />
 		</animation>
 		<animation type="Visible">
-			<effect type="fade" start="0" end="100" delay="0" reversible="true" time="250" />
+			<effect type="fade" start="0" end="100" delay="200" reversible="true" easing="Out" time="350" />
 		</animation>
 		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" delay="0" reversible="true" time="250" />
-			<effect type="slide" start="0,0" end="0,200" tween="Cubic" center="auto" easing="In" time="400" />
+			<effect type="fade" start="100" end="0" delay="0" reversible="true" easing="Out" time="200" />
 		</animation>
 		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" delay="0" reversible="true" time="100" />
+			<effect type="fade" start="100" end="0" delay="0" reversible="true" easing="Out" time="200" />
 		</animation>
 	</include>
-	<include name="transition_OSD3">
-		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" delay="200" reversible="true" time="350" />
-		</animation>
-		<animation type="Visible">
-			<effect type="fade" start="0" end="100" delay="0" reversible="true" time="250" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" delay="0" reversible="true" time="250" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" delay="0" reversible="true" time="100" />
-		</animation>
-	</include>
+	
+	
 	<include name="transition_HomeMenu">
 		<animation type="WindowOpen">
 			<effect type="fade" start="0" end="100" time="250" />
@@ -501,10 +509,10 @@
 			<effect type="fade" start="100" end="0" time="200" delay="0" easing="In"/>
 		</animation>
 		<animation type="Visible">
-			<effect type="slide" start="0,75" end="0,0" tween="Cubic" easing="Out" time="250" />
+			<effect type="fade" start="100" end="0" time="250" delay="0" easing="In"/>
 		</animation>
 		<animation type="Hidden">
-			<effect type="slide" start="0,0" end="0,75" tween="Cubic" easing="In" time="250" />
+			<effect type="fade" start="100" end="0" time="250" delay="0" easing="In"/>
 		</animation>
 	</include>
 	<include name="codecInfo">

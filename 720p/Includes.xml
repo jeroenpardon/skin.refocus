@@ -625,72 +625,169 @@
 
 
 <!-- MUSIC OSD / SLIDESHOW ---------------------------------------------------------------------------------->
-	<include name="musicOSDInfo">	
+	<include name="osd_Info">	
 		<control type="group">
-			<posy>200</posy>
+			<posy>300</posy>
+			<include>transition_OSD</include>
+			<visible>Player.ShowInfo | Window.IsActive(MusicOSD) | Window.IsActive(fullscreeninfo)</visible>
+			<!--overlays-->
+			<control type="image">
+				<height>200</height>
+				<include>screenwidth</include>
+				<texture>OSD/infoOverlayTop.png</texture>
+			</control>
+			<control type="image" id="1">
+				<posy>200</posy>
+				<height>220</height>
+				<include>screenwidth</include>
+				<aspectratio>stretch</aspectratio>
+				<texture border="0,1,0,11">OSD/infoOverlay.png</texture>
+			</control>
+			<!--flags-->
 			<control type="group">
-				<posy>100</posy>
+				<posx>40</posx>
+				<posy>184</posy>
 				<control type="image">
-					<height>200</height>
-					<include>screenwidth</include>
-					<texture>OSD/infoOverlayTop.png</texture>
-					<include>transition_OSD2</include>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_Label-audio</include>
 				</control>
-				<control type="image" id="1">
-					<posy>200</posy>
-					<height>220</height>
-					<include>screenwidth</include>
-					<aspectratio>stretch</aspectratio>
-					<texture border="0,1,0,11">OSD/infoOverlay.png</texture>
-					<include>transition_OSD</include>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_VideoCodec-play</include>
+					<visible>VideoPlayer.Content(files)</visible>
+				</control>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_Studio-play</include>
+					<visible>VideoPlayer.Content(movies)</visible>
+				</control>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_Network-play</include>
+					<visible>VideoPlayer.Content(episodes)</visible>
+				</control>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_Label-play</include>
+					<visible>VideoPlayer.Content(musicvideos)</visible>
+				</control>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_Channel-play</include>
+					<visible>VideoPlayer.Content(livetv)</visible>
+				</control>
+				<control type="image">
+					<posx>1135</posx>
+					<posy>16</posy>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio align="center">keep</aspectratio>
+					<include>flag_HD-play</include>
 				</control>
 			</control>
-			<!--now watching------>
-			<control type="group">
-				<posx>200</posx>
-				<posy>252</posy>
-				<include>transition_OSD3</include>
-				<control type="label">	
-					<width>1080</width>
-					<label>$LOCALIZE[31905]</label>
-					<font>osd3</font>
-					<textcolor>Color3</textcolor>
-				</control>
-			</control>
+			<!--info-->
 			<control type="group" id="1">
 				<posx>200</posx>
-				<posy>323</posy>
-				<include>transition_OSD</include>
-				<include>fadeinout</include>
+				<posy>223</posy>
 				<control type="label">
 					<width>970</width>
 					<label>$INFO[MusicPlayer.Title]</label>
 					<font>osd1</font>
 					<textcolor>Color1</textcolor>
 				</control>
+				<control type="label">
+					<width>970</width>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<font>osd1</font>
+					<textcolor>Color1</textcolor>
+				</control>
 				<!--line 1------>
 				<control type="group">
 					<posy>30</posy>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album]</label>
-						<font>osd2</font>
-						<textcolor>Color2</textcolor>
+					<!--music-->
+					<control type="group">
+						<control type="label">
+							<width>1000</width>
+							<label>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album]</label>
+							<font>osd2</font>
+							<textcolor>Color2</textcolor>
+						</control>
+						<control type="label">
+							<posy>50</posy>
+							<width>1000</width>
+							<label>[COLOR=Color2]$LOCALIZE[209]: [/COLOR]$INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] [COLOR=Color2]($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])[/COLOR]</label>
+							<font>osd2</font>
+							<textcolor>Color2</textcolor>
+							<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
+						</control>
 					</control>
-					<control type="label" id="1">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
-						<textcolor>Color2</textcolor>
-						<font>osd2</font>
-						<visible>VideoPlayer.Content(episodes)</visible>
+					<!--video-->
+					<control type="group">
+						<control type="label" id="1">
+							<width>1000</width>
+							<label>$INFO[Player.FolderPath]</label>
+							<include>info_Sub</include>
+							<visible>VideoPlayer.Content(files)</visible>
+						</control>
+						<control type="label">
+							<width>1000</width>
+							<label>$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</label>
+							<include>info_Sub</include>
+							<visible>VideoPlayer.Content(movies)</visible>
+						</control>
+						<control type="label" id="1">
+							<width>1000</width>
+							<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
+							<include>info_Sub</include>
+							<visible>VideoPlayer.Content(episodes)</visible>
+						</control>
+						<control type="label">
+							<width>1000</width>
+							<label>$INFO[VideoPlayer.ChannelName]</label>
+							<include>info_Sub</include>
+							<visible>VideoPlayer.Content(livetv)</visible>
+						</control>
 					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.ChannelName]</label>
-						<font>osd2</font>
-						<textcolor>Color2</textcolor>
-						<visible>VideoPlayer.Content(livetv)</visible>
+					<!---plot------>
+					<control type="group">
+						<posy>30</posy>
+						<visible>!VideoPlayer.Content(musicvideos)</visible>
+						<control type="textbox" id="8">
+							<height>87</height>
+							<label>$INFO[VideoPlayer.PlotOutline]</label>
+							<include>description_OSD</include>
+							<visible>!IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
+						</control>
+						<control type="textbox" id="8">
+							<height>87</height>
+							<label>$INFO[VideoPlayer.Plot]</label>
+							<include>description_OSD</include>
+							<visible>IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
+						</control>
+						<control type="textbox" id="8">
+							<height>60</height>
+							<label>$INFO[VideoPlayer.PlotOutline]</label>
+							<include>description_OSD</include>
+							<visible>!IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
+						</control>
+						<control type="textbox" id="8">
+							<height>60</height>
+							<label>$INFO[VideoPlayer.Plot]</label>
+							<include>description_OSD</include>
+							<visible>IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
+						</control>
 					</control>
+					<!--progress-->
 					<control type="label">
 						<posx>1035</posx>
 						<width>1000</width>
@@ -699,8 +796,26 @@
 						<font>osd2</font>
 						<textcolor>Color2</textcolor>
 					</control>
+					<control type="progress" id="1">
+						<posy>100</posy>
+						<width>1040</width>
+						<height>18</height>
+						<texturebg border="10">dialogs/progressBackground.png</texturebg>
+						<info>Player.Progress</info>
+						<visible>Skin.HasSetting(osd.progressbar)</visible>
+					</control>
 				</control>
 			</control>
+		</control>
+		<control type="label">
+			<posx>200</posx>
+			<posy>450</posy>
+			<width>1080</width>
+			<label>$LOCALIZE[13350]</label>
+			<font>osd3</font>
+			<textcolor>Color3</textcolor>
+			<include>transition_OSD2</include>
+			<visible>Player.ShowInfo | Window.IsActive(MusicOSD) | Window.IsActive(fullscreeninfo)</visible>
 		</control>
 	</include>
 </includes>
