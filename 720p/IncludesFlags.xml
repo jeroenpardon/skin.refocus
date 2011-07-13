@@ -1,71 +1,13 @@
 ﻿<includes>
-
-<!--- STUDIO ---------------------------------------->
-	<include name="flag_Studio">
-		<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
+<!---RESOLUTION------>
+	<include name="flag_Res">
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+		<visible>!IsEmpty(Listitem.VideoResolution)</visible>
 	</include>
-	<include name="flag_Studio-play">
-		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
-	</include>
-	<include name="flag_Studio-mono-play">
-		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
+	<include name="flag_Res-play">
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
 		<colordiffuse>Color4</colordiffuse>
 	</include>
-
-<!--- NETWORK ---------------------------------------->	
-	<include name="flag_Network">
-		<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
-		<visible>!IsEmpty(ListItem.Title)</visible>
-	</include>
-	<include name="flag_Network-mono">
-		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
-		<visible>!IsEmpty(ListItem.Title)</visible>
-	</include>
-	<include name="flag_Network-play">
-		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/,.png]</texture>
-	</include>
-	<include name="flag_Network-mono-play">
-		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/mono/,.png]</texture>
-	</include>
-
-<!--- PVR ---------------------------------------->
-	<include name="flag_Channel">
-		<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
-		<aspectratio align="right">keep</aspectratio>
-		<width>128</width>
-		<height>64</height>
-	</include>
-	<include name="flag_Channel-play">
-		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</texture>
-	</include>
-	<include name="flag_Channel-mono-play">
-		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/mono/networks/,.png]</texture>
-	</include>
-	<include name="flags_PVR">
-		<control type="image">
-			<width>128</width>
-			<height>64</height>
-			<aspectratio align="right">keep</aspectratio>
-			<include>flag_Channel</include>
-		</control>
-		<control type="image">
-			<width>128</width>
-			<height>64</height>
-			<aspectratio align="right">keep</aspectratio>
-			<texture>$INFO[Listitem.Icon]</texture>
-			<visible>stringcompare(Listitem.ChannelName,flags/networks/,.png)</visible>
-		</control>
-	</include>
-
-<!--- HD ---------------------------------------->
 	<include name="flag_HD">
 		<texture>flags/video/HD/HD.png</texture>
 		<visible>stringcompare(Listitem.VideoResolution,720) | stringcompare(Listitem.VideoResolution,1080)</visible>
@@ -74,145 +16,77 @@
 		<texture>flags/video/HD/HD.png</texture>
 		<visible>stringcompare(VideoPlayer.VideoResolution,720) | stringcompare(VideoPlayer.VideoResolution,1080)</visible>
 	</include>
-	
-<!--- CODEC / TYPE---------------------------------------->	
+
+<!---AUDIO CHANNELS------>
+	<include name="flag_Audio">
+		<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+	</include>
+
+<!---CODEC------>	
 	<include name="flag_VideoCodec-play">
 		<texture>$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</texture>
 	</include>
 	<include name="flag_AudioCodec-play">
 		<texture>$INFO[VideoPlayer.AudioCodec,flags/codec/,.png]</texture>
 	</include>
-	<include name="flags_Type-info">
-		<control type="grouplist" id="100">
-			<width>900</width>
-			<height>64</height>
-			<itemgap>15</itemgap>
-			<orientation>horizontal</orientation>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>72</height>
-				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.studio,flags/labels/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-			</control>
-		</control>
+
+<!---STUDIO------>
+	<include name="flag_Studio">
+		<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
+		<width>128</width>
+		<height>64</height>
+	</include>
+	<include name="flag_Studio-play">
+		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
 	</include>
 
-<!--- RES ---------------------------------------->
-	<include name="flag_Res">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-		<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+<!---NETWORK------>	
+	<include name="flag_Network">
+		<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
+		<width>128</width>
+		<height>64</height>
+		<visible>!IsEmpty(ListItem.Title)</visible>
 	</include>
-	<include name="flag_Res-Mono">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/mono/,.png]</texture>
-		<colordiffuse>Color4</colordiffuse>
-	</include>
-	<include name="flag_Res-play">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-		<colordiffuse>Color4</colordiffuse>
-	</include>
-	<include name="flag_Res-Mono-play">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/mono/,.png]</texture>
-		<colordiffuse>Color4</colordiffuse>
+	<include name="flag_Network-play">
+		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/,.png]</texture>
 	</include>
 
-<!--- AUDIO CHANNELS ---------------------------------------->
-	<include name="flag_Audio">
-		<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
-		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
-	</include>
-
-<!--- LABEL ---------------------------------------->
+<!---LABEL------>
 	<include name="flag_Label">
+		<width>128</width>
+		<height>64</height>
 		<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
-	</include>
-	<include name="flag_Label-video">
-		<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
-	</include>
-	<include name="flag_Label-audio">
-		<texture>$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
 	</include>
 	<include name="flag_Label-play">
+		<width>128</width>
+		<height>64</height>
 		<texture>$INFO[VideoPlayer.studio,flags/labels/,.png]</texture>
 		<colordiffuse>Color1</colordiffuse>
 	</include>
-	
-	
-	<include name="flags_Label-info">
-		<control type="grouplist" id="100">
-			<itemgap>20</itemgap>
-			<orientation>vertical</orientation>
-			<control type="image">
-				<width>128</width>
-				<height>72</height>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color1</colordiffuse>
-				<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-				<visible>!IsEmpty(Listitem.Property(Album_Label))</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>32</height>
-				<info>ListItem.StarRating</info>
-				<colordiffuse>Color7</colordiffuse>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(albums)</visible>
-			</control>
-		</control>
+	<include name="flag_Label-video">
+		<width>128</width>
+		<height>64</height>
+		<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
+	</include>
+	<include name="flag_Label-audio">
+		<width>128</width>
+		<height>64</height>
+		<texture>$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</texture>
+	</include>
+
+<!--- PVR ---------------------------------------->
+	<include name="flag_Channel">
+		<width>128</width>
+		<height>64</height>
+		<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
+		<aspectratio align="right">keep</aspectratio>
+	</include>
+	<include name="flag_Channel-play">
+		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</texture>
+	</include>
+	<include name="flag_Channel-mono-play">
+		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/mono/networks/,.png]</texture>
 	</include>
 
 <!--- GROUPS ---------------------------------------->
@@ -322,4 +196,129 @@
 			</control>
 		</control>
 	</include>
+	<include name="flags_Type-info">
+		<control type="grouplist" id="100">
+			<width>900</width>
+			<height>64</height>
+			<itemgap>15</itemgap>
+			<orientation>horizontal</orientation>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+			</control>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+			</control>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+			</control>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+			</control>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="image">
+				<width>128</width>
+				<height>72</height>
+				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(tvshows)</visible>
+			</control>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+			<control type="image">
+				<width>96</width>
+				<height>64</height>
+				<texture>$INFO[Listitem.studio,flags/labels/,.png]</texture>
+				<aspectratio align="center">keep</aspectratio>
+			</control>
+		</control>
+	</include>
+	<include name="flags_Label-info">
+		<control type="grouplist" id="100">
+			<itemgap>20</itemgap>
+			<orientation>vertical</orientation>
+			<control type="image">
+				<width>128</width>
+				<height>72</height>
+				<aspectratio align="center">keep</aspectratio>
+				<colordiffuse>Color1</colordiffuse>
+				<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
+				<visible>!IsEmpty(Listitem.Property(Album_Label))</visible>
+			</control>
+			<control type="image">
+				<width>128</width>
+				<height>32</height>
+				<info>ListItem.StarRating</info>
+				<colordiffuse>Color7</colordiffuse>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>Container.Content(albums)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="flags_PVR">
+		<control type="image">
+			<width>128</width>
+			<height>64</height>
+			<aspectratio align="right">keep</aspectratio>
+			<include>flag_Channel</include>
+		</control>
+		<control type="image">
+			<width>128</width>
+			<height>64</height>
+			<aspectratio align="right">keep</aspectratio>
+			<texture>$INFO[Listitem.Icon]</texture>
+			<visible>stringcompare(Listitem.ChannelName,flags/networks/,.png)</visible>
+		</control>
+	</include>
+	<!--
+	<include name="flag_Network-mono">
+		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
+		<width>128</width>
+		<height>64</height>
+		<visible>!IsEmpty(ListItem.Title)</visible>
+	</include>
+	<include name="flag_Network-mono-play">
+		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/mono/,.png]</texture>
+	</include>
+	<include name="flag_Studio-mono-play">
+		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
+		<width>128</width>
+		<height>64</height>
+		<colordiffuse>Color4</colordiffuse>
+	</include>
+	<include name="flag_Res-Mono">
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/mono/,.png]</texture>
+		<colordiffuse>Color4</colordiffuse>
+	</include>
+	<include name="flag_Res-Mono-play">
+		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/mono/,.png]</texture>
+		<colordiffuse>Color4</colordiffuse>
+	</include>
+	-->
 </includes>
