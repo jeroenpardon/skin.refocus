@@ -32,7 +32,7 @@
 			<include>infoDialogHide</include>
 			<include>transition_Container</include>
 			<visible>Control.IsVisible(50)</visible>
-		<!---landscape------>
+		<!---landscape--->
 			<control type="group">
 				<visible>!substring(container.folderpath,plugin://)</visible>
 				<control type="group">
@@ -111,7 +111,7 @@
 					</control>
 				</control>
 			</control>
-			<!--- portrait------>
+			<!---portrait--->
 			<control type="group">
 				<posx>750</posx>
 				<posy>65</posy>
@@ -147,7 +147,7 @@
 					</control>
 				</control>
 			</control>
-			<!--- files ------>
+			<!---files--->
 			<control type="group">
 				<visible>Container.Content(files)</visible>
 				<control type="group">
@@ -174,18 +174,20 @@
 		</control>
 		<include>info_MusicList</include>
 		<include>info_AddonList</include>
+		
 <!---BIG LIST------>
 		<include>view_BigList</include>
+		
 <!---SLIDE------>
 		<control type="group">
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<include>infoDialogHide</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521)</visible>
-			<!--flags-->
+			<!---flags--->
 			<include>flags_Slide-studio</include>
 			<include>flags_Slide-media</include>
-			<!---info------>
+			<!---info--->
 			<control type="group">
 				<posx>220</posx>
 				<posy>462</posy>
@@ -220,7 +222,7 @@
 						</control>
 					</control>
 				</control>
-				<!---line 2------>
+				<!---line 2--->
 				<control type="group">
 					<visible>Container.Content(files)</visible>
 					<control type="label">
@@ -310,7 +312,7 @@
 						<visible>Container.Content(seasons)</visible>
 					</control>
 				</control>
-				<!---plot------>
+				<!---plot--->
 				<control type="group">
 					<posy>60</posy>
 					<control type="textbox">
@@ -353,9 +355,9 @@
 			<include>toggle_Menu</include>
 			<control type="group">
 				<visible>Control.IsVisible(57) | Control.IsVisible(573)</visible>
-				<!---flags------>
+				<!---flags--->
 				<include>flags_Thumbnails-studio</include>
-				<!---large grid------>
+				<!---large grid--->
 				<control type="group">
 					<posx>85</posx>
 					<posy>640</posy>
@@ -437,7 +439,7 @@
 					</control>
 				</control>
 			</control>
-			<!---small grid------>
+			<!---small grid--->
 			<control type="grouplist" id="1000">
 				<posx>760</posx>
 				<posy>115</posy>
@@ -671,7 +673,7 @@
 				</control>
 			</control>
 		</control>
-	
+
 <!--BANNERS------>
 		<!---regular--->
 		<control type="grouplist">

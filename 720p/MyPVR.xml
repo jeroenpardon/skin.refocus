@@ -143,7 +143,6 @@
 			</control>
 		</control>
 
-
 	<!---GUIDE CHANNELS------>
 		<control type="group">
 			<control type="group">
@@ -186,23 +185,19 @@
 			</control>
 		</control>
 
+		<control type="image">
+			<posx>230</posx>
+			<height>1080</height>
+			<width>29</width>
+			<texture>settings/separator.png</texture>
+			<aspectratio align="right">stretch</aspectratio>
+			<include>transition_Container</include>
+			<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<visible>![Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
+		</control>
 
-
-
-
-	<control type="image">
-		<posx>230</posx>
-		<height>1080</height>
-		<width>29</width>
-		<texture>settings/separator.png</texture>
-		<aspectratio align="right">stretch</aspectratio>
-		<include>transition_Container</include>
-		<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-		<visible>![Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
-	</control>
-
-	<include>TVMenu</include>
-	<include>nav_Indicator</include>
+		<include>TVMenu</include>
+		<include>nav_Indicator</include>
 
 	</controls>
 </window>

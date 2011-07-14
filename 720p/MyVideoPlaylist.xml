@@ -40,26 +40,22 @@
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[VideoPlayer.Title]</label>
-					<textcolor>Color1</textcolor>
-					<font>title</font>
+					<include>info_Title</include>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[VideoPlayer.Label]</label>
-					<textcolor>Color1</textcolor>
-					<font>title</font>
+					<include>info_Title</include>
 					<visible>IsEmpty(VideoPlayer.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss),, • ]$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 				</control>
 				<control type="textbox" id="4">
 					<width>510</width>
 					<height>220</height>
-					<align>left</align>
 					<aligny>top</aligny>
 					<label>$INFO[VideoPlayer.Plot]</label>
 					<textcolor>Color7</textcolor>
