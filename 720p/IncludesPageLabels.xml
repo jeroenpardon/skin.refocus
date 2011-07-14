@@ -184,32 +184,32 @@
 
 <!---MUSIC------>		
 	<include name="pagelabels_Music">
+		<!--sources-->
 		<control type="label">
-			<description>sources</description>
 			<label>$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<visible>Container.Content(Files)</visible>
 			<include>PageLabel</include>
 		</control>
+		<!--library-->
 		<control type="label">
-			<description>library</description>
 			<label>$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<visible>![substring(Container.FolderPath,musicdb://6/) | substring(Container.FolderPath,musicdb://7/)]</visible>
 			<include>PageLabel</include>
 		</control>
+		<!--new albums-->
 		<control type="label">
-			<description>new albums</description>
 			<label>$LOCALIZE[31932]</label>
 			<visible>substring(Container.FolderPath,musicdb://6/)</visible>
 			<include>PageLabel</include>
 		</control>
+		<!--recent albums-->
 		<control type="label">
-			<description>recent albums</description>
 			<label>$LOCALIZE[31941]</label>
 			<visible>substring(Container.FolderPath,musicdb://7/)</visible>
 			<include>PageLabel</include>
 		</control>
+		<!--add-ons-->
 		<control type="label">
-			<description>music add-ons</description>
 			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(container.folderpath,plugin://)</visible>
