@@ -1,9 +1,8 @@
 ﻿<window id="115">
-	<defaultcontrol>`100</defaultcontrol>
-	<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(fullscreeninfo) | Window.IsActive(infodialog) | Window.IsActive(script-XBMC-Subtitles-main.xml)]</visible>
+	<defaultcontrol>100</defaultcontrol>
+	<visible>Window.IsActive(fullscreenvideo) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(fullscreeninfo) | Window.IsActive(infodialog) | Window.IsActive(script-XBMC-Subtitles-main.xml)]</visible>
 	<controls>
 		<include>clock</include>
-		
 		<control type="group" id="213">
 			<posy>665</posy>
 			<animation type="WindowOpen">
@@ -17,106 +16,108 @@
 				<height>62</height>
 				<texture flipy="false" border="48,33,48,33">osd/seekbar.png</texture>
 			</control>
-			<control type="progress" id="1">
-				<description>Progressbar</description>
+			<control type="group">
 				<posx>255</posx>
 				<posy>7</posy>
-				<width>770</width>
-				<height>22</height>
-				<info>Player.CacheLevel</info>
-				<texturebg border="10">dialogs/cacheBackground.png</texturebg>
-				<midtexture border="10.5">dialogs/cacheSlider.png</midtexture>
-				<lefttexture>-</lefttexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
+				<control type="progress" id="1">
+					<description>Progressbar</description>
+					<width>770</width>
+					<height>22</height>
+					<info>Player.CacheLevel</info>
+					<texturebg border="10">dialogs/cacheBackground.png</texturebg>
+					<midtexture border="10.5">dialogs/cacheSlider.png</midtexture>
+					<lefttexture>-</lefttexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<control type="progress" id="1">
+					<posy>10</posy>
+					<width>770</width>
+					<height>22</height>
+					<texturebg border="10">dialogs/progressBackground.png</texturebg>
+					<info>Player.Progress</info>
+				</control>
 			</control>
-			<control type="progress" id="1">
-				<posx>255</posx>
-				<posy>18</posy>
-				<width>770</width>
-				<height>22</height>
-				<texturebg border="10">dialogs/progressBackground.png</texturebg>
-				<info>Player.Progress</info>
-			</control>
-			<control type="group" id="901">
-				<posx>250</posx>
+			<control type="group">
 				<posy>8</posy>
-				<control type="label">
-					<label>$LOCALIZE[773] $INFO[Player.SeekOffset]</label>
-					<include>dialog_Label-seekbar</include>
-					<visible>Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]</visible>
+				<control type="group" id="901">
+					<posx>250</posx>
+					<control type="label">
+						<label>$LOCALIZE[773] $INFO[Player.SeekOffset]</label>
+						<include>dialog_Label-seekbar</include>
+						<visible>Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]</visible>
+					</control>
+					<control type="label">
+						<description>buffering</description>
+						<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+						<include>dialog_Label-seekbar</include>
+						<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+					</control>
+					<control type="label">
+						<description>paused</description>
+						<label>$LOCALIZE[112]</label>
+						<include>dialog_Label-seekbar</include>
+						<visible>[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek</visible>
+					</control>
+					<control type="label">
+						<label>$LOCALIZE[31041]</label>
+						<visible>Player.Forwarding2x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label">
+						<label>$LOCALIZE[31042]</label>
+						<visible>Player.Forwarding4x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31043]</label>
+						<visible>Player.Forwarding8x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31044]</label>
+						<visible>Player.Forwarding16x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31045]</label>
+						<visible>Player.Forwarding32x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31046]</label>
+						<visible>Player.Rewinding2x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31047]</label>
+						<visible>Player.Rewinding4x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31048]</label>
+						<visible>Player.Rewinding8x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31049]</label>
+						<visible>Player.Rewinding16x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
+					<control type="label" id="0">
+						<label>$LOCALIZE[31050]</label>
+						<visible>Player.Rewinding32x</visible>
+						<include>dialog_Label-seekbar</include>
+					</control>
 				</control>
-				<control type="label">
-					<description>buffering</description>
-					<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
-					<include>dialog_Label-seekbar</include>
-					<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
-				</control>
-				<control type="label">
-					<description>paused</description>
-					<label>$LOCALIZE[112]</label>
-					<include>dialog_Label-seekbar</include>
-					<visible>[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek</visible>
-				</control>
-				<control type="label">
-					<label>$LOCALIZE[31041]</label>
-					<visible>Player.Forwarding2x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label">
-					<label>$LOCALIZE[31042]</label>
-					<visible>Player.Forwarding4x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31043]</label>
-					<visible>Player.Forwarding8x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31044]</label>
-					<visible>Player.Forwarding16x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31045]</label>
-					<visible>Player.Forwarding32x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31046]</label>
-					<visible>Player.Rewinding2x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31047]</label>
-					<visible>Player.Rewinding4x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31048]</label>
-					<visible>Player.Rewinding8x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31049]</label>
-					<visible>Player.Rewinding16x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-				<control type="label" id="0">
-					<label>$LOCALIZE[31050]</label>
-					<visible>Player.Rewinding32x</visible>
-					<include>dialog_Label-seekbar</include>
-				</control>
-			</control>
-			<control type="group" id="901">
-				<posx>250r</posx>
-				<posy>7</posy>
-				<control type="label" id="22">
-					<width>250</width>
-					<align>left</align>
-					<label>[B]$INFO[Player.Time][/B] / $INFO[Player.Duration]</label>
-					<include>dialog_Label-seekbar</include>
+				<control type="group" id="901">
+					<posx>250r</posx>
+					<control type="label" id="22">
+						<width>250</width>
+						<align>left</align>
+						<label>[B]$INFO[Player.Time][/B] / $INFO[Player.Duration]</label>
+						<include>dialog_Label-seekbar</include>
+					</control>
 				</control>
 			</control>
 		</control>
