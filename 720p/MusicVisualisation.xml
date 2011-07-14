@@ -23,29 +23,26 @@
 				<height>120</height>
 				<texture flipy="false">OSD/controlsFrame.png</texture>
 			</control>
-			<control type="label">
-				<description>row 1 label</description>
+			<control type="group">
 				<posx>5</posx>
 				<posy>5</posy>
-				<width>1260</width>
-				<label>$INFO[Musicplayer.Codec,Codec: ,]$INFO[Musicplayer.Bitrate, · Bitrate: ,kbps]$INFO[MusicPlayer.Bitspersample, · Bits: ,bit]$INFO[MusicPlayer.SampleRate, · Freq: ,kHz]$INFO[MusicPlayer.Channels, · Channels: ]</label>
-				<include>dialog_Label-alt</include>
-			</control>
-			<control type="label">
-				<description>row 2 label</description>
-				<posx>5</posx>
-				<posy>28</posy>
-				<width>1260</width>
-				<label>$LOCALIZE[250]: $INFO[Visualisation.Name] [I]($LOCALIZE[20166])[/I] · FPS: $INFO[System.FPS]</label>
-				<include>dialog_Label-alt</include>
-			</control>
-			<control type="label">
-				<description>row 3 label</description>
-				<posx>5</posx>
-				<posy>51</posy>
-				<width>1260</width>
-				<label fallback="· (UnAvailable)">$LOCALIZE[13388]: $INFO[Visualisation.Preset]</label>
-				<include>dialog_Label-alt</include>
+				<control type="label">
+					<width>1260</width>
+					<label>$INFO[Musicplayer.Codec,Codec: ,]$INFO[Musicplayer.Bitrate, · Bitrate: ,kbps]$INFO[MusicPlayer.Bitspersample, · Bits: ,bit]$INFO[MusicPlayer.SampleRate, · Freq: ,kHz]$INFO[MusicPlayer.Channels, · Channels: ]</label>
+					<include>dialog_Label-alt</include>
+				</control>
+				<control type="label">
+					<posy>28</posy>
+					<width>1260</width>
+					<label>$LOCALIZE[250]: $INFO[Visualisation.Name] [I]($LOCALIZE[20166])[/I] · FPS: $INFO[System.FPS]</label>
+					<include>dialog_Label-alt</include>
+				</control>
+				<control type="label">
+					<posy>51</posy>
+					<width>1260</width>
+					<label fallback="· (UnAvailable)">$LOCALIZE[13388]: $INFO[Visualisation.Preset]</label>
+					<include>dialog_Label-alt</include>
+				</control>
 			</control>
 		</control>
 	</controls>
