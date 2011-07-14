@@ -643,6 +643,32 @@
 					<width>85</width>
 					<info>ListItem.Label</info>
 					<include>column_Label</include>
+					<visible>!ListItem.HasTimer</visible>
+				</control>
+				<control type="label" id="1">
+					<posx>40</posx>
+					<width>20</width>
+					<info>ListItem.Label</info>
+					<include>column_Label</include>
+					<visible>ListItem.HasTimer</visible>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>22</width>
+					<height>22</height>
+					<texture>epg/status_timer.png</texture>
+					<colordiffuse>Color1</colordiffuse>
+					<visible>ListItem.HasTimer</visible>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>22</width>
+					<height>22</height>
+					<texture>epg/status_recording.png</texture>
+					<colordiffuse>Color1</colordiffuse>
+					<visible>ListItem.IsRecording</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="44" width="100">
@@ -656,6 +682,23 @@
 					<width>85</width>
 					<info>ListItem.Label</info>
 					<include>column_Label</include>
+					<visible>!ListItem.HasTimer</visible>
+				</control>
+				<control type="label" id="1">
+					<posx>40</posx>
+					<width>20</width>
+					<info>ListItem.Label</info>
+					<include>column_Label</include>
+					<visible>ListItem.HasTimer</visible>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>22</width>
+					<height>22</height>
+					<texture>epg/status_timer.png</texture>
+					<colordiffuse>Color1</colordiffuse>
+					<visible>ListItem.HasTimer</visible>
 				</control>
 			</focusedlayout>
 		</control>
@@ -722,19 +765,25 @@
 						<posy>10</posy>
 						<width>24</width>
 						<height>24</height>
-						<texture>epg/status_recording.png</texture>
-						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+						<texture>epg/status_none.png</texture>
+						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
-					<!--
 					<control type="image">
 						<posx>829</posx>
 						<posy>10</posy>
 						<width>24</width>
 						<height>24</height>
-						<texture>epg/status_watched.png</texture>
+						<texture>epg/status_recording.png</texture>
+						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					</control>
+					<control type="image">
+						<posx>829</posx>
+						<posy>10</posy>
+						<width>24</width>
+						<height>24</height>
+						<texture>epg/status_enabled.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 					</control>
-					-->
 					<control type="label" id="1">
 						<posx>15</posx>
 						<width>203</width>
@@ -768,21 +817,28 @@
 						<posy>10</posy>
 						<width>24</width>
 						<height>24</height>
-						<texture>epg/status_recording.png</texture>
-						<colordiffuse>Focused</colordiffuse>
-						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+						<texture>epg/status_none.png</texture>
+						<colordiffuse>tv3</colordiffuse>
+						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
-					<!--
 					<control type="image">
 						<posx>829</posx>
 						<posy>10</posy>
 						<width>24</width>
 						<height>24</height>
-						<texture>epg/status_watched.png</texture>
-						<colordiffuse>Focused</colordiffuse>
+						<texture>epg/status_recording.png</texture>
+						<colordiffuse>tv3</colordiffuse>
+						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					</control>
+					<control type="image">
+						<posx>829</posx>
+						<posy>10</posy>
+						<width>24</width>
+						<height>24</height>
+						<texture>epg/status_enabled.png</texture>
+						<colordiffuse>tv3</colordiffuse>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 					</control>
-					-->
 					<control type="label" id="1">
 						<posx>15</posx>
 						<width>203</width>
@@ -942,7 +998,7 @@
 						<posx>0</posx>
 						<width>1185</width>
 						<height>42</height>
-						<texture border="4">epg/column_focus.png</texture>
+						<texture border="4">views/column_focus.png</texture>
 						<colordiffuse>tv1</colordiffuse>
 					</control>
 					<control type="image">
