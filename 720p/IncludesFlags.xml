@@ -25,19 +25,25 @@
 
 <!---CODEC------>	
 	<include name="flag_VideoCodec-play">
+		<width>128</width>
+		<height>64</height>
 		<texture>$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</texture>
 	</include>
 	<include name="flag_AudioCodec-play">
+		<width>128</width>
+		<height>64</height>
 		<texture>$INFO[VideoPlayer.AudioCodec,flags/codec/,.png]</texture>
 	</include>
 
 <!---STUDIO------>
 	<include name="flag_Studio">
-		<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
 		<width>128</width>
 		<height>64</height>
+		<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
 	</include>
 	<include name="flag_Studio-play">
+		<width>128</width>
+		<height>64</height>
 		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
 	</include>
 
@@ -49,6 +55,8 @@
 		<visible>!IsEmpty(ListItem.Title)</visible>
 	</include>
 	<include name="flag_Network-play">
+		<width>128</width>
+		<height>64</height>
 		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/,.png]</texture>
 	</include>
 
