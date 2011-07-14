@@ -226,5 +226,65 @@
 				</control>
 			</focusedlayout>
 		</control>
+		<!---container info--->
+		<control type="grouplist">
+			<posx>695</posx>
+			<posy>95</posy>
+			<itemgap>0</itemgap>
+			<include>toggle_Menu</include>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<visible>Control.IsVisible(541) + Container.Content(tvshows)</visible>
+			<control type="label" id="1">
+				<width>500</width>
+				<label>$INFO[ListItem.Title]</label>
+				<include>info_Title</include>
+			</control>
+			<control type="label" id="1">
+				<width>500</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>info_Title</include>
+				<visible>IsEmpty(ListItem.Title)</visible>
+			</control>
+			<control type="label" id="1">
+				<width>500</width>
+				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</label>
+				<include>info_Sub</include>
+				<visible>IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
+			</control>
+			<control type="label" id="1">
+				<width>500</width>
+				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</label>
+				<include>info_Sub</include>
+				<visible>!IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
+			</control>
+			<control type="label" id="1">
+				<width>500</width>
+				<label>$INFO[ListItem.Genre]</label>
+				<include>info_Sub</include>
+			</control>
+			<control type="label" id="1">
+				<label></label>
+				<height>10</height>
+			</control>
+			<control type="textbox" id="4">
+				<width>500</width>
+				<height>385</height>
+				<align>left</align>
+				<aligny>top</aligny>
+				<label>$INFO[ListItem.Plot]</label>
+				<textcolor>Color7</textcolor>
+				<font>descriptionSmall</font>
+			</control>
+			<control type="label" id="1">
+				<label></label>
+			</control>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<include>flag_Network</include>
+			</control>
+		</control>
 	</include>
 </includes>
