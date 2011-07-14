@@ -1,6 +1,5 @@
 ﻿<includes>
-
-<!-- GENERAL ------------------------------------------------------------------------->
+<!---GLOBAL------>
 	<include name="thumbFadeTime">
 		<fadetime>300</fadetime>
 	</include>
@@ -177,8 +176,7 @@
 		</animation>
 	</include>
 
-
-<!-- TRANSITIONS ------------------------------------------------------------------------->
+<!---TRANSITIONS------>
 	<include name="transition_Fanart">		
 		<animation type="WindowOpen">
 			<effect type="zoom" time="400" center="auto" start="160" end="100" tween="cubic" easing="out" reversible="false"/>
@@ -325,7 +323,6 @@
 		</animation>
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="150" />
-			<!--<effect type="zoom" start="100" end="130" center="0,370" time="150" tween="Cubic" easing="Out" />-->
 		</animation>
 		<animation type="Hidden">
 			<effect type="zoom" start="100" end="80" center="0,370" time="250" tween="Cubic" />
@@ -360,6 +357,38 @@
 			<effect type="fade" time="250" center="640,360" start="20" end="100" />
 		</animation>
 	</include>
+	<include name="toggle_NumItems-menumove">
+		<animation effect="slide" start="0,0" end="0,20" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
+	</include>
+	<include name="toggle_PlayerMenu">
+		<animation type="Visible">
+			<effect type="fade" start="0" end="100" tween="Quadratic" easing="Out" time="250" />
+			<effect type="slide" start="0,10" end="0,0" tween="Quadratic" easing="Out" time="250" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="fade" start="100" end="0" tween="Quadratic" easing="In" time="250" />
+			<effect type="slide" start="0,0" end="0,10" tween="Quadratic" easing="In" time="250" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="200"/>
+		</animation>
+	</include>
+	<include name="toggle_PlayerControls">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" time="200"/>
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="200"/>
+		</animation>
+		<animation type="Visible">
+			<effect type="fade" start="100" end="0" time="250"/>
+		</animation>
+		<animation type="Hidden">
+			<effect type="fade" start="100" end="0" time="250"/>
+		</animation>
+	</include>
+
+<!---DIALOGS------>
 	<include name="dialogOpen">
 		<animation type="WindowOpen">
 			<effect type="zoom" start="90" end="100" center="640,360" tween="Cubic" time="200" />
@@ -399,33 +428,10 @@
 		</animation>
 	</include>
 	
-	<include name="toggle_NumItems-menumove">
-		<animation effect="slide" start="0,0" end="0,20" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
-	</include>
+	
 
 
-<!--HOME ------------------------------------------------------------------------->		
-	<include name="home_SubFocus">
-		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="150" />
-		</animation>
-		<animation type="Focus">
-			<effect type="slide" start="0" end="800" center="auto" time="0" />
-			<effect type="zoom" start="80" end="100" center="-800,370" time="250" tween="Cubic"/>
-			<effect type="fade" start="0" end="100" time="250" />
-		</animation>
-		<animation type="UnFocus">
-			<effect type="slide" start="800" end="0" center="auto" time="0" />
-			<effect type="zoom" start="100" end="80" center="-800,370" time="250" tween="Cubic"/>
-			<effect type="fade" start="100" end="0" time="250" />
-		</animation>
-	</include>
-
-	<include name="home_ListScroll">
-		<animation effect="slide" start="0,-45" end="0,0" time="100" reversible="false" tween="quadratic" easing="out" condition="Container(9000).OnNext | Container(1110).OnNext | Container(1120).OnNext | Container(1130).OnNext | Container(1140).OnNext | Container(1150).OnNext | Container(1160).OnNext | Container(1170).OnNext">focus</animation>
-		<animation effect="slide" start="0,45" end="0,0" time="100" reversible="false"  tween="quadratic" easing="out" condition="Container(9000).OnPrevious | Container(1110).OnPrevious | Container(1120).OnPrevious | Container(1130).OnPrevious | Container(1140).OnPrevious | Container(1150).OnPrevious | Container(1160).OnPrevious | Container(1170).OnPrevious">focus</animation>
-	</include>
-
+<!--HOME ------------------------------------------------------------------------->
 	<include name="home_Slideshow">
 		<timeperimage>10000</timeperimage>
 		<fadetime>1200</fadetime>
@@ -442,53 +448,24 @@
 		<animation type="WindowOpen" condition="!Window.Previous(startup)">
 			<effect type="fade" start="0" end="100" time="200" delay="0" />
 		</animation>
-	</include>
-
-
-<!-- OSD --------------------------------------------------------------------------------------------------------->	
-	<include name="toggle_PlayerMenu">
-		<animation type="Visible">
-			<effect type="fade" start="0" end="100" tween="Quadratic" easing="Out" time="250" />
-			<effect type="slide" start="0,10" end="0,0" tween="Quadratic" easing="Out" time="250" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" tween="Quadratic" easing="In" time="250" />
-			<effect type="slide" start="0,0" end="0,10" tween="Quadratic" easing="In" time="250" />
-		</animation>
+	</include>	
+	<include name="home_SubFocus">
 		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="200"/>
+			<effect type="fade" start="100" end="0" time="150" />
+		</animation>
+		<animation type="Focus">
+			<effect type="slide" start="0" end="800" center="auto" time="0" />
+			<effect type="zoom" start="80" end="100" center="-800,370" time="250" tween="Cubic"/>
+			<effect type="fade" start="0" end="100" time="250" />
+		</animation>
+		<animation type="UnFocus">
+			<effect type="slide" start="800" end="0" center="auto" time="0" />
+			<effect type="zoom" start="100" end="80" center="-800,370" time="250" tween="Cubic"/>
+			<effect type="fade" start="100" end="0" time="250" />
 		</animation>
 	</include>
-	<include name="toggle_PlayerControls">
-		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="200"/>
-		</animation>
-		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="200"/>
-		</animation>
-		<animation type="Visible">
-			<effect type="fade" start="100" end="0" time="250"/>
-		</animation>
-		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" time="250"/>
-		</animation>
+	<include name="home_ListScroll">
+		<animation effect="slide" start="0,-45" end="0,0" time="100" reversible="false" tween="quadratic" easing="out" condition="Container(9000).OnNext | Container(1110).OnNext | Container(1120).OnNext | Container(1130).OnNext | Container(1140).OnNext | Container(1150).OnNext | Container(1160).OnNext | Container(1170).OnNext">focus</animation>
+		<animation effect="slide" start="0,45" end="0,0" time="100" reversible="false"  tween="quadratic" easing="out" condition="Container(9000).OnPrevious | Container(1110).OnPrevious | Container(1120).OnPrevious | Container(1130).OnPrevious | Container(1140).OnPrevious | Container(1150).OnPrevious | Container(1160).OnPrevious | Container(1170).OnPrevious">focus</animation>
 	</include>
-	<include name="codecInfo">
-		<animation type="WindowOpen">
-			<effect type="slide" start="0,-96" end="0,0" tween="Cubic" center="auto" easing="Out" time="4000" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="slide" start="0,0" end="0,-96" tween="Cubic" center="auto" easing="Out" time="4000" />
-		</animation>
-	</include>
-	<!--
-	<include name="osdButtons">
-		<animation type="focus">
-			<effect type="zoom" tween="quadratic" start="100,100" end="130,130" center="auto" time="200" />
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="quadratic" start="130,130" end="100,100" center="auto" time="100"/>
-		</animation>
-	</include>
-	-->
 </includes>
