@@ -24,119 +24,111 @@
 		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900)</visible>
 	</include>
 	
-<!-- VIDEO PAGELABELS -------------------------------------------------------------------------------------------->			
+<!---VIDEO------>			
 	<include name="pagelabels_Video">
-
-<!---SOURCES--->
+	
+	<!---sources--->
 		<control type="label">
 			<description>sources</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<visible>Container.Content(Files)</visible>
 			<include>PageLabel</include>
 		</control>
+		<!--movies sources-->
 		<control type="label">
-			<!--movies sources-->
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left) | SubString(Container.FolderPath,plugin,left)]</visible>
 		</control>
+		<!--tvshows sources-->
 		<control type="label">
-			<!--tvshows sources-->
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>Container.Content(tvshows) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
-		</control>	
-
-<!---LIBRARY--->
+		</control>
+		<!--music video sources-->
 		<control type="label">
-			<description>movies node</description>
+			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
+			<include>PageLabel</include>
+			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
+		</control>
+
+	<!---library--->
+		<!--movies node-->
+		<control type="label">
 			<label>$LOCALIZE[342]</label>
 			<include>PageLabel</include>
 			<visible>stringcompare(Container.FolderPath,videodb://1/)</visible>
 		</control>
+		<!--tv shows node-->
 		<control type="label">
-			<description>tvshows node</description>
 			<label>$LOCALIZE[20343]</label>
 			<include>PageLabel</include>
 			<visible>stringcompare(Container.FolderPath,videodb://2/)</visible>
 		</control>
+		<!--music videos node-->
 		<control type="label">
-			<description>music videos node</description>
 			<label>$LOCALIZE[20389]</label>
 			<include>PageLabel</include>
 			<visible>stringcompare(Container.FolderPath,videodb://3/)</visible>
 		</control>
-
-<!---MOVIES--->		
+		<!--movies videodb-->
 		<control type="label">
-			<!--movies videodb-->
 			<label>$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,videodb://1/,left) + !stringcompare(Container.FolderPath,videodb://1/)</visible>
 		</control>
+		<!--movies videodb new-->
 		<control type="label">
-			<!--movies videodb new-->
 			<label>$LOCALIZE[31926]</label>
 			<include>PageLabel</include>
 			<visible>Substring(Container.FolderPath,videodb://4/,Left)</visible>
 		</control>
+		<!--movies trailers-->
 		<control type="label">
-			<!--movies trailers-->
 			<label>$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(container.folderpath,plugin://plugin.video.apple,left)</visible>
 		</control>
-
-<!---TVSHOWS--->
+		<!--tvshows videodb-->
 		<control type="label">
-			<!--tvshows videodb-->
 			<label>$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,videodb://2/,left) + !stringcompare(Container.FolderPath,videodb://2/) + !Container.Content(seasons) + !Container.Content(episodes)</visible>
 		</control>
-
-<!---SEASONS--->
+		<!--seasons-->
 		<control type="label">
 			<label>$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[33054][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>Container.Content(seasons)</visible>
 		</control>
-
-<!---EPISODES--->
+		<!--episodes videodb-->
 		<control type="label">
 			<label>$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[20360][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>Container.Content(episodes) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
 		</control>
+		<!--new episodes videodb-->
 		<control type="label">
-			<!--episodes videodb new-->
 			<label>$LOCALIZE[31925]</label>
 			<include>PageLabel</include>
 			<visible>Substring(Container.FolderPath,videodb://5/,Left)</visible>
 		</control>
-
-<!---MUSIC VIDEOS--->
+		<!--music videos videodb-->
 		<control type="label">
-			<!--music video sources-->
-			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
-		</control>
-		<control type="label">
-			<!--music video videodb-->
 			<label>$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,videodb://3/,left) + !stringcompare(Container.FolderPath,videodb://3/)</visible>
 		</control>
+		<!--new music videos videodb-->
 		<control type="label">
-			<!--music videos videodb new-->
 			<label>$LOCALIZE[31931]</label>
 			<include>PageLabel</include>
 			<visible>Substring(Container.FolderPath,videodb://6/,Left)</visible>
 		</control>
 
-<!---PLAYLISTS--->		
-	<control type="label">
+	<!---playlists--->		
+		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[136][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(container.folderpath,special://videoplaylists,left)</visible>
@@ -147,7 +139,7 @@
 			<visible>substring(container.folderpath,special://profile/playlists/video/,left)</visible>
 		</control>
 		
-<!---ADD-ONS--->
+	<!---add-ons--->
 		<control type="label" id="555">
 			<description>video add-ons</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
@@ -156,7 +148,7 @@
 		</control>
 	</include>
 		
-<!---PVR--->
+<!---PVR------>
 	<include name="pagelabels_PVR">
 		<control type="label">
 			<label>$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[19019][/COLOR]</label>
@@ -190,8 +182,7 @@
 		</control>
 	</include>
 
-
-<!-- MUSIC PAGELABELS -------------------------------------------------------------------------------------------->		
+<!---MUSIC------>		
 	<include name="pagelabels_Music">
 		<control type="label">
 			<description>sources</description>
@@ -225,53 +216,52 @@
 		</control>
 	</include>
 
-
-<!-- ADD-ONS PAGELABELS -------------------------------------------------------------------------------------------->
+<!--ADD-ONS------>
 	<include name="pagelabels_Addons">
+		<!--root-->
 		<control type="label">
-			<description>add-ons root</description>
 			<label>$LOCALIZE[24001]</label>
 			<include>PageLabel</include>
 			<visible>IsEmpty(Container.FolderPath)</visible>
 		</control>
+		<!--enabled-->
 		<control type="label">
-			<description>add-ons enabled</description>
 			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[305][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(Container.folderpath,addons://enabled/)</visible>
 		</control>
+		<!--downloading-->
 		<control type="label">
-			<description>add-ons downloading</description>
 			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[13413][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(Container.folderpath,addons://downloading/)</visible>
 		</control>
+		<!--available updates-->
 		<control type="label">
-			<description>add-ons available updates</description>
 			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[24043][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(Container.folderpath,addons://outdated/)</visible>
 		</control>
+		<!--repositories-->
 		<control type="label">
-			<description>add-ons repositories</description>
 			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[31121][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(Container.folderpath,addons://repos/)</visible>
 		</control>
+		<!--repository-->
 		<control type="label">
-			<description>add-ons repository</description>
 			<label>$INFO[Container.Property(reponame)]</label>
 			<include>PageLabel</include>
 			<visible>substring(Container.folderpath,addons://repo.) | substring(Container.folderpath,addons://repository.)</visible>
 		</control>
+		<!--all-->
 		<control type="label">
-			<description>add-ons all</description>
 			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[593][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>stringcompare(Container.folderpath,addons://all/)</visible>
 		</control>
+		<!--category-->
 		<control type="label">
-			<description>add-ons category</description>
 			<label>$LOCALIZE[24001] [COLOR=Color2]$INFO[Container.Property(addoncategory)][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>substring(Container.folderpath,addons://all/)</visible>
