@@ -2,7 +2,7 @@
 	<defaultcontrol>300</defaultcontrol>
 	<coordinates>
 		<system>2</system>
-		<posx>296</posx>
+		<posx>308</posx>
 		<posy>260</posy>
 	</coordinates>
 	<include>dialogOpen</include>
@@ -12,25 +12,25 @@
 			<animation effect="slide" start="0,0" end="0,200" time="0" condition="Skin.HasSetting(keyboard.enable)">Conditional</animation>
 			<control type="image" id="1">
 				<include>dialogWindow</include>
-				<width>688</width>
+				<width>665</width>
 				<height>435</height>
 				<visible>!Skin.HasSetting(keyboard.enable)</visible>
 			</control>
 			<control type="image" id="1">
 				<include>dialogWindow</include>
-				<width>688</width>
+				<width>665</width>
 				<height>150</height>
 				<visible>Skin.HasSetting(keyboard.enable)</visible>
 			</control>
 			<control type="label" id="311">
 				<posx>34</posx>
-				<width>620</width>
+				<width>597</width>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image" id="1">
 				<posx>34</posx>
 				<posy>75</posy>
-				<width>620</width>
+				<width>597</width>
 				<height>40</height>
 				<texture border="10,0,10,0">dialogs/textFieldFocus.png</texture>
 			</control>
@@ -146,12 +146,11 @@
 				<control type="button" id="8">
 					<description>BSP button</description>
 					<posx>550</posx>
-					<width>70</width>
 					<onleft>57</onleft>
 					<onright>48</onright>
 					<onup>32</onup>
 					<ondown>99</ondown>
-					<texturenofocus border="8,3,8,3">dialogs/backspace.png</texturenofocus>
+					<texturenofocus border="6">dialogs/backspace.png</texturenofocus>
 					<texturefocus border="8,3,8,3">dialogs/backspace-focus.png</texturefocus>
 					<include>dialog_Button-keyboard</include>
 				</control>
@@ -256,9 +255,8 @@
 					<onright>81</onright>
 					<onup>8</onup>
 					<ondown>300</ondown>
-					<width>70</width>
-					<texturenofocus border="8,3,8,3">dialogs/hide.png</texturenofocus>
-					<texturefocus border="8,3,8,3">dialogs/hide-focus.png</texturefocus>
+					<texturenofocus border="14">dialogs/hide.png</texturenofocus>
+					<texturefocus border="14">dialogs/hide-focus.png</texturefocus>
 					<include>dialog_Button-keyboard</include>
 					<onclick>Close</onclick>
 				</control>
@@ -350,7 +348,7 @@
 				<control type="button" id="300">
 					<description>DONE button</description>
 					<posx>495</posx>
-					<width>101</width>
+					<width>79</width>
 					<label>20177</label>
 					<onleft>76</onleft>
 					<onright>65</onright>
@@ -371,8 +369,8 @@
 					<onright>90</onright>
 					<onup>65</onup>
 					<ondown>305</ondown>
-					<alttexturenofocus border="8,8,8,8">dialogs/buttonKB-On.png</alttexturenofocus>
-					<alttexturefocus border="8,3,8,3">dialogs/buttonKB-On-Focus.png</alttexturefocus>
+					<alttexturenofocus border="11">dialogs/buttonKB-On.png</alttexturenofocus>
+					<alttexturefocus border="11">dialogs/buttonKB-On-Focus.png</alttexturefocus>
 					<include>dialog_Button-keyboard</include>
 				</control>
 				<control type="button" id="90">
@@ -441,7 +439,6 @@
 				<control type="togglebutton" id="304">
 					<description>SYMBOLS button</description>
 					<posx>464</posx>
-					<width>72</width>
 					<label>?!#</label>
 					<onleft>77</onleft>
 					<onright>303</onright>
@@ -453,15 +450,15 @@
 				</control>
 				<control type="togglebutton" id="303">
 					<description>CAPS button</description>
-					<posx>543</posx>
-					<width>77</width>
+					<posx>519</posx>
+					<width>79</width>
 					<label>CAPS</label>
 					<onleft>304</onleft>
 					<onright>302</onright>
 					<onup>300</onup>
 					<ondown>306</ondown>
-					<alttexturenofocus border="8,8,8,8">dialogs/buttonKB-On.png</alttexturenofocus>
-					<alttexturefocus border="8,3,8,3">dialogs/buttonKB-On-Focus.png</alttexturefocus>
+					<alttexturenofocus border="11">dialogs/buttonKB-On.png</alttexturenofocus>
+					<alttexturefocus border="11">dialogs/buttonKB-On-Focus.png</alttexturefocus>
 					<include>dialog_Button-keyboard</include>
 				</control>
 			</control>
@@ -482,7 +479,7 @@
 				<control type="button" id="32">
 					<description>SPACE button</description>
 					<posx>79</posx>
-					<width>457</width>
+					<width>433</width>
 					<label>20182</label>
 					<onleft>305</onleft>
 					<onright>306</onright>
@@ -492,8 +489,8 @@
 				</control>
 				<control type="button" id="306">
 					<description>next button</description>
-					<posx>543</posx>
-					<width>77</width>
+					<posx>519</posx>
+					<width>79</width>
 					<label>&gt;</label>
 					<onleft>32</onleft>
 					<onright>305</onright>
