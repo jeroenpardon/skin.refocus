@@ -216,7 +216,7 @@
 		<font>list</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
-		<selectedcolor>Focused</selectedcolor>
+		<selectedcolor>Selected</selectedcolor>
 		<scroll>false</scroll>
 	</include>
 	<!--listMenu-->
@@ -631,7 +631,7 @@
 			<posy>300</posy>
 			<include>transition_OSD</include>
 			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist)]</visible>
-			<!--overlays-->
+			<!---overlays--->
 			<control type="image">
 				<height>200</height>
 				<include>screenwidth</include>
@@ -644,7 +644,7 @@
 				<aspectratio>stretch</aspectratio>
 				<texture border="0,1,0,11">OSD/infoOverlay.png</texture>
 			</control>
-			<!--flags-->
+			<!---flags--->
 			<control type="group">
 				<posx>40</posx>
 				<posy>223</posy>
@@ -686,11 +686,11 @@
 					<include>flag_HD-play</include>
 				</control>
 			</control>
-			<!--info-->
+			<!---info--->
 			<control type="group" id="1">
 				<posx>200</posx>
 				<posy>223</posy>
-				<!--line 1------>
+			<!---line 1--->
 				<control type="label">
 					<width>970</width>
 					<label>$INFO[MusicPlayer.Title]</label>
@@ -703,7 +703,7 @@
 					<font>osd1</font>
 					<textcolor>Color1</textcolor>
 				</control>
-				<!--line 2------>
+			<!---line 2--->
 				<!--music-->
 				<control type="grouplist">
 					<posy>30</posy>
@@ -725,11 +725,12 @@
 				<!--video-->
 				<control type="grouplist">
 					<posy>30</posy>
+					<visible>Player.HasVideo</visible>
 					<control type="label" id="1">
 						<width>1000</width>
-						<label>$INFO[Player.FolderPath]</label>
+						<label>$INFO[VideoPlayer.FolderPath]</label>
 						<include>info_Sub</include>
-						<visible>VideoPlayer.Content(files) + Player.HasVideo</visible>
+						<visible>VideoPlayer.Content(files)</visible>
 					</control>
 					<control type="label">
 						<width>1000</width>
