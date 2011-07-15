@@ -73,61 +73,58 @@
 					<posy>73</posy>
 					<control type="label">
 						<description>Type</description>
-						<width>532</width>
+						<width>500</width>
 						<label>[B]$LOCALIZE[146,,:][/B] $INFO[ListItem.Property(Addon.Type)]</label>
 						<include>dialog_Label</include>
 					</control>
 					<control type="label">
 						<description>Author</description>
 						<posy>40</posy>
-						<width>532</width>
+						<width>500</width>
 						<label>[B]$LOCALIZE[21863]:[/B] $INFO[ListItem.Property(Addon.Creator)]</label>
 						<include>dialog_Label</include>
 					</control>
 					<control type="label">
 						<description>Version</description>
 						<posy>80</posy>
-						<width>532</width>
+						<width>500</width>
 						<label>[B]$LOCALIZE[24051][/B] $INFO[ListItem.Property(Addon.Version)]</label>
 						<include>dialog_Label</include>
 					</control>
 					<control type="label">
 						<description>Rating</description>
 						<posy>120</posy>
-						<width>532</width>
+						<width>500</width>
 						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Property(Addon.Rating)]</label>
 						<include>dialog_Label</include>
 					</control>
 					<control type="label">
 						<description>Summary</description>
 						<posy>160</posy>
-						<width>475</width>
+						<width>500</width>
 						<label>[B]$LOCALIZE[24052]:[/B] $INFO[ListItem.Property(Addon.Disclaimer)]</label>
-						<scrollout>false</scrollout>
-						<pauseatend>2000</pauseatend>
+						<scroll>true</scroll>
 						<include>dialog_Label</include>
 					</control>
-					<control type="textbox" id="400">
-						<description>Description</description>
+					<control type="group">
 						<posx>15</posx>	
 						<posy>213</posy>
-						<width>660</width>
-						<height>195</height>
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
-						<font>smallAlt</font>
-						<include>dialog_Textbox</include>
-						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
-					</control>
-					<control type="textbox" id="400">
-						<description>Description</description>
-						<posx>15</posx>	
-						<posy>213</posy>
-						<width>660</width>
-						<height>145</height>
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
-						<font>smallAlt</font>
-						<include>dialog_Textbox</include>
-						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
+						<control type="textbox" id="400">
+							<width>660</width>
+							<height>195</height>
+							<label>$INFO[ListItem.Property(Addon.Description)]</label>
+							<font>smallAlt</font>
+							<include>dialog_Textbox</include>
+							<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
+						</control>
+						<control type="textbox" id="400">
+							<width>660</width>
+							<height>145</height>
+							<label>$INFO[ListItem.Property(Addon.Description)]</label>
+							<font>smallAlt</font>
+							<include>dialog_Textbox</include>
+							<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
+						</control>
 					</control>
 				</control>
 				<control type="image">
@@ -167,40 +164,40 @@
 			</control>
 			<control type="group" id="10000">
 				<posx>34</posx>
-				<posy>523</posy>
+				<posy>525</posy>
+				<!--uninstall-->
 				<control type="button" id="6">
-					<description>Enable Button</description>
 					<label>24022</label>
 					<onleft>10</onleft>
 					<onright>7</onright>
 					<include>dialog_Button</include>
 				</control>
+				<!--disable-->
 				<control type="button" id="7">
-					<description>Disable</description>
 					<posx>133</posx>
 					<label>24021</label>
 					<onleft>6</onleft>
 					<onright>9</onright>
 					<include>dialog_Button</include>
 				</control>
+				<!--configure-->
 				<control type="button" id="9">
-					<description>Configure Button</description>
 					<posx>266</posx>
 					<label>24020</label>
 					<onleft>7</onleft>
 					<onright>8</onright>
 					<include>dialog_Button</include>
 				</control>
+				<!--update-->
 				<control type="button" id="8">
-					<description>Update Button</description>
 					<posx>399</posx>
 					<label>24069</label>
 					<onleft>9</onleft>
 					<onright>10</onright>
 					<include>dialog_Button</include>
 				</control>
+				<!--changelog-->
 				<control type="button" id="10">
-					<description>Changelog Button</description>
 					<posx>532</posx>
 					<label>24036</label>
 					<width>135</width>
