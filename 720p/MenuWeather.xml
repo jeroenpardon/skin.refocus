@@ -15,21 +15,21 @@
 				<include>transition_Container</include>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
 				<control type="button" id="2">
-					<description>Refresh</description>
+				<!--refresh-->
 					<onleft>1</onleft>
 					<onright>1</onright>
 					<include>button_Menu</include>
 				</control>
+				<!--settings-->
 				<control type="button" id="4">
-					<description>Settings</description>
 					<label>5</label>
 					<onleft>1</onleft>
 					<onright>1</onright>
 					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
 					<include>button_Menu</include>
 				</control>
+				<!--favourites-->
 				<control type="button" id="30">
-					<description>Favourites</description>
 					<label>$LOCALIZE[1036]</label>
 					<onleft>1</onleft>
 					<onright>1</onright>

@@ -30,6 +30,12 @@
 	<include file="ViewGallery.xml">-</include>
 	<include file="ViewsTV.xml">-</include>
 	
+	<include file="weather+\10DayForecast.xml" />
+	<include file="weather+\36HourForecast.xml" />
+	<include file="weather+\WeekendForecast.xml" />
+	<include file="weather+\HourlyForecast.xml" />
+	<include file="weather+\MapsVideo.xml" />
+	
 <!---GLOBAL------>
 	<include name="global_Includes">
 		<include>global_Clock</include>
@@ -654,7 +660,7 @@
 			<!---flags--->
 			<control type="group">
 				<posx>40</posx>
-				<posy>223</posy>
+				<posy>220</posy>
 				<control type="image">
 					<aspectratio align="center">keep</aspectratio>
 					<include>flag_Label-audio</include>
@@ -685,8 +691,8 @@
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="image">
+					<posy>-11</posy>
 					<posx>1136</posx>
-					<posy>16</posy>
 					<width>64</width>
 					<height>64</height>
 					<aspectratio align="center">keep</aspectratio>
