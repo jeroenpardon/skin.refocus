@@ -1,21 +1,9 @@
-﻿<window id="2600">
-	<defaultcontrol always="true">8000</defaultcontrol>
+<window id="2600">
+	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-	
 	<controls>
 		<include>global_Background</include>
-
-<!---TRIGGER------>	
-		<control type="button" id="8000">
-			<label>SHOULD NOT SEE ME</label>
-			<onup>53</onup>
-			<ondown>53</ondown>
-			<onleft>6000</onleft>
-			<onright>53</onright>
-			<width>200</width>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
-
+		
 		<control type="group">
 			<visible>Weather.IsFetched</visible>
 			<control type="group">
@@ -39,295 +27,60 @@
 					<include>global_Screentype</include>
 					<texture flipy="false">overlays/weatherOverlay.png</texture>
 					<include>transition_Container</include>
+					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
 				</control>
+				<control type="image" id="1">
+					<include>global_Screentype</include>
+					<texture flipy="false">overlays/weatherOverlay.png</texture>
+					<include>transition_Container</include>
+					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
+				</control>
+
 			</control>
-			<control type="label">
-				<posx>34</posx>
-				<posy>20</posy>
-				<label>[LOWERCASE]$INFO[Weather.Location][/LOWERCASE]</label>
-				<textcolor>Color1</textcolor>
-				<include>PageLabel</include>
-				<include>transition_PageLabel</include>
-			</control>
-
-			<control type="group">
-				<control type="label">
-					<posx>20r</posx>
-					<width>300</width>
-					<label>$LOCALIZE[24069]</label>
-					<include>notificationTop</include>
-					<visible>!Skin.HasSetting(fanart.weather)</visible>
-				</control>
-				<control type="label">
-					<posx>20r</posx>
-					<width>300</width>
-					<label>$LOCALIZE[24069]</label>
-					<textcolor>Color1</textcolor>
-					<shadowcolor>ff000000</shadowcolor>
-					<include>notificationTop</include>
-					<visible>Skin.HasSetting(fanart.weather)</visible>
-				</control>
-				<control type="label">
-					<posx>20r</posx>
-					<width>300</width>
-					<label>$INFO[Window.Property(Updated)]</label>
-					<include>notificationBottom</include>
-					<visible>!Skin.HasSetting(fanart.weather)</visible>
-				</control>
-				<control type="label">
-					<posx>20r</posx>
-					<width>300</width>
-					<label>$INFO[Window.Property(Updated)]</label>
-					<textcolor>Color1</textcolor>
-					<shadowcolor>ff000000</shadowcolor>
-					<include>notificationBottom</include>
-					<visible>Skin.HasSetting(fanart.weather)</visible>
-				</control>
-			</control>
-
-			<control type="group">
-				<include>transition_Container</include>
-				<include>toggle_Menu</include>
-				<animation effect="slide" start="0,0" end="0,-150" time="0" condition="!Skin.HasSetting(fanart.weather)">Conditional</animation>
-				<control type="group" id="5000">
-					<posx>65</posx>
-					<posy>360</posy>
-					<onleft>6000</onleft>
-					<control type="label">
-						<label>$LOCALIZE[33006]</label>
-						<textcolor>Color1</textcolor>
-						<align>left</align>
-						<font>pagelabel</font>
-					</control>
-					<control type="fixedlist" id="100">
-						<posy>50</posy>
-						<width>400</width>
-						<height>600</height>
-						<itemlayout width="250" height="40">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-							<control type="label">
-								<posx>385</posx>
-								<include>label_Weather</include>
-								<info>ListItem.Label2</info>
-							</control>
-						</itemlayout>
-						<focusedlayout height="40" width="250">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-							<control type="label">
-								<posx>475</posx>
-								<include>label_Weather</include>
-								<info>ListItem.Label2</info>
-							</control>
-						</focusedlayout>
-						<content>
-							<item id="1">
-								<label>[B]$LOCALIZE[31101][/B]: $INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="2">
-								<label>[B]$LOCALIZE[33020][/B]: $INFO[Window(Weather).Property(Current.Condition)]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="3">
-								<label>[B]$LOCALIZE[402][/B]: $INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="4">
-								<label>[B]$LOCALIZE[405][/B]: $INFO[Window(Weather).Property(Current.DewPoint)]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="5">
-								<label>[B]$LOCALIZE[406][/B]: $INFO[Window(Weather).Property(Current.Humidity)]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="6">
-								<label>[B]$LOCALIZE[403][/B]: $INFO[Window(Weather).Property(Current.UVIndex)]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="7">
-								<label>[B]$LOCALIZE[404][/B]: $INFO[Window(Weather).Property(Current.Wind)]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-						</content>
-					</control>
-				</control>
-
-<!--- DAY ONE ---------------------------------------------------------------------------------------->
-				<control type="group">
-					<posx>380</posx>
-					<posy>360</posy>
-					<control type="label">
-						<label>[LOWERCASE]$INFO[Window.Property(Day1.Title)][/LOWERCASE]</label>
-						<textcolor>Color1</textcolor>
-						<width>400</width>
-						<font>pagelabel</font>
-					</control>
-					<control type="image">
-						<posy>200</posy>
-						<height>80</height>
-						<width>80</width>
-						<info>Window.Property(Day1.OutlookIcon)</info>
-						<aspectratio align="right">keep</aspectratio>
-					</control>
-					<control type="fixedlist" id="110">	
-						<posy>50</posy>
-						<width>400</width>
-						<height>600</height>
-						<itemlayout width="250" height="40">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-						</itemlayout>	
-						<focusedlayout height="40" width="250">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-						</focusedlayout>
-						<content>
-							<item id="1">
-								<label>[B]$INFO[Window.Property(Day1.Outlook)][/B]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="2">
-								<label>[B]$LOCALIZE[393] :[/B] $INFO[Window.Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="3">
-								<label>[B]$LOCALIZE[391] :[/B] $INFO[Window.Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-						</content>
-					</control>
-				</control>
-
-<!--- DAY TWO ---------------------------------------------------------------------------------------->
-				<control type="group">
-					<posx>660</posx>
-					<posy>360</posy>
-					<control type="label">
-						<label>[LOWERCASE]$INFO[Window.Property(Day2.Title)][/LOWERCASE]</label>
-						<textcolor>Color1</textcolor>
-						<width>400</width>
-						<font>pagelabel</font>
-					</control>
-					<control type="image">
-						<description>day icon</description>
-						<posy>200</posy>
-						<height>80</height>
-						<width>80</width>
-						<info>Window.Property(Day2.OutlookIcon)</info>
-						<aspectratio align="right">keep</aspectratio>
-					</control>
-					<control type="fixedlist" id="110">	
-						<posy>50</posy>
-						<width>400</width>
-						<height>600</height>
-						<itemlayout width="250" height="40">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-						</itemlayout>	
-						<focusedlayout height="40" width="250">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-						</focusedlayout>
-						<content>
-							<item id="1">
-								<label>[B]$INFO[Window.Property(Day2.Outlook)][/B]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="2">
-								<label>[B]$LOCALIZE[393] :[/B] $INFO[Window.Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="3">
-								<label>[B]$LOCALIZE[391] :[/B] $INFO[Window.Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-						</content>
-					</control>
-				</control>
-
-<!--- DAY THREE ---------------------------------------------------------------------------------------->
-				<control type="group">
-					<posx>940</posx>
-					<posy>360</posy>
-					<control type="label">
-						<label>[LOWERCASE]$INFO[Window.Property(Day3.Title)][/LOWERCASE]</label>
-						<textcolor>Color1</textcolor>
-						<width>400</width>
-						<font>pagelabel</font>
-					</control>
-					<control type="image">
-						<description>day icon</description>
-						<posy>200</posy>
-						<height>80</height>
-						<width>80</width>
-						<info>Window.Property(Day3.OutlookIcon)</info>
-						<aspectratio align="right">keep</aspectratio>
-					</control>
-					<control type="fixedlist" id="110">	
-						<posy>50</posy>
-						<width>400</width>
-						<height>600</height>
-						<itemlayout width="250" height="40">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-						</itemlayout>	
-						<focusedlayout height="40" width="250">
-							<control type="label">
-								<include>label_Weather</include>
-								<info>ListItem.Label</info>
-							</control>
-						</focusedlayout>
-						<content>
-							<item id="1">
-								<label>[B]$INFO[Window.Property(Day3.Outlook)][/B]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="2">
-								<label>[B]$LOCALIZE[393] :[/B] $INFO[Window.Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-							<item id="3">
-								<label>[B]$LOCALIZE[391] :[/B] $INFO[Window.Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
-								<label2></label2>
-								<onclick>-</onclick>
-							</item>
-						</content>
-					</control>
-				</control>
-			</control>		
 		</control>
-		<include>WeatherMenu</include>
-		<include>nav_Indicator</include>
+		
+		<control type="image">
+			<include>global_Screentype</include>
+			<aspectratio align="left">stretch</aspectratio>
+			<texture>home/menuBackground.png</texture>
+			<include>fadeinout</include>
+			<visible>ControlGroup(6000).HasFocus()</visible>
+		</control>
+		
+		<control type="label">
+			<posx>34</posx>
+			<posy>20</posy>
+			<label>[LOWERCASE]$INFO[Weather.Location][/LOWERCASE]</label>
+			<textcolor>Color1</textcolor>
+			<include>PageLabel</include>
+			<include>transition_PageLabel</include>
+		</control>
+		
+		<include>global_Includes</include>
+
+		<control type="group">
+			<control type="group" id="50">
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">10day</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">36hour</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Weekend</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Hourly</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Maps</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Alerts</include>
+			</control>
+		</control>
+		
+		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
+		
+		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherMenu</include>
+		<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">WeatherMenu2</include>
+		
+		<control type="button" id="50">
+			<onleft>6000</onleft>
+			<onright>3</onright>
+			<onup>3</onup>
+			<ondown>3</ondown>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+
 	</controls>
 </window>

@@ -1,0 +1,492 @@
+<includes>
+	<include name="Weekend">
+		
+		<control type="label">
+			<posx>38</posx>
+			<posy>58</posy>
+			<label>weekend forecast</label>
+			<font>smallerCaps</font>
+			<textcolor>Color3</textcolor>
+			<include>transition_PageLabel</include>
+			<visible>StringCompare(Window.Property(Weather.CurrentView),weekend)</visible>
+		</control>
+		
+		<control type="group">
+			<posx>50</posx>
+			<posy>110</posy>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<visible>StringCompare(Window.Property(Weather.CurrentView),weekend)</visible>
+			<!--friday-->
+			<control type="group">			
+				<visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
+				<!--date-->
+				<control type="image">
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column_Top.png</texture>
+					<colordiffuse>tv3</colordiffuse>
+				</control>
+				<control type="label">	
+					<posx>15</posx>
+					<posy>10</posy>
+					<width>600</width>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$LOCALIZE[15] [COLOR=Color2]$INFO[Window.Property(Weekend.1.Date)][/COLOR]</label>
+				</control>
+				<!--temps-->
+				<control type="image">
+					<posy>53</posy>
+					<width>142</width>
+					<height>120</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>53</posy>
+					<width>230</width>
+					<height>59</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>115</posy>
+					<width>230</width>
+					<height>58</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>15</posx>
+					<posy>55</posy>
+					<width>112</width>
+					<height>112</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Window.Property(Weekend.1.OutlookIcon)]</texture>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>53</posy>
+					<height>58</height>
+					<width>210</width>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[393] [B]$INFO[Window.Property(Weekend.1.HighTemperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>113</posy>
+					<width>210</width>
+					<height>58</height>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[391] [B]$INFO[Window.Property(Weekend.1.LowTemperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<!--outlook-->
+				<control type="image">
+					<posy>176</posy>
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>15</posx>
+					<posy>185</posy>
+					<width>575</width>
+					<font>titleAlt</font>
+					<textcolor>Color1</textcolor>
+					<label>$INFO[Window.Property(Weekend.1.Outlook)]</label>
+				</control>
+				<control type="image">
+					<posy>229</posy>
+					<width>375</width>
+					<height>130</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="textbox">
+					<posx>15</posx>
+					<posy>239</posy>
+					<width>350</width>
+					<height>130</height>
+					<label>$INFO[Window.Property(Weekend.1.Forecast)]</label>
+					<include>w+Description</include>
+				</control>
+				<!--stats-->
+				<control type="image">
+					<posy>362</posy>
+					<width>375</width>
+					<height>200</height>
+					<texture border="8">views/column_Bottom.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="grouplist">
+					<posx>15</posx>
+					<posy>372</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[406]: $INFO[Window.Property(Weekend.1.Humidity),,%]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[403]$INFO[Window.Property(Weekend.1.UV),: ]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[404]$INFO[Window.Property(Weekend.1.Wind),: ]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[33021]: $INFO[Window.Property(Weekend.1.Precipitation),,%]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[33027]$INFO[Window.Property(Weekend.1.Sunrise),: ]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[33028]$INFO[Window.Property(Weekend.1.Sunset),: ]</label>
+						<include>w+Label</include>
+					</control>
+				</control>
+			</control>
+			
+			<!--saturday-->
+			<control type="group">	
+				<posx>400</posx>		
+				<!--date-->
+				<control type="image">
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column_Top.png</texture>
+					<colordiffuse>tv3</colordiffuse>
+				</control>
+				<control type="label">	
+					<posx>15</posx>
+					<posy>10</posy>
+					<width>600</width>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$LOCALIZE[16] [COLOR=Color2]$INFO[Window.Property(Weekend.2.Date)][/COLOR]</label>
+				</control>
+				<!--temps-->
+				<control type="image">
+					<posy>53</posy>
+					<width>142</width>
+					<height>120</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>53</posy>
+					<width>230</width>
+					<height>59</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>115</posy>
+					<width>230</width>
+					<height>58</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>15</posx>
+					<posy>55</posy>
+					<width>112</width>
+					<height>112</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Window.Property(Weekend.2.OutlookIcon)]</texture>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>53</posy>
+					<height>58</height>
+					<width>210</width>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[393] [B]$INFO[Window.Property(Weekend.2.HighTemperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>113</posy>
+					<width>210</width>
+					<height>58</height>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[391] [B]$INFO[Window.Property(Weekend.2.LowTemperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<!--outlook-->
+				<control type="image">
+					<posy>176</posy>
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>15</posx>
+					<posy>185</posy>
+					<width>575</width>
+					<font>titleAlt</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(Weekend.2.Outlook)]</label>
+				</control>
+				<control type="image">
+					<posy>229</posy>
+					<width>375</width>
+					<height>130</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="textbox">
+					<posx>15</posx>
+					<posy>239</posy>
+					<width>350</width>
+					<height>130</height>
+					<font>normalAlt</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(Weekend.2.Forecast)]</label>
+				</control>
+				<!--stats-->
+				<control type="image">
+					<posy>362</posy>
+					<width>375</width>
+					<height>200</height>
+					<texture border="8">views/column_Bottom.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="grouplist">
+					<posx>15</posx>
+					<posy>372</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[406][/B] $INFO[Window.Property(Weekend.3.Humidity),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[403][/B] $INFO[Window.Property(Weekend.3.UV)]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[404][/B] $INFO[Window.Property(Weekend.3.Wind)]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[33021][/B] $INFO[Window.Property(Weekend.3.Precipitation),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[33027][/B] $INFO[Window.Property(Weekend.3.Sunrise)]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[33028][/B] $INFO[Window.Property(Weekend.3.Sunset)]</label>
+					</control>
+				</control>
+			</control>
+			
+			<!--sunday-->
+			<control type="group">	
+				<posx>800</posx>		
+				<!--date-->
+				<control type="image">
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column_Top.png</texture>
+					<colordiffuse>tv3</colordiffuse>
+				</control>
+				<control type="label">	
+					<posx>15</posx>
+					<posy>10</posy>
+					<width>600</width>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$LOCALIZE[17] [COLOR=Color2]$INFO[Window.Property(Weekend.3.Date)][/COLOR]</label>
+				</control>
+				<!--temps-->
+				<control type="image">
+					<posy>53</posy>
+					<width>142</width>
+					<height>120</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>53</posy>
+					<width>230</width>
+					<height>59</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>115</posy>
+					<width>230</width>
+					<height>58</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>15</posx>
+					<posy>55</posy>
+					<width>112</width>
+					<height>112</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Window.Property(Weekend.3.OutlookIcon)]</texture>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>53</posy>
+					<height>58</height>
+					<width>210</width>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[393] [B]$INFO[Window.Property(Weekend.3.HighTemperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>113</posy>
+					<width>210</width>
+					<height>58</height>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[391] [B]$INFO[Window.Property(Weekend.3.LowTemperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<!--outlook-->
+				<control type="image">
+					<posy>176</posy>
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>15</posx>
+					<posy>185</posy>
+					<width>575</width>
+					<font>titleAlt</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(Weekend.3.Outlook)]</label>
+				</control>
+				<control type="image">
+					<posy>229</posy>
+					<width>375</width>
+					<height>130</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="textbox">
+					<posx>15</posx>
+					<posy>239</posy>
+					<width>350</width>
+					<height>130</height>
+					<font>normalAlt</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(Weekend.3.Forecast)]</label>
+				</control>
+				<!--stats-->
+				<control type="image">
+					<posy>362</posy>
+					<width>375</width>
+					<height>200</height>
+					<texture border="8">views/column_Bottom.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="grouplist">
+					<posx>15</posx>
+					<posy>372</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[406][/B] $INFO[Window.Property(Weekend.3.Humidity),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[403][/B] $INFO[Window.Property(Weekend.3.UV)]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[404][/B] $INFO[Window.Property(Weekend.3.Wind)]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[33021][/B] $INFO[Window.Property(Weekend.3.Precipitation),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[33027][/B] $INFO[Window.Property(Weekend.3.Sunrise)]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<font>smallCaps</font>
+						<textcolor>white</textcolor>
+						<align>left</align>
+						<label>[B]$LOCALIZE[33028][/B] $INFO[Window.Property(Weekend.3.Sunset)]</label>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

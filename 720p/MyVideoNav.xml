@@ -38,7 +38,7 @@
 				<control type="group">
 					<posx>655</posx>
 					<posy>68</posy>
-					<visible>!stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(ListViewFanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes) | Container.Content(files)</visible>
+					<visible>!stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes) | Container.Content(files)</visible>
 					<control type="image">
 						<include>frame_Landscape-List</include>
 						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
@@ -98,7 +98,7 @@
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>Color7</textcolor>
 						<font>descriptionSmall</font>
-						<visible>Skin.HasSetting(ListViewFanart) + [Container.Content(movies) | Container.Content(tvshows)] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)]</visible>
+						<visible>Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)]</visible>
 					</control>
 					<control type="textbox">
 						<width>525</width>
@@ -116,7 +116,7 @@
 				<posx>750</posx>
 				<posy>65</posy>
 				<control type="group">
-					<visible>[[Container.Content(movies) + !Skin.HasSetting(ListViewFanart)] | [Container.Content(tvshows) + !Skin.HasSetting(ListViewFanart)] | Container.Content(seasons) | Container.Content(actors)]]</visible>
+					<visible>[[Container.Content(movies) + !Skin.HasSetting(view.list.fanart)] | [Container.Content(tvshows) + !Skin.HasSetting(view.list.fanart)] | Container.Content(seasons) | Container.Content(actors)]]</visible>
 					<control type="image">
 						<include>frame_Poster-List</include>
 					</control>
@@ -174,6 +174,27 @@
 		</control>
 		<include>info_MusicList</include>
 		<include>info_AddonList</include>
+		
+		<!--
+		<control type="group">
+			<control type="image">
+				<posy>260</posy>
+				<width>650</width>
+				<height>128</height>
+				<texture border="0,30,0,30">views/list-focus.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+				<animation effect="fade" time="110">VisibleChange</animation>
+				<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-201" time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-134" time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-67"	time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,0" time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(4)" effect="slide" start="0,0" end="0,67" time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,134" time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,201"	time="100" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,268"	time="100" reversible="true">Conditional</animation>
+		</control>
+		-->
 		
 <!---BIG LIST------>
 		<include>view_BigList</include>
@@ -635,7 +656,7 @@
 				<control type="label">
 					<label>$INFO[ListItem.Label]</label>
 					<font>osd1</font>
-					<textcolor>Color6</textcolor>
+					<textcolor>Color4</textcolor>
 					<include>screenwidth</include>
 				</control>
 				<control type="label">
@@ -644,7 +665,7 @@
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
 					<font>osd1</font>
 					<align>right</align>	
-					<textcolor>Color6</textcolor>
+					<textcolor>Color4</textcolor>
 				</control>
 				<control type="label">
 					<posx>1240</posx>
@@ -652,7 +673,7 @@
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),,/]$INFO[ListItem.Episode]</label>
 					<font>osd1</font>
 					<align>right</align>	
-					<textcolor>Color6</textcolor>
+					<textcolor>Color4</textcolor>
 				</control>
 				<control type="image">
 					<posx>-250</posx>
@@ -669,7 +690,7 @@
 					<height>115</height>
 					<label>$INFO[ListItem.Plot]</label>
 					<font>descriptionSmall</font>
-					<textcolor>Color6</textcolor>
+					<textcolor>Color4</textcolor>
 				</control>
 			</control>
 		</control>

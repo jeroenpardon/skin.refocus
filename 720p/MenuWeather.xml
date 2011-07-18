@@ -5,11 +5,9 @@
 			<control type="grouplist" id="6000">
 				<posx>-275</posx>
 				<posy>20</posy>
-				<onright>8000</onright>
+				<onright>50</onright>
 				<onup>6000</onup>
 				<ondown>6000</ondown>
-				<onleft>-</onleft>
-				<onright>1</onright>
 				<itemgap>-125</itemgap>
 				<include>MenuOpen</include>
 				<include>transition_Container</include>
@@ -34,6 +32,65 @@
 					<onleft>1</onleft>
 					<onright>1</onright>
 					<onclick>ActivateWindow(Favourites)</onclick>
+					<include>button_Menu</include>
+				</control>
+			</control>
+		</control>
+	</include>
+	
+	<include name="WeatherMenu2">
+		<control type="group">			
+			<control type="grouplist" id="6000">
+				<posx>-275</posx>
+				<posy>40</posy>
+				<onleft>9000</onleft>
+				<onright>50</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<itemgap>-125</itemgap>
+				<include>MenuOpen</include>
+				<include>transition_Container</include>
+				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus</visible>
+				<control type="button" id="1">
+					<include>button_Menu</include>
+					<label>10day</label>
+					<onclick>SetProperty(Weather.CurrentView,10day)</onclick>
+					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+				</control>
+				<control type="button" id="2">
+					<include>button_Menu</include>
+					<label>36 hour</label>
+					<onclick>SetProperty(Weather.CurrentView,36hour)</onclick>
+					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+				</control>
+				<control type="button" id="3">
+					<include>button_Menu</include>
+					<label>weekend</label>
+					<onclick>SetProperty(Weather.CurrentView,weekend)</onclick>
+					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+				</control>
+				<control type="button" id="4">
+					<include>button_Menu</include>
+					<label>hourly</label>
+					<onclick>SetProperty(Weather.CurrentView,hourly)</onclick>
+					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+				</control>
+				<control type="button" id="5">
+					<include>button_Menu</include>
+					<label>maps</label>
+					<onclick>SetProperty(Weather.CurrentView,maps)</onclick>
+					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+				</control>
+				<control type="button" id="6">
+					<include>button_Menu</include>
+					<label>Alerts</label>
+					<onclick>SetProperty(Weather.CurrentView,alerts)</onclick>
+					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+				</control>
+				<control type="button" id="7">
+					<description>Settings button</description>
+					<label>5</label>
+					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
 					<include>button_Menu</include>
 				</control>
 			</control>

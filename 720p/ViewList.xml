@@ -16,6 +16,14 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
+			<!--
+			<scrollcorrection>false</scrollcorrection>
+			<scrolltime tween="Cubic" easing="InOut">500</scrolltime>
+			-->
+			<!--
+			<focusposition>3</focusposition>
+			<movement>3</movement>
+			-->	
 			<include condition="Window.IsVisible(videolibrary)">ListVideo</include>
 			<include condition="Window.IsVisible(musiclibrary) | Window.IsActive(501)">ListMusic</include>
 			<include condition="Window.IsVisible(videoplaylist)">ListVideoPlaylist</include>
@@ -620,7 +628,6 @@
 		</focusedlayout>
 	</include>
 
-
 <!---MUSIC PLAYLIST------>
 	<include name="ListMusicPlaylist">
 		<itemlayout width="625" height="67">
@@ -714,7 +721,6 @@
 			</control>
 		</focusedlayout>
 	</include>
-
 
 <!---PICTURES------>
 	<include name="ListPictures">
@@ -929,12 +935,16 @@
 				<ondown>51</ondown>
 				<scrolltime>150</scrolltime>
 				<preloaditems>4</preloaditems>
+				<!--
+				<scrollcorrection>false</scrollcorrection>
+				<scrolltime tween="Cubic" easing="In">500</scrolltime>
+				-->
 				<pagecontrol>71</pagecontrol>
 				<orientation>vertical</orientation>
 				<focusposition>1</focusposition>
 				<animation effect="slide" start="0,0" end="0,8" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
 				<visible>![Container.Content(musicvideos) | Container.Content(files) | substring(container.folderpath,plugin://) | substring(container.folderpath,addons://)]</visible>
-				<itemlayout condition="Container.Content(episodes) | [!Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]"width="625" height="150">
+				<itemlayout condition="Container.Content(episodes) | [!Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]"width="625" height="150">
 					<control type="image">
 						<width>247</width>
 						<height>144</height>
@@ -1052,7 +1062,7 @@
 						<aspectratio align="right">keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout condition="Container.Content(episodes) | [!Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]" width="625" height="150">
+				<focusedlayout condition="Container.Content(episodes) | [!Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]]" width="625" height="150">
 					<control type="image">
 						<width>247</width>
 						<height>144</height>
@@ -1170,7 +1180,7 @@
 					</control>
 				</focusedlayout>
 	
-				<itemlayout condition="Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]"width="625" height="150">
+				<itemlayout condition="Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]"width="625" height="150">
 					<control type="image">
 						<width>100</width>
 						<height>144</height>
@@ -1244,7 +1254,7 @@
 						<aspectratio align="right">keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout condition="Skin.HasSetting(biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]" width="625" height="150">
+				<focusedlayout condition="Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]" width="625" height="150">
 					<control type="image">
 						<width>100</width>
 						<height>144</height>

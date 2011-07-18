@@ -1,0 +1,404 @@
+<includes>
+	<include name="36hour">
+
+		<control type="label">
+			<posx>38</posx>
+			<posy>58</posy>
+			<label>36 hour forecast</label>
+			<font>smallerCaps</font>
+			<textcolor>Color3</textcolor>
+			<include>transition_PageLabel</include>
+			<visible>StringCompare(Window.Property(Weather.CurrentView),36hour)</visible>
+		</control>
+
+		<control type="group">
+			<posx>50</posx>
+			<posy>220</posy>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<visible>StringCompare(Window.Property(Weather.CurrentView),36hour)</visible>
+			<!--today-->
+			<control type="group">			
+				<visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
+				<!--date-->
+				<control type="image">
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column_Top.png</texture>
+					<colordiffuse>tv3</colordiffuse>
+				</control>
+				<control type="label">	
+					<posx>15</posx>
+					<posy>10</posy>
+					<width>600</width>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(36Hour.1.Heading)]</label>
+				</control>
+				<!--temps-->
+				<control type="image">
+					<posy>53</posy>
+					<width>142</width>
+					<height>120</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>53</posy>
+					<width>230</width>
+					<height>59</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>115</posy>
+					<width>230</width>
+					<height>58</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>15</posx>
+					<posy>55</posy>
+					<width>112</width>
+					<height>112</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Window.Property(36Hour.1.OutlookIcon)]</texture>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>53</posy>
+					<height>58</height>
+					<width>210</width>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$INFO[Window.Property(36Hour.1.TemperatureHeading)] [B]$INFO[Window.Property(36Hour.1.Temperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>113</posy>
+					<width>210</width>
+					<height>58</height>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[391] [B]$INFO[Window.Property(36Hour.1.Temperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<!--outlook-->
+				<control type="image">
+					<posy>176</posy>
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>15</posx>
+					<posy>185</posy>
+					<width>575</width>
+					<font>titleAlt</font>
+					<textcolor>Color1</textcolor>
+					<label>$INFO[Window.Property(36Hour.1.Outlook)]</label>
+				</control>
+				<control type="image">
+					<posy>229</posy>
+					<width>375</width>
+					<height>144</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="textbox">
+					<posx>15</posx>
+					<posy>239</posy>
+					<width>350</width>
+					<height>130</height>
+					<label>$INFO[Window.Property(36Hour.1.Forecast)]</label>
+					<include>w+Description</include>
+				</control>
+				<!--stats-->
+				<control type="image">
+					<posy>376</posy>
+					<width>375</width>
+					<height>80</height>
+					<texture border="8">views/column_Bottom.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="grouplist">
+					<posx>15</posx>
+					<posy>386</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[33021]: $INFO[Window.Property(36Hour.1.Precipitation),,%]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$INFO[Window.Property(36Hour.1.DaylightTitle)]$INFO[Window.Property(36Hour.1.DaylightTime)]</label>
+						<include>w+Label</include>
+					</control>
+				</control>
+			</control>
+
+			<!--tomorrow-->
+			<control type="group">
+				<posx>400</posx>
+				<visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
+				<!--date-->
+				<control type="image">
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column_Top.png</texture>
+					<colordiffuse>tv3</colordiffuse>
+				</control>
+				<control type="label">	
+					<posx>15</posx>
+					<posy>10</posy>
+					<width>600</width>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(36Hour.2.Heading)]</label>
+				</control>
+				<!--temps-->
+				<control type="image">
+					<posy>53</posy>
+					<width>142</width>
+					<height>120</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>53</posy>
+					<width>230</width>
+					<height>59</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>115</posy>
+					<width>230</width>
+					<height>58</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>15</posx>
+					<posy>55</posy>
+					<width>112</width>
+					<height>112</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Window.Property(36Hour.2.OutlookIcon)]</texture>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>53</posy>
+					<height>58</height>
+					<width>210</width>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$INFO[Window.Property(36Hour.2.TemperatureHeading)] [B]$INFO[Window.Property(36Hour.2.Temperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>113</posy>
+					<width>210</width>
+					<height>58</height>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[391] [B]$INFO[Window.Property(36Hour.2.Temperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<!--outlook-->
+				<control type="image">
+					<posy>176</posy>
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>15</posx>
+					<posy>185</posy>
+					<width>575</width>
+					<font>titleAlt</font>
+					<textcolor>Color1</textcolor>
+					<label>$INFO[Window.Property(36Hour.2.Outlook)]</label>
+				</control>
+				<control type="image">
+					<posy>229</posy>
+					<width>375</width>
+					<height>144</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="textbox">
+					<posx>15</posx>
+					<posy>239</posy>
+					<width>350</width>
+					<height>130</height>
+					<label>$INFO[Window.Property(36Hour.2.Forecast)]</label>
+					<include>w+Description</include>
+				</control>
+				<!--stats-->
+				<control type="image">
+					<posy>376</posy>
+					<width>375</width>
+					<height>80</height>
+					<texture border="8">views/column_Bottom.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="grouplist">
+					<posx>15</posx>
+					<posy>386</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[33021]: $INFO[Window.Property(36Hour.2.Precipitation),,%]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$INFO[Window.Property(36Hour.2.DaylightTitle)]$INFO[Window.Property(36Hour.2.DaylightTime)]</label>
+						<include>w+Label</include>
+					</control>
+				</control>
+			</control>
+
+			<!--tomorrow night-->
+			<control type="group">
+				<posx>800</posx>
+				<visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
+				<!--date-->
+				<control type="image">
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column_Top.png</texture>
+					<colordiffuse>tv3</colordiffuse>
+				</control>
+				<control type="label">	
+					<posx>15</posx>
+					<posy>10</posy>
+					<width>600</width>
+					<font>title</font>
+					<textcolor>Color1</textcolor>
+					<align>left</align>
+					<label>$INFO[Window.Property(36Hour.3.Heading)]</label>
+				</control>
+				<!--temps-->
+				<control type="image">
+					<posy>53</posy>
+					<width>142</width>
+					<height>120</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>53</posy>
+					<width>230</width>
+					<height>59</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>145</posx>
+					<posy>115</posy>
+					<width>230</width>
+					<height>58</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>15</posx>
+					<posy>55</posy>
+					<width>112</width>
+					<height>112</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Window.Property(36Hour.3.OutlookIcon)]</texture>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>53</posy>
+					<height>58</height>
+					<width>210</width>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$INFO[Window.Property(36Hour.3.TemperatureHeading)] [B]$INFO[Window.Property(36Hour.3.Temperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<control type="label">
+					<posx>155</posx>
+					<posy>113</posy>
+					<width>210</width>
+					<height>58</height>
+					<font>titleSmall</font>
+					<textcolor>Color1</textcolor>
+					<align>center</align>
+					<label>$LOCALIZE[391] [B]$INFO[Window.Property(36Hour.3.Temperature),]$INFO[System.TemperatureUnits][/B]</label>
+				</control>
+				<!--outlook-->
+				<control type="image">
+					<posy>176</posy>
+					<width>375</width>
+					<height>50</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>15</posx>
+					<posy>185</posy>
+					<width>575</width>
+					<font>titleAlt</font>
+					<textcolor>Color1</textcolor>
+					<label>$INFO[Window.Property(36Hour.3.Outlook)]</label>
+				</control>
+				<control type="image">
+					<posy>229</posy>
+					<width>375</width>
+					<height>144</height>
+					<texture border="8">views/column.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="textbox">
+					<posx>15</posx>
+					<posy>239</posy>
+					<width>350</width>
+					<height>130</height>
+					<label>$INFO[Window.Property(36Hour.3.Forecast)]</label>
+					<include>w+Description</include>
+				</control>
+				<!--stats-->
+				<control type="image">
+					<posy>376</posy>
+					<width>375</width>
+					<height>80</height>
+					<texture border="8">views/column_Bottom.png</texture>
+					<colordiffuse>tv2</colordiffuse>
+				</control>
+				<control type="grouplist">
+					<posx>15</posx>
+					<posy>386</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<label>$LOCALIZE[33021]: $INFO[Window.Property(36Hour.3.Precipitation),,%]</label>
+						<include>w+Label</include>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<label>$INFO[Window.Property(36Hour.3.DaylightTitle)]$INFO[Window.Property(36Hour.3.DaylightTime)]</label>
+						<include>w+Label</include>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>
