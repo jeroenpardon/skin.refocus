@@ -39,55 +39,80 @@
 	</include>
 	
 	<include name="WeatherMenu2">
-		<control type="group">			
-			<control type="grouplist" id="6000">
-				<posx>-275</posx>
-				<posy>40</posy>
-				<onleft>9000</onleft>
+		<control type="group" id="6000">
+			<posx>-275</posx>
+			<posy>40</posy>
+			<onleft>9000</onleft>
+			<onright>50</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<include>MenuOpen</include>
+			<include>transition_Container</include>
+			<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+			
+			<control type="spincontrolex" id="3">
+				<posy>0</posy>
+				<font>-</font>
+				<include>button_Menu</include>
+				<label>-</label>
+				<onup>308</onup>
+				<ondown>300</ondown>
+			</control>
+			<control type="label" id="299">
+				<posx>0</posx>
+				<posy>-3</posy>
+				<label>location</label>
+				<include>button_Menu</include>
+				<ondown>302</ondown>
+				<visible>!Control.HasFocus(3)</visible>
+			</control>
+			<control type="label" id="300">
+				<posx>0</posx>
+				<posy>-3</posy>
+				<label>location</label>
+				<textcolor>Focused</textcolor>
+				<include>button_Menu</include>
+				<ondown>302</ondown>
+				<visible>Control.HasFocus(3)</visible>
+			</control>
+				
+			<control type="grouplist" id="301">
+				<posy>48</posy>
 				<onright>50</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
+				<onup>3</onup>
+				<ondown>3</ondown>
 				<itemgap>-125</itemgap>
-				<include>MenuOpen</include>
-				<include>transition_Container</include>
-				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus</visible>
-				<control type="button" id="1">
+				<control type="button" id="302">
 					<include>button_Menu</include>
 					<label>10day</label>
 					<onclick>SetProperty(Weather.CurrentView,10day)</onclick>
-					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 				</control>
-				<control type="button" id="2">
+				<control type="button" id="303">
 					<include>button_Menu</include>
 					<label>36 hour</label>
 					<onclick>SetProperty(Weather.CurrentView,36hour)</onclick>
-					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 				</control>
-				<control type="button" id="3">
+				<control type="button" id="304">
 					<include>button_Menu</include>
 					<label>weekend</label>
 					<onclick>SetProperty(Weather.CurrentView,weekend)</onclick>
-					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 				</control>
-				<control type="button" id="4">
+				<control type="button" id="305">
 					<include>button_Menu</include>
 					<label>hourly</label>
 					<onclick>SetProperty(Weather.CurrentView,hourly)</onclick>
-					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 				</control>
-				<control type="button" id="5">
+				<control type="button" id="306">
 					<include>button_Menu</include>
 					<label>maps</label>
 					<onclick>SetProperty(Weather.CurrentView,maps)</onclick>
-					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 				</control>
-				<control type="button" id="6">
+				<control type="button" id="307">
 					<include>button_Menu</include>
 					<label>Alerts</label>
 					<onclick>SetProperty(Weather.CurrentView,alerts)</onclick>
-					<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 				</control>
-				<control type="button" id="7">
+				<control type="button" id="308">
 					<description>Settings button</description>
 					<label>5</label>
 					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
