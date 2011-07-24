@@ -12,7 +12,7 @@
 					<include>global_Screentype</include>
 					<aspectratio>scale</aspectratio>
 					<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
-					<timeperimage>7000</timeperimage>
+					<timeperimage>10000</timeperimage>
 					<fadetime>850</fadetime>
 					<randomize>true</randomize>
 					<loop>yes</loop>
@@ -71,8 +71,8 @@
 		
 		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
 		
-		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherMenu</include>
-		<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">WeatherMenu2</include>
+		<include>WeatherMenu</include>
+
 		
 		<control type="button" id="50">
 			<onleft>6000</onleft>
@@ -81,6 +81,8 @@
 			<ondown>3</ondown>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
+		
+		<include>nav_Indicator</include>
 
 	</controls>
 </window>
