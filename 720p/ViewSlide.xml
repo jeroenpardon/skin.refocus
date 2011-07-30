@@ -1,5 +1,5 @@
 ﻿<includes>
-<!---POSTER------>
+<!---PORTRAIT------>
 	<include name="view_SlidePoster">
 		<control type="fixedlist" id="52">
 			<viewtype label="Slide">info</viewtype>
@@ -14,8 +14,10 @@
 			<orientation>horizontal</orientation>
 			<focusposition>1</focusposition>
 			<pagecontrol>72</pagecontrol>
-			<scrolltime>200</scrolltime>
-			<preloaditems>4</preloaditems>
+			
+			<scrolltime tween="Cubic" easing="InOut" pagescrolltime="800">800</scrolltime>
+			<scrollcorrection>agressive</scrollcorrection>
+						
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
@@ -78,7 +80,7 @@
 		</control>	
 	</include>
 
-<!---SLIDE VIEW WIDE------>
+<!---LANDSCAPE------>
 	<include name="view_SlideLandscape">
 		<control type="fixedlist" id="521">
 			<viewtype label="WideSlide">biginfo</viewtype>
@@ -90,7 +92,10 @@
 			<onright>521</onright>
 			<onup>6000</onup>
 			<ondown>72</ondown>
-			<scrolltime>200</scrolltime>
+			
+			<scrolltime tween="Cubic" easing="Out" pagescrolltime="500">500</scrolltime>
+			<scrollcorrection>agressive</scrollcorrection>
+			
 			<pagecontrol>72</pagecontrol>
 			<orientation>horizontal</orientation>
 			<focusposition>2</focusposition>
