@@ -650,7 +650,7 @@
 		<control type="group">
 			<posy>300</posy>
 			<include>transition_OSD</include>
-			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist)]</visible>
+			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd)]</visible>
 			<!---overlays--->
 			<control type="image">
 				<height>200</height>
@@ -850,7 +850,7 @@
 			<font>osd3</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_OSD2</include>
-			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist)]</visible>
+			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd)]</visible>
 		</control>
 	</include>
 </includes>
