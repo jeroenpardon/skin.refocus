@@ -1,5 +1,5 @@
 ﻿<window id="2600">
-	<defaultcontrol always="true">50</defaultcontrol>
+	<defaultcontrol always="true">2000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>global_Background</include>
@@ -58,29 +58,13 @@
 		
 		<include>global_Includes</include>
 
-		<control type="group">
-			<control type="group" id="50">
-				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">10day</include>
-				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">36hour</include>
-				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Weekend</include>
-				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Hourly</include>
-				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Maps</include>
-				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Alerts</include>
-			</control>
-		</control>
+		<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">WeatherPlus</include>
 		
 		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
 		
 		<include>WeatherMenu</include>
-
 		
-		<control type="button" id="50">
-			<onleft>6000</onleft>
-			<onright>3</onright>
-			<onup>3</onup>
-			<ondown>3</ondown>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
+		
 		
 		<include>nav_Indicator</include>
 

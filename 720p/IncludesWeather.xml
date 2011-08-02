@@ -10,7 +10,37 @@
 		<textcolor>Color7</textcolor>
 	</include>
 	
+	<include name="WeatherPlus">
+		<control type="button" id="2000">
+			<onleft>6000</onleft>
+			<onright>3</onright>
+			<onup>3</onup>
+			<ondown>3</ondown>
+			<visible allowhiddenfocus="true">false</visible>
+			<onfocus>SetProperty(Weather.CurrentView,10day)</onfocus>
+			<onfocus>SetFocus(50)</onfocus>
+		</control>
+		<control type="group">
+			<control type="group" id="50">
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">10day</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">36hour</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Weekend</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Hourly</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Maps</include>
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Alerts</include>
+			</control>
+		</control>
+	</include>
+	
 	<include name="WeatherStandard">
+		<control type="button" id="2000">
+			<onleft>6000</onleft>
+			<onright>3</onright>
+			<onup>3</onup>
+			<ondown>3</ondown>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+		
 		<control type="group">
 			<visible>Weather.IsFetched</visible>
 			<control type="label">
