@@ -372,11 +372,11 @@
 		</animation>
 	</include>
 	<include name="toggle_Menu">
-		<animation type="Conditional" condition="[ControlGroup(6000).HasFocus | Window.IsActive(111)] + !Skin.HasSetting(global.kiosk)">
+		<animation type="Conditional" condition="[ControlGroup(6000).HasFocus] + !Skin.HasSetting(global.kiosk)">
 			<effect type="zoom" time="250" center="640,360" start="100" end="55" />
 			<effect type="fade" time="250" center="640,360" start="100" end="20" />
 		</animation>			
-		<animation type="Conditional" condition="![ControlGroup(6000).HasFocus | Window.IsActive(111)] + !Skin.HasSetting(global.kiosk)">
+		<animation type="Conditional" condition="![ControlGroup(6000).HasFocus] + !Skin.HasSetting(global.kiosk)">
 			<effect type="zoom" time="250" center="640,360" start="140" end="100" />
 			<effect type="fade" time="250" center="640,360" start="20" end="100" />
 		</animation>

@@ -174,28 +174,7 @@
 		</control>
 		<include>info_MusicList</include>
 		<include>info_AddonList</include>
-		
-		<!--
-		<control type="group">
-			<control type="image">
-				<posy>260</posy>
-				<width>650</width>
-				<height>128</height>
-				<texture border="0,30,0,30">views/list-focus.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-				<animation effect="fade" time="110">VisibleChange</animation>
-				<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-201" time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-134" time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-67"	time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,0" time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(4)" effect="slide" start="0,0" end="0,67" time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,134" time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,201"	time="100" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,268"	time="100" reversible="true">Conditional</animation>
-		</control>
-		-->
-		
+
 <!---BIG LIST------>
 		<include>view_BigList</include>
 		
@@ -426,12 +405,13 @@
 							<width>750</width>
 							<include>info_Sub</include>
 							<!---is movie set--->
-							<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb,left) + !IsEmpty(ListItem.Title)</visible>
+							<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Property(ReleaseDate)$INFO[ListItem.Genre, • ]]</label>
 							<include>info_Sub</include>
 							<width>750</width>
+							<visible>!SubString(Container.FolderPath,plugin)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Artist]</label>
@@ -489,7 +469,7 @@
 					<width>450</width>
 					<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
 					<include>info_Sub</include>
-					<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/,left) + !IsEmpty(ListItem.Title)</visible>
+					<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
@@ -604,7 +584,7 @@
 						<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
 						<width>750</width>
 						<include>info_Sub</include>
-						<visible>ListItem.IsFolder + Substring(Container.FolderPath,videodb,left) + !IsEmpty(ListItem.Title)</visible>
+						<visible>ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<posy>47</posy>
