@@ -16,6 +16,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<visible>StringCompare(Window.Property(Weather.CurrentView),hourly)</visible>
+			<animation effect="slide" start="0,0" end="0,-80" time="0" condition="!Skin.HasSetting(fanart.weather)">Conditional</animation>
 			<!---column headers--->
 			<control type="group">
 				<control type="image">

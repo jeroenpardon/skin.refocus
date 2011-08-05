@@ -1,9 +1,10 @@
 ﻿<window id="2600">
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	
 	<controls>
 		<include>global_Background</include>
-		
+
 		<control type="group">
 			<visible>Weather.IsFetched</visible>
 			<control type="group">
@@ -35,18 +36,16 @@
 					<include>transition_Container</include>
 					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
 				</control>
-
 			</control>
 		</control>
 		
 		<control type="image">
-			<include>global_Screentype</include>
 			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground.png</texture>
+			<include>global_Screentype</include>
 			<include>fadeinout</include>
 			<visible>ControlGroup(6000).HasFocus()</visible>
 		</control>
-		
 		<control type="label">
 			<posx>34</posx>
 			<posy>20</posy>
@@ -55,7 +54,6 @@
 			<include>PageLabel</include>
 			<include>transition_PageLabel</include>
 		</control>
-		
 		<include>global_Includes</include>
 
 		<control type="group">
@@ -68,15 +66,9 @@
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Alerts</include>
 			</control>
 		</control>
-		
 		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
 		<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">WeatherPlus</include>
 		<include>WeatherMenu</include>
-
-		
-		
-		
 		<include>nav_Indicator</include>
-
 	</controls>
 </window>
