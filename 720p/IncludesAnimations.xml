@@ -115,6 +115,28 @@
 			<effect type="zoom" tween="Quadratic" start="135" end="100" center="150,150" time="200" />
 		</animation>
 	</include>
+	<include name="focus_SlideLoginUser">
+		<animation type="Visible" reversible="false">
+			<effect type="fade" start="0" end="100" delay="200" time="200" />
+		</animation>
+		<animation type="Hidden" reversible="false">
+			<effect type="fade" start="10" end="0" delay="0" time="100" />
+		</animation>
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="500" delay="200" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" delay="500" time="200" />
+		</animation>
+	</include>
+	<include name="focus_SlideLogin">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100,100" end="125,125" reversible="false" center="160,120" time="250"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="125,125" end="100,100" reversible="false" center="200,100" time="250" />
+		</animation>
+	</include>
 	<!--
 	<include name="focus_BannerList1">
 		<animation type="Focus" reversible="false">
