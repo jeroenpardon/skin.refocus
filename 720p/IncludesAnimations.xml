@@ -59,9 +59,6 @@
 		<animation effect="zoom" tween="Quadratic" start="100" end="125" center="90,125" time="200">Focus</animation>
 		<animation effect="zoom" tween="Quadratic" start="125" end="100" center="90,125" time="100">UnFocus</animation>
 	</include>
-	<include name="focus_ThumbPosterOverlay">
-		<animation effect="zoom" tween="Back" start="100" end="130" center="90,130" time="200">Focus</animation>
-	</include>
 	<include name="focus_ThumbPosterInfo">
 		<animation effect="zoom" tween="Quadratic" start="100" end="135" center="65,90" time="200">Focus</animation>
 		<animation effect="zoom" tween="Quadratic" start="135" end="100" center="65,90" time="100">UnFocus</animation>
@@ -74,19 +71,7 @@
 		<animation effect="zoom" tween="Cubic" start="100" end="130" center="110,80" time="200">Focus</animation>
 		<animation effect="zoom" tween="Cubic" start="130" end="100" center="110,80" time="200">UnFocus</animation>
 	</include>
-	<include name="focus_FanartThumbs">
-		<animation effect="zoom" tween="Cubic" start="100" end="120" center="170,100" time="200">Focus</animation>
-		<animation effect="zoom" tween="Cubic" start="120" end="100" center="170,100" time="200">UnFocus</animation>
-	</include>
 	<include name="focus_SlidePoster">
-		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="130" center="112,100" time="200"/>
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="130" end="100" center="112,100" time="200" />
-		</animation>
-	</include>
-	<include name="focus_SlidePosterOverlay">
 		<animation type="focus">
 			<effect type="zoom" tween="Quadratic" start="100" end="130" center="112,100" time="200"/>
 		</animation>
@@ -100,46 +85,6 @@
 		</animation>
 		<animation type="unfocus">
 			<effect type="zoom" tween="Quadratic" start="140" end="100" center="225,120" time="200" />
-		</animation>
-	</include>
-	<include name="focus_SlideWideOverlay">
-		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="140" center="166,116" time="200"/>
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="140" end="100" center="166,116" time="200" />
-		</animation>
-	</include>
-	<include name="focus_SlideEpisode">
-		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="135" center="200,130" time="200"/>
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="135" end="100" center="200,130" time="200" />
-		</animation>
-	</include>
-	<include name="focus_SlideEpisodeOverlay">
-		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="160" center="196,67" time="200"/>
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="160" end="100" center="196,67" time="200" />
-		</animation>
-	</include>
-	<include name="focus_GalleryPoster">
-		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="115" center="112,292" time="200"/>
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="115" end="100" center="112,292" time="200" />
-		</animation>
-	</include>
-	<include name="focus_SlideLogin">
-		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100,100" end="125,125" reversible="false" center="160,120" time="250"/>
-		</animation>
-		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="125,125" end="100,100" reversible="false" center="200,100" time="250" />
 		</animation>
 	</include>
 	<include name="focus_SlideLoginUser">
@@ -162,12 +107,7 @@
 			<effect type="fade" start="0" end="100" time="250" />
 		</animation>
 	</include>
-	<include name="focus_BannerList1">
-		<animation type="Focus" reversible="false">
-			<effect type="zoom" center="360,100" start="100" end="110" time="250" tween="Cubic" easing="out" />
-		</animation>
-	</include>
-	<include name="albumSlideFocus">
+	<include name="focus_SlideMusic">
 		<animation type="focus">
 			<effect type="zoom" tween="Quadratic" start="100" end="135" center="150,150" time="200"/>
 		</animation>
@@ -175,6 +115,68 @@
 			<effect type="zoom" tween="Quadratic" start="135" end="100" center="150,150" time="200" />
 		</animation>
 	</include>
+	<!--
+	<include name="focus_BannerList1">
+		<animation type="Focus" reversible="false">
+			<effect type="zoom" center="360,100" start="100" end="110" time="250" tween="Cubic" easing="out" />
+		</animation>
+	</include>
+	<include name="focus_SlideLogin">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100,100" end="125,125" reversible="false" center="160,120" time="250"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="125,125" end="100,100" reversible="false" center="200,100" time="250" />
+		</animation>
+	</include>
+	<include name="focus_GalleryPoster">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100" end="115" center="112,292" time="200"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="115" end="100" center="112,292" time="200" />
+		</animation>
+	</include>
+	<include name="focus_SlideEpisodeOverlay">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100" end="160" center="196,67" time="200"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="160" end="100" center="196,67" time="200" />
+		</animation>
+	</include>
+	<include name="focus_SlideWideOverlay">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100" end="140" center="166,116" time="200"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="140" end="100" center="166,116" time="200" />
+		</animation>
+	</include>
+	<include name="focus_SlideEpisode">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100" end="135" center="200,130" time="200"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="135" end="100" center="200,130" time="200" />
+		</animation>
+	</include>
+	<include name="focus_SlidePosterOverlay">
+		<animation type="focus">
+			<effect type="zoom" tween="Quadratic" start="100" end="130" center="112,100" time="200"/>
+		</animation>
+		<animation type="unfocus">
+			<effect type="zoom" tween="Quadratic" start="130" end="100" center="112,100" time="200" />
+		</animation>
+	</include>
+	<include name="focus_FanartThumbs">
+		<animation effect="zoom" tween="Cubic" start="100" end="120" center="170,100" time="200">Focus</animation>
+		<animation effect="zoom" tween="Cubic" start="120" end="100" center="170,100" time="200">UnFocus</animation>
+	</include>
+	<include name="focus_ThumbPosterOverlay">
+		<animation effect="zoom" tween="Back" start="100" end="130" center="90,130" time="200">Focus</animation>
+	</include>
+	-->
 
 <!---TRANSITIONS------>
 	<include name="transition_Fanart">		
@@ -237,16 +239,16 @@
 	</include>
 	<include name="transition_PageLabel">
 		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="350" delay="150"/>
+			<effect type="fade" start="0" end="100" time="350" delay="150" reversible="false"/>
 		</animation>
 		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="250" delay="0"/>
+			<effect type="fade" start="100" end="0" time="250" delay="0" reversible="false"/>
 		</animation>
 		<animation type="Visible">
-			<effect type="fade" start="0" end="100" time="350" delay="150"/>
+			<effect type="fade" start="0" end="100" time="350" delay="150" reversible="false"/>
 		</animation>
 		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" time="250" delay="0"/>
+			<effect type="fade" start="100" end="0" time="250" delay="0" reversible="false"/>
 		</animation>
 	</include>
 	<include name="transition_Indicator">
