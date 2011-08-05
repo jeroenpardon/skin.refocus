@@ -222,9 +222,10 @@
 						<altlabel>$LOCALIZE[31107]</altlabel>
 						<onright>50</onright>
 						<onup>16</onup>
-						<ondown>11</ondown>
+						<ondown>30</ondown>
 						<include>button_Menu</include>
 					</control>
+					<!--
 					<control type="button" id="11">
 						<description>Trailer Button</description>
 						<posy>344</posy>
@@ -236,24 +237,25 @@
 						<enable>!IsEmpty(ListItem.Trailer)</enable>
 						<include>button_Menu</include>
 					</control>
+					-->
 					<control type="button" id="30">
 						<description>Favourites Button</description>
-						<posy>387</posy>
+						<posy>344</posy>
 						<label>$LOCALIZE[1036]</label>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
-						<onup>11</onup>
+						<onup>17</onup>
 						<ondown>90</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
 				<!--layout options-->
 				<control type="group">
+					<posy>387</posy>
 					<visible>!ControlGroup(40).HasFocus()</visible>
 					<control type="button" id="90">
 						<description>SLIDE: use posters</description>
 						<label>$LOCALIZE[31061]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -267,7 +269,6 @@
 					<control type="button" id="90">
 						<description>SLIDE: use fanart</description>
 						<label>$LOCALIZE[31039]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -281,7 +282,6 @@
 					<control type="button" id="90">
 						<description>GALLERY: no fullscreen</description>
 						<label>$LOCALIZE[31063]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -295,7 +295,6 @@
 					<control type="button" id="90">
 						<description>GALLERY: fullscreen</description>
 						<label>$LOCALIZE[31062]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -310,7 +309,6 @@
 						<description>LIST: no fanart</description>
 						<label>$LOCALIZE[31061]</label>
 						<altlabel>$LOCALIZE[31039]</altlabel>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -323,7 +321,6 @@
 					<control type="button" id="90">
 						<description>THUMBS: info</description>
 						<label>$LOCALIZE[31975]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -337,7 +334,6 @@
 					<control type="button" id="90">
 						<description>THUMBS: no info</description>
 						<label>$LOCALIZE[31974]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -351,7 +347,6 @@
 					<control type="button" id="90">
 						<description>BIG LIST: use posters</description>
 						<label>$LOCALIZE[31039]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
@@ -363,7 +358,6 @@
 					<control type="button" id="90">
 						<description>BIG LIST: use fanart</description>
 						<label>$LOCALIZE[31061]</label>
-						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
