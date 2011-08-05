@@ -44,13 +44,13 @@
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(tvshows) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
+			<visible>Container.Content(tvshows) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
 		<!--music video sources-->
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
+			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
 
 	<!---library--->
@@ -106,7 +106,7 @@
 		<control type="label">
 			<label>$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[20360][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(episodes) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/,left)]</visible>
+			<visible>Container.Content(episodes) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
 		<!--new episodes videodb-->
 		<control type="label">
@@ -131,12 +131,12 @@
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[136][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>substring(container.folderpath,special://videoplaylists,left)</visible>
+			<visible>substring(container.folderpath,special://videoplaylists/)</visible>
 		</control>
 		<control type="label">
 			<label>$LOCALIZE[559] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>substring(container.folderpath,special://profile/playlists/video/,left)</visible>
+			<visible>substring(container.folderpath,special://profile/playlists/video/)</visible>
 		</control>
 		
 	<!---add-ons--->
