@@ -348,19 +348,29 @@
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
 					</control>
-					<control type="togglebutton" id="90">
+					<control type="button" id="90">
 						<description>BIG LIST: use posters</description>
-						<label>$LOCALIZE[31061]</label>
-						<altlabel>$LOCALIZE[31039]</altlabel>
+						<label>$LOCALIZE[31039]</label>
 						<posy>430</posy>
 						<onleft>2</onleft>
 						<onright>50</onright>
 						<onup>30</onup>
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
-						<selected>Skin.ToggleSetting(view.biglist.posters)</selected>
 						<include>button_Menu</include>
-						<visible>Control.IsVisible(51) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+						<visible>Skin.HasSetting(view.biglist.posters) + Control.IsVisible(51) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+					</control>
+					<control type="button" id="90">
+						<description>BIG LIST: use fanart</description>
+						<label>$LOCALIZE[31061]</label>
+						<posy>430</posy>
+						<onleft>2</onleft>
+						<onright>50</onright>
+						<onup>30</onup>
+						<ondown>1</ondown>
+						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
+						<include>button_Menu</include>
+						<visible>!Skin.HasSetting(view.biglist.posters) + Control.IsVisible(51) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 					</control>
 				</control>
 			</control>
