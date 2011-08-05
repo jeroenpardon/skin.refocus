@@ -1,19 +1,108 @@
 ﻿<window type="Window" id="111">
-	<defaultcontrol always="true">9000</defaultcontrol>
+	<defaultcontrol always="true">500</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<posx>455</posx>
+		<posy>197</posy>
 	</coordinates>
+	<include>dialogOpen</include>
+
 	<controls>
 		<control type="image">
-			<include>global_Screentype</include>
-			<aspectratio>stretch</aspectratio>
-			<texture>backgrounds/background.png</texture>
-			<include>transition_Container</include>
+			<width>370</width>
+			<height>367</height>
+			<texture border="9">dialogs/button_Menu.png</texture>
 		</control>
+
 		<control type="group">
-			<include>HomeMenu</include>
+			<control type="grouplist" id="500">
+				<posx>4</posx>
+				<posy>4</posy>
+				<width>362</width>
+				<height>360</height>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<onright>-</onright>
+				<scrolltime>150</scrolltime>
+				<itemgap>0</itemgap>
+				<!--search-->
+				<control type="button" id="501">
+					<width>362</width>
+					<label>$LOCALIZE[137]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>SendClick(8)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--clean lib-->
+				<control type="button" id="502">
+					<width>362</width>
+					<label>$LOCALIZE[334]</label>
+					<onclick>CleanLibrary(Video)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--settings-->
+				<control type="button" id="503">
+					<width>362</width>
+					<label>$LOCALIZE[5]</label>
+					<onclick>ActivateWindow(4)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--eject-->
+				<control type="button" id="504">
+					<width>362</width>
+					<label>$LOCALIZE[13391]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>EjectTray()</onclick>
+					<include>dialog_Button-list</include>
+
+				</control>
+				<!--logoff-->
+				<control type="button" id="505">
+					<width>362</width>
+					<label>$LOCALIZE[20126]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>system.logoff</onclick>		  
+					<include>dialog_Button-list</include>
+					<visible>System.HasLoginScreen</visible>
+				</control>
+				<!--hibernate-->
+				<control type="button" id="506">
+					<width>362</width>
+					<label>$LOCALIZE[13010]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Hibernate</onclick>
+					<include>dialog_Button-list</include>
+					<visible>System.CanHibernate</visible>
+				</control>
+				<!--suspend-->
+				<control type="button" id="507">
+					<width>362</width>
+					<label>$LOCALIZE[13011]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Suspend</onclick>
+					<include>dialog_Button-list</include>
+					<visible>System.CanSuspend</visible>
+				</control>
+				<!--quit-->
+				<control type="button" id="508">
+					<width>362</width>
+					<label>$LOCALIZE[13009]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Quit()</onclick>
+					<include>dialog_Button-list</include>
+					<visible>!System.Platform.Xbox</visible>
+				</control>
+				<!--shutdown-->
+				<control type="button" id="509">
+					<width>362</width>
+					<label>$LOCALIZE[13016]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>Powerdown</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+			</control>
 		</control>
 	</controls>
 </window>
