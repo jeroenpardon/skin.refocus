@@ -44,12 +44,12 @@
 						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/movie_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
 						<include>thumb_Landscape-List</include>
 						<visible>Container.Content(movies)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
 						<include>thumb_Landscape-List</include>
 						<visible>Container.Content(tvshows)</visible>
 					</control>
@@ -59,12 +59,12 @@
 						<visible>Container.Content(artists)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[Fanart.Image]</texture>
+						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[Fanart.Image]</texture>
 						<include>thumb_Landscape-List</include>
 						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Landscape-List</include>
 						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
 					</control>
