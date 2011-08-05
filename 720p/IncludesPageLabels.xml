@@ -38,7 +38,7 @@
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left) | SubString(Container.FolderPath,plugin,left)]</visible>
+			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left) | SubString(Container.FolderPath,plugin)]</visible>
 		</control>
 		<!--tvshows sources-->
 		<control type="label">
@@ -88,7 +88,7 @@
 		<control type="label">
 			<label>$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>substring(container.folderpath,plugin://plugin.video.apple,left)</visible>
+			<visible>substring(container.folderpath,plugin://plugin.video.apple)</visible>
 		</control>
 		<!--tvshows videodb-->
 		<control type="label">
@@ -144,7 +144,7 @@
 			<description>video add-ons</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>[substring(Container.folderpath,addons://sources/video/,left) | substring(Container.folderpath,plugin://)] + !substring(container.folderpath,plugin://plugin.video.apple,left)</visible>
+			<visible>[substring(Container.folderpath,addons://sources/video/,left) | substring(Container.folderpath,plugin://)] + !substring(container.folderpath,plugin://plugin.video.apple)</visible>
 		</control>
 	</include>
 		
