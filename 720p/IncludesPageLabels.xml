@@ -38,19 +38,19 @@
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/,left) | SubString(Container.FolderPath,plugin)]</visible>
+			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,plugin)]</visible>
 		</control>
 		<!--tvshows sources-->
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(tvshows) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
+			<visible>Container.Content(tvshows) + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
 		<!--music video sources-->
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://,left) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
+			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
 
 	<!---library--->
@@ -76,13 +76,13 @@
 		<control type="label">
 			<label>$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>SubString(Container.FolderPath,videodb://1/,left) + !stringcompare(Container.FolderPath,videodb://1/)</visible>
+			<visible>SubString(Container.FolderPath,videodb://1/) + !stringcompare(Container.FolderPath,videodb://1/)</visible>
 		</control>
 		<!--movies videodb new-->
 		<control type="label">
 			<label>$LOCALIZE[31926]</label>
 			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://4/,Left)</visible>
+			<visible>Substring(Container.FolderPath,videodb://4/)</visible>
 		</control>
 		<!--movies trailers-->
 		<control type="label">
@@ -94,7 +94,7 @@
 		<control type="label">
 			<label>$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>SubString(Container.FolderPath,videodb://2/,left) + !stringcompare(Container.FolderPath,videodb://2/) + !Container.Content(seasons) + !Container.Content(episodes)</visible>
+			<visible>SubString(Container.FolderPath,videodb://2/) + !stringcompare(Container.FolderPath,videodb://2/) + !Container.Content(seasons) + !Container.Content(episodes)</visible>
 		</control>
 		<!--seasons-->
 		<control type="label">
@@ -118,13 +118,13 @@
 		<control type="label">
 			<label>$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>SubString(Container.FolderPath,videodb://3/,left) + !stringcompare(Container.FolderPath,videodb://3/)</visible>
+			<visible>SubString(Container.FolderPath,videodb://3/) + !stringcompare(Container.FolderPath,videodb://3/)</visible>
 		</control>
 		<!--new music videos videodb-->
 		<control type="label">
 			<label>$LOCALIZE[31931]</label>
 			<include>PageLabel</include>
-			<visible>Substring(Container.FolderPath,videodb://6/,Left)</visible>
+			<visible>Substring(Container.FolderPath,videodb://6/)</visible>
 		</control>
 
 	<!---playlists--->		
@@ -144,7 +144,7 @@
 			<description>video add-ons</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>[substring(Container.folderpath,addons://sources/video/,left) | substring(Container.folderpath,plugin://)] + !substring(container.folderpath,plugin://plugin.video.apple)</visible>
+			<visible>[substring(Container.folderpath,addons://sources/video/) | substring(Container.folderpath,plugin://)] + !substring(container.folderpath,plugin://plugin.video.apple)</visible>
 		</control>
 	</include>
 		
