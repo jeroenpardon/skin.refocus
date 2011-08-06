@@ -645,7 +645,7 @@
 	</include>
 
 <!---OSD / SLIDESHOW------>
-	<include name="osd_Info">	
+	<include name="osd_Info">
 		<control type="group">
 			<posy>300</posy>
 			<include>transition_OSD</include>
@@ -668,6 +668,7 @@
 				<posx>40</posx>
 				<posy>220</posy>
 				<control type="image">
+					<posy>95</posy>
 					<aspectratio align="center">keep</aspectratio>
 					<include>flag_Label-audio</include>
 				</control>
@@ -725,20 +726,26 @@
 			<!---line 2--->
 				<!--music-->
 				<control type="grouplist">
-					<posy>30</posy>
+					<itemgap>0</itemgap>
+					<posy>35</posy>
 					<control type="label">
 						<width>1000</width>
-						<label>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album]</label>
+						<height>20</height>
+						<label>$INFO[MusicPlayer.Artist]</label>
 						<font>osd2</font>
 						<textcolor>Color2</textcolor>
 					</control>
 					<control type="label">
-						<posy>50</posy>
 						<width>1000</width>
-						<label>[COLOR=Color2]$LOCALIZE[209]: [/COLOR]$INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] [COLOR=Color2]($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])[/COLOR]</label>
+						<label>$INFO[MusicPlayer.Album,, • ]$INFO[MusicPlayer.Year]</label>
 						<font>osd2</font>
 						<textcolor>Color2</textcolor>
-						<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
+					</control>
+					<control type="label">
+						<width>1000</width>
+						<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
+						<font>osd2</font>
+						<textcolor>Color3</textcolor>
 					</control>
 				</control>
 				<!--video-->
@@ -851,5 +858,17 @@
 			<include>transition_OSD2</include>
 			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd)]</visible>
 		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>435</posy>
+			<width>195</width>
+			<height>195</height>
+			<aspectratio align="center">stretch</aspectratio>
+			<texture fallback="thumbs/tvshow_landscape.png" background="true">$INFO[MusicPlayer.Cover]</texture>
+			<bordertexture border="40">frames/frame_Square.png</bordertexture>
+			<bordersize>22</bordersize>
+			<include>transition_OSD2</include>
+			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd)]</visible>
+		</control>	
 	</include>
 </includes>

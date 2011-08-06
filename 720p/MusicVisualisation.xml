@@ -16,32 +16,36 @@
 		</control>
 		<include>osd_Info</include>
 		<control type="group">
+			<posx>5</posx>
+			<posy>5</posy>
 			<visible>Player.ShowCodec</visible>
-			<include>codecInfo</include>
 			<control type="image" id="1">
-				<include>global_Screenwidth</include>
-				<height>120</height>
-				<texture flipy="false">OSD/controlsFrame.png</texture>
+				<width>1270</width>
+				<height>93</height>
+				<texture border="16">black.png</texture>
 			</control>
 			<control type="group">
-				<posx>5</posx>
+				<posx>10</posx>
 				<posy>5</posy>
-				<control type="label">
+				<control type="label" id="10">
 					<width>1260</width>
 					<label>$INFO[Musicplayer.Codec,Codec: ,]$INFO[Musicplayer.Bitrate, · Bitrate: ,kbps]$INFO[MusicPlayer.Bitspersample, · Bits: ,bit]$INFO[MusicPlayer.SampleRate, · Freq: ,kHz]$INFO[MusicPlayer.Channels, · Channels: ]</label>
-					<include>dialog_Label-alt</include>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
 				</control>
-				<control type="label">
-					<posy>28</posy>
+				<control type="label" id="11">
+					<posy>26</posy>
 					<width>1260</width>
-					<label>$LOCALIZE[250]: $INFO[Visualisation.Name] [I]($LOCALIZE[20166])[/I] · FPS: $INFO[System.FPS]</label>
-					<include>dialog_Label-alt</include>
+					<label>$LOCALIZE[250]: $INFO[Visualisation.Name] [I]($LOCALIZE[20166])[/I] · FPS: $INFO[System.FPS]</label>>
+					<font>smallerCaps</font>
+					<textcolor>Color1</textcolor>
 				</control>
-				<control type="label">
-					<posy>51</posy>
+				<control type="label" id="12">
+					<posy>52</posy>
 					<width>1260</width>
 					<label fallback="· (UnAvailable)">$LOCALIZE[13388]: $INFO[Visualisation.Preset]</label>
-					<include>dialog_Label-alt</include>
+					<textcolor>Color1</textcolor>
+					<font>smallerCaps</font>
 				</control>
 			</control>
 		</control>
