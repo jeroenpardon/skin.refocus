@@ -2,19 +2,17 @@
 	<defaultcontrol always="true">401</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>455</posx>
-		<posy>100</posy>
+		<posx>411</posx>
+		<posy>96</posy>
 	</coordinates>
 	<include>dialogOpen</include>
-
 	<controls>
 		<control type="image">
-			<width>450</width>
+			<width>458</width>
 			<height>528</height>
 			<texture border="9">dialogs/button_Menu.png</texture>
 		</control>
-		
-		<!---tab separators--->		
+	<!---tab separators--->		
 		<control type="group">
 			<posy>43</posy>
 			<control type="image">
@@ -36,8 +34,7 @@
 				<visible>!Skin.String(tab,3)</visible>
 			</control>
 		</control>
-
-		<!---tabs--->
+	<!---tabs--->
 		<control type="group" id="400">
 			<posy>4</posy>
 			<control type="image">
@@ -146,9 +143,8 @@
 					<visible>!Skin.String(tab,3)</visible>
 				</control>
 			</control>
-		</control>
-		
-		<!---containers--->
+		</control>	
+	<!---containers--->
 		<control type="group">
 			<posx>4</posx>
 			<posy>44</posy>
@@ -165,7 +161,7 @@
 				<visible>Skin.String(tab,1)</visible>
 				<!--search-->
 				<control type="button" id="501">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[137]...</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>SendClick(8)</onclick>
@@ -173,7 +169,7 @@
 				</control>
 				<!--movies-->
 				<control type="button" id="502">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[342]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -181,7 +177,7 @@
 				</control>
 				<!--tv shows-->
 				<control type="button" id="503">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[20343]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -189,7 +185,7 @@
 				</control>
 				<!--new episodes-->
 				<control type="button" id="504">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[31094]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedepisodes)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -197,7 +193,7 @@
 				</control>
 				<!--music videos-->
 				<control type="button" id="505">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[20389]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -205,7 +201,7 @@
 				</control>
 				<!--custom 1-->
 				<control type="button" id="506">
-					<width>442</width>
+					<width>450</width>
 					<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
 					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist1.path)])</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -214,7 +210,7 @@
 				</control>
 				<!--custom 2-->
 				<control type="button" id="507">
-					<width>442</width>
+					<width>450</width>
 					<label>$INFO[Skin.String(videomenu.playlist2.label)]</label>
 					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist2.path)])</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -223,7 +219,7 @@
 				</control>
 				<!--custom 3-->
 				<control type="button" id="508">
-					<width>442</width>
+					<width>450</width>
 					<label>$INFO[Skin.String(videomenu.playlist3.label)]</label>
 					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist3.path)])</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -232,7 +228,7 @@
 				</control>
 				<!--custom 4-->
 				<control type="button" id="509">
-					<width>442</width>
+					<width>450</width>
 					<label>$INFO[Skin.String(videomenu.playlist4.label)]</label>
 					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist4.path)])</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -241,7 +237,7 @@
 				</control>
 				<!--addons-->
 				<control type="button" id="510">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[24001]</label>
 					<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -249,7 +245,7 @@
 				</control>
 				<!--playlists-->
 				<control type="button" id="511">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[136]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -257,7 +253,7 @@
 				</control>
 				<!--files-->
 				<control type="button" id="512">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[1024]</label>
 					<onclick>ActivateWindow(Videos,Files)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -266,7 +262,7 @@
 			</control>
 			<!--settings container-->
 			<control type="grouplist" id="600">
-				<width>442</width>
+				<width>450</width>
 				<height>480</height>
 				<onup>600</onup>
 				<ondown>600</ondown>
@@ -277,7 +273,7 @@
 				<visible>Skin.String(tab,2)</visible>
 				<!--skin-->
 				<control type="button" id="601">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[166]</label>
 					<onclick>ActivateWindow(59)</onclick>
 					<onclick>dialog.close(all,true)</onclick>		  
@@ -286,7 +282,7 @@
 				</control>
 				<!--appearance-->
 				<control type="button" id="602">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[480]</label>
 					<onclick>ActivateWindow(appearancesettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -295,7 +291,7 @@
 				</control>
 				<!--video-->
 				<control type="button" id="603">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[1212]</label>
 					<onclick>ActivateWindow(videossettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -304,7 +300,7 @@
 				</control>
 				<!--music-->
 				<control type="button" id="604">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[10005]</label>
 					<onclick>ActivateWindow(musicsettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -313,7 +309,7 @@
 				</control>
 				<!--tv-->
 				<control type="button" id="605">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[31090]</label>
 					<onclick>ActivateWindow(tvsettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -321,7 +317,7 @@
 				</control>
 				<!--pictures-->
 				<control type="button" id="606">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[10002]</label>
 					<onclick>ActivateWindow(picturessettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -329,7 +325,7 @@
 				</control>
 				<!--addons-->
 				<control type="button" id="607">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[24001]</label>
 					<onclick>ActivateWindow(addonbrowser)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -337,7 +333,7 @@
 				</control>
 				<!--network-->
 				<control type="button" id="608">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13279]</label>
 					<onclick>ActivateWindow(networksettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -345,7 +341,7 @@
 				</control>
 				<!--weather-->
 				<control type="button" id="609">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[8]</label>
 					<onclick>ActivateWindow(weathersettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -353,7 +349,7 @@
 				</control>
 				<!--system-->
 				<control type="button" id="610">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13000]</label>
 					<onclick>ActivateWindow(systemsettings)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -361,7 +357,7 @@
 				</control>
 				<!--profiles-->
 				<control type="button" id="611">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13200]</label>
 					<onclick>ActivateWindow(34)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -370,7 +366,7 @@
 			</control>
 			<!--exit container-->
 			<control type="grouplist" id="700">
-				<width>442</width>
+				<width>450</width>
 				<height>480</height>
 				<onup>600</onup>
 				<ondown>600</ondown>
@@ -381,7 +377,7 @@
 				<visible>Skin.String(tab,3)</visible>
 				<!--logoff-->
 				<control type="button" id="701">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[20126]</label>
 					<onclick>dialog.close(all,true)</onclick>
 					<onclick>system.logoff</onclick>		  
@@ -390,7 +386,7 @@
 				</control>
 				<!--hibernate-->
 				<control type="button" id="702">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13010]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Hibernate</onclick>
@@ -399,7 +395,7 @@
 				</control>
 				<!--suspend-->
 				<control type="button" id="703">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13011]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Suspend</onclick>
@@ -408,7 +404,7 @@
 				</control>
 				<!--quit-->
 				<control type="button" id="704">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13009]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Quit()</onclick>
@@ -417,7 +413,7 @@
 				</control>
 				<!--shutdown-->
 				<control type="button" id="705">
-					<width>442</width>
+					<width>450</width>
 					<label>$LOCALIZE[13016]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>Powerdown</onclick>
