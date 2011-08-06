@@ -1,55 +1,242 @@
 ﻿<window type="Window" id="111">
-	<defaultcontrol always="true">500</defaultcontrol>
+	<defaultcontrol always="true">401</defaultcontrol>
 	<coordinates>
 		<system>1</system>
 		<posx>455</posx>
-		<posy>197</posy>
+		<posy>100</posy>
 	</coordinates>
 	<include>dialogOpen</include>
 
 	<controls>
 		<control type="image">
 			<width>370</width>
-			<height>367</height>
+			<height>528</height>
 			<texture border="9">dialogs/button_Menu.png</texture>
 		</control>
 
 		<control type="group">
+			<control type="image">
+				<posx>4</posx>
+				<posy>43</posy>
+				<width>181</width>
+				<include>dialog_Separator</include>
+				<visible>!Skin.String(tab,1)</visible>
+			</control>
+			<control type="image">
+				<posx>185</posx>
+				<posy>43</posy>
+				<width>181</width>
+				<include>dialog_Separator</include>
+				<visible>!Skin.String(tab,2)</visible>
+			</control>
+			
+			<control type="group" id="400">
+				<!--search-->
+				
+				<control type="label" id="301">
+					<posx>4</posx>
+					<posy>4</posy>
+					<height>40</height>
+					<width>181</width>
+					<label>[B]media[/B]</label>
+					<textcolor>Color4</textcolor>
+					<include>dialog_Button-list</include>
+					<visible>Skin.String(tab,1)</visible>
+				</control>
+				<control type="label" id="302">
+					<posx>4</posx>
+					<posy>4</posy>
+					<height>40</height>
+					<width>181</width>
+					<label>[B]media[/B]</label>
+					<textcolor>Color3</textcolor>
+					<include>dialog_Button-list</include>
+					<visible>Skin.String(tab,2)</visible>
+				</control>
+				<control type="label" id="303">
+					<posx>185</posx>
+					<posy>4</posy>
+					<height>40</height>
+					<width>181</width>
+					<label>[B]exit[/B]</label>
+					<textcolor>Color4</textcolor>
+					<include>dialog_Button-list</include>
+					<visible>Skin.String(tab,2)</visible>
+				</control>
+				<control type="label" id="304">
+					<posx>185</posx>
+					<posy>4</posy>
+					<height>40</height>
+					<width>181</width>
+					<label>[B]exit[/B]</label>
+					<textcolor>Color3</textcolor>
+					<include>dialog_Button-list</include>
+					<visible>Skin.String(tab,1)</visible>
+				</control>
+				
+				
+				
+				<control type="button" id="401">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>181</width>
+					<onup>-</onup>
+					<ondown>501</ondown>
+					<onleft>401</onleft>
+					<onright>402</onright>
+					<label>-</label>
+					<onfocus>Skin.SetString(tab,1)</onfocus>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>SendClick(8)</onclick>
+					<textcolor>Color4</textcolor>
+					<focusedcolor>Color3</focusedcolor>
+					<texturenofocus border="3">-</texturenofocus>
+					<texturefocus border="3">-</texturefocus>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--clean lib-->
+				<control type="image">
+					<posx>184</posx>
+					<posy>4</posy>
+					<height>40</height>
+					<include>dialog_Separator-y</include>
+				</control>
+				<control type="button" id="402">
+					<posx>185</posx>
+					<posy>4</posy>
+					<onup>-</onup>
+					<ondown>601</ondown>
+					<onleft>401</onleft>
+					<onright>401</onright>
+					<width>181</width>
+					<label>-</label>
+					<onfocus>Skin.SetString(tab,2)</onfocus>
+					<onclick>CleanLibrary(Video)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<textcolor>Color4</textcolor>
+					<focusedcolor>Color3</focusedcolor>
+					<texturenofocus border="3">-</texturenofocus>
+					<texturefocus border="3">-</texturefocus>
+					<include>dialog_Button-list</include>
+				</control>
+			</control>
+			
+			
 			<control type="grouplist" id="500">
 				<posx>4</posx>
-				<posy>4</posy>
+				<posy>44</posy>
 				<width>362</width>
-				<height>360</height>
+				<height>480</height>
 				<onup>500</onup>
 				<ondown>500</ondown>
-				<onright>-</onright>
+				<onright>402</onright>
 				<scrolltime>150</scrolltime>
 				<itemgap>0</itemgap>
+				<include>fadeinout</include>
+				<visible>Skin.String(tab,1)</visible>
 				<!--search-->
 				<control type="button" id="501">
 					<width>362</width>
-					<label>$LOCALIZE[137]</label>
+					<label>$LOCALIZE[137]...</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>SendClick(8)</onclick>
 					<include>dialog_Button-list</include>
 				</control>
-				<!--clean lib-->
+				<!--movies-->
 				<control type="button" id="502">
 					<width>362</width>
-					<label>$LOCALIZE[334]</label>
-					<onclick>CleanLibrary(Video)</onclick>
+					<label>$LOCALIZE[342]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<include>dialog_Button-list</include>
 				</control>
-				<!--settings-->
+				<!--tv shows-->
 				<control type="button" id="503">
 					<width>362</width>
-					<label>$LOCALIZE[5]</label>
-					<onclick>ActivateWindow(4)</onclick>
+					<label>$LOCALIZE[20343]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<include>dialog_Button-list</include>
 				</control>
-				<!--eject-->
+				<!--new episodes-->
+				<control type="button" id="504">
+					<width>362</width>
+					<label>$LOCALIZE[31094]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedepisodes)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--music videos-->
+				<control type="button" id="505">
+					<width>362</width>
+					<label>$LOCALIZE[20389]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--custom 1-->
+				<control type="button" id="506">
+					<width>362</width>
+					<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
+					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist1.path)])</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Skin.HasSetting(videomenu.playlist1)</visible>
+				</control>
+				<!--custom 2-->
+				<control type="button" id="507">
+					<width>362</width>
+					<label>$INFO[Skin.String(videomenu.playlist2.label)]</label>
+					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist2.path)])</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Skin.HasSetting(videomenu.playlist2)</visible>
+				</control>
+				<!--custom 3-->
+				<control type="button" id="508">
+					<width>362</width>
+					<label>$INFO[Skin.String(videomenu.playlist3.label)]</label>
+					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist3.path)])</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Skin.HasSetting(videomenu.playlist3)</visible>
+				</control>
+				<!--custom 4-->
+				<control type="button" id="509">
+					<width>362</width>
+					<label>$INFO[Skin.String(videomenu.playlist4.label)]</label>
+					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist4.path)])</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Skin.HasSetting(videomenu.playlist4)</visible>
+				</control>
+				<!--addons-->
+				<control type="button" id="510">
+					<width>362</width>
+					<label>$LOCALIZE[24001]</label>
+					<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--playlists-->
+				<control type="button" id="511">
+					<width>362</width>
+					<label>$LOCALIZE[136]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--files-->
+				<control type="button" id="512">
+					<width>362</width>
+					<label>$LOCALIZE[1024]</label>
+					<onclick>ActivateWindow(Videos,Files)</onclick>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				
+				
+				<!--tv shows
 				<control type="button" id="504">
 					<width>362</width>
 					<label>$LOCALIZE[13391]</label>
@@ -57,9 +244,26 @@
 					<onclick>EjectTray()</onclick>
 					<include>dialog_Button-list</include>
 					<visible>System.HasMediaDVD</visible>
-				</control>
+				</control>-->
+
+			</control>
+			
+			
+			<control type="grouplist" id="600">
+				<posx>4</posx>
+				<posy>44</posy>
+				<width>362</width>
+				<height>360</height>
+				<onup>600</onup>
+				<ondown>600</ondown>
+				<onleft>401</onleft>
+				<scrolltime>150</scrolltime>
+				<itemgap>0</itemgap>
+				<include>fadeinout</include>
+				<visible>Skin.String(tab,2)</visible>
+
 				<!--logoff-->
-				<control type="button" id="505">
+				<control type="button" id="601">
 					<width>362</width>
 					<label>$LOCALIZE[20126]</label>
 					<onclick>dialog.close(all,true)</onclick>
@@ -68,7 +272,7 @@
 					<visible>System.HasLoginScreen</visible>
 				</control>
 				<!--hibernate-->
-				<control type="button" id="506">
+				<control type="button" id="602">
 					<width>362</width>
 					<label>$LOCALIZE[13010]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -77,7 +281,7 @@
 					<visible>System.CanHibernate</visible>
 				</control>
 				<!--suspend-->
-				<control type="button" id="507">
+				<control type="button" id="603">
 					<width>362</width>
 					<label>$LOCALIZE[13011]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -86,7 +290,7 @@
 					<visible>System.CanSuspend</visible>
 				</control>
 				<!--quit-->
-				<control type="button" id="508">
+				<control type="button" id="604">
 					<width>362</width>
 					<label>$LOCALIZE[13009]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -95,7 +299,7 @@
 					<visible>!System.Platform.Xbox</visible>
 				</control>
 				<!--shutdown-->
-				<control type="button" id="509">
+				<control type="button" id="605">
 					<width>362</width>
 					<label>$LOCALIZE[13016]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
@@ -103,6 +307,8 @@
 					<include>dialog_Button-list</include>
 				</control>
 			</control>
+			
+			
 		</control>
 	</controls>
 </window>
