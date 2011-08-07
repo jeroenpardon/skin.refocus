@@ -55,7 +55,9 @@
 			<include>transition_PageLabel</include>
 		</control>
 		<include>global_Includes</include>
-
+		
+		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
+		
 		<control type="group">
 			<control type="group" id="50">
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">10day</include>
@@ -66,7 +68,7 @@
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Alerts</include>
 			</control>
 		</control>
-		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
+		
 		<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">WeatherPlus</include>
 		<include>WeatherMenu</include>
 		<include>nav_Indicator</include>

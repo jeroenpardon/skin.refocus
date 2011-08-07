@@ -16,6 +16,7 @@
 			<posy>220</posy>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
+			<animation effect="slide" start="0,0" end="0,-70" time="0" condition="!Skin.HasSetting(fanart.weather)">Conditional</animation>
 			<visible>StringCompare(Window.Property(Weather.CurrentView),36hour)</visible>
 			<!--today-->
 			<control type="group">			
@@ -115,9 +116,10 @@
 					<posx>15</posx>
 					<posy>239</posy>
 					<width>350</width>
-					<height>130</height>
+					<height>125</height>
 					<label>$INFO[Window.Property(36Hour.1.Forecast)]</label>
 					<include>w+Description</include>
+					<include>autoscroll-plot</include>
 				</control>
 				<!--stats-->
 				<control type="image">
@@ -243,9 +245,10 @@
 					<posx>15</posx>
 					<posy>239</posy>
 					<width>350</width>
-					<height>130</height>
+					<height>125</height>
 					<label>$INFO[Window.Property(36Hour.2.Forecast)]</label>
 					<include>w+Description</include>
+					<include>autoscroll-plot</include>
 				</control>
 				<!--stats-->
 				<control type="image">
@@ -371,9 +374,10 @@
 					<posx>15</posx>
 					<posy>239</posy>
 					<width>350</width>
-					<height>130</height>
+					<height>125</height>
 					<label>$INFO[Window.Property(36Hour.3.Forecast)]</label>
 					<include>w+Description</include>
+					<include>autoscroll-plot</include>
 				</control>
 				<!--stats-->
 				<control type="image">
