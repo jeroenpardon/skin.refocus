@@ -248,6 +248,7 @@
 						<onup>30</onup>
 						<ondown>1</ondown>
 						<onclick>Container.SetViewMode(52)</onclick>
+						<onclick>SetFocus(52)</onclick>
 						<onclick>Skin.ToggleSetting(view.slide.fanart)</onclick>
 						<selected>Skin.HasSetting(view.slide.fanart)</selected>
 						<include>button_Menu</include>
@@ -262,6 +263,7 @@
 						<ondown>1</ondown>
 						<onclick>Container.SetViewMode(521)</onclick>
 						<onclick>Skin.ToggleSetting(view.slide.fanart)</onclick>
+						<onclick>SetFocus(521)</onclick>
 						<selected>!Skin.HasSetting(view.slide.fanart)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows)] + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
@@ -275,6 +277,7 @@
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
 						<onclick>Container.SetViewMode(53)</onclick>
+						<onclick>SetFocus(53)</onclick>
 						<selected>!Skin.HasSetting(view.gallery.full)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
@@ -288,6 +291,7 @@
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
 						<onclick>Container.SetViewMode(531)</onclick>
+						<onclick>SetFocus(531)</onclick>
 						<selected>Skin.HasSetting(view.gallery.full)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
@@ -301,6 +305,7 @@
 						<onup>30</onup>
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.list.fanart)</onclick>
+						<onclick>SetFocus(50)</onclick>
 						<selected>!Skin.HasSetting(view.list.fanart)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)] + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
@@ -314,6 +319,7 @@
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.thumbnails.info)</onclick>
 						<onclick>Container.SetViewMode(571)</onclick>
+						<onclick>SetFocus(571)</onclick>
 						<selected>!Skin.HasSetting(view.thumbnails.info)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(57) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
@@ -327,6 +333,7 @@
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.thumbnails.info)</onclick>
 						<onclick>Container.SetViewMode(57)</onclick>
+						<onclick>SetFocus(57)</onclick>
 						<selected>Skin.HasSetting(view.thumbnails.info)</selected>
 						<include>button_Menu</include>
 						<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
@@ -339,6 +346,7 @@
 						<onup>30</onup>
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
+						<onclick>SetFocus(51)</onclick>
 						<include>button_Menu</include>
 						<visible>Skin.HasSetting(view.biglist.posters) + Control.IsVisible(51) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 					</control>
@@ -350,6 +358,7 @@
 						<onup>30</onup>
 						<ondown>1</ondown>
 						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
+						<onclick>SetFocus(51)</onclick>
 						<include>button_Menu</include>
 						<visible>!Skin.HasSetting(view.biglist.posters) + Control.IsVisible(51) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 					</control>
