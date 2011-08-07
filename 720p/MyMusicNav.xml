@@ -193,6 +193,11 @@
 				<control type="group">
 					<visible>Container.Content(albums)</visible>
 					<control type="label">
+						<label>$INFO[ListItem.Label]</label>
+						<include>info_Title</include>
+						<visible>IsEmpty(ListItem.Album)</visible>
+					</control>
+					<control type="label">
 						<label>$INFO[ListItem.Album]</label>
 						<include>info_Title</include>
 					</control>
