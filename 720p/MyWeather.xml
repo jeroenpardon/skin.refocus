@@ -3,6 +3,11 @@
 	<allowoverlay>no</allowoverlay>
 	
 	<controls>
+		<control type="button" id="50">
+			<onleft>6000</onleft>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+		
 		<include>global_Background</include>
 
 		<control type="group">
@@ -56,10 +61,12 @@
 		</control>
 		<include>global_Includes</include>
 		
-		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
+		<include>WeatherStandard</include>
+		
+		
 		
 		<control type="group">
-			<control type="group" id="50">
+			<control type="group" id="60">
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">10day</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">36hour</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Weekend</include>

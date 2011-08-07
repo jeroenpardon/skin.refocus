@@ -11,19 +11,13 @@
 	</include>
 	
 	<include name="WeatherPlus">
-		<control type="button" id="50">
-			<onleft>6000</onleft>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
+
 	</include>
 	
 	<include name="WeatherStandard">
-		<control type="button" id="50">
-			<onleft>6000</onleft>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
+		
 		<control type="group">
-			<visible>Weather.IsFetched</visible>
+			<visible>Weather.IsFetched + IsEmpty(Window.Property(Weather.CurrentView))</visible>
 			<control type="label">
 				<posx>34</posx>
 				<posy>20</posy>
