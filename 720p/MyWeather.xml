@@ -1,13 +1,15 @@
 ﻿<window id="2600">
-	<defaultcontrol always="true">50</defaultcontrol>
+	<defaultcontrol>50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	
 	<controls>
 		<control type="button" id="50">
 			<onleft>6000</onleft>
+			<ondown>51</ondown>
 			<visible allowhiddenfocus="true">false</visible>
+			<!--<onfocus>ClearProperty(Weather.CurrentView)</onfocus>-->
 		</control>
-		
+
 		<include>global_Background</include>
 
 		<control type="group">
@@ -60,22 +62,17 @@
 			<include>transition_PageLabel</include>
 		</control>
 		<include>global_Includes</include>
-		
-		<include>WeatherStandard</include>
-		
-		
-		
-		<control type="group">
+
+		<include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">WeatherStandard</include>
 			<control type="group" id="60">
+				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Default</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">10day</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">36hour</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Weekend</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Hourly</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Maps</include>
 				<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Alerts</include>
-			</control>
-		</control>
-		
+			</control>	
 		<include condition="StringCompare(Weather.Plugin,weather.weatherplus)">WeatherPlus</include>
 		<include>WeatherMenu</include>
 		<include>nav_Indicator</include>

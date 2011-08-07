@@ -54,43 +54,49 @@
 					</control>
 					<control type="button" id="302">
 						<include>button_Menu</include>
+						<label>overview</label>
+						<onclick>SetProperty(Weather.CurrentView,Default)</onclick>
+						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+					</control>
+					<control type="button" id="303">
+						<include>button_Menu</include>
 						<label>10day</label>
 						<onclick>SetProperty(Weather.CurrentView,10day)</onclick>
 						<onclick>SetFocus(51)</onclick>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
-					<control type="button" id="303">
+					<control type="button" id="304">
 						<include>button_Menu</include>
 						<label>36 hour</label>
 						<onclick>SetProperty(Weather.CurrentView,36hour)</onclick>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
-					<control type="button" id="304">
+					<control type="button" id="305">
 						<include>button_Menu</include>
 						<label>weekend</label>
 						<onclick>SetProperty(Weather.CurrentView,weekend)</onclick>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
-					<control type="button" id="305">
+					<control type="button" id="306">
 						<label>hourly</label>
 						<onclick>SetProperty(Weather.CurrentView,hourly)</onclick>
 						<onclick>SetFocus(52)</onclick>
 						<include>button_Menu</include>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
-					<control type="button" id="306">
+					<control type="button" id="307">
 						<include>button_Menu</include>
 						<label>maps</label>
 						<onclick>SetProperty(Weather.CurrentView,maps)</onclick>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
-					<control type="button" id="307">
+					<control type="button" id="308">
 						<include>button_Menu</include>
 						<label>Alerts</label>
 						<onclick>SetProperty(Weather.CurrentView,alerts)</onclick>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
-					<control type="button" id="308">
+					<control type="button" id="309">
 						<description>Settings button</description>
 						<label>5</label>
 						<onclick>ActivateWindow(MyWeatherSettings)</onclick>

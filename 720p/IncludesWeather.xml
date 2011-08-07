@@ -11,13 +11,14 @@
 	</include>
 	
 	<include name="WeatherPlus">
-
+		<control type="group">
+			<include>WeatherStandard</include>
+		</control>
 	</include>
 	
 	<include name="WeatherStandard">
-		
 		<control type="group">
-			<visible>Weather.IsFetched + IsEmpty(Window.Property(Weather.CurrentView))</visible>
+			<visible>Weather.IsFetched + StringCompare(Window.Property(Weather.CurrentView),Default) | IsEmpty(Window.Property(Weather.CurrentView))</visible>
 			<control type="label">
 				<posx>34</posx>
 				<posy>20</posy>
