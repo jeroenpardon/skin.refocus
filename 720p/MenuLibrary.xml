@@ -225,19 +225,6 @@
 						<ondown>30</ondown>
 						<include>button_Menu</include>
 					</control>
-					<!--
-					<control type="button" id="11">
-						<description>Trailer Button</description>
-						<posy>344</posy>
-						<label>$LOCALIZE[20410]</label>
-						<onright>50</onright>
-						<onup>17</onup>
-						<ondown>30</ondown>
-						<onclick>PlayMedia($INFO[ListItem.Trailer])</onclick>
-						<enable>!IsEmpty(ListItem.Trailer)</enable>
-						<include>button_Menu</include>
-					</control>
-					-->
 					<control type="button" id="30">
 						<description>Favourites Button</description>
 						<posy>344</posy>
@@ -387,7 +374,7 @@
 					<label>[UPPERCASE]$LOCALIZE[31930][/UPPERCASE]</label>
 					<onleft>1</onleft>
 					<onright>50</onright>
-					<onup>90</onup>
+					<onup>30</onup>
 					<ondown>3</ondown>
 					<onclick>SetFocus(40)</onclick>
 					<include>button_Menu</include>
@@ -452,7 +439,7 @@
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(574)</onclick>
 						<include>button_Menu</include>
-						<visible>stringcompare(container.folderpath,addons://sources/audio/) | substring(container.folderpath,plugin://)</visible>
+						<visible>substring(Container.FolderPath,addons://) | substring(container.folderpath,plugin://)</visible>
 					</control>
 					<control type="button" id="46">
 						<label>$LOCALIZE[31014]</label>
@@ -535,7 +522,7 @@
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
 						<onup>16</onup>
-						<ondown>90</ondown>
+						<ondown>1</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
