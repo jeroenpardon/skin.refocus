@@ -61,7 +61,6 @@
 					<control type="button" id="303">
 						<label>10 $LOCALIZE[12393]</label>
 						<onclick>SetProperty(Weather.CurrentView,10day)</onclick>
-						<onclick>SetFocus(51)</onclick>
 						<include>button_Menu</include>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
 					</control>
@@ -100,6 +99,7 @@
 						<onclick>SetProperty(Weather.CurrentView,alerts)</onclick>
 						<include>button_Menu</include>
 						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+						<enable>!IsEmpty(Window.Property(alerts))</enable>
 					</control>
 					<!--settings-->
 					<control type="button" id="309">
