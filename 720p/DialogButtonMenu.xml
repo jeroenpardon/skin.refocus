@@ -1,5 +1,5 @@
 ﻿<window type="Window" id="111">
-	<defaultcontrol always="true">401</defaultcontrol>
+	<defaultcontrol always="true">500</defaultcontrol>
 	<coordinates>
 		<system>1</system>
 		<posx>411</posx>
@@ -8,387 +8,98 @@
 	<include>dialogOpen</include>
 	<controls>
 		<control type="image">
-			<width>458</width>
-			<height>538</height>
-			<texture border="9">dialogs/button_Menu.png</texture>
+			<width>387</width>
+			<height>380</height>
+			<include>dialogWindow</include>
 		</control>
-	<!---tab separators--->		
-		<control type="group">
-			<posy>43</posy>
-			<control type="image">
-				<posx>4</posx>
-				<width>150</width>
-				<include>dialog_Separator</include>
-				<visible>!Skin.String(tab,1)</visible>
+		<control type="image">
+			<posx>18</posx>
+			<posy>30</posy>
+			<width>351</width>
+			<include>dialog_Separator</include>
+		</control>
+		<control type="grouplist" id="500">
+			<posx>19</posx>
+			<posy>30</posy>
+			<width>350</width>
+			<height>480</height>
+			<onup>500</onup>
+			<ondown>500</ondown>
+			<onright>402</onright>
+			<scrolltime>150</scrolltime>
+			<itemgap>0</itemgap>
+			<include>fadeinout</include>
+			<visible>Skin.String(tab,1)</visible>
+			<!--logoff-->
+			<control type="button" id="501">
+				<width>350</width>
+				<label>$LOCALIZE[20126]</label>
+				<onclick>dialog.close(all,true)</onclick>
+				<onclick>system.logoff</onclick>		  
+				<include>dialog_Button-list</include>
+				<visible>System.HasLoginScreen</visible>
 			</control>
-			<control type="image">
-				<posx>154</posx>
-				<width>150</width>
-				<include>dialog_Separator</include>
-				<visible>!Skin.String(tab,2)</visible>
+			<!--quit-->
+			<control type="button" id="502">
+				<width>350</width>
+				<label>$LOCALIZE[13009]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.Quit()</onclick>
+				<include>dialog_Button-list</include>
+				<visible>!System.Platform.Xbox</visible>
 			</control>
-			<control type="image">
-				<posx>304</posx>
-				<width>150</width>
-				<include>dialog_Separator</include>
-				<visible>!Skin.String(tab,3)</visible>
+			<!--hibernate-->
+			<control type="button" id="503">
+				<width>350</width>
+				<label>$LOCALIZE[13010]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.Hibernate</onclick>
+				<include>dialog_Button-list</include>
+				<visible>System.CanHibernate</visible>
+			</control>
+			<!--suspend-->
+			<control type="button" id="504">
+				<width>350</width>
+				<label>$LOCALIZE[13011]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.Suspend</onclick>
+				<include>dialog_Button-list</include>
+				<visible>System.CanSuspend</visible>
+			</control>
+			<!--timer-->
+			<control type="button" id="505">
+				<width>350</width>
+				<label>$LOCALIZE[20150]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
+				<include>dialog_Button-list</include>
+				<visible>!System.HasAlarm(shutdowntimer)</visible>
+			</control>
+			<!--reboot-->
+			<control type="button" id="506">
+				<width>350</width>
+				<label>$LOCALIZE[13013]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.Reset()</onclick>
+				<include>dialog_Button-list</include>
+				<visible>!System.Platform.Xbox</visible>
+			</control>
+			<!--shutdown-->
+			<control type="button" id="507">
+				<width>350</width>
+				<label>$LOCALIZE[13016]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.Powerdown()</onclick>
+				<include>dialog_Button-list</include>
+			</control>
+			<!--minimize-->
+			<control type="button" id="508">
+				<width>350</width>
+				<label>$LOCALIZE[13014]</label>
+				<onclick>Dialog.Close(shutdownmenu)</onclick>
+				<onclick>XBMC.Minimize()</onclick>
+				<include>dialog_Button-list</include>
 			</control>
 		</control>
-	<!---tabs--->
-		<control type="group" id="400">
-			<posy>2</posy>
-			<control type="image">
-				<posx>154</posx>
-				<height>42</height>
-				<include>dialog_Separator-y</include>
-			</control>
-			<control type="image">
-				<posx>304</posx>
-				<height>42</height>
-				<include>dialog_Separator-y</include>
-			</control>
-			<!--navigation-->
-			<control type="group">
-				<posx>4</posx>
-				<control type="button" id="401">
-					<width>181</width>
-					<ondown>501</ondown>
-					<onleft>401</onleft>
-					<onright>402</onright>
-					<label>-</label>
-					<onfocus>Skin.SetString(tab,1)</onfocus>
-					<textcolor>Color4</textcolor>
-					<texturenofocus border="3">-</texturenofocus>
-					<texturefocus border="3">-</texturefocus>
-					<include>dialog_Button-list</include>
-				</control>
-				<control type="label" id="301">
-					<height>40</height>
-					<width>150</width>
-					<label>[B]$LOCALIZE[33061][/B]</label>
-					<textcolor>Color4</textcolor>
-					<include>dialog_Button-list</include>
-					<visible>Skin.String(tab,1)</visible>
-				</control>
-				<control type="label" id="302">
-					<height>40</height>
-					<width>150</width>
-					<label>[B]$LOCALIZE[33061][/B]</label>
-					<textcolor>Color3</textcolor>
-					<include>dialog_Button-list</include>
-					<visible>!Skin.String(tab,1)</visible>
-				</control>
-			</control>
-			<!--settings-->
-			<control type="group">
-				<posx>154</posx>
-				<control type="button" id="402">
-					<width>181</width>
-					<ondown>601</ondown>
-					<onleft>401</onleft>
-					<onright>403</onright>
-					<label>-</label>
-					<onfocus>Skin.SetString(tab,2)</onfocus>
-					<textcolor>Color4</textcolor>
-					<texturenofocus border="3">-</texturenofocus>
-					<texturefocus border="3">-</texturefocus>
-					<include>dialog_Button-list</include>
-				</control>
-				<control type="label" id="303">
-					<height>40</height>
-					<width>150</width>
-					<label>[B]$LOCALIZE[13000][/B]</label>
-					<textcolor>Color4</textcolor>
-					<include>dialog_Button-list</include>
-					<visible>Skin.String(tab,2)</visible>
-				</control>
-				<control type="label" id="304">
-					<height>40</height>
-					<width>150</width>
-					<label>[B]$LOCALIZE[13000][/B]</label>
-					<textcolor>Color3</textcolor>
-					<include>dialog_Button-list</include>
-					<visible>!Skin.String(tab,2)</visible>
-				</control>
-			</control>
-			<!--exit-->
-			<control type="group">
-				<posx>304</posx>
-				<control type="button" id="403">
-					<width>181</width>
-					<ondown>701</ondown>
-					<onleft>402</onleft>
-					<onright>403</onright>
-					<label>-</label>
-					<onfocus>Skin.SetString(tab,3)</onfocus>
-					<textcolor>Color4</textcolor>
-					<texturenofocus border="3">-</texturenofocus>
-					<texturefocus border="3">-</texturefocus>
-					<include>dialog_Button-list</include>
-				</control>
-				<control type="label" id="305">
-					<height>40</height>
-					<width>150</width>
-					<label>[B]$LOCALIZE[13012][/B]</label>
-					<textcolor>Color4</textcolor>
-					<include>dialog_Button-list</include>
-					<visible>Skin.String(tab,3)</visible>
-				</control>
-				<control type="label" id="306">
-					<height>40</height>
-					<width>150</width>
-					<label>[B]$LOCALIZE[13012][/B]</label>
-					<textcolor>Color3</textcolor>
-					<include>dialog_Button-list</include>
-					<visible>!Skin.String(tab,3)</visible>
-				</control>
-			</control>
-		</control>	
-	<!---containers--->
-		<control type="group">
-			<posx>4</posx>
-			<posy>44</posy>
-		<!--navigation container-->
-			<control type="grouplist" id="500">
-				<width>520</width>
-				<height>480</height>
-				<onup>500</onup>
-				<ondown>500</ondown>
-				<onright>402</onright>
-				<scrolltime>150</scrolltime>
-				<itemgap>0</itemgap>
-				<include>fadeinout</include>
-				<visible>Skin.String(tab,1)</visible>
-				<!--search-->
-				<control type="button" id="501">
-					<width>450</width>
-					<label>$LOCALIZE[137]...</label>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>SendClick(8)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--now playing-->
-				<control type="button" id="502">
-					<width>450</width>
-					<label>$LOCALIZE[13350]</label>
-					<onclick>ActivateWindow(videoplaylist)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Player.HasVideo</visible>
-				</control>
-				<control type="button" id="503">
-					<width>450</width>
-					<label>$LOCALIZE[13350]</label>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Player.HasAudio</visible>
-				</control>
-				<!--video files-->
-				<control type="button" id="504">
-					<width>450</width>
-					<label>$LOCALIZE[3]</label>
-					<onclick>ActivateWindow(Videos,Files)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--movies-->
-				<control type="button" id="505">
-					<width>450</width>
-					<label>$LOCALIZE[342]</label>
-					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--tv shows-->
-				<control type="button" id="506">
-					<width>450</width>
-					<label>$LOCALIZE[20343]</label>
-					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--custom 1-->
-				<control type="button" id="507">
-					<width>450</width>
-					<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
-					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist1.path)])</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Skin.HasSetting(videomenu.playlist1)</visible>
-				</control>
-				<!--custom 2-->
-				<control type="button" id="508">
-					<width>450</width>
-					<label>$INFO[Skin.String(videomenu.playlist2.label)]</label>
-					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist2.path)])</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Skin.HasSetting(videomenu.playlist2)</visible>
-				</control>
-				<!--custom 3-->
-				<control type="button" id="509">
-					<width>450</width>
-					<label>$INFO[Skin.String(videomenu.playlist3.label)]</label>
-					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist3.path)])</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Skin.HasSetting(videomenu.playlist3)</visible>
-				</control>
-				<!--custom 4-->
-				<control type="button" id="510">
-					<width>450</width>
-					<label>$INFO[Skin.String(videomenu.playlist4.label)]</label>
-					<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist4.path)])</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Skin.HasSetting(videomenu.playlist4)</visible>
-				</control>
-				<!--music-->
-				<control type="button" id="511">
-					<width>450</width>
-					<label>$LOCALIZE[2]</label>
-					<onclick>ActivateWindow(MyMusicLibrary)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>Skin.HasSetting(videomenu.playlist4)</visible>
-				</control>
-				<!--pictures-->
-				<control type="button" id="512">
-					<width>450</width>
-					<label>$LOCALIZE[1]</label>
-					<onclick>ActivateWindow(2)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--programs-->
-				<control type="button" id="513">
-					<width>450</width>
-					<label>$LOCALIZE[0]</label>
-					<onclick>ActivateWindow(Programs,Addons,return)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-			</control>
-			<!--settings container-->
-			<control type="grouplist" id="600">
-				<width>450</width>
-				<height>480</height>
-				<onup>600</onup>
-				<ondown>600</ondown>
-				<onleft>401</onleft>
-				<onright>403</onright>
-				<scrolltime>150</scrolltime>
-				<itemgap>0</itemgap>
-				<include>fadeinout</include>
-				<visible>Skin.String(tab,2)</visible>
-				<!--skin-->
-				<control type="button" id="601">
-					<width>450</width>
-					<label>$LOCALIZE[166]</label>
-					<onclick>ActivateWindow(59)</onclick>
-					<onclick>dialog.close(all,true)</onclick>		  
-					<include>dialog_Button-list</include>
-					<visible>System.HasLoginScreen</visible>
-				</control>
-				<!--appearance-->
-				<control type="button" id="602">
-					<width>450</width>
-					<label>$LOCALIZE[10004]</label>
-					<onclick>ActivateWindow(settings)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-					<visible>System.CanHibernate</visible>
-				</control>
-				<!--update video library-->
-				<control type="button" id="603">
-					<width>450</width>
-					<label>update video library</label>
-					<onclick>UpdateLibrary(Video)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--clean video library-->
-				<control type="button" id="604">
-					<width>450</width>
-					<label>clean video library</label>
-					<onclick>CleanLibrary(Video)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--update music library-->
-				<control type="button" id="605">
-					<width>450</width>
-					<label>update music library</label>
-					<onclick>UpdateLibrary(Music)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-				<!--clean music library-->
-				<control type="button" id="606">
-					<width>450</width>
-					<label>clean music library</label>
-					<onclick>CleanLibrary(Music)</onclick>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-			</control>
-			<!--exit container-->
-			<control type="grouplist" id="700">
-				<width>450</width>
-				<height>480</height>
-				<onup>600</onup>
-				<ondown>600</ondown>
-				<onleft>401</onleft>
-				<scrolltime>150</scrolltime>
-				<itemgap>0</itemgap>
-				<include>fadeinout</include>
-				<visible>Skin.String(tab,3)</visible>
-				<!--logoff-->
-				<control type="button" id="701">
-					<width>450</width>
-					<label>$LOCALIZE[20126]</label>
-					<onclick>dialog.close(all,true)</onclick>
-					<onclick>system.logoff</onclick>		  
-					<include>dialog_Button-list</include>
-					<visible>System.HasLoginScreen</visible>
-				</control>
-				<!--hibernate-->
-				<control type="button" id="702">
-					<width>450</width>
-					<label>$LOCALIZE[13010]</label>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>XBMC.Hibernate</onclick>
-					<include>dialog_Button-list</include>
-					<visible>System.CanHibernate</visible>
-				</control>
-				<!--suspend-->
-				<control type="button" id="703">
-					<width>450</width>
-					<label>$LOCALIZE[13011]</label>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>XBMC.Suspend</onclick>
-					<include>dialog_Button-list</include>
-					<visible>System.CanSuspend</visible>
-				</control>
-				<!--quit-->
-				<control type="button" id="704">
-					<width>450</width>
-					<label>$LOCALIZE[13009]</label>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>XBMC.Quit()</onclick>
-					<include>dialog_Button-list</include>
-					<visible>!System.Platform.Xbox</visible>
-				</control>
-				<!--shutdown-->
-				<control type="button" id="705">
-					<width>450</width>
-					<label>$LOCALIZE[13016]</label>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>Powerdown</onclick>
-					<include>dialog_Button-list</include>
-				</control>
-			</control>
-		</control>	
 	</controls>
 </window>
