@@ -352,60 +352,39 @@
 				<content>
 					<item id="1">
 						<label>$LOCALIZE[20126]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<onclick>dialog.close(all,true)</onclick>
 						<onclick>system.logoff</onclick>
 					</item>
 					<item id="2">
 						<label>$LOCALIZE[13009]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>XBMC.Quit()</onclick>
 						<visible>!System.Platform.Xbox</visible>
 					</item>
 					<item id="3">
-						<label>$LOCALIZE[13011]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<onclick>XBMC.Suspend</onclick>
-						<visible>System.CanSuspend</visible>
-					</item>
-					<item id="4">
 						<label>$LOCALIZE[13010]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>XBMC.Hibernate</onclick>
 						<visible>System.CanHibernate</visible>
 					</item>
+					<item id="4">
+						<label>$LOCALIZE[13011]</label>
+						<onclick>XBMC.Suspend</onclick>
+						<visible>System.CanSuspend</visible>
+					</item>
 					<item id="5">
-						<label>$LOCALIZE[13005]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<onclick>XBMC.ShutDown</onclick>
-					</item>
-					<item id="6">
-						<label>$LOCALIZE[31911]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.ShutDown(),30)</onclick>
-						<visible>System.LoggedOn + Skin.HasSetting(homemenu.shutdown)</visible>
-					</item>
-					<item id="7">
-						<label>$LOCALIZE[31912]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.ShutDown(),60)</onclick>
-						<visible>System.LoggedOn + Skin.HasSetting(homemenu.shutdown)</visible>
-					</item>
-					<item id="8">
-						<label>$LOCALIZE[31913]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
-						<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.ShutDown(),120)</onclick>
-						<visible>System.LoggedOn + Skin.HasSetting(homemenu.shutdown)</visible>
+						<label>$LOCALIZE[31928]</label>
+						<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
+						<visible>!System.HasAlarm(shutdowntimer)</visible>
 					</item>
 					<item id="9">
 						<label>$LOCALIZE[13013]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>XBMC.Reboot()</onclick>
 						<visible>!System.Platform.Xbox</visible>
 					</item>
+					<item id="5">
+						<label>$LOCALIZE[13005]</label>
+						<onclick>XBMC.ShutDown</onclick>
+					</item>
 					<item id="10">
 						<label>$LOCALIZE[13014]</label>
-						<onclick>Dialog.Close(shutdownmenu)</onclick>
 						<onclick>XBMC.Minimize()</onclick>
 						<visible>!System.Platform.Xbox</visible>
 					</item>
