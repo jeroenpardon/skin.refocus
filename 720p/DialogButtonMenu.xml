@@ -2,103 +2,112 @@
 	<defaultcontrol always="true">500</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>411</posx>
-		<posy>96</posy>
+		<posx>0</posx>
+		<posy>0</posy>
 	</coordinates>
-	<include>dialogOpen</include>
 	<controls>
 		<control type="image">
-			<width>387</width>
-			<height>380</height>
-			<include>dialogWindow</include>
-		</control>
-		<control type="image">
-			<posx>18</posx>
-			<posy>30</posy>
-			<width>351</width>
-			<include>dialog_Separator</include>
-		</control>
-		<control type="grouplist" id="500">
-			<posx>19</posx>
-			<posy>30</posy>
-			<width>350</width>
-			<height>480</height>
-			<onup>500</onup>
-			<ondown>500</ondown>
-			<onright>402</onright>
-			<scrolltime>150</scrolltime>
-			<itemgap>0</itemgap>
+			<include>global_Screentype</include>
+			<texture background="true">overlays/vignette.png</texture>
 			<include>fadeinout</include>
-			<visible>Skin.String(tab,1)</visible>
-			<!--logoff-->
-			<control type="button" id="501">
-				<width>350</width>
-				<label>$LOCALIZE[20126]</label>
-				<onclick>dialog.close(all,true)</onclick>
-				<onclick>system.logoff</onclick>		  
-				<include>dialog_Button-list</include>
-				<visible>System.HasLoginScreen</visible>
+		</control>
+		<control type="group">
+			<posx>472</posx>
+			<posy>170</posy>
+			<include>dialogOpen</include>
+			<control type="image">
+				<width>387</width>
+				<height>380</height>
+				<include>dialogWindow</include>
 			</control>
-			<!--quit-->
-			<control type="button" id="502">
-				<width>350</width>
-				<label>$LOCALIZE[13009]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.Quit()</onclick>
-				<include>dialog_Button-list</include>
-				<visible>!System.Platform.Xbox</visible>
+			<control type="image">
+				<posx>18</posx>
+				<posy>30</posy>
+				<width>351</width>
+				<include>dialog_Separator</include>
 			</control>
-			<!--hibernate-->
-			<control type="button" id="503">
+			<control type="grouplist" id="500">
+				<posx>19</posx>
+				<posy>30</posy>
 				<width>350</width>
-				<label>$LOCALIZE[13010]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.Hibernate</onclick>
-				<include>dialog_Button-list</include>
-				<visible>System.CanHibernate</visible>
-			</control>
-			<!--suspend-->
-			<control type="button" id="504">
-				<width>350</width>
-				<label>$LOCALIZE[13011]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.Suspend</onclick>
-				<include>dialog_Button-list</include>
-				<visible>System.CanSuspend</visible>
-			</control>
-			<!--timer-->
-			<control type="button" id="505">
-				<width>350</width>
-				<label>$LOCALIZE[20150]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
-				<include>dialog_Button-list</include>
-				<visible>!System.HasAlarm(shutdowntimer)</visible>
-			</control>
-			<!--reboot-->
-			<control type="button" id="506">
-				<width>350</width>
-				<label>$LOCALIZE[13013]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.Reset()</onclick>
-				<include>dialog_Button-list</include>
-				<visible>!System.Platform.Xbox</visible>
-			</control>
-			<!--shutdown-->
-			<control type="button" id="507">
-				<width>350</width>
-				<label>$LOCALIZE[13016]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.Powerdown()</onclick>
-				<include>dialog_Button-list</include>
-			</control>
-			<!--minimize-->
-			<control type="button" id="508">
-				<width>350</width>
-				<label>$LOCALIZE[13014]</label>
-				<onclick>Dialog.Close(shutdownmenu)</onclick>
-				<onclick>XBMC.Minimize()</onclick>
-				<include>dialog_Button-list</include>
+				<height>480</height>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<onright>402</onright>
+				<scrolltime>150</scrolltime>
+				<itemgap>0</itemgap>
+				<include>fadeinout</include>
+				<visible>Skin.String(tab,1)</visible>
+				<!--logoff-->
+				<control type="button" id="501">
+					<width>350</width>
+					<label>$LOCALIZE[20126]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>system.logoff</onclick>		  
+					<include>dialog_Button-list</include>
+					<visible>System.HasLoginScreen</visible>
+				</control>
+				<!--quit-->
+				<control type="button" id="502">
+					<width>350</width>
+					<label>$LOCALIZE[13009]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Quit()</onclick>
+					<include>dialog_Button-list</include>
+					<visible>!System.Platform.Xbox</visible>
+				</control>
+				<!--hibernate-->
+				<control type="button" id="503">
+					<width>350</width>
+					<label>$LOCALIZE[13010]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Hibernate</onclick>
+					<include>dialog_Button-list</include>
+					<visible>System.CanHibernate</visible>
+				</control>
+				<!--suspend-->
+				<control type="button" id="504">
+					<width>350</width>
+					<label>$LOCALIZE[13011]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Suspend</onclick>
+					<include>dialog_Button-list</include>
+					<visible>System.CanSuspend</visible>
+				</control>
+				<!--timer-->
+				<control type="button" id="505">
+					<width>350</width>
+					<label>$LOCALIZE[20150]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
+					<include>dialog_Button-list</include>
+					<visible>!System.HasAlarm(shutdowntimer)</visible>
+				</control>
+				<!--reboot-->
+				<control type="button" id="506">
+					<width>350</width>
+					<label>$LOCALIZE[13013]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Reset()</onclick>
+					<include>dialog_Button-list</include>
+					<visible>!System.Platform.Xbox</visible>
+				</control>
+				<!--shutdown-->
+				<control type="button" id="507">
+					<width>350</width>
+					<label>$LOCALIZE[13016]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Powerdown()</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--minimize-->
+				<control type="button" id="508">
+					<width>350</width>
+					<label>$LOCALIZE[13014]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.Minimize()</onclick>
+					<include>dialog_Button-list</include>
+				</control>
 			</control>
 		</control>
 	</controls>
