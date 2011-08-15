@@ -74,23 +74,23 @@
 					<include>dialog_Button-list</include>
 					<visible>System.CanSuspend</visible>
 				</control>
-				<!--timer-->
-				<control type="button" id="505">
-					<width>350</width>
-					<label>$LOCALIZE[20150]</label>
-					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
-					<include>dialog_Button-list</include>
-					<visible>!System.HasAlarm(shutdowntimer)</visible>
-				</control>
 				<!--reboot-->
-				<control type="button" id="506">
+				<control type="button" id="505">
 					<width>350</width>
 					<label>$LOCALIZE[13013]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Reset()</onclick>
 					<include>dialog_Button-list</include>
 					<visible>!System.Platform.Xbox</visible>
+				</control>
+				<!--timer-->
+				<control type="button" id="506">
+					<width>350</width>
+					<label>$LOCALIZE[20150]</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
+					<include>dialog_Button-list</include>
+					<visible>!System.HasAlarm(shutdowntimer)</visible>
 				</control>
 				<!--shutdown-->
 				<control type="button" id="507">
