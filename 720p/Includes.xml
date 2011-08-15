@@ -100,6 +100,9 @@
 	</include>
 	<include name="global_Clock">
 		<control type="group">
+			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">
+				<effect type="slide" time="0" start="0" end="-50" />
+			</animation>
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
 			<control type="label" id="200">
 				<posx>25r</posx>
@@ -115,6 +118,9 @@
 	</include>
 	<include name="clock">
 		<control type="group">
+			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">
+				<effect type="slide" time="0" start="0" end="-50" />
+			</animation>
 			<visible>!Window.IsActive(infodialog)</visible>
 			<control type="label" id="200">
 				<posx>25r</posx>
