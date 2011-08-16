@@ -6,8 +6,7 @@
 		<control type="group">
 			<visible>![Control.IsVisible(11) + Control.IsVisible(12)]</visible>
 			<control type="videowindow">
-				<width>1280</width>
-				<height>720</height>
+				<include>screen_Dimensions</include>
 				<visible>Player.HasVideo + Skin.HasSetting(backgroundVideoGlobal)</visible>
 			</control>
 		</control>
@@ -21,7 +20,7 @@
 		<control type="label">
 			<posx>1280</posx>
 			<posy>22r</posy>
-			<width>1280</width>
+			<width>screen_Width</width>
 			<align>right</align>
 			<label>$INFO[Window.Property(xmlfile)] • $INFO[Container.FolderPath] • $INFO[Container.FolderName] • $INFO[System.BuildVersion] • $INFO[System.BuildDate] • $INFO[System.ScreenResolution]</label>
 			<font>smallerCaps</font>
