@@ -314,15 +314,7 @@
 		<font>info</font>
 		<textcolor>Color2</textcolor>
 	</include>
-	<!--
-	<include name="Heading2">
-		<height>24</height>
-		<aligny>center</aligny>
-		<font>mediumCaps</font>
-		<textcolor>Color2</textcolor>
-	</include>
-	-->
-	
+
 <!---TEXTBOXES------>
 	<include name="description_OSD">
 		<width>1040</width>
@@ -392,14 +384,14 @@
 		<height>646</height>
 		<texture background="true" border="31">frames/frame_Square.png</texture>
 		<aspectratio align="center">stretch</aspectratio>
-		<include>thumbFadeTime</include>
+		<fadetime>fadetime_Thumb</fadetime>
 	</include>
 	<include name="frame_Landscape-List">
 		<width>587</width>
 		<height>349</height>
 		<texture background="true" border="31">frames/frame_Square.png</texture>
 		<aspectratio align="center">stretch</aspectratio>
-		<include>thumbFadeTime</include>
+		<fadetime>fadetime_Thumb</fadetime>
 	</include>
 	<include name="thumb_Portrait-List">
 		<posx>23</posx>
@@ -407,7 +399,7 @@
 		<width>406</width>
 		<height>600</height>
 		<aspectratio align="center">scale</aspectratio>
-		<include>thumbFadeTime</include>
+		<fadetime>fadetime_Thumb</fadetime>
 	</include>
 	<include name="thumb_Landscape-List">
 		<posx>22</posx>
@@ -415,12 +407,12 @@
 		<width>542</width>
 		<height>305</height>
 		<aspectratio align="center">scale</aspectratio>
-		<include>thumbFadeTime</include>
+		<fadetime>fadetime_Thumb</fadetime>
 	</include>
 	<include name="art_TVShowLogo">
 		<texture background="true">$INFO[ListItem.Path]logo.png</texture>
 		<aspectratio align="center">keep</aspectratio>
-		<include>thumbFadeTime</include>
+		<fadetime>fadetime_Thumb</fadetime>
 		<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
 	</include>
 	<include name="watchedOverlay">
@@ -552,7 +544,7 @@
 				<height>256</height>
 				<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
 				<aspectratio align="left">keep</aspectratio>
-				<include>thumbFadeTime</include>
+				<fadetime>fadetime_Thumb</fadetime>
 				<visible>Control.IsVisible(50) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 			</control>
 			<control type="group">
@@ -642,7 +634,7 @@
 					<texture background="true" border="31">frames/frame_Square.png</texture>
 					<aspectratio align="center">stretch</aspectratio>
 					<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
-					<include>thumbFadeTime</include>
+					<fadetime>fadetime_Thumb</fadetime>
 				</control>
 				<control type="image">
 					<posx>22</posx>
@@ -651,7 +643,7 @@
 					<height>400</height>
 					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
 					<aspectratio align="center">scale</aspectratio>
-					<include>thumbFadeTime</include>
+					<fadetime>fadetime_Thumb</fadetime>
 				</control>
 			</control>
 		</control>
@@ -681,13 +673,13 @@
 			<!---overlays--->
 			<control type="image">
 				<height>200</height>
-				<include>screenwidth</include>
+				<width>screen_Width</width>
 				<texture>OSD/infoOverlayTop.png</texture>
 			</control>
 			<control type="image" id="1">
 				<posy>200</posy>
 				<height>220</height>
-				<include>screenwidth</include>
+				<width>screen_Width</width>
 				<aspectratio>stretch</aspectratio>
 				<texture border="0,1,0,11">OSD/infoOverlay.png</texture>
 			</control>
