@@ -105,11 +105,14 @@
 			<imagepath>special://profile/Thumbnails/Video/Fanart/</imagepath>
 			<visible>!Skin.HasSetting(slideshow.fanart) + ![Player.HasVideo + !Skin.HasSetting(backgroundvideo.home)] + !ControlGroup(2100).HasFocus</visible>
 			<include>home_Slideshow</include>
+			<include>screen_Dimensions</include>
 		</control>
 		<control type="multiimage" id="1">
+		<include>screen_Dimensions</include>
 			<info>Skin.String(slideshow.custom)</info>
 			<visible>Skin.HasSetting(slideshow.fanart) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.home)]</visible>
 			<include>home_Slideshow</include>
+			<include>screen_Dimensions</include>
 		</control>
 	</include>
 </includes>
