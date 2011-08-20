@@ -3,47 +3,49 @@
 	<include>dialogOpen</include>
 	<coordinates>
 		<system>1</system>
-		<posx>172</posx>
-		<posy>88</posy>
+		<posx>222</posx>
+		<posy>55</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<control type="image">
-				<width>937</width>
-				<height>545</height>
+				<width>837</width>
+				<height>650</height>
 				<include>dialogWindow</include>
 			</control>			
 			<control type="label" id="411">
 				<description>heading label</description>
-				<width>869</width>
+				<width>769</width>
 				<include>dialog_Windowtitle</include>
 				<label>1023</label>
 			</control>
+			
 			<control type="group">
 				<posx>19</posx>
 				<control type="image">
 					<posy>75</posy>
-					<width>900</width>
+					<width>800</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<posy>115</posy>
-					<width>900</width>
+					<width>800</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<posy>454</posy>
-					<width>900</width>
+					<posy>555</posy>
+					<width>800</width>
+					<include>dialog_Separator</include>
+					<visible>Control.IsVisible(450)</visible>
+				</control>
+				<control type="image">
+					<posy>550</posy>
+					<width>800</width>
 					<include>dialog_Separator</include>
 					<visible>Control.IsVisible(451)</visible>
 				</control>
-				<control type="image">
-					<posy>284</posy>
-					<width>900</width>
-					<include>dialog_Separator</include>
-					<visible>Control.IsVisible(451) + stringcompare(Control.GetLabel(411),$LOCALIZE[20437])</visible>
-				</control>
 			</control>
+			
 			<!---path--->
 			<control type="group" id="9002">
 				<control type="label" id="412">
@@ -51,7 +53,7 @@
 					<posx>34</posx>
 					<posy>81</posy>
 					<width>900</width>
-					<font>normal</font>
+					<font>smallAlt</font>
 					<haspath>true</haspath>
 					<textcolor>Color4</textcolor>
 				</control>
@@ -59,14 +61,15 @@
 				<control type="list" id="450">
 					<posx>19</posx>
 					<posy>116</posy>
-					<width>900</width>
-					<height>320</height>
+					<width>800</width>
+					<height>440</height>
 					<onleft>-</onleft>
 					<onright>9001</onright>
 					<onup>450</onup>
 					<ondown>450</ondown>
 					<pagecontrol>60</pagecontrol>
-					<scrolltime>200</scrolltime>	
+					<preloaditems>4</preloaditems>
+					<scrolltime tween="Cubic" easing="Out">400</scrolltime>	
 					<itemlayout height="40">
 						<control type="image">
 							<width>900</width>
@@ -78,11 +81,13 @@
 							<width>32</width>
 							<height>32</height>
 							<info>ListItem.ActualIcon</info>
+							<colordiffuse>Color5</colordiffuse>
 						</control>
 						<control type="label">
 							<posx>60</posx>
 							<width>825</width>
-							<info>ListItem.Label</info>
+							<info>ListItem.Label</info>.
+							<font>smallAlt</font>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</itemlayout>
@@ -101,6 +106,7 @@
 						<control type="label">
 							<posx>60</posx>
 							<width>825</width>
+							<font>smallAlt</font>
 							<info>ListItem.Label</info>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
@@ -109,108 +115,97 @@
 				<!---listing images--->
 				<control type="panel" id="451">
 					<posx>19</posx>
-					<posy>116</posy>
-					<width>900</width>
-					<height>338</height>
+					<posy>115</posy>
+					<width>800</width>
+					<height>430</height>
 					<onleft>451</onleft>
 					<onright>451</onright>
 					<onup>9001</onup>
 					<ondown>9001</ondown>
 					<scrolltime>200</scrolltime>
-					<viewtype>icon</viewtype>
 					<pagecontrol>60</pagecontrol>
 					<orientation>horizontal</orientation>
-					<itemlayout height="169" width="300" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20437])">	
+					<itemlayout height="215" width="378" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20437])">	
 						<control type="image">
-							<posx>300</posx>
-							<height>338</height>
-							<include>dialog_Separator-y</include>
-							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
-						</control>
-						<control type="image">
-							<width>300</width>
-							<height>169</height>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>373</width>
+							<height>210</height>
 							<texture background="true">$INFO[ListItem.Thumb]</texture>
 							<aspectratio align="left">stretch</aspectratio>
 							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="image">
-							<posx>118</posx>
-							<posy>52</posy>
+							<posx>157</posx>
+							<posy>75</posy>
 							<width>64</width>
 							<height>64</height>
 							<texture>$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
+							<colordiffuse>ff999999</colordiffuse>
 							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
 							<visible>IsEmpty(ListItem.Thumb)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="169" width="300" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20437])">
+					<focusedlayout height="220" width="378" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20437])">
 						<control type="image">
-							<posx>300</posx>
-							<height>338</height>
-							<include>dialog_Separator-y</include>
-							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
-						</control>
-						<control type="image">
-							<width>300</width>
-							<height>169</height>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>373</width>
+							<height>210</height>
 							<texture background="true">$INFO[ListItem.Thumb]</texture>
 							<aspectratio align="left">stretch</aspectratio>
 						</control>
 						<control type="image">
-							<posx>118</posx>
-							<posy>52</posy>
+							<posx>157</posx>
+							<posy>75</posy>
 							<width>64</width>
 							<height>64</height>
 							<texture>$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
+							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
 							<visible>IsEmpty(ListItem.Thumb)</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout height="338" width="225" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20019])">
+					
+					<itemlayout height="215" width="151" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20019])">
 						<control type="image">
-							<posx>225</posx>
-							<width>1</width>
-							<height>338</height>
-							<texture>dialogs/separator-y.png</texture>
-						</control>
-						<control type="image">
-							<width>225</width>
-							<height>338</height>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>146</width>
+							<height>210</height>
 							<texture background="true">$INFO[ListItem.Thumb]</texture>
-							<aspectratio align="left">stretch</aspectratio>
-							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
+							<aspectratio align="left">scale</aspectratio>
+							<colordiffuse>ff999999</colordiffuse>
 						</control>
 						<control type="image">
-							<posx>80</posx>
-							<posy>137</posy>
+							<posx>46</posx>
+							<posy>73</posy>
 							<width>64</width>
 							<height>64</height>
 							<texture>$INFO[ListItem.ActualIcon]</texture>
+							<colordiffuse>ff999999</colordiffuse>
 							<aspectratio>keep</aspectratio>
 							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
 							<visible>IsEmpty(ListItem.Thumb)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="338" width="225" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20019])">
+					<focusedlayout height="215" width="151" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20019])">
 						<control type="image">
-							<posx>225</posx>
-							<height>338</height>
-							<include>dialog_Separator-y</include>
-						</control>
-						<control type="image">
-							<width>225</width>
-							<height>338</height>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>146</width>
+							<height>210</height>
 							<texture background="true">$INFO[ListItem.Thumb]</texture>
-							<aspectratio align="left">stretch</aspectratio>
+							<aspectratio align="left">scale</aspectratio>
 						</control>
 						<control type="image">
-							<posx>80</posx>
-							<posy>137</posy>
+							<posx>46</posx>
+							<posy>73</posy>
 							<width>64</width>
 							<height>64</height>
 							<texture>$INFO[ListItem.ActualIcon]</texture>
+							<colordiffuse>ff000000</colordiffuse>
 							<aspectratio>keep</aspectratio>
 							<visible>IsEmpty(ListItem.Thumb)</visible>
 						</control>
@@ -219,7 +214,7 @@
 			</control>
 			<control type="group" id="9001">
 				<posx>34</posx>
-				<posy>472</posy>
+				<posy>575</posy>
 				<!--new folder-->
 				<control type="button" id="415">
 					<label>119</label>
@@ -231,7 +226,7 @@
 				</control>
 				<!--ok-->
 				<control type="button" id="413">
-					<posx>615</posx>
+					<posx>520</posx>
 					<label>186</label>
 					<onleft>415</onleft>
 					<onright>414</onright>
@@ -241,7 +236,7 @@
 				</control>
 				<!--cancel-->
 				<control type="button" id="414">
-					<posx>750</posx>
+					<posx>650</posx>
 					<label>222</label>
 					<onleft>413</onleft>
 					<onright>415</onright>
