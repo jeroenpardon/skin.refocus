@@ -28,12 +28,12 @@
 	<!-- background video --->
 		<control type="image">
 			<aspectratio>stretch</aspectratio>
-			<include>global_Screentype</include>
+			<include>screen_Dimensions</include>
 			<texture>black.png</texture>
 			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
 		</control>
 		<control type="videowindow">
-			<include>global_Screentype</include>
+			<include>screen_Dimensions</include>
 			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist)</visible>
 		</control>
 		
