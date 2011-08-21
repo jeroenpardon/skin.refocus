@@ -8,9 +8,9 @@
 	<!-- global background --->
 		<control type="largeimage">
 			<aspectratio>scale</aspectratio>
-			<include>global_Screentype</include>
-			<texture background="true">special://skin/backgrounds/background.png</texture>
-			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)]</visible>
+			<include>screen_Dimensions</include>
+			<texture background="true">backgrounds/background.png</texture>
+			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)] | [Skin.HasSetting(slideshow.fanart) + ![Library.HasContent(movies) + Library.HasContent(tvshows)]]</visible>
 			<animation type="WindowOpen" condition="Window.Previous(2999)">
 				<effect type="fade" start="0" end="100" time="600" delay="0" />
 			</animation>
