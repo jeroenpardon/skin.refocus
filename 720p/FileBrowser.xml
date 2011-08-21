@@ -81,7 +81,7 @@
 							<width>32</width>
 							<height>32</height>
 							<info>ListItem.ActualIcon</info>
-							<colordiffuse>Color5</colordiffuse>
+							<colordiffuse>Color4</colordiffuse>
 						</control>
 						<control type="label">
 							<posx>60</posx>
@@ -122,7 +122,7 @@
 					<onright>451</onright>
 					<onup>9001</onup>
 					<ondown>9001</ondown>
-					<scrolltime>200</scrolltime>
+					<scrolltime>100</scrolltime>
 					<pagecontrol>60</pagecontrol>
 					<orientation>horizontal</orientation>
 					<itemlayout height="215" width="378" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20437])">	
@@ -167,7 +167,6 @@
 							<visible>IsEmpty(ListItem.Thumb)</visible>
 						</control>
 					</focusedlayout>
-					
 					<itemlayout height="215" width="151" condition="stringcompare(Control.GetLabel(411),$LOCALIZE[20019])">
 						<control type="image">
 							<posx>5</posx>
@@ -176,7 +175,7 @@
 							<height>210</height>
 							<texture background="true">$INFO[ListItem.Thumb]</texture>
 							<aspectratio align="left">scale</aspectratio>
-							<colordiffuse>ff999999</colordiffuse>
+							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
 						</control>
 						<control type="image">
 							<posx>46</posx>
@@ -186,7 +185,6 @@
 							<texture>$INFO[ListItem.ActualIcon]</texture>
 							<colordiffuse>ff999999</colordiffuse>
 							<aspectratio>keep</aspectratio>
-							<animation effect="fade" end="45" time="0" condition="true">Conditional</animation>
 							<visible>IsEmpty(ListItem.Thumb)</visible>
 						</control>
 					</itemlayout>
