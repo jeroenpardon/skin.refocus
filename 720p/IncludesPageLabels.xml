@@ -105,7 +105,7 @@
 		<control type="label">
 			<label>$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[20360][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(episodes) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
+			<visible>Container.Content(episodes) + SubString(Container.FolderPath,videodb) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
 		<!--new episodes videodb-->
 		<control type="label">
