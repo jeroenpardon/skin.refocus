@@ -116,19 +116,20 @@
 				<posx>750</posx>
 				<posy>65</posy>
 				<control type="group">
-					<visible>[[Container.Content(movies) + !Skin.HasSetting(view.list.fanart)] | [Container.Content(tvshows) + !Skin.HasSetting(view.list.fanart)] | Container.Content(seasons) | Container.Content(actors)] | SubString(Container.FolderPath,plugin://plugin.video.apple)]</visible>
+					<visible>[[Container.Content(movies) + !Skin.HasSetting(view.list.fanart)] | [Container.Content(tvshows) + !Skin.HasSetting(view.list.fanart)] | Container.Content(seasons) | Container.Content(actors)]]</visible>
 					<control type="image">
 						<include>frame_Poster-List</include>
+						<visible>!Substring(Container.FolderPath,plugin) | StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 					</control>
 					<control type="image">
 						<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Portrait-List</include>
-						<visible>Container.Content(movies)</visible>
+						<visible>Container.Content(movies) + [!Substring(Container.FolderPath,plugin) | StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
 					</control>
 					<control type="image">
 						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 						<include>thumb_Portrait-List</include>
-						<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+						<visible>!SubString(Container.FolderPath,plugin) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
 					</control>
 					<control type="image">
 						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[Container.TVShowThumb]</texture>
