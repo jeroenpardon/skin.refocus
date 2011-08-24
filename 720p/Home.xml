@@ -34,7 +34,7 @@
 		</control>
 		<control type="videowindow">
 			<include>screen_Dimensions</include>
-			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist)</visible>
+			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
 		</control>
 		
 	<!-- weather fanart --->
@@ -60,7 +60,8 @@
 		</control>
 	<!-- menu shade --->
 		<control type="image">
-			<include>global_Screentype</include>
+			<width>screen_Width</width>
+			<height>screen_Height</height>
 			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground.png</texture>
 		</control>
@@ -117,7 +118,7 @@
 				<width>1281</width>
 				<height>52</height>
 				<texture border="0">home/homeRSS.png</texture>
-			</control>	
+			</control>
 			<control type="fadelabel" id="1">
 				<posy>10</posy>
 				<include>global_Screenwidth</include>
@@ -163,5 +164,128 @@
 				<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180)]</visible>
 			</control>
 		</control>
+		
+		<!--recently added
+		<control type="wraplist" id="53">
+			<viewtype label="Gallery">wrap</viewtype>
+			<posx>-375</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>800</height>
+			<onleft>53</onleft>
+			<onright>9000</onright>
+			<onup>6000</onup>
+			<ondown>8000</ondown>
+			<scrolltime>100</scrolltime>
+			<animation effect="slide" start="0" end="375" time="200" tween="Cubic" easing="Out" condition="Control.HasFocus(53)">Conditional</animation>
+			<animation effect="fade" start="100" end="40" time="200" condition="!Control.HasFocus(53)">Conditional</animation>
+			<orientation>vertical</orientation>
+			<focusposition>0</focusposition>
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<include>infoDialogHide</include>
+
+			<itemlayout height="150" width="900">
+				<control type="image">
+					<posx>230</posx>
+					<width>200</width>
+					<height>140</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+				</control>
+				<control type="textbox">
+					<posx>0</posx>
+					<width>265</width>
+					<height>200</height>
+					<wrapmultiline>true</wrapmultiline>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<align>right</align>
+					<textcolor>Color1</textcolor>
+					<font>titleSmaller</font>
+				</control>
+				<control type="textbox">
+					<posy>65</posy>
+					<width>265</width>
+					<height>200</height>
+					<wrapmultiline>true</wrapmultiline>
+					<label>$INFO[ListItem.Label2]</label>
+					<align>right</align>
+					<textcolor>Color2</textcolor>
+					<font>normal</font>
+				</control>
+			</itemlayout>
+			<focusedlayout height="150" width="900">
+				<control type="image">
+					<posx>230</posx>
+					<width>200</width>
+					<height>140</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+				</control>
+				<control type="textbox">
+					<posx>0</posx>
+					<width>265</width>
+					<height>200</height>
+					<wrapmultiline>true</wrapmultiline>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<align>right</align>
+					<textcolor>Color1</textcolor>
+					<font>titleSmaller</font>
+				</control>
+				<control type="textbox">
+					<posx>0</posx>
+					<width>265</width>
+					<height>200</height>
+					<wrapmultiline>true</wrapmultiline>
+					<label>$INFO[ListItem.Label2]</label>
+					<align>right</align>
+					<textcolor>Color2</textcolor>
+					<font>normal</font>
+				</control>
+			</focusedlayout>
+
+			<content>
+				<item id="1">
+					<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
+					<label2>$INFO[Window.Property(LatestMovie.1.Year)]</label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.1.Thumb)]</icon>
+					<thumb>$INFO[Window.Property(LatestMovie.1.Thumb)]</thumb>
+				</item>
+				<item id="2">
+					<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
+					<label2>$INFO[Window.Property(LatestMovie.2.Year)]</label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.2.Thumb)]</icon>
+					<thumb>$INFO[Window.Property(LatestMovie.2.Thumb)]</thumb>
+				</item>
+				<item id="3">
+					<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
+					<label2>$INFO[Window.Property(LatestMovie.3.Year)]</label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.3.Thumb)]</icon>
+					<thumb>$INFO[Window.Property(LatestMovie.3.Thumb)]</thumb>
+				</item>
+				<item id="4">
+					<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
+					<label2>$INFO[Window.Property(LatestMovie.4.Year)]</label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.4.Thumb)]</icon>
+					<thumb>$INFO[Window.Property(LatestMovie.4.Thumb)]</thumb>
+				</item>
+				<item id="5">
+					<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
+					<label5>$INFO[Window.Property(LatestMovie.5.Year)]</label5>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.5.Thumb)]</icon>
+					<thumb>$INFO[Window.Property(LatestMovie.5.Thumb)]</thumb>
+				</item>
+				<item id="6">
+					<label>$INFO[Window.Property(LatestMovie.6.Title)]</label>
+					<label2>$INFO[Window.Property(LatestMovie.6.Year)]</label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.6.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.6.Thumb)]</icon>
+					<thumb>$INFO[Window.Property(LatestMovie.6.Thumb)]</thumb>
+				</item>
+			</content>
+		</control>-->
 	</controls>
 </window>

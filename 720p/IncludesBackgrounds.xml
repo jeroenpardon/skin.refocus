@@ -81,7 +81,7 @@
 		<!--playing video-->
 		<control type="videowindow">
 			<include>screen_Dimensions</include>
-			<visible>Skin.HasSetting(backgroundvideo.global) + ![Window.IsActive(pictures) + Control.IsVisible(531)]</visible>
+			<visible>Player.HasVideo + Skin.HasSetting(backgroundvideo.global) + ![Window.IsActive(pictures) + Control.IsVisible(531)]</visible>
 		</control>
 		<!--global background-->
 		<control type="image">
