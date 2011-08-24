@@ -128,7 +128,7 @@
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(541)</onclick>
 						<include>button_Menu</include>
-						<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable)</visible>
+						<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + !SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 					<control type="button" id="410">
 						<description>list</description>
