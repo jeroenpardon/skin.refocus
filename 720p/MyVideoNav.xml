@@ -94,19 +94,15 @@
 					<control type="textbox">
 						<width>525</width>
 						<height>244</height>
-						<aligny>top</aligny>
 						<label>$INFO[ListItem.Plot]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
+						<include>description_Small</include>
 						<visible>Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)]</visible>
 					</control>
 					<control type="textbox">
 						<width>525</width>
 						<height>244</height>
-						<aligny>top</aligny>
 						<label>$INFO[Container.ShowPlot]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
+						<include>description_Small</include>
 						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
 					</control>
 				</control>
@@ -319,28 +315,22 @@
 					<control type="textbox">
 						<width>960</width>
 						<height>110</height>
-						<aligny>top</aligny>
 						<label>$INFO[ListItem.PlotOutline]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
+						<include>description_Small</include>
 						<visible>!IsEmpty(ListItem.Plotoutline)</visible>
 					</control>
 					<control type="textbox">
 						<width>960</width>
 						<height>110</height>
-						<aligny>top</aligny>
 						<label>$INFO[ListItem.Plot]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
+						<include>description_Small</include>
 						<visible>IsEmpty(ListItem.Plotoutline)</visible>
 					</control>
 					<control type="textbox">
 						<width>960</width>
 						<height>138</height>
-						<aligny>top</aligny>
 						<label>$INFO[Container.ShowPlot]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
+						<include>description_Small</include>
 						<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 				</control>
@@ -522,10 +512,8 @@
 				<control type="textbox" id="4">
 					<width>450</width>
 					<height>413</height>
-					<aligny>top</aligny>
 					<label>$INFO[ListItem.Plot]</label>
-					<textcolor>Color7</textcolor>
-					<font>descriptionSmall</font>
+					<include>description_Small</include>
 					<visible>Container.Content(tvshows) | Container.Content(movies)</visible>
 				</control>
 				<control type="textbox" id="4">
@@ -533,8 +521,7 @@
 					<height>413</height>
 					<aligny>top</aligny>
 					<label>$INFO[Container.ShowPlot]</label>
-					<textcolor>Color7</textcolor>
-					<font>descriptionSmall</font>
+					<include>description_Small</include>
 					<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 			</control>
@@ -670,8 +657,8 @@
 					<width>1240</width>
 					<height>115</height>
 					<label>$INFO[ListItem.Plot]</label>
-					<font>descriptionSmall</font>
 					<textcolor>Color4</textcolor>
+					<include>description_Small</include>
 				</control>
 			</control>
 		</control>

@@ -329,6 +329,12 @@
 		<textcolor>Color7</textcolor>
 		<include>autoscroll</include>
 	</include>
+	<include name="description_Small">
+		<textcolor>Color7</textcolor>
+		<font>descriptionSmall</font>
+		<aligny>top</aligny>
+		<include>autoscroll</include>
+	</include>
 
 <!---BUTTONS------>
 	<!--contextButton-->
@@ -383,7 +389,17 @@
 		<texturefocus border="8">views/column_focus.png</texturefocus>
 		<colordiffuse>tv3</colordiffuse>
 	</include>
+
+
+<!---HOME2------>
+	<include name="label_Home-status">
+		<width>300</width>
+		<height>45</height>
+		<font>smallCaps</font>
+		<textoffsetx>15</textoffsetx>
+		<textcolor>Color3</textcolor>
 	
+	</include>
 	<include name="button_Home-item">
 		<width>300</width>
 		<height>50</height>
@@ -392,18 +408,14 @@
 		<textoffsetx>15</textoffsetx>
 		<textoffsety>2</textoffsety>
 		<textcolor>Color2</textcolor>
-		<focusedcolor>Color1</focusedcolor>	
+		<focusedcolor>Color1</focusedcolor>
+		<onleft>SetProperty(Home.Item,none)</onleft>
+		<onback>SetProperty(Home.Item,none)</onback>
 		<texturenofocus border="8">home/column.png</texturenofocus>
 		<texturefocus border="8">home/column.png</texturefocus>
 		<alttexturenofocus border="8">home/column.png</alttexturenofocus>
 		<alttexturefocus border="8">home/column.png</alttexturefocus>
 		<colordiffuse>tv3</colordiffuse>
-		<altclick>Skin.SetString(home,)</altclick>
-		
-		<onleft>SetProperty(Home.Item,none)</onleft>
-		<onback>SetProperty(Home.Item,none)</onback>
-					
-		<!--<animation effect="fade" start="100" end="20" time="0" reversible="true">VisibleChange</animation>-->
 	</include>
 	<include name="button_Home-subitem">
 		<width>300</width>
@@ -414,12 +426,17 @@
 		<textoffsety>3</textoffsety>
 		<textcolor>Color2</textcolor>
 		<focusedcolor>Color1</focusedcolor>
+		<onleft>SetProperty(Home.Item,none)</onleft>
+		<onback>SetProperty(Home.Item,none)</onback>
 		<texturenofocus border="8">home/column.png</texturenofocus>
 		<texturefocus border="8">home/column.png</texturefocus>
 		<colordiffuse>tv2</colordiffuse>
-		
-		<onleft>SetProperty(Home.Item,none)</onleft>
-		<onback>SetProperty(Home.Item,none)</onback>
+		<animation type="Visible">
+			<effect type="fade" start="0" end="100" time="100" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="fade" start="100" end="0" time="100" />
+		</animation>
 	</include>
 
 <!---THUMBS------>
