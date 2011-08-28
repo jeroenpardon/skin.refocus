@@ -49,6 +49,7 @@
 			<include>fadeinout</include>
 			<visible allowhiddenfocus="true">[Container(9000).HasFocus(9) | Container(1140).HasFocus(3)] + Skin.HasSetting(fanart.weather)</visible>
 		</control>
+		
 	<!-- now playing fanart --->
 		<control type="largeimage">
 			<include>global_Screentype</include>
@@ -83,7 +84,7 @@
 <!-- RSS FEED -------------------------------------------------------------------------------------------------------------------------->
 		<control type="group">
 			<posy>684</posy>
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(home.stats)</visible>
+			<visible>Skin.HasSetting(home.new) + system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(home.stats)</visible>
 			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
 			<control type="image">
@@ -118,10 +119,19 @@
 				<width>1281</width>
 				<height>52</height>
 				<texture border="0">home/homeRSS.png</texture>
+				<visible>!Skin.HasSetting(home.new)</visible>
+			</control>
+			<control type="image">
+				<posy>0</posy>
+				<width>1281</width>
+				<height>52</height>
+				<texture border="8">home/column.png</texture>
+				<colordiffuse>column3</colordiffuse>
+				<visible>Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="fadelabel" id="1">
 				<posy>10</posy>
-				<include>global_Screenwidth</include>
+				<width>screen_Width</width>
 				<font>rss</font>
 				<align>center</align>
 				<label>[COLOR=Color1]$INFO[Window.Property(Movies.Count)] $LOCALIZE[20342][/COLOR]  $INFO[Window.Property(Movies.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Episodes.Count)] $LOCALIZE[20360][/COLOR]  $INFO[Window.Property(Episodes.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Music.ArtistsCount)] $LOCALIZE[133][/COLOR] $INFO[Window.Property(Music.AlbumsCount)] $LOCALIZE[132] $INFO[Window.Property(Music.SongsCount)] $LOCALIZE[134]</label>
@@ -149,7 +159,9 @@
 		</control>
 
 <!-- CALL MENU -------------------------------------------------------------------------------------------------------------------------->
-		<include>HomeMenu</include>
+		<include condition="!Skin.HasSetting(home.new)">HomeMenu</include>
+		<include condition="Skin.HasSetting(home.new)">HomeMenu2</include>
+		
 		<control type="group" id="6100">
 			<posx>20</posx>
 			<posy>20</posy>
