@@ -1,6 +1,9 @@
 ﻿<window id="2003">
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	
+	
+	
 	<controls>
 
 <!---TRIGGER BUTTONS------>
@@ -190,7 +193,7 @@
 				<defaultcontrol always="true">8</defaultcontrol>
 				<control type="button" id="8">
 					<label>$LOCALIZE[208]</label>
-					<onleft>6000</onleft>
+					<onleft>-</onleft>
 					<onright>5</onright>
 					<ondown>50</ondown>
 					<include>button_Inline</include>
@@ -198,18 +201,18 @@
 				</control>
 				<control type="button" id="8">
 					<label>$LOCALIZE[208]</label>
-					<onleft>6000</onleft>
+					<onleft>-</onleft>
 					<onright>5</onright>
 					<ondown>50</ondown>
 					<include>button_Inline</include>
 					<onclick>Playlist.Clear</onclick> 
 					<onclick>Dialog.Close(MovieInformation)</onclick> 
-					<onclick>XBMC.RunScript(script.cinema.experience,movietitles)</onclick>
+					<onclick>XBMC.RunScript(script.cinema.experience)</onclick>
 					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
 				</control>
 				<control type="button" id="8">
 					<label>$LOCALIZE[1024]</label>
-					<onleft>6000</onleft>
+					<onleft>-</onleft>
 					<onright>5</onright>
 					<ondown>50</ondown>
 					<include>button_Inline</include>
@@ -229,10 +232,32 @@
 					<posx>268</posx>
 					<label>$LOCALIZE[20410]</label>
 					<onleft>5</onleft>
-					<onright>-</onright>
+					<onright>20</onright>
 					<ondown>50</ondown>
 					<include>button_Inline</include>
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
+				</control>
+				<control type="button" id="20">
+					<description>Edit</description>
+					<posx>268</posx>
+					<label>$LOCALIZE[21435]</label>
+					<onleft>11</onleft>
+					<onright>21</onright>
+					<ondown>50</ondown>
+					<onclick>ActivateWindow(60)</onclick>
+					<include>button_Inline</include>
+					<visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
+				</control>
+				<control type="button" id="21">
+					<description>Edit</description>
+					<posx>402</posx>
+					<label>$LOCALIZE[21435]</label>
+					<onleft>11</onleft>
+					<onright>-</onright>
+					<ondown>50</ondown>
+					<onclick>ActivateWindow(60)</onclick>
+					<include>button_Inline</include>
+					<visible>Container.Content(movies)</visible>
 				</control>
 			</control>
 			<!--plot-->

@@ -61,7 +61,7 @@
 					<ondown>56</ondown>
 					<onright>8000</onright>
 					<include>button_Menu</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,clearart=False,showthumb=False,poster=False,banner=False,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
 					<onclick>Close</onclick>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
 				</control>

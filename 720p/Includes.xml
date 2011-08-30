@@ -131,12 +131,19 @@
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
 			<control type="label" id="200">
 				<posx>25r</posx>
-				<label>[B]$INFO[System.Time][/B]</label>
+				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</label>
 				<include>toast_Top</include>
+				<visible>substring(system.time,AM,right)</visible>
 			</control>
 			<control type="label" id="200">
 				<posx>25r</posx>
-				<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
+				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</label>
+				<include>toast_Top</include>
+				<visible>substring(system.time,PM,right)</visible>
+			</control>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[UPPERCASE]$INFO[System.Date(DDD)] $INFO[System.Date(MMM)] $INFO[System.Date(d)][/UPPERCASE]</label>
 				<include>toast_Bottom</include>
 			</control>
 		</control>
@@ -401,24 +408,22 @@
 	
 	</include>
 	<include name="button_Home-item">
-		<width>300</width>
+		<width>325</width>
 		<height>50</height>
 		<font>titleAlt</font>
 		<align>left</align>
 		<textoffsetx>15</textoffsetx>
-		<textoffsety>2</textoffsety>
+		<textoffsety>3</textoffsety>
 		<textcolor>Color2</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<onleft>SetProperty(Home.Item,none)</onleft>
 		<onback>SetProperty(Home.Item,none)</onback>
 		<texturenofocus border="8">home/column.png</texturenofocus>
 		<texturefocus border="8">home/column.png</texturefocus>
-		<alttexturenofocus border="8">home/column.png</alttexturenofocus>
-		<alttexturefocus border="8">home/column.png</alttexturefocus>
 		<colordiffuse>tv3</colordiffuse>
 	</include>
 	<include name="button_Home-subitem">
-		<width>300</width>
+		<width>325</width>
 		<height>50</height>
 		<font>titleAlt</font>
 		<align>left</align>

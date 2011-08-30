@@ -77,7 +77,7 @@
 <!-- TIME -------------------------------------------------------------------------------------------------------------------------->
 	<control type="group">
 		<include>fadeinout</include>
-		<visible>Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
+		<visible>!Skin.HasSetting(home.new) + Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
 		<include>clock</include>
 	</control>
 
@@ -111,7 +111,7 @@
 <!-- LIBRARY STATS -------------------------------------------------------------------------------------------------------------------------->	
 		<control type="group">
 			<posy>684</posy>
-			<visible>Skin.HasSetting(home.stats)</visible>
+			<visible>Skin.HasSetting(home.stats) + !Skin.HasSetting(home.new)</visible>
 			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
 			<control type="image">
@@ -119,15 +119,6 @@
 				<width>1281</width>
 				<height>52</height>
 				<texture border="0">home/homeRSS.png</texture>
-				<visible>!Skin.HasSetting(home.new)</visible>
-			</control>
-			<control type="image">
-				<posy>0</posy>
-				<width>1281</width>
-				<height>52</height>
-				<texture border="8">home/column.png</texture>
-				<colordiffuse>column3</colordiffuse>
-				<visible>Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="fadelabel" id="1">
 				<posy>10</posy>

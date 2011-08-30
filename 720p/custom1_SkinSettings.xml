@@ -139,26 +139,6 @@
 				<width>325</width>
 				<visible>ControlGroup(700).HasFocus</visible>
 			</control>
-			<!--
-			<control type="button" id="16">
-				<description>Add-ons</description>
-				<posy>252</posy>
-				<label>$LOCALIZE[24001]</label>
-				<onfocus>Skin.SetString(SkinSettings,7)</onfocus>
-				<onright>700</onright>
-				<onup>15</onup>
-				<ondown>17</ondown>
-				<include>button_Category</include>
-			</control>
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>252</posy>
-				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(700).HasFocus</visible>
-			</control>
-			-->
 			<control type="button" id="17">
 				<description>Skin credits</description>
 				<posy>294</posy>
@@ -218,6 +198,12 @@
 				<selected>Skin.HasSetting(home.time)</selected>
 				<include>button_Settings</include>
 			</control>
+			<control type="radiobutton" id="108">
+				<label>use new homescreen (beta)</label>
+				<onclick>Skin.ToggleSetting(home.new)</onclick>
+				<selected>Skin.HasSetting(home.new)</selected>
+				<include>button_Settings</include>
+			</control>
 		</control>
 
 <!--- HOME MENU SETTINGS --------------------------------->	
@@ -244,7 +230,7 @@
 				<description>show pictures entry</description>
 				<label>31954</label>
 				<onclick>Skin.ToggleSetting(homemenu.pictures)</onclick>
-				<selected>!Skin.HasSetting(homemenu.pictures)</selected>
+				<selected>Skin.HasSetting(homemenu.pictures)</selected>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="203">
@@ -338,7 +324,7 @@
 				<onclick>Skin.ToggleSetting(videomenu.trailers)</onclick>
 				<selected>Skin.HasSetting(videomenu.trailers)</selected>
 				<include>button_Settings</include>
-				<visible>system.hasaddon(plugin.video.apple.movie.trailers.lite)</visible>
+				<visible>System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
 			</control>
 			<control type="label" id="310">
 				<description>Custom Home Menu Items</description>

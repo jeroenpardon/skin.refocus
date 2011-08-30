@@ -219,16 +219,16 @@
 	</include>
 	<include name="transition_Toast">
 		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="350" delay="150"/>
+			<effect type="fade" start="0" end="100" time="350" />
 		</animation>
 		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="250" delay="0"/>
+			<effect type="fade" start="100" end="0" time="250" />
 		</animation>
 		<animation type="Visible">
-			<effect type="fade" start="0" end="100" time="350" delay="150"/>
+			<effect type="fade" start="0" end="100" time="350" />
 		</animation>
 		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" time="250" delay="0"/>
+			<effect type="fade" start="100" end="0" time="250" />
 		</animation>
 		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(614)]">
 			<effect type="slide" time="0" start="0" end="-60" />
@@ -276,6 +276,24 @@
 		<animation type="WindowOpen">
 			<effect type="fade" start="0" end="100" time="250" />
 			<effect type="zoom" start="130" end="100" center="0,370" time="250" tween="Cubic" easing="Out" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="150" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="zoom" start="100" end="80" center="0,370" time="250" tween="Cubic" />
+			<effect type="fade" start="100" end="0" time="250" />
+		</animation>
+		<animation type="Visible">
+			<effect type="zoom" start="130" end="100" center="0,370" time="250" tween="Cubic" />
+			<effect type="fade" start="0" end="100" time="250" />
+		</animation>
+	</include>
+	
+	<include name="transition_HomeMenu2">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" time="250" />
+			<effect type="rotatey" start="90" end="0" center="0,0" time="2000" tween="Cubic" easing="Out" />
 		</animation>
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="150" />
