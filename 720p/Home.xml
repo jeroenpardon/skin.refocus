@@ -44,9 +44,8 @@
 			<include>fadeinout</include>
 			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + [!Skin.HasSetting(home.new) + [Container(9000).HasFocus(9) | Container(1140).HasFocus(3)]] | [Skin.HasSetting(home.new) + Control.HasFocus(900)]</visible>
 		</control>
-		
 	<!-- now playing fanart --->
-		<control type="largeimage">
+		<control type="image">
 			<include>screen_Dimensions</include>
 			<aspectratio>scale</aspectratio>
 			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
@@ -54,6 +53,47 @@
 			<visible allowhiddenfocus="true">Container(9000).HasFocus(14) + Skin.HasSetting(homemenu.playing)</visible>
 			<include>fadeinout</include>
 		</control>
+		
+		<!--
+		<control type="group">
+			<visible allowhiddenfocus="true">Skin.HasSetting(home.new)</visible>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<texture>$INFO[Window.Property(LatestMovie.1.Fanart)]</texture>
+				<fadetime>850</fadetime>
+				<visible>Control.HasFocus(250)</visible>
+				<include>fadeinout</include>
+			</control>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<texture>$INFO[Window.Property(LatestMovie.2.Fanart)]</texture>
+				<fadetime>850</fadetime>
+				<visible>Control.HasFocus(251)</visible>
+				<include>fadeinout</include>
+			</control>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<texture>$INFO[Window.Property(LatestMovie.3.Fanart)]</texture>
+				<fadetime>850</fadetime>
+				<visible>Control.HasFocus(252)</visible>
+				<include>fadeinout</include>
+			</control>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<texture>$INFO[Window.Property(LatestMovie.4.Fanart)]</texture>
+				<fadetime>850</fadetime>
+				<visible>Control.HasFocus(253)</visible>
+				<include>fadeinout</include>
+			</control>
+		</control>
+		-->
+		
+		
+		
 	<!-- menu shade --->
 		<control type="image">
 			<include>screen_Dimensions</include>

@@ -2,7 +2,7 @@
 	<include name="HomeMenu2">
 		<control type="group">
 			<posx>50</posx>
-			<posy>95</posy>
+			<posy>75</posy>
 			<include>transition_HomeMenu2</include>
 			<control type="image">
 				<width>325</width>
@@ -38,12 +38,78 @@
 				<font>home2Alt</font>
 				<align>left</align>
 			</control>
+			
+			<control type="image">
+				<posy>66</posy>
+				<width>325</width>
+				<height>55</height>
+				<texture flipy="true" border="8">home/column.png</texture>
+				<colordiffuse>tv2</colordiffuse>
+				<visible>Player.HasMedia + Skin.HasSetting(homemenu.playing)</visible>
+			</control>
+			<control type="image">
+				<posx>7</posx>
+				<posy>69</posy>
+				<width>48</width>
+				<height>48</height>
+				<texture>defaultplaylist.png</texture>
+				<colordiffuse>Color3</colordiffuse>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="image">
+				<posx>7</posx>
+				<posy>69</posy>
+				<width>48</width>
+				<height>48</height>
+				<texture>defaultAudio.png</texture>
+				<colordiffuse>Color3</colordiffuse>
+				<visible>Player.HasAudio</visible>
+			</control>
+			<control type="grouplist">
+				<posx>65</posx>
+				<posy>72</posy>
+				<width>325</width>
+				<itemgap>0</itemgap>
+				<visible>Skin.HasSetting(homemenu.playing)</visible>
+				<control type="label">
+					<width>270</width>
+					<height>20</height>
+					<label>[B]$INFO[VideoPlayer.TVShowTitle][/B]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="label">
+					<width>270</width>
+					<height>20</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<textcolor>Color3</textcolor>
+					<font>home2Alt</font>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="label">
+					<width>270</width>
+					<height>20</height>
+					<label>[B]$INFO[MusicPlayer.Title][/B]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasAudio</visible>
+				</control>
+				<control type="label">
+					<width>270</width>
+					<height>20</height>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasAudio</visible>
+				</control>
+			</control>
 
 			<control type="grouplist" id="8000">
 				<posy>66</posy>
 				<width>325</width>
 				<itemgap>0</itemgap>
-				<!--<animation effect="slide" start="0,0" end="0,35" time="150" tween="Cubic" condition="Player.HasVideo + Skin.HasSetting(homemenu.playing)">Conditional</animation>-->
+				<animation effect="slide" start="0,0" end="0,56" time="150" tween="Cubic" condition="Player.HasMedia + Skin.HasSetting(homemenu.playing)">Conditional</animation>
 				<control type="grouplist" id="9000">
 					<width>325</width>
 					<height>509</height>
@@ -121,7 +187,9 @@
 					</control>
 					<control type="button" id="201">
 						<label>$LOCALIZE[31095]</label>
+						<label2>[COLOR=Color2] ›[/COLOR]</label2>
 						<onleft>SetFocus(200)</onleft>
+						<onright>SetProperty(Home.Item,newmovies)</onright>
 						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedmovies)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),movies) + Skin.HasSetting(videomenu.recentvideo)</visible>
@@ -148,7 +216,36 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),movies) + Skin.HasSetting(videomenu.trailers)</visible>
 					</control>
-					
+					<!--
+					<control type="button" id="250">
+						<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
+						<onleft>SetFocus(200)</onleft>
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),newmovies)</visible>
+					</control>
+					<control type="button" id="251">
+						<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
+						<onleft>SetFocus(200)</onleft>
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),newmovies)</visible>
+					</control>
+					<control type="button" id="252">
+						<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
+						<onleft>SetFocus(200)</onleft>
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),newmovies)</visible>
+					</control>
+					<control type="button" id="253">
+						<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
+						<onleft>SetFocus(200)</onleft>
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),newmovies)</visible>
+					</control>
+					-->
 					<!---tv shows--->
 					<control type="button" id="300">
 						<label>$LOCALIZE[20343]</label>
@@ -224,7 +321,7 @@
 						<onright>SetProperty(Home.Item,music)</onright>
 						<onclick>ActivateWindow(MyMusicLibrary)</onclick>
 						<include>button_Home-item</include>
-						<visible>Library.HasContent(Music)</visible>
+						<visible>Library.HasContent(Music) + !Skin.HasSetting(homemenu.music)</visible>
 					</control>
 					<control type="button" id="501">
 						<label>$LOCALIZE[2]</label>
@@ -287,7 +384,7 @@
 						<onright>SetProperty(Home.Item,pictures)</onright>
 						<onclick>ActivateWindow(pictures)</onclick>
 						<include>button_Home-item</include>
-						<visible>Skin.HasSetting(homemenu.pictures)</visible>
+						<visible>Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(homemenu.pictures)</visible>
 					</control>
 					<control type="button" id="601">
 						<label>$LOCALIZE[24001]</label>
@@ -327,8 +424,17 @@
 						<visible>StringCompare(Window.Property(Home.Item),addons)</visible>
 					</control>
 
-					<!--system-->
+					<!--weather-->
 					<control type="button" id="800">
+						<label>$LOCALIZE[8]</label>
+						<label2>[COLOR=column4]$INFO[Weather.Temperature][/COLOR]</label2>
+						<onclick>ActivateWindow(weather)</onclick>
+						<include>button_Home-item</include>
+						<visible>Skin.HasSetting(homemenu.weather)</visible>
+					</control>
+
+					<!--system-->
+					<control type="button" id="900">
 						<label>$LOCALIZE[13000]</label>
 						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,system)</onright>
@@ -337,26 +443,17 @@
 					</control>
 					<control type="button" id="801">
 						<label>$LOCALIZE[7]</label>
-						<onleft>SetFocus(800)</onleft>
+						<onleft>SetFocus(900)</onleft>
 						<onclick>ActivateWindow(filemanager)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),system)</visible>
 					</control>
 					<control type="button" id="802">
 						<label>$LOCALIZE[13012]</label>
-						<onleft>SetFocus(800)</onleft>
+						<onleft>SetFocus(900)</onleft>
 						<onclick>ActivateWindow(shutdownmenu)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),system)</visible>
-					</control>
-					
-					<!--weather-->
-					<control type="button" id="900">
-						<label>$LOCALIZE[8]</label>
-						<label2>[COLOR=column4]$INFO[Weather.Temperature][/COLOR]</label2>
-						<onclick>ActivateWindow(weather)</onclick>
-						<include>button_Home-item</include>
-						<visible>Skin.HasSetting(homemenu.weather)</visible>
 					</control>
 					
 					<!--favourites-->
@@ -366,7 +463,6 @@
 						<texturenofocus border="8">home/column_Bottom.png</texturenofocus>
 						<texturefocus border="8">home/column_Bottom.png</texturefocus>
 						<include>button_Home-item</include>
-						<visible>Skin.HasSetting(homemenu.favourites)</visible>
 					</control>
 				</control>
 			</control>
