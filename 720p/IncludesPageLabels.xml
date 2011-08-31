@@ -232,25 +232,31 @@
 		</control>
 		<!--enabled-->
 		<control type="label">
-			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[305][/COLOR]</label>
+			<label>$LOCALIZE[24062]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,addons://enabled/)</visible>
 		</control>
+		<!--disbabled-->
+		<control type="label">
+			<label>$LOCALIZE[24039]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,addons://disabled/)</visible>
+		</control>
 		<!--downloading-->
 		<control type="label">
-			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[13413][/COLOR]</label>
+			<label>$LOCALIZE[24067]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,addons://downloading/)</visible>
 		</control>
 		<!--available updates-->
 		<control type="label">
-			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[24043][/COLOR]</label>
+			<label>$LOCALIZE[24043]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,addons://outdated/)</visible>
 		</control>
 		<!--repositories-->
 		<control type="label">
-			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[31121][/COLOR]</label>
+			<label>$LOCALIZE[24000] [COLOR=Color2]$LOCALIZE[31121][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,addons://repos/)</visible>
 		</control>
@@ -262,15 +268,15 @@
 		</control>
 		<!--all-->
 		<control type="label">
-			<label>$LOCALIZE[24001] [COLOR=Color2]$LOCALIZE[593][/COLOR]</label>
+			<label>[COLOR=Color2]$LOCALIZE[593][/COLOR] $LOCALIZE[24001]</label>
 			<include>PageLabel</include>
 			<visible>stringcompare(Container.FolderPath,addons://all/)</visible>
 		</control>
 		<!--category-->
 		<control type="label">
-			<label>$LOCALIZE[24001] [COLOR=Color2]$INFO[Container.Property(addoncategory)][/COLOR]</label>
+			<label>$INFO[Container.Property(addoncategory)]</label>
 			<include>PageLabel</include>
-			<visible>SubString(Container.FolderPath,addons://all/)</visible>
+			<visible>SubString(Container.FolderPath,addons://all/) + !stringcompare(Container.FolderPath,addons://all/)</visible>
 		</control>
 	</include>
 
