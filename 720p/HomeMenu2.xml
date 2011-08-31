@@ -12,6 +12,15 @@
 			</control>
 			<control type="label">
 				<posx>15</posx>
+				<label>[UPPERCASE]$INFO[System.Time][/UPPERCASE]</label>
+				<width>270</width>
+				<height>43</height>
+				<font>home2</font>
+				<textcolor>Color1</textcolor>
+				<visible>![substring(system.time,PM,right) | substring(system.time,AM,right)]</visible>
+			</control>
+			<control type="label">
+				<posx>15</posx>
 				<label>[UPPERCASE]$INFO[System.Time(hh:mm),, ][COLOR=Color2]$LOCALIZE[379][/COLOR][/UPPERCASE]</label>
 				<width>270</width>
 				<height>43</height>

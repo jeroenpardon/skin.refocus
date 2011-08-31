@@ -165,10 +165,25 @@
 				<label>[B]$INFO[System.Time][/B]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
+				<visible>![substring(system.time,AM,right) | substring(system.time,PM,right)]</visible>
 			</control>
 			<control type="label" id="200">
 				<posx>25r</posx>
-				<label>[UPPERCASE]$INFO[System.Date][/UPPERCASE]</label>
+				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</label>
+				<shadowcolor>black</shadowcolor>
+				<include>toast_Top</include>
+				<visible>substring(system.time,AM,right)</visible>
+			</control>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</label>
+				<shadowcolor>black</shadowcolor>
+				<include>toast_Top</include>
+				<visible>substring(system.time,PM,right)</visible>
+			</control>
+			<control type="label" id="200">
+				<posx>25r</posx>
+				<label>[UPPERCASE]$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)][/UPPERCASE]</label>
 				<textcolor>Color1</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Bottom</include>
