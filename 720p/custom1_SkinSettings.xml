@@ -239,6 +239,7 @@
 				<onclick>Skin.ToggleSetting(homemenu.programs)</onclick>
 				<selected>!Skin.HasSetting(homemenu.programs)</selected>
 				<include>button_Settings</include>
+				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="radiobutton" id="204">
 				<description>show accessories entry</description>
@@ -246,6 +247,7 @@
 				<onclick>Skin.ToggleSetting(homemenu.accessories)</onclick>
 				<selected>!Skin.HasSetting(homemenu.accessories)</selected>
 				<include>button_Settings</include>
+				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="radiobutton" id="205">
 				<description>show favourites entry</description>
@@ -274,6 +276,7 @@
 				<onclick>Skin.ToggleSetting(homemenu.exit)</onclick>
 				<selected>!Skin.HasSetting(homemenu.exit)</selected>
 				<include>button_Settings</include>
+				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="radiobutton" id="209">
 				<description>settings screen toggle</description>
@@ -281,6 +284,7 @@
 				<onclick>Skin.ToggleSetting(homemenu.settings)</onclick>
 				<selected>Skin.HasSetting(homemenu.settings)</selected>
 				<include>button_Settings</include>
+				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 		</control>
 
@@ -310,6 +314,7 @@
 				<onclick>Skin.ToggleSetting(videomenu.musicvideos)</onclick>
 				<selected>Skin.HasSetting(videomenu.musicvideos)</selected>
 				<include>button_Settings</include>
+				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="radiobutton" id="303">
 				<description>show playlists entry</description>

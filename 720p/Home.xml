@@ -1,10 +1,8 @@
 ﻿<window id="0">
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-
 	<controls>
-	
-<!-- BACKGROUND MEDIA -------------------------------------------------------------------------------------------------------------------------->
+
 	<!-- global background --->
 		<control type="largeimage">
 			<aspectratio>scale</aspectratio>
@@ -21,10 +19,8 @@
 				<effect type="fade" start="100" end="0" time="200" delay="0" />
 			</animation>
 		</control>
-
 	<!-- slideshows--->
 		<include>home_Slideshows</include>
-		
 	<!-- background video --->
 		<control type="image">
 			<aspectratio>stretch</aspectratio>
@@ -36,10 +32,9 @@
 			<include>screen_Dimensions</include>
 			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
 		</control>
-		
 	<!-- weather fanart --->
 		<control type="multiimage" id="1">
-			<include>global_Screentype</include>
+			<include>screen_Dimensions</include>
 			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
 			<timeperimage>7000</timeperimage>
@@ -47,12 +42,12 @@
 			<randomize>true</randomize>
 			<loop>yes</loop>
 			<include>fadeinout</include>
-			<visible allowhiddenfocus="true">[Container(9000).HasFocus(9) | Container(1140).HasFocus(3)] + Skin.HasSetting(fanart.weather)</visible>
+			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + [!Skin.HasSetting(home.new) + [Container(9000).HasFocus(9) | Container(1140).HasFocus(3)]] | [Skin.HasSetting(home.new) + Control.HasFocus(900)]</visible>
 		</control>
 		
 	<!-- now playing fanart --->
 		<control type="largeimage">
-			<include>global_Screentype</include>
+			<include>screen_Dimensions</include>
 			<aspectratio>scale</aspectratio>
 			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
 			<fadetime>850</fadetime>
@@ -61,14 +56,13 @@
 		</control>
 	<!-- menu shade --->
 		<control type="image">
-			<width>screen_Width</width>
-			<height>screen_Height</height>
+			<include>screen_Dimensions</include>
 			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground.png</texture>
 		</control>
 	<!-- toast overlay --->
 		<control type="image" id="1">
-			<include>global_Screentype</include>
+			<include>screen_Dimensions</include>
 			<texture border="16">overlays/vignette.png</texture>
 			<visible>Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)</visible>
 			<include>transition_Toast</include>

@@ -1,7 +1,7 @@
 ﻿<includes>
 	<include file="Defaults.xml" />
-	<include file="Home2.xml" />
 	<include file="HomeMenu.xml" />
+	<include file="HomeMenu2.xml" />
 	<include file="HomeSubMenu.xml" />
 	<include file="HomeMusicMenu.xml" />
 	<include file="HomeVideoMenu.xml" />
@@ -578,7 +578,7 @@
 		<font>progress</font>
 		<textcolor>Color1</textcolor>
 		<include>transition_Toast</include>
-		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(614)]">
+		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]">
 			<effect type="slide" time="0" start="0" end="-60" />
 		</animation>
 		<animation type="Conditional" condition="Player.Muted + [Window.IsActive(videoscan) | Window.IsActive(musicscan)]">
