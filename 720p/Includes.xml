@@ -131,6 +131,12 @@
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
 			<control type="label" id="200">
 				<posx>25r</posx>
+				<label>[B]$INFO[System.Time][/B]</label>
+				<include>toast_Top</include>
+				<visible>![substring(system.time,AM,right) | substring(system.time,PM,right)]</visible>
+			</control>
+			<control type="label" id="200">
+				<posx>25r</posx>
 				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</label>
 				<include>toast_Top</include>
 				<visible>substring(system.time,AM,right)</visible>
@@ -143,7 +149,7 @@
 			</control>
 			<control type="label" id="200">
 				<posx>25r</posx>
-				<label>[UPPERCASE]$INFO[System.Date(DDD)] $INFO[System.Date(MMM)] $INFO[System.Date(d)][/UPPERCASE]</label>
+				<label>[UPPERCASE]$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)][/UPPERCASE]</label>
 				<include>toast_Bottom</include>
 			</control>
 		</control>
