@@ -1,0 +1,79 @@
+﻿<window type="dialog" id="60" >
+	<defaultcontrol always="true">500</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>487</posx>
+		<posy>272</posy>
+	</coordinates>
+	<include>dialogOpen</include>
+	
+	<controls>
+		<control type="group">
+			<control type="image">
+				<width>307</width>
+				<height>217</height>
+				<texture border="16">dialogs/button_Menu.png</texture>
+			</control>
+			<control type="image">
+				<posx>4</posx>
+				<posy>8</posy>
+				<width>300</width>
+				<include>dialog_Separator</include>
+			</control>
+			<control type="grouplist" id="500">
+				<posx>4</posx>
+				<posy>8</posy>
+				<width>300</width>
+				<height>200</height>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<onright>402</onright>
+				<scrolltime>150</scrolltime>
+				<itemgap>0</itemgap>
+				<!--refresh-->
+				<control type="button" id="501">
+					<width>388</width>
+					<label>$LOCALIZE[184]</label>
+					<onclick>Close</onclick>
+					<onclick>SendClick(6)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--thumbnail-->
+				<control type="button" id="502">
+					<width>388</width>
+					<label>$LOCALIZE[31074]</label>
+					<onclick>Close</onclick>
+					<onclick>SendClick(10)</onclick>
+					<include>dialog_Button-list</include>
+				</control>
+				<!--fanart-->
+				<control type="button" id="503">
+					<width>388</width>
+					<label>Select Fanart</label>
+					<onclick>Close</onclick> 
+					<onclick>SendClick(12)</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				</control>
+				<!--banner-->
+				<control type="button" id="504">
+					<width>388</width>
+					<label>$LOCALIZE[31064]</label>
+					<onclick>Close</onclick>	 
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				<!--logo-->
+				<control type="button" id="505">
+					<width>388</width>
+					<label>$LOCALIZE[31065]</label>
+					<onclick>Close</onclick>
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					<include>dialog_Button-list</include>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
