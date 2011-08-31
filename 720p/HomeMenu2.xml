@@ -187,6 +187,13 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),videos) + Skin.HasSetting(videomenu.playlist4)</visible>
 					</control>
+					<control type="button" id="116">
+						<label>$LOCALIZE[24001]</label>
+						<onleft>SetFocus(110)</onleft>
+						<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>	
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),videos)</visible>
+					</control>
 					
 					<!--movies-->
 					<control type="button" id="200">
@@ -458,14 +465,14 @@
 						<onclick>ActivateWindow(settings)</onclick>
 						<include>button_Home-item</include>
 					</control>
-					<control type="button" id="801">
+					<control type="button" id="901">
 						<label>$LOCALIZE[7]</label>
 						<onleft>SetFocus(900)</onleft>
 						<onclick>ActivateWindow(filemanager)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),system)</visible>
 					</control>
-					<control type="button" id="802">
+					<control type="button" id="902">
 						<label>$LOCALIZE[13012]</label>
 						<onleft>SetFocus(900)</onleft>
 						<onclick>ActivateWindow(shutdownmenu)</onclick>
