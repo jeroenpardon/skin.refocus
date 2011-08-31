@@ -149,7 +149,7 @@
 			<description>video add-ons</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>[SubString(Container.FolderPath,addons://sources/video/) | SubString(Container.FolderPath,plugin://)] + !SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
+			<visible>SubString(Container.FolderPath,addons://sources/video/) + !SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
 		</control>
 	</include>
 		
@@ -213,12 +213,13 @@
 			<visible>SubString(Container.FolderPath,musicdb://7/)</visible>
 			<include>PageLabel</include>
 		</control>
-		<!--add-ons-->
+		<!--add-ons
 		<control type="label">
 			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,plugin://)</visible>
 		</control>
+		-->
 	</include>
 
 <!--ADD-ONS------>
