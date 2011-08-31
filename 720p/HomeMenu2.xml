@@ -10,42 +10,40 @@
 				<texture flipy="true" border="8">home/column_Top.png</texture>
 				<colordiffuse>tv3</colordiffuse>
 			</control>
-			<control type="label">
+			<control type="group">
 				<posx>15</posx>
-				<label>[UPPERCASE]$INFO[System.Time][/UPPERCASE]</label>
-				<width>270</width>
-				<height>43</height>
-				<font>home2</font>
-				<textcolor>Color1</textcolor>
-				<visible>![substring(system.time,PM,right) | substring(system.time,AM,right)]</visible>
-			</control>
-			<control type="label">
-				<posx>15</posx>
-				<label>[UPPERCASE]$INFO[System.Time(hh:mm),, ][COLOR=Color2]$LOCALIZE[379][/COLOR][/UPPERCASE]</label>
-				<width>270</width>
-				<height>43</height>
-				<font>home2</font>
-				<textcolor>Color1</textcolor>
-				<visible>substring(system.time,PM,right)</visible>
-			</control>
-			<control type="label">
-				<posx>15</posx>
-				<label>[UPPERCASE]$INFO[System.Time(hh:mm),, ][COLOR=Color2]$LOCALIZE[378][/COLOR][/UPPERCASE]</label>
-				<width>270</width>
-				<height>43</height>
-				<font>home2</font>
-				<textcolor>Color1</textcolor>
-				<visible>substring(system.time,AM,right)</visible>
-			</control>
-			<control type="label">
-				<posx>15</posx>
-				<posy>31</posy>
-				<width>270</width>
-				<height>30</height>
-				<label>$INFO[System.Date(DDD)] $INFO[System.Date(MMM)] $INFO[System.Date(d)]</label>
-				<textcolor>Color3</textcolor>
-				<font>home2Alt</font>
-				<align>left</align>
+				<control type="label">
+					<label>[UPPERCASE]$INFO[System.Time][/UPPERCASE]</label>
+					<width>270</width>
+					<height>43</height>
+					<font>home2</font>
+					<textcolor>Color1</textcolor>
+					<visible>![substring(system.time,PM,right) | substring(system.time,AM,right)]</visible>
+				</control>
+				<control type="label">
+					<label>[UPPERCASE]$INFO[System.Time(hh:mm),, ][COLOR=Color2]$LOCALIZE[379][/COLOR][/UPPERCASE]</label>
+					<width>270</width>
+					<height>43</height>
+					<font>home2</font>
+					<textcolor>Color1</textcolor>
+					<visible>substring(system.time,PM,right)</visible>
+				</control>
+				<control type="label">
+					<label>[UPPERCASE]$INFO[System.Time(hh:mm),, ][COLOR=Color2]$LOCALIZE[378][/COLOR][/UPPERCASE]</label>
+					<width>270</width>
+					<height>43</height>
+					<font>home2</font>
+					<textcolor>Color1</textcolor>
+					<visible>substring(system.time,AM,right)</visible>
+				</control>
+				<control type="label">
+					<posy>31</posy>
+					<width>270</width>
+					<height>30</height>
+					<label>$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</label>
+					<textcolor>Color3</textcolor>
+					<font>home2Alt</font>
+				</control>
 			</control>
 			
 			<control type="image">
@@ -56,24 +54,28 @@
 				<colordiffuse>tv2</colordiffuse>
 				<visible>Player.HasMedia + Skin.HasSetting(homemenu.playing)</visible>
 			</control>
-			<control type="image">
+			
+			<control type="group">
 				<posx>7</posx>
-				<posy>69</posy>
-				<width>48</width>
-				<height>48</height>
-				<texture>defaultplaylist.png</texture>
-				<colordiffuse>Color3</colordiffuse>
-				<visible>Player.HasVideo</visible>
+				<visible>Player.HasMedia + Skin.HasSetting(homemenu.playing)</visible>
+				<control type="image">
+					<posy>69</posy>
+					<width>48</width>
+					<height>48</height>
+					<texture>defaultplaylist.png</texture>
+					<colordiffuse>Color3</colordiffuse>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="image">
+					<posy>69</posy>
+					<width>48</width>
+					<height>48</height>
+					<texture>defaultAudio.png</texture>
+					<colordiffuse>Color3</colordiffuse>
+					<visible>Player.HasAudio</visible>
+				</control>
 			</control>
-			<control type="image">
-				<posx>7</posx>
-				<posy>69</posy>
-				<width>48</width>
-				<height>48</height>
-				<texture>defaultAudio.png</texture>
-				<colordiffuse>Color3</colordiffuse>
-				<visible>Player.HasAudio</visible>
-			</control>
+			
 			<control type="grouplist">
 				<posx>65</posx>
 				<posy>72</posy>
@@ -369,14 +371,6 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),music)</visible>
 					</control>
-					<!--
-					<control type="button" id="505">
-						<label>$LOCALIZE[24001]</label>
-						<onleft>SetFocus(500)</onleft>
-						<onclick>ActivateWindow(MusicLibrary,Addons)</onclick>	
-						<include>button_Home-subitem</include>
-						<visible>StringCompare(Window.Property(Home.Item),music)</visible>
-					</control>-->
 					<control type="button" id="506">
 						<label>$LOCALIZE[20389]</label>
 						<label2>$INFO[Window.Property(Musicvideos.Count)]</label2>
@@ -384,6 +378,20 @@
 						<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>	
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),music) + Library.HasContent(Musicvideos)</visible>
+					</control>
+					<control type="button" id="507">
+						<label>$LOCALIZE[15200]</label>
+						<onleft>SetFocus(500)</onleft>
+						<onclick>ActivateWindow(MyMusicLibrary,lastfm://)</onclick>
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),music) + Skin.HasSetting(musicmenu.lastfm)</visible>
+					</control>
+					<control type="button" id="508">
+						<label>$LOCALIZE[24001]</label>
+						<onleft>SetFocus(500)</onleft>
+						<onclick>ActivateWindow(MusicLibrary,Addons)</onclick>	
+						<include>button_Home-subitem</include>
+						<visible>StringCompare(Window.Property(Home.Item),music)</visible>
 					</control>
 					
 					<!--pictures-->
@@ -412,23 +420,23 @@
 						<include>button_Home-item</include>
 					</control>
 					<control type="button" id="701">
-						<label>[LOWERCASE]$LOCALIZE[157][/LOWERCASE]</label>
+						<label>[LOWERCASE]$LOCALIZE[24043][/LOWERCASE]</label>
 						<onleft>SetFocus(700)</onleft>
-						<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>
+						<onclick>ActivateWindow(addonbrowser,addons://outdated/)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),addons)</visible>
 					</control>
 					<control type="button" id="702">
-						<label>[LOWERCASE]$LOCALIZE[2][/LOWERCASE]</label>
+						<label>[LOWERCASE]$LOCALIZE[24062][/LOWERCASE]</label>
 						<onleft>SetFocus(700)</onleft>
-						<onclick>ActivateWindow(MusicLibrary,Addons)</onclick>
+						<onclick>ActivateWindow(addonbrowser,addons://enabled/)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),addons)</visible>
 					</control>
 					<control type="button" id="703">
-						<label>[LOWERCASE]$LOCALIZE[0][/LOWERCASE]</label>
+						<label>[LOWERCASE]$LOCALIZE[24033][/LOWERCASE]</label>
 						<onleft>SetFocus(700)</onleft>
-						<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+						<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),addons)</visible>
 					</control>
