@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 			<itemlayout height="400" width="205">
 				<control type="image">
 					<width>228</width>
@@ -27,7 +27,7 @@
 					<bordertexture border="40">frames/frame_Square.png</bordertexture>
 					<bordersize>22</bordersize>
 					<aspectratio align="center">stretch</aspectratio>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="image">
 					<width>228</width>
@@ -54,7 +54,7 @@
 					<bordersize>22</bordersize>
 					<aspectratio align="center">stretch</aspectratio>
 					<include>focus_SlidePoster</include>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="image">
 					<width>228</width>
