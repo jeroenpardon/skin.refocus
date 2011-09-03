@@ -124,7 +124,7 @@
 				<animation effect="slide" start="0,0" end="0,56" time="150" tween="Cubic" condition="Player.HasMedia + Skin.HasSetting(homemenu.playing)">Conditional</animation>
 				<control type="grouplist" id="9000">
 					<width>350</width>
-					<height>459</height>
+					<height>509</height>
 					<itemgap>1</itemgap>
 					<onleft>-</onleft>
 					<onright>-</onright>
@@ -211,7 +211,6 @@
 					</control>
 					<control type="button" id="201">
 						<label>$LOCALIZE[31095]</label>
-						<label2>[COLOR=Color2] ›[/COLOR]</label2>
 						<onleft>SetFocus(200)</onleft>
 						<onright>SetProperty(Home.Item,newmovies)</onright>
 						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedmovies)</onclick>
@@ -309,8 +308,11 @@
 						<label>$LOCALIZE[31090]</label>
 						<onright>SetProperty(Home.Item,livetv)</onright>
 						<onclick>ActivateWindow(TV)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
-						<visible>System.GetBool(pvrmanager.enabled)</visible>
+						<visible>!System.GetBool(pvrmanager.enabled)</visible>
 					</control>
 					<control type="button" id="401">
 						<label>$LOCALIZE[31987]</label>
