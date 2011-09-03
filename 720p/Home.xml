@@ -56,7 +56,7 @@
 		
 	
 		<control type="group">
-			<visible allowhiddenfocus="true">Skin.HasSetting(home.new) + StringCompare(Window.Property(Home.Item),newmovies)</visible>
+			<visible allowhiddenfocus="true">Skin.HasSetting(home.new)</visible>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<aspectratio>stretch</aspectratio>
@@ -118,7 +118,7 @@
 <!-- RSS FEED -------------------------------------------------------------------------------------------------------------------------->
 		<control type="group">
 			<posy>684</posy>
-			<visible>Skin.HasSetting(home.new) + system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(home.stats)</visible>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Skin.HasSetting(home.stats) | Skin.HasSetting(home.new)]</visible>
 			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
 			<control type="image">
@@ -129,7 +129,7 @@
 			</control>	
 			<control type="rss" id="1">
 				<posy>10</posy>
-				<include>global_Screenwidth</include>
+				<width>screen_Width</width>
 				<font>rss</font>
 				<urlset>1</urlset>
 				<height>32</height>
@@ -172,7 +172,7 @@
 			</control>
 			<control type="label" id="1">
 				<posy>8</posy>
-				<include>global_Screenwidth</include>
+				<width>screen_Width</width>
 				<font>rss</font>
 				<align>center</align>
 				<label>[COLOR=Color2]$LOCALIZE[19157]: [/COLOR]$INFO[PVR.NextRecordingTitle], $INFO[PVR.NextRecordingDateTime] - $INFO[PVR.NextRecordingChannel]</label>
