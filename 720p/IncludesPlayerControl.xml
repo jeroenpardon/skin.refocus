@@ -183,19 +183,19 @@
 	<include name="controls_Video">
 		<control type="group">
 			<control type="group" id="600">
-				<posx>514</posx>
+				<posx>478</posx>
 				<posy>303</posy>
 				<visible allowhiddenfocus="true">ControlGroup(600).HasFocus</visible>
 				<include>toggle_PlayerMenu</include>
 				<control type="image">
-					<width>252</width>
+					<width>325</width>
 					<height>274</height>
 					<texture>osd/settingsMenu.png</texture>
 				</control>
 				<control type="grouplist" id="601">
 					<posx>9</posx>
 					<posy>8</posy>
-					<width>234</width>
+					<width>307</width>
 					<height>240</height>
 					<align>top</align>
 					<onleft>701</onleft>
@@ -204,7 +204,7 @@
 					<ondown>599</ondown>
 					<itemgap>0</itemgap>
 					<control type="button" id="602">
-						<width>234</width>
+						<width>307</width>
 						<label>teletext</label>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
@@ -212,21 +212,21 @@
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="button" id="603">
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[13395]</label>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(123)</onclick>
 					</control>
 					<control type="button" id="604">
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[13396]</label>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(124)</onclick>
 					</control>
 					<control type="button" id="605">
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[298]</label>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
@@ -234,7 +234,7 @@
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="togglebutton" id="606">
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[31980]</label>
 						<onclick>-</onclick>
 						<onclick>Close</onclick>
@@ -250,7 +250,7 @@
 					</control>
 					<control type="button" id="607">
 						<description>Subtitles toggle</description>
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[287]: $LOCALIZE[351]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ShowSubtitles</onclick>
@@ -259,7 +259,7 @@
 					</control>
 					<control type="button" id="608">
 						<description>Subtitles toggle</description>
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[287]: $LOCALIZE[31112]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ShowSubtitles</onclick>
@@ -268,7 +268,7 @@
 					</control>
 					<control type="button" id="609">
 						<description>TV Guide</description>
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[19029]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(PVROSDGuide)</onclick>
@@ -277,7 +277,7 @@
 					</control>
 					<control type="button" id="610">
 						<description>DVD Menu</description>
-						<width>234</width>
+						<width>307</width>
 						<label>$LOCALIZE[33061]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>PlayerControl(ShowVideoMenu)</onclick>
