@@ -8,7 +8,7 @@
 			<aspectratio>scale</aspectratio>
 			<include>screen_Dimensions</include>
 			<texture background="true">backgrounds/background.png</texture>
-			<visible>Skin.HasSetting(slideshow.custom) + ![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)] | [Skin.HasSetting(slideshow.fanart) + ![Library.HasContent(movies) + Library.HasContent(tvshows)]]</visible>
+			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)] | [Skin.HasSetting(slideshow.fanart) + ![Library.HasContent(movies) + Library.HasContent(tvshows)]]</visible>
 			<animation type="WindowOpen" condition="Window.Previous(2999)">
 				<effect type="fade" start="0" end="100" time="600" delay="0" />
 			</animation>
@@ -54,7 +54,7 @@
 			<include>fadeinout</include>
 		</control>
 		
-	
+	<!--
 		<control type="group">
 			<visible allowhiddenfocus="true">Skin.HasSetting(home.new)</visible>
 			<control type="image">
@@ -90,7 +90,7 @@
 				<include>fadeinout</include>
 			</control>
 		</control>
-	
+	-->
 		
 		
 		
@@ -99,6 +99,7 @@
 			<include>screen_Dimensions</include>
 			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground.png</texture>
+			<visible>Skin.HasSetting(home.new)</visible>
 		</control>
 	<!-- toast overlay --->
 		<control type="image" id="1">
@@ -109,11 +110,11 @@
 		</control>
 		
 <!-- TIME -------------------------------------------------------------------------------------------------------------------------->
-	<control type="group">
-		<include>fadeinout</include>
-		<visible>!Skin.HasSetting(home.new) + Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
-		<include>clock</include>
-	</control>
+		<control type="group">
+			<include>fadeinout</include>
+			<visible>!Skin.HasSetting(home.new) + Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
+			<include>clock</include>
+		</control>
 
 <!-- RSS FEED -------------------------------------------------------------------------------------------------------------------------->
 		<control type="group">
@@ -191,6 +192,7 @@
 			<posx>20</posx>
 			<posy>20</posy>
 			<include>transition_Indicator</include>
+			<visible>!Skin.HasSetting(home.new)</visible>
 			<control type="image">
 				<width>48</width>
 				<height>48</height>
