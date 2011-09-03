@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 			<itemlayout height="260" width="186">
 				<control type="image">
 					<width>177</width>
@@ -27,7 +27,7 @@
 					<bordertexture border="6" width="177" height="250">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="image">
 					<width>177</width>
@@ -56,7 +56,7 @@
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
 					<include>focus_ThumbPoster</include>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="image">
 					<width>177</width>
@@ -100,7 +100,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 			<itemlayout height="190" width="133">
 				<control type="image">
 					<width>131</width>
@@ -125,7 +125,7 @@
 					<height>170</height>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
 					<texture background="true" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="image">
 					<posx>90</posx>
@@ -162,7 +162,7 @@
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
 					<texture background="true" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
 					<include>focus_ThumbPosterInfo</include>
-					<visible>Container.Content(movies)</visible>
+					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="image">
 					<posx>90</posx>

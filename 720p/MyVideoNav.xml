@@ -436,7 +436,7 @@
 				<posx>760</posx>
 				<posy>115</posy>
 				<itemgap>0</itemgap>
-				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Title]</label>
@@ -466,13 +466,13 @@
 					<width>450</width>
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
 					<include>info_Sub</include>
-					<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))</visible>
+					<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate)) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
 					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
 					<include>info_Sub</include>
-					<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))</visible>
+					<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate)) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>450</width>
@@ -514,7 +514,7 @@
 					<height>413</height>
 					<label>$INFO[ListItem.Plot]</label>
 					<include>description_Small</include>
-					<visible>Container.Content(tvshows) | Container.Content(movies)</visible>
+					<visible>Container.Content(tvshows) | Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="textbox" id="4">
 					<width>450</width>

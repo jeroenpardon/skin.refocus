@@ -73,7 +73,7 @@
 						<include>button_Menu</include>
 						<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]]</visible>
 					</control>
-					<!--thumnbails-->
+					<!--thumbnails-->
 					<control type="button" id="405">
 						<description>poster</description>
 						<label>$LOCALIZE[31014]</label>
@@ -83,7 +83,7 @@
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(57)</onclick>
 						<include>button_Menu</include>
-						<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !substring(Container.FolderPath,plugin://)] | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+						<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !substring(Container.FolderPath,plugin://)] | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 					</control>
 					<control type="button" id="406">
 						<description>wide</description>
@@ -322,7 +322,7 @@
 						<onclick>SetFocus(571)</onclick>
 						<selected>!Skin.HasSetting(view.thumbnails.info)</selected>
 						<include>button_Menu</include>
-						<visible>Control.IsVisible(57) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
+						<visible>Control.IsVisible(57) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 					</control>
 					<control type="button" id="90">
 						<description>THUMBS: no info</description>
