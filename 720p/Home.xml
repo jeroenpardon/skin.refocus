@@ -42,7 +42,7 @@
 			<randomize>true</randomize>
 			<loop>yes</loop>
 			<include>fadeinout</include>
-			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + [!Skin.HasSetting(home.new) + [Container(9000).HasFocus(9) | Container(1140).HasFocus(3)]] | [Skin.HasSetting(home.new) + Control.HasFocus(900)]</visible>
+			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + [!Skin.HasSetting(home.new) + [Container(9000).HasFocus(9) | Container(1140).HasFocus(3)]] | [Skin.HasSetting(home.new) + Control.HasFocus(800)]</visible>
 		</control>
 	<!-- now playing fanart --->
 		<control type="image">
@@ -54,9 +54,9 @@
 			<include>fadeinout</include>
 		</control>
 		
-		<!--
+	
 		<control type="group">
-			<visible allowhiddenfocus="true">Skin.HasSetting(home.new)</visible>
+			<visible allowhiddenfocus="true">Skin.HasSetting(home.new) + StringCompare(Window.Property(Home.Item),newmovies)</visible>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<aspectratio>stretch</aspectratio>
@@ -90,7 +90,7 @@
 				<include>fadeinout</include>
 			</control>
 		</control>
-		-->
+	
 		
 		
 		

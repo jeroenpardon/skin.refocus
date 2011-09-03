@@ -1,5 +1,6 @@
 ﻿<includes>
 	<include name="HomeMenu2">
+
 		<control type="group">
 			<posx>50</posx>
 			<posy>75</posy>
@@ -8,7 +9,7 @@
 				<width>325</width>
 				<height>65</height>
 				<texture flipy="true" border="8">home/column_Top.png</texture>
-				<colordiffuse>tv3</colordiffuse>
+				<colordiffuse>ff000000</colordiffuse>
 			</control>
 			<control type="group">
 				<posx>15</posx>
@@ -45,16 +46,16 @@
 					<font>home2Alt</font>
 				</control>
 			</control>
-			
+
 			<control type="image">
 				<posy>66</posy>
 				<width>325</width>
 				<height>55</height>
 				<texture flipy="true" border="8">home/column.png</texture>
-				<colordiffuse>tv2</colordiffuse>
+				<colordiffuse>ff000000</colordiffuse>
 				<visible>Player.HasMedia + Skin.HasSetting(homemenu.playing)</visible>
 			</control>
-			
+
 			<control type="group">
 				<posx>7</posx>
 				<visible>Player.HasMedia + Skin.HasSetting(homemenu.playing)</visible>
@@ -75,7 +76,7 @@
 					<visible>Player.HasAudio</visible>
 				</control>
 			</control>
-			
+
 			<control type="grouplist">
 				<posx>65</posx>
 				<posy>72</posy>
@@ -118,19 +119,19 @@
 
 			<control type="grouplist" id="8000">
 				<posy>66</posy>
-				<width>325</width>
+				<width>350</width>
 				<itemgap>0</itemgap>
 				<animation effect="slide" start="0,0" end="0,56" time="150" tween="Cubic" condition="Player.HasMedia + Skin.HasSetting(homemenu.playing)">Conditional</animation>
 				<control type="grouplist" id="9000">
-					<width>325</width>
-					<height>509</height>
+					<width>350</width>
+					<height>459</height>
 					<itemgap>1</itemgap>
 					<onleft>-</onleft>
 					<onright>-</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<scrolltime tween="Quadratic" easing="Out">400</scrolltime>
-					
+
 					<!---videos
 					<control type="button" id="109">
 						<label>$INFO[VideoPlayer.TVShowTitle,,: ][CR]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title]</label>
@@ -143,13 +144,15 @@
 						<include>button_Home-item</include>
 						<visible>Player.HasVideo + Skin.HasSetting(homemenu.playing)</visible>
 					</control>--->
-					
+
 					<!---videos--->
 					<control type="button" id="110">
 						<label>$LOCALIZE[157]</label>
-						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,videos)</onright>
 						<onclick>ActivateWindow(Videos,files)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 					</control>
 					<control type="button" id="111">
@@ -194,13 +197,16 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),videos)</visible>
 					</control>
-					
+
 					<!--movies-->
 					<control type="button" id="200">
 						<label>$LOCALIZE[342]</label>
-						<label2>[COLOR=column4]$INFO[Window.Property(Movies.Count)] ›[/COLOR]</label2>
+						<label2>[COLOR=column4]$INFO[Window.Property(Movies.Count)] [/COLOR]</label2>
 						<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
 						<onright>SetProperty(Home.Item,movies)</onright>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 					</control>
 					<control type="button" id="201">
@@ -267,9 +273,12 @@
 					<!---tv shows--->
 					<control type="button" id="300">
 						<label>$LOCALIZE[20343]</label>
-						<label2>[COLOR=column4]$INFO[Window.Property(Episodes.Count)] ›[/COLOR]</label2>
+						<label2>[COLOR=column4]$INFO[Window.Property(TVShows.Count)] [/COLOR]</label2>
 						<onright>SetProperty(Home.Item,tvshows)</onright>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 					</control>
 					<control type="button" id="301">
@@ -294,11 +303,10 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),tvshows)</visible>
 					</control>
-					
+
 					<!---livetv--->
 					<control type="button" id="400">
 						<label>$LOCALIZE[31090]</label>
-						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,livetv)</onright>
 						<onclick>ActivateWindow(TV)</onclick>
 						<include>button_Home-item</include>
@@ -331,13 +339,15 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),livetv)</visible>
 					</control>
-					
+
 					<!---music--->
 					<control type="button" id="500">
 						<label>$LOCALIZE[2]</label>
-						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,music)</onright>
 						<onclick>ActivateWindow(MyMusicLibrary)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 						<visible>Library.HasContent(Music) + !Skin.HasSetting(homemenu.music)</visible>
 					</control>
@@ -400,13 +410,15 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),music)</visible>
 					</control>
-					
+
 					<!--pictures-->
 					<control type="button" id="600">
 						<label>$LOCALIZE[1]</label>
-						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,pictures)</onright>
 						<onclick>ActivateWindow(pictures)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 						<visible>Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(homemenu.pictures)</visible>
 					</control>
@@ -417,13 +429,15 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),pictures)</visible>
 					</control>
-					
+
 					<!--addons-->
 					<control type="button" id="700">
 						<label>$LOCALIZE[24001]</label>
-						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,addons)</onright>
 						<onclick>ActivateWindow(addonbrowser)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 					</control>
 					<control type="button" id="701">
@@ -460,9 +474,11 @@
 					<!--system-->
 					<control type="button" id="900">
 						<label>$LOCALIZE[13000]</label>
-						<label2>[COLOR=column4] ›[/COLOR]</label2>
 						<onright>SetProperty(Home.Item,system)</onright>
 						<onclick>ActivateWindow(settings)</onclick>
+						<width>337</width>
+						<texturenofocus border="8,8,22,8">home/column_Right.png</texturenofocus>
+						<texturefocus border="8,8,22,8">home/column_Right-focus.png</texturefocus>
 						<include>button_Home-item</include>
 					</control>
 					<control type="button" id="901">
@@ -479,13 +495,13 @@
 						<include>button_Home-subitem</include>
 						<visible>StringCompare(Window.Property(Home.Item),system)</visible>
 					</control>
-					
+
 					<!--favourites-->
 					<control type="button" id="1000">
 						<label>$LOCALIZE[1036]</label>
 						<onclick>ActivateWindow(favourites)</onclick>
 						<texturenofocus border="8">home/column_Bottom.png</texturenofocus>
-						<texturefocus border="8">home/column_Bottom.png</texturefocus>
+						<texturefocus border="8">home/column_Bottom-focus.png</texturefocus>
 						<include>button_Home-item</include>
 					</control>
 				</control>
