@@ -633,12 +633,12 @@
 				<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
 				<aspectratio align="left">keep</aspectratio>
 				<fadetime>fadetime_Thumb</fadetime>
-				<visible>Control.IsVisible(50) + !SubString(ListItem.Icon,default) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+				<visible>Control.IsVisible(50) + !SubString(ListItem.Icon,default) + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 			</control>
 			<control type="group">
 				<posx>5</posx>
 				<posy>290</posy>
-				<visible>Control.IsVisible(50) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+				<visible>Control.IsVisible(50) + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 				<control type="textbox">
 					<width>550</width>
 					<height>277</height>
