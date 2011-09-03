@@ -402,7 +402,7 @@
 							<label>$INFO[ListItem.Property(ReleaseDate)$INFO[ListItem.Genre, • ]]</label>
 							<include>info_Sub</include>
 							<width>750</width>
-							<visible>!SubString(Container.FolderPath,plugin)</visible>
+							<visible>stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Artist]</label>
