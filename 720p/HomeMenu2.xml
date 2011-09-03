@@ -84,23 +84,47 @@
 				<itemgap>0</itemgap>
 				<visible>Skin.HasSetting(homemenu.playing)</visible>
 				<control type="label">
-					<width>270</width>
+					<width>245</width>
 					<height>20</height>
 					<label>[B]$INFO[VideoPlayer.TVShowTitle][/B]</label>
 					<textcolor>Color3</textcolor>
 					<font>smallerCaps</font>
-					<visible>Player.HasVideo</visible>
+					<visible>Player.HasVideo + VideoPlayer.Content(episodes)</visible>
 				</control>
 				<control type="label">
-					<width>270</width>
+					<width>245</width>
 					<height>20</height>
-					<label>$INFO[VideoPlayer.Title]</label>
+					<label>[B]$INFO[VideoPlayer.Title][/B]</label>
 					<textcolor>Color3</textcolor>
 					<font>home2Alt</font>
-					<visible>Player.HasVideo</visible>
+					<visible>Player.HasVideo + [VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
 				</control>
 				<control type="label">
-					<width>270</width>
+					<width>245</width>
+					<height>20</height>
+					<label>$INFO[VideoPlayer.Genre]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasVideo + VideoPlayer.Content(movies)</visible>
+				</control>
+				<control type="label">
+					<width>245</width>
+					<height>20</height>
+					<label>$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasVideo + VideoPlayer.Content(episodes)</visible>
+				</control>
+				<control type="label">
+					<width>245</width>
+					<height>20</height>
+					<label>$INFO[VideoPlayer.Artist]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasVideo + VideoPlayer.Content(musicvideos)</visible>
+				</control>
+				<control type="label">
+					<width>245</width>
 					<height>20</height>
 					<label>[B]$INFO[MusicPlayer.Title][/B]</label>
 					<textcolor>Color3</textcolor>
@@ -108,12 +132,20 @@
 					<visible>Player.HasAudio</visible>
 				</control>
 				<control type="label">
-					<width>270</width>
+					<width>245</width>
 					<height>20</height>
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<textcolor>Color3</textcolor>
 					<font>smallerCaps</font>
 					<visible>Player.HasAudio</visible>
+				</control>
+				<control type="label">
+					<width>245</width>
+					<height>20</height>
+					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss)]</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<visible>Player.HasVideo + VideoPlayer.Content(files)</visible>
 				</control>
 			</control>
 
