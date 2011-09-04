@@ -107,6 +107,7 @@
 				<width>740</width>
 				<label>$LOCALIZE[515] [COLOR=Color1]$INFO[ListItem.Genre][/COLOR]</label>
 				<include>label_Small-caps</include>
+				<include>autoscroll-line</include>
 				<visible>!IsEmpty(ListItem.Genre) + Container.Content(movies)</visible>
 			</control>
 			<control type="label">
@@ -131,18 +132,21 @@
 				<width>740</width>
 				<label>$LOCALIZE[20417] [COLOR=Color1]$INFO[ListItem.Writer][/COLOR]</label>
 				<include>label_Small-caps</include>
+				<include>autoscroll-line</include>
 				<visible>!IsEmpty(ListItem.Writer) + [Container.Content(movies) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[20339] [COLOR=Color1]$INFO[ListItem.Director][/COLOR]</label>
 				<include>label_Small-caps</include>
+				<include>autoscroll-line</include>
 				<visible>!IsEmpty(ListItem.Director) + [Container.Content(movies) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="label">
 				<width>740</width>
 				<label>$LOCALIZE[572] [COLOR=Color1]$INFO[ListItem.Studio][/COLOR]</label>
 				<include>label_Small-caps</include>
+				<include>autoscroll-line</include>
 				<visible>!IsEmpty(ListItem.Studio)</visible>
 			</control>
 			<control type="label">
@@ -170,6 +174,7 @@
 				<width>740</width>
 				<label>$LOCALIZE[563] [COLOR=Color1]$INFO[ListItem.MPAA][/COLOR]</label>
 				<include>label_Small-caps</include>
+				<include>autoscroll-line</include>
 				<visible>!IsEmpty(ListItem.MPAA)</visible>
 			</control>
 			<control type="label">
@@ -178,6 +183,7 @@
 				<haspath>true</haspath>
 				<textcolor>Color1</textcolor>
 				<include>label_Small-caps</include>
+				<include>autoscroll-line</include>
 				<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
 			</control>
 			<control type="label">
@@ -266,6 +272,7 @@
 				<height>137</height>
 				<label>$INFO[ListItem.PlotOutline]</label>
 				<font>descriptionSmall</font>
+				<include>autoscroll-plot</include>
 				<visible>!Control.IsVisible(50) + !IsEmpty(ListItem.PlotOutline + !Container.Content(musicvideos)</visible>
 			</control>
 			<control type="textbox" id="400">
@@ -273,6 +280,7 @@
 				<height>137</height>
 				<label>$INFO[ListItem.Plot]</label>
 				<font>descriptionSmall</font>
+				<include>autoscroll-plot</include>
 				<visible>!Control.IsVisible(50) + IsEmpty(ListItem.PlotOutline + !Container.Content(musicvideos)</visible>
 			</control>
 			<control type="textbox" id="400">
@@ -280,6 +288,7 @@
 				<height>300</height>
 				<label>$INFO[ListItem.Plot]</label>
 				<font>descriptionSmall</font>
+				<include>autoscroll-plot</include>
 				<visible>!Control.IsVisible(50) + Container.Content(musicvideos)</visible>
 			</control>
 			<!--cast list-->
