@@ -1,4 +1,127 @@
 ﻿<includes>
+	<include name="menu_Constants">
+		<!--sort-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<!--<visible>Control.IsEnabled(3)</visible>-->
+			<control type="button" id="3">
+				<label>$LOCALIZE[103]</label>
+				<onright>-</onright>
+				<onup>1</onup>
+				<ondown>4</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--order-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<!--<visible>Control.IsEnabled(4)</visible>-->
+			<control type="togglebutton" id="4">
+				<label>$LOCALIZE[584]</label>
+				<altlabel>$LOCALIZE[585]</altlabel>
+				<onup>3</onup>
+				<ondown>5</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--library/files-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<visible>Window.IsVisible(MusicFiles)</visible>
+			<control type="button" id="5">
+				<label>$LOCALIZE[29800]</label>
+				<onup>4</onup>
+				<ondown>14</ondown>
+				<onright>50</onright>
+				<onclick>ReplaceWindow(MusicLibrary)</onclick>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<visible>Window.IsActive(MusicLibrary)</visible>
+			<control type="button" id="5">
+				<label>$LOCALIZE[31901]</label>
+				<onup>4</onup>
+				<ondown>14</ondown>
+				<onright>50</onright>
+				<onclick>ReplaceWindow(MusicFiles)</onclick>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--watched toggle-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<visible>Window.IsActive(myvideolibrary)</visible>
+			<control type="togglebutton" id="14">
+				<label>$LOCALIZE[20367]</label>
+				<altlabel>$LOCALIZE[31900]</altlabel>
+				<onup>5</onup>
+				<ondown>7</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--stack-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<visible>Control.IsEnabled(7)</visible>
+			<control type="togglebutton" id="7">
+				<label>$LOCALIZE[20411]</label>
+				<altlabel>$LOCALIZE[31107]</altlabel>
+				<onup>14</onup>
+				<ondown>8</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--search-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<control type="button" id="8">
+				<label>$LOCALIZE[137]</label>
+				<onup>7</onup>
+				<ondown>19</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--filter-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<control type="button" id="19">
+				<label>$LOCALIZE[587]</label>
+				<onup>8</onup>
+				<ondown>16</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--partymode-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<visible>Container.Content(musicvideos) | Window.IsVisible(mymusicfiles) | Window.IsActive(mymusiclibrary)</visible>
+			<control type="button" id="16">
+				<label>$LOCALIZE[589]</label>
+				<onup>19</onup>
+				<ondown>17</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+	</include>
+	
 	<include name="menu_Video">
 		<control type="group" id="6000">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
@@ -22,98 +145,7 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--sort-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<!--<visible>Control.IsEnabled(3)</visible>-->
-					<control type="button" id="3">
-						<label>$LOCALIZE[103]</label>
-						<onright>-</onright>
-						<onup>1</onup>
-						<ondown>4</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--order-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<!--<visible>Control.IsEnabled(4)</visible>-->
-					<control type="togglebutton" id="4">
-						<label>$LOCALIZE[584]</label>
-						<altlabel>$LOCALIZE[585]</altlabel>
-						<onup>3</onup>
-						<ondown>14</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--watched toggle-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="togglebutton" id="14">
-						<label>$LOCALIZE[20367]</label>
-						<altlabel>$LOCALIZE[31900]</altlabel>
-						<onup>4</onup>
-						<ondown>7</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--stack-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<visible>Control.IsEnabled(7)</visible>
-					<control type="togglebutton" id="7">
-						<label>$LOCALIZE[20411]</label>
-						<altlabel>$LOCALIZE[31107]</altlabel>
-						<onup>14</onup>
-						<ondown>8</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--search-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="button" id="8">
-						<label>$LOCALIZE[137]</label>
-						<onup>7</onup>
-						<ondown>19</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--filter-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="button" id="19">
-						<label>$LOCALIZE[587]</label>
-						<onup>8</onup>
-						<ondown>16</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--partymode-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<visible>Container.Content(musicvideos)</visible>
-					<control type="button" id="16">
-						<label>$LOCALIZE[589]</label>
-						<onup>19</onup>
-						<ondown>17</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
+				<include>menu_Constants</include>
 				<!--favourites-->
 				<control type="group">
 					<width>220</width>
@@ -269,7 +301,6 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 					<control type="button" id="401">
 						<label>$LOCALIZE[535]</label>
 						<onclick>Container.SetViewMode(50)</onclick>
@@ -303,6 +334,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
+					<visible>[Container.Content(movies) | Container.Content(tvshows)] + SubString(Container.FolderPath,videodb)</visible>
 					<control type="button" id="403">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(52)</onclick>
@@ -463,92 +495,14 @@
 					<height>42</height>
 					<control type="button" id="1">
 						<label>$LOCALIZE[31930]</label>
-						<onup>90</onup>
+						<onup>17</onup>
 						<ondown>3</ondown>
 						<onright>50</onright>
 						<onclick>SetFocus(40)</onclick>
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--sort-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<!--<visible>Control.IsEnabled(3)</visible>-->
-					<control type="button" id="3">
-						<label>$LOCALIZE[103]</label>
-						<onright>-</onright>
-						<onup>1</onup>
-						<ondown>4</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--order-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<!--<visible>Control.IsEnabled(4)</visible>-->
-					<control type="togglebutton" id="4">
-						<label>$LOCALIZE[584]</label>
-						<altlabel>$LOCALIZE[585]</altlabel>
-						<onup>3</onup>
-						<ondown>5</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--library/files-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="togglebutton" id="5">
-						<label>$LOCALIZE[31901]</label>
-						<altlabel>$LOCALIZE[29800]</altlabel>
-						<onup>4</onup>
-						<ondown>8</ondown>
-						<onright>50</onright>
-						<onclick>ReplaceWindow(mymusicfiles)</onclick>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--search-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="button" id="8">
-						<label>$LOCALIZE[137]</label>
-						<onup>5</onup>
-						<ondown>19</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--filter-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="button" id="19">
-						<label>$LOCALIZE[587]</label>
-						<onup>8</onup>
-						<ondown>16</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--partymode-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<visible>Container.Content(musicvideos)</visible>
-					<control type="button" id="16">
-						<label>$LOCALIZE[589]</label>
-						<onup>19</onup>
-						<ondown>17</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
+				<include>menu_Constants</include>
 				<!--favourites-->
 				<control type="group">
 					<width>220</width>
@@ -556,7 +510,7 @@
 					<control type="button" id="17">
 						<label>$LOCALIZE[1036]</label>
 						<onup>16</onup>
-						<ondown>90</ondown>
+						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
 						<include>button_Menu</include>
@@ -615,7 +569,7 @@
 						<onright>50</onright>
 						<onup>401</onup>
 						<ondown>403</ondown>
-						<include>404</include>
+						<include>button_Menu</include>
 					</control>
 				</control>
 				<!--thumbnails albums-->
