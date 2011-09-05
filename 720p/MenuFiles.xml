@@ -1,384 +1,113 @@
 ﻿<includes>
 	<include name="menu_Files">
-		<control type="group">
+		<control type="group" id="6000">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
-			<control type="group" id="6000">
+			<control type="grouplist" id="30">
 				<posx>-275</posx>
 				<posy>20</posy>
-				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
+				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !ControlGroup(40).HasFocus + !Window.IsActive(103) + !Skin.HasSetting(global.kiosk)</visible>
 				<onright>50</onright>
 				<include>MenuOpen</include>
 				<include>transition_Menu</include>
 				<include>toggle_NumItems-menumove</include>
-			<!---PICTURES------>			
 				<control type="group">
-					<visible>Window.IsActive(2)</visible>
+					<width>220</width>
+					<height>42</height>
 					<control type="button" id="1">
 						<label>$LOCALIZE[31930]</label>
-						<onleft>1</onleft>
-						<onup>90</onup>
+						<onup>17</onup>
 						<ondown>3</ondown>
 						<onright>50</onright>
 						<onclick>SetFocus(40)</onclick>
 						<include>button_Menu</include>
-						<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
-					</control>
-					<!--viewtypes-->
-					<control type="grouplist" id="40">
-						<onup>40</onup>
-						<ondown>40</ondown>
-						<onleft>-</onleft>
-						<onright>1</onright>
-						<itemgap>-125</itemgap>
-						<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
-						<control type="button" id="41">
-							<label>$LOCALIZE[535]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onclick>Container.SetViewMode(50)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(50)</onclick>
-							<include>button_Menu</include>
-						</control>
-							<control type="button" id="42">
-							<label>$LOCALIZE[31014]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onclick>Container.SetViewMode(573)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(573)</onclick>
-							<include>button_Menu</include>
-							<visible>Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
-						</control>
-						<control type="button" id="44">
-							<label>$LOCALIZE[31014]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onclick>Container.SetViewMode(574)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(574)</onclick>
-							<include>button_Menu</include>
-							<visible>substring(container.folderpath,addons://sources/image/)</visible>
-						</control>
-						<control type="button" id="45">
-							<label>$LOCALIZE[31002]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onclick>Container.SetViewMode(53)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(53)</onclick>
-							<include>button_Menu</include>
-							<visible>Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
-						</control>
-					</control>
-					<!---common functions--->
-					<control type="group">
-						<visible>!ControlGroup(40).HasFocus()</visible>
-						<!--sort by-->
-						<control type="button" id="3">
-							<posy>43</posy>
-							<label>103</label>
-							<onright>50</onright>
-							<onup>1</onup>
-							<ondown>4</ondown>
-							<include>button_Menu</include>
-						</control>
-						<!--sort order-->
-						<control type="togglebutton" id="4">
-							<posy>86</posy>
-							<label>$LOCALIZE[584]</label>
-							<altlabel>$LOCALIZE[585]</altlabel>
-							<onright>50</onright>
-							<onup>3</onup>
-							<ondown>6</ondown>
-							<include>button_Menu</include>
-							<onclick>Container.SortDirection</onclick>
-							<onclick>Container.SortDirection</onclick>
-						</control>
-						<!--slideshow-->
-						<control type="button" id="6">
-							<posy>129</posy>
-							<onright>50</onright>
-							<onup>4</onup>
-							<ondown>7</ondown>
-							<label>108</label>
-							<include>button_Menu</include>
-						</control>
-						<!--recursive slieshow-->
-						<control type="button" id="7">
-							<label>361</label>
-							<posy>171</posy>
-							<onright>50</onright>
-							<onup>6</onup>
-							<ondown>9</ondown>
-							<label>361</label>
-							<include>button_Menu</include>
-						</control>
-						<!--randomize-->
-						<control type="button" id="9">
-							<posy>214</posy>
-							<onright>50</onright>
-							<onup>7</onup>
-							<ondown>30</ondown>
-							<label>13319</label>
-							<include>button_Menu</include>
-						</control>
-						<!--favourites-->
-						<control type="button" id="30">
-							<posy>256</posy>
-							<label>1036</label>
-							<onright>50</onright>
-							<onup>9</onup>
-							<ondown>90</ondown>
-							<onclick>ActivateWindow(Favourites)</onclick>
-							<include>button_Menu</include>
-						</control>
-					</control>
-					<!---layout options--->
-					<control type="group">
-						<visible>!ControlGroup(40).HasFocus()</visible>
-						<!--GALLERY: no fullscreen-->
-						<control type="button" id="90">
-							<label>$LOCALIZE[31063]</label>
-							<posy>299</posy>
-							<onleft>2</onleft>
-							<onright>50</onright>
-							<onup>30</onup>
-							<ondown>1</ondown>
-							<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
-							<onclick>Container.SetViewMode(53)</onclick>
-							<selected>!Skin.HasSetting(view.gallery.full)</selected>
-							<include>button_Menu</include>
-							<visible>Control.IsVisible(531)</visible>
-						</control>
-						<!--GALLERY: fullscreen-->
-						<control type="button" id="90">
-							<label>$LOCALIZE[31062]</label>
-							<posy>299</posy>
-							<onleft>2</onleft>
-							<onright>50</onright>
-							<onup>30</onup>
-							<ondown>1</ondown>
-							<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
-							<onclick>Container.SetViewMode(531)</onclick>
-							<selected>Skin.HasSetting(view.gallery.full)</selected>
-							<include>button_Menu</include>
-							<visible>Control.IsVisible(53)</visible>
-						</control>
 					</control>
 				</control>
-				
-			<!-- MUSIC --->		
+				<include>menu_Constants</include>
+				<!--favourites-->
 				<control type="group">
-					<visible>[Window.IsActive(501) | Window.IsActive(502)] + !Skin.HasSetting(global.kiosk)</visible>
-					<control type="button" id="1">
-						<description>Choose Viewtype</description>
-						<label>$LOCALIZE[31930]</label>
-						<onleft>-</onleft>
-						<onup>90</onup>
-						<ondown>3</ondown>
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="17">
+						<label>$LOCALIZE[1036]</label>
+						<onup>16</onup>
+						<ondown>1</ondown>
 						<onright>50</onright>
-						<onclick>SetFocus(40)</onclick>
+						<onclick>ActivateWindow(Favourites)</onclick>
 						<include>button_Menu</include>
-						<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
-						<enable>false</enable>
-					</control>
-					<!--common functions-->
-					<control type="group">
-						<visible>!ControlGroup(40).HasFocus()</visible>
-						<!--sort by-->
-						<control type="button" id="3">
-							<posy>43</posy>
-							<label>103</label>
-							<onleft>-</onleft>
-							<onright>50</onright>
-							<onup>1</onup>
-							<ondown>4</ondown>
-							<include>button_Menu</include>
-						</control>
-						<!--sort order-->
-						<control type="togglebutton" id="4">
-							<posy>86</posy>
-							<label>$LOCALIZE[584]</label>
-							<altlabel>$LOCALIZE[585]</altlabel>
-							<onleft>-</onleft>
-							<onright>50</onright>
-							<onup>3</onup>
-							<ondown>5</ondown>
-							<include>button_Menu</include>
-							<onclick>Container.SortDirection</onclick>
-							<onclick>Container.SortDirection</onclick>
-						</control>
-						<!--library-->
-						<control type="button" id="5">
-							<posy>129</posy>
-							<label>$LOCALIZE[29800]</label>
-							<onright>50</onright>
-							<onup>4</onup>
-							<ondown>30</ondown>
-							<onclick>ReplaceWindow(MusicLibrary)</onclick>
-							<include>button_Menu</include>
-						</control>
-						<!--favourites-->
-						<control type="button" id="30">
-							<posy>172</posy>
-							<label>1036</label>
-							<onleft>-</onleft>
-							<onright>50</onright>
-							<onup>5</onup>
-							<ondown>1</ondown>
-							<onclick>ActivateWindow(Favourites)</onclick>
-							<include>button_Menu</include>
-						</control>
 					</control>
 				</control>
-
-			<!-- PROGRAMS --->						
+			</control>
+<!---viewtype selection------>
+			<control type="grouplist" id="40">
+				<posy>20</posy>
+				<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
+				<onright>50</onright>
+				<include>toggle_NumItems-menumove</include>
+				<!--list-->
 				<control type="group">
-					<visible>Window.IsActive(1) + !Skin.HasSetting(global.kiosk)</visible>
-					<control type="button" id="1">
-						<description>Choose Viewtype</description>
-						<label>$LOCALIZE[31930]</label>
-						<onleft>-</onleft>
-						<onup>30</onup>
-						<ondown>3</ondown>
-						<onright>50</onright>
-						<onclick>SetFocus(40)</onclick>
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="401">
+						<label>$LOCALIZE[535]</label>
+						<onclick>Container.SetViewMode(50)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(50)</onclick>
+						<onright>30</onright>
+						<onback>30</onback>
+						<onup>403</onup>
+						<ondown>402</ondown>
 						<include>button_Menu</include>
-						<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
-					</control>
-					<!--viewtypes-->
-					<control type="grouplist" id="40">
-						<onup>40</onup>
-						<ondown>40</ondown>
-						<onleft>1</onleft>
-						<onright>1</onright>
-						<itemgap>-125</itemgap>
-						<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
-						<control type="button" id="41">
-							<label>$LOCALIZE[535]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onup>1</onup>
-							<onclick>Container.SetViewMode(50)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(50)</onclick>
-							<include>button_Menu</include>
-						</control>
-						<control type="button" id="42">
-							<label>$LOCALIZE[31014]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onclick>Container.SetViewMode(574)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(574)</onclick>
-							<include>button_Menu</include>
-							<visible>Container.HasFiles + !IsEmpty(Container.FolderPath) + substring(container.folderpath,addons://sources/)</visible>
-						</control>
-					</control>
-					<!--common functions-->
-					<control type="group">
-						<visible>!ControlGroup(40).HasFocus()</visible>
-						<!--sort by-->
-						<control type="button" id="3">
-							<posy>43</posy>
-							<label>103</label>
-							<onright>50</onright>
-							<onup>1</onup>
-							<ondown>30</ondown>
-							<include>button_Menu</include>
-						</control>
-						<!--favourites-->
-						<control type="button" id="30">
-							<posy>86</posy>
-							<label>1036</label>
-							<onright>50</onright>
-							<onup>3</onup>
-							<ondown>1</ondown>
-							<onclick>ActivateWindow(Favourites)</onclick>
-							<include>button_Menu</include>
-						</control>
 					</control>
 				</control>
-
-			<!-- ADD-ONS --->			
+				<!--thumbnails-->
 				<control type="group">
-					<description>Slide Menu for addons</description>
-					<visible>Window.IsActive(addonbrowser) + !Skin.HasSetting(global.kiosk)</visible>
-					<control type="button" id="1">
-						<description>Choose Viewtype</description>
-						<label>$LOCALIZE[31930]</label>
-						<onleft>-</onleft>
-						<onup>5</onup>
-						<ondown>13</ondown>
-						<onright>50</onright>
-						<onclick>SetFocus(40)</onclick>
+					<width>220</width>
+					<height>42</height>
+					<visible>[Window.IsActive(2) | Window.IsActive(MusicLibrary)] + Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
+					<control type="button" id="402">
+						<label>$LOCALIZE[31014]</label>
+						<onclick>Container.SetViewMode(573)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(573)</onclick>
+						<onright>30</onright>
+						<onback>30</onback>
+						<onup>401</onup>
+						<ondown>403</ondown>
 						<include>button_Menu</include>
-						<visible allowhiddenfocus="true">!ControlGroup(40).HasFocus()</visible>
 					</control>
-					<!--viewtypes-->
-					<control type="grouplist" id="40">
-						<onup>40</onup>
-						<ondown>40</ondown>
-						<onleft>1</onleft>
-						<onright>1</onright>
-						<itemgap>-125</itemgap>
-						<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
-						<control type="button" id="41">
-							<label>$LOCALIZE[535]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onup>1</onup>
-							<onclick>Container.SetViewMode(50)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(50)</onclick>
-							<include>button_Menu</include>
-						</control>
-						<control type="button" id="43">
-							<label>$LOCALIZE[31014]</label>
-							<onleft>1</onleft>
-							<onright>1</onright>
-							<onclick>Container.SetViewMode(574)</onclick>
-							<onclick>SetFocus(1)</onclick>
-							<onclick>SetFocus(574)</onclick>
-							<include>button_Menu</include>
-							<visible>!IsEmpty(Container.FolderPath)</visible>
-						</control>
+				</control>
+				<!--thumbnails addons-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>SubString(Container.FolderPath,addons) + !StringCompare(Container.FolderPath,addons://all/)</visible>
+					<control type="button" id="402">
+						<label>$LOCALIZE[31014]</label>
+						<onclick>Container.SetViewMode(574)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(574)</onclick>
+						<onright>50</onright>
+						<onup>401</onup>
+						<ondown>403</ondown>
+						<include>button_Menu</include>
 					</control>
-					<!--common functions-->
-					<control type="group">
-						<visible>!ControlGroup(40).HasFocus()</visible>
-						<!--sort by-->
-						<control type="button" id="13">
-							<posy>43</posy>
-							<label>103</label>
-							<onright>50</onright>
-							<onup>1</onup>
-							<ondown>30</ondown>
-							<include>button_Menu</include>
-						</control>
-						<!--favourites-->
-						<control type="button" id="30">
-							<posy>86</posy>
-							<label>1036</label>
-							<onright>50</onright>
-							<onup>13</onup>
-							<ondown>5</ondown>
-							<onclick>ActivateWindow(Favourites)</onclick>
-							<include>button_Menu</include>
-						</control>
-						<!--auto-update-->
-						<control type="togglebutton" id="5">
-							<posy>129</posy>
-							<label>$LOCALIZE[24063]: $LOCALIZE[351]</label>
-							<altlabel>$LOCALIZE[24063]: $LOCALIZE[31008]</altlabel>
-							<onright>50</onright>
-							<onup>30</onup>
-							<ondown>1</ondown>
-							<include>button_Menu</include>
-						</control>
+				</control>
+				<!--pictures gallery-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Window.IsActive(2) + Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
+					<control type="button" id="403">
+						<label>$LOCALIZE[31002]</label>
+						<onclick>Container.SetViewMode(53)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(572)</onclick>
+						<onright>50</onright>
+						<onup>402</onup>
+						<ondown>401</ondown>
+						<include>button_Menu</include>
 					</control>
-				</control>					
+				</control>
 			</control>
 		</control>
 	</include>
