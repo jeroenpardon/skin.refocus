@@ -1,6 +1,5 @@
 ﻿<includes>
 	<include name="homeSubMenu">
-	
 		<control type="group" id="1100">
 			<posy>20</posy>
 
@@ -20,73 +19,57 @@
 				<visible allowhiddenfocus="true">Container(9000).HasFocus(1)</visible>
 				<content>
 					<item id="1">
-						<label>$LOCALIZE[342]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
-						<visible>Library.HasContent(movies)</visible>
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(Videos,files)</onclick>
 					</item>
 					<item id="2">
-						<label>$LOCALIZE[20343]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
-						<visible>Library.HasContent(tvshows)</visible>
-					</item>
-					<item id="3">
-						<label>$LOCALIZE[31095]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedmovies)</onclick>
-						<visible>Library.HasContent(movies) + Skin.HasSetting(videomenu.recentvideo)</visible>
-					</item>
-					<item id="4">
-						<label>$LOCALIZE[31094]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedepisodes)</onclick>
-						<visible>Library.HasContent(tvshows) + Skin.HasSetting(videomenu.recentvideo)</visible>
-					</item>
-					<item id="5">
-						<label>$LOCALIZE[20389]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
-						<visible>Library.HasContent(musicvideos) + Skin.HasSetting(videomenu.musicvideos)</visible>
-					</item>
-					<item id="6">
 						<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
 						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist1.path)])</onclick>
 						<visible>Skin.HasSetting(videomenu.playlist1)</visible>
 					</item>
-					<item id="7">
+					<item id="3">
 						<label>$INFO[Skin.String(videomenu.playlist2.label)]</label>
 						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist2.path)])</onclick>
 						<visible>Skin.HasSetting(videomenu.playlist2)</visible>
 					</item>
-					<item id="8">
+					<item id="4">
 						<label>$INFO[Skin.String(videomenu.playlist3.label)]</label>
 						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist3.path)])</onclick>
 						<visible>Skin.HasSetting(videomenu.playlist3)</visible>
 					</item>
-					<item id="9">
+					<item id="5">
 						<label>$INFO[Skin.String(videomenu.playlist4.label)]</label>
 						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist4.path)])</onclick>
 						<visible>Skin.HasSetting(videomenu.playlist4)</visible>
 					</item>
-					<item id="10">
+					<item id="6">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>
-						<visible>Library.HasContent(Video)</visible>
 					</item>
-					<item id="11">
-						<label>$LOCALIZE[31011]</label>
-						<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
-						<visible>Skin.HasSetting(videomenu.trailers) + system.hasaddon(plugin.video.apple.movie.trailers.lite)</visible>
-					</item>
-					<item id="12">
+					<item id="7">
 						<label>$LOCALIZE[136]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
 						<visible>Skin.HasSetting(videomenu.videoplaylists)</visible>
 					</item>
-					<item id="13">
-						<label>$LOCALIZE[1024]</label>
-						<onclick>ActivateWindow(Videos,files)</onclick>
+					<item id="8">
+						<label>$INFO[Skin.String(videomenu.addon1.label)]</label>
+						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon1.path)],return)</onclick>
+						<visible>Skin.HasSetting(videomenu.addon1)</visible>
+					</item>
+					<item id="9">
+						<label>$INFO[Skin.String(videomenu.addon2.label)]</label>
+						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon2.path)],return)</onclick>
+						<visible>Skin.HasSetting(videomenu.addon2)</visible>
+					</item>
+					<item id="10">
+						<label>$INFO[Skin.String(videomenu.addon3.label)]</label>
+						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon3.path)],return)</onclick>
+						<visible>Skin.HasSetting(videomenu.addon3)</visible>
 					</item>
 				</content>
 			</control>
 
-<!---MUSIC SUBMENU------>	
+<!---LIVE TV SUBMENU------>	
 			<control type="list" id="1120">
 				<posx>-800</posx>
 				<width>900</width>
@@ -97,7 +80,53 @@
 				<onleft>9000</onleft>
 				<orientation>vertical</orientation>
 				<scrolltime>150</scrolltime>
-				<visible>Container(9000).HasFocus(2)</visible>
+				<visible allowhiddenfocus="true">Container(9000).HasFocus(4)</visible>
+				<include>home_SubFocus</include>
+				<include>homeMenusLayout</include>
+				<content>
+					<item id="1">
+						<description>channels</description>
+						<label>$LOCALIZE[19019]</label>
+						<onclick>ActivateWindow(TV)</onclick>
+						<onclick>Setfocus(32)</onclick>
+						<onclick>Setfocus(11)</onclick>
+					</item>
+					<item id="2">
+						<description>guide</description>
+						<label>$LOCALIZE[31987]</label>
+						<onclick>ActivateWindow(TV)</onclick>
+						<onclick>Setfocus(31)</onclick>
+						<onclick>Setfocus(11)</onclick>
+					</item>
+					<item id="3">
+						<description>recordings</description>
+						<label>$LOCALIZE[19163]</label>
+						<onclick>ActivateWindow(TV)</onclick>
+						<onclick>Setfocus(34)</onclick>
+						<onclick>Setfocus(13)</onclick>
+					</item>
+					<item id="4">
+						<label>$LOCALIZE[19040]</label>
+						<onclick>ActivateWindow(TV)</onclick>
+						<onclick>Setfocus(35)</onclick>
+						<onclick>Setfocus(14)</onclick>
+					</item>
+				</content>
+			</control>
+
+
+<!---MUSIC SUBMENU------>	
+			<control type="list" id="1130">
+				<posx>-800</posx>
+				<width>900</width>
+				<height>800</height>
+				<onback>9000</onback>
+				<onup>1130</onup>
+				<ondown>1130</ondown>
+				<onleft>9000</onleft>
+				<orientation>vertical</orientation>
+				<scrolltime>150</scrolltime>
+				<visible>Container(9000).HasFocus(5)</visible>
 				<include>home_SubFocus</include>
 				<include>homeMenusLayout</include>
 				<content>
@@ -158,33 +187,9 @@
 				</content>
 			</control>
 
+
+
 <!---PICTURES SUBMENU------->	
-			<control type="list" id="1130">
-				<posx>-800</posx>
-				<width>900</width>
-				<height>800</height>
-				<onback>9000</onback>
-				<onup>1130</onup>
-				<ondown>1130</ondown>
-				<onleft>9000</onleft>
-				<orientation>vertical</orientation>
-				<scrolltime>150</scrolltime>
-				<visible allowhiddenfocus="true">Container(9000).HasFocus(4)</visible>
-				<include>home_SubFocus</include>
-				<include>homeMenusLayout</include>
-				<content>
-					<item id="1">
-						<label>$LOCALIZE[1024]</label>
-						<onclick>ActivateWindow(2)</onclick>
-					</item>
-					<item id="2">
-						<label>$LOCALIZE[24001]</label>
-						<onclick>ActivateWindow(Pictures,Addons)</onclick>
-					</item>
-				</content>
-			</control>
-		
-<!---ACCESSORIES SUBMENU------>	
 			<control type="list" id="1140">
 				<posx>-800</posx>
 				<width>900</width>
@@ -200,39 +205,19 @@
 				<include>homeMenusLayout</include>
 				<content>
 					<item id="1">
-						<label>$LOCALIZE[1036]</label>
-						<onclick>ActivateWindow(Favourites)</onclick>
-						<visible>!Skin.HasSetting(homemenu.favourites)</visible>
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(2)</onclick>
 					</item>
 					<item id="2">
-						<label>$LOCALIZE[0]</label>
-						<onclick>ActivateWindow(Programs,Addons,return)</onclick>
-						<visible>Skin.HasSetting(homemenu.programs)</visible>
-					</item>
-					<item id="2">
-						<label>$LOCALIZE[31965]</label>
-						<onclick>ActivateWindow(addonbrowser)</onclick>
-					</item>
-					<item id="3">
-						<label>$LOCALIZE[8]</label>
-						<onclick>ActivateWindow(2600)</onclick>
-						<visible>!Skin.HasSetting(homemenu.weather) + Weather.IsFetched</visible>
-					</item>
-					<item id="4">
-						<label>$LOCALIZE[7]</label>
-						<onclick>ActivateWindow(Filemanager)</onclick>
-					</item>
-					<item id="5">
-						<label>$LOCALIZE[130]</label>
-						<onclick>ActivateWindow(SystemInfo)</onclick>
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(Pictures,Addons)</onclick>
 					</item>
 				</content>
 			</control>
-		
-<!---SETTINGS SUBMENU------>	
+
+<!---ADDONS SUBMENU------>	
 			<control type="list" id="1150">
 				<posx>-800</posx>
-				<posy>-25</posy>
 				<width>900</width>
 				<height>800</height>
 				<onback>9000</onback>
@@ -241,58 +226,31 @@
 				<onleft>9000</onleft>
 				<orientation>vertical</orientation>
 				<scrolltime>150</scrolltime>
-				<visible allowhiddenfocus="true">Container(9000).HasFocus(8)</visible>
+				<visible allowhiddenfocus="true">Container(9000).HasFocus(7)</visible>
 				<include>home_SubFocus</include>
 				<include>homeMenusLayout</include>
 				<content>
-					<item id="0">
-						<label>$LOCALIZE[166]</label>
-						<onclick>ActivateWindow(59)</onclick>
-					</item>
 					<item id="1">
-						<label>$LOCALIZE[480]</label>
-						<onclick>ActivateWindow(appearancesettings)</onclick>
+						<label>$LOCALIZE[24033]</label>
+						<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
 					</item>
 					<item id="2">
-						<label>$LOCALIZE[1212]</label>
-						<onclick>ActivateWindow(videossettings)</onclick>
+						<label>$LOCALIZE[24043]</label>
+						<onclick>ActivateWindow(addonbrowser,addons://outdated/)</onclick>
+					</item>
+					<item id="3">
+						<label>$LOCALIZE[24062]</label>
+						<onclick>ActivateWindow(addonbrowser,addons://enabled/)</onclick>
 					</item>
 					<item id="4">
-						<label>$LOCALIZE[10005]</label>
-						<onclick>ActivateWindow(musicsettings)</onclick>
-					</item>
-					<item id="5">
-						<label>$LOCALIZE[31090]</label>
-						<onclick>ActivateWindow(tvsettings)</onclick>
-					</item>
-					<item id="6">
-						<label>$LOCALIZE[10002]</label>
-						<onclick>ActivateWindow(picturessettings)</onclick>
-					</item>	
-					<item id="7">
-						<label>$LOCALIZE[24001]</label>
-						<onclick>ActivateWindow(addonbrowser)</onclick>
-					</item>	
-					<item id="8">
-						<label>$LOCALIZE[13279]</label>
-						<onclick>ActivateWindow(networksettings)</onclick>
-					</item>
-					<item id="9">
-						<label>$LOCALIZE[8]</label>
-						<onclick>ActivateWindow(weathersettings)</onclick>
-					</item>
-					<item id="10">
-						<label>$LOCALIZE[13000]</label>
-						<onclick>ActivateWindow(systemsettings)</onclick>
-					</item>
-					<item id="11">
-						<label>$LOCALIZE[13200]</label>
-						<onclick>ActivateWindow(34)</onclick>
+						<label>$LOCALIZE[0]</label>
+						<onclick>ActivateWindow(programs,addons, return)</onclick>
+						<visible>!Skin.HasSetting(homemenu.programs)</visible>
 					</item>
 				</content>
-			</control>
-
-<!---EXIT SUBMENU------>	
+			</control>			
+		
+<!---SETTINGS SUBMENU------>	
 			<control type="list" id="1160">
 				<posx>-800</posx>
 				<width>900</width>
@@ -300,6 +258,36 @@
 				<onback>9000</onback>
 				<onup>1160</onup>
 				<ondown>1160</ondown>
+				<onleft>9000</onleft>
+				<orientation>vertical</orientation>
+				<scrolltime>150</scrolltime>
+				<visible allowhiddenfocus="true">Container(9000).HasFocus(9)</visible>
+				<include>home_SubFocus</include>
+				<include>homeMenusLayout</include>
+				<content>
+					<item id="1">
+						<label>$LOCALIZE[5]</label>
+						<onclick>ActivateWindow(settings)</onclick>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[130]</label>
+						<onclick>ActivateWindow(SystemInfo)</onclick>
+					</item>
+					<item id="3">
+						<label>$LOCALIZE[7]</label>
+						<onclick>ActivateWindow(Filemanager)</onclick>
+					</item>
+				</content>
+			</control>
+
+<!---EXIT SUBMENU------>	
+			<control type="list" id="1170">
+				<posx>-800</posx>
+				<width>900</width>
+				<height>800</height>
+				<onback>9000</onback>
+				<onup>1170</onup>
+				<ondown>1170</ondown>
 				<onleft>9000</onleft>
 				<orientation>vertical</orientation>
 				<scrolltime>150</scrolltime>
@@ -348,50 +336,7 @@
 				</content>
 			</control>
 
-<!---LIVE TV SUBMENU------>	
-			<control type="list" id="1170">
-				<posx>-800</posx>
-				<width>900</width>
-				<height>800</height>
-				<onback>9000</onback>
-				<onup>1170</onup>
-				<ondown>1170</ondown>
-				<onleft>9000</onleft>
-				<orientation>vertical</orientation>
-				<scrolltime>150</scrolltime>
-				<visible allowhiddenfocus="true">Container(9000).HasFocus(3)</visible>
-				<include>home_SubFocus</include>
-				<include>homeMenusLayout</include>
-				<content>
-					<item id="1">
-						<description>channels</description>
-						<label>$LOCALIZE[19019]</label>
-						<onclick>ActivateWindow(TV)</onclick>
-						<onclick>Setfocus(32)</onclick>
-						<onclick>Setfocus(11)</onclick>
-					</item>
-					<item id="2">
-						<description>guide</description>
-						<label>$LOCALIZE[31987]</label>
-						<onclick>ActivateWindow(TV)</onclick>
-						<onclick>Setfocus(31)</onclick>
-						<onclick>Setfocus(11)</onclick>
-					</item>
-					<item id="3">
-						<description>recordings</description>
-						<label>$LOCALIZE[19163]</label>
-						<onclick>ActivateWindow(TV)</onclick>
-						<onclick>Setfocus(34)</onclick>
-						<onclick>Setfocus(13)</onclick>
-					</item>
-					<item id="4">
-						<label>$LOCALIZE[19040]</label>
-						<onclick>ActivateWindow(TV)</onclick>
-						<onclick>Setfocus(35)</onclick>
-						<onclick>Setfocus(14)</onclick>
-					</item>
-				</content>
-			</control>
+
 
 <!---DISC SUBMENU------>	
 			<control type="list" id="1180">
@@ -399,8 +344,8 @@
 				<width>900</width>
 				<height>800</height>
 				<onback>9000</onback>
-				<onup>1170</onup>
-				<ondown>1170</ondown>
+				<onup>1180</onup>
+				<ondown>1180</ondown>
 				<onleft>9000</onleft>
 				<orientation>vertical</orientation>
 				<scrolltime>150</scrolltime>
@@ -420,6 +365,98 @@
 					</item>
 				</content>
 			</control>
+			
+<!---MOVIES SUBMENU------>	
+			<control type="list" id="1200">
+				<posx>-800</posx>
+				<width>900</width>
+				<height>800</height>
+				<onback>9000</onback>
+				<onup>1200</onup>
+				<ondown>1200</ondown>
+				<onleft>9000</onleft>
+				<orientation>vertical</orientation>
+				<scrolltime>150</scrolltime>
+				<visible allowhiddenfocus="true">Container(9000).HasFocus(2)</visible>
+				<include>home_SubFocus</include>
+				<include>homeMenusLayout</include>
+				<content>
+					<item id="1">
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
+						<visible>Library.HasContent(movies)</visible>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[31095]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedmovies)</onclick>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.recent)</visible>
+					</item>
+					<item id="3">
+						<label>$LOCALIZE[16101]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Unwatched Movies.xsp)</onclick>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.unwatched)</visible>
+					</item>
+					<item id="4">
+						<label>$LOCALIZE[575]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Movies In Progress.xsp)</onclick>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.inprogress)</visible>
+					</item>
+					<item id="5">
+						<label>$LOCALIZE[135]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,moviegenres)</onclick>
+						<visible>Library.HasContent(movies)</visible>
+					</item>
+				</content>
+			</control>
+
+<!---TVSHOWS SUBMENU------>	
+			<control type="list" id="1210">
+				<posx>-800</posx>
+				<width>900</width>
+				<height>800</height>
+				<onback>9000</onback>
+				<onup>1210</onup>
+				<ondown>1210</ondown>
+				<onleft>9000</onleft>
+				<orientation>vertical</orientation>
+				<scrolltime>150</scrolltime>
+				<visible allowhiddenfocus="true">Container(9000).HasFocus(3)</visible>
+				<include>home_SubFocus</include>
+				<include>homeMenusLayout</include>
+				<content>
+					<item id="1">
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
+						<visible>Library.HasContent(tvshows)</visible>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[31094]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedepisodes)</onclick>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.recent)</visible>
+					</item>
+					<item id="3">
+						<label>$LOCALIZE[16101]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Unwatched Episodes.xsp)</onclick>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.unwatched)</visible>
+					</item>
+					<item id="4">
+						<label>$LOCALIZE[575]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Episodes In Progress.xsp)</onclick>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.inprogress)</visible>
+					</item>
+					<item id="5">
+						<label>$LOCALIZE[135]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,tvshowgenres)</onclick>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.genres)</visible>
+					</item>
+					<item id="6">
+						<label>$LOCALIZE[31011]</label>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
+						<visible>Skin.HasSetting(videomenu.trailers) + system.hasaddon(plugin.video.apple.movie.trailers.lite)</visible>
+					</item>
+				</content>
+			</control>
+	
 		</control>
 	</include>
 </includes>
