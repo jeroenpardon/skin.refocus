@@ -15,8 +15,8 @@
 			<posx>15</posx>
 			<posy>125</posy>
 			<include>transition_Container</include>
+			<!--homescreen-->
 			<control type="button" id="10">
-				<description>Home Settings</description>
 				<label>$LOCALIZE[31124]</label>
 				<onfocus>Skin.SetString(SkinSettings,1)</onfocus>
 				<onright>100</onright>
@@ -31,8 +31,8 @@
 				<width>325</width>
 				<visible>ControlGroup(100).HasFocus</visible>
 			</control>
+			<!--main menu-->
 			<control type="button" id="11">
-				<description>Home Menu Settings</description>
 				<posy>42</posy>
 				<label>$LOCALIZE[31961]</label>
 				<onfocus>Skin.SetString(SkinSettings,2)</onfocus>
@@ -49,16 +49,7 @@
 				<width>325</width>
 				<visible>ControlGroup(200).HasFocus</visible>
 			</control>
-			<control type="button" id="12">
-				<description>Home Video Menu Settings</description>
-				<posy>84</posy>
-				<label>$LOCALIZE[31962]</label>
-				<onfocus>Skin.SetString(SkinSettings,3)</onfocus>
-				<onright>300</onright>
-				<onup>11</onup>
-				<ondown>13</ondown>
-				<include>button_Category</include>
-			</control>
+			<!--video menu-->
 			<control type="image">
 				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
 				<posy>84</posy>
@@ -67,16 +58,16 @@
 				<width>325</width>
 				<visible>ControlGroup(300).HasFocus</visible>
 			</control>
-			<control type="button" id="13">
-				<description>Home Music Menu Settings</description>
-				<posy>126</posy>
-				<label>$LOCALIZE[31963]</label>
-				<onfocus>Skin.SetString(SkinSettings,4)</onfocus>
-				<onright>400</onright>
-				<onup>12</onup>
-				<ondown>14</ondown>
+			<control type="button" id="12">
+				<posy>84</posy>
+				<label>$LOCALIZE[31962]</label>
+				<onfocus>Skin.SetString(SkinSettings,3)</onfocus>
+				<onright>300</onright>
+				<onup>11</onup>
+				<ondown>13</ondown>
 				<include>button_Category</include>
 			</control>
+			<!--music menu-->
 			<control type="image">
 				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
 				<posy>126</posy>
@@ -85,8 +76,25 @@
 				<width>325</width>
 				<visible>ControlGroup(400).HasFocus</visible>
 			</control>
+			<control type="button" id="13">
+				<posy>126</posy>
+				<label>$LOCALIZE[31963]</label>
+				<onfocus>Skin.SetString(SkinSettings,4)</onfocus>
+				<onright>600</onright>
+				<onup>12</onup>
+				<ondown>14</ondown>
+				<include>button_Category</include>
+			</control>
+			<!--artwork-->
+			<control type="image">
+				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
+				<posy>168</posy>
+				<height>50</height>
+				<aspectratio align="right">stretch</aspectratio>
+				<width>325</width>
+				<visible>ControlGroup(700).HasFocus</visible>
+			</control>
 			<control type="button" id="14">
-				<description>Fanart Settings</description>
 				<posy>168</posy>
 				<label>31127</label>
 				<onfocus>Skin.SetString(SkinSettings,5)</onfocus>
@@ -95,16 +103,16 @@
 				<ondown>15</ondown>
 				<include>button_Category</include>
 			</control>
+			<!--views-->
 			<control type="image">
 				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>168</posy>
+				<posy>210</posy>
 				<height>50</height>
 				<aspectratio align="right">stretch</aspectratio>
 				<width>325</width>
-				<visible>ControlGroup(500).HasFocus</visible>
+				<visible>ControlGroup(800).HasFocus</visible>
 			</control>
 			<control type="button" id="15">
-				<description>View Settings</description>
 				<posy>210</posy>
 				<label>$LOCALIZE[31015]</label>
 				<onfocus>Skin.SetString(SkinSettings,6)</onfocus>
@@ -113,16 +121,16 @@
 				<ondown>16</ondown>
 				<include>button_Category</include>
 			</control>
+			<!--osd-->
 			<control type="image">
 				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>210</posy>
+				<posy>252</posy>
 				<height>50</height>
 				<aspectratio align="right">stretch</aspectratio>
 				<width>325</width>
-				<visible>ControlGroup(600).HasFocus</visible>
+				<visible>ControlGroup(900).HasFocus</visible>
 			</control>
 			<control type="button" id="16">
-				<description>OSD</description>
 				<posy>252</posy>
 				<label>OSD</label>
 				<onfocus>Skin.SetString(SkinSettings,7)</onfocus>
@@ -131,16 +139,16 @@
 				<ondown>17</ondown>
 				<include>button_Category</include>
 			</control>
+			<!--credits-->
 			<control type="image">
 				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>252</posy>
+				<posy>294</posy>
 				<height>50</height>
 				<aspectratio align="right">stretch</aspectratio>
 				<width>325</width>
-				<visible>ControlGroup(700).HasFocus</visible>
+				<visible>ControlGroup(1000).HasFocus</visible>
 			</control>
 			<control type="button" id="17">
-				<description>Skin credits</description>
 				<posy>294</posy>
 				<label>$LOCALIZE[31909] reFocus</label>
 				<onfocus>Skin.SetString(SkinSettings,8)</onfocus>
@@ -189,7 +197,7 @@
 				<label>$LOCALIZE[31128]</label>
 				<onclick>Skin.ToggleSetting(home.stats)</onclick>
 				<selected>Skin.HasSetting(home.stats)</selected>
-				<visible>Skin.HasSetting(home.new)</visible>
+				<visible>!Skin.HasSetting(home.new)</visible>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="107">
@@ -197,6 +205,7 @@
 				<label>$LOCALIZE[31907]</label>
 				<onclick>Skin.ToggleSetting(home.time)</onclick>
 				<selected>Skin.HasSetting(home.time)</selected>
+				<visible>!Skin.HasSetting(home.new)</visible>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="108">
@@ -235,18 +244,10 @@
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="203">
-				<description>show programs entry</description>
+				<description>show addons entry</description>
 				<label>31956</label>
-				<onclick>Skin.ToggleSetting(homemenu.programs)</onclick>
-				<selected>!Skin.HasSetting(homemenu.programs)</selected>
-				<include>button_Settings</include>
-				<visible>!Skin.HasSetting(home.new)</visible>
-			</control>
-			<control type="radiobutton" id="204">
-				<description>show accessories entry</description>
-				<label>31955</label>
-				<onclick>Skin.ToggleSetting(homemenu.accessories)</onclick>
-				<selected>!Skin.HasSetting(homemenu.accessories)</selected>
+				<onclick>Skin.ToggleSetting(homemenu.addons)</onclick>
+				<selected>!Skin.HasSetting(homemenu.addons)</selected>
 				<include>button_Settings</include>
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
@@ -280,14 +281,6 @@
 				<include>button_Settings</include>
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
-			<control type="radiobutton" id="209">
-				<description>settings screen toggle</description>
-				<label>31125</label>
-				<onclick>Skin.ToggleSetting(homemenu.settings)</onclick>
-				<selected>Skin.HasSetting(homemenu.settings)</selected>
-				<include>button_Settings</include>
-				<visible>!Skin.HasSetting(home.new)</visible>
-			</control>
 		</control>
 
 <!--- VIDEO MENU SETTINGS --------------------------------->	
@@ -295,7 +288,7 @@
 			<posx>340</posx>
 			<posy>93</posy>
 			<width>850</width>
-			<height>595</height>
+			<height>600</height>
 			<onleft>9001</onleft>
 			<onright>9001</onright>
 			<onup>300</onup>
@@ -303,20 +296,12 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,3)</visible>
 			<include>transition_Container</include>
-			<control type="radiobutton" id="301">
-				<description>show recent video entries entry</description>
-				<label>31038</label>
-				<onclick>Skin.ToggleSetting(videomenu.recentvideo)</onclick>
-				<selected>Skin.HasSetting(videomenu.recentvideo)</selected>
+			<control type="label" id="302">
+				<description>Custom Home Menu Items</description>
+				<label>videos</label>
+				<font>special2</font>
+				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="302">
-				<description>show music videos entry</description>
-				<label>31938</label>
-				<onclick>Skin.ToggleSetting(videomenu.musicvideos)</onclick>
-				<selected>Skin.HasSetting(videomenu.musicvideos)</selected>
-				<include>button_Settings</include>
-				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<control type="radiobutton" id="303">
 				<description>show playlists entry</description>
@@ -325,124 +310,83 @@
 				<selected>Skin.HasSetting(videomenu.videoplaylists)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="304">
-				<description>show trailers entry</description>
-				<label>31953</label>
-				<onclick>Skin.ToggleSetting(videomenu.trailers)</onclick>
-				<selected>Skin.HasSetting(videomenu.trailers)</selected>
+			<control type="button" id="304">
+				<description>show playlists entry</description>
+				<label>custom</label>
+				<onclick>ActivateWindow(61)</onclick>
 				<include>button_Settings</include>
-				<visible>System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
 			</control>
+			
 			<control type="label" id="310">
 				<description>Custom Home Menu Items</description>
-				<label>31973</label>
+				<label>movies</label>
 				<font>special2</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="311">
-				<description>custom 1</description>
-				<label>$LOCALIZE[157] $LOCALIZE[559] 1</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist1)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist1)</selected>
+				<description>show recent video entries entry</description>
+				<label>31038</label>
+				<onclick>Skin.ToggleSetting(moviesmenu.recentvideo)</onclick>
+				<selected>Skin.HasSetting(moviesmenu.recentvideo)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="312">
-				<description>-custom 1 label</description>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist1.label)][/COLOR]</label2>
-				<onclick>Skin.SetString(videomenu.playlist1.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist1)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist1)</enable>
+			<control type="radiobutton" id="312">
+				<description>show unwatched</description>
+				<label>16101</label>
+				<onclick>Skin.ToggleSetting(moviesmenu.unwatched)</onclick>
+				<selected>Skin.HasSetting(moviesmenu.unwatched)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="313">
-				<description>-custom 1 path</description>
-				<label2>$INFO[Skin.String(videomenu.playlist1.path)]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist1.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist1)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist1)</enable>
+			<control type="radiobutton" id="313">
+				<description>show in progress</description>
+				<label>575</label>
+				<onclick>Skin.ToggleSetting(moviesmenu.inprogress)</onclick>
+				<selected>Skin.HasSetting(moviesmenu.inprogress)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="320">
-				<description>custom 2</description>
-				<label>$LOCALIZE[157] $LOCALIZE[559] 2</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist2)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist2)</selected>
+			<control type="radiobutton" id="314">
+				<description>show trailers entry</description>
+				<label>31953</label>
+				<onclick>Skin.ToggleSetting(moviesmenu.trailers)</onclick>
+				<selected>Skin.HasSetting(moviesmenu.trailers)</selected>
+				<include>button_Settings</include>
+				<visible>System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
+			</control>
+			
+			<control type="label" id="320">
+				<description>Custom Home Menu Items</description>
+				<label>tv shows</label>
+				<font>special2</font>
+				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="321">
-				<description>-custom 2 label</description>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist2.label)][/COLOR]</label2>
-				<onclick>Skin.SetString(videomenu.playlist2.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist2)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist2)</enable>
+			<control type="radiobutton" id="321">
+				<description>show recent video entries entry</description>
+				<label>31038</label>
+				<onclick>Skin.ToggleSetting(tvshowsmenu.recent)</onclick>
+				<selected>Skin.HasSetting(tvshowsmenu.recent)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="322">
-				<description>-custom 2 path</description>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist2.path)][/COLOR]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist2.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist2)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist2)</enable>
+			<control type="radiobutton" id="322">
+				<description>show unwatched</description>
+				<label>16101</label>
+				<onclick>Skin.ToggleSetting(tvshowsmenu.unwatched)</onclick>
+				<selected>Skin.HasSetting(tvshowsmenu.unwatched)</selected>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="323">
-				<description>custom 3</description>
-				<label>$LOCALIZE[157] $LOCALIZE[559] 3</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist3)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist3)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="324">
-				<description>-custom 3 label</description>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist3.label)][/COLOR]</label2>
-				<onclick>Skin.SetString(videomenu.playlist3.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist3)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist3)</enable>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="325">
-				<description>-custom 3 path</description>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist3.path)][/COLOR]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist3.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist3)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist3)</enable>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="326">
-				<description>custom 4</description>
-				<label>$LOCALIZE[157] $LOCALIZE[559] 4</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist4)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist4)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="327">
-				<description>-custom 4 label</description>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist4.label)][/COLOR]</label2>
-				<onclick>Skin.SetString(videomenu.playlist4.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist4)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist4)</enable>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="328">
-				<description>-custom 4 path</description>
-				<label2>[COLOR=Color2]$INFO[Skin.String(videomenu.playlist4.path)][/COLOR]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist4.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist4)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist4)</enable>
+				<description>show in progress</description>
+				<label>575</label>
+				<onclick>Skin.ToggleSetting(tvshowsmenu.inprogress)</onclick>
+				<selected>Skin.HasSetting(tvshowsmenu.inprogress)</selected>
 				<include>button_Settings</include>
 			</control>
 		</control>
 
-<!--- MUSIC MENU SETTINGS --------------------------------->	
+
+
+<!--- MUSIC MENU SETTINGS ---------------------------->
 		<control type="grouplist" id="400">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -723,53 +667,7 @@
 				<include>button_Settings</include>
 			</control>
 		</control>
-		
-<!--- ADDONS SETTINGS 		
-		<control type="grouplist" id="700">
-			<posx>340</posx>
-			<posy>93</posy>
-			<width>850</width>
-			<height>605</height>
-			<onleft>9001</onleft>
-			<onright>9001</onright>
-			<onup>700</onup>
-			<ondown>700</ondown>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(SkinSettings,7)</visible>
-			<include>transition_Container</include>
-			<control type="radiobutton" id="701">
-				<description>Enable Subtitles Add-on</description>
-				<label>31976</label>
-				<onclick>Skin.ToggleSetting(addon.subtitles.enable)</onclick>
-				<selected>Skin.HasSetting(addon.subtitles.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="702">
-				<description>addon select</description>
-				<label>-$LOCALIZE[31977]</label>
-				<label2>[COLOR=Color2]$INFO[Skin.String(addon.subtitles.path)][/COLOR]</label2>
-				<onclick>Skin.SetAddon(addon.subtitles.path,xbmc.python.subtitles)</onclick>
-				<enable>Skin.HasSetting(addon.subtitles.enable)</enable>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(addon.subtitles.enable)</visible>
-			</control>
-			<control type="radiobutton" id="703">
-				<description>Lyricscript</description>
-				<label>31978</label>
-				<onclick>Skin.ToggleSetting(addon.lyrics.enable)</onclick>
-				<selected>Skin.HasSetting(addon.lyrics.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="704">
-				<description>Lyricscript path</description>
-				<label>-$LOCALIZE[31977]</label>
-				<label2>[COLOR=Color2]$INFO[Skin.String(addon.lyrics.path)][/COLOR]</label2>
-				<onclick>Skin.SetAddon(addon.lyrics.path,xbmc.python.lyrics)</onclick>
-				<enable>Skin.HasSetting(addon.lyrics.enable)</enable>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(addon.lyrics.enable)</visible>
-			</control>
-		</control>------------------------------->
+
 
 <!--- SKIN CREDITS --------------------------------->					
 		<control type="group" id="800">
