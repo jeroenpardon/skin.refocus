@@ -37,7 +37,7 @@
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
 			<include>PageLabel</include>
-			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,plugin)]</visible>
+			<visible>Container.Content(movies) + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin) | SubString(Container.FolderPath,plugin)]</visible>
 		</control>
 		<!--tvshows sources-->
 		<control type="label">
@@ -83,6 +83,18 @@
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,videodb://4/)</visible>
 		</control>
+		<!--unwatched movies videodb-->
+		<control type="label">
+			<label>$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,special://skin/playlists/Unwatched Movies.xsp)</visible>
+		</control>
+		<!--movies in progress videodb-->
+		<control type="label">
+			<label>$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[575][/COLOR]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp)</visible>
+		</control>
 		<!--movies trailers-->
 		<control type="label">
 			<label>$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</label>
@@ -113,11 +125,17 @@
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,videodb://5)</visible>
 		</control>
-		<!--new episodes videodb-->
+		<!--unwatched episodes videodb-->
 		<control type="label">
-			<label>$LOCALIZE[16101] [COLOR=Color2]$LOCALIZE[20360][/COLOR]</label>
+			<label>$LOCALIZE[20360] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</label>
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,special://skin/playlists/Unwatched Episodes.xsp)</visible>
+		</control>
+		<!--episodes in progress videodb-->
+		<control type="label">
+			<label>$LOCALIZE[20360] [COLOR=Color2]$LOCALIZE[575][/COLOR]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,special://skin/playlists/Episodes In Progress.xsp)</visible>
 		</control>
 		<!--music videos videodb-->
 		<control type="label">
