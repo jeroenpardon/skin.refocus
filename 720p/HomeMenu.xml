@@ -20,44 +20,47 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[157]</label>
+					
 					<onclick>SetFocus(1110)</onclick>
 				</item>
 				<item id="2">
-					<label>$LOCALIZE[2]</label>
-					<onclick>SetFocus(1120)</onclick>
-					<visible>!Skin.HasSetting(homemenu.music)</visible>
+					<label>$LOCALIZE[342]</label>
+					<onclick>SetFocus(1200)</onclick>
 				</item>
 				<item id="3">
-					<label>$LOCALIZE[31090]</label>
-					<onclick>SetFocus(1170)</onclick>
-					<visible>system.getbool(pvrmanager.enabled)</visible>
+					<label>$LOCALIZE[20343]</label>
+					<onclick>SetFocus(1210)</onclick>
 				</item>
 				<item id="4">
-					<label>$LOCALIZE[1]</label>
-					<onclick>SetFocus(1130)</onclick>
-					<visible>!Skin.HasSetting(homemenu.pictures)</visible>
+					<label>$LOCALIZE[31090]</label>
+					<onclick>SetFocus(1120)</onclick>
+					<visible>system.getbool(pvrmanager.enabled)</visible>
 				</item>
 				<item id="5">
-					<label>$LOCALIZE[0]</label>
-					<onclick>ActivateWindow(programs,addons, return)</onclick>
-					<visible>!Skin.HasSetting(homemenu.programs)</visible>
+					<label>$LOCALIZE[2]</label>
+					<onclick>SetFocus(1130)</onclick>
+					<visible>!Skin.HasSetting(homemenu.music)</visible>
 				</item>
 				<item id="6">
-					<label>$LOCALIZE[31006]</label>
+					<label>$LOCALIZE[1]</label>
 					<onclick>SetFocus(1140)</onclick>
-					<visible>!Skin.HasSetting(homemenu.accessories)</visible>
+					<visible>Skin.HasSetting(homemenu.pictures)</visible>
 				</item>
 				<item id="7">
+					<label>$LOCALIZE[24001]</label>
+					<onclick>SetFocus(1150)</onclick>
+					<visible>!Skin.HasSetting(homemenu.addons)</visible>-
+				</item>
+				<item id="8">
 					<label>$LOCALIZE[5]</label>
 					<onclick>ActivateWindow(4)</onclick>
 					<visible>Skin.HasSetting(homemenu.settings)</visible>
 				</item>
-				<item id="8">
-					<label>$LOCALIZE[5]</label>
-					<onclick>SetFocus(1150)</onclick>
-					<visible>!Skin.HasSetting(homemenu.settings)</visible>
-				</item>
 				<item id="9">
+					<label>$LOCALIZE[13000]</label>
+					<onclick>SetFocus(1160)</onclick>
+				</item>
+				<item id="10">
 					<label>$LOCALIZE[8]</label>
 					<label2>$INFO[Weather.Conditions], $INFO[Weather.Temperature]</label2>
 					<onclick>ActivateWindow(weather)</onclick>
@@ -75,7 +78,7 @@
 				</item>
 				<item id="13">
 					<label>$LOCALIZE[13012]</label>
-					<onclick>SetFocus(1160)</onclick>
+					<onclick>SetFocus(1170)</onclick>
 					<visible>!Skin.HasSetting(homemenu.exit)</visible>
 				</item>
 				<item id="14">
