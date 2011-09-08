@@ -80,7 +80,7 @@
 				<posy>126</posy>
 				<label>$LOCALIZE[31963]</label>
 				<onfocus>Skin.SetString(SkinSettings,4)</onfocus>
-				<onright>600</onright>
+				<onright>400</onright>
 				<onup>12</onup>
 				<ondown>14</ondown>
 				<include>button_Category</include>
@@ -297,22 +297,25 @@
 			<visible>Skin.String(SkinSettings,3)</visible>
 			<include>transition_Container</include>
 			<control type="label" id="302">
-				<description>Custom Home Menu Items</description>
-				<label>videos</label>
+				<label>$LOCALIZE[3]</label>
 				<font>special2</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="303">
-				<description>show playlists entry</description>
 				<label>31032</label>
 				<onclick>Skin.ToggleSetting(videomenu.videoplaylists)</onclick>
 				<selected>Skin.HasSetting(videomenu.videoplaylists)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="304">
-				<description>show playlists entry</description>
-				<label>custom</label>
+			<control type="radiobutton" id="304">
+				<label>31956</label>
+				<onclick>Skin.ToggleSetting(videomenu.addons)</onclick>
+				<selected>Skin.HasSetting(videomenu.addons)</selected>
+				<include>button_Settings</include>
+			</control>
+			<control type="button" id="305">
+				<label>$LOCALIZE[31109]</label>
 				<onclick>ActivateWindow(61)</onclick>
 				<include>button_Settings</include>
 			</control>
@@ -421,20 +424,26 @@
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="404">
+				<label>31956</label>
+				<onclick>Skin.ToggleSetting(musicmenu.addons)</onclick>
+				<selected>Skin.HasSetting(musicmenu.addons)</selected>
+				<include>button_Settings</include>
+			</control>
+			<control type="radiobutton" id="405">
 				<description>show partymode entry</description>
 				<label>31027</label>
 				<onclick>Skin.ToggleSetting(musicmenu.partymode)</onclick>
 				<selected>Skin.HasSetting(musicmenu.partymode)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="405">
+			<control type="radiobutton" id="406">
 				<description>show playlists entry</description>
 				<label>31032</label>
 				<onclick>Skin.ToggleSetting(musicmenu.playlists)</onclick>
 				<selected>Skin.HasSetting(musicmenu.playlists)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="406">
+			<control type="radiobutton" id="407">
 				<description>show lastfm entry</description>
 				<label>31084</label>
 				<onclick>Skin.ToggleSetting(musicmenu.lastfm)</onclick>
@@ -456,27 +465,33 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,5)</visible>
 			<include>transition_Container</include>
-			<control type="radiobutton" id="501">
+			<control type="label" id="501">
+				<label>Fanart</label>
+				<font>special2</font>
+				<textcolor>Color2</textcolor>
+				<include>button_Settings</include>
+			</control>
+			<control type="radiobutton" id="502">
 				<label>31099</label>
 				<onclick>Skin.ToggleSetting(fanart.global)</onclick>
 				<selected>Skin.HasSetting(fanart.global)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="502">
+			<control type="radiobutton" id="503">
 				<label>31929</label>
 				<onclick>Skin.ToggleSetting(fanart.global.alt)</onclick>
 				<selected>Skin.HasSetting(fanart.global.alt)</selected>
 				<include>button_Settings</include>
 				<enable>Skin.HasSetting(fanart.global)</enable>
 			</control>
-			<control type="radiobutton" id="503">
+			<control type="radiobutton" id="504">
 				<description>enable weather fanart</description>
 				<label>31966</label>
 				<onclick>Skin.ToggleSetting(fanart.weather)</onclick>
 				<selected>Skin.HasSetting(fanart.weather)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="504">
+			<control type="button" id="505">
 				<label>- $LOCALIZE[31967]</label>
 				<onclick>Skin.SetPath(fanart.weather.path)</onclick>
 				<label2>[COLOR=Color2]$INFO[Skin.String(fanart.weather.path)][/COLOR]</label2>
@@ -484,14 +499,14 @@
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(fanart.weather)</visible>
 			</control>
-			<control type="radiobutton" id="505">
+			<control type="radiobutton" id="506">
 				<label>$LOCALIZE[31120]</label>
 				<onclick>Skin.ToggleSetting(fanart.visualization)</onclick>
 				<onclick>Skin.ToggleSetting(fanart.visualization.blend)</onclick>
 				<selected>Skin.HasSetting(fanart.visualization)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="506">
+			<control type="radiobutton" id="507">
 				<label>- $LOCALIZE[31126]</label>
 				<onclick>Skin.ToggleSetting(fanart.visualization.blend)</onclick>
 				<selected>Skin.HasSetting(fanart.visualization.blend)</selected>
@@ -499,14 +514,20 @@
 				<enable>Skin.HasSetting(fanart.visualization)</enable>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="507">
+			<control type="label" id="510">
+				<label>$LOCALIZE[1047]</label>
+				<font>special2</font>
+				<textcolor>Color2</textcolor>
+				<include>button_Settings</include>
+			</control>
+			<control type="radiobutton" id="511">
 				<description>enable banner viewtype</description>
 				<label>$LOCALIZE[31066]</label>
 				<onclick>Skin.ToggleSetting(banners.enable)</onclick>
 				<selected>Skin.HasSetting(banners.enable)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="radiobutton" id="508">
+			<control type="radiobutton" id="512">
 				<description>use local banners</description>
 				<label>- $LOCALIZE[31067]</label>
 				<onclick>Skin.ToggleSetting(banners.local)</onclick>
@@ -514,20 +535,20 @@
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(banners.enable)</visible>
 			</control>
-			<control type="button" id="509">
+			<control type="button" id="513">
 				<label>- $LOCALIZE[31129]</label>
 				<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=False,poster=False,banner=banner.jpg)</onclick>
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
 			</control>
-			<control type="radiobutton" id="510">
+			<control type="radiobutton" id="514">
 				<description>tv show logos</description>
 				<label>31972</label>
 				<onclick>Skin.ToggleSetting(tvshowlogos.enable)</onclick>
 				<selected>Skin.HasSetting(tvshowlogos.enable)</selected>
 				<include>button_Settings</include>
 			</control>
-			<control type="button" id="511">
+			<control type="button" id="515">
 				<label>- $LOCALIZE[31130]</label>
 				<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=True,showthumb=False,poster=False,banner=False)</onclick>
 				<include>button_Settings</include>
