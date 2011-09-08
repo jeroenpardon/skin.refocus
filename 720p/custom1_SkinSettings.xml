@@ -1,7 +1,6 @@
 ﻿<window id="59">
 	<defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-
 	<controls>
 		<include>global_Background</include>
 		<include>global_Includes</include>
@@ -9,8 +8,7 @@
 			<include>PageLabel</include>
 			<label>$LOCALIZE[5] [COLOR=Color2]$LOCALIZE[166][/COLOR]</label>
 		</control>
-
-<!--- CATEGORIES --------------------------------->
+<!---CATEGORIES------->
 		<control type="group" id="9001">
 			<posx>15</posx>
 			<posy>125</posy>
@@ -157,8 +155,7 @@
 				<include>button_Category</include>
 			</control>
 		</control>
-
-<!--- HOME SCREEN SETTINGS --------------------------------->	
+<!---HOME SCREEN------>	
 		<control type="grouplist" id="100">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -171,6 +168,7 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,1)</visible>
 			<include>transition_Container</include>
+			<!--slideshows-->
 			<control type="radiobutton" id="101">
 				<label>31936</label>
 				<onclick>Skin.ToggleSetting(slideshow.fanart)</onclick>
@@ -185,29 +183,30 @@
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(slideshow.fanart)</visible>
 			</control>
+			<!--background video-->
 			<control type="radiobutton" id="103">
-				<description>video behind background</description>
 				<label>31028</label>
 				<onclick>Skin.ToggleSetting(home.backgroundvideo)</onclick>
 				<selected>!Skin.HasSetting(home.backgroundvideo)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--statistics-->
 			<control type="radiobutton" id="106">
-				<description>statistics</description>
 				<label>$LOCALIZE[31128]</label>
 				<onclick>Skin.ToggleSetting(home.stats)</onclick>
 				<selected>Skin.HasSetting(home.stats)</selected>
 				<visible>!Skin.HasSetting(home.new)</visible>
 				<include>button_Settings</include>
 			</control>
+			<!--time-->
 			<control type="radiobutton" id="107">
-				<description>show time</description>
 				<label>$LOCALIZE[31907]</label>
 				<onclick>Skin.ToggleSetting(home.time)</onclick>
 				<selected>Skin.HasSetting(home.time)</selected>
 				<visible>!Skin.HasSetting(home.new)</visible>
 				<include>button_Settings</include>
 			</control>
+			<!--althome-->
 			<control type="radiobutton" id="108">
 				<label>$LOCALIZE[31052]</label>
 				<onclick>Skin.ToggleSetting(home.new)</onclick>
@@ -215,8 +214,7 @@
 				<include>button_Settings</include>
 			</control>
 		</control>
-
-<!--- HOME MENU SETTINGS --------------------------------->	
+<!---HOME MENU------>	
 		<control type="grouplist" id="200">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -229,52 +227,52 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,2)</visible>
 			<include>transition_Container</include>
+			<!--music-->
 			<control type="radiobutton" id="201">
-				<description>show music entry</description>
 				<label>31951</label>
 				<onclick>Skin.ToggleSetting(homemenu.music)</onclick>
 				<selected>!Skin.HasSetting(homemenu.music)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--pictures-->
 			<control type="radiobutton" id="202">
-				<description>show pictures entry</description>
 				<label>31954</label>
 				<onclick>Skin.ToggleSetting(homemenu.pictures)</onclick>
 				<selected>Skin.HasSetting(homemenu.pictures)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--addons-->
 			<control type="radiobutton" id="203">
-				<description>show addons entry</description>
 				<label>31956</label>
 				<onclick>Skin.ToggleSetting(homemenu.addons)</onclick>
 				<selected>!Skin.HasSetting(homemenu.addons)</selected>
 				<include>button_Settings</include>
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
+			<!--favourites-->
 			<control type="radiobutton" id="205">
-				<description>show favourites entry</description>
 				<label>31959</label>
 				<onclick>Skin.ToggleSetting(homemenu.favourites)</onclick>
 				<selected>Skin.HasSetting(homemenu.favourites)</selected>
 				<include>button_Settings</include>
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
+			<!--now playing-->
 			<control type="radiobutton" id="206">
-				<description>show now playing entry</description>
 				<label>31947</label>
 				<onclick>Skin.ToggleSetting(homemenu.playing)</onclick>
 				<selected>Skin.HasSetting(homemenu.playing)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--weather-->
 			<control type="radiobutton" id="207">
-				<description>show weather entry</description>
 				<label>31957</label>
 				<onclick>Skin.ToggleSetting(homemenu.weather)</onclick>
 				<selected>Skin.HasSetting(homemenu.weather)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--exit-->
 			<control type="radiobutton" id="208">
-				<description>show exit entry</description>
 				<label>31958</label>
 				<onclick>Skin.ToggleSetting(homemenu.exit)</onclick>
 				<selected>!Skin.HasSetting(homemenu.exit)</selected>
@@ -282,8 +280,7 @@
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 		</control>
-
-<!--- VIDEO MENU SETTINGS --------------------------------->	
+<!---VIDEO MENU------>	
 		<control type="grouplist" id="300">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -302,94 +299,90 @@
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
+			<!--playlists-->
 			<control type="radiobutton" id="303">
 				<label>31032</label>
 				<onclick>Skin.ToggleSetting(videomenu.videoplaylists)</onclick>
 				<selected>Skin.HasSetting(videomenu.videoplaylists)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--video addons-->
 			<control type="radiobutton" id="304">
 				<label>31956</label>
 				<onclick>Skin.ToggleSetting(videomenu.addons)</onclick>
 				<selected>Skin.HasSetting(videomenu.addons)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--custom entries-->
 			<control type="button" id="305">
 				<label>$LOCALIZE[31109]</label>
 				<onclick>ActivateWindow(61)</onclick>
 				<include>button_Settings</include>
 			</control>
-			
 			<control type="label" id="310">
-				<description>Custom Home Menu Items</description>
 				<label>movies</label>
 				<font>special2</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
+			<!--recent movies-->
 			<control type="radiobutton" id="311">
-				<description>show recent movies entry</description>
 				<label>31038</label>
 				<onclick>Skin.ToggleSetting(moviesmenu.recent)</onclick>
 				<selected>Skin.HasSetting(moviesmenu.recent)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--unwatched movies-->
 			<control type="radiobutton" id="312">
-				<description>show unwatched</description>
 				<label>16101</label>
 				<onclick>Skin.ToggleSetting(moviesmenu.unwatched)</onclick>
 				<selected>Skin.HasSetting(moviesmenu.unwatched)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--movies in progress-->
 			<control type="radiobutton" id="313">
-				<description>show in progress</description>
 				<label>575</label>
 				<onclick>Skin.ToggleSetting(moviesmenu.inprogress)</onclick>
 				<selected>Skin.HasSetting(moviesmenu.inprogress)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--trailers-->
 			<control type="radiobutton" id="314">
-				<description>show trailers entry</description>
 				<label>31953</label>
 				<onclick>Skin.ToggleSetting(moviesmenu.trailers)</onclick>
 				<selected>Skin.HasSetting(moviesmenu.trailers)</selected>
 				<include>button_Settings</include>
 				<visible>System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
 			</control>
-			
 			<control type="label" id="320">
-				<description>Custom Home Menu Items</description>
-				<label>tv shows</label>
+				<label>$LOCALIZE[20343]</label>
 				<font>special2</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
+			<!--recent episodes-->
 			<control type="radiobutton" id="321">
-				<description>show recent video entries entry</description>
 				<label>31038</label>
 				<onclick>Skin.ToggleSetting(tvshowsmenu.recent)</onclick>
 				<selected>Skin.HasSetting(tvshowsmenu.recent)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--unwatched episodes-->
 			<control type="radiobutton" id="322">
-				<description>show unwatched</description>
 				<label>16101</label>
 				<onclick>Skin.ToggleSetting(tvshowsmenu.unwatched)</onclick>
 				<selected>Skin.HasSetting(tvshowsmenu.unwatched)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--episodes in progress-->
 			<control type="radiobutton" id="323">
-				<description>show in progress</description>
 				<label>575</label>
 				<onclick>Skin.ToggleSetting(tvshowsmenu.inprogress)</onclick>
 				<selected>Skin.HasSetting(tvshowsmenu.inprogress)</selected>
 				<include>button_Settings</include>
 			</control>
 		</control>
-
-
-
-<!--- MUSIC MENU SETTINGS ---------------------------->
+<!---MUSIC MENU------>
 		<control type="grouplist" id="400">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -402,57 +395,57 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,4)</visible>
 			<include>transition_Container</include>
+			<!--recent albums-->
 			<control type="radiobutton" id="401">
-				<description>show recent music entries entry</description>
 				<label>31034</label>
 				<onclick>Skin.ToggleSetting(musicmenu.recent)</onclick>
 				<selected>Skin.HasSetting(musicmenu.recent)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--artists-->
 			<control type="radiobutton" id="402">
-				<description>show artists entry</description>
 				<label>31030</label>
 				<onclick>Skin.ToggleSetting(musicmenu.artists)</onclick>
 				<selected>!Skin.HasSetting(musicmenu.artists)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--genres-->
 			<control type="radiobutton" id="403">
-				<description>show genres entry</description>
 				<label>31031</label>
 				<onclick>Skin.ToggleSetting(musicmenu.genres)</onclick>
 				<selected>!Skin.HasSetting(musicmenu.genres)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--music addons-->
 			<control type="radiobutton" id="404">
 				<label>31956</label>
 				<onclick>Skin.ToggleSetting(musicmenu.addons)</onclick>
 				<selected>Skin.HasSetting(musicmenu.addons)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--partymode-->
 			<control type="radiobutton" id="405">
-				<description>show partymode entry</description>
 				<label>31027</label>
 				<onclick>Skin.ToggleSetting(musicmenu.partymode)</onclick>
 				<selected>Skin.HasSetting(musicmenu.partymode)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--music playlists-->
 			<control type="radiobutton" id="406">
-				<description>show playlists entry</description>
 				<label>31032</label>
 				<onclick>Skin.ToggleSetting(musicmenu.playlists)</onclick>
 				<selected>Skin.HasSetting(musicmenu.playlists)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--lastfm-->
 			<control type="radiobutton" id="407">
-				<description>show lastfm entry</description>
 				<label>31084</label>
 				<onclick>Skin.ToggleSetting(musicmenu.lastfm)</onclick>
 				<selected>Skin.HasSetting(musicmenu.lastfm)</selected>
 				<include>button_Settings</include>
 			</control>
 		</control>
-
-<!--- ARTWORK SETTINGS --------------------------------->
+<!---ARTWORK------>
 		<control type="grouplist" id="500">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -471,12 +464,14 @@
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
+			<!--global fanart-->
 			<control type="radiobutton" id="502">
 				<label>31099</label>
 				<onclick>Skin.ToggleSetting(fanart.global)</onclick>
 				<selected>Skin.HasSetting(fanart.global)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--vignette-->
 			<control type="radiobutton" id="503">
 				<label>31929</label>
 				<onclick>Skin.ToggleSetting(fanart.global.alt)</onclick>
@@ -484,6 +479,7 @@
 				<include>button_Settings</include>
 				<enable>Skin.HasSetting(fanart.global)</enable>
 			</control>
+			<!--weather fanart-->
 			<control type="radiobutton" id="504">
 				<description>enable weather fanart</description>
 				<label>31966</label>
@@ -499,6 +495,7 @@
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(fanart.weather)</visible>
 			</control>
+			<!--visualization fanart-->
 			<control type="radiobutton" id="506">
 				<label>$LOCALIZE[31120]</label>
 				<onclick>Skin.ToggleSetting(fanart.visualization)</onclick>
@@ -520,15 +517,14 @@
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
+			<!--banners-->
 			<control type="radiobutton" id="511">
-				<description>enable banner viewtype</description>
 				<label>$LOCALIZE[31066]</label>
 				<onclick>Skin.ToggleSetting(banners.enable)</onclick>
 				<selected>Skin.HasSetting(banners.enable)</selected>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="512">
-				<description>use local banners</description>
 				<label>- $LOCALIZE[31067]</label>
 				<onclick>Skin.ToggleSetting(banners.local)</onclick>
 				<selected>Skin.HasSetting(banners.local)</selected>
@@ -541,8 +537,8 @@
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
 			</control>
+			<!--tv show logos-->
 			<control type="radiobutton" id="514">
-				<description>tv show logos</description>
 				<label>31972</label>
 				<onclick>Skin.ToggleSetting(tvshowlogos.enable)</onclick>
 				<selected>Skin.HasSetting(tvshowlogos.enable)</selected>
@@ -555,8 +551,7 @@
 				<visible>Skin.HasSetting(tvshowlogos.enable)</visible>
 			</control>
 		</control>
-
-<!--- VIEW SETTINGS --------------------------------->					
+<!---VIEW SETTINGS------>					
 		<control type="grouplist" id="600">
 			<posx>340</posx>
 			<posy>93</posy>
@@ -569,15 +564,14 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,6)</visible>
 			<include>transition_Container</include>
+			<!--scrollbars-->
 			<control type="radiobutton" id="601">
-				<description>scrollbars</description>
 				<label>21383</label>
 				<onclick>Skin.ToggleSetting(scrollbar.enable)</onclick>
 				<selected>Skin.HasSetting(scrollbar.enable)</selected>
 				<include>button_Settings</include>
 			</control>
 			<control type="radiobutton" id="602">
-				<description>scrollbars hide</description>
 				<label>-$LOCALIZE[31055]</label>
 				<onclick>Skin.ToggleSetting(scrollbar.hide)</onclick>
 				<selected>Skin.HasSetting(scrollbar.hide)</selected>
@@ -585,43 +579,43 @@
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(scrollbar.enable)</visible>
 			</control>
+			<!--menu indicator-->
 			<control type="radiobutton" id="603">
-				<description>menu indicator</description>
 				<label>$LOCALIZE[31053]</label>
 				<onclick>Skin.ToggleSetting(indicator.enable)</onclick>
 				<selected>Skin.HasSetting(indicator.enable)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--item count-->
 			<control type="radiobutton" id="604">
-				<description>item count</description>
 				<label>$LOCALIZE[31040]</label>
 				<onclick>Skin.ToggleSetting(numitems.enable)</onclick>
 				<selected>Skin.HasSetting(numitems.enable)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--smooth scrolling-->
 			<control type="radiobutton" id="605">
-				<description>smooth scrolling</description>
 				<label>$LOCALIZE[31060]</label>
 				<onclick>Skin.ToggleSetting(smoothscrolling.enable)</onclick>
 				<selected>Skin.HasSetting(smoothscrolling.enable)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--sortletter-->
 			<control type="radiobutton" id="606">
-				<description>disable sortletter</description>
 				<label>$LOCALIZE[31037]</label>
 				<onclick>Skin.ToggleSetting(sortletter.enable)</onclick>
 				<selected>Skin.HasSetting(sortletter.enable)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--keyboard-->
 			<control type="radiobutton" id="607">
-				<description>keyboard</description>
 				<label>$LOCALIZE[31035]</label>
 				<onclick>Skin.ToggleSetting(keyboard.enable)</onclick>
 				<selected>!Skin.HasSetting(keyboard.enable)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--media overlays-->
 			<control type="radiobutton" id="609">
-				<description>media overlays</description>
 				<label>31025</label>
 				<onclick>Skin.ToggleSetting(overlay.enable)</onclick>
 				<selected>!Skin.HasSetting(overlay.enable)</selected>
@@ -651,22 +645,21 @@
 				<selected>Skin.HasSetting(overlay.files)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--background video-->
 			<control type="radiobutton" id="617">
-				<description>video behind background</description>
 				<label>31028</label>
 				<onclick>Skin.ToggleSetting(backgroundvideo.global)</onclick>
 				<selected>Skin.HasSetting(backgroundvideo.global)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--kiosk mode-->
 			<control type="radiobutton" id="618">
-				<description>Kiosk Mode</description>
 				<label>$LOCALIZE[31964]</label>
 				<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
 				<selected>Skin.HasSetting(global.kiosk)</selected>
 				<include>button_Settings</include>
 			</control>
 		</control>
-
 <!---OSD------>
 		<control type="grouplist" id="700">
 			<posx>340</posx>
@@ -680,17 +673,15 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,7)</visible>
 			<include>transition_Container</include>
+			<!--progressbar-->
 			<control type="radiobutton" id="701">
-				<description>show progressbar</description>
 				<label>31917</label>
 				<onclick>Skin.ToggleSetting(osd.progressbar)</onclick>
 				<selected>Skin.HasSetting(osd.progressbar)</selected>
 				<include>button_Settings</include>
 			</control>
 		</control>
-
-
-<!--- SKIN CREDITS --------------------------------->					
+<!---SKIN CREDITS------>					
 		<control type="group" id="800">
 			<posx>370</posx>
 			<posy>50</posy>
@@ -708,8 +699,7 @@
 				<include>textBox</include>
 			</control>
 		</control>
-
-<!--- IMAGES ------------------------------------------->
+<!---IMAGES------>
 		<control type="image">
 			<posx>90</posx>
 			<posy>590</posy>
