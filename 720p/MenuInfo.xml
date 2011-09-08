@@ -7,7 +7,6 @@
 				<posy>20</posy>
 				<width>800</width>
 				<height>800</height>
-				<onback>8000</onback>
 				<orientation>vertical</orientation>
 				<include>MenuOpen</include>
 				<include>transition_Menu</include>
@@ -97,11 +96,10 @@
 			</control>
 		</control>
 	</include>
-
 	<include name="menu_Info-music">
 		<control type="group">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
-			<control type="group" id="6000">
+			<control type="grouplist" id="6000">
 				<posx>-275</posx>
 				<posy>20</posy>
 				<width>800</width>
@@ -110,32 +108,42 @@
 				<orientation>vertical</orientation>
 				<include>MenuOpen</include>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Window.IsActive(101) + !Skin.HasSetting(global.kiosk)</visible>
-				<control type="button" id="6">
-					<posy>0</posy>
-					<label>$LOCALIZE[184]</label>
-					<width>275</width>
-					<onup>5</onup>
-					<ondown>10</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="6">
+						<label>$LOCALIZE[184]</label>
+						<onback>8000</onback>
+						<onup>12</onup>
+						<ondown>10</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
 				</control>
-				<control type="button" id="10">
-					<posy>43</posy>
-					<label>$LOCALIZE[31019]</label>
-					<width>275</width>
-					<onup>6</onup>
-					<ondown>12</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="10">
+						<label>$LOCALIZE[31019]</label>
+						<onback>8000</onback>
+						<onup>6</onup>
+						<ondown>12</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
 				</control>
-				<control type="button" id="12">
-					<posy>86</posy>
-					<label>Fanart</label>
-					<width>275</width>
-					<onup>10</onup>
-					<ondown>5</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(artists)</visible>
+					<control type="button" id="12">
+						<label>Fanart</label>
+						<onback>8000</onback>
+						<onup>10</onup>
+						<ondown>6</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
 				</control>
 			</control>
 		</control>
