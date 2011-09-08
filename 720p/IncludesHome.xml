@@ -27,6 +27,18 @@
 			<visible>!Window.IsActive(home) + ![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
 		</control>
 	</include>
+	<include name="home_statuslabel">
+		<posy>7</posy>
+		<width>screen_Width</width>
+		<font>rss</font>
+		<align>center</align>
+		<pauseatend>6000</pauseatend>
+		<scroll>false</scroll>
+		<scrollout>false</scrollout>
+		<aligny>center</aligny>
+		<textcolor>Color2</textcolor>
+		<include>fadeinout</include>
+	</include>
 	<include name="homeMenusLayout">
 		<itemlayout width="1200" height="52">
 			<control type="label">
