@@ -7,8 +7,6 @@
 		<posy>50</posy>
 	</coordinates>
 	<controls>
-	
-	<control type="group">
 		<control type="image">
 			<width>800</width>
 			<height>652</height>
@@ -19,295 +17,265 @@
 			<width>762</width>
 			<include>dialog_Windowtitle</include>
 		</control>
-		
 		<control type="image">
-			<posx>19</posx>
-			<posy>75</posy>
-			<width>762</width>
-			<include>dialog_Separator</include>
-		</control>
-		
-		
-		<control type="group" id="200">
-			<description>button area</description>
-			<posx>19</posx>
-			<posy>75</posy>
-			<width>225</width>
-			<height>360</height>
-			<itemgap>0</itemgap>
-			
-			<onright>9001</onright>
-			<onup>200</onup>
-			<ondown>200</ondown>
-			<control type="button" id="201">
-				<width>206</width>
-				<label>Smart Playlists</label>
-				<onright>300</onright>
-				<onleft>9001</onleft>
-				<onup>202</onup>
-				<ondown>202</ondown>
-				<onfocus>Skin.SetString(CustomType,1)</onfocus>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="202">
-				<posy>40</posy>
-				<width>206</width>
-				<label>Video Add-ons</label>
-				<onleft>9001</onleft>
-				<onright>400</onright>
-				<onup>201</onup>
-				<ondown>201</ondown>
-				<onfocus>Skin.SetString(CustomType,2)</onfocus>
-				<include>dialog_Radio</include>
-			</control>
-		</control>
-				
-				
-		
-		<control type="image">
-			<posx>19</posx>
 			<posy>554</posy>
 			<width>762</width>
 			<include>dialog_Separator</include>
 		</control>
-		<control type="image">
-			<posx>224</posx>
-			<posy>75</posy>
-			<height>480</height>
-			<include>dialog_Separator-y</include>
+		<control type="group">
+			<posx>19</posx>
+			<posy>75</posy>		
+			<control type="image">
+				<width>762</width>
+				<include>dialog_Separator</include>
+			</control>
+			<control type="image">
+				<posx>205</posx>
+				<height>480</height>
+				<include>dialog_Separator-y</include>
+			</control>
+		<!---button area------>
+			<control type="grouplist" id="200">
+				<width>225</width>
+				<height>360</height>
+				<itemgap>0</itemgap>
+				<onright>100</onright>
+				<onup>200</onup>
+				<control type="button" id="201">
+					<width>206</width>
+					<label>$LOCALIZE[136]</label>
+					<onleft>9001</onleft>
+					<onup>12</onup>
+					<ondown>202</ondown>
+					<onfocus>Skin.SetString(CustomType,1)</onfocus>
+					<include>dialog_Radio</include>
+				</control>
+				<control type="button" id="202">
+					<width>206</width>
+					<label>$LOCALIZE[1037]</label>
+					<onleft>9001</onleft>
+					<onright>400</onright>
+					<onup>201</onup>
+					<ondown>12</ondown>
+					<onfocus>Skin.SetString(CustomType,2)</onfocus>
+					<include>dialog_Radio</include>
+				</control>
+			</control>
+		<!---smart playlists------>
+			<control type="group" id="100">
+				<control type="grouplist" id="300">
+					<posx>206</posx>
+					<width>557</width>
+					<height>480</height>
+					<onleft>200</onleft>
+					<ondown>10</ondown>
+					<itemgap>0</itemgap>
+					<visible>Skin.String(CustomType,1)</visible>
+					<control type="radiobutton" id="311">
+						<onleft>9</onleft>
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[559] 1[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.playlist1)</onclick>
+						<selected>Skin.HasSetting(videomenu.playlist1)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="312">
+						<description>-custom 1 label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[21433]</label>
+						<label2>$INFO[Skin.String(videomenu.playlist1.label)]</label2>
+						<onclick>Skin.SetString(videomenu.playlist1.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist1)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="313">
+						<description>-custom 1 path</description>
+						<width>557</width>
+						<label2>$INFO[Skin.String(videomenu.playlist1.path)]</label2>
+						<label>-$LOCALIZE[656]</label>
+						<onclick>Skin.SetFile(videomenu.playlist1.path,.xsp,special://profile/playlists/video/)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist1)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="radiobutton" id="314">
+						<description>custom 2</description>
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[559] 2[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.playlist2)</onclick>
+						<selected>Skin.HasSetting(videomenu.playlist2)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="315">
+						<description>-custom 2 label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[21433]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist2.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.playlist2.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist2)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="316">
+						<description>-custom 2 path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist2.path)][/I]</label2>
+						<label>-$LOCALIZE[656]</label>
+						<onclick>Skin.SetFile(videomenu.playlist2.path,.xsp,special://profile/playlists/video/)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist2)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="radiobutton" id="317">
+						<description>custom 3</description>
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[559] 3[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.playlist3)</onclick>
+						<selected>Skin.HasSetting(videomenu.playlist3)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="318">
+						<description>-custom 3 label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[21433]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist3.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.playlist3.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="319">
+						<description>-custom 3 path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist3.path)][/I]</label2>
+						<label>-$LOCALIZE[656]</label>
+						<onclick>Skin.SetFile(videomenu.playlist3.path,.xsp,special://profile/playlists/video/)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="radiobutton" id="320">
+						<description>custom 4</description>
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[559] 4[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.playlist4)</onclick>
+						<selected>Skin.HasSetting(videomenu.playlist4)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="321">
+						<description>-custom 4 label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[21433]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist4.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.playlist4.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist4)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="322">
+						<description>-custom 4 path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist4.path)][/I]</label2>
+						<label>-$LOCALIZE[656]</label>
+						<onclick>Skin.SetFile(videomenu.playlist4.path,.xsp,special://profile/playlists/video/)</onclick>
+						<enable>Skin.HasSetting(videomenu.playlist4)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+				</control>
+			<!---add-ons------>
+				<control type="grouplist" id="400">
+					<posx>206</posx>
+					<width>557</width>
+					<height>520</height>
+					<onleft>200</onleft>
+					<ondown>10</ondown>
+					<itemgap>0</itemgap>
+					<visible>Skin.String(CustomType,2)</visible>	
+					<control type="radiobutton" id="330">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 1[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.addon1)</onclick>
+						<selected>Skin.HasSetting(videomenu.addon1)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="331">
+						<description>-set label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.addon1.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.addon1.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon1)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="332">
+						<description>-set path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.addon1.path)][/I]</label2>
+						<label>-$LOCALIZE[31977]</label>
+						<onclick>Skin.SetAddOn(videomenu.addon1.path,xbmc.python.pluginsource)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon1)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<!--addon 2-->
+					<control type="radiobutton" id="333">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 2[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.addon2)</onclick>
+						<selected>Skin.HasSetting(videomenu.addon2)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="334">
+						<description>-set label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.addon2.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.addon2.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon2)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="335">
+						<description>-set path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.addon2.path)][/I]</label2>
+						<label>-$LOCALIZE[31977]</label>
+						<onclick>Skin.SetAddOn(videomenu.addon2.path,xbmc.python.pluginsource)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon2)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<!--addon 3-->
+					<control type="radiobutton" id="336">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 3[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.addon3)</onclick>
+						<selected>Skin.HasSetting(videomenu.addon3)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="517">
+						<description>-set label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.addon3.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.addon3.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="337">
+						<description>-set path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.addon3.path)][/I]</label2>
+						<label>-$LOCALIZE[31977]</label>
+						<onclick>Skin.SetAddOn(videomenu.addon3.path,xbmc.python.pluginsource)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+				</control>
+			</control>
 		</control>
-		
-		<control type="grouplist" id="300">
-			<posx>225</posx>
-			<posy>75</posy>
-			<width>557</width>
-			<height>480</height>
-			<onleft>200</onleft>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(CustomType,1)</visible>
-			<control type="radiobutton" id="311">
-				<onleft>9</onleft>
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[559] 1[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist1)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist1)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="312">
-				<description>-custom 1 label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>$INFO[Skin.String(videomenu.playlist1.label)]</label2>
-				<onclick>Skin.SetString(videomenu.playlist1.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist1)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist1)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="313">
-				<description>-custom 1 path</description>
-				<width>557</width>
-				<label2>$INFO[Skin.String(videomenu.playlist1.path)]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist1.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist1)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist1)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="radiobutton" id="314">
-				<description>custom 2</description>
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[559] 2[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist2)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist2)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="315">
-				<description>-custom 2 label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[I]$INFO[Skin.String(videomenu.playlist2.label)][/I]</label2>
-				<onclick>Skin.SetString(videomenu.playlist2.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist2)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist2)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="316">
-				<description>-custom 2 path</description>
-				<width>557</width>
-				<label2>[I]$INFO[Skin.String(videomenu.playlist2.path)][/I]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist2.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist2)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist2)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="radiobutton" id="317">
-				<description>custom 3</description>
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[559] 3[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist3)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist3)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="318">
-				<description>-custom 3 label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[I]$INFO[Skin.String(videomenu.playlist3.label)][/I]</label2>
-				<onclick>Skin.SetString(videomenu.playlist3.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist3)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist3)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="319">
-				<description>-custom 3 path</description>
-				<width>557</width>
-				<label2>[I]$INFO[Skin.String(videomenu.playlist3.path)][/I]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist3.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist3)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist3)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="radiobutton" id="320">
-				<description>custom 4</description>
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[559] 4[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.playlist4)</onclick>
-				<selected>Skin.HasSetting(videomenu.playlist4)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="321">
-				<description>-custom 4 label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[21433]</label>
-				<label2>[I]$INFO[Skin.String(videomenu.playlist4.label)][/I]</label2>
-				<onclick>Skin.SetString(videomenu.playlist4.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist4)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist4)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="322">
-				<description>-custom 4 path</description>
-				<width>557</width>
-				<label2>[I]$INFO[Skin.String(videomenu.playlist4.path)][/I]</label2>
-				<label>-$LOCALIZE[656]</label>
-				<onclick>Skin.SetFile(videomenu.playlist4.path,.xsp,special://profile/playlists/video/)</onclick>
-				<visible>Skin.HasSetting(videomenu.playlist4)</visible>
-				<enable>Skin.HasSetting(videomenu.playlist4)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-		</control>
-		
-		
-		<control type="grouplist" id="400">
-			<posx>225</posx>
-			<posy>75</posy>
-			<width>557</width>
-			<height>520</height>
-			<onleft>200</onleft>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(CustomType,2)</visible>	
-			<control type="radiobutton" id="330">
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 1[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.addon1)</onclick>
-				<selected>Skin.HasSetting(videomenu.addon1)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="331">
-				<description>-set label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[13334]</label>
-				<label2>[I]$INFO[Skin.String(videomenu.addon1.label)][/I]</label2>
-				<onclick>Skin.SetString(videomenu.addon1.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.addon1)</visible>
-				<enable>Skin.HasSetting(videomenu.addon1)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="332">
-				<description>-set path</description>
-				<width>557</width>
-				<label2>[I]$INFO[Skin.String(videomenu.addon1.path)][/I]</label2>
-				<label>-$LOCALIZE[31977]</label>
-				<onclick>Skin.SetAddOn(videomenu.addon1.path,xbmc.python.pluginsource)</onclick>
-				<visible>Skin.HasSetting(videomenu.addon1)</visible>
-				<enable>Skin.HasSetting(videomenu.addon1)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<!--addon 2-->
-			<control type="radiobutton" id="333">
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 2[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.addon2)</onclick>
-				<selected>Skin.HasSetting(videomenu.addon2)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="334">
-				<description>-set label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[13334]</label>
-				<label2>[I]$INFO[Skin.String(videomenu.addon2.label)][/I]</label2>
-				<onclick>Skin.SetString(videomenu.addon2.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.addon2)</visible>
-				<enable>Skin.HasSetting(videomenu.addon2)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="335">
-				<description>-set path</description>
-				<width>557</width>
-				<label2>[I]$INFO[Skin.String(videomenu.addon2.path)][/I]</label2>
-				<label>-$LOCALIZE[31977]</label>
-				<onclick>Skin.SetAddOn(videomenu.addon2.path,xbmc.python.pluginsource)</onclick>
-				<visible>Skin.HasSetting(videomenu.addon2)</visible>
-				<enable>Skin.HasSetting(videomenu.addon2)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<!--addon 3-->
-			<control type="radiobutton" id="336">
-				<width>557</width>
-				<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 3[/B]</label>
-				<onclick>Skin.ToggleSetting(videomenu.addon3)</onclick>
-				<selected>Skin.HasSetting(videomenu.addon3)</selected>
-				<include>dialog_Radio</include>
-			</control>
-			<control type="button" id="517">
-				<description>-set label</description>
-				<width>557</width>
-				<label>-$LOCALIZE[13334]</label>
-				<label2>[I]$INFO[Skin.String(videomenu.addon3.label)][/I]</label2>
-				<onclick>Skin.SetString(videomenu.addon3.label)</onclick>
-				<visible>Skin.HasSetting(videomenu.addon3)</visible>
-				<enable>Skin.HasSetting(videomenu.addon3)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-			<control type="button" id="337">
-				<description>-set path</description>
-				<width>557</width>
-				<label2>[I]$INFO[Skin.String(videomenu.addon3.path)][/I]</label2>
-				<label>-$LOCALIZE[31977]</label>
-				<onclick>Skin.SetAddOn(videomenu.addon3.path,xbmc.python.pluginsource)</onclick>
-				<visible>Skin.HasSetting(videomenu.addon3)</visible>
-				<enable>Skin.HasSetting(videomenu.addon3)</enable>
-				<include>dialog_Button-list</include>
-			</control>
-		</control>
-
-		
-		
-		</control>
-		
-		
+	<!---dialog buttons------>
 		<control type="group" id="9001">
 			<posx>34</posx>
 			<posy>576</posy>
 			<!--defaults-->
 			<control type="button" id="12">
 				<label>409</label>
-				<onup>9</onup>
+				<onup>202</onup>
 				<onleft>11</onleft>
 				<onright>10</onright>
-				<ondown>9</ondown>videomenu.playlist1.label)
+				<ondown>201</ondown>
 				<onclick>Skin.Reset(videomenu.playlist1)</onclick>
 				<onclick>Skin.Reset(videomenu.playlist2)</onclick>
 				<onclick>Skin.Reset(videomenu.playlist3)</onclick>
@@ -338,17 +306,13 @@
 			<control type="button" id="10">
 				<posx>610</posx>
 				<label>186</label>
-				<onup>2</onup>
+				<onup>100</onup>
 				<onleft>12</onleft>
 				<onright>11</onright>
-				<ondown>9</ondown>
+				<ondown>202</ondown>
 				<onclick>Close</onclick>
 				<include>dialog_Button</include>
 			</control>
 		</control>
-				
-				
 	</controls>
-	
-	
 </window>
