@@ -1,81 +1,98 @@
 ﻿<includes>
 	<include name="menu_Info-video">
-			
 		<control type="group">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
-			<control type="group" id="6000">
+			<control type="grouplist" id="6000">
 				<posx>-275</posx>
 				<posy>20</posy>
 				<width>800</width>
 				<height>800</height>
+				<onback>8000</onback>
 				<orientation>vertical</orientation>
 				<include>MenuOpen</include>
 				<include>transition_Menu</include>
 				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk) + ![Window.IsActive(101) | Window.IsActive(filebrowser)]</visible>
-				<control type="button" id="6">
-					<label>$LOCALIZE[184]</label>
-					<width>275</width>
-					<onup>12</onup>
-					<ondown>10</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="6">
+						<label>$LOCALIZE[184]</label>
+						<onback>8000</onback>
+						<onup>56</onup>
+						<ondown>10</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
 				</control>
-				<control type="button" id="10">
-					<posy>43</posy>
-					<label>$LOCALIZE[31054]</label>
-					<width>275</width>
-					<onup>6</onup>
-					<ondown>12</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
-					<onclick>SetFocus(8000)</onclick>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<control type="button" id="10">
+						<label>$LOCALIZE[31054]</label>
+						<onback>8000</onback>
+						<onup>6</onup>
+						<ondown>12</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+						<onclick>SetFocus(8000)</onclick>
+					</control>
 				</control>
-				<control type="button" id="10">
-					<posy>43</posy>
-					<label>$LOCALIZE[31019]</label>
-					<width>275</width>
-					<onup>6</onup>
-					<ondown>12</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
-					<onclick>SetFocus(8000)</onclick>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
 					<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
+					<control type="button" id="10">
+						<label>$LOCALIZE[31019]</label>
+						<onback>8000</onback>
+						<onup>6</onup>
+						<ondown>12</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+						<onclick>SetFocus(8000)</onclick>
+					</control>
 				</control>
-				<control type="button" id="12">
-					<posy>86</posy>
-					<label>Fanart</label>
-					<width>275</width>
-					<onup>10</onup>
-					<ondown>55</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
-					<onclick>SetFocus(8000)</onclick>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<control type="button" id="12">
+						<label>Fanart</label>
+						<onback>8000</onback>
+						<onup>10</onup>
+						<ondown>55</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+						<onclick>SetFocus(8000)</onclick>
+					</control>
 				</control>
-				<control type="button" id="55">
-					<posy>129</posy>
-					<label>$LOCALIZE[31065]</label>
-					<width>275</width>
-					<onup>12</onup>
-					<ondown>56</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
-					<onclick>Close</onclick>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
+					<control type="button" id="55">
+						<label>$LOCALIZE[31065]</label>
+						<onback>8000</onback>
+						<onup>12</onup>
+						<ondown>56</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					</control>
 				</control>
-				<control type="button" id="56">
-					<posy>172</posy>
-					<label>$LOCALIZE[31064]</label>
-					<width>275</width>
-					<onup>55</onup>
-					<ondown>6</ondown>
-					<onright>8000</onright>
-					<include>button_Menu</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
-					<onclick>Close</onclick>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
+					<control type="button" id="56">
+						<label>$LOCALIZE[31064]</label>
+						<onback>8000</onback>
+						<onup>55</onup>
+						<ondown>6</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					</control>
 				</control>
 			</control>
 		</control>
