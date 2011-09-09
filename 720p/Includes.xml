@@ -438,12 +438,13 @@
 		<fadetime>fadetime_Thumb</fadetime>
 		<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
 	</include>
-	<include name="watchedOverlay">
+	<!--watchedOverlay-->
+	<include name="overlay_UnWatched">
 		<width>32</width>
 		<height>32</height>
 		<texture>$INFO[ListItem.Overlay]</texture>
 		<aspectratio align="right">keep</aspectratio>
-		<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | Container.Content(Files) + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)</visible>
+		<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | Container.Content(Files) + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
 	</include>
 
 
