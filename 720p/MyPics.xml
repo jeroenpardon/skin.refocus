@@ -8,12 +8,7 @@
 		<include>nav_Indicator</include>
 		<include>view_List</include>
 		<include>PageControls</include>
-		<control type="label">
-			<label>[LOWERCASE]$LOCALIZE[1][/LOWERCASE]</label>
-			<include>PageLabel</include>
-			<visible>!stringcompare(container.folderpath,plugin://pictures/)</visible>
-			<visible>!Container.Scrolling</visible>
-		</control>
+		<include>pagelabels_Pictures</include>
 
 <!---TRIGGER------>	
 		<control type="button" id="8000">

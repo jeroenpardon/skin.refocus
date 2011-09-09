@@ -239,6 +239,16 @@
 		</control>
 		-->
 	</include>
+	
+<!---PICTURES------>
+	<include name="pagelabels_Pictures">
+		<control type="label">
+			<label>[LOWERCASE]$LOCALIZE[1][/LOWERCASE]</label>
+			<include>PageLabel</include>
+			<visible>!stringcompare(container.folderpath,plugin://pictures/)</visible>
+			<visible>![Container.Scrolling + Skin.HasSetting(sortletter.enable)]</visible>
+		</control>
+	</include>
 
 <!--ADD-ONS------>
 	<include name="pagelabels_Addons">
