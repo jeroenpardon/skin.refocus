@@ -317,7 +317,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 					<control type="button" id="402">
 						<label>$LOCALIZE[537]</label>
 						<onclick>Container.SetViewMode(51)</onclick>
@@ -334,7 +334,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(movies) | Container.Content(tvshows)] + SubString(Container.FolderPath,videodb)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)</visible>
 					<control type="button" id="403">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(52)</onclick>
