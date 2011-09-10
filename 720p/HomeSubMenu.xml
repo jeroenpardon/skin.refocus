@@ -6,16 +6,19 @@
 			<control type="list" id="1110">
 				<posx>-800</posx>
 				<width>900</width>
-				<height>900</height>
+				<height>800</height>
 				<onback>9000</onback>
 				<onleft>9000</onleft>
 				<onup>1110</onup>
 				<ondown>1110</ondown>
 				<orientation>vertical</orientation>
-				<scrolltime>150</scrolltime>
+				<scrolltime tween="Back" easing="Out">600</scrolltime>
 				<include>home_SubFocus</include>
 				<include>homeMenusLayout</include>
 				<visible allowhiddenfocus="true">Container(9000).HasFocus(1)</visible>
+				<animation effect="slide" start="0,0" end="0,-35" time="250" condition="Container(1110).HasFocus(11)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-70" time="250" condition="Container(1110).HasFocus(12)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-105" time="250" condition="Container(1110).HasFocus(13)">Conditional</animation>
 				<content>
 					<item id="1">
 						<label>$LOCALIZE[1024]</label>

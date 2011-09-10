@@ -72,6 +72,30 @@
 			<include>fadeinout</include>
 			<visible>!Skin.HasSetting(home.new) + Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
 			<include>clock</include>
+		</control>	
+	<!---menu------>
+		<include condition="!Skin.HasSetting(home.new)">HomeMenu</include>
+		<include condition="Skin.HasSetting(home.new)">HomeMenu2</include>
+		<control type="group" id="6100">
+			<posx>20</posx>
+			<posy>20</posy>
+			<include>transition_Indicator</include>
+			<visible>!Skin.HasSetting(home.new)</visible>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>navigation/left.png</texture>
+				<colordiffuse>Color1</colordiffuse>
+				<animation type="Visible">
+					<effect type="fade" tween="Quadratic" easing="Out" start="0" end="100" time="250" />
+					<effect type="slide" tween="Quadratic" easing="Out" start="25" end="0" time="250" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" tween="Quadratic" easing="Out" start="100" end="0" time="250" />
+					<effect type="slide" tween="Quadratic" easing="Out" start="0" end="-25" time="250" />
+				</animation>
+				<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180) | Control.HasFocus(1200) | Control.HasFocus(1210)]</visible>
+			</control>
 		</control>
 	<!---rss feed------>
 		<control type="group">
@@ -134,30 +158,6 @@
 				<label>$LOCALIZE[31096]: [COLOR=Color1]$INFO[Window.Property(LatestAlbum.1.Title),, • ]$INFO[Window.Property(LatestAlbum.2.Title),, • ]$INFO[Window.Property(LatestAlbum.3.Title),, • ]$INFO[Window.Property(LatestAlbum.4.Title),, • ]$INFO[Window.Property(LatestAlbum.5.Title)][/COLOR]</label>
 				<include>home_statuslabel</include>
 				<visible>Container(9000).HasFocus(5)</visible>
-			</control>
-		</control>
-	<!---menu------>
-		<include condition="!Skin.HasSetting(home.new)">HomeMenu</include>
-		<include condition="Skin.HasSetting(home.new)">HomeMenu2</include>
-		<control type="group" id="6100">
-			<posx>20</posx>
-			<posy>20</posy>
-			<include>transition_Indicator</include>
-			<visible>!Skin.HasSetting(home.new)</visible>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>navigation/left.png</texture>
-				<colordiffuse>Color1</colordiffuse>
-				<animation type="Visible">
-					<effect type="fade" tween="Quadratic" easing="Out" start="0" end="100" time="250" />
-					<effect type="slide" tween="Quadratic" easing="Out" start="25" end="0" time="250" />
-				</animation>
-				<animation type="Hidden">
-					<effect type="fade" tween="Quadratic" easing="Out" start="100" end="0" time="250" />
-					<effect type="slide" tween="Quadratic" easing="Out" start="0" end="-25" time="250" />
-				</animation>
-				<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180) | Control.HasFocus(1200) | Control.HasFocus(1210)]</visible>
 			</control>
 		</control>
 	</controls>
