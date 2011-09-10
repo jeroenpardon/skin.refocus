@@ -3,12 +3,6 @@
 	<include file="HomeMenu.xml" />
 	<include file="HomeMenu2.xml" />
 	<include file="HomeSubMenu.xml" />
-	<!--<include file="HomeMusicMenu.xml" />
-	<include file="HomeVideoMenu.xml" />
-	<include file="HomePicturesMenu.xml" />
-	<include file="HomeAccessoriesMenu.xml" />
-	<include file="HomeSettingsMenu.xml" />
-	<include file="HomeExitMenu.xml" />-->
 	<include file="MenuFiles.xml" />
 	<include file="MenuInfo.xml" />
 	<include file="MenuLibrary.xml" />
@@ -24,7 +18,6 @@
 	<include file="IncludesPageControl.xml" />
 	<include file="IncludesPlayerControl.xml" />
 	<include file="IncludesWeather.xml" />
-	<include file="IncludesScripts.xml" />
 	<include file="ViewIcon.xml" />
 	<include file="ViewList.xml" />
 	<include file="ViewSlide.xml" />
@@ -52,18 +45,18 @@
 	<constant name="slideshow_Timer">10000</constant>
 	
 <!---GLOBAL------>
+	<include name="screen_Dimensions">
+		<width>1280</width>
+		<height>720</height>
+		<aspectratio>scale</aspectratio>
+	</include>
 	<include name="global_Includes">
 		<include>global_Clock</include>
 		<include>global_Sortletter</include>
 		<include>global_Itemcount</include>	
 		<include>global_Devmode</include>
 	</include>
-	<include name="screen_Dimensions">
-		<width>1280</width>
-		<height>720</height>
-		<aspectratio>scale</aspectratio>
-	</include>
-	
+
 	<include name="global_Itemcount">
 		<control type="label">
 			<posx>38</posx>
@@ -223,9 +216,6 @@
 		<textureslidernib border="1">-</textureslidernib>
 		<textureslidernibfocus border="1">-</textureslidernibfocus>
 	</include>
-	<include name="autoscroll">
-		<autoscroll delay="6000" time="3000" repeat="10000"></autoscroll>
-	</include>
 	<include name="screen_Separator">
 		<posy>15</posy>
 		<height>1192</height>
@@ -332,13 +322,13 @@
 		<font>description</font>
 		<aligny>top</aligny>
 		<textcolor>Color7</textcolor>
-		<include>autoscroll</include>
+		<include>autoscroll-plot</include>
 	</include>
 	<include name="description_Small">
 		<textcolor>Color7</textcolor>
 		<font>descriptionSmall</font>
 		<aligny>top</aligny>
-		<include>autoscroll</include>
+		<include>autoscroll-plot</include>
 	</include>
 
 <!---BUTTONS------>
@@ -635,7 +625,7 @@
 				<label>$INFO[ListItem.Property(Artist_Description)]</label>
 				<textcolor>Color7</textcolor>
 				<font>descriptionSmall</font>
-				<include>autoscroll</include>
+				<include>autoscroll-plot</include>
 			</control>
 		</control>
 		<control type="group">
