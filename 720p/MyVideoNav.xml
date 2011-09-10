@@ -13,8 +13,6 @@
 		<include>view_IconSquare</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_Banner</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_BannerWide</include>
-		
-		
 
 	<!---TRIGGER------>	
 		<control type="button" id="8000">
@@ -400,12 +398,7 @@
 							<!---is movie set--->
 							<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
 						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Property(ReleaseDate)]$INFO[ListItem.Genre, • ]</label>
-							<include>info_Sub</include>
-							<width>750</width>
-							<visible>!SubString(Container.FolderPath,plugin)</visible>
-						</control>
+
 						<control type="label">
 							<label>$INFO[ListItem.Artist]</label>
 							<width>750</width>
