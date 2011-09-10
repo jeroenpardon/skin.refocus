@@ -1,7 +1,7 @@
 ﻿<window id="25">
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,51,52,521,53,531,54,541,57,571,574,575</views>
+	<views>50,51,52,521,53,531,54,541,57,571,574,575,592</views>
 	<controls>
 		<include>global_Background</include>
 		<include>global_Includes</include>
@@ -13,6 +13,8 @@
 		<include>view_IconSquare</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_Banner</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_BannerWide</include>
+		
+		
 
 	<!---TRIGGER------>	
 		<control type="button" id="8000">
@@ -433,67 +435,67 @@
 			</control>
 			<!---small grid--->
 			<control type="grouplist" id="1000">
-				<posx>760</posx>
+				<posx>780</posx>
 				<posy>115</posy>
 				<itemgap>0</itemgap>
 				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>info_Title</include>
 					<visible>!IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Label]</label>
 					<include>info_Title</include>
 					<visible>IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Genre]</label>
 					<include>info_Sub</include>
 					<visible>!IsEmpty(ListItem.Genre) + Container.Content(movies)</visible>
 				</control>
 				<control type="label" id="1">
 					<!--is movie set-->
-					<width>450</width>
+					<width>435</width>
 					<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate)) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate)) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ,,]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(tvshows) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ,,]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(tvshows) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(seasons)</visible>
 				</control>
 				<control type="label" id="1">
-					<width>450</width>
+					<width>435</width>
 					<label>$INFO[ListItem.Studio]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(tvshows)</visible>
@@ -510,14 +512,14 @@
 					<height>10</height>
 				</control>
 				<control type="textbox" id="4">
-					<width>450</width>
+					<width>435</width>
 					<height>413</height>
 					<label>$INFO[ListItem.Plot]</label>
 					<include>description_Small</include>
 					<visible>Container.Content(tvshows) | Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 				</control>
 				<control type="textbox" id="4">
-					<width>450</width>
+					<width>435</width>
 					<height>413</height>
 					<aligny>top</aligny>
 					<label>$INFO[Container.ShowPlot]</label>
