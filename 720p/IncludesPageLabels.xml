@@ -9,7 +9,7 @@
 		<include>transition_PageLabel</include>
 		<animation effect="slide" end="0,-3" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
 		<animation effect="slide" end="25" condition="Skin.HasSetting(indicator.enable) + Control.IsVisible(6100)">Conditional</animation>
-		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900) + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Control.IsVisible(531)</visible>
+		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900) + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Control.IsVisible(531) + ![Container.Scrolling + Skin.HasSetting(sortletter.enable)]</visible>
 	</include>
 	<include name="PageLabelInfo">
 		<posx>34</posx>
@@ -254,7 +254,30 @@
 		</control>
 	</include>
 
-<!--ADD-ONS------>
+<!---PROGRAMS------>
+	<include name="pagelabels_Programs">
+		<control type="label">
+			<label>[LOWERCASE]$LOCALIZE[0][/LOWERCASE]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,addons)</visible>
+		</control>
+	</include>
+	
+<!---PLAYLISTS------>
+	<include name="pagelabels_Playlists">
+		<control type="label">
+			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[559][/COLOR]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,playlistvideo) + !Window.IsActive(2003)</visible>
+		</control>
+		<control type="label">
+			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</label>
+			<include>PageLabel</include>
+			<visible>SubString(Container.FolderPath,playlistmusic) + !Window.IsActive(2001)</visible>
+		</control>
+	</include>
+	
+<!--ADD-ON BROWSER------>
 	<include name="pagelabels_Addons">
 		<!--root-->
 		<control type="label">
