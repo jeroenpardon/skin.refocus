@@ -2,12 +2,16 @@
 	
 	<default type="scrollbar">
 		<width>8</width>
-		<showonepage>true</showonepage>
+		<showonepage>false</showonepage>
 		<texturesliderbackground border="1,8,1,8">views/scrollBackground.png</texturesliderbackground>		
-		<texturesliderbar border="1,10,1,10">views/scrollbarGrip.png</texturesliderbar>
-		<texturesliderbarfocus border="1,10,1,10">views/scrollbarGrip-focus.png</texturesliderbarfocus>
+		<texturesliderbar border="3">views/scrollbarGrip.png</texturesliderbar>
+		<texturesliderbarfocus border="3">views/scrollbarGrip-focus.png</texturesliderbarfocus>
 		<textureslidernib border="1">-</textureslidernib>
 		<textureslidernibfocus border="1">-</textureslidernibfocus>
+		<include>fadeinout</include>
+		<include>infoDialogHide</include>
+		<include>toggle_Menu</include>
+		<enable>Skin.HasSetting(scrollbar.enable)</enable>
 	</default>
 
 	<default type="label">
@@ -34,7 +38,6 @@
 	</default>
 	
 	<default type="radiobutton">
-		<description>default radio button</description>
 		<textureradiofocus>settings/radioOn.png</textureradiofocus>
 		<textureradionofocus>settings/radioOff.png</textureradionofocus>
 		<focusedcolor>Focused</focusedcolor>
