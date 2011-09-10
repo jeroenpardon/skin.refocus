@@ -51,7 +51,6 @@
 			<include>PageLabel</include>
 			<visible>Container.Content(musicvideos) + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/)]</visible>
 		</control>
-
 	<!---library--->
 		<!--movies node-->
 		<control type="label">
@@ -149,8 +148,7 @@
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,videodb://6/)</visible>
 		</control>
-
-	<!---playlists--->		
+		<!---playlists--->		
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[136][/COLOR]</label>
 			<include>PageLabel</include>
@@ -161,8 +159,7 @@
 			<include>PageLabel</include>
 			<visible>SubString(Container.FolderPath,special://profile/playlists/video/)</visible>
 		</control>
-		
-	<!---add-ons--->
+		<!---add-ons--->
 		<control type="label" id="555">
 			<description>video add-ons</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
@@ -231,13 +228,6 @@
 			<visible>SubString(Container.FolderPath,musicdb://7/)</visible>
 			<include>PageLabel</include>
 		</control>
-		<!--add-ons
-		<control type="label">
-			<label>$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</label>
-			<include>PageLabel</include>
-			<visible>SubString(Container.FolderPath,plugin://)</visible>
-		</control>
-		-->
 	</include>
 	
 <!---PICTURES------>
