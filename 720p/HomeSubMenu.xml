@@ -411,6 +411,11 @@
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.inprogress)</visible>
 					</item>
 					<item id="5">
+						<label>$LOCALIZE[31011]</label>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
+						<visible>Skin.HasSetting(moviesmenu.trailers) + System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
+					</item>
+					<item id="6">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,moviegenres)</onclick>
 						<visible>Library.HasContent(movies)</visible>
@@ -456,11 +461,6 @@
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowgenres)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.genres)</visible>
-					</item>
-					<item id="6">
-						<label>$LOCALIZE[31011]</label>
-						<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
-						<visible>Skin.HasSetting(videomenu.trailers) + system.hasaddon(plugin.video.apple.movie.trailers.lite)</visible>
 					</item>
 				</content>
 			</control>
