@@ -3,13 +3,12 @@
 	<include file="HomeMenu.xml" />
 	<include file="HomeMenu2.xml" />
 	<include file="HomeSubMenu.xml" />
-	<include file="HomeMusicMenu.xml" />
+	<!--<include file="HomeMusicMenu.xml" />
 	<include file="HomeVideoMenu.xml" />
 	<include file="HomePicturesMenu.xml" />
 	<include file="HomeAccessoriesMenu.xml" />
 	<include file="HomeSettingsMenu.xml" />
-	<include file="HomeExitMenu.xml" />
-	<include file="HomeRecent.xml" />
+	<include file="HomeExitMenu.xml" />-->
 	<include file="MenuFiles.xml" />
 	<include file="MenuInfo.xml" />
 	<include file="MenuLibrary.xml" />
@@ -47,7 +46,7 @@
 	<constant name="screen_Center">640,360</constant>
 	<constant name="fadetime_Thumb">300</constant>
 	<constant name="fadetime_Fanart">300</constant>
-	<constant name="transition_Open">400</constant>
+	<constant name="transition_Open">500</constant>
 	<constant name="transition_Close">250</constant>
 	
 <!---GLOBAL------>
@@ -101,7 +100,7 @@
 		<control type="image">
 			<texture>overlays/debuggrid720.png</texture>
 			<colordiffuse>Color1</colordiffuse>
-			<include>screentype</include>
+			<include>screen_Dimensions</include>
 			<animation effect="fade" end="40" condition="true">Conditional</animation>
 			<visible>Skin.HasSetting(dev.enable)</visible>
 		</control>

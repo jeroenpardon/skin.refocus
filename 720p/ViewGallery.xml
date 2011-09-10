@@ -171,7 +171,7 @@
 		</control>
 		<!---window menu shade-->
 		<control type="image">
-			<include>global_Screentype</include>
+			<include>screen_Dimensions</include>
 			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground.png</texture>
 			<include>fadeinout</include>
@@ -202,13 +202,13 @@
 	<include name="GalleryFullVideo">
 		<itemlayout height="screen_Height" width="screen_Width">
 			<control type="image">
-				<include>global_Screentype</include>
+				<include>screen_Dimensions</include>
 				<aspectratio>keep</aspectratio>
 				<texture background="true" fallback="backgrounds/movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
-				<include>global_Screentype</include>
+				<include>screen_Dimensions</include>
 				<aspectratio>keep</aspectratio>
 				<texture background="true" fallback="backgrounds/tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
@@ -223,13 +223,13 @@
 		</itemlayout>
 		<focusedlayout height="screen_Height" width="screen_Width">
 			<control type="image">
-				<include>global_Screentype</include>
+				<include>screen_Dimensions</include>
 				<aspectratio aligny="left">scale</aspectratio>
 				<texture background="true" fallback="backgrounds/movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
-				<include>global_Screentype</include>
+				<include>screen_Dimensions</include>
 				<aspectratio>keep</aspectratio>
 				<texture background="true" fallback="backgrounds/tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>Container.Content(tvshows)</visible>
@@ -246,7 +246,7 @@
 	<include name="GalleryFullPictures">
 		<itemlayout height="screen_Height" width="screen_Width">
 			<control type="image">
-				<include>global_Screentype</include>
+				<include>screen_Dimensions</include>
 				<aspectratio>scale</aspectratio>
 				<texture background="true" fallback="backgrounds/pictures.jpg">$INFO[ListItem.FilenameAndPath]</texture>
 				<visible>Window.IsActive(2)</visible>
@@ -254,7 +254,7 @@
 		</itemlayout>
 		<focusedlayout height="screen_Height" width="12screen_Width80">
 			<control type="image">
-				<include>global_Screentype</include>
+				<include>screen_Dimensions</include>
 				<aspectratio>scale</aspectratio>
 				<texture background="true" fallback="backgrounds/pictures.jpg">$INFO[ListItem.FilenameAndPath]</texture>
 				<visible>Window.IsActive(2)</visible>
