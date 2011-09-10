@@ -226,7 +226,7 @@
 		<!---container info--->
 		<control type="grouplist">
 			<posx>695</posx>
-			<posy>95</posy>
+			<posy>100</posy>
 			<itemgap>0</itemgap>
 			<include>toggle_Menu</include>
 			<include>transition_Container</include>
@@ -236,6 +236,7 @@
 				<width>500</width>
 				<label>$INFO[ListItem.Title]</label>
 				<include>info_Title</include>
+				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label" id="1">
 				<width>500</width>
