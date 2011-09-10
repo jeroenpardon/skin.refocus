@@ -54,8 +54,9 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible allowhiddenfocus="true">[Control.IsVisible(57) | Control.IsVisible(573)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(83)]</visible>
+			<animation effect="slide" end="0,6" time="0" condition="Window.IsActive(2)">Conditional</animation>
 			<enable>Skin.HasSetting(scrollbar.enable)</enable>
+			<visible allowhiddenfocus="true">[Control.IsVisible(57) | Control.IsVisible(573)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(83)]</visible>
 		</control>
 		
 		<control type="scrollbar" id="85">
