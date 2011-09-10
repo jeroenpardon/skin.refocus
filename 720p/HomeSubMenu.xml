@@ -42,26 +42,41 @@
 						<visible>Skin.HasSetting(videomenu.playlist4)</visible>
 					</item>
 					<item id="6">
+						<label>$INFO[Skin.String(videomenu.folder1.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder1.path)],return)</onclick>
+						<visible>Skin.HasSetting(videomenu.folder1)</visible>
+					</item>
+					<item id="7">
+						<label>$INFO[Skin.String(videomenu.folder2.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder2.path)],return)</onclick>
+						<visible>Skin.HasSetting(videomenu.folder2)</visible>
+					</item>
+					<item id="8">
+						<label>$INFO[Skin.String(videomenu.folder3.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder3.path)],return)</onclick>
+						<visible>Skin.HasSetting(videomenu.folder3)</visible>
+					</item>
+					<item id="9">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>
 						<visible>Skin.HasSetting(videomenu.addons)</visible>
 					</item>
-					<item id="7">
+					<item id="10">
 						<label>$LOCALIZE[136]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
 						<visible>Skin.HasSetting(videomenu.videoplaylists)</visible>
 					</item>
-					<item id="8">
+					<item id="11">
 						<label>$INFO[Skin.String(videomenu.addon1.label)]</label>
 						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon1.path)],return)</onclick>
 						<visible>Skin.HasSetting(videomenu.addon1)</visible>
 					</item>
-					<item id="9">
+					<item id="12">
 						<label>$INFO[Skin.String(videomenu.addon2.label)]</label>
 						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon2.path)],return)</onclick>
 						<visible>Skin.HasSetting(videomenu.addon2)</visible>
 					</item>
-					<item id="10">
+					<item id="13">
 						<label>$INFO[Skin.String(videomenu.addon3.label)]</label>
 						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon3.path)],return)</onclick>
 						<visible>Skin.HasSetting(videomenu.addon3)</visible>

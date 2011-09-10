@@ -56,8 +56,18 @@
 					<onleft>9001</onleft>
 					<onright>400</onright>
 					<onup>201</onup>
-					<ondown>12</ondown>
+					<ondown>203</ondown>
 					<onfocus>Skin.SetString(CustomType,2)</onfocus>
+					<include>dialog_Radio</include>
+				</control>
+				<control type="button" id="203">
+					<width>206</width>
+					<label>$LOCALIZE[31125]</label>
+					<onleft>9001</onleft>
+					<onright>400</onright>
+					<onup>202</onup>
+					<ondown>12</ondown>
+					<onfocus>Skin.SetString(CustomType,3)</onfocus>
 					<include>dialog_Radio</include>
 				</control>
 			</control>
@@ -91,7 +101,7 @@
 					<control type="button" id="313">
 						<description>-custom 1 label</description>
 						<width>557</width>
-						<label>-$LOCALIZE[21433]</label>
+						<label>-$LOCALIZE[13334]</label>
 						<label2>$INFO[Skin.String(videomenu.playlist1.label)]</label2>
 						<onclick>Skin.SetString(videomenu.playlist1.label)</onclick>
 						<enable>Skin.HasSetting(videomenu.playlist1)</enable>
@@ -117,7 +127,7 @@
 					<control type="button" id="316">
 						<description>-custom 2 label</description>
 						<width>557</width>
-						<label>-$LOCALIZE[21433]</label>
+						<label>-$LOCALIZE[13334]</label>
 						<label2>[I]$INFO[Skin.String(videomenu.playlist2.label)][/I]</label2>
 						<onclick>Skin.SetString(videomenu.playlist2.label)</onclick>
 						<enable>Skin.HasSetting(videomenu.playlist2)</enable>
@@ -143,7 +153,7 @@
 					<control type="button" id="319">
 						<description>-custom 3 label</description>
 						<width>557</width>
-						<label>-$LOCALIZE[21433]</label>
+						<label>-$LOCALIZE[13334]</label>
 						<label2>[I]$INFO[Skin.String(videomenu.playlist3.label)][/I]</label2>
 						<onclick>Skin.SetString(videomenu.playlist3.label)</onclick>
 						<enable>Skin.HasSetting(videomenu.playlist3)</enable>
@@ -169,7 +179,7 @@
 					<control type="button" id="322">
 						<description>-custom 4 label</description>
 						<width>557</width>
-						<label>-$LOCALIZE[21433]</label>
+						<label>-$LOCALIZE[13334]</label>
 						<label2>[I]$INFO[Skin.String(videomenu.playlist4.label)][/I]</label2>
 						<onclick>Skin.SetString(videomenu.playlist4.label)</onclick>
 						<enable>Skin.HasSetting(videomenu.playlist4)</enable>
@@ -263,6 +273,93 @@
 						<include>dialog_Button-list</include>
 					</control>
 				</control>
+			<!---folders------>
+				<control type="grouplist" id="500">
+					<posx>206</posx>
+					<width>557</width>
+					<height>520</height>
+					<onleft>200</onleft>
+					<ondown>10</ondown>
+					<itemgap>0</itemgap>
+					<visible>Skin.String(CustomType,3)</visible>	
+					<control type="radiobutton" id="501">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[20334] 1[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.folder1)</onclick>
+						<selected>Skin.HasSetting(videomenu.folder1)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="502">
+						<description>-set path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.folder1.path)][/I]</label2>
+						<label>-$LOCALIZE[657]</label>
+						<onclick>Skin.SetPath(videomenu.folder1.path)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder1)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="503">
+						<description>-set label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.folder1.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.folder1.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder1)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<!--folder 2-->
+					<control type="radiobutton" id="504">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[20334] 2[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.folder2)</onclick>
+						<selected>Skin.HasSetting(videomenu.folder2)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="505">
+						<description>-set path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.folder2.path)][/I]</label2>
+						<label>-$LOCALIZE[657]</label>
+						<onclick>Skin.SetPath(videomenu.folder2.path)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder2)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="506">
+						<description>-set label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.folder2.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.folder2.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder2)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<!--folder 3-->
+					<control type="radiobutton" id="507">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[20334] 3[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.folder3)</onclick>
+						<selected>Skin.HasSetting(videomenu.folder3)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<control type="button" id="508">
+						<description>-set path</description>
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.folder3.path)][/I]</label2>
+						<label>-$LOCALIZE[657]</label>
+						<onclick>Skin.SetPath(videomenu.folder3.path)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<control type="button" id="509">
+						<description>-set label</description>
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.folder3.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.folder3.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+				</control>
 			</control>
 		</control>
 	<!---dialog buttons------>
@@ -309,7 +406,7 @@
 				<onup>100</onup>
 				<onleft>12</onleft>
 				<onright>11</onright>
-				<ondown>202</ondown>
+				<ondown>311</ondown>
 				<onclick>Close</onclick>
 				<include>dialog_Button</include>
 			</control>
