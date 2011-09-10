@@ -26,18 +26,21 @@
 					<control type="button" id="602">
 						<width>234</width>
 						<label>$LOCALIZE[250]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Addon.Default.Set(xbmc.player.musicviz)</onclick>
 					</control>
 					<control type="button" id="603">
 						<width>234</width>
 						<label>$LOCALIZE[13388]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>XBMC.ActivateWindow(122)</onclick>
 					</control>
 					<control type="button" id="604">
 						<width>234</width>
 						<label>LastFM Love</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(MusicOSD,true)</onclick>
 						<onclick>XBMC.LastFM.Love</onclick>
@@ -46,6 +49,7 @@
 					<control type="button" id="605">
 						<width>234</width>
 						<label>LastFM Ban</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(MusicOSD,true)</onclick>
 						<onclick>XBMC.LastFM.Ban</onclick>
@@ -54,6 +58,7 @@
 					<control type="togglebutton" id="606">
 						<width>234</width>
 						<label>$LOCALIZE[31981]</label>
+						<onback>SetFocus(599)</onback>
 						<onclick>-</onclick>
 						<onclick>Close</onclick>
 						<onclick>XBMC.RunScript($INFO[Skin.String(addon.lyrics.path)])</onclick>
@@ -69,12 +74,14 @@
 					<control type="button" id="607">
 						<width>234</width>
 						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>XBMC.PlayerControl(Random)</onclick>
 					</control>
 					<control type="button" id="608">
 						<width>234</width>
 						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>XBMC.PlayerControl(Repeat)</onclick>
 					</control>
@@ -202,10 +209,12 @@
 					<onright>701</onright>
 					<onup>599</onup>
 					<ondown>599</ondown>
+					<onback>SetFocus(599)</onback>
 					<itemgap>0</itemgap>
 					<control type="button" id="602">
 						<width>307</width>
 						<label>teletext</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(teletext)</onclick>
@@ -214,6 +223,7 @@
 					<control type="button" id="603">
 						<width>307</width>
 						<label>$LOCALIZE[13395]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(123)</onclick>
@@ -221,6 +231,7 @@
 					<control type="button" id="604">
 						<width>307</width>
 						<label>$LOCALIZE[13396]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(124)</onclick>
@@ -228,6 +239,7 @@
 					<control type="button" id="605">
 						<width>307</width>
 						<label>$LOCALIZE[298]</label>
+						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(125)</onclick>
@@ -236,6 +248,7 @@
 					<control type="togglebutton" id="606">
 						<width>307</width>
 						<label>$LOCALIZE[31980]</label>
+						<onback>SetFocus(599)</onback>
 						<onclick>-</onclick>
 						<onclick>Close</onclick>
 						<onclick>XBMC.RunScript($INFO[Skin.String(addon.subtitles.path)])</onclick>
@@ -252,6 +265,7 @@
 						<description>Subtitles toggle</description>
 						<width>307</width>
 						<label>$LOCALIZE[287]: $LOCALIZE[351]</label>
+						<onback>SetFocus(599)</onback>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ShowSubtitles</onclick>
 						<include>dialog_Button-list</include>
@@ -261,6 +275,7 @@
 						<description>Subtitles toggle</description>
 						<width>307</width>
 						<label>$LOCALIZE[287]: $LOCALIZE[31112]</label>
+						<onback>SetFocus(599)</onback>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ShowSubtitles</onclick>
 						<include>dialog_Button-list</include>
@@ -270,6 +285,7 @@
 						<description>TV Guide</description>
 						<width>307</width>
 						<label>$LOCALIZE[19029]</label>
+						<onback>SetFocus(599)</onback>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(PVROSDGuide)</onclick>
 						<include>dialog_Button-list</include>
@@ -279,6 +295,7 @@
 						<description>DVD Menu</description>
 						<width>307</width>
 						<label>$LOCALIZE[33061]</label>
+						<onback>SetFocus(599)</onback>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>PlayerControl(ShowVideoMenu)</onclick>
 						<texturenofocus border="3">-</texturenofocus>
