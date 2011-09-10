@@ -332,7 +332,7 @@
 	</include>
 
 <!---SETTINGS------>
-	<include name="pagelabels_Settings">
+	<include name="pagelabels_System">
 		<control type="label">
 			<include>PageLabel</include>
 			<label>xbmc [COLOR=Color2]$LOCALIZE[10004][/COLOR]</label>
@@ -342,6 +342,11 @@
 			<include>PageLabel</include>
 			<label>$LOCALIZE[31968]</label>
 			<visible>Window.IsActive(systeminfo)</visible>
+		</control>
+		<control type="label">
+			<include>PageLabel</include>
+			<label>$LOCALIZE[5] [COLOR=Color2]$LOCALIZE[13200][/COLOR]</label>
+			<visible>Window.IsActive(profiles)</visible>
 		</control>
 		<control type="label">
 			<include>PageLabel</include>
