@@ -396,18 +396,15 @@
 			<effect type="zoom" start="85" end="100" tween="Quadratic" easing="Out" center="screen_Center" time="250"/>
 		</animation>
 	</include>
-	
-	
-
 
 <!--HOME ------------------------------------------------------------------------->
 	<include name="home_Slideshow">
-		<timeperimage>10000</timeperimage>
-		<fadetime>1200</fadetime>
-		<randomize>true</randomize>
-		<loop>yes</loop>
 		<include>screen_Dimensions</include>
 		<aspectratio>scale</aspectratio>
+		<randomize>true</randomize>
+		<loop>yes</loop>
+		<timeperimage>slideshow_Timer</timeperimage>
+		<fadetime>fadetime_Slideshow</fadetime>
 		<animation type="WindowOpen" condition="Window.Previous(startup)">
 			<effect type="fade" start="0" end="100" time="600" delay="0" />
 		</animation>

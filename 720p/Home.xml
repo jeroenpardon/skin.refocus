@@ -2,13 +2,11 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-
 	<!-- global background --->
 		<control type="largeimage">
-			<aspectratio>scale</aspectratio>
 			<include>screen_Dimensions</include>
 			<texture background="true">backgrounds/background.png</texture>
-			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)] | [Skin.HasSetting(slideshow.fanart) + ![Library.HasContent(movies) + Library.HasContent(tvshows)]]</visible>
+			<aspectratio>scale</aspectratio>
 			<animation type="WindowOpen" condition="Window.Previous(2999)">
 				<effect type="fade" start="0" end="100" time="600" delay="0" />
 			</animation>
@@ -18,14 +16,15 @@
 			<animation type="WindowClose">
 				<effect type="fade" start="100" end="0" time="200" delay="0" />
 			</animation>
+			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)] | [Skin.HasSetting(slideshow.fanart) + ![Library.HasContent(movies) + Library.HasContent(tvshows)]]</visible>
 		</control>
 	<!-- slideshows--->
 		<include>home_Slideshows</include>
 	<!-- background video --->
 		<control type="image">
-			<aspectratio>stretch</aspectratio>
 			<include>screen_Dimensions</include>
 			<texture>black.png</texture>
+			<aspectratio>stretch</aspectratio>
 			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
 		</control>
 		<control type="videowindow">
@@ -35,10 +34,10 @@
 	<!-- weather fanart --->
 		<control type="multiimage" id="1">
 			<include>screen_Dimensions</include>
-			<aspectratio>scale</aspectratio>
+			<aspectratio>stretch</aspectratio>
 			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
-			<timeperimage>7000</timeperimage>
-			<fadetime>350</fadetime>
+			<timeperimage>slideshow_Timer</timeperimage>
+			<fadetime>fadetime_Slideshow</fadetime>
 			<randomize>true</randomize>
 			<loop>yes</loop>
 			<include>fadeinout</include>
@@ -47,58 +46,17 @@
 	<!-- now playing fanart --->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<aspectratio>scale</aspectratio>
 			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+			<aspectratio>scale</aspectratio>
 			<fadetime>850</fadetime>
-			<visible allowhiddenfocus="true">Container(9000).HasFocus(14) + Skin.HasSetting(homemenu.playing)</visible>
 			<include>fadeinout</include>
+			<visible allowhiddenfocus="true">Container(9000).HasFocus(14) + Skin.HasSetting(homemenu.playing)</visible>
 		</control>
-		
-	<!--
-		<control type="group">
-			<visible allowhiddenfocus="true">Skin.HasSetting(home.new)</visible>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<aspectratio>stretch</aspectratio>
-				<texture>$INFO[Window.Property(LatestMovie.1.Fanart)]</texture>
-				<fadetime>850</fadetime>
-				<visible>Control.HasFocus(250)</visible>
-				<include>fadeinout</include>
-			</control>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<aspectratio>stretch</aspectratio>
-				<texture>$INFO[Window.Property(LatestMovie.2.Fanart)]</texture>
-				<fadetime>850</fadetime>
-				<visible>Control.HasFocus(251)</visible>
-				<include>fadeinout</include>
-			</control>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<aspectratio>stretch</aspectratio>
-				<texture>$INFO[Window.Property(LatestMovie.3.Fanart)]</texture>
-				<fadetime>850</fadetime>
-				<visible>Control.HasFocus(252)</visible>
-				<include>fadeinout</include>
-			</control>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<aspectratio>stretch</aspectratio>
-				<texture>$INFO[Window.Property(LatestMovie.4.Fanart)]</texture>
-				<fadetime>850</fadetime>
-				<visible>Control.HasFocus(253)</visible>
-				<include>fadeinout</include>
-			</control>
-		</control>
-	-->
-		
-		
-		
 	<!-- menu shade --->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<aspectratio align="left">stretch</aspectratio>
 			<texture>home/menuBackground2.png</texture>
+			<aspectratio align="left">stretch</aspectratio>
 			<include>fadeinout</include>
 			<visible>!Skin.HasSetting(home.new)</visible>
 		</control>
@@ -106,18 +64,16 @@
 		<control type="image" id="1">
 			<include>screen_Dimensions</include>
 			<texture border="16">overlays/vignette.png</texture>
-			<visible>Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)</visible>
 			<include>transition_Toast</include>
+			<visible>Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)</visible>
 		</control>
-		
-<!-- TIME -------------------------------------------------------------------------------------------------------------------------->
+	<!---time------>
 		<control type="group">
 			<include>fadeinout</include>
 			<visible>!Skin.HasSetting(home.new) + Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
 			<include>clock</include>
 		</control>
-
-<!-- RSS FEED -------------------------------------------------------------------------------------------------------------------------->
+	<!---rss feed------>
 		<control type="group">
 			<posy>684</posy>
 			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Skin.HasSetting(home.stats) | Skin.HasSetting(home.new)]</visible>
@@ -143,8 +99,7 @@
 				<include>fadeinout</include>
 			</control>
 		</control>
-
-<!-- LIBRARY STATS -------------------------------------------------------------------------------------------------------------------------->	
+	<!---library stats------>	
 		<control type="group">
 			<posy>684</posy>
 			<visible>Skin.HasSetting(home.stats) + !Skin.HasSetting(home.new)</visible>
@@ -182,11 +137,9 @@
 				<visible>Container(9000).HasFocus(5)</visible>
 			</control>
 		</control>
-
-<!-- CALL MENU -------------------------------------------------------------------------------------------------------------------------->
+	<!---menu------>
 		<include condition="!Skin.HasSetting(home.new)">HomeMenu</include>
 		<include condition="Skin.HasSetting(home.new)">HomeMenu2</include>
-		
 		<control type="group" id="6100">
 			<posx>20</posx>
 			<posy>20</posy>
@@ -208,92 +161,5 @@
 				<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180) | Control.HasFocus(1200) | Control.HasFocus(1210)]</visible>
 			</control>
 		</control>
-		
-		<!--recently added
-		<control type="wraplist" id="53">
-			<viewtype label="Gallery">wrap</viewtype>
-			<posx>0</posx>
-			<posy>440</posy>
-			<width>1280</width>
-			<height>800</height>
-			<onleft>53</onleft>
-			<onright>9000</onright>
-			<onup>6000</onup>
-			<ondown>8000</ondown>
-			<scrolltime>100</scrolltime>
-
-			<orientation>horizontal</orientation>
-			<focusposition>0</focusposition>
-			<include>transition_Container</include>
-			<include>toggle_Menu</include>
-			<include>infoDialogHide</include>
-
-			<itemlayout width="425" height="300" >
-				<control type="image">
-					<width>450</width>
-					<height>272</height>
-					<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="31">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
-			</itemlayout>
-			<focusedlayout width="425" height="300">
-				<control type="image">
-					<width>450</width>
-					<height>272</height>
-					<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="31">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio align="center">stretch</aspectratio>
-					<include>focus_SlideWide</include>
-				</control>
-			</focusedlayout>
-
-			<content>
-				<item id="1">
-					<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
-					<label2>$INFO[Window.Property(LatestMovie.1.Year)]</label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.1.Thumb)]</icon>
-					<thumb>$INFO[Window.Property(LatestMovie.1.Fanart)]</thumb>
-				</item>
-				<item id="2">
-					<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
-					<label2>$INFO[Window.Property(LatestMovie.2.Year)]</label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.2.Thumb)]</icon>
-					<thumb>$INFO[Window.Property(LatestMovie.2.Fanart)]</thumb>
-				</item>
-				<item id="3">
-					<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
-					<label2>$INFO[Window.Property(LatestMovie.3.Year)]</label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.3.Thumb)]</icon>
-					<thumb>$INFO[Window.Property(LatestMovie.3.Fanart)]</thumb>
-				</item>
-				<item id="4">
-					<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
-					<label2>$INFO[Window.Property(LatestMovie.4.Year)]</label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.4.Thumb)]</icon>
-					<thumb>$INFO[Window.Property(LatestMovie.4.Fanart)]</thumb>
-				</item>
-				<item id="5">
-					<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
-					<label5>$INFO[Window.Property(LatestMovie.5.Year)]</label5>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.5.Thumb)]</icon>
-					<thumb>$INFO[Window.Property(LatestMovie.5.Fanart)]</thumb>
-				</item>
-				<item id="6">
-					<label>$INFO[Window.Property(LatestMovie.6.Title)]</label>
-					<label2>$INFO[Window.Property(LatestMovie.6.Year)]</label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.6.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.6.Thumb)]</icon>
-					<thumb>$INFO[Window.Property(LatestMovie.6.Fanart)]</thumb>
-				</item>
-			</content>
-		</control>-->
 	</controls>
 </window>
