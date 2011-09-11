@@ -2,14 +2,14 @@
 	<include name="HomeMenu">
 		<control type="list" id="9000">
 			<posy>20</posy>
-			<width>1100</width>
+			<width>640</width>
 			<height>700</height>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
 			<onright>8001</onright>
 			<onleft>53</onleft>
 			<orientation>vertical</orientation>
-			<scrolltime>150</scrolltime>
+			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 			<visible allowhiddenfocus="true">![ControlGroup(1100).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(2100).HasFocus()]</visible>		
 			<include>transition_HomeMenu</include>
 			<include>homeMenusLayout</include>
@@ -20,7 +20,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[157]</label>
-					
 					<onclick>SetFocus(1110)</onclick>
 				</item>
 				<item id="2">
