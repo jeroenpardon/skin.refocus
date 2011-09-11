@@ -1,16 +1,14 @@
 ﻿<includes>
 	<include name="10day">
-
 		<control type="label">
 			<posx>38</posx>
 			<posy>58</posy>
-			<label>10 day forecast</label>
+			<label>$LOCALIZE[31976]</label>
 			<font>smallerCaps</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_PageLabel</include>
 			<visible>StringCompare(Window.Property(Weather.CurrentView),10day) + !IsEmpty(Window.Property(Weekend.IsFetched))</visible>
 		</control>
-
 		<control type="group">
 			<posx>40</posx>
 			<posy>205</posy>
@@ -28,11 +26,12 @@
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
+				<!--conditions-->
 				<control type="label" id="101">
 					<posx>130</posx>
 					<posy>8</posy>
 					<width>550</width>
-					<label>condition</label>
+					<label>$LOCALIZE[33020]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
@@ -43,11 +42,12 @@
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
+				<!--temp/feels-->
 				<control type="label" id="102">
 					<posx>461</posx>
 					<posy>8</posy>
 					<width>550</width>
-					<label>temp/feels</label>
+					<label>$LOCALIZE[401]/$LOCALIZE[33024]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
@@ -58,11 +58,12 @@
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
+				<!--precipitation-->
 				<control type="label" id="102">
 					<posx>624</posx>
 					<posy>8</posy>
 					<width>550</width>
-					<label>Precipation</label>
+					<label>$LOCALIZE[33021]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
@@ -73,11 +74,12 @@
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>tv3</colordiffuse>
 				</control>
+				<!--wind-->
 				<control type="label" id="102">
 					<posx>767</posx>
 					<posy>8</posy>
 					<width>550</width>
-					<label>Wind</label>
+					<label>$LOCALIZE[383]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
@@ -409,7 +411,6 @@
 					</item>
 				</content>
 			</control>
-
 			<control type="image">
 				<posx>90</posx>
 				<height>1080</height>
