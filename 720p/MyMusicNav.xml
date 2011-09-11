@@ -223,15 +223,13 @@
 				</control>
 				<control type="label">
 					<posy>30</posy>
-					<label>$INFO[ListItem.Property(Artist_Genre),, • ]$INFO[ListItem.Property(Artist_Born),$LOCALIZE[21893] ]</label>
+					<label>$INFO[ListItem.Property(Artist_Genre)]$INFO[ListItem.Property(Artist_Born),$LOCALIZE[21893],, • ]</label>
 					<include>info_Sub</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 				</control>
 				<control type="label">
 					<posy>30</posy>
-					<label>$INFO[ListItem.Property(Artist_Genre),, • ]$INFO[ListItem.Property(Artist_Formed),$LOCALIZE[21894] ]</label>
+					<label>$INFO[ListItem.Property(Artist_Genre)]$INFO[ListItem.Property(Artist_Formed),$LOCALIZE[21894],, • ]</label>
 					<include>info_Sub</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				</control>
 			</control>
 		</control>
