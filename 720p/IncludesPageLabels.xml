@@ -30,7 +30,7 @@
 		<control type="label">
 			<description>sources</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
-			<visible>Container.Content(Files)</visible>
+			<visible>Container.Content(Files) | [SubString(Container.FolderPath,plugin://plugin.video) + !SubString(Container.FolderPath,plugin://plugin.video.apple)]</visible>
 			<include>PageLabel</include>
 		</control>
 		<!--movies sources-->
@@ -207,7 +207,7 @@
 		<!--sources-->
 		<control type="label">
 			<label>$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
-			<visible>Container.Content(Files)</visible>
+			<visible>Container.Content(Files) | SubString(Container.FolderPath,plugin)</visible>
 			<include>PageLabel</include>
 		</control>
 		<!--library-->
