@@ -277,6 +277,32 @@
 						<enable>Skin.HasSetting(videomenu.addon3)</enable>
 						<include>dialog_Button-list</include>
 					</control>
+				<!--addon 4-->
+					<control type="radiobutton" id="339">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[24000] 4[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.addon4)</onclick>
+						<selected>Skin.HasSetting(videomenu.addon4)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<!--path-->
+					<control type="button" id="340">
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.addon4.path)][/I]</label2>
+						<label>-$LOCALIZE[31977]</label>
+						<onclick>Skin.SetAddOn(videomenu.addon4.path,xbmc.python.pluginsource)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon4)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<!--label-->
+					<control type="button" id="341">
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.addon4.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.addon4.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.addon4)</enable>
+						<include>dialog_Button-list</include>
+					</control>
 				</control>
 			<!---folders------>
 				<control type="grouplist" id="500">
@@ -364,6 +390,32 @@
 						<label2>[I]$INFO[Skin.String(videomenu.folder3.label)][/I]</label2>
 						<onclick>Skin.SetString(videomenu.folder3.label)</onclick>
 						<enable>Skin.HasSetting(videomenu.folder3)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+				<!--folder 4-->
+					<control type="radiobutton" id="510">
+						<width>557</width>
+						<label>[B]$LOCALIZE[157] $LOCALIZE[20334] 4[/B]</label>
+						<onclick>Skin.ToggleSetting(videomenu.folder4)</onclick>
+						<selected>Skin.HasSetting(videomenu.folder4)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<!--path-->
+					<control type="button" id="511">
+						<width>557</width>
+						<label2>[I]$INFO[Skin.String(videomenu.folder4.path)][/I]</label2>
+						<label>-$LOCALIZE[657]</label>
+						<onclick>Skin.SetPath(videomenu.folder4.path)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder4)</enable>
+						<include>dialog_Button-list</include>
+					</control>
+					<!--label-->
+					<control type="button" id="512">
+						<width>557</width>
+						<label>-$LOCALIZE[13334]</label>
+						<label2>[I]$INFO[Skin.String(videomenu.folder4.label)][/I]</label2>
+						<onclick>Skin.SetString(videomenu.folder4.label)</onclick>
+						<enable>Skin.HasSetting(videomenu.folder4)</enable>
 						<include>dialog_Button-list</include>
 					</control>
 				</control>
