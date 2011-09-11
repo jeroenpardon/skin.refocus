@@ -51,7 +51,6 @@
 
 			<!--toggle tv/radio--->
 			<control type="button" id="34">
-				<description>TV/Radio Button</description>
 				<posx>19</posx>
 				<posy>75</posy>
 				<width>853</width>
@@ -195,8 +194,8 @@
 						<height>39</height>
 						<include>dialog_Separator-y</include>
 					</control>
+					<!--browse-->
 					<control type="button" id="31">
-						<description>Browse Button</description>
 						<label>-</label>
 						<onup>20</onup>
 						<onleft>20</onleft>
@@ -206,8 +205,8 @@
 						<texturefocus border="0">dialogs/button_Inline-edit-focus.png</texturefocus>
 						<include>dialog_Button-inline</include>
 					</control>
+					<!--remove path-->
 					<control type="button" id="32">
-						<description>Remove Path Button</description>
 						<posx>40</posx>
 						<label>-</label>
 						<onup>20</onup>
@@ -218,8 +217,8 @@
 						<texturefocus border="0">dialogs/button_Inline-remove-focus.png</texturefocus>
 						<include>dialog_Button-inline</include>
 					</control>
+					<!--add path-->
 					<control type="button" id="33">
-						<description>Add Path Button</description>
 						<posx>80</posx>
 						<label>-</label>
 						<onup>20</onup>
@@ -244,52 +243,51 @@
 				<onup>8000</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				
+				<!--active-->
 				<control type="radiobutton" id ="7">
-					<description>active</description>	
 					<label>19074</label>
 					<width>423</width>
 					<include>dialog_Radio</include>
 				</control>
+				<!--client-->
 				<control type="button" id ="14">
-					<description>client</description>	
 					<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
 					<width>423</width>
 					<include>dialog_Button-list</include>
 				</control>
+				<!--channel name-->
 				<control type="edit" id ="8">
-					<description>channel name</description>
 					<label>19201</label>
 					<width>423</width>
 					<font>smallAlt</font>
 					<include>dialog_Button-list</include>
 				</control>
+				<!--group selection-->
 				<control type="spincontrolex" id ="11">
-					<description>Group selection</description>
 					<label>19207</label>
 					<width>423</width>
 					<include>dialog_Spin</include>
 				</control>
+				<!--activate epg-->
 				<control type="radiobutton" id ="12">
-					<description>activate epg</description>
 					<label>19206</label>
 					<width>423</width>
 					<include>dialog_Radio</include>
 				</control>
+				<!--epg source-->
 				<control type="spincontrolex" id ="13">
-					<description>epg source</description>
 					<label>19200</label>
 					<width>423</width>
 					<include>dialog_Spin</include>
 				</control>
+				<!--channel icon label-->
 				<control type="button" id ="9">
-					<description>channel icon label</description>
 					<label>19202</label>
 					<width>423</width>
 					<include>dialog_Button-list</include>
 				</control>
+				<!--channel icon-->
 				<control type="image" id ="10">
-					<description>channel icon</description>
 					<width>423</width>
 					<height>80</height>
 					<aspectratio align="center">keep</aspectratio>
@@ -297,7 +295,6 @@
 					<visible>IsEmpty(ListItem.Icon)</visible>
 				</control>
 				<control type="image" id ="10">
-					<description>channel icon</description>
 					<width>423</width>
 					<height>80</height>
 					<aspectratio>keep</aspectratio>
@@ -310,8 +307,8 @@
 			<control type="group" id="9000">
 				<posx>34</posx>
 				<posy>502</posy>
+				<!--group manager-->
 				<control type="button" id ="30">
-					<description>Group Manager Button</description>
 					<width>200</width>
 					<label>$LOCALIZE[19205]</label>
 					<onleft>6</onleft>
@@ -320,8 +317,8 @@
 					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
+				<!--apply-->
 				<control type="button" id="5">
-					<description>Apply changes</description>
 					<posx>442</posx>
 					<label>$LOCALIZE[31991]</label>
 					<onup>8000</onup>
@@ -330,8 +327,8 @@
 					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
+				<!--ok-->
 				<control type="button" id="4">
-					<description>OK</description>
 					<posx>572</posx>
 					<label>$LOCALIZE[186]</label>
 					<onup>8000</onup>
@@ -340,8 +337,8 @@
 					<ondown>34</ondown>
 					<include>dialog_Button</include>
 				</control>
+				<!--cancel-->
 				<control type="button" id="6">
-					<description>Cancel</description>
 					<posx>702</posx>
 					<label>$LOCALIZE[222]</label>
 					<onup>8000</onup>
