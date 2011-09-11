@@ -92,7 +92,7 @@
 					<control type="button" id="312">
 						<description>-custom 1 path</description>
 						<width>557</width>
-						<label2>$INFO[Skin.String(videomenu.playlist1.path)]</label2>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist1.path)][/I]</label2>
 						<label>-$LOCALIZE[656]</label>
 						<onclick>Skin.SetFile(videomenu.playlist1.path,.xsp,special://profile/playlists/video/)</onclick>
 						<enable>Skin.HasSetting(videomenu.playlist1)</enable>
@@ -102,7 +102,7 @@
 						<description>-custom 1 label</description>
 						<width>557</width>
 						<label>-$LOCALIZE[13334]</label>
-						<label2>$INFO[Skin.String(videomenu.playlist1.label)]</label2>
+						<label2>[I]$INFO[Skin.String(videomenu.playlist1.label)][/I]</label2>
 						<onclick>Skin.SetString(videomenu.playlist1.label)</onclick>
 						<enable>Skin.HasSetting(videomenu.playlist1)</enable>
 						<include>dialog_Button-list</include>
@@ -397,6 +397,18 @@
 				<onclick>Skin.Reset(videomenu.addon2.path)</onclick>
 				<onclick>Skin.Reset(videomenu.addon3.path)</onclick>
 				<onclick>Skin.Reset(videomenu.addon4.path)</onclick>
+				<onclick>Skin.Reset(videomenu.folder1)</onclick>
+				<onclick>Skin.Reset(videomenu.folder2)</onclick>
+				<onclick>Skin.Reset(videomenu.folder3)</onclick>
+				<onclick>Skin.Reset(videomenu.folder4)</onclick>
+				<onclick>Skin.Reset(videomenu.folder1.label)</onclick>
+				<onclick>Skin.Reset(videomenu.folder2.label)</onclick>
+				<onclick>Skin.Reset(videomenu.folder3.label)</onclick>
+				<onclick>Skin.Reset(videomenu.folder4.label)</onclick>
+				<onclick>Skin.Reset(videomenu.folder1.path)</onclick>
+				<onclick>Skin.Reset(videomenu.folder2.path)</onclick>
+				<onclick>Skin.Reset(videomenu.folder3.path)</onclick>
+				<onclick>Skin.Reset(videomenu.folder4.path)</onclick>
 				<include>dialog_Button</include>
 			</control>
 			<!--ok-->
