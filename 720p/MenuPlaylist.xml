@@ -1,6 +1,6 @@
 ﻿<includes>
 	<include name="menu_Playlist">
-		<control type="group" id="6000">
+		<control type="grouplist" id="6000">
 			<posx>-275</posx>
 			<posy>20</posy>
 			<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus(0)</visible>
@@ -8,57 +8,67 @@
 			<include>MenuOpen</include>
 			<include>transition_Menu</include>
 			<include>toggle_NumItems-menumove</include>
-			<control type="button" id="20">
-				<description>Shuffle button</description>
-				<label>191</label>
-				<onleft>-</onleft>
-				<onright>50</onright>
-				<onup>22</onup>
-				<ondown>28</ondown>
-				<include>button_Menu</include>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--shuffle-->
+				<control type="button" id="20">
+					<label>$LOCALIZE[191]</label>
+					<onup>22</onup>
+					<ondown>28</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
 			</control>
-			<control type="togglebutton" id="28">
-				<description>Randomize button</description>
-				<posy>43</posy>
-				<label>$LOCALIZE[31114]</label>
-				<altlabel>$LOCALIZE[31113]</altlabel>
-				<onleft>-</onleft>
-				<onright>50</onright>
-				<onup>20</onup>
-				<ondown>26</ondown>
-				<include>button_Menu</include>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--randomize-->
+				<control type="togglebutton" id="28">
+					<label>$LOCALIZE[31114]</label>
+					<altlabel>$LOCALIZE[31113]</altlabel>
+					<onup>20</onup>
+					<ondown>26</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
 			</control>
-			<control type="button" id="26">
-				<description>Repeat button</description>
-				<posy>86</posy>
-				<label>486</label>
-				<onleft>-</onleft>
-				<onright>50</onright>
-				<onup>28</onup>
-				<ondown>21</ondown>
-				<include>button_Menu</include>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--repeat-->
+				<control type="button" id="26">
+					<label>$LOCALIZE[486]</label>
+					<onup>28</onup>
+					<ondown>21</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
 			</control>
-			<control type="button" id="21">
-				<description>Save button</description>
-				<posy>129</posy>
-				<label>190</label>
-				<onleft>-</onleft>
-				<onright>50</onright>
-				<onup>26</onup>
-				<ondown>22</ondown>
-				<include>button_Menu</include>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--repeat-->
+				<control type="button" id="21">
+					<label>$LOCALIZE[190]</label>
+					<onup>26</onup>
+					<ondown>22</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
 			</control>
-			<control type="button" id="22">
-				<description>Clear button</description>
-				<posy>172</posy>
-				<label>192</label>
-				<label>31011</label>
-				<onleft>-</onleft>
-				<onright>50</onright>
-				<onup>21</onup>
-				<ondown>20</ondown>
-				<include>button_Menu</include>
-			</control>								
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--clear-->
+				<control type="button" id="22">
+					<label>$LOCALIZE[192]</label>
+					<onup>21</onup>
+					<ondown>20</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
+			</control>
 		</control>
 	</include>
 </includes>
