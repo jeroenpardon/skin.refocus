@@ -41,7 +41,7 @@
 			<randomize>true</randomize>
 			<loop>yes</loop>
 			<include>fadeinout</include>
-			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + [!Skin.HasSetting(home.new) + Container(9000).HasFocus(10)] | [Skin.HasSetting(home.new) + Control.HasFocus(800)]</visible>
+			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + Container(9000).HasFocus(10)</visible>
 		</control>
 	<!-- now playing fanart --->
 		<control type="image">
@@ -58,7 +58,6 @@
 			<texture>home/menuBackground2.png</texture>
 			<aspectratio align="left">stretch</aspectratio>
 			<include>fadeinout</include>
-			<visible>!Skin.HasSetting(home.new)</visible>
 		</control>
 	<!-- toast overlay --->
 		<control type="image" id="1">
@@ -70,17 +69,15 @@
 	<!---time------>
 		<control type="group">
 			<include>fadeinout</include>
-			<visible>!Skin.HasSetting(home.new) + Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
+			<visible>Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
 			<include>clock</include>
 		</control>	
 	<!---menu------>
-		<include condition="!Skin.HasSetting(home.new)">HomeMenu</include>
-		<include condition="Skin.HasSetting(home.new)">HomeMenu2</include>
+		<include>HomeMenu</include>
 		<control type="group" id="6100">
 			<posx>20</posx>
 			<posy>20</posy>
 			<include>transition_Indicator</include>
-			<visible>!Skin.HasSetting(home.new)</visible>
 			<control type="image">
 				<width>48</width>
 				<height>48</height>
@@ -100,7 +97,7 @@
 	<!---rss feed------>
 		<control type="group">
 			<posy>684</posy>
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Skin.HasSetting(home.stats) | Skin.HasSetting(home.new)]</visible>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(home.stats)</visible>
 			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
 			<control type="image">
@@ -125,7 +122,7 @@
 	<!---library stats------>	
 		<control type="group">
 			<posy>684</posy>
-			<visible>Skin.HasSetting(home.stats) + !Skin.HasSetting(home.new)</visible>
+			<visible>Skin.HasSetting(home.stats)</visible>
 			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
 			<control type="image">

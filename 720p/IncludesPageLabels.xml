@@ -9,7 +9,7 @@
 		<include>transition_PageLabel</include>
 		<animation effect="slide" end="0,-3" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
 		<animation effect="slide" end="25" condition="Skin.HasSetting(indicator.enable) + Control.IsVisible(6100)">Conditional</animation>
-		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900) + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Control.IsVisible(531) + ![Container.Scrolling + Skin.HasSetting(sortletter.enable)]</visible>
+		<visible>!Window.IsActive(busydialog) + !Control.IsVisible(9900) + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Control.IsVisible(531) + ![Control.IsVisible(9900)]</visible>
 	</include>
 	<include name="PageLabelInfo">
 		<posx>34</posx>
