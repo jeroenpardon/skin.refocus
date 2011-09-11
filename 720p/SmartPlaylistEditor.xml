@@ -29,8 +29,8 @@
 				</control>
 				<!---name & type--->
 				<control type="group">
+					<!--set playlist type-->
 					<control type="spincontrolex" id="22">
-						<description>Set Playlist type</description>
 						<posy>0</posy>
 						<width>663</width>
 						<height>40</height>
@@ -41,6 +41,7 @@
 						<ondown>12</ondown>
 						<include>dialog_Spin</include>
 					</control>
+					<!--set playlist name-->
 					<control type="edit" id="12">
 						<posy>40</posy>
 						<width>663</width>
@@ -66,7 +67,6 @@
 				<control type="group">
 					<posy>95</posy>
 					<control type="label">
-						<description>rules label</description>
 						<width>720</width>
 						<label>[B]$LOCALIZE[21434]:[/B]</label>
 						<font>smallerCaps</font>
@@ -92,8 +92,8 @@
 						<width>663</width>
 						<include>dialog_Separator</include>
 					</control>
+					<!--rules list control-->
 					<control type="list" id="10">
-						<description>Rules List Control</description>
 						<posy>40</posy>
 						<width>543</width>
 						<height>120</height>
@@ -163,8 +163,8 @@
 							<height>39</height>
 							<include>dialog_Separator-y</include>
 						</control>
+						<!--edit rule button-->
 						<control type="button" id="15">
-							<description>Edit Rule Button</description>
 							<label>-</label>
 							<onleft>10</onleft>
 							<onright>14</onright>
@@ -174,8 +174,8 @@
 							<texturefocus border="0">dialogs/button_Inline-edit-focus.png</texturefocus>
 							<include>dialog_Button-inline</include>
 						</control>
+						<!--remove rule button-->
 						<control type="button" id="14">
-							<description>Remove Rule Button</description>
 							<posx>40</posx>
 							<label>-</label>
 							<onleft>15</onleft>
@@ -186,8 +186,8 @@
 							<texturefocus border="0">dialogs/button_Inline-remove-focus.png</texturefocus>
 							<include>dialog_Button-inline</include>
 						</control>
+						<!--add rule button-->
 						<control type="button" id="13">
-							<description>Add Rule Button</description>
 							<posx>80</posx>
 							<label>-</label>
 							<onleft>14</onleft>
@@ -204,7 +204,6 @@
 				<control type="group">
 					<posy>271</posy>
 					<control type="label" id="0">
-						<description>options Label</description>
 						<posy>0</posy>
 						<width>512</width>
 						<height>40</height>
@@ -273,19 +272,19 @@
 		<control type="group" id="9001">
 			<posx>418</posx>
 			<posy>570</posy>
+			<!--ok-->
 			<control type="button" id="20">
-				<description>Ok Button</description>
-				<label>186</label>
+				<label>$LOCALIZE[186]</label>
 				<onleft>9002</onleft>
 				<onright>-</onright>
 				<onup>14</onup>
 				<ondown>21</ondown>
 				<include>dialog_Button</include>
 			</control>
+			<!--cancel-->
 			<control type="button" id="21">
-				<description>Cancel Button</description>
 				<posx>130</posx>
-				<label>222</label>
+				<label>$LOCALIZE[222]</label>
 				<onleft>9002</onleft>
 				<onright>-</onright>
 				<onup>20</onup>
