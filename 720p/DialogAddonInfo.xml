@@ -19,7 +19,12 @@
 				<label>$INFO[ListItem.Property(Addon.Name)]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
-
+			<control type="image">
+				<posx>518</posx>
+				<posy>74</posy>
+				<height>201</height>
+				<include>dialog_Separator-y</include>
+			</control>
 			<control type="image">
 				<posx>519</posx>
 				<posy>75</posy>
@@ -27,14 +32,7 @@
 				<height>200</height>
 				<aspectratio>stretch</aspectratio>
 				<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
-			</control>
-			<control type="image">
-				<posx>518</posx>
-				<posy>74</posy>
-				<height>201</height>
-				<include>dialog_Separator-y</include>
-			</control>
-			
+			</control>			
 			<control type="group">
 				<posx>19</posx>
 				<control type="image">
@@ -69,41 +67,42 @@
 				</control>
 				<control type="group">
 					<posy>73</posy>
+					<!--type-->
 					<control type="label">
-						<description>Type</description>
 						<width>500</width>
 						<label>[B]$LOCALIZE[146,,:][/B] $INFO[ListItem.Property(Addon.Type)]</label>
 						<include>dialog_Label</include>
 					</control>
+					<!--author-->
 					<control type="label">
-						<description>Author</description>
 						<posy>40</posy>
 						<width>500</width>
 						<label>[B]$LOCALIZE[21863]:[/B] $INFO[ListItem.Property(Addon.Creator)]</label>
 						<include>dialog_Label</include>
 					</control>
+					<!--version-->
 					<control type="label">
-						<description>Version</description>
 						<posy>80</posy>
 						<width>500</width>
 						<label>[B]$LOCALIZE[24051][/B] $INFO[ListItem.Property(Addon.Version)]</label>
 						<include>dialog_Label</include>
 					</control>
+					<!--rating-->
 					<control type="label">
-						<description>Rating</description>
 						<posy>120</posy>
 						<width>500</width>
 						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Property(Addon.Rating)]</label>
 						<include>dialog_Label</include>
 					</control>
+					<!--summary-->
 					<control type="label">
-						<description>Summary</description>
 						<posy>160</posy>
 						<width>500</width>
 						<label>[B]$LOCALIZE[24052]:[/B] $INFO[ListItem.Property(Addon.Disclaimer)]</label>
 						<scroll>true</scroll>
 						<include>dialog_Label</include>
 					</control>
+					<!--description-->
 					<control type="group">
 						<posx>15</posx>	
 						<posy>213</posy>
@@ -130,6 +129,7 @@
 					<width>700</width>
 					<include>dialog_Separator</include>
 				</control>
+				<!--status-->
 				<control type="group">
 					<posy>438</posy>
 					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
