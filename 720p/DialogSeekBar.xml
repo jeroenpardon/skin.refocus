@@ -19,8 +19,8 @@
 			<control type="group">
 				<posx>255</posx>
 				<posy>8</posy>
+				<!--cache progress-->
 				<control type="progress" id="1">
-					<description>Progressbar</description>
 					<width>770</width>
 					<height>22</height>
 					<info>Player.CacheLevel</info>
@@ -30,6 +30,7 @@
 					<righttexture>-</righttexture>
 					<overlaytexture>-</overlaytexture>
 				</control>
+				<!--playback progress-->
 				<control type="progress" id="1">
 					<posy>10</posy>
 					<width>770</width>
@@ -47,14 +48,14 @@
 						<include>dialog_Label-seekbar</include>
 						<visible>Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]</visible>
 					</control>
+					<!--buffering-->
 					<control type="label">
-						<description>buffering</description>
 						<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
 						<include>dialog_Label-seekbar</include>
 						<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
 					</control>
+					<!--paused-->
 					<control type="label">
-						<description>paused</description>
 						<label>$LOCALIZE[112]</label>
 						<include>dialog_Label-seekbar</include>
 						<visible>[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek</visible>
