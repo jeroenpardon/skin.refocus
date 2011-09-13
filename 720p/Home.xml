@@ -69,7 +69,8 @@
 	<!---time------>
 		<control type="group">
 			<include>fadeinout</include>
-			<visible>Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>	
+			<visible>Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>
+			<animation effect="slide" start="0" end="-55" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,0)">Conditional</animation>
 			<include>clock</include>
 		</control>	
 	<!---menu------>

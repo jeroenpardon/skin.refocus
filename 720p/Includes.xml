@@ -102,7 +102,7 @@
 	</include>
 	<include name="global_Clock">
 		<control type="group">
-			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">
+			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,0)">
 				<effect type="slide" time="0" start="0" end="-50" />
 			</animation>
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>

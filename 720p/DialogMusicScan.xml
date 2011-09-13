@@ -7,7 +7,7 @@
 	<controls>
 		<control type="group">
 			<visible>![Window.IsActive(startup) | Window.IsActive(fullscreenvideo) | Window.IsActive(infodialog) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
-			<animation effect="slide" start="0" end="-55" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">Conditional</animation>
+			<animation effect="slide" start="0" end="-55" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,0)">Conditional</animation>
 			<!--line 1-->
 			<control type="fadelabel" id="401">
 				<posx>530r</posx>
