@@ -9,150 +9,108 @@
 			<label>$LOCALIZE[5] [COLOR=Color2]$LOCALIZE[166][/COLOR]</label>
 		</control>
 <!---CATEGORIES------->
-		<control type="group" id="9001">
+		<control type="grouplist" id="9001">
 			<posx>15</posx>
 			<posy>125</posy>
+			<height>800</height>
+			<itemgap>0</itemgap>
 			<include>transition_Container</include>
 			<!--homescreen-->
-			<control type="button" id="10">
-				<label>$LOCALIZE[31124]</label>
-				<onfocus>Skin.SetString(SkinSettings,1)</onfocus>
-				<onright>100</onright>
-				<onup>17</onup>
-				<ondown>11</ondown>
-				<include>button_Category</include>
-			</control>
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(100).HasFocus</visible>
+				<control type="button" id="10">
+					<label>$LOCALIZE[31124]</label>
+					<onfocus>Skin.SetString(SkinSettings,1)</onfocus>
+					<onup>17</onup>
+					<onright>SetFocus(100)</onright>
+					<ondown>11</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--main menu-->
-			<control type="button" id="11">
-				<posy>42</posy>
-				<label>$LOCALIZE[31961]</label>
-				<onfocus>Skin.SetString(SkinSettings,2)</onfocus>
-				<onright>200</onright>
-				<onup>10</onup>
-				<ondown>12</ondown>
-				<include>button_Category</include>
-			</control>
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>42</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(200).HasFocus</visible>
+				<control type="button" id="11">
+					<label>$LOCALIZE[31961]</label>
+					<onfocus>Skin.SetString(SkinSettings,2)</onfocus>
+					<onright>200</onright>
+					<onup>10</onup>
+					<ondown>12</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--video menu-->
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>84</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(300).HasFocus</visible>
-			</control>
-			<control type="button" id="12">
-				<posy>84</posy>
-				<label>$LOCALIZE[31962]</label>
-				<onfocus>Skin.SetString(SkinSettings,3)</onfocus>
-				<onright>300</onright>
-				<onup>11</onup>
-				<ondown>13</ondown>
-				<include>button_Category</include>
+				<visible>!Skin.HasSetting(homemenu.flat)</visible>
+				<control type="button" id="12">
+					<label>$LOCALIZE[31962]</label>
+					<onfocus>Skin.SetString(SkinSettings,3)</onfocus>
+					<onright>300</onright>
+					<onup>11</onup>
+					<ondown>13</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--music menu-->
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>126</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(400).HasFocus</visible>
-			</control>
-			<control type="button" id="13">
-				<posy>126</posy>
-				<label>$LOCALIZE[31963]</label>
-				<onfocus>Skin.SetString(SkinSettings,4)</onfocus>
-				<onright>400</onright>
-				<onup>12</onup>
-				<ondown>14</ondown>
-				<include>button_Category</include>
+				<visible>!Skin.HasSetting(homemenu.flat)</visible>
+				<control type="button" id="13">
+					<label>$LOCALIZE[31963]</label>
+					<onfocus>Skin.SetString(SkinSettings,4)</onfocus>
+					<onright>400</onright>
+					<onup>12</onup>
+					<ondown>14</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--artwork-->
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>168</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(700).HasFocus</visible>
-			</control>
-			<control type="button" id="14">
-				<posy>168</posy>
-				<label>$LOCALIZE[31127]</label>
-				<onfocus>Skin.SetString(SkinSettings,5)</onfocus>
-				<onright>500</onright>
-				<onup>13</onup>
-				<ondown>15</ondown>
-				<include>button_Category</include>
+				<control type="button" id="14">
+					<label>$LOCALIZE[31127]</label>
+					<onfocus>Skin.SetString(SkinSettings,5)</onfocus>
+					<onright>500</onright>
+					<onup>13</onup>
+					<ondown>15</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--views-->
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>210</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(800).HasFocus</visible>
-			</control>
-			<control type="button" id="15">
-				<posy>210</posy>
-				<label>$LOCALIZE[31015]</label>
-				<onfocus>Skin.SetString(SkinSettings,6)</onfocus>
-				<onright>600</onright>
-				<onup>14</onup>
-				<ondown>16</ondown>
-				<include>button_Category</include>
+				<control type="button" id="15">
+					<label>$LOCALIZE[31015]</label>
+					<onfocus>Skin.SetString(SkinSettings,6)</onfocus>
+					<onright>600</onright>
+					<onup>14</onup>
+					<ondown>16</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--other-->
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>252</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(900).HasFocus</visible>
-			</control>
-			<control type="button" id="16">
-				<posy>252</posy>
-				<label>$LOCALIZE[31119]</label>
-				<onfocus>Skin.SetString(SkinSettings,7)</onfocus>
-				<onright>700</onright>
-				<onup>15</onup>
-				<ondown>17</ondown>
-				<include>button_Category</include>
+				<control type="button" id="16">
+					<label>$LOCALIZE[31119]</label>
+					<onfocus>Skin.SetString(SkinSettings,7)</onfocus>
+					<onright>700</onright>
+					<onup>15</onup>
+					<ondown>17</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 			<!--credits-->
-			<control type="image">
-				<texture border="13,6,13,6">settings/list-nofocusRev.png</texture>
-				<posy>294</posy>
+			<control type="group">
 				<height>50</height>
-				<aspectratio align="right">stretch</aspectratio>
-				<width>325</width>
-				<visible>ControlGroup(1000).HasFocus</visible>
-			</control>
-			<control type="button" id="17">
-				<posy>294</posy>
-				<label>$LOCALIZE[31909] reFocus</label>
-				<onfocus>Skin.SetString(SkinSettings,8)</onfocus>
-				<onup>16</onup>
-				<ondown>10</ondown>
-				<include>button_Category</include>
+				<control type="button" id="17">
+					<label>$LOCALIZE[31909] reFocus</label>
+					<onfocus>Skin.SetString(SkinSettings,8)</onfocus>
+					<onup>16</onup>
+					<ondown>10</ondown>
+					<include>button_Category</include>
+				</control>
 			</control>
 		</control>
 <!---HOME SCREEN------>	
