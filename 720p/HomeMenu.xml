@@ -2,7 +2,7 @@
 	<include name="HomeMenu">
 		<control type="list" id="9000">
 			<posy>20</posy>
-			<width>640</width>
+			<width>1000</width>
 			<height>700</height>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
@@ -13,64 +13,110 @@
 			<visible allowhiddenfocus="true">![ControlGroup(1100).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(2100).HasFocus()]</visible>		
 			<include>transition_HomeMenu</include>
 			<include>homeMenusLayout</include>
-			<!--
-			<animation effect="slide" start="0" end="375" time="200" tween="Cubic" easing="Out" condition="Control.HasFocus(53)">Conditional</animation>
-			<animation effect="fade" start="100" end="40" time="200" condition="Control.HasFocus(53)">Conditional</animation>
-			-->
 			<content>
+				<!--videos-->
 				<item id="1">
 					<label>$LOCALIZE[157]</label>
 					<onclick>SetFocus(1110)</onclick>
+					<visible>!Skin.HasSetting(homemenu.flat)</visible>
 				</item>
 				<item id="2">
+					<label>$LOCALIZE[157]</label>
+					<onclick>ActivateWindow(Videos,Files)</onclick>
+					<visible>Skin.HasSetting(homemenu.flat)</visible>
+				</item>
+				<!--movies-->
+				<item id="3">
 					<label>$LOCALIZE[342]</label>
 					<onclick>SetFocus(1200)</onclick>
-				</item>
-				<item id="3">
-					<label>$LOCALIZE[20343]</label>
-					<onclick>SetFocus(1210)</onclick>
+					<visible>!Skin.HasSetting(homemenu.flat)</visible>
 				</item>
 				<item id="4">
-					<label>$LOCALIZE[31090]</label>
-					<onclick>SetFocus(1120)</onclick>
-					<visible>system.getbool(pvrmanager.enabled)</visible>
+					<label>$LOCALIZE[342]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
+					<visible>Skin.HasSetting(homemenu.flat)</visible>
 				</item>
+				<!--tv shows-->
 				<item id="5">
-					<label>$LOCALIZE[2]</label>
-					<onclick>SetFocus(1130)</onclick>
-					<visible>!Skin.HasSetting(homemenu.music)</visible>
+					<label>$LOCALIZE[20343]</label>
+					<onclick>SetFocus(1210)</onclick>
+					<visible>!Skin.HasSetting(homemenu.flat)</visible>
 				</item>
 				<item id="6">
-					<label>$LOCALIZE[1]</label>
-					<onclick>SetFocus(1140)</onclick>
-					<visible>Skin.HasSetting(homemenu.pictures)</visible>
+					<label>$LOCALIZE[20343]</label>
+					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
+					<visible>Skin.HasSetting(homemenu.flat)</visible>
 				</item>
+				<!--live tv-->
 				<item id="7">
-					<label>$LOCALIZE[24001]</label>
-					<onclick>SetFocus(1150)</onclick>
-					<visible>!Skin.HasSetting(homemenu.addons)</visible>-
+					<label>$LOCALIZE[31090]</label>
+					<onclick>SetFocus(1120)</onclick>
+					<visible>system.getbool(pvrmanager.enabled) + !Skin.HasSetting(homemenu.flat)</visible>
 				</item>
 				<item id="8">
-					<label>$LOCALIZE[5]</label>
-					<onclick>ActivateWindow(4)</onclick>
-					<visible>Skin.HasSetting(homemenu.settings)</visible>
+					<label>$LOCALIZE[31090]</label>
+					<onclick>ActivateWindow(livetv)</onclick>
+					<visible>system.getbool(pvrmanager.enabled) + Skin.HasSetting(homemenu.flat)</visible>
 				</item>
+				<!--music-->
 				<item id="9">
-					<label>$LOCALIZE[13000]</label>
-					<onclick>SetFocus(1160)</onclick>
+					<label>$LOCALIZE[2]</label>
+					<onclick>SetFocus(1130)</onclick>
+					<visible>!Skin.HasSetting(homemenu.music) + !Skin.HasSetting(homemenu.flat)</visible>
 				</item>
 				<item id="10">
+					<label>$LOCALIZE[2]</label>
+					<onclick>ActivateWindow(MyMusicLibrary)</onclick>
+					<visible>!Skin.HasSetting(homemenu.music) + Skin.HasSetting(homemenu.flat)</visible>
+				</item>
+				<!--pictures-->
+				<item id="11">
+					<label>$LOCALIZE[1]</label>
+					<onclick>SetFocus(1140)</onclick>
+					<visible>Skin.HasSetting(homemenu.pictures) + !Skin.HasSetting(homemenu.flat)</visible>
+				</item>
+				<item id="12">
+					<label>$LOCALIZE[1]</label>
+					<onclick>ActivateWindow(2)</onclick>
+					<visible>Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(homemenu.flat)</visible>
+				</item>
+				<!--addons-->
+				<item id="13">
+					<label>$LOCALIZE[24001]</label>
+					<onclick>SetFocus(1150)</onclick>
+					<visible>!Skin.HasSetting(homemenu.addons) + !Skin.HasSetting(homemenu.flat)</visible>-
+				</item>
+				<item id="14">
+					<label>$LOCALIZE[24001]</label>
+					<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
+					<visible>!Skin.HasSetting(homemenu.addons) + Skin.HasSetting(homemenu.flat)</visible>-
+				</item>
+				<!--system-->
+				<item id="15">
+					<label>$LOCALIZE[13000]</label>
+					<onclick>SetFocus(1160)</onclick>
+					<visible>!Skin.HasSetting(homemenu.flat)</visible>
+				</item>
+				<item id="16">
+					<label>$LOCALIZE[5]</label>
+					<onclick>ActivateWindow(settings)</onclick>
+					<visible>Skin.HasSetting(homemenu.flat)</visible>
+				</item>
+				<!--weather-->
+				<item id="17">
 					<label>$LOCALIZE[8]</label>
 					<label2>$INFO[Weather.Conditions], $INFO[Weather.Temperature]</label2>
 					<onclick>ActivateWindow(weather)</onclick>
-					<visible>Skin.HasSetting(homemenu.weather) + Weather.IsFetched</visible>
+					<visible>Weather.IsFetched + Skin.HasSetting(homemenu.weather)</visible>
 				</item>
-				<item id="11">
+				<!--favourites-->
+				<item id="18">
 					<label>$LOCALIZE[1036]</label>
 					<onclick>ActivateWindow(Favourites)</onclick>
 					<visible>Skin.HasSetting(homemenu.favourites)</visible>
 				</item>
-				<item id="12">
+				<!--disc-->
+				<item id="19">
 					<label>$LOCALIZE[427]</label>
 					<onclick>SetFocus(1180)</onclick>
 					<visible>System.HasMediadvd</visible>
@@ -82,13 +128,13 @@
 					<visible>!Skin.HasSetting(homemenu.exit)</visible>
 				</item>
 				-->
-				<item id="14">
+				<item id="20">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
 					<label2>$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Title]</label2>
 					<visible>Player.HasAudio + Skin.HasSetting(homemenu.playing)</visible>
 				</item>
-				<item id="15">
+				<item id="21">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<visible>Player.HasVideo + Skin.HasSetting(homemenu.playing)</visible>

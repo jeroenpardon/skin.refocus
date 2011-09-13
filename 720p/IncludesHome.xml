@@ -70,7 +70,7 @@
 				<aspectratio align="left">stretch</aspectratio>
 				<texture border="80,0,0,0">home/menuSelect.png</texture>
 				<include>home_ListScroll</include>
-				<visible allowhiddenfocus="true">[Container(9000).HasFocus(14) | Container(9000).HasFocus(15)]</visible>	
+				<visible allowhiddenfocus="true">[Container(9000).HasFocus(20) | Container(9000).HasFocus(21) | Container(9000).HasFocus(17)]</visible>	
 			</control>
 			<control type="label">
 				<posy>70</posy>
@@ -81,7 +81,7 @@
 				<align>left</align>
 				<textcolor>Color5</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<visible>![Container(9000).HasFocus(10) | Container(9000).HasFocus(14) | Container(9000).HasFocus(15)] + ![Window.IsActive(playercontrols) | Container(9000).HasFocus(14)]</visible>
+				<visible>![Container(9000).HasFocus(20) | Container(9000).HasFocus(21) | Container(9000).HasFocus(17)] + ![Window.IsActive(playercontrols)]</visible>
 			</control>
 			<control type="label">
 				<posy>70</posy>
@@ -92,7 +92,7 @@
 				<align>left</align>
 				<textcolor>Color5</textcolor>
 				<label>[LOWERCASE]$INFO[ListItem.Label2][/LOWERCASE]</label>
-				<visible>Container(9000).HasFocus(10) | Container(9000).HasFocus(14) | Container(9000).HasFocus(15)</visible>
+				<visible>Container(9000).HasFocus(20) | Container(9000).HasFocus(21) | Container(9000).HasFocus(17)</visible>
 			</control>
 		</focusedlayout>
 	</include>
