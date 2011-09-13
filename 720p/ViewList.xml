@@ -58,16 +58,11 @@
 				<width>440</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label</include>
-				<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
+				<visible>!Container.Content(episodes)</visible>
 			</control>
 			<control type="group">
 				<posx>40</posx>
 				<visible>Container.Content(movies)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label</include>
-				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>510</width>
@@ -86,11 +81,6 @@
 				<posx>40</posx>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label</include>
-				</control>
-				<control type="label">
 					<posy>28</posy>
 					<width>560</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
@@ -100,12 +90,6 @@
 			<control type="group">
 				<posx>40</posx>
 				<visible>Container.Content(episodes)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label</include>
-					<visible>IsEmpty(ListItem.Title)</visible>
-				</control>
 				<control type="label">
 					<width>440</width>
 					<label>$INFO[ListItem.Title]</label>
@@ -128,11 +112,6 @@
 			<control type="group">
 				<posx>40</posx>
 				<visible>Container.Content(musicvideos)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label</include>
-				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>560</width>
@@ -185,16 +164,11 @@
 				<width>440</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-focus</include>
-				<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
+				<visible>!Container.Content(episodes)</visible>
 			</control>
 			<control type="group">
 				<posx>40</posx>
 				<visible>Container.Content(movies)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label-focus</include>
-				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>510</width>
@@ -212,11 +186,6 @@
 			<control type="group">
 				<posx>40</posx>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label-focus</include>
-				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>560</width>
@@ -249,11 +218,6 @@
 			<control type="group">
 				<posx>40</posx>
 				<visible>Container.Content(musicvideos)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label-focus</include>
-				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>560</width>
@@ -292,7 +256,6 @@
 			</control>
 		</focusedlayout>
 	</include>
-
 
 <!---VIDEO PLAYLIST------>
 	<include name="ListVideoPlaylist">
@@ -897,7 +860,6 @@
 			</control>
 		</focusedlayout>
 	</include>
-
 
 <!--- BIG LIST ---------->
 	<include name="view_BigList">
