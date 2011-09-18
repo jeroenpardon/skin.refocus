@@ -71,26 +71,6 @@
 						<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
 						<visible>Skin.HasSetting(videomenu.videoplaylists)</visible>
 					</item>
-					<item id="12">
-						<label>$INFO[Skin.String(videomenu.addon1.label)]</label>
-						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon1.path)],return)</onclick>
-						<visible>Skin.HasSetting(videomenu.addon1)</visible>
-					</item>
-					<item id="13">
-						<label>$INFO[Skin.String(videomenu.addon2.label)]</label>
-						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon2.path)],return)</onclick>
-						<visible>Skin.HasSetting(videomenu.addon2)</visible>
-					</item>
-					<item id="14">
-						<label>$INFO[Skin.String(videomenu.addon3.label)]</label>
-						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon3.path)],return)</onclick>
-						<visible>Skin.HasSetting(videomenu.addon3)</visible>
-					</item>
-					<item id="15">
-						<label>$INFO[Skin.String(videomenu.addon4.label)]</label>
-						<onclick>ActivateWindow(Videos,plugin://$INFO[Skin.String(videomenu.addon4.path)],return)</onclick>
-						<visible>Skin.HasSetting(videomenu.addon4)</visible>
-					</item>
 				</content>
 			</control>
 <!---LIVE TV SUBMENU------>
@@ -104,7 +84,7 @@
 				<ondown>1120</ondown>
 				<orientation>vertical</orientation>
 				<scrolltime>150</scrolltime>
-				<visible allowhiddenfocus="true">Container(9000).HasFocus(4)</visible>
+				<visible allowhiddenfocus="true">Container(9000).HasFocus(7)</visible>
 				<include>home_SubFocus</include>
 				<include>homeMenusLayout</include>
 				<content>
@@ -165,7 +145,7 @@
 					<item id="3">
 						<label>$LOCALIZE[31971]</label>
 						<onclick>ActivateWindow(MyMusicLibrary,recentlyplayedalbums)</onclick>
-						<visible>Library.HasContent(Music) + Skin.HasSetting(musicmenu.recent)</visible>
+						<visible>Library.HasContent(Music) + Skin.HasSetting(musicmenu.played)</visible>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[133]</label>
@@ -200,7 +180,7 @@
 					<item id="9">
 						<label>$LOCALIZE[20389]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
-						<visible>Library.HasContent(musicvideos)</visible>
+						<visible>Library.HasContent(musicvideos) + Skin.HasSetting(musicmenu.videos)</visible>
 					</item>
 					<item id="10">
 						<label>$LOCALIZE[1024]</label>
@@ -249,21 +229,53 @@
 				<include>homeMenusLayout</include>
 				<content>
 					<item id="1">
+						<label>$INFO[Skin.String(addonsmenu.addon1.label)]</label>
+						<onclick>RunAddon($INFO[Skin.String(addonsmenu.addon1.path)])</onclick>
+						<visible>Skin.HasSetting(addonsmenu.addon1)</visible>
+					</item>
+					<item id="2">
+						<label>$INFO[Skin.String(addonsmenu.addon2.label)]</label>
+						<onclick>RunAddon($INFO[Skin.String(addonsmenu.addon2.path)])</onclick>
+						<visible>Skin.HasSetting(addonsmenu.addon2)</visible>
+					</item>
+					<item id="3">
+						<label>$INFO[Skin.String(addonsmenu.addon3.label)]</label>
+						<onclick>RunAddon($INFO[Skin.String(addonsmenu.addon3.path)])</onclick>
+						<visible>Skin.HasSetting(addonsmenu.addon3)</visible>
+					</item>
+					<item id="4">
+						<label>$INFO[Skin.String(addonsmenu.addon4.label)]</label>
+						<onclick>RunAddon($INFO[Skin.String(addonsmenu.addon4.path)])</onclick>
+						<visible>Skin.HasSetting(addonsmenu.addon4)</visible>
+					</item>
+					<item id="5">
+						<label>$INFO[Skin.String(addonsmenu.addon5.label)]</label>
+						<onclick>RunAddon($INFO[Skin.String(addonsmenu.addon5.path)])</onclick>
+						<visible>Skin.HasSetting(addonsmenu.addon5)</visible>
+					</item>
+					<item id="6">
+						<label>$INFO[Skin.String(addonsmenu.addon6.label)]</label>
+						<onclick>RunAddon($INFO[Skin.String(addonsmenu.addon6.path)])</onclick>
+						<visible>Skin.HasSetting(addonsmenu.addon6)</visible>
+					</item>
+					<item id="7">
 						<label>$LOCALIZE[24033]</label>
 						<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
 					</item>
-					<item id="2">
+					<item id="8">
 						<label>$LOCALIZE[24043]</label>
 						<onclick>ActivateWindow(addonbrowser,addons://outdated/)</onclick>
+						<visible>Skin.HasSetting(addonsmenu.updates)</visible>
 					</item>
-					<item id="3">
+					<item id="9">
 						<label>$LOCALIZE[24062]</label>
 						<onclick>ActivateWindow(addonbrowser,addons://enabled/)</onclick>
+						<visible>Skin.HasSetting(addonsmenu.enabled)</visible>
 					</item>
-					<item id="4">
+					<item id="10">
 						<label>$LOCALIZE[0]</label>
 						<onclick>ActivateWindow(programs,addons, return)</onclick>
-						<visible>!Skin.HasSetting(homemenu.programs)</visible>
+						<visible>Skin.HasSetting(addonsmenu.programs)</visible>
 					</item>
 				</content>
 			</control>

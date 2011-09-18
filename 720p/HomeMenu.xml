@@ -1,16 +1,20 @@
 ﻿<includes>
 	<include name="HomeMenu">
 		<control type="list" id="9000">
+			<defaultcontrol>6</defaultcontrol>
 			<posy>20</posy>
 			<width>1000</width>
 			<height>700</height>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
 			<onright>8001</onright>
-			<onleft>53</onleft>
+			<onleft>6000</onleft>
 			<orientation>vertical</orientation>
 			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-			<visible allowhiddenfocus="true">![ControlGroup(1100).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(2100).HasFocus()]</visible>		
+			<visible allowhiddenfocus="true">![ControlGroup(1100).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(2100).HasFocus()]</visible>	
+			<!--
+			<animation effect="slide" start="0" end="250" time="200" tween="cubic" easing="in" condition="Control.HasFocus(6000)">Conditional</animation>
+			-->
 			<include>transition_HomeMenu</include>
 			<include>homeMenusLayout</include>
 			<content>
@@ -55,7 +59,7 @@
 				</item>
 				<item id="8">
 					<label>$LOCALIZE[31090]</label>
-					<onclick>ActivateWindow(livetv)</onclick>
+					<onclick>ActivateWindow(600)</onclick>
 					<visible>system.getbool(pvrmanager.enabled) + Skin.HasSetting(homemenu.flat)</visible>
 				</item>
 				<!--music-->
@@ -143,5 +147,118 @@
 			</content>
 		</control>
 		<include>homeSubMenu</include>
+		
+		
+		
+		<!--
+		
+		<control type="fixedlist" id="6000">
+			<posx>-240</posx>
+			<posy>0</posy>
+			<width>600</width>
+			<height>720</height>
+			<visible>true</visible>
+			<onup>6000</onup>
+			<ondown>6000</ondown>
+			<onleft>1</onleft>
+			<onright>9000</onright>
+			<orientation>vertical</orientation>
+			<pagecontrol>25</pagecontrol>
+			<scrolltime>200</scrolltime>
+			<focusposition>1</focusposition>
+			
+			<animation effect="slide" start="0" end="240" time="200" tween="cubic" easing="in" condition="Control.HasFocus(6000)">Conditional</animation>
+			
+			<itemlayout width="250" height="180">
+				<control type="image">
+					<posx>7</posx>
+					<posy>7</posy>
+					<width>250</width>
+					<height>141</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<posx>30</posx>
+					<posy>3</posy>
+					<width>430</width>
+					<height>22</height>
+					<font>font13</font>
+					<aligny>center</aligny>
+					<selectedcolor>green</selectedcolor>
+					<align>left</align>
+					<info>ListItem.Label</info>
+				</control>
+				</itemlayout>
+			<focusedlayout width="250" height="180">
+				<control type="image">
+					<width>264</width>
+					<height>155</height>
+					<texture border="10">views/list-focus-bigAlt.png</texture>
+				</control>
+				<control type="image">
+					<posx>7</posx>
+					<posy>7</posy>
+					<width>250</width>
+					<height>141</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<posx>30</posx>
+					<posy>3</posy>
+					<width>430</width>
+					<height>22</height>
+					<font>font13</font>
+					<aligny>center</aligny>
+					<selectedcolor>green</selectedcolor>
+					<align>left</align>
+					<info>ListItem.Label</info>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
+					<label2></label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.1.Fanart)]</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="2">
+					<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
+					<label2></label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.2.Fanart)]</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="3">
+					<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
+					<label2></label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.3.Fanart)]</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="4">
+					<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
+					<label2></label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.4.Fanart)]</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="5">
+					<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
+					<label2></label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.5.Fanart)]</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="6">
+					<label>$INFO[Window.Property(LatestMovie.6.Title)]</label>
+					<label2></label2>
+					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.6.Path)])</onclick>
+					<icon>$INFO[Window.Property(LatestMovie.6.Fanart)]</icon>
+					<thumb>-</thumb>
+				</item>
+			</content>
+		</control>
+			-->
 	</include>
 </includes>
