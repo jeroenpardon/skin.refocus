@@ -437,7 +437,7 @@
 					<item id="6">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,moviegenres)</onclick>
-						<visible>Library.HasContent(movies)</visible>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.genres)</visible>
 					</item>
 				</content>
 			</control>

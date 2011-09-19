@@ -247,6 +247,14 @@
 						<include>dialog_Radio</include>
 						<visible>System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
 					</control>
+					<!--genres-->
+					<control type="radiobutton" id="205">
+						<label>$LOCALIZE[135]</label>
+						<width>557</width>
+						<onclick>Skin.ToggleSetting(moviesmenu.genres)</onclick>
+						<selected>Skin.HasSetting(moviesmenu.genres)</selected>
+						<include>dialog_Radio</include>
+					</control>
 				</control>
 			<!--tv shows submenu-->
 				<control type="grouplist" id="200">
@@ -281,6 +289,14 @@
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.inprogress)</onclick>
 						<selected>Skin.HasSetting(tvshowsmenu.inprogress)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<!--genres-->
+					<control type="radiobutton" id="204">
+						<label>$LOCALIZE[135]</label>
+						<width>557</width>
+						<onclick>Skin.ToggleSetting(tvshowsmenu.genres)</onclick>
+						<selected>Skin.HasSetting(tvshowsmenu.genres)</selected>
 						<include>dialog_Radio</include>
 					</control>
 				</control>
