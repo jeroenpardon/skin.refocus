@@ -4,13 +4,13 @@
 	<coordinates>
 		<system>1</system>
 		<posx>240</posx>
-		<posy>54</posy>
+		<posy>65</posy>
 	</coordinates>
 
 	<controls>
 		<control type="image">
 			<width>800</width>
-			<height>650</height>
+			<height>610</height>
 			<include>dialogWindow</include>
 		</control>
 		<control type="label">
@@ -27,13 +27,13 @@
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>479</posy>
+				<posy>439</posy>
 				<width>762</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
 				<posx>205</posx>
-				<height>480</height>
+				<height>440</height>
 				<include>dialog_Separator-y</include>
 			</control>
 
@@ -50,31 +50,32 @@
 					<width>206</width>
 					<label>$LOCALIZE[3]</label>
 					<onfocus>Skin.SetString(Sub,Video)</onfocus>
-					<include>dialog_Radio</include>
+					<selectedcolor>Selected</selectedcolor>
+					<include>dialog_Button-list</include>
 				</control>
 				<control type="button" id="102">
 					<width>206</width>
 					<label>$LOCALIZE[342]</label>
 					<onfocus>Skin.SetString(Sub,Movies)</onfocus>
-					<include>dialog_Radio</include>
+					<include>dialog_Button-list</include>
 				</control>
 				<control type="button" id="103">
 					<width>206</width>
 					<label>$LOCALIZE[20343]</label>
 					<onfocus>Skin.SetString(Sub,Shows)</onfocus>
-					<include>dialog_Radio</include>
+					<include>dialog_Button-list</include>
 				</control>
 				<control type="button" id="104">
 					<width>206</width>
 					<label>$LOCALIZE[2]</label>
 					<onfocus>Skin.SetString(Sub,Music)</onfocus>
-					<include>dialog_Radio</include>
+					<include>dialog_Button-list</include>
 				</control>
 				<control type="button" id="105">
 					<width>206</width>
 					<label>$LOCALIZE[24001]</label>
 					<onfocus>Skin.SetString(Sub,Addons)</onfocus>
-					<include>dialog_Radio</include>
+					<include>dialog_Button-list</include>
 				</control>
 			</control>
 		<!---control area------>	
@@ -83,7 +84,7 @@
 				<control type="grouplist" id="200">
 					<posx>206</posx>
 					<width>557</width>
-					<height>480</height>
+					<height>440</height>
 					<onleft>100</onleft>
 					<onright>10</onright>
 					<onup>200</onup>
@@ -488,8 +489,8 @@
 		</control>
 		<!--ok-->
 		<control type="button" id="10">
-			<posx>644</posx>
-			<posy>576</posy>
+			<posx>645</posx>
+			<posy>533</posy>
 			<label>$LOCALIZE[186]</label>
 			<onup>200</onup>
 			<onleft>12</onleft>
