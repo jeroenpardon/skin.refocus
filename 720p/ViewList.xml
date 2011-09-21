@@ -932,6 +932,14 @@
 						<visible>!Container.Content(episodes)</visible>
 					</control>
 					<control type="label" id="1">
+						<posy>2</posy>
+						<posx>260</posx>
+						<width>770</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>list_Label</include>
+						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label" id="1">
 						<posx>260</posx>
 						<posy>28</posy>
 						<width>770</width>
@@ -1045,6 +1053,14 @@
 						<label>$INFO[ListItem.Label]</label>
 						<include>list_Label-focus</include>
 						<visible>!Container.Content(episodes)</visible>
+					</control>
+					<control type="label" id="1">
+						<posy>2</posy>
+						<posx>260</posx>
+						<width>770</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>list_Label-focus</include>
+						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label" id="1">
 						<posx>260</posx>
