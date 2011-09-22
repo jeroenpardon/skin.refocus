@@ -250,10 +250,10 @@
 						<label>$LOCALIZE[31980]</label>
 						<onback>SetFocus(599)</onback>
 						<onclick>-</onclick>
-						<onclick>Close</onclick>
+						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.RunScript($INFO[Skin.String(addon.subtitles.path)])</onclick>
 						<altclick>Skin.SetAddon(addon.subtitles.path,xbmc.python.subtitles)</altclick>
-						<altclick>Close</altclick>
+						<altclick>Dialog.Close(VideoOSD,true)</altclick>
 						<altclick>XBMC.RunScript($INFO[Skin.String(addon.subtitles.path)])</altclick>
 						<usealttexture>IsEmpty(Skin.String(addon.subtitles.path))</usealttexture>
 						<alttexturefocus border="3">dialogs/list-focus.png</alttexturefocus>
