@@ -19,36 +19,36 @@
 			<content>
 				<!--videos-->
 				<item id="1">
-					<label>$LOCALIZE[157]</label>
+					<label>$LOCALIZE[3]</label>
 					<onclick>SetFocus(1110)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat)</visible>
+					<visible>!Skin.HasSetting(homemenu.flat) + Skin.HasSetting(homemenu.videos)</visible>
 				</item>
 				<item id="2">
-					<label>$LOCALIZE[157]</label>
+					<label>$LOCALIZE[3]</label>
 					<onclick>ActivateWindow(Videos,Files)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat)</visible>
+					<visible>Skin.HasSetting(homemenu.flat) + Skin.HasSetting(homemenu.videos)</visible>
 				</item>
 				<!--movies-->
 				<item id="3">
 					<label>$LOCALIZE[342]</label>
 					<onclick>SetFocus(1200)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat)</visible>
+					<visible>!Skin.HasSetting(homemenu.flat) + Library.HasContent(movies)</visible>
 				</item>
 				<item id="4">
 					<label>$LOCALIZE[342]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat)</visible>
+					<visible>Skin.HasSetting(homemenu.flat) + Library.HasContent(movies)</visible>
 				</item>
 				<!--tv shows-->
 				<item id="5">
 					<label>$LOCALIZE[20343]</label>
 					<onclick>SetFocus(1210)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat)</visible>
+					<visible>!Skin.HasSetting(homemenu.flat) + Library.HasContent(tvshows)</visible>
 				</item>
 				<item id="6">
 					<label>$LOCALIZE[20343]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat)</visible>
+					<visible>Skin.HasSetting(homemenu.flat) + Library.HasContent(tvshows)</visible>
 				</item>
 				<!--live tv-->
 				<item id="7">

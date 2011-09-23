@@ -158,23 +158,30 @@
 				<font>special2</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
-			</control>	
-			<!--music-->
+			</control>
+			<!--videos-->
 			<control type="radiobutton" id="202">
+				<label>$LOCALIZE[31952]</label>
+				<onclick>Skin.ToggleSetting(homemenu.videos)</onclick>
+				<selected>Skin.HasSetting(homemenu.videos)</selected>
+				<include>button_Settings</include>
+			</control>
+			<!--music-->
+			<control type="radiobutton" id="203">
 				<label>$LOCALIZE[31951]</label>
 				<onclick>Skin.ToggleSetting(homemenu.music)</onclick>
 				<selected>!Skin.HasSetting(homemenu.music)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--pictures-->
-			<control type="radiobutton" id="203">
+			<control type="radiobutton" id="204">
 				<label>$LOCALIZE[31954]</label>
 				<onclick>Skin.ToggleSetting(homemenu.pictures)</onclick>
 				<selected>Skin.HasSetting(homemenu.pictures)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--addons-->
-			<control type="radiobutton" id="204">
+			<control type="radiobutton" id="205">
 				<label>$LOCALIZE[31956]</label>
 				<onclick>Skin.ToggleSetting(homemenu.addons)</onclick>
 				<selected>!Skin.HasSetting(homemenu.addons)</selected>
@@ -182,7 +189,7 @@
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<!--favourites-->
-			<control type="radiobutton" id="205">
+			<control type="radiobutton" id="206">
 				<label>$LOCALIZE[31959]</label>
 				<onclick>Skin.ToggleSetting(homemenu.favourites)</onclick>
 				<selected>Skin.HasSetting(homemenu.favourites)</selected>
@@ -190,14 +197,14 @@
 				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<!--now playing-->
-			<control type="radiobutton" id="206">
+			<control type="radiobutton" id="207">
 				<label>$LOCALIZE[31947]</label>
 				<onclick>Skin.ToggleSetting(homemenu.playing)</onclick>
 				<selected>Skin.HasSetting(homemenu.playing)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--weather-->
-			<control type="radiobutton" id="207">
+			<control type="radiobutton" id="208">
 				<label>$LOCALIZE[31957]</label>
 				<onclick>Skin.ToggleSetting(homemenu.weather)</onclick>
 				<selected>Skin.HasSetting(homemenu.weather)</selected>
