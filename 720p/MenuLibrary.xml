@@ -543,7 +543,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>!Container.Content(artists) + !IsEmpty(container.folderpath) + !substring(container.folderpath,addons://sources/) + !substring(container.folderpath,plugin://)</visible>
+					<visible>!Container.Content(artists) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons://sources/) + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="402">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(52)</onclick>
