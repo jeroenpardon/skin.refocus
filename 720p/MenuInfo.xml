@@ -14,6 +14,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
+					<!--refresh-->
 					<control type="button" id="6">
 						<label>$LOCALIZE[184]</label>
 						<onback>8000</onback>
@@ -27,6 +28,7 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<!--poster-->
 					<control type="button" id="10">
 						<label>$LOCALIZE[31054]</label>
 						<onback>8000</onback>
@@ -41,6 +43,7 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
+					<!--thumbnail-->
 					<control type="button" id="10">
 						<label>$LOCALIZE[31019]</label>
 						<onback>8000</onback>
@@ -55,6 +58,7 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<!--fanart-->
 					<control type="button" id="12">
 						<label>$LOCALIZE[31016]</label>
 						<onback>8000</onback>
@@ -62,6 +66,7 @@
 						<ondown>55</ondown>
 						<onright>50</onright>
 						<include>button_Menu</include>
+						<onfocus>Skin.SetString(Filebrowser,Fanart)</onfocus>
 						<onclick>SetFocus(8000)</onclick>
 					</control>
 				</control>
@@ -69,6 +74,7 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
+					<!--logo-->
 					<control type="button" id="55">
 						<label>$LOCALIZE[31065]</label>
 						<onback>8000</onback>
@@ -83,6 +89,7 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
+					<!--banner-->
 					<control type="button" id="56">
 						<label>$LOCALIZE[31064]</label>
 						<onback>8000</onback>
