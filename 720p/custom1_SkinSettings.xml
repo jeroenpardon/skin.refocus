@@ -186,7 +186,6 @@
 				<onclick>Skin.ToggleSetting(homemenu.addons)</onclick>
 				<selected>!Skin.HasSetting(homemenu.addons)</selected>
 				<include>button_Settings</include>
-				<visible>!Skin.HasSetting(home.new)</visible>
 			</control>
 			<!--favourites-->
 			<control type="radiobutton" id="206">
@@ -194,17 +193,23 @@
 				<onclick>Skin.ToggleSetting(homemenu.favourites)</onclick>
 				<selected>Skin.HasSetting(homemenu.favourites)</selected>
 				<include>button_Settings</include>
-				<visible>!Skin.HasSetting(home.new)</visible>
+			</control>
+			<!--disc-->
+			<control type="radiobutton" id="207">
+				<label>$LOCALIZE[31955]</label>
+				<onclick>Skin.ToggleSetting(homemenu.disc)</onclick>
+				<selected>Skin.HasSetting(homemenu.disc)</selected>
+				<include>button_Settings</include>
 			</control>
 			<!--now playing-->
-			<control type="radiobutton" id="207">
+			<control type="radiobutton" id="208">
 				<label>$LOCALIZE[31947]</label>
 				<onclick>Skin.ToggleSetting(homemenu.playing)</onclick>
 				<selected>Skin.HasSetting(homemenu.playing)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--weather-->
-			<control type="radiobutton" id="208">
+			<control type="radiobutton" id="209">
 				<label>$LOCALIZE[31957]</label>
 				<onclick>Skin.ToggleSetting(homemenu.weather)</onclick>
 				<selected>Skin.HasSetting(homemenu.weather)</selected>

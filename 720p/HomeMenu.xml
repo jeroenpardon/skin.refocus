@@ -122,7 +122,7 @@
 				<item id="19">
 					<label>$LOCALIZE[427]</label>
 					<onclick>SetFocus(1180)</onclick>
-					<visible>System.HasMediadvd</visible>
+					<visible>System.HasMediadvd + Skin.HasSetting(homemenu.disc)</visible>
 				</item>
 				<!--
 				<item id="13">
@@ -131,13 +131,13 @@
 					<visible>!Skin.HasSetting(homemenu.exit)</visible>
 				</item>
 				-->
-				<item id="20">
+				<item id="21">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
 					<label2>$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Title]</label2>
 					<visible>Player.HasAudio + Skin.HasSetting(homemenu.playing)</visible>
 				</item>
-				<item id="21">
+				<item id="22">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<visible>Player.HasVideo + Skin.HasSetting(homemenu.playing)</visible>
