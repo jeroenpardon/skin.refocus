@@ -64,12 +64,12 @@
 					<item id="10">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(VideoLibrary,Addons)</onclick>
-						<visible>Skin.HasSetting(videomenu.addons)</visible>
+						<visible>!Skin.HasSetting(videomenu.addons)</visible>
 					</item>
 					<item id="11">
 						<label>$LOCALIZE[136]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
-						<visible>Skin.HasSetting(videomenu.videoplaylists)</visible>
+						<visible>!Skin.HasSetting(videomenu.videoplaylists)</visible>
 					</item>
 				</content>
 			</control>
