@@ -58,7 +58,7 @@
 				<width>440</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label</include>
-				<visible>!Container.Content(episodes)</visible>
+				<visible>!Container.Content(episodes) | [Container.Content(episodes) + IsEmpty(ListItem.Title)]</visible>
 			</control>
 			<control type="group">
 				<posx>40</posx>
@@ -164,7 +164,7 @@
 				<width>440</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-focus</include>
-				<visible>!Container.Content(episodes)</visible>
+				<visible>!Container.Content(episodes) | [Container.Content(episodes) + IsEmpty(ListItem.Title)]</visible>
 			</control>
 			<control type="group">
 				<posx>40</posx>
