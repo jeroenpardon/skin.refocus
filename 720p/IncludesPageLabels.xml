@@ -30,7 +30,7 @@
 		<control type="label">
 			<description>sources</description>
 			<label>$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</label>
-			<visible>Container.Content(Files) | [SubString(Container.FolderPath,plugin://plugin.video) + !SubString(Container.FolderPath,plugin://plugin.video.apple)]</visible>
+			<visible>[Container.Content(Files) | SubString(Container.FolderPath,plugin://plugin.video)] + !SubString(Container.FolderPath,plugin://plugin.video.apple) + !StringCompare(Container.FolderPath,special://profile/playlists/video/)</visible>
 			<include>PageLabel</include>
 		</control>
 		<!--movies sources-->
