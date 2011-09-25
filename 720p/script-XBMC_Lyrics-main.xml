@@ -27,13 +27,12 @@
 				<include>dialogWindow</include>
 				<animation effect="fade" end="95" time="0" condition="true">Conditional</animation>
 			</control>
-
 			<control type="label" id="1">
-				<posx>34</posx>
-				<posy>34</posy>
-				<width>500</width>
+				<posy>30</posy>
+				<width>540</width>
 				<align>left</align>
 				<label>$INFO[MusicPlayer.Title]</label>
+				<font>titleSmall</font>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="label" id="1">
@@ -42,37 +41,30 @@
 				<width>500</width>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<align>left</align>
+				<font>smallCaps</font>
 				<include>dialog_Line</include>
 			</control>
 			<control type="label" id="1">
 				<posx>34</posx>
-				<posy>78</posy>
+				<posy>75</posy>
 				<width>500</width>
 				<label>$INFO[MusicPlayer.Album]</label>
 				<align>left</align>
 				<textcolor>Color4</textcolor>
-				<font>smallCaps</font>
+				<font>smallerCaps</font>
 			</control>
-			
 			<control type="image">
 				<posx>19</posx>
 				<posy>115</posy>
 				<width>542</width>
 				<include>dialog_Separator</include>
 			</control>
-			
 			<control type="label" id="200">
 				<description>scraper label</description>
-				<posx>36</posx>
-				<posy>665</posy>
-				<width>180</width>
-				<label>-</label>
-				<font>small</font>
-				<align>left</align>
-				<textcolor>Color4</textcolor>
+				<visible>false</visible>
 			</control>
+			<!--lyrics-->
 			<control type="textbox" id="100">
-				<description>Lyrics</description>
 				<posx>34</posx>
 				<posy>115</posy>
 				<height>532</height>
@@ -89,7 +81,6 @@
 			
 <!-- ** Required ** Do not change <id> or <type> -->
 			<control type="textbox" id="110">
-				<description>Description</description>
 				<posx>34</posx>
 				<posy>125</posy>
 				<height>530</height>
@@ -102,14 +93,12 @@
 				<pagecontrol>111</pagecontrol>
 				<textcolor>Color4</textcolor>
 			</control>
-
 			<control type="image">
 				<posx>19</posx>
 				<posy>647</posy>
 				<width>542</width>
 				<include>dialog_Separator</include>
 			</control>
-
 			<control type="spincontrol" id="111">
 				<posx>485</posx>
 				<posy>658</posy>
