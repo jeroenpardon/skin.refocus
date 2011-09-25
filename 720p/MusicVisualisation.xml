@@ -4,7 +4,7 @@
 		<control type="visualisation" id="2">
 			<description>visualisation</description>
 			<include>screen_Dimensions</include>
-			<visible>IsEmpty(MusicPlayer.Property(Fanart_Image) + !Skin.HasSetting(fanart.visualization) | Skin.HasSetting(fanart.visualization.blend)</visible>
+			<visible>!Skin.HasSetting(fanart.visualization) | Skin.HasSetting(fanart.visualization.blend)</visible>
 		</control>
 		<control type="image">
 			<description>Fanart image</description>
