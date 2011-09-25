@@ -18,65 +18,65 @@
 			<animation effect="slide" start="0,0" end="0,-80" time="0" condition="!Skin.HasSetting(fanart.weather)">Conditional</animation>
 			<!---column headers--->
 			<control type="group">
+				<!--conditions-->
 				<control type="image">
-					<posx>118</posx>
+					<posx>116</posx>
 					<width>330</width>
 					<width>115</width>
 					<height>42</height>
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
-				<!--conditions-->
 				<control type="label" id="101">
-					<posx>130</posx>
+					<posx>131</posx>
 					<posy>8</posy>
 					<width>550</width>
 					<label>$LOCALIZE[33020]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
+				<!--temp/feels-->
 				<control type="image">
-					<posx>451</posx>
+					<posx>447</posx>
 					<width>160</width>
 					<height>42</height>
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
-				<!--temp/feels-->
 				<control type="label" id="102">
-					<posx>461</posx>
+					<posx>462</posx>
 					<posy>8</posy>
 					<width>550</width>
 					<label>$LOCALIZE[401]/$LOCALIZE[33024]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
+				<!--precipitation-->
 				<control type="image">
-					<posx>614</posx>
+					<posx>608</posx>
 					<width>140</width>
 					<height>42</height>
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
-				<!--precipitation-->
 				<control type="label" id="102">
-					<posx>624</posx>
+					<posx>623</posx>
 					<posy>8</posy>
 					<width>550</width>
 					<label>$LOCALIZE[33021]</label>
 					<font>titleLowSmall</font>
 					<include>column_Header</include>
 				</control>
+				<!--wind-->
 				<control type="image">
-					<posx>757</posx>
+					<posx>749</posx>
 					<width>443</width>
 					<height>42</height>
 					<texture border="8">weather/column_Top.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
-				<!--wind-->
 				<control type="label" id="102">
-					<posx>767</posx>
+					<posx>764</posx>
 					<posy>8</posy>
 					<width>550</width>
 					<label>$LOCALIZE[383]</label>
@@ -87,7 +87,7 @@
 			<!---forecast--->
 			<control type="list" id="51">
 				<posx>0</posx>
-				<posy>45</posy>
+				<posy>43</posy>
 				<width>1280</width>
 				<height>440</height>
 				<onleft>6000</onleft>
@@ -97,7 +97,7 @@
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>62</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="44" width="600">
+				<itemlayout height="43" width="600">
 					<!--time-->
 					<control type="image">
 						<width>115</width>
@@ -116,7 +116,7 @@
 					</control>
 					<!--condition-->
 					<control type="image">
-						<posx>118</posx>
+						<posx>116</posx>
 						<width>330</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -124,21 +124,21 @@
 						<texture border="8">$INFO[ListItem.Property(Column)]</texture>
 					</control>
 					<control type="image">
-						<posx>130</posx>
+						<posx>124</posx>
 						<width>42</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
 						<texture border="8">$INFO[ListItem.ActualIcon]</texture>
 					</control>
 					<control type="label">
-						<posx>180</posx>
+						<posx>170</posx>
 						<width>300</width>
 						<label>$INFO[ListItem.Property(Outlook)]</label>
 						<include>column_Label</include>
 					</control>
 					<!--temperature-->
 					<control type="image">
-						<posx>451</posx>
+						<posx>447</posx>
 						<width>160</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -146,14 +146,15 @@
 						<texture border="8">$INFO[ListItem.Property(Column)]</texture>
 					</control>
 					<control type="label">
-						<posx>461</posx>
+						<posx>457</posx>
 						<width>140</width>
+						<align>left</align>
 						<label>$INFO[ListItem.Property(Temperature)]</label>
 						<include>column_Label</include>
 					</control>
 					<!--precipitation-->
 					<control type="image">
-						<posx>614</posx>
+						<posx>608</posx>
 						<width>140</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -161,14 +162,14 @@
 						<texture border="8">$INFO[ListItem.Property(Column)]</texture>
 					</control>
 					<control type="label">
-						<posx>629</posx>
+						<posx>623</posx>
 						<width>300</width>
 						<label>$INFO[ListItem.Property(Precipitation)]</label>
 						<include>column_Label</include>
 					</control>
 					<!--wind-->
 					<control type="image">
-						<posx>757</posx>
+						<posx>749</posx>
 						<width>443</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -176,13 +177,13 @@
 						<texture border="8">$INFO[ListItem.Property(Column_right)]</texture>
 					</control>
 					<control type="label">
-						<posx>772</posx>
+						<posx>764</posx>
 						<width>360</width>
 						<label>$INFO[ListItem.Property(Wind)]</label>
 						<include>column_Label</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="44" width="600">
+				<focusedlayout height="43" width="600">
 					<!--time-->
 					<control type="image">
 						<width>115</width>
@@ -202,7 +203,7 @@
 					</control>
 					<!--condition-->
 					<control type="image">
-						<posx>118</posx>
+						<posx>116</posx>
 						<width>330</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -210,21 +211,21 @@
 						<texture border="8">$INFO[ListItem.Property(Column)]</texture>
 					</control>
 					<control type="image">
-						<posx>130</posx>
+						<posx>124</posx>
 						<width>42</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
 						<texture border="8">$INFO[ListItem.ActualIcon]</texture>
 					</control>
 					<control type="label">
-						<posx>180</posx>
+						<posx>170</posx>
 						<width>300</width>
 						<label>$INFO[ListItem.Property(Outlook)]</label>
 						<include>column_Label-focus</include>
 					</control>
 					<!--temperature-->
 					<control type="image">
-						<posx>451</posx>
+						<posx>447</posx>
 						<width>160</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -232,14 +233,14 @@
 						<texture border="8">$INFO[ListItem.Property(Column)]</texture>
 					</control>
 					<control type="label">
-						<posx>461</posx>
+						<posx>457</posx>
 						<width>140</width>
 						<label>$INFO[ListItem.Property(Temperature)]</label>
 						<include>column_Label-focus</include>
 					</control>
 					<!--precipitation-->
 					<control type="image">
-						<posx>614</posx>
+						<posx>608</posx>
 						<width>140</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -247,14 +248,14 @@
 						<texture border="8">$INFO[ListItem.Property(Column)]</texture>
 					</control>
 					<control type="label">
-						<posx>629</posx>
+						<posx>623</posx>
 						<width>300</width>
 						<label>$INFO[ListItem.Property(Precipitation)]</label>
 						<include>column_Label-focus</include>
 					</control>
 					<!--wind-->
 					<control type="image">
-						<posx>757</posx>
+						<posx>749</posx>
 						<width>443</width>
 						<height>42</height>
 						<aspectratio>stretch</aspectratio>
@@ -262,7 +263,7 @@
 						<texture border="8">$INFO[ListItem.Property(Column_right)]</texture>
 					</control>
 					<control type="label">
-						<posx>772</posx>
+						<posx>764</posx>
 						<width>360</width>
 						<label>$INFO[ListItem.Property(Wind)]</label>
 						<include>column_Label-focus</include>
