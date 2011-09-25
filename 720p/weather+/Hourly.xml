@@ -16,7 +16,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<visible>StringCompare(Window.Property(Weather.CurrentView),hourly)</visible>
-			<animation effect="slide" start="0,0" end="0,-80" time="0" condition="!Skin.HasSetting(fanart.weather)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="!Skin.HasSetting(fanart.weather)">Conditional</animation>
 			<!---column headers--->
 			<control type="group">
 				<control type="image">
@@ -482,17 +482,6 @@
 						<visible>!IsEmpty(Window.Property(Hourly.IsFetched))</visible>
 					</item>
 				</content>
-			</control>
-			
-			
-			
-			<control type="image">
-				<posx>90</posx>
-				<height>1080</height>
-				<width>29</width>
-				<texture>settings/separator.png</texture>
-				<aspectratio align="right">stretch</aspectratio>
-				<visible>!Skin.HasSetting(fanart.weather)</visible>
 			</control>
 		</control>
 	</include>

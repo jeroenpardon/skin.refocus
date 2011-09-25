@@ -30,11 +30,6 @@
 					<include>screen_Dimensions</include>
 					<texture flipy="false">overlays/weatherOverlay.png</texture>
 					<include>transition_Container</include>
-				</control>
-				<control type="image" id="1">
-					<include>screen_Dimensions</include>
-					<texture flipy="false">overlays/weatherOverlay.png</texture>
-					<include>transition_Container</include>
 					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
 				</control>
 				<control type="image" id="1">
@@ -43,6 +38,11 @@
 					<include>transition_Container</include>
 					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
 				</control>
+			</control>
+			<control type="image" id="1">
+				<include>screen_Dimensions</include>
+				<texture flipy="false">overlays/weatherOverlay.png</texture>
+				<include>transition_Container</include>
 			</control>
 		</control>
 		
