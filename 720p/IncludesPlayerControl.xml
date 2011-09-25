@@ -23,6 +23,7 @@
 					<onup>599</onup>
 					<ondown>599</ondown>
 					<itemgap>0</itemgap>
+					<!--visualization select-->
 					<control type="button" id="602">
 						<width>234</width>
 						<label>$LOCALIZE[250]</label>
@@ -30,6 +31,7 @@
 						<include>dialog_Button-list</include>
 						<onclick>Addon.Default.Set(xbmc.player.musicviz)</onclick>
 					</control>
+					<!--presets-->
 					<control type="button" id="603">
 						<width>234</width>
 						<label>$LOCALIZE[13388]</label>
@@ -37,9 +39,10 @@
 						<include>dialog_Button-list</include>
 						<onclick>XBMC.ActivateWindow(122)</onclick>
 					</control>
+					<!--Last.fm-->
 					<control type="button" id="604">
 						<width>234</width>
-						<label>LastFM Love</label>
+						<label>$LOCALIZE[15200] $LOCALIZE[33079]</label>
 						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(MusicOSD,true)</onclick>
@@ -48,13 +51,14 @@
 					</control>
 					<control type="button" id="605">
 						<width>234</width>
-						<label>LastFM Ban</label>
+						<label>$LOCALIZE[15200] $LOCALIZE[33080]</label>
 						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(MusicOSD,true)</onclick>
 						<onclick>XBMC.LastFM.Ban</onclick>
 						<visible>LastFM.RadioPlaying</visible>
 					</control>
+					<!--get lyrics-->
 					<control type="togglebutton" id="606">
 						<width>234</width>
 						<label>$LOCALIZE[31981]</label>
@@ -71,6 +75,7 @@
 						<alttexturenofocus border="3">dialogs/list-nofocus.png</alttexturenofocus>
 						<include>dialog_Button-list</include>
 					</control>
+					<!--random-->
 					<control type="button" id="607">
 						<width>234</width>
 						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
@@ -78,6 +83,7 @@
 						<include>dialog_Button-list</include>
 						<onclick>XBMC.PlayerControl(Random)</onclick>
 					</control>
+					<!--repeat-->
 					<control type="button" id="608">
 						<width>234</width>
 						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
@@ -211,15 +217,17 @@
 					<ondown>599</ondown>
 					<onback>SetFocus(599)</onback>
 					<itemgap>0</itemgap>
+					<!--teletext-->
 					<control type="button" id="602">
 						<width>307</width>
-						<label>teletext</label>
+						<label>$LOCALIZE[23050]</label>
 						<onback>SetFocus(599)</onback>
 						<include>dialog_Button-list</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(teletext)</onclick>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					<!--video settings-->
 					<control type="button" id="603">
 						<width>307</width>
 						<label>$LOCALIZE[13395]</label>
@@ -228,6 +236,7 @@
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(123)</onclick>
 					</control>
+					<!--audio settings-->
 					<control type="button" id="604">
 						<width>307</width>
 						<label>$LOCALIZE[13396]</label>
@@ -236,6 +245,7 @@
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(124)</onclick>
 					</control>
+					<!--bookmarks-->
 					<control type="button" id="605">
 						<width>307</width>
 						<label>$LOCALIZE[298]</label>
@@ -245,6 +255,7 @@
 						<onclick>XBMC.ActivateWindow(125)</onclick>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					<!--get subtitles-->
 					<control type="togglebutton" id="606">
 						<width>307</width>
 						<label>$LOCALIZE[31980]</label>
@@ -261,8 +272,8 @@
 						<include>dialog_Button-list</include>
 						<visible>Videoplayer.Content(movies) | Videoplayer.Content(episodes) | Videoplayer.Content(files)</visible>
 					</control>
+					<!--subtitles toggle-->
 					<control type="button" id="607">
-						<description>Subtitles toggle</description>
 						<width>307</width>
 						<label>$LOCALIZE[287]: $LOCALIZE[351]</label>
 						<onback>SetFocus(599)</onback>
@@ -272,7 +283,6 @@
 						<visible>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</visible>
 					</control>
 					<control type="button" id="608">
-						<description>Subtitles toggle</description>
 						<width>307</width>
 						<label>$LOCALIZE[287]: $LOCALIZE[31112]</label>
 						<onback>SetFocus(599)</onback>
@@ -281,8 +291,8 @@
 						<include>dialog_Button-list</include>
 						<visible>VideoPlayer.HasSubtitles + !VideoPlayer.SubtitlesEnabled</visible>
 					</control>
+					<!--tv guide-->
 					<control type="button" id="609">
-						<description>TV Guide</description>
 						<width>307</width>
 						<label>$LOCALIZE[19029]</label>
 						<onback>SetFocus(599)</onback>
@@ -291,8 +301,8 @@
 						<include>dialog_Button-list</include>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					<!--dvd menu-->
 					<control type="button" id="610">
-						<description>DVD Menu</description>
 						<width>307</width>
 						<label>$LOCALIZE[33061]</label>
 						<onback>SetFocus(599)</onback>
@@ -411,6 +421,7 @@
 					<posx>0</posx>
 					<posy>13</posy>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<!--tv channels-->
 					<control type="button" id="700">
 						<posx>13</posx>
 						<width>48</width>
