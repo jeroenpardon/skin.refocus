@@ -65,7 +65,7 @@
 					<posy>85</posy>
 					<height>58</height>
 					<width>300</width>
-					<font>weatherTemps</font>
+					<font>smallCaps</font>
 					<textcolor>Color1</textcolor>
 					<label>$LOCALIZE[393] [B]$INFO[Window.Property(weekend.1.HighTemperature),]$INFO[System.TemperatureUnits][/B] $LOCALIZE[391] [B]$INFO[Window.Property(weekend.1.LowTemperature),]$INFO[System.TemperatureUnits][/B]</label>
 				</control>
@@ -88,72 +88,195 @@
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[406]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[403]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[404]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33021]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33027]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33028]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--observed precipitation label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[33021]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--average high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31910]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--average low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31911]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--observed high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31912]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--observed low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31913]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--record high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31914]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--record low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31915]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 				</control>
 				<control type="grouplist">
 					<posx>40</posx>
 					<posy>150</posy>
 					<itemgap>1</itemgap>
+					<!--humidity label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.1.Humidity),,%]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
+					<!--UV label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.1.UV)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
+					<!--wind label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.1.Wind)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
+					<!--precipitation label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.1.Precipitation),,%]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
+					<!--sunrise label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.1.Sunrise)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
+					<!--sunset label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.1.Sunset)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--observed precipitation label-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.ObservedPrecipitation)]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--average high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.ObservedAvgHighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--average low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.ObservedAvgLowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--observed high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.HighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--observed low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.LowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--record high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.ObservedRecordHighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
+					</control>
+					<!--record low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.1.ObservedRecordLowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.1.Observed))</visible>
 					</control>
 				</control>
 			</control>
@@ -208,7 +331,7 @@
 					<posy>80</posy>
 					<height>58</height>
 					<width>300</width>
-					<font>weatherTemps</font>
+					<font>smallCaps</font>
 					<textcolor>Color1</textcolor>
 					<label>$LOCALIZE[393] [B]$INFO[Window.Property(weekend.2.HighTemperature),]$INFO[System.TemperatureUnits][/B] $LOCALIZE[391] [B]$INFO[Window.Property(weekend.2.LowTemperature),]$INFO[System.TemperatureUnits][/B]</label>
 				</control>
@@ -231,72 +354,195 @@
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[406]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[403]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[404]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33021]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33027]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33028]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--observed precipitation label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[33021]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--average high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31910]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--average low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31911]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--observed high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31912]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--observed low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31913]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--record high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31914]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--record low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31915]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 				</control>
 				<control type="grouplist">
 					<posx>40</posx>
 					<posy>150</posy>
 					<itemgap>1</itemgap>
+					<!--humidity label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.2.Humidity),,%]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
+					<!--UV label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.2.UV)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
+					<!--wind label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.2.Wind)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
+					<!--precipitation label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.2.Precipitation),,%]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
+					<!--sunrise label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.2.Sunrise)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
+					<!--sunset label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
 						<label>$INFO[Window.Property(weekend.2.Sunset)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--observed precipitation label-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.ObservedPrecipitation)]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--average high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.ObservedAvgHighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--average low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.ObservedAvgLowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--observed high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.HighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--observed low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.LowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--record high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.ObservedRecordHighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
+					</control>
+					<!--record low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.2.ObservedRecordLowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.2.Observed))</visible>
 					</control>
 				</control>
 			</control>
@@ -351,7 +597,7 @@
 					<posy>85</posy>
 					<height>58</height>
 					<width>300</width>
-					<font>weatherTemps</font>
+					<font>smallCaps</font>
 					<textcolor>Color1</textcolor>
 					<label>$LOCALIZE[393] [B]$INFO[Window.Property(Weekend.3.HighTemperature),]$INFO[System.TemperatureUnits][/B] $LOCALIZE[391] [B]$INFO[Window.Property(Weekend.3.LowTemperature),]$INFO[System.TemperatureUnits][/B]</label>
 				</control>
@@ -374,72 +620,195 @@
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[406]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[403]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[404]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33021]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33027]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<include>w+Label</include>
 						<label>$LOCALIZE[33028]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--observed precipitation label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[33021]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--average high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31910]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--average low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31911]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--observed high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31912]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--observed low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31913]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--record high label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31914]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--record low label-->
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[31915]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 				</control>
 				<control type="grouplist">
 					<posx>40</posx>
 					<posy>150</posy>
 					<itemgap>1</itemgap>
+					<!--humidity label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
-						<label>$INFO[Window.Property(Weekend.3.Humidity),,%]</label>
+						<label>$INFO[Window.Property(weekend.3.Humidity),,%]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
+					<!--UV label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
-						<label>$INFO[Window.Property(Weekend.3.UV)]</label>
+						<label>$INFO[Window.Property(weekend.3.UV)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
+					<!--wind label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
-						<label>$INFO[Window.Property(Weekend.3.Wind)]</label>
+						<label>$INFO[Window.Property(weekend.3.Wind)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
+					<!--precipitation label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
-						<label>$INFO[Window.Property(Weekend.3.Precipitation),,%]</label>
+						<label>$INFO[Window.Property(weekend.3.Precipitation),,%]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
+					<!--sunrise label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
-						<label>$INFO[Window.Property(Weekend.3.Sunrise)]</label>
+						<label>$INFO[Window.Property(weekend.3.Sunrise)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
+					<!--sunset label-->
 					<control type="label">
 						<width>300</width>
 						<align>right</align>
 						<include>w+Label</include>
-						<label>$INFO[Window.Property(Weekend.3.Sunset)]</label>
+						<label>$INFO[Window.Property(weekend.3.Sunset)]</label>
+						<visible>IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--observed precipitation label-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.ObservedPrecipitation)]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--average high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.ObservedAvgHighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--average low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.ObservedAvgLowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--observed high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.HighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--observed low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.LowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--record high value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.ObservedRecordHighTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
+					</control>
+					<!--record low value-->
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(Weekend.3.ObservedRecordLowTemperature)]$INFO[System.TemperatureUnits]</label>
+						<visible>!IsEmpty(Window.Property(Weekend.3.Observed))</visible>
 					</control>
 				</control>
 			</control>

@@ -85,9 +85,43 @@
 					<textcolor>Color1</textcolor>
 					<label>$INFO[Window.Property(36Hour.1.Outlook)]</label>
 				</control>
+				<!--stats-->
+				<control type="grouplist">
+					<posx>20</posx>
+					<posy>260</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[33021]:</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.1.DaylightTitle)]</label>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posx>10</posx>
+					<posy>260</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.1.Precipitation),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.1.DaylightTime)]</label>
+					</control>
+				</control>
+				<!--forecast-->
 				<control type="textbox">
 					<posx>15</posx>
-					<posy>250</posy>
+					<posy>350</posy>
 					<width>300</width>
 					<height>130</height>
 					<align>center</align>
@@ -95,27 +129,9 @@
 					<include>w+Description</include>
 					<include>autoscroll-plot</include>
 				</control>
-				<!--stats-->
-				<control type="grouplist">
-					<posx>15</posx>
-					<posy>400</posy>
-					<itemgap>1</itemgap>
-					<control type="label">
-						<width>300</width>
-						<label>$LOCALIZE[33021]: $INFO[Window.Property(36Hour.1.Precipitation),,%]</label>
-						<align>center</align>
-						<include>w+Label</include>
-					</control>
-					<control type="label">
-						<width>300</width>
-						<label>$INFO[Window.Property(36Hour.1.DaylightTitle)]$INFO[Window.Property(36Hour.1.DaylightTime)]</label>
-						<align>center</align>
-						<include>w+Label</include>
-					</control>
-				</control>
 			</control>
 
-			<!--tomorrow-->
+			<!--tonight-->
 			<control type="group">
 				<posx>360</posx>		
 				<visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
@@ -180,33 +196,49 @@
 					<textcolor>Color1</textcolor>
 					<label>$INFO[Window.Property(36Hour.2.Outlook)]</label>
 				</control>
+				<!--stats-->
+				<control type="grouplist">
+					<posx>20</posx>
+					<posy>260</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[33021]:</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.2.DaylightTitle)]</label>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posx>10</posx>
+					<posy>260</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.2.Precipitation),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.2.DaylightTime)]</label>
+					</control>
+				</control>
+				<!--forecast-->
 				<control type="textbox">
 					<posx>15</posx>
-					<posy>250</posy>
+					<posy>350</posy>
 					<width>300</width>
 					<height>137</height>
 					<align>center</align>
 					<label>$INFO[Window.Property(36Hour.2.Forecast)]</label>
 					<include>w+Description</include>
 					<include>autoscroll-plot</include>
-				</control>
-				<!--stats-->
-				<control type="grouplist">
-					<posx>15</posx>
-					<posy>400</posy>
-					<itemgap>1</itemgap>
-					<control type="label">
-						<width>300</width>
-						<label>$LOCALIZE[33021]: $INFO[Window.Property(36Hour.2.Precipitation),,%]</label>
-						<align>center</align>
-						<include>w+Label</include>
-					</control>
-					<control type="label">
-						<width>300</width>
-						<label>$INFO[Window.Property(36Hour.2.DaylightTitle)]$INFO[Window.Property(36Hour.2.DaylightTime)]</label>
-						<align>center</align>
-						<include>w+Label</include>
-					</control>
 				</control>
 			</control>
 
@@ -275,33 +307,49 @@
 					<textcolor>Color1</textcolor>
 					<label>$INFO[Window.Property(36Hour.3.Outlook)]</label>
 				</control>
+				<!--stats-->
+				<control type="grouplist">
+					<posx>20</posx>
+					<posy>260</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$LOCALIZE[33021]:</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.3.DaylightTitle)]</label>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posx>10</posx>
+					<posy>260</posy>
+					<itemgap>1</itemgap>
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.3.Precipitation),,%]</label>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<align>right</align>
+						<include>w+Label</include>
+						<label>$INFO[Window.Property(36Hour.3.DaylightTime)]</label>
+					</control>
+				</control>
+				<!--forecast-->
 				<control type="textbox">
 					<posx>15</posx>
-					<posy>250</posy>
+					<posy>350</posy>
 					<width>300</width>
-					<height>125</height>
+					<height>137</height>
 					<align>center</align>
 					<label>$INFO[Window.Property(36Hour.3.Forecast)]</label>
 					<include>w+Description</include>
 					<include>autoscroll-plot</include>
-				</control>
-				<!--stats-->
-				<control type="grouplist">
-					<posx>15</posx>
-					<posy>400</posy>
-					<itemgap>1</itemgap>
-					<control type="label">
-						<width>300</width>
-						<label>$LOCALIZE[33021]: $INFO[Window.Property(36Hour.3.Precipitation),,%]</label>
-						<align>center</align>
-						<include>w+Label</include>
-					</control>
-					<control type="label">
-						<width>300</width>
-						<label>$INFO[Window.Property(36Hour.3.DaylightTitle)]$INFO[Window.Property(36Hour.3.DaylightTime)]</label>
-						<align>center</align>
-						<include>w+Label</include>
-					</control>
 				</control>
 			</control>
 		</control>
