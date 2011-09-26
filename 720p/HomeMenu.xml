@@ -21,12 +21,12 @@
 				<item id="1">
 					<label>$LOCALIZE[3]</label>
 					<onclick>SetFocus(1110)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat) + Skin.HasSetting(homemenu.videos)</visible>
+					<visible>!Skin.HasSetting(homemenu.flat) + !Skin.HasSetting(homemenu.videos)</visible>
 				</item>
 				<item id="2">
 					<label>$LOCALIZE[3]</label>
 					<onclick>ActivateWindow(Videos,Files)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat) + Skin.HasSetting(homemenu.videos)</visible>
+					<visible>Skin.HasSetting(homemenu.flat) + !Skin.HasSetting(homemenu.videos)</visible>
 				</item>
 				<!--movies-->
 				<item id="3">
