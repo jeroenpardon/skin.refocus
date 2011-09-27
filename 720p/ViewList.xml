@@ -51,7 +51,6 @@
 				<include>list_Label-single</include>
 			</control>
 		</focusedlayout>
-		
 		<itemlayout width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
@@ -85,6 +84,14 @@
 					<width>560</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					<include>list_Label-sub</include>
+				</control>
+				<!--is linked movie-->
+				<control type="label">
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Genre]</label>
+					<include>list_Label-sub</include>
+					<visible>IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -191,6 +198,14 @@
 					<width>560</width>
 					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					<include>list_Label-sub-focus</include>
+				</control>
+				<!--is linked movie-->
+				<control type="label">
+					<posy>28</posy>
+					<width>560</width>
+					<label>$INFO[ListItem.Genre]</label>
+					<include>list_Label-sub-focus</include>
+					<visible>IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 			</control>
 			<control type="group">

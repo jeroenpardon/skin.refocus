@@ -186,7 +186,7 @@
 			<!---flags--->
 			<include>flags_Slide-studio</include>
 			<include>flags_Slide-media</include>
-			<!---info--->
+			<!---info--->	
 			<control type="group">
 				<posx>220</posx>
 				<posy>462</posy>
@@ -304,11 +304,21 @@
 							</control>
 						</control>
 					</control>
-					<control type="label">
-						<width>980</width>
-						<label>$LOCALIZE[31072]</label>
-						<include>info_Sub</include>
+					<control type="group">
 						<visible>Container.Content(seasons)</visible>
+						<control type="label">
+							<width>980</width>
+							<label>$LOCALIZE[31072]</label>
+							<include>info_Sub</include>
+							<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+						</control>
+						<!--is linked movie-->
+						<control type="label">
+							<width>980</width>
+							<label>$INFO[ListItem.Genre]</label>
+							<include>info_Sub</include>
+							<visible>IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+						</control>
 					</control>
 				</control>
 				<!---plot--->
@@ -333,7 +343,7 @@
 						<height>138</height>
 						<label>$INFO[Container.ShowPlot]</label>
 						<include>description_Small</include>
-						<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
+						<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
 					</control>
 				</control>
 			</control>
@@ -381,43 +391,64 @@
 					<!---line 2--->
 					<control type="group">
 						<posy>28</posy>
-						<control type="label">
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))</visible>
+						<control type="group">
+							<visible>Container.Content(movies)</visible>
+							<control type="label">
+								<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
+							</control>
+							<control type="label">
+								<label>$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Genre]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<visible>!IsEmpty(ListItem.Property(ReleaseDate))</visible>
+							</control>
+							<control type="label">
+								<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<!---is movie set--->
+								<visible>ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
+							</control>
 						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Genre]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))</visible>
+						<control type="group">
+							<visible>Container.Content(tvshows)</visible>
+							<control type="label">
+								<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<visible>!IsEmpty(ListItem.TVShowTitle) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
+							</control>
+							<control type="label">
+								<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<visible>!IsEmpty(ListItem.TVShowTitle) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
+							</control>
 						</control>
-						<control type="label">
-							<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<!---is movie set--->
-							<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
+						<control type="group">
+							<visible>Container.Content(seasons)</visible>
+							<control type="label">
+								<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<visible>!IsEmpty(ListItem.TVShowTitle) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+							</control>
+							<!--is linked movie-->
+							<control type="label">
+								<label>$INFO[ListItem.Genre]</label>
+								<width>750</width>
+								<include>info_Sub</include>
+								<visible>!IsEmpty(ListItem.Title) + IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+							</control>
 						</control>
-
 						<control type="label">
 							<label>$INFO[ListItem.Artist]</label>
 							<width>750</width>
 							<include>info_Sub</include>
 							<visible>Container.Content(musicvideos)</visible>
-						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<visible>!IsEmpty(ListItem.TVShowTitle) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
-						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<visible>!IsEmpty(ListItem.TVShowTitle) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
 						</control>
 						<control type="label">
 							<label>$INFO[ListItem.Date]</label>
