@@ -45,7 +45,7 @@
 			<posy>100</posy>
 			<include>infoDialogHide</include>
 			<include>transition_Container</include>
-			<include>contextMenuHide</include>
+			<include>toggle_Menu</include>
 			<visible>Player.HasVideo + VideoPlayer.Content(livetv) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
 			<control type="image">
 				<width>510</width>
@@ -61,6 +61,7 @@
 			<control type="grouplist">
 				<posy>310</posy>
 				<itemgap>0</itemgap>
+				<visible>!Control.IsVisible(13)</visible>
 				<control type="label" id="1">
 					<width>510</width>
 					<label>$INFO[VideoPlayer.Title]</label>
@@ -147,7 +148,7 @@
 				</control>
 				<control type="grouplist" id="1000">
 					<posx>685</posx>
-					<posy>420</posy>
+					<posy>410</posy>
 					<itemgap>0</itemgap>
 					<control type="label" id="1">
 						<width>540</width>
