@@ -9,7 +9,7 @@
 				<visible>Player.HasVideo + Skin.HasSetting(backgroundVideoGlobal)</visible>
 			</control>
 		</control>
-	
+
 	<!---GLOBAL------>
 		<include>global_Background</include>
 		<include>global_Clock</include>
@@ -28,31 +28,63 @@
 		</control>
 
 	<!---VIEWS------>
-	<control type="group" id="50">
-		<include>view_TV-now</include>
-		<include>view_EPG-timeline</include>
-		<include>view_EPG-channels</include>
-		<include>view_TVChannels</include>
-		<include>view_RadioChannels</include>
-		<include>view_TV-timers</include>
-		<include>view_TV-search</include>
-		<include>view_TV-recordings</include>
-	</control>
+		<control type="group" id="50">
+			<include>view_TV-now</include>
+			<include>view_EPG-timeline</include>
+			<include>view_EPG-channels</include>
+			<include>view_TVChannels</include>
+			<include>view_RadioChannels</include>
+			<include>view_TV-timers</include>
+			<include>view_TV-search</include>
+			<include>view_TV-recordings</include>
+		</control>
 
 	<!---PREVIEW------>
 		<control type="group">
-			<description>Small Media Window</description>
-			<posx>675</posx>
-			<posy>90</posy>
+			<posx>685</posx>
+			<posy>100</posy>
+			<include>infoDialogHide</include>
+			<include>transition_Container</include>
+			<include>contextMenuHide</include>
 			<visible>Player.HasVideo + VideoPlayer.Content(livetv) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
 			<control type="image">
-				<width>545</width>
-				<height>305</height>
+				<width>510</width>
+				<height>287</height>
 				<texture>black.png</texture>
+				<visible>Player.HasVideo</visible>
 			</control>
 			<control type="videowindow">
-				<width>545</width>
-				<height>305</height>
+				<width>510</width>
+				<height>287</height>
+				<visible>Player.HasVideo + !ControlGroup(6000).HasFocus(0) + !Window.IsActive(2003)</visible>
+			</control>
+			<control type="grouplist">
+				<posy>310</posy>
+				<itemgap>0</itemgap>
+				<control type="label" id="1">
+					<width>510</width>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<include>info_Title</include>
+				</control>
+				<control type="label" id="1">
+					<width>510</width>
+					<label>$INFO[VideoPlayer.Label]</label>
+					<include>info_Title</include>
+					<visible>IsEmpty(VideoPlayer.Title)</visible>
+				</control>
+				<control type="label" id="1">
+					<width>510</width>
+					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss),, • ]$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
+					<include>info_Sub</include>
+				</control>
+				<control type="textbox" id="4">
+					<width>510</width>
+					<height>220</height>
+					<aligny>top</aligny>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<textcolor>Color7</textcolor>
+					<font>descriptionSmall</font>
+				</control>
 			</control>
 		</control>
 
