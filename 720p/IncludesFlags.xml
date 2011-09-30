@@ -36,24 +36,70 @@
 	</include>
 
 <!---STUDIO------>
-	<include name="flag_Studio">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
+	<variable name="v.flag.studio">
+		<value condition="Container.Content(movies)">$INFO[Listitem.studio,flags/studios/,.png]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.studio,flags/networks/,.png]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[Listitem.studio,flags/labels/,.png]</value>
+		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
+	</variable>
+	<include name="flags_Slide-studio">
+		<control type="group">
+			<posx>60</posx>
+			<posy>459</posy>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[v.flag.studio]</texture>
+			</control>
+		</control>
 	</include>
+	<include name="flags_Gallery-studio">
+		<control type="group">
+			<posx>105</posx>
+			<posy>590</posy>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[v.flag.studio]</texture>
+			</control>
+		</control>
+	</include>
+	<include name="flags_Thumbnails-studio">
+		<control type="group">
+			<posx>235r</posx>
+			<posy>630</posy>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[v.flag.studio]</texture>
+			</control>
+		</control>
+	</include>
+	
+
 	<include name="flag_Studio-play">
 		<width>128</width>
 		<height>64</height>
 		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
 	</include>
+	-->
+	
+	
+	
+	
 
 <!---NETWORK------>	
-	<include name="flag_Network">
-		<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
+	<!--<include name="flag_Network">
+		<texture>$VAR[flag_Studio]</texture>
 		<width>128</width>
 		<height>64</height>
 		<visible>!IsEmpty(ListItem.Title)</visible>
-	</include>
+	</include>-->
+	
+	
 	<include name="flag_Network-mono">
 		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
 		<width>128</width>
@@ -139,79 +185,12 @@
 			</control>
 		</control>
 	</include>
-	<include name="flags_Slide-studio">
-		<control type="group">
-			<posx>60</posx>
-			<posy>459</posy>
-			<control type="image">
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Studio</include>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="image">
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Network</include>
-				<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-			</control>
-			<control type="image">
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Label-video</include>
-				<visible>Container.Content(musicvideos)</visible>
-			</control>
-			<control type="image">
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Label</include>
-				<visible>Window.IsVisible(musiclibrary)</visible>
-			</control>
-		</control>
-	</include>
-	<include name="flags_Thumbnails-studio">
-		<control type="group">
-			<posx>235r</posx>
-			<posy>630</posy>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Studio</include>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Network</include>
-				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
-			</control>
-			<control type="image">
-				<posx>50</posx>
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Label</include>
-			</control>
-		</control>
-	</include>
-	<include name="flags_Gallery-studio">
-		<control type="group">
-			<posx>105</posx>
-			<posy>590</posy>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Studio</include>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<include>flag_Network</include>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-		</control>
-	</include>
+	
+	
+	
+	
+	
+	
 	<include name="flags_Type-info">
 		<control type="grouplist" id="100">
 			<width>900</width>
