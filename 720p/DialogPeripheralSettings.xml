@@ -1,0 +1,105 @@
+<window id="123">
+	<defaultcontrol>5</defaultcontrol>
+	<include>dialogOpen</include>
+	<coordinates>
+		<system>1</system>
+		<posx>340</posx>
+		<posy>98</posy>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+			<control type="image">
+				<width>650</width>
+				<height>525</height>
+				<include>dialogWindow</include>
+			</control>
+			<control type="label" id="1">
+				<width>582</width>
+				<label>$LOCALIZE[31071]</label>
+				<include>dialog_Windowtitle</include>
+			</control>
+
+			<!--control area-->
+			<control type="group">
+				<posx>19</posx>
+				<posy>75</posy>
+				<control type="image">
+					<width>613</width>
+					<include>dialog_Separator</include>
+				</control>
+				<!--no settings-->
+				<control type="label" id="3">
+					<posy>7</posy>
+					<width>582</width>
+					<label>$LOCALIZE[35004]</label>
+					<include>dialog_Line</include>
+				</control>
+				<control type="grouplist" id="5">
+					<width>613</width>
+					<height>490</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9001</onleft>
+					<onright>9001</onright>
+					<onup>5</onup>
+					<ondown>5</ondown>
+				</control>
+				<control type="image">
+					<posy>355</posy>
+					<width>613</width>
+					<include>dialog_Separator</include>
+				</control>
+			</control>
+		</control>
+
+		<!--default controls-->
+		<control type="sliderex" id="10">
+			<include>dialog_Slider</include>
+		</control>
+		<control type="button" id="7">
+			<include>dialog_Button-list</include>
+		</control>
+		<control type="radiobutton" id="8">
+			<include>dialog_Radio</include>
+		</control>
+		<control type="spincontrolex" id="9">
+			<include>dialog_Spin</include>
+		</control>
+
+		<!---dialog buttons--->
+		<control type="group" id="9001">
+			<posx>34</posx>
+			<posy>448</posy>
+			<!--defaults-->
+			<control type="button" id="50">
+				<label>409</label>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<onleft>29</onleft>
+				<onright>28</onright>
+				<include>dialog_Button</include>
+			</control>
+			<!--ok-->
+			<control type="button" id="28">
+				<posx>335</posx>
+				<label>186</label>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<onleft>50</onleft>
+				<onright>29</onright>
+				<include>dialog_Button</include>
+			</control>
+			<!--cancel-->
+			<control type="button" id="29">
+				<posx>465</posx>
+				<label>222</label>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<onleft>28</onleft>
+				<onright>50</onright>
+				<include>dialog_Button</include>
+			</control>
+		</control>
+	</controls>
+</window>
