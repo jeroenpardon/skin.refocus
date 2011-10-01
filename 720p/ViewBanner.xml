@@ -23,7 +23,7 @@
 				<control type="label">
 					<posx>75</posx>
 					<width>700</width>
-					<label>$INFO[ListItem.Title]</label>
+					<label>$VAR[view_List.Title]</label>
 					<font>listBig</font>
 				</control>
 				<control type="label">
@@ -33,12 +33,6 @@
 					<label>$INFO[ListItem.Genre]</label>
 					<font>listInfo</font>
 					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posx>75</posx>
-					<width>700</width>
-					<label>$INFO[ListItem.Label]</label>
-					<visible>IsEmpty(ListItem.Title)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout width="560" height="290">
@@ -56,20 +50,10 @@
 					<posy>16</posy>
 					<width>800</width>
 					<height>148</height>
-					<texture diffuse="frames/frame_Wide-mask.png" fallback="thumbs/tvshow_banner.jpg">$INFO[ListItem.Thumb]</texture>
+					<texture diffuse="frames/frame_Wide-mask.png" fallback="thumbs/tvshow_banner.jpg">$VAR[view_Banner.Thumb]</texture>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
 					<include>focus_Banner</include>
-					<visible>!IsEmpty(ListItem.TVShowTitle) + !Skin.HasSetting(banners.local)</visible>
-				</control>
-				<control type="image">
-					<posx>19</posx>
-					<posy>16</posy>
-					<width>800</width>
-					<height>148</height>
-					<texture diffuse="frames/frame_Wide-mask.png" fallback="thumbs/tvshow_banner.jpg">$INFO[ListItem.path]banner.jpg</texture>
-					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<include>focus_Banner</include>
-					<visible>!IsEmpty(ListItem.TVShowTitle) + Skin.HasSetting(banners.local)</visible>
+					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 				<control type="image">
 					<posx>19</posx>
@@ -82,24 +66,12 @@
 				<control type="label">
 					<posx>34</posx>
 					<posy>178</posy>
-					<label>$INFO[ListItem.TVShowTitle]</label>
+					<label>$VAR[view_List.Title]</label>
 					<font>dialog1</font>
 					<textcolor>Color5</textcolor>
 					<align>left</align>
 					<width>1100</width>
 					<include>focus_Banner</include>
-					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-				</control>
-				<control type="label">
-					<posx>34</posx>
-					<posy>178</posy>
-					<label>$INFO[ListItem.Label]</label>
-					<font>dialog1</font>
-					<textcolor>Color1</textcolor>
-					<align>left</align>
-					<width>1100</width>
-					<include>focus_Banner</include>
-					<visible>IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 				<control type="label">
 					<posx>34</posx>
@@ -164,22 +136,10 @@
 					<posy>10</posy>
 					<width>620</width>
 					<height>115</height>
-					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$VAR[view_Banner.Thumb]</texture>
 					<bordertexture border="6" width="590" height="106">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>!Skin.HasSetting(banners.local)</visible>
-				</control>
-				<control type="image">
-					<posx>10</posx>
-					<posy>10</posy>
-					<width>620</width>
-					<height>115</height>
-					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$INFO[ListItem.path]banner.jpg</texture>
-					<bordertexture border="6" width="590" height="106">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Skin.HasSetting(banners.local)</visible>
 				</control>
 				<control type="image">
 					<posx>592</posx>
@@ -201,20 +161,9 @@
 					<posy>10</posy>
 					<width>620</width>
 					<height>115</height>
-					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$VAR[view_Banner.Thumb]</texture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>!Skin.HasSetting(banners.local)</visible>
-				</control>
-				<control type="image">
-					<posx>10</posx>
-					<posy>10</posy>
-					<width>620</width>
-					<height>115</height>
-					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$INFO[ListItem.path]banner.jpg</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-					<visible>Skin.HasSetting(banners.local)</visible>
 				</control>
 				<control type="image">
 					<posx>592</posx>
@@ -246,15 +195,8 @@
 			</control>
 			<control type="label" id="1">
 				<width>500</width>
-				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</label>
+				<label>$VAR[view_List.SubInfo]</label>
 				<include>info_Sub</include>
-				<visible>IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
-			</control>
-			<control type="label" id="1">
-				<width>500</width>
-				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</label>
-				<include>info_Sub</include>
-				<visible>!IntegerGreaterThan(ListItem.Property(TotalSeasons),1)</visible>
 			</control>
 			<control type="label" id="1">
 				<width>500</width>

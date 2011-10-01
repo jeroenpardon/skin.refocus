@@ -14,12 +14,12 @@
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
 
-<!---PAGELABELS------>
 		<control type="label">
-			<label>$VAR[window_Title.VideoInfo]</label>
+			<label>$VAR[window_Title.InfoDialog]</label>
 			<font>pagelabelAlt</font>
 			<include>PageLabelInfo</include>
 		</control>
+		
 		<!--header-->
 		<control type="label">
 			<posx>470</posx>
@@ -263,7 +263,7 @@
 			<control type="image">
 				<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 				<include>thumb_Portrait-List</include>
-				<visible>!Control.IsVisible(50) + !Container.Content(episodes)</visible>
+				<visible>!Control.IsVisible(50) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
 				<texture background="true">$INFO[ListItem.Property(SeasonThumb)]</texture>

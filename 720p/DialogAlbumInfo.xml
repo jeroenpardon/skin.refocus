@@ -11,17 +11,11 @@
 			<width>200</width>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-		
-<!---PAGELABELS------>
+
 		<control type="label">
-			<label>[LOWERCASE][COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Album][/LOWERCASE]</label>
+			<label>$VAR[window_Title.InfoDialog]</label>
+			<font>pagelabelAlt</font>
 			<include>PageLabelInfo</include>
-			<visible>Container.Content(albums)</visible>
-		</control>
-		<control type="label">
-			<label>[LOWERCASE]$INFO[ListItem.Artist][/LOWERCASE]</label>
-			<include>PageLabelInfo</include>
-			<visible>Container.Content(artists)</visible>
 		</control>
 		
 <!---ALBUMS------>
