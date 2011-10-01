@@ -669,6 +669,8 @@
 				<posx>40</posx>
 				<posy>220</posy>
 				<control type="image">
+					<width>128</width>
+					<height>64</height>
 					<texture>$VAR[flag_Studio.player]</texture>
 					<aspectratio align="center">keep</aspectratio>
 				</control>
@@ -764,27 +766,15 @@
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 					<control type="textbox" id="8">
 						<height>87</height>
-						<label>$INFO[VideoPlayer.PlotOutline]</label>
+						<label>$VAR[global_Plot.Condition]</label>
 						<include>description_OSD</include>
-						<visible>!IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
-					</control>
-					<control type="textbox" id="8">
-						<height>87</height>
-						<label>$INFO[VideoPlayer.Plot]</label>
-						<include>description_OSD</include>
-						<visible>IsEmpty(VideoPlayer.PlotOutline) + !Skin.HasSetting(osd.progressbar)</visible>
+						<visible>!Skin.HasSetting(osd.progressbar)</visible>
 					</control>
 					<control type="textbox" id="8">
 						<height>60</height>
-						<label>$INFO[VideoPlayer.PlotOutline]</label>
+						<label>$VAR[global_Plot.Condition]</label>
 						<include>description_OSD</include>
-						<visible>!IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
-					</control>
-					<control type="textbox" id="8">
-						<height>60</height>
-						<label>$INFO[VideoPlayer.Plot]</label>
-						<include>description_OSD</include>
-						<visible>IsEmpty(VideoPlayer.PlotOutline) + Skin.HasSetting(osd.progressbar)</visible>
+						<visible>Skin.HasSetting(osd.progressbar)</visible>
 					</control>
 				</control>
 				<!--progress-->

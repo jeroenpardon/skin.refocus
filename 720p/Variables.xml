@@ -5,11 +5,15 @@
 		<value condition="substring(system.time,PM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</value>
 	</variable>
 	<variable name="global_Plot.Condition">
+	<value condition="!IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
+		<value condition="IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plot]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[Container.ShowPlot]</value>
 		<value condition="!IsEmpty(ListItem.Plotoutline)">$INFO[ListItem.Plotoutline]</value>
 		<value condition="IsEmpty(ListItem.Plotoutline)">$INFO[ListItem.Plot]</value>
+		
+		
 	</variable>
 	<variable name="global_Background.Fallback">
 		<value condition="[Container.Content(movies) | Window.IsActive(21) | Window.IsActive(22) | Window.IsActive(23) | Window.IsActive(24) | Window.IsActive(25)]">backgrounds/movies.jpg</value>
@@ -44,6 +48,9 @@
 	<variable name="view_List.Info">
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
+		<!--is movie set-->
+		<value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
+		<!--tvshows-->
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle) + !stringcompare(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle) + stringcompare(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</value>
 		<!--is linked movie-->
@@ -244,7 +251,7 @@
 	
 	
 	
-	<!--remove-->
+	<!--remove
 	<variable name="view_BigList.Title">
 		<value condition="!Container.Content(episodes) | [Container.Content(episodes) + IsEmpty(ListItem.Title)]">$INFO[ListItem.Label]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title) + ![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]">$INFO[ListItem.Title]</value>
@@ -267,9 +274,7 @@
 	<variable name="view_Thumbnails.Info">
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Genre]</value>
-		<!--is movieset-->
 		<value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
-		<!---->
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle) + !stringcompare(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle) + stringcompare(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.TVShowTitle) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</value>
@@ -278,6 +283,8 @@
 		<value condition="Container.Content(files)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 	</variable>
+	
+	-->
 	
 </includes>
 
