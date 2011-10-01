@@ -156,14 +156,22 @@
 				<posy>462</posy>
 				<control type="label">
 					<width>1080</width>
-					<label>$VAR[view_List.Title]</label>
+					<label>$VAR[view_List.Title] </label>
 					<include>info_Title</include>
+				</control>
+				<control type="label">
+					<posy>28</posy>
+					<width>920</width>
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100] • ]$VAR[view_List.Info]</label>
+					<include>info_Sub</include>
+					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>920</width>
 					<label>$VAR[view_List.Info]</label>
 					<include>info_Sub</include>
+					<visible>!Container.Content(movies)</visible>
 				</control>
 				<control type="label">
 					<posy>52</posy>

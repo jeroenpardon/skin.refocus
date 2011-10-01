@@ -5,15 +5,16 @@
 		<value condition="substring(system.time,PM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</value>
 	</variable>
 	<variable name="global_Plot.Condition">
-	<value condition="!IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
-		<value condition="IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plot]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[Container.ShowPlot]</value>
 		<value condition="!IsEmpty(ListItem.Plotoutline)">$INFO[ListItem.Plotoutline]</value>
 		<value condition="IsEmpty(ListItem.Plotoutline)">$INFO[ListItem.Plot]</value>
-		
-		
+	</variable>
+	<variable name="player_Plot.Condition">
+		<value condition="!IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
+		<value condition="IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plot]</value>
+		<value condition="!IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
 	</variable>
 	<variable name="global_Background.Fallback">
 		<value condition="[Container.Content(movies) | Window.IsActive(21) | Window.IsActive(22) | Window.IsActive(23) | Window.IsActive(24) | Window.IsActive(25)]">backgrounds/movies.jpg</value>
