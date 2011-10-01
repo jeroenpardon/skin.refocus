@@ -36,81 +36,36 @@
 	</include>
 
 <!---STUDIO------>
-	<variable name="v.flag.studio">
+	<variable name="flag_Studio">
 		<value condition="Container.Content(movies)">$INFO[Listitem.studio,flags/studios/,.png]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.studio,flags/networks/,.png]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[Listitem.studio,flags/labels/,.png]</value>
 		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
-	<include name="flags_Slide-studio">
-		<control type="group">
-			<posx>60</posx>
-			<posy>459</posy>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[v.flag.studio]</texture>
-			</control>
-		</control>
-	</include>
-	<include name="flags_Gallery-studio">
-		<control type="group">
-			<posx>105</posx>
-			<posy>590</posy>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[v.flag.studio]</texture>
-			</control>
-		</control>
-	</include>
-	<include name="flags_Thumbnails-studio">
-		<control type="group">
-			<posx>235r</posx>
-			<posy>630</posy>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[v.flag.studio]</texture>
-			</control>
-		</control>
-	</include>
 	
+	<variable name="flag_Studio.player">
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.studio,flags/studios/,.png]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.studio,flags/networks/,.png]</value>
+		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.studio,flags/labels/,.png]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</value>
+		<value condition="VideoPlayer.Content(files)">$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</value>
+		<value condition="VideoPlayer.Content(files)">$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</value>
+	</variable>
 
-	<include name="flag_Studio-play">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[VideoPlayer.studio,flags/studios/,.png]</texture>
-	</include>
-	-->
+
 	
 	
 	
 	
 
 <!---NETWORK------>	
-	<!--<include name="flag_Network">
-		<texture>$VAR[flag_Studio]</texture>
-		<width>128</width>
-		<height>64</height>
-		<visible>!IsEmpty(ListItem.Title)</visible>
-	</include>-->
-	
-	
 	<include name="flag_Network-mono">
 		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
 		<width>128</width>
 		<height>64</height>
 		<visible>!IsEmpty(ListItem.Title)</visible>
 	</include>
-	<include name="flag_Network-play">
-		<width>128</width>
-		<height>64</height>
-		<texture fallback="flags/default.png">$INFO[VideoPlayer.studio,flags/networks/,.png]</texture>
-	</include>
+
 
 <!---LABEL------>
 	<include name="flag_Label">
@@ -118,12 +73,7 @@
 		<height>64</height>
 		<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
 	</include>
-	<include name="flag_Label-play">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[VideoPlayer.studio,flags/labels/,.png]</texture>
-		<colordiffuse>Color1</colordiffuse>
-	</include>
+
 	<include name="flag_Label-video">
 		<width>128</width>
 		<height>64</height>
@@ -142,11 +92,7 @@
 		<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
 		<aspectratio align="right">keep</aspectratio>
 	</include>
-	<include name="flag_Channel-play">
-		<width>128</width>
-		<height>64</height>
-		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</texture>
-	</include>
+
 	<include name="flag_Channel-mono-play">
 		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/mono/networks/,.png]</texture>
 	</include>

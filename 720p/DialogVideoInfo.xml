@@ -1,8 +1,8 @@
 ﻿<window id="2003">
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-
 	<controls>
+	
 <!---TRIGGER------>
 		<control type="button" id="5000">
 			<label>SHOULD NOT SEE ME</label>
@@ -16,82 +16,19 @@
 
 <!---PAGELABELS------>
 		<control type="label">
-			<label>[COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Title]</label>
+			<label>$VAR[window_Title.VideoInfo]</label>
 			<font>pagelabelAlt</font>
 			<include>PageLabelInfo</include>
-			<visible>Container.Content(movies)</visible>
 		</control>
+		<!--header-->
 		<control type="label">
-			<description>tv shows</description>
-			<label>[COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.TVShowTitle]</label>
-			<font>pagelabelAlt</font>
-			<include>PageLabelInfo</include>
-			<visible>Container.Content(tvshows)</visible>
-		</control>
-		<control type="label">
-			<description>episodes</description>
-			<label>$INFO[ListItem.TVShowTitle]</label>
-			<font>pagelabelAlt</font>
-			<include>PageLabelInfo</include>
-			<visible>Container.Content(episodes)</visible>
-		</control>
-		<control type="label">
-			<description>episodes</description>
-			<label>$INFO[ListItem.Label]</label>
-			<font>pagelabelAlt</font>
-			<include>PageLabelInfo</include>
-			<visible>Container.Content(musicvideos)</visible>
-		</control>
-
-<!---INFO------>
-		<control type="group">
 			<posx>470</posx>
 			<posy>97</posy>
+			<width>780</width>
+			<label>$VAR[videoInfo.Header]</label>
+			<include>info_Title</include>
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
-			<!--header-->
-			<control type="label">
-				<width>780</width>
-				<label>$INFO[ListItem.Tagline]</label>
-				<include>info_Title</include>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="label">
-				<width>780</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>info_Title</include>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="label">
-				<width>750</width>
-				<label>$INFO[ListItem.PlotOutline]</label>
-				<include>info_Title</include>
-				<visible>Container.Content(movies) + IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.Property(ReleaseDate)) + !IsEmpty(ListItem.PlotOutline)</visible>
-			</control>
-			<control type="label">
-				<width>750</width>
-				<label>$INFO[ListItem.Plot]</label>
-				<include>info_Title</include>
-				<visible>Container.Content(movies) + [IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline) + IsEmpty(ListItem.Property(ReleaseDate))]</visible>
-			</control>
-			<control type="label">
-				<width>780</width>
-				<include>info_Title</include>
-				<label>$INFO[ListItem.Property(ReleaseDate)]</label>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="label">
-				<width>780</width>
-				<include>info_Title</include>
-				<label>$INFO[ListItem.Genre]</label>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			<control type="label">
-				<width>780</width>
-				<label>$INFO[ListItem.Artist]</label>
-				<include>info_Title</include>
-				<visible>Container.Content(musicvideos) + !Window.IsActive(videofiles)</visible>
-			</control>
 		</control>
 		<!--info-->
 		<control type="grouplist" id="1000">
@@ -240,55 +177,34 @@
 					<include>button_Inline</include>
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
 				</control>
-				<!--
-				<control type="button" id="20">
-					<description>Edit</description>
-					<posx>268</posx>
-					<label>$LOCALIZE[21435]</label>
-					<onleft>11</onleft>
-					<onright>21</onright>
-					<ondown>50</ondown>
-					<onclick>ActivateWindow(60)</onclick>
-					<include>button_Inline</include>
-					<visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
-				</control>
-				<control type="button" id="21">
-					<description>Edit</description>
-					<posx>402</posx>
-					<label>$LOCALIZE[21435]</label>
-					<onleft>11</onleft>
-					<onright>-</onright>
-					<ondown>50</ondown>
-					<onclick>ActivateWindow(60)</onclick>
-					<include>button_Inline</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				-->
 			</control>
 			<!--plot-->
-			<control type="textbox" id="400">
-				<width>740</width>
-				<height>137</height>
-				<label>$INFO[ListItem.PlotOutline]</label>
-				<font>descriptionSmall</font>
-				<include>autoscroll-plot</include>
-				<visible>!Control.IsVisible(50) + !IsEmpty(ListItem.PlotOutline + !Container.Content(musicvideos)</visible>
-			</control>
-			<control type="textbox" id="400">
-				<width>740</width>
-				<height>137</height>
-				<label>$INFO[ListItem.Plot]</label>
-				<font>descriptionSmall</font>
-				<include>autoscroll-plot</include>
-				<visible>!Control.IsVisible(50) + IsEmpty(ListItem.PlotOutline + !Container.Content(musicvideos)</visible>
-			</control>
-			<control type="textbox" id="400">
-				<width>740</width>
-				<height>300</height>
-				<label>$INFO[ListItem.Plot]</label>
-				<font>descriptionSmall</font>
-				<include>autoscroll-plot</include>
-				<visible>!Control.IsVisible(50) + Container.Content(musicvideos)</visible>
+			<control type="group">
+				<visible>!Control.IsVisible(50)</visible>
+				<control type="textbox" id="400">
+					<width>740</width>
+					<height>137</height>
+					<label>$INFO[ListItem.PlotOutline]</label>
+					<font>descriptionSmall</font>
+					<include>autoscroll-plot</include>
+					<visible>!IsEmpty(ListItem.PlotOutline + !Container.Content(musicvideos)</visible>
+				</control>
+				<control type="textbox" id="400">
+					<width>740</width>
+					<height>137</height>
+					<label>$INFO[ListItem.Plot]</label>
+					<font>descriptionSmall</font>
+					<include>autoscroll-plot</include>
+					<visible>IsEmpty(ListItem.PlotOutline + !Container.Content(musicvideos)</visible>
+				</control>
+				<control type="textbox" id="400">
+					<width>740</width>
+					<height>300</height>
+					<label>$INFO[ListItem.Plot]</label>
+					<font>descriptionSmall</font>
+					<include>autoscroll-plot</include>
+					<visible>Container.Content(musicvideos)</visible>
+				</control>
 			</control>
 			<!--cast list-->
 			<control type="list" id="50">
@@ -345,29 +261,19 @@
 				<visible>!Container.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
-				<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+				<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 				<include>thumb_Portrait-List</include>
-				<visible>!Control.IsVisible(50) + Container.Content(movies)</visible>
+				<visible>!Control.IsVisible(50) + !Container.Content(episodes)</visible>
 			</control>
 			<control type="image">
-				<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<include>thumb_Portrait-List</include>
-				<visible>!Control.IsVisible(50) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
-			</control>
-			<control type="image">
-				<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Property(SeasonThumb)]</texture>
+				<texture background="true">$INFO[ListItem.Property(SeasonThumb)]</texture>
 				<include>thumb_Portrait-List</include>
 				<visible>!Control.IsVisible(50) + Container.Content(episodes)</visible>
 			</control>
 			<control type="image">
-				<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[Container(50).Listitem.Icon]</texture>
-				<include>thumb_Portrait-List</include>
-				<visible>Control.IsVisible(50) + !Container.Content(musicvideos)</visible>
-			</control>
-			<control type="image">
 				<width>450</width>
 				<height>273</height>
-				<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+				<texture fallback="thumbs/actor_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 				<bordertexture border="31">frames/frame_Square.png</bordertexture>
 				<bordersize>22</bordersize>
 				<aspectratio scalediffuse="false" align="center">stretch</aspectratio>

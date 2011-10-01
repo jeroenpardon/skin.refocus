@@ -11,10 +11,9 @@
 		<include>view_GalleryFull</include>
 		<include>view_ThumbEpisode</include>
 		<include>view_IconSquare</include>
+		<include>view_SlideMusic</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_Banner</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_BannerWide</include>
-		
-		<include>view_SlideMusic</include>
 
 	<!---TRIGGER------>	
 		<control type="button" id="8000">
@@ -40,40 +39,14 @@
 				<control type="group">
 					<posx>655</posx>
 					<posy>68</posy>
-					<visible>!stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes) | Container.Content(files)</visible>
+					<visible>!stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
 					<control type="image">
 						<include>frame_Landscape-List</include>
 						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 						<include>thumb_Landscape-List</include>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-						<include>thumb_Landscape-List</include>
-						<visible>Container.Content(tvshows)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-						<include>thumb_Landscape-List</include>
-						<visible>Container.Content(artists)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[Fanart.Image]</texture>
-						<include>thumb_Landscape-List</include>
-						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<include>thumb_Landscape-List</include>
-						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/music_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<include>thumb_Landscape-List</include>
-						<visible>Container.Content(musicvideos)</visible>
 					</control>
 					<control type="image">
 						<posx>22</posx>
@@ -120,24 +93,8 @@
 						<visible>!Substring(Container.FolderPath,plugin) | StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 					</control>
 					<control type="image">
-						<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 						<include>thumb_Portrait-List</include>
-						<visible>Container.Content(movies) + [!Substring(Container.FolderPath,plugin) | StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/)] | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<include>thumb_Portrait-List</include>
-						<visible>!SubString(Container.FolderPath,plugin) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[Container.TVShowThumb]</texture>
-						<include>thumb_Portrait-List</include>
-						<visible>Container.Content(seasons) + SubString(ListItem.Icon,default)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<include>thumb_Portrait-List</include>
-						<visible>Container.Content(actors)</visible>
 					</control>
 					<control type="image">
 						<posx>397</posx>
@@ -184,7 +141,14 @@
 			<include>infoDialogHide</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521)</visible>
 			<!---flags--->
-			<include>flags_Slide-studio</include>
+			<control type="image">
+				<posx>60</posx>
+				<posy>459</posy>
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+			</control>
 			<include>flags_Slide-media</include>
 			<!---info--->	
 			<control type="group">
@@ -356,106 +320,31 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
+			<!---large grid--->
 			<control type="group">
 				<visible>Control.IsVisible(57) | Control.IsVisible(573)</visible>
 				<!---flags--->
-				<include>flags_Thumbnails-studio</include>
-				<!---large grid--->
+				<control type="image">
+					<posx>235r</posx>
+					<posy>630</posy>
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+				</control>
 				<control type="group">
 					<posx>85</posx>
 					<posy>640</posy>
 					<control type="label">
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[view_Thumbnails.Title]</label>
 						<width>1100</width>
 						<include>info_Title</include>
-						<visible>IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>
 					<control type="label">
-						<label>$INFO[ListItem.Title]</label>
-						<width>1100</width>
-						<include>info_Title</include>
-						<visible>!IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)</visible>
-					</control>
-					<control type="label">
-						<label>$INFO[ListItem.TVShowTitle]</label>
-						<width>900</width>
-						<include>info_Title</include>
-						<visible>Container.Content(tvshows)</visible>
-					</control>
-					<control type="label">
-						<label>$INFO[ListItem.Label]</label>	
-						<width>900</width>
-						<include>info_Title</include>
-						<visible>Container.Content(seasons) | [Container.Content(tvshows) + IsEmpty(ListItem.TVShowTitle)] | [Container.Content(movies) + IsEmpty(ListItem.Title)]</visible>
-					</control>
-					<!---line 2--->
-					<control type="group">
 						<posy>28</posy>
-						<control type="group">
-							<visible>Container.Content(movies)</visible>
-							<control type="label">
-								<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
-							</control>
-							<control type="label">
-								<label>$INFO[ListItem.Property(ReleaseDate),, • ]$INFO[ListItem.Genre]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<visible>!IsEmpty(ListItem.Property(ReleaseDate))</visible>
-							</control>
-							<control type="label">
-								<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<!---is movie set--->
-								<visible>ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(tvshows)</visible>
-							<control type="label">
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<visible>!IsEmpty(ListItem.TVShowTitle) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
-							</control>
-							<control type="label">
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<visible>!IsEmpty(ListItem.TVShowTitle) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(seasons)</visible>
-							<control type="label">
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<visible>!IsEmpty(ListItem.TVShowTitle) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
-							</control>
-							<!--is linked movie-->
-							<control type="label">
-								<label>$INFO[ListItem.Genre]</label>
-								<width>750</width>
-								<include>info_Sub</include>
-								<visible>!IsEmpty(ListItem.Title) + IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
-							</control>
-						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Artist]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<visible>Container.Content(musicvideos)</visible>
-						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Date]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-							<visible>Container.Content(files)</visible>
-						</control>
+						<label>$VAR[view_Thumbnails.Info]</label>
+						<width>750</width>
+						<include>info_Sub</include>
 					</control>
 				</control>
 			</control>
@@ -467,58 +356,13 @@
 				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 				<control type="label" id="1">
 					<width>435</width>
-					<label>$INFO[ListItem.Title]</label>
+					<label>$VAR[view_Thumbnails.Title]</label>
 					<include>info_Title</include>
-					<visible>!IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>435</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>info_Title</include>
-					<visible>IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>435</width>
-					<label>$INFO[ListItem.Genre]</label>
+					<label>$VAR[view_Thumbnails.Info]</label>
 					<include>info_Sub</include>
-					<visible>!IsEmpty(ListItem.Genre) + Container.Content(movies)</visible>
-				</control>
-				<control type="label" id="1">
-					<!--is movie set-->
-					<width>435</width>
-					<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb://1/) + !IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>435</width>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(movies) + IsEmpty(ListItem.Property(ReleaseDate)) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>435</width>
-					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate)) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>435</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ,,]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(tvshows) + !stringcompare(ListItem.Property(TotalSeasons),1)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>435</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360] • ,,]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(tvshows) + stringcompare(ListItem.Property(TotalSeasons),1)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>435</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(seasons)</visible>
 				</control>
 				<control type="label" id="1">
 					<width>435</width>
@@ -564,7 +408,14 @@
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<!---flags--->
-			<include>flags_Gallery-studio</include>
+			<control type="image">
+				<posx>105</posx>
+				<posy>590</posy>
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+			</control>
 			<!---strip bottom--->
 			<control type="group">
 				<posx>265</posx>

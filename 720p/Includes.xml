@@ -18,6 +18,7 @@
 	<include file="IncludesPageControl.xml" />
 	<include file="IncludesPlayerControl.xml" />
 	<include file="IncludesWeather.xml" />
+	<include file="Variables.xml" />
 	<include file="ViewIcon.xml" />
 	<include file="ViewList.xml" />
 	<include file="ViewSlide.xml" />
@@ -108,21 +109,8 @@
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
 			<control type="label" id="200">
 				<posx>25r</posx>
-				<label>[B]$INFO[System.Time][/B]</label>
+				<label>$VAR[global_Clock.Formats]</label>
 				<include>toast_Top</include>
-				<visible>![substring(system.time,AM,right) | substring(system.time,PM,right)]</visible>
-			</control>
-			<control type="label" id="200">
-				<posx>25r</posx>
-				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</label>
-				<include>toast_Top</include>
-				<visible>substring(system.time,AM,right)</visible>
-			</control>
-			<control type="label" id="200">
-				<posx>25r</posx>
-				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</label>
-				<include>toast_Top</include>
-				<visible>substring(system.time,PM,right)</visible>
 			</control>
 			<control type="label" id="200">
 				<posx>25r</posx>
@@ -139,24 +127,9 @@
 			<visible>!Window.IsActive(infodialog)</visible>
 			<control type="label" id="200">
 				<posx>25r</posx>
-				<label>[B]$INFO[System.Time][/B]</label>
+				<label>$VAR[global_Clock.Formats]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
-				<visible>![substring(system.time,AM,right) | substring(system.time,PM,right)]</visible>
-			</control>
-			<control type="label" id="200">
-				<posx>25r</posx>
-				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</label>
-				<shadowcolor>black</shadowcolor>
-				<include>toast_Top</include>
-				<visible>substring(system.time,AM,right)</visible>
-			</control>
-			<control type="label" id="200">
-				<posx>25r</posx>
-				<label>[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</label>
-				<shadowcolor>black</shadowcolor>
-				<include>toast_Top</include>
-				<visible>substring(system.time,PM,right)</visible>
 			</control>
 			<control type="label" id="200">
 				<posx>25r</posx>
@@ -695,6 +668,16 @@
 			<control type="group">
 				<posx>40</posx>
 				<posy>220</posy>
+				
+				<control type="image">
+					<texture>$VAR[flag_Studio.player]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				
+				
+				
+				
+				
 				<control type="image">
 					<posy>95</posy>
 					<aspectratio align="center">keep</aspectratio>
@@ -704,26 +687,6 @@
 					<aspectratio align="center">keep</aspectratio>
 					<include>flag_VideoCodec-play</include>
 					<visible>VideoPlayer.Content(files)</visible>
-				</control>
-				<control type="image">
-					<aspectratio align="center">keep</aspectratio>
-					<include>flag_Studio-play</include>
-					<visible>VideoPlayer.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<aspectratio align="center">keep</aspectratio>
-					<include>flag_Network-play</include>
-					<visible>VideoPlayer.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<aspectratio align="center">keep</aspectratio>
-					<include>flag_Label-play</include>
-					<visible>VideoPlayer.Content(musicvideos)</visible>
-				</control>
-				<control type="image">
-					<aspectratio align="center">keep</aspectratio>
-					<include>flag_Channel-play</include>
-					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="image">
 					<posy>-11</posy>
@@ -778,34 +741,12 @@
 					</control>
 				</control>
 				<!--video-->
-				<control type="grouplist">
+				<control type="label" id="1">
 					<posy>30</posy>
 					<visible>Player.HasVideo</visible>
-					<control type="label" id="1">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.FolderPath]</label>
-						<include>info_Sub</include>
-						<visible>VideoPlayer.Content(files)</visible>
-					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</label>
-						<include>info_Sub</include>
-						<visible>VideoPlayer.Content(movies)</visible>
-					</control>
-					<control type="label" id="1">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
-						<include>info_Sub</include>
-						<visible>VideoPlayer.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.ChannelName]</label>
-						<!--$INFO[VideoPlayer.ChannelGroup]-->
-						<include>info_Sub</include>
-						<visible>VideoPlayer.Content(livetv)</visible>
-					</control>
+					<width>1000</width>
+					<label>$VAR[osdInfo.Info]</label>
+					<include>info_Sub</include>
 				</control>
 				<!---music videos------>
 				<control type="grouplist">

@@ -1,32 +1,4 @@
 ﻿<includes>
-	<include name="home_clock">
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>[B]$INFO[System.Time][/B]</label>
-			<shadowcolor>black</shadowcolor>
-			<include>toast_Top</include>
-			<visible>![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
-			<include>fadeinout</include>		
-		</control>
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>$INFO[System.Date]</label>
-			<textcolor>Color1</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<include>fadeinout</include>	
-			<include>toast_Bottom</include>
-			<visible>!Window.IsActive(fullscreenvideo)</visible>
-		</control>
-		<control type="label" id="200">
-			<posx>25r</posx>
-			<label>$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
-			<textcolor>Color1</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<include>fadeinout</include>	
-			<include>toast_Bottom</include>		
-			<visible>!Window.IsActive(home) + ![Window.IsActive(fullscreenvideo) + Window.IsActive(infodialog)]</visible>
-		</control>
-	</include>
 	<include name="home_statuslabel">
 		<posy>7</posy>
 		<width>screen_Width</width>

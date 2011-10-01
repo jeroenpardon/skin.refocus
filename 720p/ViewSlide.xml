@@ -23,20 +23,10 @@
 				<control type="image">
 					<width>228</width>
 					<height>316</height>
-					<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 					<bordertexture border="40">frames/frame_Square.png</bordertexture>
 					<bordersize>22</bordersize>
 					<aspectratio align="center">stretch</aspectratio>
-					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
-				</control>
-				<control type="image">
-					<width>228</width>
-					<height>316</height>
-					<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio align="center">stretch</aspectratio>
-					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
 					<posx>174</posx>
@@ -49,22 +39,11 @@
 				<control type="image">
 					<width>228</width>
 					<height>316</height>
-					<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 					<bordertexture border="40">frames/frame_Square.png</bordertexture>
 					<bordersize>22</bordersize>
 					<aspectratio align="center">stretch</aspectratio>
 					<include>focus_SlidePoster</include>
-					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
-				</control>
-				<control type="image">
-					<width>228</width>
-					<height>316</height>
-					<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio align="center">stretch</aspectratio>
-					<include>focus_SlidePoster</include>
-					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
 					<posx>174</posx>
@@ -107,38 +86,10 @@
 			<control type="image">
 				<width>450</width>
 				<height>272</height>
-				<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 				<bordertexture border="31">frames/frame_Square.png</bordertexture>
 				<bordersize>22</bordersize>
 				<aspectratio align="center">stretch</aspectratio>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">scale</aspectratio>
-				<visible>Container.Content(episodes) | Container.Content(files)</visible>
-			</control>
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/music_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">scale</aspectratio>
-				<visible>Container.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
 				<posx>396</posx>
@@ -151,42 +102,11 @@
 			<control type="image">
 				<width>450</width>
 				<height>272</height>
-				<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 				<bordertexture border="27">frames/frame_Square.png</bordertexture>
 				<bordersize>22</bordersize>
 				<aspectratio align="center">stretch</aspectratio>
-				<visible>Container.Content(movies)</visible>
 				<include>focus_SlideWide</include>
-			</control>
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-				<bordertexture border="27">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
-				<visible>Container.Content(tvshows)</visible>
-				<include>focus_SlideWide</include>
-			</control>
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">scale</aspectratio>
-				<include>focus_SlideWide</include>
-				<visible>Container.Content(episodes) | Container.Content(files)</visible>
-			</control>
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/music_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">scale</aspectratio>
-				<include>focus_SlideWide</include>
-				<visible>Container.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
 				<posx>396</posx>
@@ -197,6 +117,7 @@
 			</control>
 		</focusedlayout>
 	</include>
+	
 	<include name="SlideWideMusic">
 		<itemlayout width="425" height="300">
 			<control type="image">

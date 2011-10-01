@@ -24,7 +24,7 @@
 			<include condition="Window.IsVisible(addonbrowser) | Window.IsVisible(programs)">ListAddons</include>	
 		</control>
 	</include>
-		
+
 	<include name="ListVideo">
 		<itemlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/video/) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
 			<control type="label">
@@ -55,86 +55,15 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label</include>
-				<visible>!Container.Content(episodes) | [Container.Content(episodes) + IsEmpty(ListItem.Title)]</visible>
 			</control>
-			<control type="group">
+			<control type="label">
 				<posx>40</posx>
-				<visible>Container.Content(movies)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>510</width>
-					<label>$INFO[ListItem.Genre]</label>
-					<include>list_Label-sub</include>
-					<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
-				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>510</width>
-					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
-					<include>list_Label-sub</include>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-					<include>list_Label-sub</include>
-				</control>
-				<!--is linked movie-->
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Genre]</label>
-					<include>list_Label-sub</include>
-					<visible>IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !IsEmpty(ListItem.Title)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>Container.Content(episodes)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label</include>
-					<visible>!stringcompare(Container.FolderPath,videodb://5/)</visible>
-				</control>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</label>
-					<include>list_Label</include>
-					<visible>stringcompare(Container.FolderPath,videodb://5/)</visible>
-				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
-					<include>list_Label-sub</include>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>Container.Content(musicvideos)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Artist]</label>
-					<include>list_Label-sub</include>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>stringcompare(Container.FolderPath,addons://sources/video/)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-					<include>list_Label-sub</include>
-				</control>
+				<posy>28</posy>
+				<width>510</width>
+				<label>$VAR[view_List.SubInfo]</label>
+				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
 				<posx>570</posx>
@@ -169,87 +98,15 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label-focus</include>
-				<visible>!Container.Content(episodes) | [Container.Content(episodes) + IsEmpty(ListItem.Title)]</visible>
 			</control>
-			<control type="group">
+			<control type="label">
 				<posx>40</posx>
-				<visible>Container.Content(movies)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>510</width>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-					<include>list_Label-sub-focus</include>
-					<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
-				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>510</width>
-					<label>$INFO[ListItem.Property(ReleaseDate)]</label>
-					<include>list_Label-sub-focus</include>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-					<include>list_Label-sub-focus</include>
-				</control>
-				<!--is linked movie-->
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Genre]</label>
-					<include>list_Label-sub-focus</include>
-					<visible>IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !IsEmpty(ListItem.Title)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>Container.Content(episodes)</visible>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>list_Label-focus</include>
-					<visible>!stringcompare(Container.FolderPath,videodb://5/)</visible>
-				</control>
-				<control type="label">
-					<width>440</width>
-					<label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</label>
-					<include>list_Label-focus</include>
-					<visible>stringcompare(Container.FolderPath,videodb://5/)</visible>
-				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
-					<include>list_Label-sub-focus</include>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>Container.Content(musicvideos)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Artist]</label>
-					<include>list_Label-sub-focus</include>
-				</control>
-			</control>
-			<control type="group">
-				<posx>40</posx>
-				<visible>stringcompare(Container.FolderPath,addons://sources/video/)</visible>
-				<control type="label">
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-					<font>listInfo</font>
-					<include>list_Label-focus</include>
-				</control>
+				<posy>28</posy>
+				<width>510</width>
+				<label>$VAR[view_List.SubInfo]</label>
+				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
 				<posx>570</posx>
@@ -278,54 +135,15 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label</include>
-				<visible>IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-				<include>list_Label</include>
-				<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>list_Label</include>
-				<visible>IsEmpty(ListItem.TVShowTitle)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
+				<posy>28</posy>
 				<width>510</width>
-				<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] , -] $INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
+				<label>$VAR[view_List.SubInfo]</label>
 				<include>list_Label-sub</include>
-				<visible>!IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
-				<width>510</width>
-				<label>$INFO[ListItem.Genre]</label>
-				<include>list_Label-sub</include>
-				<visible>IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
-				<width>510</width>
-				<label>$INFO[ListItem.Artist]</label>
-				<include>list_Label-sub</include>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
-				<width>510</width>
-				<label>$INFO[ListItem.Path]</label>
-				<include>list_Label-sub</include>
-				<visible>IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist) + IsEmpty(Listitem.Genre)</visible>
 			</control>
 			<control type="image">
 				<posx>570</posx>
@@ -360,54 +178,15 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label-focus</include>
-				<visible>IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-				<include>list_Label-focus</include>
-				<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>list_Label-focus</include>
-				<visible>IsEmpty(ListItem.TVShowTitle)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
+				<posy>28</posy>
 				<width>510</width>
-				<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] , -] $INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
+				<label>$VAR[view_List.SubInfo]</label>
 				<include>list_Label-sub-focus</include>
-				<visible>!IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
-				<width>510</width>
-				<label>$INFO[ListItem.Genre]</label>
-				<include>list_Label-sub-focus</include>
-				<visible>IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
-				<width>510</width>
-				<label>$INFO[ListItem.Artist]</label>
-				<include>list_Label-sub-focus</include>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>27</posy>
-				<width>510</width>
-				<label>$INFO[ListItem.Path]</label>
-				<include>list_Label-sub-focus</include>
-				<visible>IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist) + IsEmpty(Listitem.Genre)</visible>
 			</control>
 			<control type="image">
 				<posx>570</posx>
@@ -460,56 +239,15 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label</include>
-				<visible>!Container.Content(songs) | IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>list_Label</include>
-				<visible>Container.Content(songs)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+				<width>510</width>
+				<label>$VAR[view_List.SubInfo]</label>
 				<include>list_Label-sub</include>
-				<visible>Container.Content(artists)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]$INFO[ListItem.Genre, • ]</label>
-				<include>list_Label-sub</include>
-				<visible>Container.Content(albums)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$INFO[ListItem.TrackNumber, • $LOCALIZE[554] ]</label>
-				<include>list_Label-sub</include>
-				<visible>Container.Content(songs)</visible>
-			</control>
-			<control type="group">
-				<visible>stringcompare(Container.FolderPath,addons://sources/audio/)</visible>
-				<control type="label">
-					<posx>40</posx>
-					<width>440</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-					<include>list_Label-sub</include>
-				</control>
 			</control>
 			<control type="image">
 				<posx>475</posx>
@@ -535,56 +273,15 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label-focus</include>
-				<visible>!Container.Content(songs) | IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>list_Label-focus</include>
-				<visible>Container.Content(songs)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+				<width>510</width>
+				<label>$VAR[view_List.SubInfo]</label>
 				<include>list_Label-sub-focus</include>
-				<visible>Container.Content(artists)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]$INFO[ListItem.Genre, • ]</label>
-				<include>list_Label-sub-focus</include>
-				<visible>Container.Content(albums)</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$INFO[ListItem.TrackNumber, • $LOCALIZE[554] ]</label>
-				<include>list_Label-sub-focus</include>
-				<visible>Container.Content(songs)</visible>
-			</control>
-			<control type="group">
-				<visible>stringcompare(Container.FolderPath,addons://sources/audio/)</visible>
-				<control type="label">
-					<posx>40</posx>
-					<width>440</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>list_Label-focus</include>
-				</control>
-				<control type="label">
-					<posx>40</posx>
-					<posy>28</posy>
-					<width>560</width>
-					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-					<include>list_Label-sub-focus</include>
-				</control>
 			</control>
 			<control type="image">
 				<posx>475</posx>
@@ -605,15 +302,8 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Title]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label</include>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>500</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>list_Label</include>
-				<visible>IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>
@@ -654,15 +344,8 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$INFO[ListItem.Title]</label>
+				<label>$VAR[view_List.Title]</label>
 				<include>list_Label-focus</include>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>list_Label-focus</include>
-				<visible>IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label">
 				<posx>40</posx>
@@ -914,93 +597,24 @@
 					<control type="image">
 						<width>247</width>
 						<height>144</height>
-						<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
 						<bordersize>6</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="image">
-						<width>247</width>
-						<height>144</height>
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-						<bordersize>6</bordersize>
-						<aspectratio>stretch</aspectratio>
-						<visible>Container.Content(tvshows)</visible>
-					</control>
-					<control type="image">
-						<width>247</width>
-						<height>144</height>
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
-						<visible>Container.Content(episodes)</visible>
 					</control>
 					<control type="label">
 						<posy>2</posy>
 						<posx>260</posx>
 						<width>770</width>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[view_BigList.Title]</label>
 						<include>list_Label</include>
-						<visible>!Container.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<posy>2</posy>
-						<posx>260</posx>
-						<width>770</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>list_Label</include>
-						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<posx>260</posx>
 						<posy>28</posy>
 						<width>770</width>
-						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+						<label>$VAR[view_BigList.Info]</label>
 						<include>list_Label-sub</include>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="group">
-						<posx>260</posx>
-						<posy>28</posy>
-						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-							<include>list_Label-sub</include>
-							<visible>IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-						</control>
-						<control type="label" id="1">
-							<width>770</width>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-							<include>list_Label-sub</include>
-							<visible>!IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-						</control>
-					</control>
-					<control type="group">
-						<posx>260</posx>
-						<posy>2</posy>
-						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.Title]</label>
-							<include>list_Label</include>
-							<visible>![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]</visible>
-						</control>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-							<include>list_Label</include>
-							<visible>stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)</visible>
-						</control>
-						<control type="label">
-							<posy>28</posy>
-							<width>770</width>
-							<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
-							<include>list_Label-sub</include>
-						</control>
 					</control>
 					<control type="textbox" id="4">
 						<posx>260</posx>
@@ -1040,90 +654,23 @@
 					<control type="image">
 						<width>247</width>
 						<height>144</height>
-						<texture fallback="thumbs/movie_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 						<bordersize>6</bordersize>
 						<aspectratio>scale</aspectratio>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="image">
-						<width>247</width>
-						<height>144</height>
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
-						<visible>Container.Content(tvshows)</visible>
-					</control>
-					<control type="image">
-						<width>247</width>
-						<height>144</height>
-						<texture fallback="thumbs/tvshow_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
-						<visible>Container.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<posx>260</posx>
-						<posy>2</posy>
-						<width>770</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>list_Label-focus</include>
-						<visible>!Container.Content(episodes)</visible>
 					</control>
 					<control type="label">
 						<posy>2</posy>
 						<posx>260</posx>
 						<width>770</width>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[view_BigList.Title]</label>
 						<include>list_Label-focus</include>
-						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<posx>260</posx>
 						<posy>28</posy>
 						<width>770</width>
-						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+						<label>$VAR[view_BigList.Info]</label>
 						<include>list_Label-sub-focus</include>
-						<visible>Container.Content(movies) + !IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="group">
-						<posx>260</posx>
-						<posy>28</posy>
-						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[33054]</label>
-							<include>list_Label-sub-focus</include>
-							<visible>IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-						</control>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • ] $LOCALIZE[20373]</label>
-							<include>list_Label-sub-focus</include>
-							<visible>!IntegerGreaterThan(ListItem.Property(TotalEpisodes),1)</visible>
-						</control>
-					</control>
-					<control type="group">
-						<posx>260</posx>
-						<posy>2</posy>
-						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Title)</visible>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.Title]</label>
-							<include>list_Label-focus</include>
-							<visible>![stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)]</visible>
-						</control>
-						<control type="label">
-							<width>770</width>
-							<label>$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Title]</label>
-							<include>list_Label-focus</include>
-							<visible>stringcompare(container.folderpath,videodb://5/) | substring(Container.FolderPath,special://profile/playlists/video/)</visible>
-						</control>
-						<control type="label">
-							<posy>28</posy>
-							<width>770</width>
-							<label>$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
-							<include>list_Label-sub-focus</include>
-						</control>
 					</control>
 					<control type="textbox" id="4">
 						<posx>260</posx>
@@ -1166,43 +713,24 @@
 					<control type="image">
 						<width>100</width>
 						<height>144</height>
-						<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
 						<bordersize>6</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="image">
-						<width>100</width>
-						<height>144</height>
-						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
-						<bordersize>6</bordersize>
-						<aspectratio>stretch</aspectratio>
-						<visible>Container.Content(tvshows)</visible>
 					</control>
 					<control type="label">
 						<posx>120</posx>
 						<posy>2</posy>
 						<width>770</width>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[view_BigList.Title]</label>
 						<include>list_Label</include>
 					</control>
-					<control type="group">
+					<control type="label">
 						<posx>120</posx>
 						<posy>28</posy>
-						<control type="label">
-							<width>900</width>
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-							<include>list_Label-sub</include>
-							<visible>Container.Content(movies)</visible>
-						</control>
-						<control type="label">
-							<width>975</width>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-							<include>list_Label-sub</include>
-							<visible>Container.Content(tvshows)</visible>
-						</control>
+						<width>770</width>
+						<label>$VAR[view_BigList.Info]</label>
+						<include>list_Label-sub</include>
 					</control>
 					<control type="textbox" id="4">
 						<posx>120</posx>
@@ -1240,42 +768,23 @@
 					<control type="image">
 						<width>100</width>
 						<height>144</height>
-						<texture fallback="thumbs/movie_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 						<bordersize>6</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="image">
-						<width>100</width>
-						<height>144</height>
-						<texture fallback="thumbs/tvshow_portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<bordersize>6</bordersize>
-						<aspectratio>stretch</aspectratio>
-						<visible>Container.Content(tvshows)</visible>
 					</control>
 					<control type="label">
 						<posx>120</posx>
 						<posy>2</posy>
 						<width>770</width>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[view_BigList.Title]</label>
 						<include>list_Label-focus</include>
 					</control>
-					<control type="group">
+					<control type="label">
 						<posx>120</posx>
 						<posy>28</posy>
-						<visible>!IsEmpty(ListItem.Title)</visible>
-						<control type="label">
-							<width>900</width>
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-							<include>list_Label-sub-focus</include>
-							<visible>Container.Content(movies)</visible>
-						</control>
-						<control type="label">
-							<width>900</width>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-							<include>list_Label-sub-focus</include>
-							<visible>Container.Content(tvshows)</visible>
-						</control>
+						<width>770</width>
+						<label>$VAR[view_BigList.Info]</label>
+						<include>list_Label-sub-focus</include>
 					</control>
 					<control type="textbox" id="4">
 						<posx>120</posx>

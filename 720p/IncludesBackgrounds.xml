@@ -1,94 +1,31 @@
 ﻿<includes>
 	<include name="global_Background">
-		<!--movies-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/movies.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + [Container.Content(movies) | Window.IsActive(21) | Window.IsActive(22) | Window.IsActive(23) | Window.IsActive(24) | Window.IsActive(25)]+ ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+			<texture background="true">$VAR[global_Background.Fallback]</texture>
+			<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Fanart</include>
 		</control>
-		<!--tv shows-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/tvshows.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + [Container.Content(tvshows) | Container.Content(seasons)  | Container.Content(episodes) | stringcompare(container.folderpath,videodb://2/) | stringcompare(container.folderpath,videodb://5/)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--live tv-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/livetv.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + [Window.IsActive(600) | Window.IsActive(tvsettings)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--music-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/music.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + [Window.IsActive(501) | Window.IsActive(502)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--pictures-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/pictures.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + Window.IsActive(2) + !Control.IsVisible(531) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--settings-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/settings.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + [Window.IsActive(12) | Window.IsActive(10019) | Window.IsActive(10018) | Window.IsActive(10017) | Window.IsActive(10016) | Window.IsActive(10015) | Window.IsActive(10014) | Window.IsActive(10013) | Window.IsActive(10012) | Window.IsActive(10003) | Window.IsActive(10004) | Window.IsActive(10007) | Window.IsActive(10034)] + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--skin-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/skin.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + Window.IsActive(59) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--programs-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/programs.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + Window.IsActive(programs) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--addons-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/addons.jpg</texture>
-			<visible>Skin.HasSetting(fanart.global) + Window.IsActive(addonbrowser) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--weather-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/weather.jpg</texture>
-			<visible>Window.IsActive(weather) + !Skin.HasSetting(fanart.weather)</visible>
-			<include>transition_Fanart</include>
-		</control>
-		<!--fanart-->
-		<control type="image">
 			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-			<visible>Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + ![Control.IsVisible(56)]</visible>
-			<include>screen_Dimensions</include>
-			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Fanart</include>
+			<fadetime>fadetime_Fanart</fadetime>
 		</control>
 		<!--playing video background-->
-		<control type="image">
-			<aspectratio>stretch</aspectratio>
-			<include>screen_Dimensions</include>
-			<texture>black.png</texture>
+		<control type="group">
 			<visible>Player.HasVideo + Skin.HasSetting(backgroundvideo.global)</visible>
-		</control>
-		<!--playing video-->
-		<control type="videowindow">
-			<include>screen_Dimensions</include>
-			<visible>Player.HasVideo + Skin.HasSetting(backgroundvideo.global) + ![Window.IsActive(pictures) + Control.IsVisible(531)] + !Window.IsActive(weather)</visible>
+			<control type="image">
+				<aspectratio>stretch</aspectratio>
+				<include>screen_Dimensions</include>
+				<texture>black.png</texture>
+				<visible></visible>
+			</control>
+			<control type="videowindow">
+				<include>screen_Dimensions</include>
+				<visible>![Window.IsActive(pictures) + Control.IsVisible(531)] + !Window.IsActive(weather)</visible>
+			</control>
 		</control>
 		<!--global background-->
 		<control type="image">
