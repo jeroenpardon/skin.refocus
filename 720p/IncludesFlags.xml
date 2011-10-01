@@ -131,12 +131,7 @@
 			</control>
 		</control>
 	</include>
-	
-	
-	
-	
-	
-	
+
 	<include name="flags_Type-info">
 		<control type="grouplist" id="100">
 			<width>900</width>
@@ -172,34 +167,22 @@
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
 			</control>
 			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.studio,flags/studios/,.png]</texture>
+				<width>128</width>
+				<height>72</height>
+				<texture>$VAR[flag_Studio]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="image">
-				<width>128</width>
-				<height>72</height>
-				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.studio,flags/networks/,.png]</texture>
+				<texture>$VAR[flag_Studio]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="image">
-				<width>96</width>
-				<height>64</height>
-				<texture>$INFO[Listitem.studio,flags/labels/,.png]</texture>
-				<aspectratio align="center">keep</aspectratio>
+				<visible>!Container.Content(movies)</visible>
 			</control>
 		</control>
 	</include>
+	<!--
 	<include name="flags_Label-info">
 		<control type="grouplist" id="100">
 			<itemgap>20</itemgap>
@@ -222,6 +205,7 @@
 			</control>
 		</control>
 	</include>
+	-->
 	<include name="flags_PVR">
 		<control type="image">
 			<width>128</width>
