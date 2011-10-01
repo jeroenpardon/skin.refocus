@@ -179,14 +179,6 @@
 					<label>$VAR[global_Plot.Condition]</label>
 					<include>description_Small</include>
 				</control>
-				<control type="textbox">
-					<posy>60</posy>
-					<width>960</width>
-					<height>138</height>
-					<label>$INFO[Container.ShowPlot]</label>
-					<include>description_Small</include>
-					<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
-				</control>
 			</control>
 		</control>
 		<include>view_SlidePoster</include>
@@ -377,7 +369,7 @@
 					<posy>47</posy>
 					<width>1240</width>
 					<height>115</height>
-					<label>$INFO[ListItem.Plot]</label>
+					<label>$VAR[global_Plot.Condition]</label>
 					<textcolor>Color4</textcolor>
 					<include>description_Small</include>
 				</control>
