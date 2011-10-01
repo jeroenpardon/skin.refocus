@@ -1,20 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<addon
-	id="skin.refocus"
-	version="0.9.2-git"
-	name="reFocus"
-	provider-name="Jeroen">
+	<addon id="skin.refocus" version="0.9.4-git" name="reFocus" provider-name="Jeroen">
 	<requires>
 		<import addon="xbmc.gui" version="3.00"/>
 		<import addon="script.logo-downloader" version="2.0"/>
 	</requires>
-	<extension 
-		point="xbmc.gui.skin"
-		defaultresolution="720p" 
-		defaultresolutionwide="720p"
-		effectslowdown="1.00"
-		debugging="false"/>
-		<extension point="xbmc.addon.metadata">
+	<extension point="xbmc.gui.skin" defaultresolution="720p" defaultresolutionwide="720p" defaultthemename="Textures.xpr" effectslowdown="1.00" debugging="false">
+		<res width="1280" height="720" aspect="16:9" default="true" folder="720p" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
 		<summary>reFocus by Jeroen</summary>
 		<summary lang="nl">reFocus door Jeroen</summary>
 		<summary lang="es">reFocus, hecho por Jeroen</summary>
@@ -33,3 +26,4 @@
 		<platform>all</platform>
 	</extension>
 </addon>
+
