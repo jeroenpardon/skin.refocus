@@ -25,7 +25,7 @@
 			<width>500</width>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-		
+
 	<!---LIST------>
 		<include>view_List</include>
 		<control type="group">
@@ -421,54 +421,20 @@
 				<posx>265</posx>
 				<posy>585</posy>
 				<control type="group">
-					<visible>Container.Content(movies)</visible>
 					<control type="label">
-						<label>$INFO[ListItem.Tagline]</label>
+						<label>$VAR[videoInfo.Header]</label>
 						<width>940</width>
 						<include>info_TitleSmall</include>
-					</control>
-					<control type="label">
-						<label>$INFO[ListItem.PlotOutline]</label>
-						<width>940</width>
-						<include>info_TitleSmall</include>
-						<visible>IsEmpty(ListItem.Tagline)</visible>
-					</control>
-					<control type="label">
-						<label>$INFO[ListItem.Plot]</label>
-						<width>940</width>
-						<include>info_TitleSmall</include>
-						<visible>IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="label">
 						<posy>24</posy>
-						<label>$INFO[ListItem.Genre,, • ]$INFO[ListItem.Year]</label>
+						<label>$VAR[view_List.SubInfo]</label>
 						<width>750</width>
 						<include>info_Sub</include>
-					</control>
-					<control type="label">
-						<posy>24</posy>
-						<label>$LOCALIZE[20338] $LOCALIZE[20141]</label>
-						<width>750</width>
-						<include>info_Sub</include>
-						<visible>ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<posy>47</posy>
 						<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
-						<width>750</width>
-						<include>info_Sub</include>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Container.Content(tvshows)</visible>
-					<control type="label">
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-						<width>900</width>
-						<include>info_TitleSmall</include>
-					</control>
-					<control type="label">
-						<posy>24</posy>
-						<label>$INFO[ListItem.Genre]</label>
 						<width>750</width>
 						<include>info_Sub</include>
 					</control>
@@ -477,6 +443,7 @@
 						<label>$INFO[ListItem.Date]</label>
 						<width>750</width>
 						<include>info_Sub</include>
+						<visible>Container.Content(tvshows)</visible>
 					</control>
 				</control>
 			</control>
@@ -539,7 +506,6 @@
 				</control>
 			</control>
 		</control>
-
 <!---WINDOWMENU------>
 		<include>menu_Video</include>
 	</controls>
