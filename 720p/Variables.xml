@@ -195,7 +195,7 @@
 		<value condition="ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
 	</variable>
 	<variable name="osdInfo.Info">
-		<value condition="VideoPlayer.Content(files)">$INFO[VideoPlayer.FolderPath]</value>
+		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
