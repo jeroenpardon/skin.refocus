@@ -120,7 +120,7 @@
 		<value condition="SubString(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[136][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,special://profile/playlists/video/)">$LOCALIZE[559] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<!--add-ons-->
-		<value condition="SubString(Container.FolderPath,addons://sources/video/) + !SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</value>
+		<value condition="Container.Content(addons) + !SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</value>
 	</variable>
 	<variable name="window_Title.Music">
 		<!--music sources-->

@@ -25,7 +25,7 @@
 	</include>
 
 	<include name="ListVideo">
-		<itemlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/video/) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
+		<itemlayout condition="IsEmpty(Container.FolderPath) | ![Container.Content(addons) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
@@ -33,7 +33,7 @@
 				<include>list_Label-single</include>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/video/) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
+		<focusedlayout condition="IsEmpty(Container.FolderPath) | ![Container.Content(addons) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
 			<control type="image">
 				<posy>-28</posy>
 				<width>650</width>
