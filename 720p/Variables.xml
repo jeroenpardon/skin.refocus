@@ -57,7 +57,6 @@
 
 <!---IMAGES------>
 	<variable name="thumb_Landscape.Condition">
-	<value>$INFO[ListItem.Thumb]</value>
 		<value condition="!IsEmpty(ListItem.Property(Fanart_Image)) + !Container.Content(episodes)">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(movies)">thumbs/movie_landscape.jpg</value>
 		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(tvshows)">thumbs/tvshow_landscape.jpg</value>
@@ -66,7 +65,7 @@
 		<value condition="Container.Content(episodes) + IsEmpty(ListItem.Thumb)">thumbs/tvshow_landscape.jpg</value>
 		<value condition="Container.Content(musicvideos) + IsEmpty(ListItem.Thumb)">thumbs/music_landscape.jpg</value>
 		<value condition="Container.Content(files) + IsEmpty(ListItem.Thumb)">thumbs/video_landscape.png</value>
-		
+		<value>$INFO[ListItem.Thumb]</value>
 	</variable>	
 	<variable name="thumb_Portrait.Condition">
 		<value condition="IsEmpty(ListItem.Thumb) + Container.Content(movies)">thumbs/movie_portrait.jpg</value>
