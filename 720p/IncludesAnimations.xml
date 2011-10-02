@@ -347,21 +347,13 @@
 
 <!---DIALOGS------>
 	<include name="dialogOpen">
-		<animation type="WindowOpen">
-			<effect type="zoom" start="90" end="100" center="screen_Center" tween="Cubic" time="200" />
-			<effect type="fade" start="0" end="100" time="100" />
+		<animation type="WindowOpen" reversible="false">
+			<effect type="zoom" start="90" end="100" time="200" center="screen_Center" tween="Sine" easing="InOut" />
+			<effect type="fade" start="0" end="100" time="200" />
 		</animation>
-		<animation type="WindowClose">
-			<effect type="zoom" start="100" end="90" center="screen_Center" time="200" />
-			<effect type="fade" start="100" end="0" time="100" />
-		</animation>
-		<animation type="Visible">
-			<effect type="zoom" start="90" end="100" center="screen_Center" tween="Cubic" time="200" />
-			<effect type="fade" start="0" end="100" time="100" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="zoom" start="100" end="90" center="screen_Center" time="200" />
-			<effect type="fade" start="100" end="0" time="100" />
+		<animation type="WindowClose" reversible="false">
+			<effect type="zoom" start="100" end="90" time="200" center="screen_Center" tween="Sine" easing="InOut" />
+			<effect type="fade" start="100" end="0" time="200" />
 		</animation>
 	</include>
 	<include name="infoDialogHide">		
