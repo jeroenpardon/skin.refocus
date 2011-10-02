@@ -108,14 +108,14 @@
 				<effect type="slide" time="200" start="0" end="-50" tween="Cubic" easing="Out" />
 			</animation>
 			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
-			<control type="label" id="200">
+			<control type="label">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
 				<include>toast_Top</include>
 			</control>
-			<control type="label" id="200">
+			<control type="label">
 				<posx>25r</posx>
-				<label>[UPPERCASE]$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)][/UPPERCASE]</label>
+				<label>$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</label>
 				<include>toast_Bottom</include>
 			</control>
 		</control>
@@ -126,18 +126,27 @@
 				<effect type="slide" time="0" start="0" end="-50" />
 			</animation>
 			<visible>!Window.IsActive(infodialog)</visible>
-			<control type="label" id="200">
+			<control type="label">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
 			</control>
-			<control type="label" id="200">
+			<control type="label">
 				<posx>25r</posx>
-				<label>[UPPERCASE]$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)][/UPPERCASE]</label>
+				<label>$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</label>
 				<textcolor>Color1</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Bottom</include>
+				<visible>!Window.IsActive(fullscreenvideo)</visible>
+			</control>
+			<control type="label">
+				<posx>25r</posx>
+				<label>$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
+				<textcolor>Color1</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<include>toast_Bottom</include>
+				<visible>Window.IsActive(fullscreenvideo)</visible>
 			</control>
 		</control>
 	</include>
@@ -393,7 +402,7 @@
 	<include name="art_TVShowLogo">
 		<texture background="true">$INFO[ListItem.Path]logo.png</texture>
 		<aspectratio align="center">keep</aspectratio>
-		<fadetime>fadetime_Thumb</fadetime>
+		<fadetime>200</fadetime>
 		<visible>Container.Content(tvshows) + Skin.HasSetting(tvshowlogos.enable)</visible>
 	</include>
 	<!--watchedOverlay-->
