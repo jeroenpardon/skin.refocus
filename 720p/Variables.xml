@@ -73,6 +73,11 @@
 		<value condition="IsEmpty(ListItem.Thumb) + Container.Content(actors)">thumbs/actor_portrait.jpg</value>
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
+	<variable name="thumb_Square.Condition">
+		<value condition="Container.Content(albums) + IsEmpty(ListItem.Property(AlbumThumb))">thumbs/album.png</value>
+		<value condition="Container.Content(artists) + IsEmpty(ListItem.Property(ArtistThumb))">thumbs/artist.png</value>
+		<value>$INFO[ListItem.Thumb]</value>
+	</variable>
 	<variable name="view_Banner.Thumb">
 		<value condition="!Skin.HasSetting(banners.local)">$INFO[ListItem.Thumb]</value>
 		<value condition="Skin.HasSetting(banners.local)">$INFO[ListItem.path]banner.jpg</value>
