@@ -95,6 +95,7 @@
 					<control type="image">
 						<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 						<include>thumb_Portrait-List</include>
+						<visible>!Substring(Container.FolderPath,plugin) | StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 					</control>
 					<control type="image">
 						<posx>397</posx>
@@ -155,27 +156,27 @@
 				<posx>220</posx>
 				<posy>462</posy>
 				<control type="label">
-					<width>1080</width>
+					<width>960</width>
 					<label>$VAR[global_Item.Title]</label>
 					<include>info_Title</include>
 				</control>
 				<control type="label">
 					<posy>28</posy>
-					<width>920</width>
+					<width>960</width>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100] • ]$VAR[global_Item.Info]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="label">
 					<posy>28</posy>
-					<width>920</width>
+					<width>960</width>
 					<label>$VAR[global_Item.Info]</label>
 					<include>info_Sub</include>
 					<visible>!Container.Content(movies)</visible>
 				</control>
 				<control type="label">
 					<posy>52</posy>
-					<width>980</width>
+					<width>960</width>
 					<label>$INFO[ListItem.Date]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(files)</visible>

@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
 			<itemlayout height="260" width="186">
 				<control type="image">
 					<width>177</width>
@@ -81,7 +81,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
 			<itemlayout height="190" width="140">
 				<control type="image">
 					<width>134</width>

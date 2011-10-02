@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
 			<itemlayout height="400" width="205">
 				<control type="image">
 					<width>228</width>
@@ -76,7 +76,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[[Container.Content(movies) + !SubString(Container.FolderPath,plugin://plugin.video.apple,Left)] | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles]]</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,musicdb)] | [Container.Content(files) + Container.HasFiles]] | SubString(Container.FolderPath,plugin://plugin.video.youtube)</visible>
 			<include condition="Window.IsVisible(videolibrary)">SlideWideVideo</include>
 			<include condition="Window.IsVisible(musiclibrary)">SlideWideMusic</include>
 		</control>	
@@ -89,7 +89,7 @@
 				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 				<bordertexture border="31">frames/frame_Square.png</bordertexture>
 				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
+				<aspectratio align="center">scale</aspectratio>
 			</control>
 			<control type="image">
 				<posx>396</posx>
@@ -105,7 +105,7 @@
 				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 				<bordertexture border="27">frames/frame_Square.png</bordertexture>
 				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
+				<aspectratio align="center">scale</aspectratio>
 				<include>focus_SlideWide</include>
 			</control>
 			<control type="image">
