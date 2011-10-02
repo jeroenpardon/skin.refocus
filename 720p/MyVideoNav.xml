@@ -71,7 +71,7 @@
 						<height>244</height>
 						<label>$INFO[ListItem.Plot]</label>
 						<include>description_Small</include>
-						<visible>Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)]</visible>
+						<visible>[Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)]] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)] | Container.Content(musicvideos)</visible>
 					</control>
 					<control type="textbox">
 						<width>525</width>
