@@ -16,15 +16,15 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<include condition="Window.IsVisible(videolibrary)">ListVideo</include>
-			<include condition="Window.IsVisible(musiclibrary) | Window.IsActive(501)">ListMusic</include>
-			<include condition="Window.IsVisible(videoplaylist)">ListVideoPlaylist</include>
-			<include condition="Window.IsVisible(musicplaylist)">ListMusicPlaylist</include>
-			<include condition="Window.IsVisible(pictures) | Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">ListFiles</include>
+			<include condition="Window.IsVisible(videolibrary)">List_Video</include>
+			<include condition="Window.IsVisible(musiclibrary) | Window.IsActive(501)">List_Music</include>
+			<include condition="Window.IsVisible(videoplaylist)">List_VideoPlaylist</include>
+			<include condition="Window.IsVisible(musicplaylist)">List_MusicPlaylist</include>
+			<include condition="Window.IsVisible(pictures) | Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">List_Files</include>
 		</control>
 	</include>
 
-	<include name="ListVideo">
+	<include name="List_Video">
 		<itemlayout condition="IsEmpty(Container.FolderPath) | ![Container.Content(addons) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
@@ -128,87 +128,8 @@
 		</focusedlayout>
 	</include>
 
-<!---VIDEO PLAYLIST------>
-	<include name="ListVideoPlaylist">
-		<itemlayout width="625" height="67">
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
-				<include>list_Label</include>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
-				<include>list_Label-sub</include>
-			</control>
-			<control type="image">
-				<posx>570</posx>
-				<posy>35</posy>
-				<width>32</width>
-				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
-				<aspectratio align="right">keep</aspectratio>
-				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-			</control>
-			<control type="image">
-				<posx>475</posx>
-				<posy>12</posy>
-				<width>128</width>
-				<height>22</height>
-				<info>ListItem.StarRating</info>
-				<colordiffuse>Color7</colordiffuse>
-				<aspectratio align="right">keep</aspectratio>
-				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-			</control>
-		</itemlayout>
-		<focusedlayout condition="Window.IsActive(videoplaylist)" width="625" height="67">
-			<control type="image">
-				<posx>0</posx>
-				<posy>-26</posy>
-				<width>650</width>
-				<height>122</height>
-				<texture border="0,30,0,30">views/list-focus.png</texture>
-				<include>focus_ListScroll</include>
-				<visible>!ControlGroup(6000).HasFocus</visible>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
-				<include>list_Label-focus</include>
-			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
-				<include>list_Label-sub-focus</include>
-			</control>
-			<control type="image">
-				<posx>570</posx>
-				<posy>35</posy>
-				<width>32</width>
-				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
-				<aspectratio align="right">keep</aspectratio>
-			</control>
-			<control type="image">
-				<posx>475</posx>
-				<posy>12</posy>
-				<width>128</width>
-				<height>22</height>
-				<info>ListItem.StarRating</info>
-				<colordiffuse>Color7</colordiffuse>
-				<aspectratio align="right">keep</aspectratio>
-			</control>
-		</focusedlayout>
-	</include>
-
-<!---MUSIC------>
-	<include name="ListMusic">
+	<!--music-->
+	<include name="List_Music">
 		<itemlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/audio/) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
@@ -295,8 +216,87 @@
 		</focusedlayout>
 	</include>
 
-<!---MUSIC PLAYLIST------>
-	<include name="ListMusicPlaylist">
+	<!--video playlist-->
+	<include name="List_VideoPlaylist">
+		<itemlayout width="625" height="67">
+			<control type="label">
+				<posx>40</posx>
+				<width>440</width>
+				<label>$VAR[global_Item.Title]</label>
+				<include>list_Label</include>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>510</width>
+				<label>$VAR[global_Item.Info]</label>
+				<include>list_Label-sub</include>
+			</control>
+			<control type="image">
+				<posx>570</posx>
+				<posy>35</posy>
+				<width>32</width>
+				<height>32</height>
+				<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
+				<aspectratio align="right">keep</aspectratio>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="image">
+				<posx>475</posx>
+				<posy>12</posy>
+				<width>128</width>
+				<height>22</height>
+				<info>ListItem.StarRating</info>
+				<colordiffuse>Color7</colordiffuse>
+				<aspectratio align="right">keep</aspectratio>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+			</control>
+		</itemlayout>
+		<focusedlayout condition="Window.IsActive(videoplaylist)" width="625" height="67">
+			<control type="image">
+				<posx>0</posx>
+				<posy>-26</posy>
+				<width>650</width>
+				<height>122</height>
+				<texture border="0,30,0,30">views/list-focus.png</texture>
+				<include>focus_ListScroll</include>
+				<visible>!ControlGroup(6000).HasFocus</visible>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<width>440</width>
+				<label>$VAR[global_Item.Title]</label>
+				<include>list_Label-focus</include>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>28</posy>
+				<width>510</width>
+				<label>$VAR[global_Item.Info]</label>
+				<include>list_Label-sub-focus</include>
+			</control>
+			<control type="image">
+				<posx>570</posx>
+				<posy>35</posy>
+				<width>32</width>
+				<height>32</height>
+				<texture>$INFO[ListItem.VideoResolution,flags/hd/,.png]</texture>
+				<aspectratio align="right">keep</aspectratio>
+			</control>
+			<control type="image">
+				<posx>475</posx>
+				<posy>12</posy>
+				<width>128</width>
+				<height>22</height>
+				<info>ListItem.StarRating</info>
+				<colordiffuse>Color7</colordiffuse>
+				<aspectratio align="right">keep</aspectratio>
+			</control>
+		</focusedlayout>
+	</include>
+
+	<!--music playlist-->
+	<include name="List_MusicPlaylist">
 		<itemlayout width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
@@ -375,8 +375,8 @@
 		</focusedlayout>
 	</include>
 
-<!---FILES------>
-	<include name="ListFiles">
+	<!--files-->
+	<include name="List_Files">
 		<itemlayout condition="!Container.HasFiles" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>

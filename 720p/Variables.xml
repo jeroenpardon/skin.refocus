@@ -43,7 +43,7 @@
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
-		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]$INFO[ListItem.Genre, • ]</value>
+		<value condition="Container.Content(albums) | Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
 		<value condition="Window.IsActive(pictures)">$INFO[ListItem.Date]$INFO[ListItem.PictureResolution, • ]</value>
 		<value condition="Window.IsActive(addonbrowser)">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]$INFO[ListItem.Property(Addon.Status), • ]</value>
@@ -221,7 +221,7 @@
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
 	</variable>
-
+	
 <!---OSD------>
 	<variable name="player_Plot.Condition">
 		<value condition="!IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
