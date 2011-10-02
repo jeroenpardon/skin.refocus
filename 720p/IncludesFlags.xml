@@ -35,54 +35,12 @@
 		<texture>$INFO[VideoPlayer.AudioCodec,flags/codec/,.png]</texture>
 	</include>
 
-<!---STUDIO------>
-	<variable name="flag_Studio">
-		<value condition="Container.Content(movies)">$INFO[Listitem.studio,flags/studios/,.png]</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.studio,flags/networks/,.png]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[Listitem.studio,flags/labels/,.png]</value>
-		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
-	</variable>
-	
-	<variable name="flag_Studio.player">
-		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.studio,flags/studios/,.png]</value>
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.studio,flags/networks/,.png]</value>
-		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.studio,flags/labels/,.png]</value>
-		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</value>
-		<value condition="VideoPlayer.Content(files)">$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</value>
-		<value condition="VideoPlayer.Content(files)">$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</value>
-	</variable>
-
-
-	
-	
-	
-	
-
 <!---NETWORK------>	
 	<include name="flag_Network-mono">
 		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
 		<width>128</width>
 		<height>64</height>
 		<visible>!IsEmpty(ListItem.Title)</visible>
-	</include>
-
-
-<!---LABEL------>
-	<include name="flag_Label">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-	</include>
-
-	<include name="flag_Label-video">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
-	</include>
-	<include name="flag_Label-audio">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</texture>
 	</include>
 
 <!--- PVR ---------------------------------------->
@@ -98,7 +56,7 @@
 	</include>
 
 <!--- GROUPS ---------------------------------------->
-	<!--flags52-->
+	<!--slide view-->
 	<include name="flags_Slide-media">
 		<control type="grouplist">
 			<posx>222</posx>
@@ -120,18 +78,16 @@
 				<height>34</height>
 				<aspectratio align="center">keep</aspectratio>
 				<include>flag_Res</include>
-				<visible>!Container.Content(tvshows) + IsEmpty(ListItem.Property(ReleaseDate)) + !ListItem.IsFolder</visible>
 			</control>
 			<control type="image">
 				<width>53</width>
 				<height>34</height>
 				<aspectratio align="center">keep</aspectratio>
 				<include>flag_Audio</include>
-				<visible>!Container.Content(tvshows) + IsEmpty(ListItem.Property(ReleaseDate)) + !ListItem.IsFolder</visible>
 			</control>
 		</control>
 	</include>
-
+	<!--video info dialog-->
 	<include name="flags_Type-info">
 		<control type="grouplist" id="100">
 			<width>900</width>
@@ -141,7 +97,7 @@
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
-				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<include>flag_Res</include>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
 			</control>
@@ -182,30 +138,7 @@
 			</control>
 		</control>
 	</include>
-	<!--
-	<include name="flags_Label-info">
-		<control type="grouplist" id="100">
-			<itemgap>20</itemgap>
-			<orientation>vertical</orientation>
-			<control type="image">
-				<width>128</width>
-				<height>72</height>
-				<aspectratio align="center">keep</aspectratio>
-				<colordiffuse>Color1</colordiffuse>
-				<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-				<visible>!IsEmpty(Listitem.Property(Album_Label))</visible>
-			</control>
-			<control type="image">
-				<width>128</width>
-				<height>32</height>
-				<info>ListItem.StarRating</info>
-				<colordiffuse>Color7</colordiffuse>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(albums)</visible>
-			</control>
-		</control>
-	</include>
-	-->
+	<!--pvr-->
 	<include name="flags_PVR">
 		<control type="image">
 			<width>128</width>
@@ -221,4 +154,21 @@
 			<visible>stringcompare(Listitem.ChannelName,flags/networks/,.png)</visible>
 		</control>
 	</include>
+	<!---
+	<include name="flag_Label">
+		<width>128</width>
+		<height>64</height>
+		<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
+	</include>
+	<include name="flag_Label-video">
+		<width>128</width>
+		<height>64</height>
+		<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
+	</include>
+	<include name="flag_Label-audio">
+		<width>128</width>
+		<height>64</height>
+		<texture>$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</texture>
+	</include>
+	--->
 </includes>

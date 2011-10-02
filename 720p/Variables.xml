@@ -78,6 +78,22 @@
 		<value condition="Skin.HasSetting(banners.local)">$INFO[ListItem.path]banner.jpg</value>
 	</variable>
 
+<!---FLAGS------>
+	<variable name="flag_Studio">
+		<value condition="Container.Content(movies)">$INFO[Listitem.studio,flags/studios/,.png]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.studio,flags/networks/,.png]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[Listitem.studio,flags/labels/,.png]</value>
+		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
+	</variable>
+	<variable name="flag_Studio.player">
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.studio,flags/studios/,.png]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.studio,flags/networks/,.png]</value>
+		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.studio,flags/labels/,.png]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</value>
+		<value condition="VideoPlayer.Content(files)">$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</value>
+		<value condition="VideoPlayer.Content(files)">$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</value>
+	</variable>
+
 <!---WINDOW TITLES------>
 	<variable name="window_Title.Video">
 		<!--video sources-->
