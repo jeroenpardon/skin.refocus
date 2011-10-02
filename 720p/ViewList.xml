@@ -416,14 +416,6 @@
 				<label>$VAR[global_Item.Info]</label>
 				<include>list_Label-sub</include>
 			</control>
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>560</width>
-				<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-				<include>list_Label-sub</include>
-				<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-			</control>
 			<control type="image">
 				<posx>475</posx>
 				<posy>12</posy>
@@ -511,7 +503,7 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
-						<posy>2</posy>
+						<posy>4</posy>
 						<posx>260</posx>
 						<width>770</width>
 						<label>$VAR[global_Item.Title]</label>
@@ -519,17 +511,17 @@
 					</control>
 					<control type="label">
 						<posx>260</posx>
-						<posy>28</posy>
+						<posy>30</posy>
 						<width>770</width>
 						<label>$VAR[global_Item.Info]</label>
 						<include>list_Label-sub</include>
 					</control>
 					<control type="textbox" id="4">
 						<posx>260</posx>
-						<posy>65</posy>
+						<posy>70</posy>
 						<width>930</width>
 						<height>59</height>
-						<label>$INFO[ListItem.Plot]</label>
+						<label>$VAR[global_Plot.Condition]</label>
 						<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
 						<font>descriptionSmall</font>
 					</control>
@@ -567,7 +559,7 @@
 						<aspectratio>scale</aspectratio>
 					</control>
 					<control type="label">
-						<posy>2</posy>
+						<posy>4</posy>
 						<posx>260</posx>
 						<width>770</width>
 						<label>$VAR[global_Item.Title]</label>
@@ -575,17 +567,17 @@
 					</control>
 					<control type="label">
 						<posx>260</posx>
-						<posy>28</posy>
+						<posy>30</posy>
 						<width>770</width>
 						<label>$VAR[global_Item.Info]</label>
 						<include>list_Label-sub-focus</include>
 					</control>
 					<control type="textbox" id="4">
 						<posx>260</posx>
-						<posy>65</posy>
+						<posy>70</posy>
 						<width>930</width>
 						<height>59</height>
-						<label>$INFO[ListItem.Plot]</label>
+						<label>$VAR[global_Plot.Condition]</label>
 						<include>autoscroll-plot</include>
 						<font>descriptionSmall</font>
 						<textcolor>Focused</textcolor>
@@ -627,25 +619,25 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
-						<posx>120</posx>
-						<posy>2</posy>
-						<width>770</width>
+						<posx>115</posx>
+						<posy>4</posy>
+						<width>775</width>
 						<label>$VAR[global_Item.Title]</label>
 						<include>list_Label</include>
 					</control>
 					<control type="label">
-						<posx>120</posx>
-						<posy>28</posy>
-						<width>770</width>
+						<posx>115</posx>
+						<posy>30</posy>
+						<width>775</width>
 						<label>$VAR[global_Item.Info]</label>
 						<include>list_Label-sub</include>
 					</control>
 					<control type="textbox" id="4">
-						<posx>120</posx>
-						<posy>67</posy>
-						<width>1070</width>
+						<posx>115</posx>
+						<posy>70</posy>
+						<width>1075</width>
 						<height>60</height>
-						<label>$INFO[ListItem.Plot]</label>
+						<label>$VAR[global_Plot.Condition]</label>
 						<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
 						<font>descriptionSmall</font>
 					</control>
@@ -681,25 +673,25 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
-						<posx>120</posx>
-						<posy>2</posy>
-						<width>770</width>
+						<posx>115</posx>
+						<posy>4</posy>
+						<width>775</width>
 						<label>$VAR[global_Item.Title]</label>
 						<include>list_Label-focus</include>
 					</control>
 					<control type="label">
-						<posx>120</posx>
-						<posy>28</posy>
-						<width>770</width>
+						<posx>115</posx>
+						<posy>30</posy>
+						<width>775</width>
 						<label>$VAR[global_Item.Info]</label>
 						<include>list_Label-sub-focus</include>
 					</control>
 					<control type="textbox" id="4">
-						<posx>120</posx>
-						<posy>67</posy>
-						<width>1070</width>
+						<posx>115</posx>
+						<posy>70</posy>
+						<width>1075</width>
 						<height>60</height>
-						<label>$INFO[ListItem.Plot]</label>
+						<label>$VAR[global_Plot.Condition]</label>
 						<include>autoscroll-plot</include>
 						<font>descriptionSmall</font>
 						<textcolor>Focused</textcolor>
