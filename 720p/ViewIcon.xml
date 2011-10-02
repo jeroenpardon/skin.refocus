@@ -142,59 +142,28 @@
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
 			<visible>[[Container.Content(files) + Container.HasFiles] | Window.IsActive(mypictures) | Container.Content(artists)]</visible>
-			<include condition="Window.IsVisible(musiclibrary)">IconLandscape_Music</include>
-			<include condition="Window.IsVisible(pictures)">IconLandscape_Pictures</include>
+			<itemlayout height="170" width="220">
+				<control type="image">
+					<width>215</width>
+					<height>165</height>
+					<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
+					<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
+					<bordersize>6</bordersize>
+					<aspectratio>scale</aspectratio>
+				</control>
+			</itemlayout>
+			<focusedlayout height="170" width="220">
+				<control type="image">
+					<width>215</width>
+					<height>165</height>
+					<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
+					<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
+					<bordersize>6</bordersize>
+					<aspectratio>scale</aspectratio>
+					<include>focus_WideThumbs</include>
+				</control>
+			</focusedlayout>
 		</control>
-	</include>
-	<include name="IconLandscape_Music">
-		<itemlayout height="170" width="220">
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/artist_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<visible>Container.Content(artists)</visible>
-			</control>
-		</itemlayout>
-		<focusedlayout height="170" width="220">
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/artist_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<include>focus_WideThumbs</include>
-				<visible>Container.Content(artists)</visible>
-			</control>
-		</focusedlayout>
-	</include>
-	<include name="IconLandscape_Pictures">
-		<itemlayout height="170" width="220">
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/picture_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<visible>Window.IsActive(2)</visible>
-			</control>
-		</itemlayout>
-		<focusedlayout height="170" width="220">
-			<control type="image">
-				<width>215</width>
-				<height>165</height>
-				<texture fallback="thumbs/picture_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-				<bordertexture border="6" width="200" height="150">frames/frame_Square-small.png</bordertexture>
-				<bordersize>6</bordersize>
-				<aspectratio>scale</aspectratio>
-				<include>focus_WideThumbs</include>
-				<visible>Window.IsActive(2)</visible>
-			</control>
-		</focusedlayout>
 	</include>
 
 <!---SQUARE ADD-ONS------>
@@ -307,7 +276,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(episodes) | [Container.Content(files) + Container.HasFiles] + ![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://)]]</visible>
+			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles] + ![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://)]]</visible>
 			<itemlayout height="280" width="400">
 				<control type="image">
 					<width>390</width>

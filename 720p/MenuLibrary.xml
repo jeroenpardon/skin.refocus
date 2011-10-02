@@ -383,7 +383,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Container.Content(musicvideos) | [substring(Container.FolderPath,plugin://) + !Container.HasFolders] + !IsEmpty(Container.FolderPath)] + !stringcompare(Container.FolderPath,sources://video/) + !substring(Container.FolderPath,special://videoplaylists/) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+					<visible>substring(Container.FolderPath,plugin://) + !Container.HasFolders + ![IsEmpty(Container.FolderPath) | stringcompare(Container.FolderPath,sources://video/) | substring(Container.FolderPath,special://videoplaylists/) | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
 					<control type="button" id="406">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(573)</onclick>
@@ -415,7 +415,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>!substring(Container.FolderPath,plugin://) + [Container.Content(episodes) | [Container.Content(files) + Container.HasFiles]]</visible>
+					<visible>!substring(Container.FolderPath,plugin://) + [Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]]</visible>
 					<control type="button" id="408">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(575)</onclick>
