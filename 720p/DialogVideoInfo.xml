@@ -271,6 +271,11 @@
 				<visible>!Control.IsVisible(50) + Container.Content(episodes)</visible>
 			</control>
 			<control type="image">
+				<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[Container(50).Listitem.Icon]</texture>
+				<include>thumb_Portrait-List</include>
+				<visible>Control.IsVisible(50) + !Container.Content(musicvideos)</visible>
+			</control>
+			<control type="image">
 				<width>450</width>
 				<height>273</height>
 				<texture fallback="thumbs/actor_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
