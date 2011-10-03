@@ -375,24 +375,7 @@
 		</animation>
 	</include>
 
-<!--HOME ------------------------------------------------------------------------->
-	<include name="home_Slideshow">
-		<include>screen_Dimensions</include>
-		<aspectratio>scale</aspectratio>
-		<randomize>true</randomize>
-		<loop>yes</loop>
-		<timeperimage>slideshow_Timer</timeperimage>
-		<fadetime>fadetime_Slideshow</fadetime>
-		<animation type="WindowOpen" condition="Window.Previous(startup)">
-			<effect type="fade" start="0" end="100" time="600" delay="0" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="200" delay="0" />
-		</animation>
-		<animation type="WindowOpen" condition="!Window.Previous(startup)">
-			<effect type="fade" start="0" end="100" time="200" delay="0" />
-		</animation>
-	</include>	
+<!--HOME ------------------------------------------------------------------------->	
 	<include name="home_SubFocus">
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="150" />
