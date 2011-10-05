@@ -1,0 +1,92 @@
+﻿<window type="dialog" id="62">
+	<defaultcontrol always="true">100</defaultcontrol>
+	<include>dialogOpen</include>
+	<coordinates>
+		<system>1</system>
+		<posx>415</posx>
+		<posy>185</posy>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<width>450</width>
+			<height>350</height>
+			<include>dialogWindow</include>
+		</control>
+		<control type="label" id="1">
+			<width>382</width>
+			<label>edit movie</label>
+			<include>dialog_Windowtitle</include>
+		</control>
+		<control type="group">
+			<posx>19</posx>
+			<posy>75</posy>
+			<control type="image">
+				<width>413</width>
+				<include>dialog_Separator</include>
+			</control>
+			<control type="list" id="100">
+				<width>413</width>
+				<height>320</height>
+				<onup>100</onup>
+				<ondown>100</ondown>
+				<onright>-</onright>
+				<scrolltime>150</scrolltime>
+				<itemlayout height="40">
+					<control type="image">
+						<width>413</width>
+						<include>dialog_CommonList</include>
+					</control>
+					<control type="label">
+						<width>397</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItem</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="40">
+					<control type="image">
+						<width>413</width>
+						<include>dialog_CommonList</include>
+						<visible>!Control.HasFocus(100)</visible>
+					</control>
+					<control type="image">
+						<width>413</width>
+						<height>40</height>
+						<include>dialog_CommonListFocus</include>
+						<visible>Control.HasFocus(100)</visible>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<width>397</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="0">
+						<label>refresh information</label>
+						<onclick>Close</onclick>
+						<onclick>SendClick(2003,6)</onclick>
+					</item>
+					<item id="1">
+						<label>change thumbnail</label>
+						<onclick>SendClick(2003,10)</onclick>
+					</item>
+					<item id="2">
+						<label>change fanart</label>
+						<onclick>SendClick(2003,12)</onclick>
+					</item>
+					<item id="3">
+						<label>download banner</label>
+						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
+						<visible>Container.Content(tvshows)</visible>
+					</item>
+					<item id="3">
+						<label>download tv show logo</label>
+						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
+						<visible>Container.Content(tvshows)</visible>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>
