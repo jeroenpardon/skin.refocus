@@ -92,7 +92,7 @@
 		<control type="grouplist" id="100">
 			<width>900</width>
 			<height>64</height>
-			<itemgap>15</itemgap>
+			<itemgap>10</itemgap>
 			<orientation>horizontal</orientation>
 			<control type="image">
 				<width>96</width>
@@ -124,17 +124,17 @@
 			</control>
 			<control type="image">
 				<width>128</width>
-				<height>72</height>
+				<height>64</height>
 				<texture>$VAR[flag_Studio]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(movies)</visible>
+				<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
 				<height>64</height>
 				<texture>$VAR[flag_Studio]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>!Container.Content(movies)</visible>
+				<visible>Container.Content(movies)</visible>
 			</control>
 		</control>
 	</include>
