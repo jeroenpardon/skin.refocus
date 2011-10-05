@@ -56,26 +56,26 @@
 	</include>
 	<include name="focus_SlidePoster">
 		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="130" center="112,100" time="200"/>
+			<effect type="zoom" tween="Quadratic" start="100" end="130" center="112,100" easing="Out" time="200"/>
 		</animation>
 		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="130" end="100" center="112,100" time="200" />
+			<effect type="zoom" tween="Quadratic" start="130" end="100" center="112,100" easing="Out" time="200" />
 		</animation>
 	</include>
 	<include name="focus_SlideWide">
 		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="140" center="225,120" time="200"/>
+			<effect type="zoom" tween="Quadratic" start="100" end="140" center="225,120" easing="Out" time="200"/>
 		</animation>
 		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="140" end="100" center="225,120" time="200" />
+			<effect type="zoom" tween="Quadratic" start="140" end="100" center="225,120" easing="Out" time="200" />
 		</animation>
 	</include>
 	<include name="focus_SlideLoginUser">
 		<animation type="focus">
-			<effect type="slide" tween="Quadratic" start="0,0" end="0,30" center="225,120" time="200"/>
+			<effect type="slide" tween="Quadratic" start="0,0" end="0,30" center="225,120" easing="Out" time="200"/>
 		</animation>
 		<animation type="unfocus">
-			<effect type="slide" tween="Quadratic" start="0,30" end="0,0" center="225,120" time="200" />
+			<effect type="slide" tween="Quadratic" start="0,30" end="0,0" center="225,120" easing="Out" time="200" />
 		</animation>
 	</include>
 	<include name="focus_Banner">
@@ -86,10 +86,10 @@
 	</include>
 	<include name="focus_SlideMusic">
 		<animation type="focus">
-			<effect type="zoom" tween="Quadratic" start="100" end="135" center="150,150" time="200"/>
+			<effect type="zoom" tween="Quadratic" start="100" end="135" center="150,150" easing="Out" time="200"/>
 		</animation>
 		<animation type="unfocus">
-			<effect type="zoom" tween="Quadratic" start="135" end="100" center="150,150" time="200" />
+			<effect type="zoom" tween="Quadratic" start="135" end="100" center="150,150" easing="Out" time="200" />
 		</animation>
 	</include>
 	<include name="focus_SlideLoginUser">
@@ -181,6 +181,14 @@
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="200" delay="0" reversible="true"/>
 		</animation>
+		
+		<animation type="Conditional" condition="Window.IsActive(2003)">
+			<effect type="fade" start="100" end="0" time="50" delay="0" reversible="true"/>
+		</animation>
+		<animation type="Conditional" condition="!Window.IsActive(2003)">
+			<effect type="fade" start="0" end="100" time="150" delay="100" reversible="true"/>
+		</animation>
+		
 		<animation type="Visible">
 			<effect type="fade" start="0" end="100" time="50" delay="0" reversible="true"/>
 		</animation>
@@ -197,6 +205,13 @@
 			<effect type="slide" time="250" center="auto" start="0" end="-64" easing="In" tween="Quadratic"/>
 			<effect type="fade" time="250" start="95" end="0" />
 		</animation>
+		<animation type="Conditional" condition="Window.IsActive(2003)">
+			<effect type="fade" start="100" end="0" time="50" delay="0" reversible="true"/>
+		</animation>
+		<animation type="Conditional" condition="!Window.IsActive(2003)">
+			<effect type="fade" start="0" end="100" time="150" delay="100" reversible="true"/>
+		</animation>
+		
 		<animation effect="fade" start="0" end="90" time="250">Visible</animation>
 		<animation effect="fade" start="90" end="0" time="250">Hidden</animation>
 	</include>
