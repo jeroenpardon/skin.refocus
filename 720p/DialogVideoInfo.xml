@@ -9,31 +9,39 @@
 			<!---images--->
 			<control type="group">
 				<posx>20</posx>
-				<posy>40</posy>
+				<posy>28</posy>
 				<control type="image">
+					<width>460</width>
+					<height>663</height>
 					<include>frame_Poster-List</include>
 					<visible>!Container.Content(musicvideos)</visible>
 				</control>
 				<control type="image">
 					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 					<aspectratio align="center">stretch</aspectratio>
+					<width>414</width>
+					<height>617</height>
 					<include>thumb_Portrait-List</include>
 					<visible>!Control.HasFocus(50) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 				</control>
 				<control type="image">
 					<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[Container(50).Listitem.Icon]</texture>
+					<width>414</width>
+					<height>617</height>
 					<include>thumb_Portrait-List</include>
 					<visible>Control.HasFocus(50) + !Container.Content(musicvideos)</visible>
 				</control>
 				<control type="image">
 					<texture background="true">$INFO[ListItem.Property(SeasonThumb)]</texture>
+					<width>414</width>
+					<height>617</height>
 					<include>thumb_Portrait-List</include>
 					<visible>!Control.HasFocus(50) + Container.Content(episodes)</visible>
 				</control>
 				<control type="image">
 					<width>450</width>
 					<height>273</height>
-					<texture fallback="thumbs/actor_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="thumbs/music_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
 					<bordertexture border="31">frames/frame_Square.png</bordertexture>
 					<bordersize>22</bordersize>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
@@ -42,7 +50,7 @@
 			</control>
 			<!--header-->
 			<control type="grouplist">
-				<posx>490</posx>
+				<posx>500</posx>
 				<posy>70</posy>
 				<itemgap>0</itemgap>
 				<control type="label">
@@ -317,12 +325,12 @@
 			</control>
 			<!--flags-->
 			<control type="group">
-				<posx>480</posx>
+				<posx>490</posx>
 				<posy>600</posy>
 				<include>flags_Type-info</include>
 			</control>
 			<control type="image">
-				<posx>490</posx>
+				<posx>500</posx>
 				<posy>590</posy>
 				<width>128</width>
 				<height>72</height>
