@@ -208,7 +208,7 @@
 					<!--cinema-->
 					<control type="group">
 						<width>125</width>
-						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + !SubString(ListItem.Path,http)</visible>
 						<control type="button" id="8002">
 							<label>cinema</label>
 							<onleft>8001</onleft>
@@ -246,7 +246,7 @@
 					<!--trailer-->
 					<control type="group">
 						<width>125</width>
-						<visible>Container.Content(movies)</visible>
+						<visible>Container.Content(movies) + !SubString(ListItem.Path,http)</visible>
 						<control type="button" id="8005">
 							<label>$LOCALIZE[20410]</label>
 							<onclick>SendClick(2003,11)</onclick>
@@ -258,6 +258,7 @@
 					<!--edit-->
 					<control type="group">
 						<width>125</width>
+						<visible>!SubString(ListItem.Path,http)</visible>
 						<control type="button" id="8007">
 							<label>$LOCALIZE[21435]</label>
 							<onclick>ActivateWindow(62)</onclick>
