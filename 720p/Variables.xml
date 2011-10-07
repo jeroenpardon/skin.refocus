@@ -44,7 +44,7 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
-		<value>$INFO[ListItem.Label2]</value>
+		<value>$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>
 	</variable>
 	
 	<variable name="global_Title.Music">
@@ -83,9 +83,10 @@
 <!---IMAGES------>
 	<variable name="thumb_Landscape.Condition">
 		<value condition="!IsEmpty(ListItem.Property(Fanart_Image)) + ![Container.Content(episodes) | Container.Content(musicvideos)]">$INFO[ListItem.Property(Fanart_Image)]</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(movies)">thumbs/movie_landscape.jpg</value>
+		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(listItem.Thumb) + Container.Content(movies)">thumbs/movie_landscape.jpg</value>
 		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(tvshows)">thumbs/tvshow_landscape.jpg</value>
 		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(artists)">thumbs/artist_landscape.jpg</value>
+
 		<value condition="Container.Content(musicvideos) + IsEmpty(ListItem.Thumb)">thumbs/music_landscape.jpg</value>
 		<value condition="Container.Content(episodes) + IsEmpty(ListItem.Thumb)">thumbs/tvshow_landscape.jpg</value>
 		<value condition="Window.IsActive(pictures) + IsEmpty(ListItem.Thumb)">thumbs/picture_landscape.jpg</value>
@@ -108,7 +109,7 @@
 		<value condition="Skin.HasSetting(banners.local)">$INFO[ListItem.path]banner.jpg</value>
 	</variable>
 	<variable name="global_Rating.Condition">
-		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons)">$INFO[ListItem.Property(Addon.StarRating)]</value>
+		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons) | SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,musicdb)">$INFO[ListItem.Property(Addon.StarRating)]</value>
 		<value>$INFO[ListItem.StarRating]</value>
 	</variable>
 
