@@ -19,10 +19,10 @@
 		<value condition="[Window.IsActive(501) | Window.IsActive(502)]">backgrounds/music.jpg</value>
 		<value condition="Window.IsActive(2) + !Control.IsVisible(531)">backgrounds/pictures.jpg</value>
 		<value condition="Window.IsActive(programs)">backgrounds/programs.jpg</value>
-		<value condition="Window.IsActive(addonbrowser)">backgrounds/addons.jpg</value>
 		<value condition="Window.IsActive(weather) + !Skin.HasSetting(fanart.weather)">backgrounds/weather.jpg</value>
 		<value condition="[Window.IsActive(picturessettings) | Window.IsActive(appearancesettings) | Window.IsActive(networksettings) | Window.IsActive(videossettings) | Window.IsActive(systemsettings) | Window.IsActive(musicsettings) | Window.IsActive(weathersettings) | Window.IsActive(programssettings) | Window.IsActive(picturessettings) | Window.IsActive(filemanager) | Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)]">backgrounds/settings.jpg</value>
-		<value condition="Skin.HasSetting(fanart.global) + Window.IsActive(59)">backgrounds/skin.jpg</value>
+		<value condition="Window.IsActive(59)">backgrounds/skin.jpg</value>
+		<value condition="Window.IsActive(addonbrowser)">backgrounds/addons.jpg</value>
 		<value condition="!Control.IsVisible(56)">$INFO[ListItem.Property(Fanart_Image)]</value>
 	</variable>
 	
@@ -109,8 +109,8 @@
 		<value condition="Skin.HasSetting(banners.local)">$INFO[ListItem.path]banner.jpg</value>
 	</variable>
 	<variable name="global_Rating.Condition">
-		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons) | SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,musicdb)">$INFO[ListItem.Property(Addon.StarRating)]</value>
-		<value>$INFO[ListItem.StarRating]</value>
+		<value condition="!IsEmpty(ListItem.Artist) | !IsEmpty(ListItem.Title)">$INFO[ListItem.StarRating]</value>
+		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons)">$INFO[ListItem.Property(Addon.StarRating)]</value>
 	</variable>
 
 <!---FLAGS------>
