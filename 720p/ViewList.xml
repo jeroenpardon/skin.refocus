@@ -25,12 +25,20 @@
 	</include>
 
 	<include name="List_Video">
-		<itemlayout condition="IsEmpty(Container.FolderPath) | ![Container.Content(addons) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
+		<itemlayout condition="IsEmpty(Container.FolderPath) | ![Container.Content(addons) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)] + !SubString(Container.FolderPath,videodb)" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-single</include>
+			</control>
+			<control type="image">
+				<posx>588</posx>
+				<posy>14</posy>
+				<width>18</width>
+				<height>18</height>
+				<texture>$INFO[ListItem.Overlay]</texture>
+				<visible>Window.IsVisible(Videos)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout condition="IsEmpty(Container.FolderPath) | ![Container.Content(addons) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]" width="625" height="40">
@@ -49,19 +57,27 @@
 				<textcolor>Focused</textcolor>
 				<include>list_Label-single</include>
 			</control>
+			<control type="image">
+				<posx>588</posx>
+				<posy>14</posy>
+				<width>18</width>
+				<height>18</height>
+				<texture>$INFO[ListItem.Overlay]</texture>
+			</control>
 		</focusedlayout>
+		
 		<itemlayout width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$VAR[global_Title.Video]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Video]</label>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -78,11 +94,11 @@
 				<posy>12</posy>
 				<width>128</width>
 				<height>22</height>
-				<info>ListItem.StarRating</info>
+				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				<visible>![IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)]</visible>
+				<visible>!Container.Content(artists)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout width="625" height="67">
@@ -97,14 +113,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$VAR[global_Title.Video]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Video]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
@@ -120,10 +136,10 @@
 				<posy>12</posy>
 				<width>128</width>
 				<height>22</height>
-				<info>ListItem.StarRating</info>
+				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>![IsEmpty(ListItem.Title) + IsEmpty(ListItem.TVShowTitle)]</visible>
+				<visible>!Container.Content(artists)</visible>
 			</control>
 		</focusedlayout>
 	</include>
@@ -159,14 +175,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$VAR[global_Title.Music]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Music]</label>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -174,11 +190,11 @@
 				<posy>12</posy>
 				<width>128</width>
 				<height>22</height>
-				<info>ListItem.StarRating</info>
+				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				<visible>![IsEmpty(ListItem.Title) + IsEmpty(ListItem.Artist)]</visible>
+				<visible>!Container.Content(artists)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout width="625" height="67">
@@ -193,14 +209,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$VAR[global_Title.Music]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Music]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
@@ -208,10 +224,10 @@
 				<posy>12</posy>
 				<width>128</width>
 				<height>22</height>
-				<info>ListItem.StarRating</info>
+				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>![IsEmpty(ListItem.Title) + IsEmpty(ListItem.Artist)]</visible>
+				<visible>!Container.Content(artists)</visible>
 			</control>
 		</focusedlayout>
 	</include>
@@ -222,14 +238,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Playlist]</label>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -246,7 +262,7 @@
 				<posy>12</posy>
 				<width>128</width>
 				<height>22</height>
-				<info>ListItem.StarRating</info>
+				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
@@ -265,14 +281,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Playlist]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
@@ -288,7 +304,7 @@
 				<posy>12</posy>
 				<width>128</width>
 				<height>22</height>
-				<info>ListItem.StarRating</info>
+				<texture>$VAR[global_Rating.Condition]</texture>
 				<colordiffuse>Color7</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
 			</control>
@@ -301,7 +317,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$INFO[ListItem.Title]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
@@ -343,7 +359,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$INFO[ListItem.Title]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
@@ -406,14 +422,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>560</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Files]</label>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -438,14 +454,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
-				<label>$VAR[global_Item.Title]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>560</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Files]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
@@ -506,14 +522,14 @@
 						<posy>4</posy>
 						<posx>260</posx>
 						<width>770</width>
-						<label>$VAR[global_Item.Title]</label>
+						<label>$VAR[global_Title.Video]</label>
 						<include>list_Label</include>
 					</control>
 					<control type="label">
 						<posx>260</posx>
 						<posy>30</posy>
 						<width>770</width>
-						<label>$VAR[global_Item.Info]</label>
+						<label>$VAR[global_Info.Video]</label>
 						<include>list_Label-sub</include>
 					</control>
 					<control type="textbox" id="4">
@@ -562,14 +578,14 @@
 						<posy>4</posy>
 						<posx>260</posx>
 						<width>770</width>
-						<label>$VAR[global_Item.Title]</label>
+						<label>$VAR[global_Title.Video]</label>
 						<include>list_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>260</posx>
 						<posy>30</posy>
 						<width>770</width>
-						<label>$VAR[global_Item.Info]</label>
+						<label>$VAR[global_Info.Video]</label>
 						<include>list_Label-sub-focus</include>
 					</control>
 					<control type="textbox" id="4">
@@ -622,14 +638,14 @@
 						<posx>115</posx>
 						<posy>4</posy>
 						<width>775</width>
-						<label>$VAR[global_Item.Title]</label>
+						<label>$VAR[global_Title.Video]</label>
 						<include>list_Label</include>
 					</control>
 					<control type="label">
 						<posx>115</posx>
 						<posy>30</posy>
 						<width>775</width>
-						<label>$VAR[global_Item.Info]</label>
+						<label>$VAR[global_Info.Video]</label>
 						<include>list_Label-sub</include>
 					</control>
 					<control type="textbox" id="4">
@@ -676,14 +692,14 @@
 						<posx>115</posx>
 						<posy>4</posy>
 						<width>775</width>
-						<label>$VAR[global_Item.Title]</label>
+						<label>$VAR[global_Title.Video]</label>
 						<include>list_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>115</posx>
 						<posy>30</posy>
 						<width>775</width>
-						<label>$VAR[global_Item.Info]</label>
+						<label>$VAR[global_Info.Video]</label>
 						<include>list_Label-sub-focus</include>
 					</control>
 					<control type="textbox" id="4">

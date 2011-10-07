@@ -157,20 +157,20 @@
 				<posy>462</posy>
 				<control type="label">
 					<width>960</width>
-					<label>$VAR[global_Item.Title]</label>
+					<label>$VAR[global_Title.Video]</label>
 					<include>info_Title</include>
 				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>960</width>
-					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100] • ]$VAR[global_Item.Info]</label>
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100] • ]$VAR[global_Info.Video]</label>
 					<include>info_Sub</include>
 					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="label">
 					<posy>28</posy>
 					<width>960</width>
-					<label>$VAR[global_Item.Info]</label>
+					<label>$VAR[global_Info.Video]</label>
 					<include>info_Sub</include>
 					<visible>!Container.Content(movies)</visible>
 				</control>
@@ -214,13 +214,13 @@
 					<posx>85</posx>
 					<posy>640</posy>
 					<control type="label">
-						<label>$VAR[global_Item.Title]</label>
+						<label>$VAR[global_Title.Video]</label>
 						<width>1100</width>
 						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posy>28</posy>
-						<label>$VAR[global_Item.Info]</label>
+						<label>$VAR[global_Info.Video]</label>
 						<width>750</width>
 						<include>info_Sub</include>
 					</control>
@@ -234,12 +234,12 @@
 				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
 				<control type="label" id="1">
 					<width>435</width>
-					<label>$VAR[global_Item.Title]</label>
+					<label>$VAR[global_Title.Video]</label>
 					<include>info_Title</include>
 				</control>
 				<control type="label" id="1">
 					<width>435</width>
-					<label>$VAR[global_Item.Info]</label>
+					<label>$VAR[global_Info.Video]</label>
 					<include>info_Sub</include>
 				</control>
 				<control type="label" id="1">
@@ -300,13 +300,13 @@
 				<posy>585</posy>
 				<control type="group">
 					<control type="label">
-						<label>$VAR[videoInfo.Header]</label>
+						<label>$VAR[global_Title.Video]</label>
 						<width>940</width>
 						<include>info_TitleSmall</include>
 					</control>
 					<control type="label">
 						<posy>24</posy>
-						<label>$VAR[global_Item.Info]</label>
+						<label>$VAR[global_Info.Video]</label>
 						<width>750</width>
 						<include>info_Sub</include>
 					</control>
@@ -344,7 +344,7 @@
 				<posx>20</posx>
 				<posy>45</posy>
 				<control type="label">
-					<label>$INFO[ListItem.Label]</label>
+					<label>$VAR[global_Title.Video]</label>
 					<font>osd1</font>
 					<textcolor>Color4</textcolor>
 					<width>screen_Width</width>
