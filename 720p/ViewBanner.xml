@@ -23,7 +23,7 @@
 				<control type="label">
 					<posx>75</posx>
 					<width>700</width>
-					<label>$VAR[global_Item.Title]</label>
+					<label>$VAR[global_Title.Video]</label>
 					<font>listBig</font>
 				</control>
 				<control type="label">
@@ -43,7 +43,6 @@
 					<height>295</height>
 					<include>dialogWindow</include>
 					<include>focus_Banner</include>
-					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 				<control type="image">
 					<posx>19</posx>
@@ -53,7 +52,6 @@
 					<texture diffuse="frames/frame_Wide-mask.png" fallback="thumbs/tvshow_banner.jpg">$VAR[view_Banner.Thumb]</texture>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
 					<include>focus_Banner</include>
-					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 				<control type="image">
 					<posx>19</posx>
@@ -61,12 +59,11 @@
 					<width>800</width>
 					<include>dialog_Separator</include>
 					<include>focus_Banner</include>
-					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 				<control type="label">
 					<posx>34</posx>
 					<posy>178</posy>
-					<label>$VAR[global_Item.Title]</label>
+					<label>$VAR[global_Title.Video]</label>
 					<font>dialog1</font>
 					<textcolor>Color5</textcolor>
 					<align>left</align>
@@ -195,7 +192,7 @@
 			</control>
 			<control type="label" id="1">
 				<width>500</width>
-				<label>$VAR[global_Item.Info]</label>
+				<label>$VAR[global_Info.Video]</label>
 				<include>info_Sub</include>
 			</control>
 			<control type="label" id="1">
