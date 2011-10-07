@@ -17,12 +17,20 @@
 					<visible>!Container.Content(musicvideos)</visible>
 				</control>
 				<control type="image">
-					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-					<aspectratio align="center">stretch</aspectratio>
 					<width>414</width>
 					<height>617</height>
+					<texture background="true" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
+					<aspectratio align="center">stretch</aspectratio>
 					<include>thumb_Portrait-List</include>
-					<visible>!Control.HasFocus(50) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
+					<visible>!Control.HasFocus(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				</control>
+				<control type="image">
+					<width>414</width>
+					<height>617</height>
+					<texture background="true" fallback="thumbs/tvshow_portrait.jpg">$INFO[ListItem.Property(SeasonThumb)]</texture>
+					<aspectratio align="center">stretch</aspectratio>
+					<include>thumb_Portrait-List</include>
+					<visible>!Control.HasFocus(50) + Container.Content(episodes)</visible>
 				</control>
 				<control type="image">
 					<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[Container(50).Listitem.Icon]</texture>
@@ -30,13 +38,6 @@
 					<height>617</height>
 					<include>thumb_Portrait-List</include>
 					<visible>Control.HasFocus(50) + !Container.Content(musicvideos)</visible>
-				</control>
-				<control type="image">
-					<texture background="true">$INFO[ListItem.Property(SeasonThumb)]</texture>
-					<width>414</width>
-					<height>617</height>
-					<include>thumb_Portrait-List</include>
-					<visible>!Control.HasFocus(50) + Container.Content(episodes)</visible>
 				</control>
 				<control type="image">
 					<width>450</width>
