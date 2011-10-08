@@ -539,20 +539,37 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				<!--big list-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>[[Container.Content(albums) | Container.Content(songs)] + SubString(Container.FolderPath,musicdb)]</visible>
+					<control type="button" id="402">
+						<label>$LOCALIZE[537]</label>
+						<onclick>Container.SetViewMode(51)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(51)</onclick>
+						<onright>30</onright>
+						<onback>30</onback>
+						<onup>401</onup>
+						<ondown>403</ondown>
+						<include>button_Menu</include>
+					</control>
+				</control>
 				<!--slide albums-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
 					<visible>!Container.Content(artists) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons://sources/) + !SubString(Container.FolderPath,plugin://)</visible>
-					<control type="button" id="402">
+					<control type="button" id="403">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(52)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(52)</onclick>
 						<onright>30</onright>
 						<onback>30</onback>
-						<onup>401</onup>
-						<ondown>403</ondown>
+						<onup>402</onup>
+						<ondown>404</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -561,14 +578,14 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(artists)</visible>
-					<control type="button" id="402">
+					<control type="button" id="404">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(521)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(521)</onclick>
 						<onright>50</onright>
-						<onup>401</onup>
-						<ondown>403</ondown>
+						<onup>403</onup>
+						<ondown>405</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -577,13 +594,13 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>[Container.Content(albums) | Container.Content(songs)] + !stringcompare(container.folderpath,addons://sources/)</visible>
-					<control type="button" id="403">
+					<control type="button" id="405">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(572)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(572)</onclick>
 						<onright>50</onright>
-						<onup>402</onup>
+						<onup>404</onup>
 						<ondown>401</ondown>
 						<include>button_Menu</include>
 					</control>
