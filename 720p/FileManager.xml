@@ -6,8 +6,8 @@
 		<include>global_Includes</include>
 		<control type="group">
 			<control type="label">
-				<include>PageLabel</include>
 				<label>$LOCALIZE[31969]</label>
+				<include>windowTitle</include>
 			</control>
 			<control type="group">
 				<posx>38</posx>
@@ -17,7 +17,7 @@
 					<label>$INFO[Container(20).NumItems] $LOCALIZE[31116]</label>
 					<font>smallerCaps</font>
 					<textcolor>Color3</textcolor>
-					<include>transition_PageLabel</include>
+					<include>transition_WindowTitle</include>
 					<visible>Control.HasFocus(20)</visible>
 				</control>
 				<control type="label">
@@ -25,7 +25,7 @@
 					<label>$INFO[Container(21).NumItems] $LOCALIZE[31116]</label>
 					<font>smallerCaps</font>
 					<textcolor>Color3</textcolor>
-					<include>transition_PageLabel</include>
+					<include>transition_WindowTitle</include>
 					<visible>Control.HasFocus(21)</visible>
 				</control>
 			</control>
@@ -36,13 +36,13 @@
 				<posy>110</posy>
 				<!--left column label-->
 				<control type="label" id="101">
-					<posx>85</posx>
+					<posx>70</posx>
 					<width>550</width>
 					<include>column_Header</include>
 				</control>
 				<!--right column label-->
 				<control type="label" id="102">
-					<posx>655</posx>
+					<posx>642</posx>
 					<width>550</width>
 					<include>column_Header</include>
 				</control>
@@ -61,41 +61,39 @@
 				<itemlayout height="44">
 					<control type="image">
 						<width>568</width>
-						<colordiffuse>column3</colordiffuse>
-						<include>column_Left</include>
+						<include>listButton</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>400</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>column_Label</include>
+						<include>listButton_Label</include>
 					</control>
 					<control type="label">
 						<posx>550</posx>
 						<width>400</width>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
-						<include>column_Label</include>
+						<include>listButton_Label</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="550" height="44">
 					<control type="image">
 						<width>568</width>
-						<colordiffuse>column1</colordiffuse>
-						<include>column_Left</include>
+						<include>listButton-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>400</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>column_Label-focus</include>
+						<include>listButton_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>550</posx>
 						<width>400</width>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
-						<include>column_Label-focus</include>
+						<include>listButton_Label-focus</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -114,40 +112,39 @@
 					<control type="image">
 						<width>568</width>
 						<colordiffuse>column3</colordiffuse>
-						<include>column_Right</include>
+						<include>listButton</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>400</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>column_Label</include>
+						<include>listButton_Label</include>
 					</control>
 					<control type="label">
 						<posx>550</posx>
 						<width>400</width>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
-						<include>column_Label</include>
+						<include>listButton_Label</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="550" height="44">
 					<control type="image">
 						<width>568</width>
-						<colordiffuse>column1</colordiffuse>
-						<include>column_Right</include>
+						<include>listButton-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>400</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>column_Label-focus</include>
+						<include>listButton_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>550</posx>
 						<width>400</width>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
-						<include>column_Label-focus</include>
+						<include>listButton_Label-focus</include>
 					</control>
 				</focusedlayout>
 			</control>

@@ -5,7 +5,7 @@
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<control type="label">
-			<include>PageLabel</include>
+			<include>windowTitle</include>
 			<label>[LOWERCASE][COLOR=Color2]$LOCALIZE[2][/COLOR] $LOCALIZE[10503][/LOWERCASE]</label>
 		</control>
 		<control type="group" id="9001">
@@ -67,43 +67,41 @@
 				<itemlayout height="44">
 					<control type="image">
 						<width>510</width>
-						<colordiffuse>column3</colordiffuse>
-						<include>column</include>
+						<include>listButton_Center</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
-						<include>column_Label</include>
+						<include>listButton_Label</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
-						<include>column_Label</include>
+						<include>listButton_Label</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="550" height="44">
 					<control type="image">
 						<width>510</width>
-						<colordiffuse>column1</colordiffuse>
-						<include>column</include>
+						<include>listButton_Center-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
-						<include>column_Label-focus</include>
+						<include>listButton_Label-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
 						<width>450</width>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
-						<include>column_Label-focus</include>
+						<include>listButton_Label-focus</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -128,8 +126,7 @@
 				<itemlayout height="44">
 					<control type="image">
 						<width>510</width>
-						<colordiffuse>column3</colordiffuse>
-						<include>column_Right</include>
+						<include>listButton_Right</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
@@ -149,8 +146,7 @@
 				<focusedlayout width="550" height="44">
 					<control type="image">
 						<width>510</width>
-						<colordiffuse>column1</colordiffuse>
-						<include>column_Right</include>
+						<include>listButton_Right-focus</include>
 					</control>
 					<control type="label">
 						<posx>15</posx>
