@@ -216,14 +216,6 @@
 		<value condition="Window.IsVisible(videoplaylist) + !Window.IsActive(2003)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 		<value condition="Window.IsVisible(musicplaylist) + !Window.IsActive(2001)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 	</variable>
-	<variable name="window_Title.InfoDialog">
-		<value condition="Window.IsActive(movieinformation) + Container.Content(movies)">[COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Title]</value>
-		<value condition="Window.IsActive(movieinformation) + Container.Content(tvshows)">[COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.TVShowTitle]</value>
-		<value condition="Window.IsActive(movieinformation) + Container.Content(episodes)">$INFO[ListItem.TVShowTitle]</value>
-		<value condition="Window.IsActive(movieinformation) + Container.Content(musicvideos)">$INFO[ListItem.Label]</value>
-		<value condition="Window.IsActive(musicinformation) + Container.Content(albums)">[COLOR=Color2]$INFO[ListItem.Year][/COLOR] $INFO[ListItem.Album]</value>
-		<value condition="Window.IsActive(musicinformation) + Container.Content(artists)">$INFO[ListItem.Artist]</value>
-	</variable>
 
 <!---INFO------>
 	<variable name="videoInfo.Header">
