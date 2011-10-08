@@ -38,7 +38,7 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>$INFO[ListItem.Overlay]</texture>
-				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources)</visible>
+				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources) + !SubString(Container.FolderPath,plugin://)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/)" width="625" height="40">
@@ -63,7 +63,7 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>$INFO[ListItem.Overlay]</texture>
-				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources)</visible>
+				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources) + !SubString(Container.FolderPath,plugin://)</visible>
 			</control>
 		</focusedlayout>
 		
@@ -176,6 +176,7 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>$INFO[ListItem.Overlay]</texture>
+				<visible>SubString(Container.Folderpath,sources)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/audio/) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]" width="625" height="40">
@@ -200,6 +201,7 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>$INFO[ListItem.Overlay]</texture>
+				<visible>SubString(Container.Folderpath,sources)</visible>
 			</control>
 		</focusedlayout>
 		<itemlayout width="625" height="67">
