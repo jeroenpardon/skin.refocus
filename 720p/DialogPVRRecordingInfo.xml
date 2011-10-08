@@ -3,121 +3,138 @@
 	<include>dialogOpen</include>
 	<coordinates>
 		<system>1</system>
-		<posx>351</posx>
-		<posy>100</posy>
+		<posx>353</posx>
+		<posy>90</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<control type="image">
-				<width>578</width>
-				<height>520</height>
+				<width>577</width>
+				<height>540</height>
 				<include>dialogWindow</include>
 			</control>
 			<control type="label" id="1">
-				<width>500</width>
-				<scroll>true</scroll>
-				<label>$INFO[ListItem.Title]</label>
+				<width>543</width>
+				<label>$LOCALIZE[19053]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
 				<posx>19</posx>
 				<posy>75</posy>
 				<control type="image">
-					<width>542</width>
+					<width>540</width>
 					<include>dialog_Separator</include>
+				</control>
+				<control type="list" id="100">
+					<width>540</width>
+					<height>240</height>
+					<onleft>-</onleft>
+					<onright>-</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="40">
+						<control type="image">
+							<width>540</width>
+							<height>40</height>
+							<font>smallerCaps</font>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>532</width>
+							<height>36</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posx>525</posx>
+							<width>532</width>
+							<height>36</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>smallAlt</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<width>540</width>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>532</width>
+							<height>36</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posx>525</posx>
+							<width>532</width>
+							<height>36</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>smallAlt</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[369]</label>
+							<label2>$INFO[ListItem.Title]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="2">
+							<label>$LOCALIZE[552]</label>
+							<label2>$INFO[ListItem.StartDate]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[555]</label>
+							<label2>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="4">
+							<label>$LOCALIZE[19148]</label>
+							<label2>$INFO[ListItem.ChannelName]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="5">
+							<label>$LOCALIZE[180]</label>
+							<label2>$INFO[ListItem.Duration]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="6">
+							<label>$LOCALIZE[135]</label>
+							<label2>$INFO[ListItem.Genre]</label2>
+							<onclick>-</onclick>
+						</item>
+					</content>
+				</control>
+				<!--description-->
+				<control type="textbox" id="400">
+					<posx>15</posx>
+					<posy>247</posy>
+					<width>500</width>
+					<height>110</height>
+					<label fallback="416">$INFO[ListItem.Plot]</label>
+					<font>descriptionSmall</font>
+					<textcolor>Color4</textcolor>
 				</control>
 				<control type="image">
-					<posy>40</posy>
-					<width>542</width>
+					<width>540</width>
+					<posy>370</posy>
 					<include>dialog_Separator</include>
 				</control>
-				<control type="image">
-					<posy>80</posy>
-					<width>542</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posy>120</posy>
-					<width>542</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posy>160</posy>
-					<width>542</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posy>200</posy>
-					<width>542</width>
-					<include>dialog_Separator</include>
-				</control>
-			</control>
-			<control type="grouplist" id="1">
-				<posx>34</posx>
-				<posy>83</posy>
-				<width>548</width>
-				<height>305</height>
-				<itemgap>18</itemgap>
-				<control type="label" id="3">
-					<width>548</width>
-					<label>[B]$LOCALIZE[552][/B] $INFO[ListItem.StartDate]</label>
-					<textcolor>Color4</textcolor>
-					<font>smallCaps</font>
-					<include>infoDialogMeta</include>
-				</control>
-				<control type="label" id="4">
-					<width>548</width>
-					<label>[B]$LOCALIZE[142][/B] $INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</label>
-					<textcolor>Color4</textcolor>
-					<font>smallCaps</font>
-					<include>infoDialogMeta</include>
-				</control>
-				<control type="label" id="5">
-					<width>548</width>
-					<label>[B]$LOCALIZE[19148][/B] $INFO[ListItem.ChannelName]</label>
-					<textcolor>Color4</textcolor>
-					<font>smallCaps</font>
-					<include>infoDialogMeta</include>
-				</control>
-				<control type="label" id="6">
-					<width>548</width>
-					<label>[B]$LOCALIZE[180][/B] $INFO[ListItem.Duration]</label>
-					<textcolor>Color4</textcolor>
-					<font>smallCaps</font>
-					<include>infoDialogMeta</include>
-				</control>
-				<control type="label" id="6">
-					<width>548</width>
-					<label>[B]$LOCALIZE[135][/B] $INFO[ListItem.Genre]</label>
-					<textcolor>Color4</textcolor>
-					<font>smallCaps</font>
-					<include>infoDialogMeta</include>
-				</control>
-			</control>
-			<!--description-->
-			<control type="textbox" id="400">
-				<posx>34</posx>
-				<posy>290</posy>
-				<width>500</width>
-				<height>180</height>
-				<font>descriptionSmall</font>
-				<textcolor>Color4</textcolor>
-				<align>left</align>
-				<label>$INFO[ListItem.Plot]</label>
 			</control>
 		</control>
-		<control type="group" id="9000">
-			<posy>445</posy>
-			<posx>224</posx>
-			<!--ok-->
-			<control type="button" id="10">
-				<label>$LOCALIZE[186]</label>
-				<onleft>7</onleft>
-				<onright>6</onright>
-				<onup>11</onup>
-				<ondown>11</ondown>
-				<include>dialog_Button</include>
-			</control>
+		<!--ok-->
+		<control type="button" id="10">
+			<posx>228</posx>
+			<posy>465</posy>
+			<label>$LOCALIZE[186]</label>
+			<include>dialog_Button</include>
 		</control>
 	</controls>
 </window>
