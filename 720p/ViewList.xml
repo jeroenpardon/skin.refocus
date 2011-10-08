@@ -176,7 +176,6 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>$INFO[ListItem.Overlay]</texture>
-
 			</control>
 		</itemlayout>
 		<focusedlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/audio/) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]" width="625" height="40">
@@ -201,7 +200,6 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>$INFO[ListItem.Overlay]</texture>
-
 			</control>
 		</focusedlayout>
 		<itemlayout width="625" height="67">
@@ -433,6 +431,14 @@
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-single</include>
 			</control>
+			<control type="image">
+				<posx>588</posx>
+				<posy>14</posy>
+				<width>18</width>
+				<height>18</height>
+				<texture>$INFO[ListItem.Overlay]</texture>
+				<visible>Window.IsActive(pictures)</visible>
+			</control>
 		</itemlayout>
 		<focusedlayout condition="!Container.HasFiles" width="625" height="40">
 			<control type="image">
@@ -449,6 +455,14 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>Focused</textcolor>
 				<include>list_Label-single</include>
+			</control>
+			<control type="image">
+				<posx>588</posx>
+				<posy>14</posy>
+				<width>18</width>
+				<height>18</height>
+				<texture>$INFO[ListItem.Overlay]</texture>
+				<visible>Window.IsActive(pictures)</visible>
 			</control>
 		</focusedlayout>
 		<itemlayout condition="Container.HasFiles" width="625" height="67">
