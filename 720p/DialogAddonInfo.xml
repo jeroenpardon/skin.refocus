@@ -21,8 +21,8 @@
 			</control>
 			<control type="image">
 				<posx>518</posx>
-				<posy>74</posy>
-				<height>201</height>
+				<posy>76</posy>
+				<height>199</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="image">
@@ -32,96 +32,128 @@
 				<height>200</height>
 				<aspectratio>stretch</aspectratio>
 				<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
-			</control>			
+			</control>
 			<control type="group">
 				<posx>19</posx>
+				<posy>75</posy>
 				<control type="image">
-					<posy>74</posy>
 					<width>700</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<posy>114</posy>
-					<width>500</width>
+					<posx>500</posx>
+					<posy>199</posy>
+					<width>200</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<posy>154</posy>
-					<width>500</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posy>194</posy>
-					<width>500</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posy>234</posy>
-					<width>500</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posy>275</posy>
+					<posy>435</posy>
 					<width>700</width>
 					<include>dialog_Separator</include>
 				</control>
+				<control type="list" id="100">
+					<width>499</width>
+					<height>305</height>
+					<onleft>-</onleft>
+					<onright>-</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="40">
+						<control type="image">
+							<width>540</width>
+							<height>40</height>
+							<font>smallerCaps</font>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>532</width>
+							<height>36</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posx>481</posx>
+							<width>400</width>
+							<height>36</height>
+							<align>right</align>
+							<label fallback="231">$INFO[ListItem.Label2]</label>
+							<font>smallAlt</font>
+							<scroll>true</scroll>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<width>540</width>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>532</width>
+							<height>36</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posx>481</posx>
+							<width>532</width>
+							<height>36</height>
+							<align>right</align>
+							<label fallback="231">$INFO[ListItem.Label2]</label>
+							<font>smallAlt</font>
+							<scroll>true</scroll>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[467]</label>
+							<label2>$INFO[ListItem.Property(Addon.Type)]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="2">
+							<label>$LOCALIZE[21863]</label>
+							<label2>$INFO[ListItem.Property(Addon.Creator)]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[24051]</label>
+							<label2>$INFO[ListItem.Property(Addon.Version)]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="4">
+							<label>$LOCALIZE[563]</label>
+							<label2>$INFO[ListItem.Property(Addon.Rating)]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="5">
+							<label>$LOCALIZE[24052]</label>
+							<label2>$INFO[ListItem.Property(Addon.Disclaimer)]</label2>
+							<onclick>-</onclick>
+						</item>
+					</content>
+				</control>
+				<!--description-->
 				<control type="group">
-					<posy>73</posy>
-					<!--type-->
-					<control type="label">
-						<width>500</width>
-						<label>[B]$LOCALIZE[146,,:][/B] $INFO[ListItem.Property(Addon.Type)]</label>
-						<include>dialog_Label</include>
+					<posx>15</posx>	
+					<posy>213</posy>
+					<control type="textbox" id="400">
+						<width>660</width>
+						<height>195</height>
+						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<font>smallAlt</font>
+						<include>dialog_Textbox</include>
+						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
-					<!--author-->
-					<control type="label">
-						<posy>40</posy>
-						<width>500</width>
-						<label>[B]$LOCALIZE[21863]:[/B] $INFO[ListItem.Property(Addon.Creator)]</label>
-						<include>dialog_Label</include>
-					</control>
-					<!--version-->
-					<control type="label">
-						<posy>80</posy>
-						<width>500</width>
-						<label>[B]$LOCALIZE[24051][/B] $INFO[ListItem.Property(Addon.Version)]</label>
-						<include>dialog_Label</include>
-					</control>
-					<!--rating-->
-					<control type="label">
-						<posy>120</posy>
-						<width>500</width>
-						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Property(Addon.Rating)]</label>
-						<include>dialog_Label</include>
-					</control>
-					<!--summary-->
-					<control type="label">
-						<posy>160</posy>
-						<width>500</width>
-						<label>[B]$LOCALIZE[24052]:[/B] $INFO[ListItem.Property(Addon.Disclaimer)]</label>
-						<scroll>true</scroll>
-						<include>dialog_Label</include>
-					</control>
-					<!--description-->
-					<control type="group">
-						<posx>15</posx>	
-						<posy>213</posy>
-						<control type="textbox" id="400">
-							<width>660</width>
-							<height>195</height>
-							<label>$INFO[ListItem.Property(Addon.Description)]</label>
-							<font>smallAlt</font>
-							<include>dialog_Textbox</include>
-							<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
-						</control>
-						<control type="textbox" id="400">
-							<width>660</width>
-							<height>145</height>
-							<label>$INFO[ListItem.Property(Addon.Description)]</label>
-							<font>smallAlt</font>
-							<include>dialog_Textbox</include>
-							<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
-						</control>
+					<control type="textbox" id="400">
+						<width>660</width>
+						<height>145</height>
+						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<font>smallAlt</font>
+						<include>dialog_Textbox</include>
+						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -131,7 +163,7 @@
 				</control>
 				<!--status-->
 				<control type="group">
-					<posy>438</posy>
+					<posy>370</posy>
 					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					<control type="image">
 						<width>700</width>
