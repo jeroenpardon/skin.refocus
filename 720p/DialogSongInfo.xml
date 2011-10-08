@@ -20,101 +20,101 @@
 				<label>$INFO[ListItem.Title]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
-			<control type="image">
+			
+			<control type="group">
 				<posx>19</posx>
 				<posy>75</posy>
-				<width>540</width>
-				<include>dialog_Separator</include>
-			</control>
-
-			<control type="list" id="100">
-				<posx>19</posx>
-				<posy>75</posy>
-				<width>540</width>
-				<height>305</height>
-				<onleft>-</onleft>
-				<onright>-</onright>
-				<onup>100</onup>
-				<ondown>100</ondown>
-				<scrolltime>200</scrolltime>
-				<itemlayout height="40">
-					<control type="image">
-						<width>540</width>
-						<height>40</height>
-						<font>smallerCaps</font>
-						<include>dialog_CommonList</include>
-					</control>
-					<control type="label">
-						<width>532</width>
-						<label>$INFO[ListItem.Label]</label>
-						<font>smallerCaps</font>
-						<include>dialog_CommonListItem</include>
-					</control>
-					<control type="label">
-						<posx>525</posx>
-						<width>532</width>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<font>smallerCaps</font>
-						<include>dialog_CommonListItem</include>
-					</control>
-				</itemlayout>
-				<focusedlayout height="40">
-					<control type="image">
-						<width>540</width>
-						<include>dialog_CommonList</include>
-					</control>
-					<control type="label">
-						<width>532</width>
-						<label>$INFO[ListItem.Label]</label>
-						<font>smallerCaps</font>
-						<include>dialog_CommonListItem</include>
-					</control>
-					<control type="label">
-						<posx>525</posx>
-						<width>532</width>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<font>smallerCaps</font>
-						<include>dialog_CommonListItem</include>
-					</control>
-				</focusedlayout>
-				<content>
-					<item id="1">
-						<label>$LOCALIZE[557]</label>
-						<label2>$INFO[ListItem.Artist]</label2>
-						<onclick>-</onclick>
-					</item>
-					<item id="2">
-						<label>$LOCALIZE[558]</label>
-						<label2>$INFO[ListItem.Album]</label2>
-						<onclick>-</onclick>
-					</item>
-					<item id="3">
-						<label>$LOCALIZE[562]</label>
-						<label2>$INFO[ListItem.Year]</label2>
-						<onclick>-</onclick>
-					</item>
-					<item id="4">
-						<label>$LOCALIZE[554]</label>
-						<label2>$INFO[ListItem.TrackNumber]</label2>
-						<onclick>-</onclick>
-					</item>
-					<item id="5">
-						<label>$LOCALIZE[563]</label>
-						<label2>-</label2>
-						<onclick>-</onclick>
-					</item>
-				</content>
-			</control>
-			<control type="image">
-				<description>Rating value</description>
-				<posx>318</posx>
-				<posy>241</posy>
-				<width>160</width>
-				<height>24</height>
-				<aspectratio align="right">keep</aspectratio>
-				<info>ListItem.StarRating</info>
+				<control type="image">
+					<width>540</width>
+					<include>dialog_Separator</include>
+				</control>
+				<control type="list" id="100">
+					<width>540</width>
+					<height>305</height>
+					<onleft>-</onleft>
+					<onright>-</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="40">
+						<control type="image">
+							<width>540</width>
+							<height>40</height>
+							<font>smallerCaps</font>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>532</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posx>525</posx>
+							<width>532</width>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<width>540</width>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>532</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posx>525</posx>
+							<width>532</width>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>smallerCaps</font>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[557]</label>
+							<label2>$INFO[ListItem.Artist]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="2">
+							<label>$LOCALIZE[558]</label>
+							<label2>$INFO[ListItem.Album]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[562]</label>
+							<label2>$INFO[ListItem.Year]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="4">
+							<label>$LOCALIZE[554]</label>
+							<label2>$INFO[ListItem.TrackNumber]</label2>
+							<onclick>-</onclick>
+						</item>
+						<item id="5">
+							<label>$LOCALIZE[563]</label>
+							<label2>-</label2>
+							<onclick>-</onclick>
+						</item>
+					</content>
+				</control>
+				<control type="image">
+					<description>Rating value</description>
+					<posx>318</posx>
+					<posy>241</posy>
+					<width>160</width>
+					<height>24</height>
+					<aspectratio align="right">keep</aspectratio>
+					<info>ListItem.StarRating</info>
+				</control>
 			</control>
 			<control type="group" id="900">
 				<posx>493</posx>
