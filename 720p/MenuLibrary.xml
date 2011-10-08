@@ -478,7 +478,7 @@
 			</control>
 		</control>
 	</include>
-	
+
 	<include name="menu_Music">
 		<control type="group" id="6000">
 			<visible>!Skin.HasSetting(global.kiosk)</visible>
@@ -495,7 +495,7 @@
 					<height>42</height>
 					<control type="button" id="1">
 						<label>$LOCALIZE[31930]</label>
-						<onup>17</onup>
+						<onup>90</onup>
 						<ondown>3</ondown>
 						<onright>50</onright>
 						<onclick>SetFocus(40)</onclick>
@@ -510,9 +510,27 @@
 					<control type="button" id="17">
 						<label>$LOCALIZE[1036]</label>
 						<onup>16</onup>
-						<ondown>1</ondown>
+						<ondown>90</ondown>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--SLIDE: artists-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(artists)</visible>
+					<control type="togglebutton" id="90">
+						<label>$LOCALIZE[31039]</label>
+						<altlabel>$LOCALIZE[31059]</altlabel>
+						<onup>17</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(521)</onclick>
+						<onclick>SetFocus(521)</onclick>
+						<altclick>Container.SetViewMode(52)</altclick>
+						<altclick>SetFocus(52)</altclick>
 						<include>button_Menu</include>
 					</control>
 				</control>
