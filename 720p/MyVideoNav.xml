@@ -232,17 +232,17 @@
 				<posy>115</posy>
 				<itemgap>0</itemgap>
 				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
-				<control type="label" id="1">
+				<control type="label">
 					<width>435</width>
 					<label>$VAR[global_Title.Video]</label>
 					<include>info_Title</include>
 				</control>
-				<control type="label" id="1">
+				<control type="label">
 					<width>435</width>
 					<label>$VAR[global_Info.Video]</label>
 					<include>info_Sub</include>
 				</control>
-				<control type="label" id="1">
+				<control type="label">
 					<width>435</width>
 					<label>$INFO[ListItem.Studio]</label>
 					<include>info_Sub</include>
@@ -255,24 +255,15 @@
 					<aspectratio align="left">keep</aspectratio>
 					<visible>!ListItem.IsFolder</visible>
 				</control>
-				<control type="label" id="1">
+				<control type="label">
 					<label></label>
 					<height>10</height>
 				</control>
 				<control type="textbox" id="4">
 					<width>435</width>
 					<height>413</height>
-					<label>$INFO[ListItem.Plot]</label>
+					<label>$VAR[global_Plot.Condition]</label>
 					<include>description_Small</include>
-					<visible>Container.Content(tvshows) | Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
-				</control>
-				<control type="textbox" id="4">
-					<width>435</width>
-					<height>413</height>
-					<aligny>top</aligny>
-					<label>$INFO[Container.ShowPlot]</label>
-					<include>description_Small</include>
-					<visible>Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 			</control>
 		</control>
