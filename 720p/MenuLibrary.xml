@@ -164,7 +164,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(521) + [Container.Content(movies) | Container.Content(tvshows)] + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)]</visible>
+					<visible>Control.IsVisible(521) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31061]</label>
 						<onup>17</onup>
@@ -180,7 +180,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows)] + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)]</visible>
+					<visible>Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31039]</label>
 						<onup>17</onup>
@@ -196,7 +196,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31063]</label>
 						<onup>17</onup>
@@ -212,7 +212,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31062]</label>
 						<onup>17</onup>
@@ -228,7 +228,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)] + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+					<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)]  + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="togglebutton" id="90">
 						<label>$LOCALIZE[31061]</label>
 						<altlabel>$LOCALIZE[31039]</altlabel>
@@ -276,7 +276,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="togglebutton" id="90">
 						<label>$LOCALIZE[31061]</label>
 						<altlabel>$LOCALIZE[31039]</altlabel>
@@ -357,6 +357,22 @@
 						<onclick>Container.SetViewMode(521)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(521)</onclick>
+						<onright>50</onright>
+						<onup>403</onup>
+						<ondown>405</ondown>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--slide square-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(addons) | [SubString(Container.FolderPath,plugin://) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
+					<control type="button" id="404">
+						<label>$LOCALIZE[31003]</label>
+						<onclick>Container.SetViewMode(522)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(522)</onclick>
 						<onright>50</onright>
 						<onup>403</onup>
 						<ondown>405</ondown>
@@ -523,15 +539,15 @@
 					<height>42</height>
 					<visible>Container.Content(artists)</visible>
 					<control type="togglebutton" id="90">
-						<label>$LOCALIZE[31039]</label>
-						<altlabel>$LOCALIZE[31059]</altlabel>
+						<label>111$LOCALIZE[31039]</label>
+						<altlabel>222$LOCALIZE[31059]</altlabel>
 						<onup>17</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Container.SetViewMode(521)</onclick>
 						<onclick>SetFocus(521)</onclick>
-						<altclick>Container.SetViewMode(52)</altclick>
-						<altclick>SetFocus(52)</altclick>
+						<altclick>Container.SetViewMode(522)</altclick>
+						<altclick>SetFocus(522)</altclick>
 						<include>button_Menu</include>
 					</control>
 				</control>
