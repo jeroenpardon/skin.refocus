@@ -196,7 +196,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(521)] + [Container.Content(movies) | Container.Content(tvshows)] + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)]</visible>
+					<visible>[Control.IsVisible(53) | Control.IsVisible(531)] + [Container.Content(movies) | Container.Content(tvshows)] + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)]</visible>
 					<control type="togglebutton" id="90">
 						<label>$LOCALIZE[31061]</label>
 						<altlabel>$LOCALIZE[31039]</altlabel>
@@ -373,11 +373,11 @@
 					<height>42</height>
 					<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !substring(Container.FolderPath,plugin://)] | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
 					<control type="button" id="405">
-						<label>$LOCALIZE[31014]</label>
+						<label>$LOCALIZE[31001]</label>
 						<onclick>Container.SetViewMode(57)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(57)</onclick>
-						<onright>50</onright>
+						<onright>30</onright>
 						<onup>404</onup>
 						<ondown>406</ondown>
 						<include>button_Menu</include>
