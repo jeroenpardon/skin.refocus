@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | [SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)] + Container.HasFiles</visible>
 			<itemlayout height="400" width="205">
 				<control type="image">
 					<width>228</width>
@@ -76,7 +76,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,musicdb)] | [Container.Content(files) + Container.HasFiles]] | SubString(Container.FolderPath,plugin://plugin.video.youtube)</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,musicdb)] | [Container.Content(files) + Container.HasFiles]] | [SubString(Container.FolderPath,plugin://plugin.video.youtube) | SubString(Container.FolderPath,plugin://plugin.video.svtplay)] + Container.HasFiles</visible>
 			<include condition="Window.IsVisible(videolibrary)">SlideWideVideo</include>
 			<include condition="Window.IsVisible(musiclibrary)">SlideWideMusic</include>
 		</control>	

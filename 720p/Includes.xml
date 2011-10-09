@@ -1,7 +1,6 @@
 ﻿<includes>
 	<include file="Defaults.xml" />
 	<include file="HomeMenu.xml" />
-	<include file="HomeMenu2.xml" />
 	<include file="HomeSubMenu.xml" />
 	<include file="MenuFiles.xml" />
 	<include file="MenuInfo.xml" />
@@ -325,7 +324,7 @@
 	<include name="button_Menu">
 		<width>400</width>
 		<height>170</height>
-		<font>pagemenu</font>
+		<font>windowMenu</font>
 		<textcolor>Color1</textcolor>
 		<focusedcolor>Color5</focusedcolor>
 		<textoffsety>60</textoffsety>
@@ -533,7 +532,7 @@
 		<width>340</width>
 		<align>right</align>
 		<height>40</height>
-		<font>notification</font>
+		<font>info</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
 		<scrollout>false</scrollout>
@@ -545,7 +544,7 @@
 		<posy>26</posy>
 		<width>340</width>
 		<align>right</align>
-		<font>notificationSmall</font>
+		<font>listInfo</font>
 		<height>40</height>
 		<aligny>center</aligny>
 		<textcolor>Color2</textcolor>
@@ -558,7 +557,7 @@
 		<posy>22</posy>
 		<align>left</align>
 		<aligny>center</aligny>
-		<font>progress</font>
+		<font>toastProgress</font>
 		<textcolor>Color1</textcolor>
 		<include>transition_Toast</include>
 		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]">
@@ -771,13 +770,13 @@
 				<control type="label">
 					<width>970</width>
 					<label>$INFO[MusicPlayer.Title]</label>
-					<font>osd1</font>
+					<font>osdTitle</font>
 					<textcolor>Color1</textcolor>
 				</control>
 				<control type="label">
 					<width>970</width>
 					<label>$INFO[VideoPlayer.Title]</label>
-					<font>osd1</font>
+					<font>osdTitle</font>
 					<textcolor>Color1</textcolor>
 				</control>
 			<!---line 2--->
@@ -789,19 +788,19 @@
 						<width>1000</width>
 						<height>20</height>
 						<label>$INFO[MusicPlayer.Artist]</label>
-						<font>osd2</font>
+						<font>info</font>
 						<textcolor>Color2</textcolor>
 					</control>
 					<control type="label">
 						<width>1000</width>
 						<label>$INFO[MusicPlayer.Album,, • ]$INFO[MusicPlayer.Year]</label>
-						<font>osd2</font>
+						<font>info</font>
 						<textcolor>Color2</textcolor>
 					</control>
 					<control type="label">
 						<width>1000</width>
 						<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
-						<font>osd2</font>
+						<font>info</font>
 						<textcolor>Color3</textcolor>
 						<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
 					</control>
@@ -859,7 +858,7 @@
 					<width>1000</width>
 					<align>right</align>
 					<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
-					<font>osd2</font>
+					<font>info</font>
 					<textcolor>Color2</textcolor>
 				</control>
 				<control type="progress" id="1">
@@ -877,7 +876,7 @@
 			<posy>450</posy>
 			<width>1080</width>
 			<label>$LOCALIZE[13350]</label>
-			<font>osd3</font>
+			<font>osdHeader</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_OSD2</include>
 			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
