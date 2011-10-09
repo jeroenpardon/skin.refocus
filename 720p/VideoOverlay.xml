@@ -12,37 +12,37 @@
 			</animation>
 			<control type="label" id="200">
 				<posx>180r</posx>
-				<label>[UPPERCASE]$INFO[VideoPlayer.Title][/UPPERCASE]</label>
+				<label>$INFO[VideoPlayer.Title]</label>
 				<include>toast_Top</include>
 			</control>
 			<control type="label" id="201">
 				<posx>180r</posx>
-				<label>[UPPERCASE]$INFO[VideoPlayer.Genre][/UPPERCASE]</label>
+				<label>$INFO[VideoPlayer.Genre]</label>
 				<include>toast_Bottom</include>
 				<visible>VideoPlayer.Content(movies)</visible>
 			</control>
 			<control type="label" id="203">
 				<posx>180r</posx>
-				<label>[UPPERCASE]$INFO[VideoPlayer.TVShowTitle][/UPPERCASE]</label>
+				<label>$INFO[VideoPlayer.TVShowTitle]</label>
 				<include>toast_Bottom</include>
 				<visible>VideoPlayer.Content(episodes)</visible>
 			</control>
 			<control type="label" id="204">
 				<posx>180r</posx>
-				<label>[UPPERCASE]$INFO[VideoPlayer.Artist][/UPPERCASE]</label>
+				<label>$INFO[VideoPlayer.Artist]</label>
 				<include>toast_Bottom</include>
 				<visible>VideoPlayer.Content(musicvideos)</visible>
 			</control>
 			<control type="label" id="201">
 				<posx>180r</posx>
-				<label>[UPPERCASE]$INFO[VideoPlayer.ChannelName][/UPPERCASE]</label>
+				<label>$INFO[VideoPlayer.ChannelName]</label>
 				<include>toast_Bottom</include>
 			</control>
 			<control type="label" id="201">
 				<posx>180r</posx>
-				<label>[UPPERCASE]$INFO[VideoPlayer.Duration,, $LOCALIZE[31100]][/UPPERCASE]</label>
+				<label>$INFO[VideoPlayer.Duration,, $LOCALIZE[31100]]</label>
 				<include>toast_Bottom</include>
-				<visible>VideoPlayer.Content(files)</visible>
+				<visible>VideoPlayer.Content(files) | SubString(Player.Filenameandpath,http://)</visible>
 			</control>
 			<control type="label" id="1">
 				<posx>170r</posx>
