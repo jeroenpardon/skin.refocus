@@ -67,7 +67,7 @@
 			</control>
 		</focusedlayout>
 		
-		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + SubString(Container.FolderPath,videodb)] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | [[SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms) | SubString(Container.FolderPath,plugin://plugin.video.youtube)] + Container.HasFiles]" width="625" height="67">
+		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | [[SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms) | SubString(Container.FolderPath,plugin://plugin.video.youtube)] + Container.HasFiles]" width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
@@ -110,7 +110,7 @@
 				<visible>!Container.Content(artists)</visible>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + SubString(Container.FolderPath,videodb)] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | [[SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms) | SubString(Container.FolderPath,plugin://plugin.video.youtube)] + Container.HasFiles]" width="625" height="67">
+		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | [[SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms) | SubString(Container.FolderPath,plugin://plugin.video.youtube)] + Container.HasFiles]" width="625" height="67">
 			<control type="image">
 				<posy>-30</posy>
 				<width>650</width>
