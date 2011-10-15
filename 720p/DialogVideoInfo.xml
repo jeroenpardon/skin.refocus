@@ -220,7 +220,7 @@
 					<!--cinema-->
 					<control type="group">
 						<width>125</width>
-						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + !SubString(ListItem.Path,http)</visible>
+						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + ![SubString(ListItem.Path,http) | SubString(ListItem.Path,plugin://)]</visible>
 						<control type="button" id="8002">
 							<label>cinema</label>
 							<onleft>8001</onleft>

@@ -234,7 +234,7 @@
 	<variable name="videoInfo.Header">
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>		
-		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.OriginalTitle]</value>
+		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(tvshows)">$INFO[Window(Home).Property(NextAired.AirTime)]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle] • $INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(musicvideos) + !Window.IsActive(videofiles)">$INFO[ListItem.Genre]</value>
