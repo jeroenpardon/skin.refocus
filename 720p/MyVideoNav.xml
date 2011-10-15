@@ -351,7 +351,7 @@
 		<include>view_Gallery</include>
 		<!---fullscreen/expanded--->
 		<control type="group">
-			<posy>496</posy>
+			<posy>475</posy>
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<animation effect="slide" start="0,600" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
@@ -359,37 +359,60 @@
 			<visible>[[Control.IsVisible(53) + Control.HasFocus(8000)] | Control.IsVisible(531)] + !ControlGroup(6000).HasFocus()</visible>
 			<control type="image">
 				<width>1280</width>
-				<height>225</height>
+				<height>245</height>
 				<texture border="0,0,0,15">osd/fullscreenInfo.png</texture>
 			</control>
 			<control type="group">
 				<posx>20</posx>
-				<posy>45</posy>
+				<posy>35</posy>
 				<control type="label">
 					<label>$VAR[global_Title.Video]</label>
 					<font>osdTitle</font>
+					<aligny>top</aligny>
+					<width>1100</width>
 					<textcolor>Color4</textcolor>
 					<width>screen_Width</width>
 				</control>
-				<control type="label">
-					<posx>1240</posx>
-					<width>500</width>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
-					<font>osdTitle</font>
-					<align>right</align>	
-					<textcolor>Color4</textcolor>
+				<control type="image">
+					<posx>1190</posx>
+					<posy>4</posy>
+					<width>48</width>
+					<height>48</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/hd/fo-,.png]</texture>
+					<colordiffuse>Color4</colordiffuse>
+					<aspectratio align="right">keep</aspectratio>
+				</control>
+				<control type="image">
+					<posx>1110</posx>
+					<posy>43</posy>
+					<width>128</width>
+					<height>22</height>
+					<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
+					<colordiffuse>Color4</colordiffuse>
+					<aspectratio align="right">keep</aspectratio>
+					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
 				<control type="label">
-					<posx>1240</posx>
-					<width>500</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),,/]$INFO[ListItem.Episode]</label>
-					<font>osdTitle</font>
-					<align>right</align>	
+					<posy>40</posy>
+					<width>1100</width>
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
+					<font>smallerCaps</font>
+					<align>left</align>	
 					<textcolor>Color4</textcolor>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="label">
+					<posy>40</posy>
+					<width>1100</width>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$VAR[tvshow_Info.NextAired, • ]</label>
+					<font>smallerCaps</font>
+					<align>left</align>	
+					<textcolor>Color4</textcolor>
+					<visible>Container.Content(tvshows) + !SubString(ListItem.Icon,default)</visible>
 				</control>
 				<control type="image">
 					<posx>-250</posx>
-					<posy>43</posy>
+					<posy>75</posy>
 					<width>1530</width>
 					<height>1</height>
 					<texture>views/separatorFaded.png</texture>
@@ -397,7 +420,7 @@
 					<visible>!IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="textbox" id="4">
-					<posy>47</posy>
+					<posy>80</posy>
 					<width>1240</width>
 					<height>115</height>
 					<label>$VAR[global_Plot.Condition]</label>
