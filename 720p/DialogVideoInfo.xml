@@ -258,7 +258,7 @@
 					<!--trailer-->
 					<control type="group">
 						<width>125</width>
-						<visible>![SubString(ListItem.Path,http) | SubString(ListItem.Path,plugin://)]</visible>
+						<visible>Container.Content(movies) + ![SubString(ListItem.Path,http) | SubString(ListItem.Path,plugin://)]</visible>
 						<control type="button" id="8005">
 							<label>$LOCALIZE[20410]</label>
 							<onclick>SendClick(2003,11)</onclick>
