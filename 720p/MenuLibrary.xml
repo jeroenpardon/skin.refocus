@@ -308,7 +308,7 @@
 						<onclick>SetFocus(50)</onclick>
 						<onright>30</onright>
 						<onback>30</onback>
-						<onup>411</onup>
+						<onup>410</onup>
 						<ondown>402</ondown>
 						<include>button_Menu</include>
 					</control>
@@ -317,7 +317,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + SubString(Container.FolderPath,videodb)] | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
+					<visible>[Container.Content(tvshows) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]</visible>
 					<control type="button" id="402">
 						<label>$LOCALIZE[537]</label>
 						<onclick>Container.SetViewMode(51)</onclick>
@@ -357,7 +357,7 @@
 						<onclick>Container.SetViewMode(521)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(521)</onclick>
-						<onright>50</onright>
+						<onright>30</onright>
 						<onup>403</onup>
 						<ondown>405</ondown>
 						<include>button_Menu</include>
@@ -367,13 +367,13 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Container.Content(addons) | [SubString(Container.FolderPath,plugin://) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
+					<visible>Container.Content(addons) | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + !Container.Content(movies)]</visible>
 					<control type="button" id="404">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(522)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(522)</onclick>
-						<onright>50</onright>
+						<onright>30</onright>
 						<onup>403</onup>
 						<ondown>405</ondown>
 						<include>button_Menu</include>
@@ -383,9 +383,9 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !substring(Container.FolderPath,plugin://)] | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,plugin://)]</visible>
 					<control type="button" id="405">
-						<label>$LOCALIZE[31001]</label>
+						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(57)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(57)</onclick>
@@ -395,17 +395,17 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--thumbnails landscape-->
+				<!--thumbnails files-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>substring(Container.FolderPath,plugin://) + !Container.HasFolders + ![IsEmpty(Container.FolderPath) | stringcompare(Container.FolderPath,sources://video/) | substring(Container.FolderPath,special://videoplaylists/) | stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)]</visible>
+					<visible>[Container.Content(episodes) | [Container.Content(files) + Container.HasFiles)] | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)]]</visible>
 					<control type="button" id="406">
 						<label>$LOCALIZE[31014]</label>
-						<onclick>Container.SetViewMode(573)</onclick>
+						<onclick>Container.SetViewMode(575)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(573)</onclick>
-						<onright>50</onright>
+						<onright>30</onright>
 						<onup>405</onup>
 						<ondown>407</ondown>
 						<include>button_Menu</include>
@@ -421,25 +421,9 @@
 						<onclick>Container.SetViewMode(574)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(574)</onclick>
-						<onright>50</onright>
+						<onright>30</onright>
 						<onup>406</onup>
 						<ondown>408</ondown>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--thumbnails episodes-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<visible>!substring(Container.FolderPath,plugin://) + [Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]]</visible>
-					<control type="button" id="408">
-						<label>$LOCALIZE[31014]</label>
-						<onclick>Container.SetViewMode(575)</onclick>
-						<onclick>SetFocus(1)</onclick>
-						<onclick>SetFocus(575)</onclick>
-						<onright>50</onright>
-						<onup>407</onup>
-						<ondown>409</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -448,14 +432,14 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + !SubString(Container.FolderPath,plugin://)</visible>
-					<control type="button" id="409">
+					<control type="button" id="408">
 						<label>$LOCALIZE[31093]</label>
 						<onclick>Container.SetViewMode(541)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(541)</onclick>
-						<onright>50</onright>
-						<onup>408</onup>
-						<ondown>410</ondown>
+						<onright>30</onright>
+						<onup>407</onup>
+						<ondown>409</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -464,14 +448,14 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + !substring(Container.FolderPath,plugin://)</visible>
-					<control type="button" id="410">
+					<control type="button" id="409">
 						<label>$LOCALIZE[31007]</label>
 						<onclick>Container.SetViewMode(54)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(54)</onclick>
-						<onright>50</onright>
-						<onup>409</onup>
-						<ondown>411</ondown>
+						<onright>30</onright>
+						<onup>408</onup>
+						<ondown>410</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -480,13 +464,13 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>[Container.Content(tvshows) | Container.Content(movies)] + !substring(container.folderpath,plugin://)</visible>
-					<control type="button" id="411">
+					<control type="button" id="410">
 						<label>$LOCALIZE[31002]</label>
 						<onclick>Container.SetViewMode(53)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(53)</onclick>
-						<onright>50</onright>
-						<onup>410</onup>
+						<onright>30</onright>
+						<onup>409</onup>
 						<ondown>401</ondown>
 						<include>button_Menu</include>
 					</control>

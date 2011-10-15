@@ -54,7 +54,7 @@
 			<include>infoDialogHide</include>
 			<include condition="Window.IsVisible(videolibrary)">GalleryVideo</include>
 			<include condition="Window.IsVisible(pictures)">GalleryPictures</include>
-			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)] + ![SubString(Container.Folderpath,plugin://) | IsEmpty(Container.Folderpath)]</visible>
 		</control>
 	</include>
 	<!---container contents--->
@@ -144,7 +144,7 @@
 			<include>infoDialogHide</include>
 			<include condition="Window.IsVisible(videolibrary)">GalleryFullVideo</include>
 			<include condition="Window.IsVisible(pictures)">GalleryFullPictures</include>		
-			<visible>![substring(Container.FolderPath,plugin://) | substring(Container.FolderPath,addons://) | IsEmpty(Container.FolderPath)] + [Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(2)]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)] + ![SubString(Container.Folderpath,plugin://) | IsEmpty(Container.Folderpath)]</visible>
 		</control>
 		<!---window menu shade-->
 		<control type="image">

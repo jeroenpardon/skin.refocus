@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | [SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms)] + Container.HasFiles</visible>
+			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]</visible>
 			<itemlayout height="400" width="205">
 				<control type="image">
 					<width>228</width>
@@ -76,7 +76,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,musicdb)] | [Container.Content(files) + Container.HasFiles]] | [SubString(Container.FolderPath,plugin://plugin.video.youtube) | SubString(Container.FolderPath,plugin://plugin.video.svtplay)] + Container.HasFiles</visible>
+			<visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] | [Container.Content(movies) + !SubString(Container.FolderPath,plugin://) + Container.HasFiles] | [Container.Content(files) + Container.HasFiles]</visible>
 			<include condition="Window.IsVisible(videolibrary)">SlideWideVideo</include>
 			<include condition="Window.IsVisible(musiclibrary)">SlideWideMusic</include>
 		</control>	
@@ -117,7 +117,6 @@
 			</control>
 		</focusedlayout>
 	</include>
-	
 	<include name="SlideWideMusic">
 		<itemlayout width="425" height="300">
 			<control type="image">
@@ -144,9 +143,9 @@
 		</focusedlayout>
 	</include>
 
-<!---ALBUMS------>
+<!---SQUARE------>
 	<include name="view_SlideSquare">
-		<control type="wraplist" id="52">
+		<control type="wraplist" id="522">
 			<viewtype label="Slide">info</viewtype>
 			<posx>-55</posx>
 			<posy>115</posy>
@@ -160,7 +159,7 @@
 			<focusposition>1</focusposition>
 			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 			<orientation>horizontal</orientation>
-			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists)]</visible>
+			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)] | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + !Container.Content(movies)]</visible>
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
@@ -168,7 +167,7 @@
 				<control type="image">
 					<width>300</width>
 					<height>300</height>
-					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$VAR[thumb_Square.Condition]</texture>
 					<bordertexture border="40">frames/frame_Square.png</bordertexture>
 					<bordersize>22</bordersize>
 					<aspectratio>scale</aspectratio>
@@ -178,7 +177,7 @@
 				<control type="image">
 					<width>300</width>
 					<height>300</height>
-					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$VAR[thumb_Square.Condition]</texture>
 					<bordertexture border="40">frames/frame_Square.png</bordertexture>
 					<bordersize>22</bordersize>
 					<aspectratio>scale</aspectratio>

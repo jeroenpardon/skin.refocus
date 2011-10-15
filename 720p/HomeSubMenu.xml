@@ -439,6 +439,16 @@
 						<onclick>ActivateWindow(MyVideoLibrary,moviegenres)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.genres)</visible>
 					</item>
+					<item id="7">
+						<label>$LOCALIZE[652]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,movieyears)</onclick>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.years)</visible>
+					</item>
+					<item id="8">
+						<label>$LOCALIZE[344]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,movieactors)</onclick>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.actors)</visible>
+					</item>
 				</content>
 			</control>
 <!---TVSHOWS SUBMENU------>
@@ -480,6 +490,21 @@
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowgenres)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.genres)</visible>
+					</item>
+					<item id="6">
+						<label>$LOCALIZE[652]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,tvshowyears)</onclick>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.years)</visible>
+					</item>
+					<item id="7">
+						<label>$LOCALIZE[344]</label>
+						<onclick>ActivateWindow(MyVideoLibrary,tvshowactors)</onclick>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.actors)</visible>
+					</item>
+					<item id="8">
+						<label>$LOCALIZE[31070]</label>
+						<onclick>RunAddon(script.tv.show.next.aired)</onclick>
+						<visible>Library.HasContent(tvshows) + System.HasAddon(script.tv.show.next.aired)</visible>
 					</item>
 				</content>
 			</control>

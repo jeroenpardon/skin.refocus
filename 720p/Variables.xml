@@ -34,17 +34,28 @@
 	</variable>
 	<variable name="global_Info.Video">
 		<!--is movie set--><value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
-		<value condition="Container.Content(movies) + ListItem.IsFolder + !SubString(Container.FolderPath,videodb)">$INFO[ListItem.Date]</value>
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
-		<value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Genre]</value>
-		<value condition="[Container.Content(tvshows) + !stringcompare(ListItem.Property(TotalSeasons),1)] | Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • , $LOCALIZE[33054]]</value>
-		<value condition="Container.Content(tvshows) + stringcompare(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[ListItem.Property(TotalSeasons), • , $LOCALIZE[20373]]</value>
+		<value condition="Container.Content(movies)">$INFO[ListItem.Duration,, $LOCALIZE[31100] • ]$INFO[ListItem.Genre]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[Window(Home).Property(NextAired.NextDate), • $LOCALIZE[31069] ]</value>
 		<!--is linked movie--><value condition="[Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))] | [Container.Content(episodes) + IsEmpty(ListItem.Episode)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Genre]</value>
+		<!--is not linked movie--><value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
-		<value>$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>
+		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>
+		<value>$INFO[ListItem.Label2]</value>
 	</variable>
+	
+	<variable name="tvshow_Info.NextAired">
+		<value condition="Container.Content(tvshows) + !StringCompare(Window(Home).Property(NextAired.Status),Canceled/Ended)">$INFO[Window(Home).Property(NextAired.NextDate),$LOCALIZE[31069] ]</value>
+		<value>$INFO[Window(Home).Property(NextAired.Status)]</value>
+	</variable>
+	
+	<variable name="movie_Info.Date">
+		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
+		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]</value>
+	</variable>
+	
 	<variable name="global_Title.Music">
 		<value condition="Container.Content(songs) + !SubString(Container.FolderPath,musicdb://4/) + !IsEmpty(ListItem.Title)">$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</value>
 		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
@@ -67,6 +78,7 @@
 	</variable>
 	<variable name="global_Info.Files">
 		<value condition="Window.IsActive(pictures)">$INFO[ListItem.Date]$INFO[ListItem.PictureResolution, • ]</value>
+		<value condition="Window.IsActive(programs)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<value condition="Window.IsActive(addonbrowser)">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]$INFO[ListItem.Property(Addon.Status), • ]</value>
 		<!--<value condition="!Window.IsActive(addonbrowser) + Substring(Container.FolderPath,addons://)">$INFO[ListItem.Property(Addon.Summary)]</value>-->
 		<value>$INFO[ListItem.Label2]</value>
@@ -76,8 +88,8 @@
 	<variable name="thumb_Landscape.Condition">
 		<value condition="!IsEmpty(ListItem.Property(Fanart_Image)) + ![Container.Content(episodes) | Container.Content(musicvideos)]">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(listItem.Thumb) + Container.Content(movies)">thumbs/movie_landscape.jpg</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(tvshows)">thumbs/tvshow_landscape.jpg</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + Container.Content(artists)">thumbs/artist_landscape.jpg</value>
+		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(listItem.Thumb) + Container.Content(tvshows)">thumbs/tvshow_landscape.jpg</value>
+		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(listItem.Thumb) + Container.Content(artists)">thumbs/artist_landscape.png</value>
 		<value condition="Container.Content(musicvideos) + IsEmpty(ListItem.Thumb)">thumbs/music_landscape.jpg</value>
 		<value condition="Container.Content(episodes) + IsEmpty(ListItem.Thumb)">thumbs/tvshow_landscape.jpg</value>
 		<value condition="Window.IsActive(pictures) + IsEmpty(ListItem.Thumb)">thumbs/picture_landscape.jpg</value>
@@ -93,6 +105,7 @@
 	<variable name="thumb_Square.Condition">
 		<value condition="Container.Content(albums) + IsEmpty(ListItem.Property(AlbumThumb))">thumbs/album.png</value>
 		<value condition="Container.Content(artists) + IsEmpty(ListItem.Property(ArtistThumb))">thumbs/artist.png</value>
+		<value condition="Container.Content(files) + IsEmpty(ListItem.Thumb)">thumbs/addon.png</value>
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="view_Banner.Thumb">
@@ -222,7 +235,7 @@
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>		
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.OriginalTitle]</value>
-		<value condition="Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
+		<value condition="Container.Content(tvshows)">$INFO[Window(Home).Property(NextAired.AirTime)]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle] • $INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(musicvideos) + !Window.IsActive(videofiles)">$INFO[ListItem.Genre]</value>
 		<value condition="ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>

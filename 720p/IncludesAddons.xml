@@ -1,0 +1,154 @@
+﻿<includes>
+	<include name="nextaired_Layout">
+		<control type="image">
+			<width>160</width>
+			<height>80</height>
+			<colordiffuse>column3</colordiffuse>
+			<include>listButton_Alt</include>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>4</posy>
+			<width>152</width>
+			<height>46</height>
+			<aspectratio>stretch</aspectratio>
+			<texture background="true">1black.png</texture>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>4</posy>
+			<width>152</width>
+			<height>46</height>
+			<aspectratio>keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
+			<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+		</control>
+		<control type="label">
+			<posx>80</posx>
+			<posy>50</posy>
+			<width>200</width>
+			<height>20</height>
+			<label>$INFO[ListItem.Property(NextDate)]</label>
+			<textcolor>Color1</textcolor>
+			<font>smallerCaps</font>
+			<align>center</align>
+		</control>
+	</include>
+
+
+	<include name="1nextaired_Time">
+		<posx>75</posx>
+		<posy>90</posy>
+		<width>150</width>
+		<height>20</height>
+		<align>center</align>
+		<font>smallerCaps</font>
+		<textcolor>Color2</textcolor>
+		<label>$INFO[ListItem.Property(NextDate)] - $INFO[ListItem.Property(ShortTime)]</label>
+	</include>
+	<include name="nextaired_Time-focus">
+		<posx>75</posx>
+		<posy>90</posy>
+		<width>150</width>
+		<height>20</height>
+		<align>center</align>
+		<font>smallerCaps</font>
+		<textcolor>Color1</textcolor>
+		<label>$INFO[ListItem.Property(ShortTime)]</label>
+	</include>
+	<include name="1nextaired_Frame">
+		<width>200</width>
+		<height>121</height>
+		<colordiffuse>column3</colordiffuse>
+		<include>listButton_Alt</include>
+	</include>
+	<include name="nextaired_Frame-focus">
+		<width>160</width>
+			<height>80</height>
+		<colordiffuse>column1</colordiffuse>
+		<include>listButton_Alt</include>
+	</include>
+	<include name="nextaired_Thumb">
+		<posx>11</posx>
+		<posy>11</posy>
+		<width>128</width>
+		<height>55</height>
+		<aspectratio>keep</aspectratio>
+		<texture background="true">$INFO[ListItem.Thumb]</texture>
+		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+	</include>
+	<include name="nextaired_Banner">
+		<posx>1</posx>
+		<posy>7</posy>
+		<width>148</width>
+		<height>72</height>
+		<aspectratio>keep</aspectratio>
+		<texture background="true">$INFO[ListItem.Property(Path),,banner.jpg]</texture>
+		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+	</include>
+	<include name="1nextaired_Logo">
+		<posx>11</posx>
+		<posy>11</posy>
+		<width>128</width>
+		<height>50</height>
+		<aspectratio>keep</aspectratio>
+		<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
+		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+	</include>
+	<include name="nextaired_InfoImage">
+		<width>350</width>
+		<height>197</height>
+		<aspectratio>stretch</aspectratio>
+	</include>
+	<include name="nextaired_Fanart">
+		<include>screen_Dimensions</include>
+		<animation effect="fade" time="600">Visible</animation>
+		<animation effect="fade" time="600">Hidden</animation>
+	</include>
+	<include name="nextaired_MenuToggle">
+		<animation type="Conditional" condition="ControlGroup(9000).HasFocus">
+			<effect type="zoom" time="250" center="screen_Center" start="100" end="55" />
+			<effect type="fade" time="250" center="screen_Center" start="100" end="20" />
+		</animation>			
+		<animation type="Conditional" condition="!ControlGroup(9000).HasFocus">
+			<effect type="zoom" time="250" center="screen_Center" start="140" end="100" />
+			<effect type="fade" time="250" center="screen_Center" start="20" end="100" />
+		</animation>
+	</include>
+	<include name="nextaired_Menu">
+		<control type="group">
+			<control type="grouplist" id="9000">
+				<posx>-275</posx>
+				<posy>20</posy>
+				<width>800</width>
+				<height>800</height>
+				<onright>9002</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<include>MenuOpen</include>
+				<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="8">
+						<label>$LOCALIZE[5]</label>
+						<onback>9002</onback>
+						<onup>8</onup>
+						<ondown>8</ondown>
+						<onright>9002</onright>
+						<include>button_Menu</include>
+						<onclick>SetFocus(9002)</onclick>
+						<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.ThursdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.FridayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.SaturdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.SundayList,Home)</onright>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -62,26 +62,27 @@
 					</control>
 				</focusedlayout>
 				<content>
-					<item id="0">
-						<label>refresh information</label>
+					<item id="1">
+						<label>$LOCALIZE[31942]</label>
 						<onclick>Close</onclick>
 						<onclick>SendClick(2003,6)</onclick>
 					</item>
-					<item id="1">
-						<label>change thumbnail</label>
+					<item id="2">
+						<label>$LOCALIZE[31943]</label>
 						<onclick>SendClick(2003,10)</onclick>
 					</item>
-					<item id="2">
-						<label>change fanart</label>
-						<onclick>SendClick(2003,12)</onclick>
-					</item>
 					<item id="3">
-						<label>download banner</label>
+						<label>$LOCALIZE[31944]</label>
+						<onclick>SendClick(2003,12)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					</item>
+					<item id="4">
+						<label>$LOCALIZE[31945]</label>
 						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
 						<visible>Container.Content(tvshows)</visible>
 					</item>
-					<item id="3">
-						<label>download tv show logo</label>
+					<item id="5">
+						<label>$LOCALIZE[31946]</label>
 						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
 						<visible>Container.Content(tvshows)</visible>
 					</item>

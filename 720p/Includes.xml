@@ -8,10 +8,10 @@
 	<include file="MenuPlaylist.xml" />
 	<include file="MenuWeather.xml" />
 	<include file="MenuTV.xml" />
+	<include file="IncludesAddons.xml" />
 	<include file="IncludesBackgrounds.xml" />
 	<include file="IncludesFlags.xml" />
 	<include file="IncludesHome.xml" />
-	<include file="IncludesPageLabels.xml" />
 	<include file="IncludesAnimations.xml" />
 	<include file="IncludesDialogs.xml" />
 	<include file="IncludesPageControl.xml" />
@@ -585,19 +585,19 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(50) + [[substring(container.folderpath,addons://) + Container.HasFiles] | substring(container.folderpath,plugin://) | substring(container.folderpath,addons://repos/)]</visible>
+			<visible>Control.IsVisible(50) + Container.Content(addons) | [substring(container.folderpath,plugin://) + !Container.Content(movies)] | substring(container.folderpath,addons://repos/)]</visible>
 			<control type="image">
 				<width>512</width>
 				<height>256</height>
 				<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
 				<aspectratio align="left">keep</aspectratio>
 				<fadetime>fadetime_Thumb</fadetime>
-				<visible>Control.IsVisible(50) + !SubString(ListItem.Icon,default) + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
+				<visible>Control.IsVisible(50) + !SubString(ListItem.Icon,default) + ![SubString(Container.FolderPath,plugin://) + Container.Content(movies)]</visible>
 			</control>
 			<control type="group">
 				<posx>5</posx>
 				<posy>290</posy>
-				<visible>Control.IsVisible(50) + ![stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks)]</visible>
+				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
 				<control type="textbox">
 					<width>550</width>
 					<height>277</height>
@@ -614,7 +614,7 @@
 					<label>$INFO[ListItem.Plot]</label>
 					<textcolor>Color7</textcolor>
 					<font>descriptionSmall</font>
-					<visible>substring(Container.FolderPath,plugin)</visible>
+					<visible>SubString(Container.FolderPath,plugin)</visible>
 				</control>
 			</control>
 		</control>
@@ -999,6 +999,39 @@
 			<include>windowTitle</include>
 		</control>
 	</include>
-</includes>
-		
+	
+	<include name="intro_Enable">
+		<control type="videowindow" id="1">
+			<posx>280</posx>
+			<posy>156</posy>
+			<width>720</width>
+			<height>405</height>
+			<visible>Player.HasVideo</visible>
+		</control>
+		<control type="image">
+			<aspectratio>stretch</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture>black.png</texture>
+			<animation effect="fade" delay="4200" end="100" time="350">WindowOpen</animation>
+		</control>
+		<control type="button" id="8999">
+			<onfocus>PlayMedia(special://skin/intro/intro.m4v,1)</onfocus>
+			<onfocus>SetFocus(10)</onfocus>
+			<label>SHOULD NOT SEE ME</label>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+		<control type="button" id="10">
+			<onfocus>ReplaceWindow(Home)</onfocus>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<animation effect="fade" delay="4950" end="100" time="350">Focus</animation>
+		</control>
+	</include>
+	<include name="intro_Disable">
+		<control type="button" id="8999">
+			<onfocus>ReplaceWindow(Home)</onfocus>
+			<label>SHOULD NOT SEE ME</label>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+	</include>
 </includes>
