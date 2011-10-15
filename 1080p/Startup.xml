@@ -2,30 +2,7 @@
 	<defaultcontrol always="true">8999</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-		<control type="videowindow" id="1">
-			<posx>600</posx>
-			<posy>338</posy>
-			<width>720</width>
-			<height>405</height>
-			<visible>Player.HasVideo</visible>
-		</control>
-		<control type="image">
-			<aspectratio>stretch</aspectratio>
-			<include>screen_Dimensions</include>
-			<texture>black.png</texture>
-			<animation effect="fade" delay="4200" end="100" time="350">WindowOpen</animation>
-		</control>
-		<control type="button" id="8999">
-			<onfocus>PlayMedia(special://skin/intro/intro.m4v,1)</onfocus>
-			<onfocus>SetFocus(10)</onfocus>
-			<label>SHOULD NOT SEE ME</label>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
-		<control type="button" id="10">
-			<onfocus>ReplaceWindow(Home)</onfocus>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<animation effect="fade" delay="4950" end="100" time="350">Focus</animation>
-		</control>
+		<include condition="Skin.HasSetting(intro.enable)">intro_Enable-1080</include>
+		<include condition="!Skin.HasSetting(intro.enable)">intro_Disable</include>
 	</controls>
 </window>
