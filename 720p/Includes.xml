@@ -578,7 +578,7 @@
 	</include>
 
 <!---ADDONS------>
-	<include name="info_AddonList">
+		<include name="info_AddonList">
 		<control type="group">
 			<posx>675</posx>
 			<posy>100</posy>
@@ -595,7 +595,7 @@
 				<visible>Control.IsVisible(50) + !SubString(ListItem.Icon,default) + ![SubString(Container.FolderPath,plugin://) + Container.Content(movies)]</visible>
 			</control>
 			<control type="group">
-				<posx>5</posx>
+				<posx>675</posx>
 				<posy>290</posy>
 				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
 				<control type="textbox">
@@ -1060,6 +1060,41 @@
 			<onfocus>ReplaceWindow(Home)</onfocus>
 			<label>SHOULD NOT SEE ME</label>
 			<visible allowhiddenfocus="true">false</visible>
+		</control>
+	</include>
+	
+	
+	
+	
+	
+	<include name="info_AddonSlide">
+		<!---info--->	
+		<control type="group">
+			<posx>220</posx>
+			<posy>462</posy>
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(522) + Container.Content(addons)</visible>
+			<control type="label">
+				<width>960</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>info_Title</include>
+			</control>
+			<control type="label">
+				<posy>28</posy>
+				<width>960</width>
+				<label>$LOCALIZE[31979] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31106] $INFO[ListItem.Property(Addon.Creator)]</label>
+				<include>info_Sub</include>
+				<visible>!SubString(ListItem.Icon,default)</visible>
+			</control>
+			<control type="textbox">
+				<posy>60</posy>
+				<width>960</width>
+				<height>163</height>
+				<label>$INFO[ListItem.Property(Addon.Description)]</label>
+				<include>description_Small</include>
+				<visible>!SubString(ListItem.Icon,default)</visible>
+			</control>
 		</control>
 	</include>
 </includes>
