@@ -415,11 +415,10 @@
 	<include name="overlay_UnWatched">
 		<width>32</width>
 		<height>32</height>
-		<texture>$INFO[ListItem.Overlay]</texture>
+		<texture>$INFO[ListItem.Overlay,overlays/,/default-fo.png]</texture>
 		<aspectratio align="right">keep</aspectratio>
 		<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(Files) + Container.HasFiles] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
 	</include>
-
 
 <!---COLUMNS------>
 	<include name="column_Header">
