@@ -578,7 +578,7 @@
 	</include>
 
 <!---ADDONS------>
-		<include name="info_AddonList">
+	<include name="info_AddonList">
 		<control type="group">
 			<posx>675</posx>
 			<posy>100</posy>
@@ -595,7 +595,7 @@
 				<visible>Control.IsVisible(50) + !SubString(ListItem.Icon,default) + ![SubString(Container.FolderPath,plugin://) + [Container.Content(movies) | Container.Content(tvshows)]]</visible>
 			</control>
 			<control type="group">
-				<posx>675</posx>
+				<posx>0</posx>
 				<posy>290</posy>
 				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
 				<control type="textbox">
