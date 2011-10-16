@@ -177,29 +177,21 @@
 			<control type="grouplist" id="1000">
 				<posx>800</posx>
 				<posy>120</posy>
-				<itemgap>2</itemgap>
+				<itemgap>0</itemgap>
 				<control type="label" id="1">
 					<width>405</width>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>Color1</textcolor>
-					<font>normalCaps</font>
+					<include>info_Title</include>
 				</control>
 				<control type="label">
 					<width>405</width>
 					<label>$LOCALIZE[31979]: $INFO[ListItem.Property(Addon.Version)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+					<include>info_Sub</include>
 					<visible>!IsEmpty(ListItem.Property(Addon.Version))</visible>
-				</control>
-				<control type="image">
-					<width>405</width>
-					<height>25</height>
-					<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
-					<aspectratio align="left">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Property(Addon.StarRating))</visible>
 				</control>
 				<control type="label">
 					<label></label>
+					<height>10</height>
 				</control>
 				<control type="textbox" id="4">
 					<width>405</width>
@@ -217,6 +209,15 @@
 					<textcolor>Color4</textcolor>
 					<visible>!IsEmpty(ListItem.Plot)</visible>
 				</control>
+			</control>
+			<control type="image">
+				<posx>800</posx>
+				<posy>615</posy>
+				<width>128</width>
+				<height>32</height>
+				<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>Control.IsVisible(574) + !IsEmpty(ListItem.Property(Addon.StarRating))</visible>
 			</control>
 			<!--container-->
 			<control type="panel" id="574">
@@ -425,6 +426,78 @@
 					<bordersize>6</bordersize>
 					<aspectratio>scale</aspectratio>
 					<include>focus_Thumbs</include>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+	
+
+<!---SQUARE (ADDONS)------>
+	<include name="view_IconSquare3">
+		<control type="panel" id="576">
+			<viewtype label="Thumbnails">icons</viewtype>
+			<posx>75</posx>
+			<posy>115</posy>
+			<width>1240</width>
+			<height>528</height>
+			<onleft>6000</onleft>
+			<onright>76</onright>
+			<onup>576</onup>
+			<ondown>576</ondown>
+			<pagecontrol>76</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<animation effect="slide" end="0,15" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
+
+			<itemlayout height="264" width="224">
+				<control type="image">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>196</width>
+					<height>196</height>
+					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordertexture border="6" width="172" height="172">frames/frame_Square-small.png</bordertexture>
+					<bordersize>6</bordersize>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="label">
+					<posx>104</posx>
+					<posy>210</posy>
+					<width>176</width>
+					<label>$INFO[ListItem.Label]</label>
+					<align>center</align>
+					<font>smallerCaps</font>
+					<textcolor>Color1</textcolor>
+				</control>
+			</itemlayout>											
+			<focusedlayout height="264" width="224">
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>204</width>
+					<height>204</height>
+					<texture border="10">views/list-focus-bigAlt.png</texture>
+				</control>
+				<control type="image">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>196</width>
+					<height>196</height>
+					<texture fallback="thumbs/album.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordersize>6</bordersize>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="label">
+					<posx>104</posx>
+					<posy>210</posy>
+					<width>176</width>
+					<label>$INFO[ListItem.Label]</label>
+					<align>center</align>
+					<font>smallerCaps</font>
+					<textcolor>Color1</textcolor>
 				</control>
 			</focusedlayout>
 		</control>
