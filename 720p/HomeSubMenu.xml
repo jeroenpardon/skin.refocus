@@ -504,7 +504,7 @@
 					<item id="8">
 						<label>$LOCALIZE[31070]</label>
 						<onclick>RunAddon(script.tv.show.next.aired)</onclick>
-						<visible>Library.HasContent(tvshows) + System.HasAddon(script.tv.show.next.aired)</visible>
+						<visible>Library.HasContent(tvshows) + System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(tvshowsmenu.guide)</visible>
 					</item>
 				</content>
 			</control>
