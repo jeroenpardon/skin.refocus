@@ -614,7 +614,7 @@
 					<label>$INFO[ListItem.Plot]</label>
 					<textcolor>Color7</textcolor>
 					<font>descriptionSmall</font>
-					<visible>SubString(Container.FolderPath,plugin)</visible>
+					<visible>SubString(Container.FolderPath,plugin) + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 			</control>
 		</control>
