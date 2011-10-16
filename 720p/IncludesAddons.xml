@@ -1,42 +1,15 @@
 ﻿<includes>
-	<include name="nextaired_Layout">
-		<control type="image">
-			<width>160</width>
-			<height>80</height>
-			<colordiffuse>column3</colordiffuse>
-			<include>listButton_Alt</include>
-		</control>
-		<control type="image">
-			<posx>4</posx>
-			<posy>4</posy>
-			<width>152</width>
-			<height>46</height>
-			<aspectratio>stretch</aspectratio>
-			<texture background="true">1black.png</texture>
-		</control>
-		<control type="image">
-			<posx>4</posx>
-			<posy>4</posy>
-			<width>152</width>
-			<height>46</height>
-			<aspectratio>keep</aspectratio>
-			<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
-			<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
-		</control>
-		<control type="label">
-			<posx>80</posx>
-			<posy>50</posy>
-			<width>200</width>
-			<height>20</height>
-			<label>$INFO[ListItem.Property(NextDate)]</label>
-			<textcolor>Color1</textcolor>
-			<font>smallerCaps</font>
-			<align>center</align>
-		</control>
+	<include name="nextaired_Date">
+		<posx>75</posx>
+		<posy>70</posy>
+		<width>150</width>
+		<height>20</height>
+		<label>$INFO[ListItem.Property(NextDate)]</label>
+		<textcolor>Color1</textcolor>
+		<font>smallerCaps</font>
+		<align>center</align>
 	</include>
-
-
-	<include name="1nextaired_Time">
+	<include name="nextaired_Time">
 		<posx>75</posx>
 		<posy>90</posy>
 		<width>150</width>
@@ -44,7 +17,7 @@
 		<align>center</align>
 		<font>smallerCaps</font>
 		<textcolor>Color2</textcolor>
-		<label>$INFO[ListItem.Property(NextDate)] - $INFO[ListItem.Property(ShortTime)]</label>
+		<label>$INFO[ListItem.Property(ShortTime)]</label>
 	</include>
 	<include name="nextaired_Time-focus">
 		<posx>75</posx>
@@ -56,15 +29,15 @@
 		<textcolor>Color1</textcolor>
 		<label>$INFO[ListItem.Property(ShortTime)]</label>
 	</include>
-	<include name="1nextaired_Frame">
-		<width>200</width>
+	<include name="nextaired_Frame">
+		<width>150</width>
 		<height>121</height>
 		<colordiffuse>column3</colordiffuse>
 		<include>listButton_Alt</include>
 	</include>
 	<include name="nextaired_Frame-focus">
-		<width>160</width>
-			<height>80</height>
+		<width>150</width>
+		<height>121</height>
 		<colordiffuse>column1</colordiffuse>
 		<include>listButton_Alt</include>
 	</include>
@@ -86,7 +59,7 @@
 		<texture background="true">$INFO[ListItem.Property(Path),,banner.jpg]</texture>
 		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
 	</include>
-	<include name="1nextaired_Logo">
+	<include name="nextaired_Logo">
 		<posx>11</posx>
 		<posy>11</posy>
 		<width>128</width>
@@ -96,8 +69,8 @@
 		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
 	</include>
 	<include name="nextaired_InfoImage">
-		<width>350</width>
-		<height>197</height>
+		<width>258</width>
+		<height>145</height>
 		<aspectratio>stretch</aspectratio>
 	</include>
 	<include name="nextaired_Fanart">
@@ -138,7 +111,6 @@
 						<ondown>8</ondown>
 						<onright>9002</onright>
 						<include>button_Menu</include>
-						<onclick>SetFocus(9002)</onclick>
 						<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
 						<onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
 						<onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
