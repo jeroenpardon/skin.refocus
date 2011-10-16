@@ -72,19 +72,20 @@
 			<control type="group">
 				<posx>220</posx>
 				<posy>462</posy>
+				<visible>!Container.Content(addons)</visible>
 				<control type="label">
 					<width>1080</width>
 					<label>$VAR[global_Title.Music]</label>
 					<include>info_Title</include>
 				</control>
 				<control type="label">
-					<posy>32</posy>
+					<posy>28</posy>
 					<width>920</width>
 					<label>$VAR[global_Info.Music]</label>
 					<include>info_Sub</include>
 				</control>
 				<control type="grouplist">
-					<posy>32</posy>
+					<posy>28</posy>
 					<itemgap>0</itemgap>
 					<visible>Container.Content(songs)</visible>
 					<control type="label">
@@ -112,6 +113,7 @@
 				</control>
 			</control>
 		</control>
+		<include>info_AddonSlide</include>
 
 <!---THUMBNAILS VIEW------>
 		<control type="group">

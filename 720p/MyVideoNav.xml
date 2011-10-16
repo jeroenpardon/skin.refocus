@@ -171,13 +171,6 @@
 					<include>info_Sub</include>
 					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>960</width>
-					<label>$INFO[Container.FolderName]</label>
-					<include>info_Sub</include>
-					<visible>SubString(Container.FolderPath,plugin://) + !SubString(ListItem.Icon,default) + [IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Property(ReleaseDate))]</visible>
-				</control>
 				<control type="textbox">
 					<posy>60</posy>
 					<width>960</width>
