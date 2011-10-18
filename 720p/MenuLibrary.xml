@@ -244,7 +244,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(57) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]</visible>
+					<visible>Control.IsVisible(57) + [[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]]</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31975]</label>
 						<onup>17</onup>
