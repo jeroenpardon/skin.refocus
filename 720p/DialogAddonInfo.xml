@@ -3,14 +3,14 @@
 	<include>dialogOpen</include>
 	<coordinates>
 		<system>1</system>
-		<posx>272</posx>
+		<posx>215</posx>
 		<posy>60</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
 			<control type="image">
-				<width>737</width>
+				<width>850</width>
 				<height>600</height>
 				<include>dialogWindow</include>
 			</control>
@@ -20,13 +20,13 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<posx>518</posx>
+				<posx>631</posx>
 				<posy>76</posy>
 				<height>199</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="image">
-				<posx>519</posx>
+				<posx>632</posx>
 				<posy>75</posy>
 				<width>200</width>
 				<height>200</height>
@@ -37,22 +37,22 @@
 				<posx>19</posx>
 				<posy>75</posy>
 				<control type="image">
-					<width>700</width>
+					<width>813</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<posx>500</posx>
+					<posx>613</posx>
 					<posy>199</posy>
 					<width>200</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<posy>435</posy>
-					<width>700</width>
+					<width>813</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="list" id="100">
-					<width>499</width>
+					<width>612</width>
 					<height>305</height>
 					<onleft>-</onleft>
 					<onright>-</onright>
@@ -61,7 +61,7 @@
 					<scrolltime>200</scrolltime>
 					<itemlayout height="40">
 						<control type="image">
-							<width>540</width>
+							<width>612</width>
 							<height>40</height>
 							<font>smallerCaps</font>
 							<include>dialog_CommonList</include>
@@ -74,8 +74,8 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<posx>481</posx>
-							<width>400</width>
+							<posx>595</posx>
+							<width>550</width>
 							<height>36</height>
 							<align>right</align>
 							<label fallback="231">$INFO[ListItem.Label2]</label>
@@ -86,7 +86,7 @@
 					</itemlayout>
 					<focusedlayout height="40">
 						<control type="image">
-							<width>540</width>
+							<width>612</width>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
@@ -97,8 +97,8 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<posx>481</posx>
-							<width>532</width>
+							<posx>595</posx>
+							<width>550</width>
 							<height>36</height>
 							<align>right</align>
 							<label fallback="231">$INFO[ListItem.Label2]</label>
@@ -140,7 +140,7 @@
 					<posx>15</posx>	
 					<posy>213</posy>
 					<control type="textbox" id="400">
-						<width>660</width>
+						<width>795</width>
 						<height>195</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
 						<font>smallAlt</font>
@@ -156,17 +156,12 @@
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 				</control>
-				<control type="image">
-					<posy>505</posy>
-					<width>700</width>
-					<include>dialog_Separator</include>
-				</control>
 				<!--status-->
 				<control type="group">
 					<posy>370</posy>
 					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					<control type="image">
-						<width>700</width>
+						<width>813</width>
 						<include>dialog_Separator</include>
 					</control>
 					<control type="image">
@@ -192,38 +187,42 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="10000">
+			<control type="grouplist" id="10000">
 				<posx>34</posx>
 				<posy>525</posy>
-				<!--uninstall-->
-				<control type="button" id="6">
-					<label>$LOCALIZE[24022]</label>
-					<onleft>10</onleft>
-					<onright>7</onright>
-					<include>dialog_Button</include>
-				</control>
-				<!--disable-->
-				<control type="button" id="7">
-					<posx>133</posx>
-					<label>$LOCALIZE[24021]</label>
-					<onleft>6</onleft>
-					<onright>9</onright>
-					<include>dialog_Button</include>
-				</control>
+				<onleft>10000</onleft>
+				<onright>10000</onright>
+				<onup>-</onup>
+				<ondown>-</ondown>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
 				<!--configure-->
 				<control type="button" id="9">
 					<posx>266</posx>
 					<label>$LOCALIZE[24020]</label>
-					<onleft>7</onleft>
-					<onright>8</onright>
 					<include>dialog_Button</include>
 				</control>
 				<!--update-->
 				<control type="button" id="8">
 					<posx>399</posx>
 					<label>$LOCALIZE[24069]</label>
-					<onleft>9</onleft>
-					<onright>10</onright>
+					<include>dialog_Button</include>
+				</control>
+				<!--uninstall-->
+				<control type="button" id="6">
+					<label>$LOCALIZE[24022]</label>
+					<include>dialog_Button</include>
+				</control>
+				<!--disable-->
+				<control type="button" id="7">
+					<posx>133</posx>
+					<label>$LOCALIZE[24021]</label>
+					<include>dialog_Button</include>
+				</control>
+				<!--rollback-->
+				<control type="button" id="11">
+					<posx>133</posx>
+					<label>$LOCALIZE[24048]</label>
 					<include>dialog_Button</include>
 				</control>
 				<!--changelog-->
@@ -231,8 +230,6 @@
 					<posx>532</posx>
 					<label>$LOCALIZE[24036]</label>
 					<width>135</width>
-					<onleft>8</onleft>
-					<onright>6</onright>
 					<include>dialog_Button</include>
 				</control>
 			</control>
