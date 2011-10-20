@@ -30,9 +30,35 @@
 					<control type="button" id="17">
 						<label>$LOCALIZE[1036]</label>
 						<onup>16</onup>
-						<ondown>1</ondown>
+						<ondown>5</ondown>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--auto-updates-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="togglebutton" id="5">
+						<label>$LOCALIZE[24063]</label>
+						<altlabel>$LOCALIZE[24063] ●</altlabel>
+						<onup>17</onup>
+						<ondown>6</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--notifications-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="togglebutton" id="6">
+						<label>$LOCALIZE[25000]</label>
+						<altlabel>$LOCALIZE[25000] ●</altlabel>
+						<onup>5</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -105,6 +131,139 @@
 						<onright>30</onright>
 						<onup>402</onup>
 						<ondown>401</ondown>
+						<include>button_Menu</include>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+	
+	<include name="menu_Addons">
+		<control type="group" id="6000">
+			<visible>!Skin.HasSetting(global.kiosk)</visible>
+			<control type="grouplist" id="30">
+				<posx>-275</posx>
+				<posy>20</posy>
+				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !ControlGroup(40).HasFocus + !Window.IsActive(103) + !Skin.HasSetting(global.kiosk)</visible>
+				<onright>50</onright>
+				<include>MenuOpen</include>
+				<include>transition_Menu</include>
+				<include>toggle_NumItems-menumove</include>
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="1">
+						<label>$LOCALIZE[31930]</label>
+						<onup>6</onup>
+						<ondown>3</ondown>
+						<onright>50</onright>
+						<onclick>SetFocus(40)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--sort-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<!--<visible>Control.IsEnabled(3)</visible>-->
+					<control type="button" id="3">
+						<label>$LOCALIZE[103]</label>
+						<onright>-</onright>
+						<onup>1</onup>
+						<ondown>4</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--order-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<!--<visible>Control.IsEnabled(4)</visible>-->
+					<control type="togglebutton" id="4">
+						<label>$LOCALIZE[584]</label>
+						<altlabel>$LOCALIZE[585]</altlabel>
+						<onup>3</onup>
+						<ondown>17</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--favourites-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="17">
+						<label>$LOCALIZE[1036]</label>
+						<onup>4</onup>
+						<ondown>5</ondown>
+						<onright>50</onright>
+						<onclick>ActivateWindow(Favourites)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--auto-updates-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="togglebutton" id="5">
+						<label>$LOCALIZE[24063]</label>
+						<altlabel>$LOCALIZE[24063] ●</altlabel>
+						<onup>17</onup>
+						<ondown>6</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--notifications-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="togglebutton" id="6">
+						<label>$LOCALIZE[25000]</label>
+						<altlabel>$LOCALIZE[25000] ●</altlabel>
+						<onup>5</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<include>button_Menu</include>
+					</control>
+				</control>
+			</control>
+<!---viewtype selection------>
+			<control type="grouplist" id="40">
+				<posy>20</posy>
+				<visible allowhiddenfocus="true">ControlGroup(40).HasFocus()</visible>
+				<onright>50</onright>
+				<include>toggle_NumItems-menumove</include>
+				<!--list-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<control type="button" id="401">
+						<label>$LOCALIZE[535]</label>
+						<onclick>Container.SetViewMode(50)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(50)</onclick>
+						<onright>30</onright>
+						<onback>30</onback>
+						<onup>403</onup>
+						<ondown>402</ondown>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--thumbnails addons-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>!IsEmpty(Container.FolderPath)</visible>
+					<control type="button" id="402">
+						<label>$LOCALIZE[31014]</label>
+						<onclick>Container.SetViewMode(574)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(574)</onclick>
+						<onright>30</onright>
+						<onup>401</onup>
+						<ondown>403</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
