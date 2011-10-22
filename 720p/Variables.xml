@@ -46,6 +46,14 @@
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	
+	<variable name="global_Title.Music">
+		<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,, - ]$INFO[ListItem.Title]</value>
+		<value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
+		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+
+	
 	<variable name="global_Info.Addon">
 		<!--amt--><value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
@@ -63,11 +71,7 @@
 		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]</value>
 	</variable>
 	
-	<variable name="global_Title.Music">
-		<value condition="Container.Content(songs) + !SubString(Container.FolderPath,musicdb://4/) + !IsEmpty(ListItem.Title)">$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
-		<value>$INFO[ListItem.Label]</value>
-	</variable>
+	
 	<variable name="global_Info.Music">
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
 		<value condition="Container.Content(albums) | Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]</value>
