@@ -1,0 +1,235 @@
+﻿<window id="63">
+	<defaultcontrol>60</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<onload>RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=25)</onload>
+	<controls>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$INFO[Container(60).ListItem.Property(Fanart)]</texture>
+			<include>transition_Fanart</include>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(60) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(60).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+		</control>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$INFO[Container(61).ListItem.Property(Fanart)]</texture>
+			<include>transition_Fanart</include>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(61) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(60).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+		</control>
+		<include>global_Background</include>
+		<include>global_Includes</include>
+		<include>windowTitle_Video</include>
+		<include>PageControls</include>
+		<include>nav_Indicator</include>
+		<control type="label">
+			<label>watchlist</label>
+			<include>windowTitle</include>
+		</control>
+		<!---TV SHOWS--->
+		<control type="group">
+			<posx>30</posx>
+			<posy>90</posy>
+			<include>transition_Container</include>
+			<control type="group" id="50">
+				<control type="label">
+					<posx>20</posx>
+					<width>1100</width>
+					<label>currently watching</label>
+					<align>left</align>
+					<font>titleLow</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="list" id="60">
+					<viewtype label="535">list</viewtype> 	
+					<posy>25</posy>
+					<width>768</width>
+					<height>300</height>
+					<onup>51</onup>
+					<ondown>51</ondown>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+					<preloaditems>2</preloaditems>
+					<orientation>horizontal</orientation>
+					<itemlayout width="192" height="300">
+						<control type="image">
+							<width>204</width>
+							<height>273</height>
+							<texture border="55">frames/frame_Square.png</texture>
+							<aspectratio align="center">stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>22</posx>
+							<posy>22</posy>
+							<width>160</width>
+							<height>230</height>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="192" height="300">
+						<control type="image">
+							<width>204</width>
+							<height>273</height>
+							<texture border="55">frames/frame_Square.png</texture>
+							<aspectratio align="center">stretch</aspectratio>
+							<visible>!Control.HasFocus(60)</visible>
+						</control>
+						<control type="image">
+							<posx>14</posx>
+							<posy>14</posy>
+							<width>176</width>
+							<height>246</height>
+							<texture border="10">views/list-focus-bigAlt.png</texture>
+							<visible>Control.HasFocus(60)</visible>
+						</control>
+						<control type="image">
+							<posx>22</posx>
+							<posy>22</posy>
+							<width>160</width>
+							<height>230</height>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+					</focusedlayout>
+					<include>watchlist_Shows</include>
+				</control>
+				<control type="image">
+					<posx>774</posx>
+					<posy>152</posy>
+					<width>18</width>
+					<height>18</height>
+					<texture>addons/nextaired/ScrollIndicator.png</texture>
+					<aspectratio align="left">keep</aspectratio>
+					<include>fadeinout</include>
+					<visible>Control.HasFocus(60) + Container(60).HasNext</visible>
+				</control>
+			</control>
+			<!---MOVIES--->
+			<control type="group" id="51">
+				<posy>300</posy>
+				<control type="label">
+					<posx>20</posx>
+					<width>1100</width>
+					<label>recommended movies</label>
+					<align>left</align>
+					<font>titleLow</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="list" id="61">
+					<viewtype label="535">list</viewtype> 	
+					<posy>25</posy>
+					<width>768</width>
+					<height>275</height>
+					<onup>50</onup>
+					<ondown>52</ondown>
+					<onleft>61</onleft>
+					<onright>61</onright>
+					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+					<preloaditems>2</preloaditems>
+					<orientation>horizontal</orientation>
+					<itemlayout width="192" height="300">
+						<control type="image">
+							<width>204</width>
+							<height>273</height>
+							<texture border="55">frames/frame_Square.png</texture>
+							<aspectratio align="center">stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>22</posx>
+							<posy>22</posy>
+							<width>160</width>
+							<height>230</height>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="192" height="300">
+						<control type="image">
+							<width>204</width>
+							<height>273</height>
+							<texture border="55">frames/frame_Square.png</texture>
+							<aspectratio align="center">stretch</aspectratio>
+							<visible>!Control.HasFocus(61)</visible>
+						</control>
+						<control type="image">
+							<posx>14</posx>
+							<posy>14</posy>
+							<width>176</width>
+							<height>246</height>
+							<texture border="10">views/list-focus-bigAlt.png</texture>
+							<visible>Control.HasFocus(61)</visible>
+						</control>
+						<control type="image">
+							<posx>22</posx>
+							<posy>22</posy>
+							<width>160</width>
+							<height>230</height>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio align="center">scale</aspectratio>
+						</control>
+					</focusedlayout>
+					<include>watchlist_Movies</include>
+				</control>
+				<control type="image">
+					<posx>774</posx>
+					<posy>152</posy>
+					<width>18</width>
+					<height>18</height>
+					<texture>addons/nextaired/ScrollIndicator.png</texture>
+					<aspectratio align="left">keep</aspectratio>
+					<include>fadeinout</include>
+					<visible>Control.HasFocus(61) + Container(61).HasNext</visible>
+				</control>
+			</control>
+			<!---INFO--->
+			<control type="group">
+				<posx>815</posx>
+				<posy>50</posy>
+				<control type="group">
+					<visible>Control.HasFocus(60)</visible>
+					<control type="label">
+						<width>380</width>
+						<label>$INFO[Container(60).ListItem(0).Label]</label>
+						<include>info_Title</include>
+					</control>
+					<control type="label">
+						<posy>28</posy>
+						<width>380</width>
+						<label>$INFO[Container(60).ListItem(0).Label2]</label>
+						<include>info_Sub</include>
+					</control>
+					<control type="textbox">
+						<posy>55</posy>
+						<width>380</width>
+						<height>470</height>
+						<label>$INFO[Container(60).ListItem.Property(Plot)]</label>
+						<include>description_Small</include>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Control.HasFocus(61)</visible>
+					<control type="label">
+						<width>380</width>
+						<label>$INFO[Container(61).ListItem(0).Label]</label>
+						<include>info_Title</include>
+					</control>
+					<control type="label">
+						<posy>28</posy>
+						<width>380</width>
+						<label>$INFO[Container(61).ListItem(0).Label2]</label>
+						<include>info_Sub</include>
+					</control>
+					<control type="textbox">
+						<posy>55</posy>
+						<width>380</width>
+						<height>470</height>
+						<label>$INFO[Container(61).ListItem.Property(Plot)]</label>
+						<include>description_Small</include>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
