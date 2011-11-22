@@ -415,36 +415,42 @@
 						<visible>Library.HasContent(movies)</visible>
 					</item>
 					<item id="2">
+						<label>$LOCALIZE[31086]</label>
+						<onclick>ActivateWindow(63)</onclick>
+						<onclick>SetFocus(61)</onclick>
+						<visible>Library.HasContent(movies) + !Skin.HasSetting(tvshowsmenu.watchlist)</visible>
+					</item>
+					<item id="3">
 						<label>$LOCALIZE[31095]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedmovies)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.recent)</visible>
 					</item>
-					<item id="3">
+					<item id="4">
 						<label>$LOCALIZE[16101]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Unwatched Movies.xsp)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.unwatched)</visible>
 					</item>
-					<item id="4">
+					<item id="5">
 						<label>$LOCALIZE[575]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Movies In Progress.xsp)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.inprogress)</visible>
 					</item>
-					<item id="5">
+					<item id="6">
 						<label>$LOCALIZE[31011]</label>
 						<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
 						<visible>Skin.HasSetting(moviesmenu.trailers) + System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
 					</item>
-					<item id="6">
+					<item id="7">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,moviegenres)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.genres)</visible>
 					</item>
-					<item id="7">
+					<item id="8">
 						<label>$LOCALIZE[652]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,movieyears)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.years)</visible>
 					</item>
-					<item id="8">
+					<item id="9">
 						<label>$LOCALIZE[344]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,movieactors)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.actors)</visible>
@@ -471,37 +477,43 @@
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
 						<visible>Library.HasContent(tvshows)</visible>
 					</item>
-					<item id="2">
+					<item id="2">31086
+						<label>$LOCALIZE[31086]</label>
+						<onclick>ActivateWindow(63)</onclick>
+						<onclick>SetFocus(60)</onclick>
+						<visible>Library.HasContent(tvshows) + !Skin.HasSetting(tvshowsmenu.watchlist)</visible>
+					</item>
+					<item id="3">
 						<label>$LOCALIZE[31094]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedepisodes)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.recent)</visible>
 					</item>
-					<item id="3">
+					<item id="4">
 						<label>$LOCALIZE[16101]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Unwatched Episodes.xsp)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.unwatched)</visible>
 					</item>
-					<item id="4">
+					<item id="5">
 						<label>$LOCALIZE[575]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Episodes In Progress.xsp)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.inprogress)</visible>
 					</item>
-					<item id="5">
+					<item id="6">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowgenres)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.genres)</visible>
 					</item>
-					<item id="6">
+					<item id="7">
 						<label>$LOCALIZE[652]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowyears)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.years)</visible>
 					</item>
-					<item id="7">
+					<item id="8">
 						<label>$LOCALIZE[344]</label>
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowactors)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.actors)</visible>
 					</item>
-					<item id="8">
+					<item id="9">
 						<label>$LOCALIZE[31070]</label>
 						<onclick>RunAddon(script.tv.show.next.aired)</onclick>
 						<visible>Library.HasContent(tvshows) + System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(tvshowsmenu.guide)</visible>
