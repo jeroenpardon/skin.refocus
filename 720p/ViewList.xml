@@ -68,6 +68,15 @@
 		</focusedlayout>
 		
 		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | [[SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | SubString(Container.FolderPath,plugin://plugin.video.apple) | SubString(Container.FolderPath,plugin://plugin.video.icefilms) | SubString(Container.FolderPath,plugin://plugin.video.youtube)] + Container.HasFiles]" width="625" height="67">
+			<!--
+			<control type="image">
+				<posx>40</posx>
+				<posy>25</posy>
+				<width>24</width>
+				<height>24</height>
+				<texture>$INFO[ListItem.Overlay,overlays/,/list-fo.png]</texture>
+			</control>
+			-->
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
