@@ -4,6 +4,7 @@
 	<views>50,51,52,521,522,53,531,54,541,57,571,574,575,576,592</views>
 	
 	<onload>RunScript(script.tv.show.next.aired,backend=True)</onload>
+	<onload>RunScript(script.watchlist)</onload>
 	
 	<controls>
 		<include>global_Background</include>
@@ -128,6 +129,7 @@
 						<posy>526</posy>
 						<animation effect="rotate" end="90" time="0" condition="True">Conditional</animation>
 						<include>overlay_UnWatched</include>
+						<visible>!SubString(Container.FolderPath,special://videoplaylists)</visible>
 					</control>
 				</control>
 			</control>
