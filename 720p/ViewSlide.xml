@@ -19,42 +19,58 @@
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
 			<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]</visible>
-			<itemlayout height="400" width="205">
-				<control type="image">
-					<width>228</width>
-					<height>316</height>
-					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
-				<control type="image">
-					<posx>174</posx>
-					<posy>262</posy>
-					<include>overlay_UnWatched</include>
-					<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
-				</control>
-			</itemlayout>
-			<focusedlayout height="400" width="205">
-				<control type="image">
-					<width>228</width>
-					<height>316</height>
-					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio align="center">stretch</aspectratio>
-					<include>focus_SlidePoster</include>
-				</control>
-				<control type="image">
-					<posx>174</posx>
-					<posy>262</posy>
-					<include>overlay_UnWatched</include>
-					<include>focus_SlidePoster</include>
-					<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
-				</control>
-			</focusedlayout>
-		</control>	
+			<include condition="Window.IsVisible(videolibrary)">SlidePoster_Video</include>
+		</control>
 	</include>
+	
+	<include name="SlidePoster_Video">
+		<itemlayout height="400" width="205">
+			<control type="image">
+				<width>228</width>
+				<height>316</height>
+				<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
+				<bordertexture border="40">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>174</posx>
+				<posy>262</posy>
+				<include>overlay_UnWatched</include>
+				<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+			</control>
+			<!--
+			<control type="image">
+				<posx>174</posx>
+				<posy>262</posy>
+				<width>32</width>
+				<height>32</height>
+				<texture>overlays/OverlayResumable.png</texture>
+				<visible>ListItem.IsResumable</visible>
+			</control>
+			-->
+		</itemlayout>
+		<focusedlayout height="400" width="205">
+			<control type="image">
+				<width>228</width>
+				<height>316</height>
+				<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
+				<bordertexture border="40">frames/frame_Square.png</bordertexture>
+				<bordersize>22</bordersize>
+				<aspectratio align="center">stretch</aspectratio>
+				<include>focus_SlidePoster</include>
+			</control>
+			<control type="image">
+				<posx>174</posx>
+				<posy>262</posy>
+				<include>overlay_UnWatched</include>
+				<include>focus_SlidePoster</include>
+				<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+			</control>
+		</focusedlayout>
+	</include>
+
+
 
 <!---LANDSCAPE------>
 	<include name="view_SlideLandscape">
