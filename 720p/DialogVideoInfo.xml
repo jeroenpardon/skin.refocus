@@ -184,7 +184,6 @@
 					<control type="group">
 						<width>700</width>
 						<height>22</height>
-						<visible>!SubString(ListItem.Pathandfilename,http)</visible>
 						<control type="label">
 							<width>700</width>
 							<label>[COLOR=Color2]$LOCALIZE[573][/COLOR] $INFO[ListItem.Path]</label>
@@ -220,7 +219,7 @@
 					<!--cinema-->
 					<control type="group">
 						<width>125</width>
-						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + ![SubString(ListItem.Path,http) | SubString(ListItem.Path,plugin://)]</visible>
+						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + !SubString(ListItem.Path,plugin://)</visible>
 						<control type="button" id="8002">
 							<label>cinema</label>
 							<onleft>8001</onleft>
@@ -258,7 +257,7 @@
 					<!--trailer-->
 					<control type="group">
 						<width>125</width>
-						<visible>Container.Content(movies) + ![SubString(ListItem.Path,http) | SubString(ListItem.Path,plugin://)]</visible>
+						<visible>Container.Content(movies) + !SubString(ListItem.Path,plugin://)</visible>
 						<control type="button" id="8005">
 							<label>$LOCALIZE[20410]</label>
 							<onclick>SendClick(2003,11)</onclick>
@@ -270,7 +269,7 @@
 					<!--edit-->
 					<control type="group">
 						<width>125</width>
-						<visible>![SubString(ListItem.Path,http) | SubString(ListItem.Path,plugin://)]</visible>
+						<visible>!SubString(ListItem.Path,plugin://)</visible>
 						<control type="button" id="8007">
 							<label>$LOCALIZE[21435]</label>
 							<onclick>ActivateWindow(62)</onclick>
