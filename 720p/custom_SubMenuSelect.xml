@@ -286,8 +286,16 @@
 					<ondown>200</ondown>
 					<itemgap>0</itemgap>
 					<visible>Skin.String(Sub,Shows)</visible>
-					<!--recent episodes-->
+					<!--watchlist-->
 					<control type="radiobutton" id="201">
+						<label>$LOCALIZE[31086]</label>
+						<width>557</width>
+						<onclick>Skin.ToggleSetting(tvshowsmenu.watchlist)</onclick>
+						<selected>!Skin.HasSetting(tvshowsmenu.watchlist)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<!--recent episodes-->
+					<control type="radiobutton" id="202">
 						<label>$LOCALIZE[31094]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.recent)</onclick>
@@ -295,7 +303,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--unwatched episodes-->
-					<control type="radiobutton" id="202">
+					<control type="radiobutton" id="203">
 						<label>$LOCALIZE[16101]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.unwatched)</onclick>
@@ -303,7 +311,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--episodes in progress-->
-					<control type="radiobutton" id="203">
+					<control type="radiobutton" id="204">
 						<label>$LOCALIZE[575]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.inprogress)</onclick>
@@ -311,7 +319,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--genres-->
-					<control type="radiobutton" id="204">
+					<control type="radiobutton" id="205">
 						<label>$LOCALIZE[135]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.genres)</onclick>
@@ -319,7 +327,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--years-->
-					<control type="radiobutton" id="205">
+					<control type="radiobutton" id="206">
 						<label>$LOCALIZE[652]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.years)</onclick>
@@ -327,7 +335,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--actors-->
-					<control type="radiobutton" id="206">
+					<control type="radiobutton" id="207">
 						<label>$LOCALIZE[344]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.actors)</onclick>
@@ -335,7 +343,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--tv guide-->
-					<control type="radiobutton" id="207">
+					<control type="radiobutton" id="208">
 						<label>$LOCALIZE[31070]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.guide)</onclick>
