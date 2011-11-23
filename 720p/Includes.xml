@@ -419,6 +419,14 @@
 		<aspectratio align="right">keep</aspectratio>
 		<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(Files) + Container.HasFiles] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
 	</include>
+	<!--resumableOverlay-->
+	<include name="overlay_Resumable">
+		<width>32</width>
+		<height>32</height>
+		<texture>overlays/OverlayResumable.png</texture>
+		<aspect>keepaspect</aspect>
+		<visible>ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp)</visible>
+	</include>
 
 <!---COLUMNS------>
 	<include name="column_Header">

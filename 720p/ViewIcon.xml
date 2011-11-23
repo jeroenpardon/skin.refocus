@@ -32,10 +32,12 @@
 				<control type="image">
 					<posx>139</posx>
 					<posy>213</posy>
-					<width>32</width>
-					<height>32</height>
 					<include>overlay_UnWatched</include>
-					<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+				<control type="image">
+					<posx>139</posx>
+					<posy>213</posy>
+					<include>overlay_Resumable</include>
 				</control>
 			</itemlayout>											
 			<focusedlayout height="260" width="186">
@@ -52,10 +54,13 @@
 				<control type="image">
 					<posx>139</posx>
 					<posy>212</posy>
-					<width>32</width>
-					<height>32</height>
 					<include>overlay_UnWatched</include>
-					<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+					<include>focus_ThumbPoster</include>
+				</control>
+				<control type="image">
+					<posx>139</posx>
+					<posy>213</posy>
+					<include>overlay_Resumable</include>
 					<include>focus_ThumbPoster</include>
 				</control>
 			</focusedlayout>
@@ -94,10 +99,12 @@
 				<control type="image">
 					<posx>96</posx>
 					<posy>147</posy>
-					<width>32</width>
-					<height>32</height>
 					<include>overlay_UnWatched</include>
-					<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+				<control type="image">
+					<posx>96</posx>
+					<posy>147</posy>
+					<include>overlay_Resumable</include>
 				</control>
 			</itemlayout>											
 			<focusedlayout height="190" width="140">
@@ -113,11 +120,14 @@
 				<control type="image">
 					<posx>96</posx>
 					<posy>147</posy>
-					<width>32</width>
-					<height>32</height>
 					<include>overlay_UnWatched</include>
 					<include>focus_ThumbPosterInfo</include>
-					<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+				</control>
+				<control type="image">
+					<posx>96</posx>
+					<posy>147</posy>
+					<include>overlay_Resumable</include>
+					<include>focus_ThumbPosterInfo</include>
 				</control>
 			</focusedlayout>
 		</control>
@@ -327,6 +337,11 @@
 					<posy>184</posy>
 					<include>overlay_UnWatched</include>
 				</control>
+				<control type="image">
+					<posx>336</posx>
+					<posy>184</posy>
+					<include>overlay_Resumable</include>
+				</control>
 			</itemlayout>											
 			<focusedlayout height="280" width="400">
 				<control type="image">
@@ -382,6 +397,11 @@
 					<posx>336</posx>
 					<posy>184</posy>
 					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<posx>336</posx>
+					<posy>184</posy>
+					<include>overlay_Resumable</include>
 				</control>
 			</focusedlayout>
 		</control>

@@ -37,18 +37,12 @@
 				<posx>174</posx>
 				<posy>262</posy>
 				<include>overlay_UnWatched</include>
-				<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
 			</control>
-			<!--
 			<control type="image">
 				<posx>174</posx>
 				<posy>262</posy>
-				<width>32</width>
-				<height>32</height>
-				<texture>overlays/OverlayResumable.png</texture>
-				<visible>ListItem.IsResumable</visible>
+				<include>overlay_Resumable</include>
 			</control>
-			-->
 		</itemlayout>
 		<focusedlayout height="400" width="205">
 			<control type="image">
@@ -65,11 +59,15 @@
 				<posy>262</posy>
 				<include>overlay_UnWatched</include>
 				<include>focus_SlidePoster</include>
-				<visible>!Control.HasFocus(8000) + [Container.Content(movies) + Skin.HasSetting(overlay.movies) | Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)]</visible>
+			</control>
+			<control type="image">
+				<posx>174</posx>
+				<posy>262</posy>
+				<include>overlay_Resumable</include>
+				<include>focus_SlidePoster</include>
 			</control>
 		</focusedlayout>
 	</include>
-
 
 
 <!---LANDSCAPE------>
@@ -111,7 +109,11 @@
 				<posx>396</posx>
 				<posy>219</posy>
 				<include>overlay_UnWatched</include>
-				<visible>!Control.HasFocus(8000)</visible>
+			</control>
+			<control type="image">
+				<posx>396</posx>
+				<posy>219</posy>
+				<include>overlay_Resumable</include>
 			</control>
 		</itemlayout>
 		<focusedlayout width="425" height="300">
@@ -129,7 +131,12 @@
 				<posy>219</posy>
 				<include>overlay_UnWatched</include>
 				<include>focus_SlideWide</include>
-				<visible>!Control.HasFocus(8000)</visible>
+			</control>
+			<control type="image">
+				<posx>396</posx>
+				<posy>219</posy>
+				<include>overlay_Resumable</include>
+				<include>focus_SlideWide</include>
 			</control>
 		</focusedlayout>
 	</include>
