@@ -443,11 +443,11 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--banner list-->
+				<!--deck-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Container.Content(tvshows) + Skin.HasSetting(banners.enable) + !substring(Container.FolderPath,plugin://)</visible>
+					<visible>[Container.Content(tvshows) + Skin.HasSetting(banners.enable)] + !substring(Container.FolderPath,plugin://) | Container.Content(movies)</visible>
 					<control type="button" id="409">
 						<label>$LOCALIZE[31004]</label>
 						<onclick>Container.SetViewMode(54)</onclick>
