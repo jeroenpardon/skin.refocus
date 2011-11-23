@@ -457,6 +457,7 @@
 					</item>
 				</content>
 			</control>
+
 <!---TVSHOWS SUBMENU------>
 			<control type="list" id="1210">
 				<posx>-800</posx>
@@ -477,11 +478,11 @@
 						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
 						<visible>Library.HasContent(tvshows)</visible>
 					</item>
-					<item id="2">31086
+					<item id="2">
 						<label>$LOCALIZE[31086]</label>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(60)</onclick>
-						<visible>Library.HasContent(tvshows) + !Skin.HasSetting(tvshowsmenu.watchlist)</visible>
+						<visible>Library.HasContent(tvshows) + System.HasAddon(script.watchlist) + !Skin.HasSetting(tvshowsmenu.watchlist)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31094]</label>
