@@ -427,6 +427,13 @@
 		<aspect>keepaspect</aspect>
 		<visible>ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp)</visible>
 	</include>
+	<include name="overlay_Resumable-list">
+		<width>32</width>
+		<height>32</height>
+		<texture>overlays/OverlayResumable.png</texture>
+		<aspect>keepaspect</aspect>
+		<visible>Container(50).ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp)</visible>
+	</include>
 
 <!---COLUMNS------>
 	<include name="column_Header">
