@@ -152,6 +152,15 @@
 			<posx>80</posx>
 			<posy>110</posy>
 			
+			<control type="image">
+				<posx>0</posx>
+				<posy>25</posy>
+				<width>1110</width>
+				<height>383</height>
+				<texture>addons/nextaired/grid.png</texture>
+				<colordiffuse>column3</colordiffuse>
+			</control>
+			
 <!---MONDAY LIST------>
 			<control type="group">
 				<posy>25</posy>
@@ -683,6 +692,258 @@
 							<include>nextaired_Logo</include>
 						</control>
 					</focusedlayout>
+				</control>
+			</control>
+		</control>
+	</control>
+
+
+<!---ADDITIONAL SHOW INFO----->
+	<control type="group">
+		<posx>80</posx>
+		<posy>580</posy>
+		<include>transition_Container</include>
+		<!--monday info-->
+		<control type="group">
+			<visible>Control.HasFocus(200)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(200).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(200).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(200).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(200).ListItem.Property(ShortTime),, • ]$INFO[Container(200).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(200).ListItem.Property(Genre),, • ]$INFO[Container(200).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+			</control>
+		</control>
+
+		<!--tuesday info-->
+		<control type="group">
+			<visible>Control.HasFocus(201)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(201).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(201).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(201).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(201).ListItem.Property(ShortTime),, • ]$INFO[Container(201).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(201).ListItem.Property(Genre),, • ]$INFO[Container(201).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+			</control>
+		</control>
+
+		<!--wednesday info-->
+		<control type="group">
+			<visible>Control.HasFocus(202)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(202).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(202).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(202).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(202).ListItem.Property(ShortTime),, • ]$INFO[Container(202).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(202).ListItem.Property(Genre),, • ]$INFO[Container(202).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+			</control>
+		</control>
+
+		<!--thursday info-->
+		<control type="group">
+			<visible>Control.HasFocus(203)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(203).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(203).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(203).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(203).ListItem.Property(ShortTime),, • ]$INFO[Container(203).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(203).ListItem.Property(Genre),, • ]$INFO[Container(203).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+			</control>
+		</control>
+
+		<!--friday info-->
+		<control type="group">
+			<visible>Control.HasFocus(204)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(204).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(204).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(204).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(204).ListItem.Property(ShortTime),, • ]$INFO[Container(204).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(204).ListItem.Property(Genre),, • ]$INFO[Container(204).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+			</control>
+		</control>
+
+		<!--saturday info-->
+		<control type="group">
+			<visible>Control.HasFocus(205)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(205).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(205).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(205).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(205).ListItem.Property(ShortTime),, • ]$INFO[Container(205).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(205).ListItem.Property(Genre),, • ]$INFO[Container(205).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+			</control>
+		</control>
+
+		<!--sunday info-->
+		<control type="group">
+			<visible>Control.HasFocus(206)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(206).ListItem.Property(Network),flags/networks/,.png]</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<control type="label">
+					<width>1120</width>
+					<label>$INFO[Container(206).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(206).ListItem.Property(NextTitle)][/COLOR]</label>
+					<font>title</font>
+				</control>
+				<control type="label">
+					<posy>27</posy>
+					<width>1120</width>
+					<label>$INFO[Container(206).ListItem.Property(ShortTime),, • ]$INFO[Container(206).ListItem.Property(NextDate)]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
+				</control>
+				<control type="label">
+					<posy>50</posy>
+					<width>1120</width>
+					<label>$INFO[Container(206).ListItem.Property(Genre),, • ]$INFO[Container(206).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>info</font>
+					<textcolor>Color2</textcolor>
 				</control>
 			</control>
 		</control>
