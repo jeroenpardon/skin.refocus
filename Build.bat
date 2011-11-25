@@ -1,10 +1,7 @@
 @echo off
 ECHO ------------------------------
-echo Remove previous Build Folder...
+echo Creating reFocus Build Folder
 rmdir BUILD /S /Q
-
-ECHO ------------------------------
-echo Creating reFocus Build Folder...
 md BUILD
 
 ECHO ------------------------------
@@ -36,13 +33,13 @@ ECHO Creating XBT File...
 START /B /WAIT TexturePacker.exe -input media\ -output media\Textures.xbt
 xcopy "media\*.xbt" "BUILD\skin.refocus.release\media\" /Q /I /Y
 
-ECHO ------------------------------
-ECHO Cleaning Up...
-del "media\*.xbt"
+REM ECHO ------------------------------
+REM ECHO Cleaning Up...
+REM del "media\*.xbt"
 
-ECHO ------------------------------
-ECHO Copying Image Files...
-xcopy "media\*.*" "BUILD\skin.refocus.release\media\" /E /Q /I /Y
+REM ECHO ------------------------------
+REM ECHO Copying Image Files...
+REM xcopy "media\*.*" "BUILD\skin.refocus.release\media\" /E /Q /I /Y
 
-ECHO Build Complete - Scroll Up to check for errors.
+echo Build Complete - Scroll Up to check for errors.
 pause
