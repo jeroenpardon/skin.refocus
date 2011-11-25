@@ -2,6 +2,7 @@
 	<defaultcontrol>60</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
+	<!---fanart------>
 		<control type="image">
 			<include>screen_Dimensions</include>
 			<texture background="true">$INFO[Container(60).ListItem.Property(Fanart)]</texture>
@@ -16,16 +17,18 @@
 			<fadetime>fadetime_Fanart</fadetime>
 			<visible>Control.HasFocus(61) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(60).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 		</control>
+	<!---includes------>
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<include>windowTitle_Video</include>
 		<include>PageControls</include>
 		<include>nav_Indicator</include>
+	<!---window title--->
 		<control type="label">
 			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[31086][/COLOR]</label>
 			<include>windowTitle</include>
 		</control>
-		
+	<!---item count------>
 		<control type="label">
 			<posx>38</posx>
 			<posy>58</posy>
@@ -46,7 +49,6 @@
 			<include>transition_WindowTitle</include>
 			<visible>Control.HasFocus(61)</visible>
 		</control>
-		
 		<!---TV SHOWS--->
 		<control type="group">
 			<posx>30</posx>
