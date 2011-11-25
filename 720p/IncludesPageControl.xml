@@ -8,7 +8,7 @@
 			<onleft>50</onleft>
 			<animation effect="slide" start="0,0" end="0,3" time="0" condition="Control.IsVisible(541)">Conditional</animation>
 			<enable>Skin.HasSetting(scrollbar.enable)</enable>
-			<visible allowhiddenfocus="true">[Control.IsVisible(50) | Control.IsVisible(541)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(70)]</visible>
+			<visible allowhiddenfocus="true">[[Control.IsVisible(50) + !Window.IsActive(600)] | Control.IsVisible(541)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(70)]</visible>
 		</control>
 <!---big list------>
 		<control type="scrollbar" id="71">
