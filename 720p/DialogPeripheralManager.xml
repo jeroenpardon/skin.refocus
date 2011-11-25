@@ -3,18 +3,18 @@
 	<include>dialogOpen</include>
 	<coordinates>
 		<system>1</system>
-		<posx>240</posx>
-		<posy>80</posy>
+		<posx>340</posx>
+		<posy>110</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<control type="image">
-				<width>800</width>
-				<height>560</height>
+				<width>600</width>
+				<height>490</height>
 				<include>dialogWindow</include>
 			</control>
 			<control type="label" id="1">
-				<width>762</width>
+				<width>532</width>
 				<label>$LOCALIZE[35000]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
@@ -22,22 +22,12 @@
 				<posx>19</posx>
 				<posy>75</posy>
 				<control type="image">
-					<width>762</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<posx>275</posx>
-					<height>399</height>
-					<include>dialog_Separator-y</include>
-				</control>
-				<control type="image">
-					<posy>399</posy>
-					<width>762</width>
+					<width>563</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="list" id="20">
-					<width>275</width>
-					<height>445</height>
+					<width>563</width>
+					<height>320</height>
 					<onup>20</onup>
 					<ondown>20</ondown>
 					<onleft>10</onleft>
@@ -46,8 +36,7 @@
 					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
 					<itemlayout height="40">
 						<control type="image">
-							<posy>0</posy>
-							<width>612</width>
+							<width>563</width>
 							<height>40</height>
 							<texture>dialogs/list-nofocus.png</texture>
 						</control>
@@ -59,8 +48,7 @@
 					</itemlayout>
 					<focusedlayout height="40">
 						<control type="image">
-							<posy>0</posy>
-							<width>613</width>
+							<width>563</width>
 							<height>40</height>
 							<texture>dialogs/list-focus.png</texture>
 						</control>
@@ -71,123 +59,16 @@
 						</control>
 					</focusedlayout>
 				</control>
+				<control type="image">
+					<posy>320</posy>
+					<width>563</width>
+					<include>dialog_Separator</include>
+				</control>
 			</control>
-			<control type="grouplist">
-				<posx>295</posx>
-				<posy>75</posy>
-				<width>487</width>
-				<height>400</height>
-				<itemgap>0</itemgap>
-				<!--name-->
-				<control type="group">
-					<height>80</height>
-					<control type="label">
-						<posy>4</posy>
-						<label>$LOCALIZE[35502]</label>
-						<font>listAlt</font>
-						<include>dialog_Label-bold</include>
-					</control>
-					<control type="label">
-						<posy>39</posy>
-						<width>485</width>
-						<height>20</height>
-						<label fallback="13205">$INFO[Container(20).ListItem.Label]</label>
-						<include>dialog_Label</include>
-					</control>
-					<control type="image">
-						<posy>79</posy>
-						<width>487</width>
-						<include>dialog_Separator</include>
-					</control>
-				</control>
-				<!--location-->
-				<control type="group">
-					<height>80</height>
-					<control type="label">
-						<posy>4</posy>
-						<label>$LOCALIZE[35500]</label>
-						<font>listAlt</font>
-						<include>dialog_Label-bold</include>
-					</control>
-					<control type="label">
-						<posy>39</posy>
-						<width>485</width>
-						<height>20</height>
-						<label fallback="13205">$INFO[Container(20).ListItem.Property(Bus)] - $INFO[Container(20).ListItem.Property(Location)]</label>
-						<include>dialog_Label</include>
-					</control>
-					<control type="image">
-						<posy>79</posy>
-						<width>487</width>
-						<include>dialog_Separator</include>
-					</control>
-				</control>
-				<!--class-->
-				<control type="group">
-					<height>80</height>
-					<control type="label">
-						<posy>4</posy>
-						<label>$LOCALIZE[35501]</label>
-						<font>listAlt</font>
-						<include>dialog_Label-bold</include>
-					</control>
-					<control type="label">
-						<posy>39</posy>
-						<width>485</width>
-						<height>20</height>
-						<label fallback="13205">$INFO[Container(20).ListItem.Property(Class)]</label>
-						<include>dialog_Label</include>
-					</control>
-					<control type="image">
-						<posy>79</posy>
-						<width>487</width>
-						<include>dialog_Separator</include>
-					</control>
-				</control>
-				<!--vendor-->
-				<control type="group">
-					<height>80</height>
-					<control type="label">
-						<posy>4</posy>
-						<label>$LOCALIZE[35503]</label>
-						<font>listAlt</font>
-						<include>dialog_Label-bold</include>
-					</control>
-					<control type="label">
-						<posy>39</posy>
-						<width>485</width>
-						<height>20</height>
-						<label fallback="13205">$INFO[Container(20).ListItem.Property(Vendor)]</label>
-						<include>dialog_Label</include>
-					</control>
-					<control type="image">
-						<posy>79</posy>
-						<width>487</width>
-						<include>dialog_Separator</include>
-					</control>
-				</control>
-				<!--product-->
-				<control type="group">
-					<height>80</height>
-					<control type="label">
-						<posy>4</posy>
-						<label>$LOCALIZE[35504]</label>
-						<font>listAlt</font>
-						<include>dialog_Label-bold</include>
-					</control>
-					<control type="label">
-						<posy>39</posy>
-						<width>485</width>
-						<height>20</height>
-						<label fallback="13205">$INFO[Container(20).ListItem.Property(Product)]</label>
-						<include>dialog_Label</include>
-					</control>
-				</control>
-			</control>		
 		<!---dialog buttons--->
 			<control type="group" id="9001">
 				<posx>34</posx>
-				<posy>487</posy>
+				<posy>415</posy>
 				<!--settings-->
 				<control type="button" id="10">
 					<label>5</label>
@@ -199,7 +80,7 @@
 				</control>
 				<!--close-->
 				<control type="button" id="11">
-					<posx>612</posx>
+					<posx>413</posx>
 					<label>186</label>
 					<onup>20</onup>
 					<onleft>10</onleft>
