@@ -167,14 +167,20 @@
 		<value condition="SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</value>
 		<!--tvshows videodb-->
 		<value condition="Container.Content(tvshows)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		
+		
+		
 		<!--seasons-->
-		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[33054][/COLOR]</value>
-		<!--seasons folderback-->
-		<value condition="Container.Content(seasons) + IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[20343][/COLOR]</value>
+		<value condition="Container.Content(seasons) + !IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[33054][/COLOR]</value>
+		<!--seasons folderback--><value condition="Container.Content(seasons) + IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[Container().ListItem(1).TVShowTitle]</value>
+				
+		
 		<!--episodes videodb-->
-		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.TVShowTitle) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]">$INFO[ListItem.TVShowTitle] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<!--episodes videodb folderback-->
-		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb) + IsEmpty(ListItem.TVShowTitle) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]">$LOCALIZE[33054]</value>
+		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb) + !IsEmpty(Container().ListItem(0).TVShowTitle) + !StringCompare(Container.FolderName,$LOCALIZE[20366]) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]">$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[20373] $INFO[ListItem.Season][/COLOR]</value>
+		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb) + !IsEmpty(Container().ListItem(0).TVShowTitle) + StringCompare(Container.FolderName,$LOCALIZE[20366]) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]">$INFO[ListItem.TVShowTitle]</value>
+		<!--episodes folderback--><value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb) + IsEmpty(Container().ListItem(0).TVShowTitle) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]">$INFO[Container().ListItem(1).TVShowTitle]</value>
+			
+		
 		<!--episodes videodb new-->
 		<value condition="SubString(Container.FolderPath,videodb://5)">$LOCALIZE[31925]</value>
 		<!--unwatched episodes-->
