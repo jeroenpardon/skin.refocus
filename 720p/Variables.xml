@@ -34,7 +34,7 @@
 	</variable>
 	<variable name="global_Info.Video">
 		<!--is movie set--><value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
-		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Duration,, $LOCALIZE[31100] • ]$INFO[ListItem.Genre]</value>
+		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
 		<!--nextaired--><value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$INFO[Window(Home).Property(NextAired.NextDate), • $LOCALIZE[31069] ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<!--is linked movie--><value condition="[Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))] | [Container.Content(episodes) + IsEmpty(ListItem.Episode)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Genre]</value>
