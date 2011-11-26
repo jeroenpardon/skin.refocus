@@ -50,7 +50,7 @@
 		<height>720</height>
 		<aspectratio>scale</aspectratio>
 	</include>
-	
+
 	<include name="global_Includes">
 		<include>global_Clock</include>
 		<include>global_Sortletter</include>
@@ -205,7 +205,7 @@
 		<aspectratio align="right">stretch</aspectratio>
 		<include>transition_Container</include>
 	</include>
-	
+
 <!---LABELS------>
 	<include name="label_Weather">
 		<width>430</width>
@@ -248,7 +248,6 @@
 		<selectedcolor>Selected</selectedcolor>
 		<scroll>false</scroll>
 	</include>
-	<!--listMenu-->
 	<include name="list_Label">
 		<height>40</height>
 		<font>listBig</font>
@@ -257,7 +256,6 @@
 		<selectedcolor>Selected</selectedcolor>
 		<scroll>false</scroll>
 	</include>
-	<!--listMenuFocus-->
 	<include name="list_Label-focus">
 		<height>40</height>
 		<font>listBig</font>
@@ -281,8 +279,6 @@
 		<textcolor>Focused</textcolor>
 		<selectedcolor>Focused</selectedcolor>
 	</include>
-	
-	<!--Heading1-->
 	<include name="info_Title">
 		<height>28</height>
 		<aligny>center</aligny>
@@ -295,7 +291,6 @@
 		<font>normalCaps</font>
 		<textcolor>Color1</textcolor>
 	</include>
-	<!--Heading3-->
 	<include name="info_Sub">
 		<height>25</height>
 		<aligny>center</aligny>
@@ -372,7 +367,6 @@
 		<colordiffuse>column3</colordiffuse>
 	</include>
 
-
 <!---THUMBS------>
 	<include name="frame_Poster-List">
 		<width>452</width>
@@ -446,7 +440,6 @@
 		<height>42</height>
 		<texture border="8">views/column.png</texture>
 	</include>
-	
 	<include name="listButton_Label">
 		<height>38</height>
 		<font>listAlt</font>
@@ -503,10 +496,8 @@
 		<texture border="8">views/listButton_Right.png</texture>
 		<colordiffuse>column1</colordiffuse>
 	</include>
-	
-	
-	
-	
+
+<!---HOUSEKEEPING------>
 	<!--adjust in pvr and weather+, then remove-->
 	<include name="column_Label">
 		<height>38</height>
@@ -535,8 +526,6 @@
 		<height>42</height>
 		<texture border="8">views/column_Top.png</texture>
 	</include>
-	<!---->
-	
 
 <!---NOTIFICATIONS------>
 	<!--notificationTop-->
@@ -634,7 +623,7 @@
 			</control>
 		</control>
 	</include>
-	
+
 <!---MUSIC------>
 	<include name="info_MusicList">
 		<control type="grouplist">
@@ -897,63 +886,8 @@
 			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
 		</control>
 	</include>
-	
-		<include name="tvGuide_Layout">
-			<itemlayout height="115" width="166">
-				<control type="image">
-					<width>166</width>
-					<height>110</height>
-					<include>button_InlineList</include>
-				</control>
-				<control type="image">
-					<posx>8</posx>
-					<posy>8</posy>
-					<width>150</width>
-					<height>60</height>
-					<!--<aspectratio>stretch</aspectratio>
-					<texture>black.png</texture>-->
-					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Thumb]</texture>
-				</control>
-				<control type="label">
-					<posx>83</posx>
-					<posy>70</posy>
-					<width>150</width>
-					<font>smallCaps</font>
-					<align>center</align>
-					<textcolor>Color3</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-				</control>		
-			</itemlayout>
-			<focusedlayout height="115" width="166">
-				<control type="image">
-					<width>166</width>
-					<height>110</height>
-					<include>button_InlineList-focus</include>
-				</control>
-				<control type="image">
-					<posx>8</posx>
-					<posy>8</posy>
-					<width>150</width>
-					<height>60</height>
-					<!--<aspectratio>stretch</aspectratio>
-					<texture>black.png</texture>-->
-					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Thumb]</texture>
-				</control>
-				<control type="label">
-					<posx>83</posx>
-					<posy>70</posy>
-					<width>150</width>
-					<font>smallCaps</font>
-					<align>center</align>
-					<textcolor>Color1</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-				</control>
-			</focusedlayout>
-		</include>
-		
-		
+
+<!---WINDOW TITLES------->
 	<include name="windowTitle">
 		<posx>34</posx>
 		<posy>20</posy>
@@ -1015,7 +949,7 @@
 		</control>
 	</include>
 
-	
+<!---INTRO------>
 	<include name="intro_Enable">
 		<control type="videowindow" id="1">
 			<posx>280</posx>
