@@ -73,17 +73,16 @@
 				<height>96</height>
 				<include>art_TVShowLogo</include>
 			</control>
-			<control type="image">
+			<control type="group">
 				<posx>718</posx>
 				<posy>390</posy>
-				<include>overlay_UnWatched</include>
 				<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
-			</control>
-			<control type="image">
-				<posx>718</posx>
-				<posy>390</posy>
-				<include>overlay_Resumable</include>
-				<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 		</itemlayout>
 		<focusedlayout height="800" width="750">
@@ -102,15 +101,15 @@
 				<include>art_TVShowLogo</include>
 				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000)">Conditional</animation>
 			</control>
-			<control type="image">
+			<control type="group">
 				<posx>718</posx>
 				<posy>390</posy>
-				<include>overlay_UnWatched</include>
-			</control>
-			<control type="image">
-				<posx>718</posx>
-				<posy>390</posy>
-				<include>overlay_Resumable</include>
+				<control type="image">
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>

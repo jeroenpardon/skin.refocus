@@ -29,15 +29,15 @@
 					<aspectratio>stretch</aspectratio>
 					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 				</control>
-				<control type="image">
+				<control type="group">
 					<posx>139</posx>
 					<posy>213</posy>
-					<include>overlay_UnWatched</include>
-				</control>
-				<control type="image">
-					<posx>139</posx>
-					<posy>213</posy>
-					<include>overlay_Resumable</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 			</itemlayout>											
 			<focusedlayout height="260" width="186">
@@ -51,17 +51,16 @@
 					<include>focus_ThumbPoster</include>
 					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 				</control>
-				<control type="image">
-					<posx>139</posx>
-					<posy>212</posy>
-					<include>overlay_UnWatched</include>
-					<include>focus_ThumbPoster</include>
-				</control>
-				<control type="image">
+				<control type="group">
 					<posx>139</posx>
 					<posy>213</posy>
-					<include>overlay_Resumable</include>
 					<include>focus_ThumbPoster</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>
@@ -96,15 +95,15 @@
 					<bordersize>6</bordersize>
 					<aspectratio align="center">stretch</aspectratio>
 				</control>
-				<control type="image">
+				<control type="group">
 					<posx>96</posx>
 					<posy>147</posy>
-					<include>overlay_UnWatched</include>
-				</control>
-				<control type="image">
-					<posx>96</posx>
-					<posy>147</posy>
-					<include>overlay_Resumable</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 			</itemlayout>											
 			<focusedlayout height="190" width="140">
@@ -117,17 +116,16 @@
 					<aspectratio align="center">stretch</aspectratio>
 					<include>focus_ThumbPosterInfo</include>
 				</control>
-				<control type="image">
+				<control type="group">
 					<posx>96</posx>
 					<posy>147</posy>
-					<include>overlay_UnWatched</include>
 					<include>focus_ThumbPosterInfo</include>
-				</control>
-				<control type="image">
-					<posx>96</posx>
-					<posy>147</posy>
-					<include>overlay_Resumable</include>
-					<include>focus_ThumbPosterInfo</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>
@@ -332,15 +330,15 @@
 						<visible>SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 				</control>
-				<control type="image">
+				<control type="group">
 					<posx>336</posx>
 					<posy>184</posy>
-					<include>overlay_UnWatched</include>
-				</control>
-				<control type="image">
-					<posx>336</posx>
-					<posy>184</posy>
-					<include>overlay_Resumable</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 			</itemlayout>											
 			<focusedlayout height="280" width="400">
@@ -393,15 +391,15 @@
 						<visible>SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 				</control>
-				<control type="image">
+				<control type="group">
 					<posx>336</posx>
 					<posy>184</posy>
-					<include>overlay_UnWatched</include>
-				</control>
-				<control type="image">
-					<posx>336</posx>
-					<posy>184</posy>
-					<include>overlay_Resumable</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>

@@ -22,53 +22,53 @@
 			<include condition="Window.IsVisible(videolibrary)">SlidePoster_Video</include>
 		</control>
 	</include>
-	
 	<include name="SlidePoster_Video">
 		<itemlayout height="400" width="205">
-			<control type="image">
-				<width>228</width>
-				<height>316</height>
-				<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-				<bordertexture border="40">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
-			</control>
-			<control type="image">
-				<posx>174</posx>
-				<posy>262</posy>
-				<include>overlay_UnWatched</include>
-			</control>
-			<control type="image">
-				<posx>174</posx>
-				<posy>262</posy>
-				<include>overlay_Resumable</include>
+			<control type="group">
+				<control type="image">
+					<width>228</width>
+					<height>316</height>
+					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
+					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<aspectratio align="center">stretch</aspectratio>
+					<bordersize>22</bordersize>
+				</control>
+				<control type="image">
+					<posx>174</posx>
+					<posy>262</posy>
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<posx>174</posx>
+					<posy>262</posy>
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 		</itemlayout>
 		<focusedlayout height="400" width="205">
-			<control type="image">
-				<width>228</width>
-				<height>316</height>
-				<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-				<bordertexture border="40">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
+			<control type="group">
 				<include>focus_SlidePoster</include>
-			</control>
-			<control type="image">
-				<posx>174</posx>
-				<posy>262</posy>
-				<include>overlay_UnWatched</include>
-				<include>focus_SlidePoster</include>
-			</control>
-			<control type="image">
-				<posx>174</posx>
-				<posy>262</posy>
-				<include>overlay_Resumable</include>
-				<include>focus_SlidePoster</include>
+				<control type="image">
+					<width>228</width>
+					<height>316</height>
+					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
+					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<aspectratio align="center">stretch</aspectratio>
+					<bordersize>22</bordersize>
+				</control>
+				<control type="image">
+					<posx>174</posx>
+					<posy>262</posy>
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<posx>174</posx>
+					<posy>262</posy>
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
-
 
 <!---LANDSCAPE------>
 	<include name="view_SlideLandscape">
@@ -97,46 +97,48 @@
 	</include>
 	<include name="SlideWideVideo">
 		<itemlayout width="425" height="300">
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">scale</aspectratio>
-			</control>
-			<control type="image">
-				<posx>396</posx>
-				<posy>219</posy>
-				<include>overlay_UnWatched</include>
-			</control>
-			<control type="image">
-				<posx>396</posx>
-				<posy>219</posy>
-				<include>overlay_Resumable</include>
+			<control type="group">
+				<control type="image">
+					<width>450</width>
+					<height>272</height>
+					<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
+					<aspectratio align="center">scale</aspectratio>
+					<bordertexture border="31">frames/frame_Square.png</bordertexture>
+					<bordersize>22</bordersize>
+				</control>
+				<control type="image">
+					<posx>396</posx>
+					<posy>219</posy>
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<posx>396</posx>
+					<posy>219</posy>
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 		</itemlayout>
 		<focusedlayout width="425" height="300">
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
-				<bordertexture border="27">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">scale</aspectratio>
+			<control type="group">
 				<include>focus_SlideWide</include>
-			</control>
-			<control type="image">
-				<posx>396</posx>
-				<posy>219</posy>
-				<include>overlay_UnWatched</include>
-				<include>focus_SlideWide</include>
-			</control>
-			<control type="image">
-				<posx>396</posx>
-				<posy>219</posy>
-				<include>overlay_Resumable</include>
-				<include>focus_SlideWide</include>
+				<control type="image">
+					<width>450</width>
+					<height>272</height>
+					<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
+					<bordertexture border="27">frames/frame_Square.png</bordertexture>
+					<aspectratio align="center">scale</aspectratio>
+					<bordersize>22</bordersize>
+				</control>
+				<control type="image">
+					<posx>396</posx>
+					<posy>219</posy>
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<posx>396</posx>
+					<posy>219</posy>
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
