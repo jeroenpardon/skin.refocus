@@ -334,7 +334,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + SubString(Container.FolderPath,videodb)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)] | SubString(Container.FolderPath,special://skin/playlists/)</visible>
+					<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists)]] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)] | SubString(Container.FolderPath,special://skin/playlists/)</visible>
 					<control type="button" id="403">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(52)</onclick>
@@ -383,7 +383,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,plugin://)]</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists) | SubString(Container.FolderPath,plugin://)]</visible>
 					<control type="button" id="405">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(57)</onclick>
