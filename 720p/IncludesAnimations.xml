@@ -228,19 +228,6 @@
 		<animation type="Hidden">
 			<effect type="fade" start="100" end="0" time="250" />
 		</animation>
-		<!--
-		<animation type="Conditional" condition="Player.Muted + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(614)]">
-			<effect type="slide" time="0" start="0" end="-60" />
-		</animation>
-		<animation type="Conditional" condition="Player.Muted + [Window.IsActive(videoscan) | Window.IsActive(musicscan)]">
-			<effect type="slide" time="0" start="0" end="-60" />
-		</animation>
-		-->
-		<!--
-		<animation type="Conditional" condition="Player.Muted">
-			<effect type="slide" time="0" start="0" end="-50" />
-		</animation>
-		-->
 	</include>
 	<include name="transition_OSD">
 		<animation type="WindowOpen">
@@ -343,6 +330,11 @@
 		</animation>
 		<animation type="Hidden">
 			<effect type="fade" start="100" end="0" time="150"/>
+		</animation>
+	</include>
+	<include name="toggle_ToastMute">
+		<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,0)">
+			<effect type="slide" time="200" start="0" end="-50" tween="Cubic" easing="Out" />
 		</animation>
 	</include>
 

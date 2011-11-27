@@ -7,18 +7,14 @@
 	<controls>
 		<control type="group">
 			<visible>Player.HasAudio + !Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614)]</visible>
-			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">
-				<effect type="slide" time="0" start="0" end="-50" />
-			</animation>
+			<include>toggle_ToastMute</include>
 			<control type="label" id="200">
 				<posx>130r</posx>
-				<width>400</width>
 				<label>$INFO[MusicPlayer.Title]</label>
 				<include>toast_Top</include>
 			</control>
 			<control type="label" id="201">
 				<posx>130r</posx>
-				<width>400</width>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<include>toast_Bottom</include>
 			</control>

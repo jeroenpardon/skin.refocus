@@ -7,9 +7,7 @@
 	<controls>
 		<control type="group">
 			<visible>Player.HasVideo + !Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614)]</visible>
-			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">
-				<effect type="slide" time="0" start="0" end="-50" />
-			</animation>
+			<include>toggle_ToastMute</include>
 			<control type="label" id="200">
 				<posx>180r</posx>
 				<label>$INFO[VideoPlayer.Title]</label>
