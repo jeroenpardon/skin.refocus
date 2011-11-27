@@ -128,10 +128,37 @@
 <!---WATCHLIST------>	
 	<include name="watchlist_Shows">
 		<content>
+			<!--
+			<item id="0">
+				<label>all</label>
+				<label2>browse all tv shows in your library</label2>
+				<thumb>thumbs/tvshow_portrait.jpg</thumb>
+				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
+				<onclick>PlayMedia($INFO[Window(Home).Property(WatchList_Episode.1.Path)])</onclick>
+				<visible>!IsEmpty(Window(Home).Property(WatchList_Episode.1.Label))</visible>
+			</item>
+			<item id="0">
+				<label>in progress</label>
+				<label2>episodes you haven't finished watching</label2>
+				<thumb>thumbs/tvshow_portrait.jpg</thumb>
+				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
+				<onclick>PlayMedia($INFO[Window(Home).Property(WatchList_Episode.1.Path)])</onclick>
+				<visible>!IsEmpty(Window(Home).Property(WatchList_Episode.1.Label))</visible>
+			</item>
+			<item id="1">
+				<label>new episodes</label>
+				<label2>the 25 most recently added episodes</label2>
+				<thumb>thumbs/tvshow_portrait.jpg</thumb>
+				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
+				<onclick>PlayMedia($INFO[Window(Home).Property(WatchList_Episode.1.Path)])</onclick>
+				<visible>!IsEmpty(Window(Home).Property(WatchList_Episode.1.Label))</visible>
+			</item>
+			-->
 			<item id="1">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.1.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.1.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
-				<thumb>$INFO[Window(Home).Property(WatchList_Episode.1.SeasonThumb)]</thumb>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.1.TvshowThumb)]</icon>
+		  		<thumb>$INFO[Window(Home).Property(WatchList_Episode.1.SeasonThumb)]</thumb>
 				<property name="ShowThumb">$INFO[Window(Home).Property(WatchList_Episode.1.TVSHowThumb)]</property>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.1.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.1.Plot)]</property>
@@ -143,6 +170,7 @@
 			<item id="2">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.2.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.2.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.2.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.2.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.2.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.2.Plot)]</property>
@@ -153,6 +181,7 @@
 			<item id="3">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.3.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.3.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.3.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.3.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.3.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.3.Plot)]</property>
@@ -163,6 +192,7 @@
 			<item id="4">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.4.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.4.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.4.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.4.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.4.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.4.Plot)]</property>
@@ -173,6 +203,7 @@
 			<item id="5">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.5.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.5.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.5.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.5.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.5.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.5.Plot)]</property>
@@ -183,6 +214,7 @@
 			<item id="6">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.6.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.6.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.6.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.6.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.6.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.6.Plot)]</property>
@@ -193,6 +225,7 @@
 			<item id="7">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.7.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.7.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.7.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.7.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.7.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.7.Plot)]</property>
@@ -203,6 +236,7 @@
 			<item id="8">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.8.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.8.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.8.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.8.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.8.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.8.Plot)]</property>
@@ -213,6 +247,7 @@
 			<item id="9">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.9.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.9.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.9.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.9.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.9.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.9.Plot)]</property>
@@ -223,6 +258,7 @@
 			<item id="10">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.10.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.10.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.10.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.10.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.10.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.10.Plot)]</property>
@@ -233,6 +269,7 @@
 			<item id="11">
 				<label>$INFO[Window(Home).Property(WatchList_EpisodeTVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.11.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.11.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.11.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.11.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.11.Plot)]</property>
@@ -243,6 +280,7 @@
 			<item id="12">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.12.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.12.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.12.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.12.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.12.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.12.Plot)]</property>
@@ -253,6 +291,7 @@
 			<item id="13">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.13.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.13.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.13.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.13.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.13.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.13.Plot)]</property>
@@ -263,6 +302,7 @@
 			<item id="14">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.14.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.14.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.14.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.14.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.14.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.14.Plot)]</property>
@@ -273,6 +313,7 @@
 			<item id="15">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.15.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.15.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.15.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.15.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.15.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.15.Plot)]</property>
@@ -283,6 +324,7 @@
 			<item id="16">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.16.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.16.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.16.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.16.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.16.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.16.Plot)]</property>
@@ -293,6 +335,7 @@
 			<item id="17">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.17.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.17.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.17.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.17.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.17.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.17.Plot)]</property>
@@ -303,6 +346,7 @@
 			<item id="18">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.18.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.18.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.18.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.18.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.18.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.18.Plot)]</property>
@@ -313,6 +357,7 @@
 			<item id="19">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.19.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.19.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.19.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.19.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.19.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.19.Plot)]</property>
@@ -323,6 +368,7 @@
 			<item id="20">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.20.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.20.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.20.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.20.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.20.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.20.Plot)]</property>
@@ -333,6 +379,7 @@
 			<item id="21">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.21.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.21.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.21.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.21.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.21.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.21.Plot)]</property>
@@ -343,6 +390,7 @@
 			<item id="22">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.22.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.22.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.22.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.22.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.22.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.22.Plot)]</property>
@@ -353,6 +401,7 @@
 			<item id="23">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.23TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.23.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.23.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.23.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.23.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.23.Plot)]</property>
@@ -363,6 +412,7 @@
 			<item id="24">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.24.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.24.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.24.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.24.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.24.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.24.Plot)]</property>
@@ -373,6 +423,7 @@
 			<item id="25">
 				<label>$INFO[Window(Home).Property(WatchList_Episode.25.TVShowTitle)]</label>
 				<label2>$INFO[Window(Home).Property(WatchList_Episode.25.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(WatchList_Episode.1.Episode),$LOCALIZE[31088] ]</label2>
+				<icon>$INFO[Window(Home).Property(WatchList_Episode.25.TvshowThumb)]</icon>
 				<thumb>$INFO[Window(Home).Property(WatchList_Episode.25.SeasonThumb)]</thumb>
 				<property name="Fanart">$INFO[Window(Home).Property(WatchList_Episode.25.Fanart)]</property>
 				<property name="Plot">$INFO[Window(Home).Property(WatchList_Episode.25.Plot)]</property>
