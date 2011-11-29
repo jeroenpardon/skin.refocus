@@ -93,6 +93,18 @@
 				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
 				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 			</control>
+			<control type="multiimage">
+				<width>750</width>
+				<height>422</height>
+				<imagepath background="true">$INFO[ListItem.Path]/extrafanart/</imagepath>
+				<aspectratio align="center">scale</aspectratio>
+				<timeperimage>1500</timeperimage>
+				<fadetime>1000</fadetime>
+				<pauseatend>10000</pauseatend>
+				<randomize>true</randomize>
+				<loop>no</loop>
+				<visible>Container.Content(tvshows) + Skin.HasSetting(gallery.extrafanart)</visible>
+			</control>
 			<control type="image">
 				<posx>0</posx>
 				<posy>300</posy>
@@ -204,6 +216,17 @@
 				<include>screen_Dimensions</include>
 				<aspectratio aligny="left">scale</aspectratio>
 				<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
+			</control>
+			<control type="multiimage">
+				<include>screen_Dimensions</include>
+				<imagepath background="true">$INFO[ListItem.Path,,extrafanart]</imagepath>
+				<aspectratio align="center">scale</aspectratio>
+				<timeperimage>3000</timeperimage>
+				<fadetime>1000</fadetime>
+				<pauseatend>10000</pauseatend>
+				<randomize>true</randomize>
+				<loop>no</loop>
+				<visible>Container.Content(tvshows) + Skin.HasSetting(gallery.extrafanart) + System.IdleTime(3)</visible>
 			</control>
 			<control type="image">
 				<posx>20</posx>
