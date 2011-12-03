@@ -90,9 +90,24 @@
 						<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))</visible>
 						<control type="label">
 							<width>700</width>
-							<label>$LOCALIZE[31069] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.NextDate)][/COLOR]</label>
+							<label>$LOCALIZE[31076] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.NextDate)][/COLOR]</label>
 							<include>label_InfoDialog</include>
 							<include>autoscroll-line</include>
+							<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+						</control>
+						<control type="label">
+							<width>700</width>
+							<label>$LOCALIZE[31075] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.LatestDate)][/COLOR]</label>
+							<include>label_InfoDialog</include>
+							<include>autoscroll-line</include>
+							<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)) + !StringCompare(Window(Home).Property(NextAired.Status),canceled/ended)</visible>
+						</control>
+						<control type="label">
+							<width>700</width>
+							<label>$LOCALIZE[31077] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.Status)][/COLOR]</label>
+							<include>label_InfoDialog</include>
+							<include>autoscroll-line</include>
+							<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)) + StringCompare(Window(Home).Property(NextAired.Status),canceled/ended)</visible>
 						</control>
 					</control>
 					<control type="group">
