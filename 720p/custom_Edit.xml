@@ -82,13 +82,15 @@
 					<!--banner-->
 					<item id="4">
 						<label>$LOCALIZE[31945]</label>
-						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=False,clearart=False,showthumb=False,poster=False,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
+						<onclick>Close</onclick>
+						<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,banner)</onclick>
 						<visible>Container.Content(tvshows)</visible>
 					</item>
 					<!--logo-->
 					<item id="5">
 						<label>$LOCALIZE[31946]</label>
-						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=logo.png,showname=$INFO[ListItem.TVShowTitle])</onclick>
+						<onclick>Close</onclick>
+						<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,clearlogo)</onclick>
 						<visible>Container.Content(tvshows)</visible>
 					</item>
 				</content>

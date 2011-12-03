@@ -136,6 +136,20 @@
 				<selected>Skin.HasSetting(home.time)</selected>
 				<include>button_Settings</include>
 			</control>
+			<!--time-->
+			<control type="radiobutton" id="108">
+				<label>show search button</label>
+				<onclick>Skin.ToggleSetting(home.search)</onclick>
+				<selected>Skin.HasSetting(home.search)</selected>
+				<include>button_Settings</include>
+			</control>
+			<control type="radiobutton" id="109">
+				<label>- use globalsearch add-on</label>
+				<onclick>Skin.ToggleSetting(search.addon)</onclick>
+				<selected>Skin.HasSetting(search.addon)</selected>
+				<visible>Skin.HasSetting(home.search)</visible>
+				<include>button_Settings</include>
+			</control>
 		</control>
 <!---MAIN MENU------>	
 		<control type="grouplist" id="200">
@@ -323,7 +337,7 @@
 			</control>
 			<control type="button" id="613">
 				<label>- $LOCALIZE[31129]</label>
-				<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=False,poster=False,banner=banner.jpg)</onclick>
+				<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, silent=true,banner)</onclick>
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
 			</control>
@@ -336,7 +350,7 @@
 			</control>
 			<control type="button" id="615">
 				<label>- $LOCALIZE[31130]</label>
-				<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=True,showthumb=False,poster=False,banner=False)</onclick>
+				<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, silent=true,clearlogo)</onclick>
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(tvshowlogos.enable)</visible>
 			</control>
