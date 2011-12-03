@@ -1,0 +1,106 @@
+﻿<window type="dialog" id="64">
+	<defaultcontrol always="true">100</defaultcontrol>
+	<animation type="WindowOpen" reversible="false">
+		<effect type="zoom" start="90" end="100" time="200" center="1000,360" tween="Sine" easing="InOut" />
+		<effect type="fade" start="0" end="100" time="200" />
+	</animation>
+	<animation type="WindowClose" reversible="false">
+		<effect type="zoom" start="100" end="90" time="200" center="1000,360" tween="Sine" easing="InOut" />
+		<effect type="fade" start="100" end="0" time="200" />
+	</animation>
+	<coordinates>
+		<system>1</system>
+		<posx>930</posx>
+		<posy>243</posy>
+	</coordinates>
+	<controls>
+		<control type="image" id="997">
+			<width>280</width>
+			<height>235</height>
+			<texture border="20">dialogs/menuLeft.png</texture>
+		</control>
+		<control type="group">
+			<posx>9</posx>
+			<posy>17</posy>
+			<control type="image">
+				<width>250</width>
+				<include>dialog_Separator</include>
+			</control>
+			<control type="list" id="100">
+				<width>250</width>
+				<height>320</height>
+				<onup>100</onup>
+				<ondown>100</ondown>
+				<onright>-</onright>
+				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+				<itemlayout height="40">
+					<control type="image">
+						<width>413</width>
+						<include>dialog_CommonList</include>
+					</control>
+					<control type="label">
+						<width>397</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItem</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="40">
+					<control type="image">
+						<width>413</width>
+						<include>dialog_CommonList</include>
+						<visible>!Control.HasFocus(100)</visible>
+					</control>
+					<control type="image">
+						<width>413</width>
+						<height>40</height>
+						<include>dialog_CommonListFocus</include>
+						<visible>Control.HasFocus(100)</visible>
+					</control>
+					<control type="label">
+						<posx>15</posx>
+						<width>397</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+				</focusedlayout>
+				<content>
+					<!--movies-->
+					<item id="1">
+						<label>$LOCALIZE[342]</label>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(VideoLibrary,movietitles)</onclick>
+						<onclick>SendClick(8)</onclick>
+					</item>
+					<!--tvshows-->
+					<item id="2">
+						<label>$LOCALIZE[20343]</label>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(VideoLibrary,TvShowTitles)</onclick>
+						<onclick>SendClick(8)</onclick>
+					</item>
+					<!--artists-->
+					<item id="3">
+						<label>$LOCALIZE[133]</label>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(MusicLibrary,Artists)</onclick>
+						<onclick>SendClick(8)</onclick>
+					</item>
+					<!--albums-->
+					<item id="4">
+						<label>$LOCALIZE[132]</label>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(MusicLibrary,Albums)</onclick>
+						<onclick>SendClick(8)</onclick>
+					</item>
+					<!--songs-->
+					<item id="5">
+						<label>$LOCALIZE[134]</label>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(MusicLibrary,Artists)</onclick>
+						<onclick>SendClick(8)</onclick>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>
