@@ -182,7 +182,7 @@
 				<control type="label">
 					<posy>28</posy>
 					<width>960</width>
-					<label>$VAR[global_Info.Video] </label>
+					<label>$VAR[global_Info.Video]</label>
 					<include>info_Sub</include>
 					<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 				</control>
@@ -291,25 +291,29 @@
 					<include>info_Sub</include>
 					<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
-				<control type="label">
-					<label></label>
-					<height>10</height>
+				<control type="image">
+					<width>128</width>
+					<height>48</height>
+					<info>ListItem.StarRating</info>
+					<aspectratio align="center">keep</aspectratio>
+					<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 				</control>
 				<control type="textbox" id="4">
 					<width>435</width>
-					<height>413</height>
+					<height>355</height>
 					<label>$VAR[global_Plot.Condition]</label>
 					<include>description_Small</include>
 				</control>
 			</control>
 			<control type="image">
 				<posx>780</posx>
-				<posy>630</posy>
+				<posy>610</posy>
 				<width>128</width>
-				<height>32</height>
-				<texture>$INFO[ListItem.StarRating]</texture>
-				<aspectratio align="left">keep</aspectratio>
-				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+				<visible>Control.IsVisible(571) + [Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
 			</control>
 		</control>
 		<include>view_IconPoster</include>
