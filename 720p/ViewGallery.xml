@@ -102,8 +102,9 @@
 				<fadetime>1000</fadetime>
 				<pauseatend>10000</pauseatend>
 				<randomize>true</randomize>
-				<loop>no</loop>
+				<loop>yes</loop>
 				<visible>Container.Content(tvshows) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 			</control>
 			<control type="image">
 				<posx>0</posx>
@@ -225,7 +226,7 @@
 				<fadetime>1000</fadetime>
 				<pauseatend>10000</pauseatend>
 				<randomize>true</randomize>
-				<loop>no</loop>
+				<loop>yes</loop>
 				<visible>Container.Content(tvshows) + Skin.HasSetting(gallery.extrafanart) + System.IdleTime(3)</visible>
 			</control>
 			<control type="image">
