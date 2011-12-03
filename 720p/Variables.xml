@@ -27,6 +27,15 @@
 	</variable>
 
 <!---VIEWS------>
+	
+	<variable name="gallery_Header">
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
+		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
+		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline) + !IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
+		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline) + IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.Plot]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	
 	<variable name="global_Title.Video">
 		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -110,6 +119,7 @@
 		<value condition="Container.Content(episodes) + IsEmpty(ListItem.Thumb)">thumbs/tvshow_landscape.jpg</value>
 		<value condition="Window.IsActive(pictures) + IsEmpty(ListItem.Thumb)">thumbs/picture_landscape.jpg</value>
 		<value condition="Container.Content(files) + IsEmpty(ListItem.Thumb)">thumbs/video_landscape.png</value>
+		<value condition="Container.Content(seasons)">$INFO[ListItem.Path]</value>
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="thumb_Landscape2.Condition">
