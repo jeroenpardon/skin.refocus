@@ -158,5 +158,35 @@
 				<visible>Library.HasContent(music) + [Container(9000).HasFocus(9) | Container(9000).HasFocus(10)]</visible>
 			</control>
 		</control>
+		<control type="button" id="888">
+			<posx>1205</posx>
+			<posy>331</posy>
+			<label>-</label>
+			<width>56</width>
+			<height>56</height>
+			<texturenofocus>home/search.png</texturenofocus>
+			<texturefocus>home/search-focus.png</texturefocus>
+			<onleft>9000</onleft>
+			<onright>-</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<onclick>ActivateWindow(64)</onclick>
+			<visible>Skin.HasSetting(home.search) + !Skin.HasSetting(search.addon)</visible>
+		</control>
+		<control type="button" id="888">
+			<posx>1205</posx>
+			<posy>331</posy>
+			<label>-</label>
+			<width>56</width>
+			<height>56</height>
+			<texturenofocus>home/search.png</texturenofocus>
+			<texturefocus>home/search-focus.png</texturefocus>
+			<onleft>9000</onleft>
+			<onright>-</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<onclick>RunAddon(script.globalsearch)</onclick>
+			<visible>Skin.HasSetting(home.search) + Skin.HasSetting(search.addon)</visible>
+		</control>
 	</controls>
 </window>

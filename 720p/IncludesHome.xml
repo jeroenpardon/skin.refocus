@@ -22,6 +22,7 @@
 				<texture border="1">home/menuSelect.png</texture>
 				<include>home_ListScroll</include>
 				<animation effect="fade" start="100" end="50" time="350" condition="System.IdleTime(5)">Conditional</animation>
+				<visible>!Control.HasFocus(888)</visible>
 			</control>
 			<control type="image">
 				<posy>0</posy>
@@ -42,6 +43,17 @@
 				<textcolor>Color5</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>![Container(9000).HasFocus(21) | Container(9000).HasFocus(22) | Container(9000).HasFocus(17)]</visible>
+			</control>
+			<control type="label">
+				<posy>70</posy>
+				<posx>20</posx>
+				<width>640</width>
+				<height>50</height>
+				<font>homeMenu</font>
+				<align>left</align>
+				<textcolor>Color1</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(888)</visible>
 			</control>
 			<control type="label">
 				<posy>72</posy>
