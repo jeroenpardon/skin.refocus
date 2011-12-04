@@ -214,8 +214,16 @@
 					<ondown>200</ondown>
 					<itemgap>0</itemgap>
 					<visible>Skin.String(Sub,Movies)</visible>
-					<!--recent movies-->
+					<!--watchlist-->
 					<control type="radiobutton" id="201">
+						<label>$LOCALIZE[31086]</label>
+						<width>557</width>
+						<onclick>Skin.ToggleSetting(moviesmenu.watchlist)</onclick>
+						<selected>Skin.HasSetting(moviesmenu.watchlist)</selected>
+						<include>dialog_Radio</include>
+					</control>
+					<!--recent movies-->
+					<control type="radiobutton" id="202">
 						<label>$LOCALIZE[31095]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.recent)</onclick>
@@ -223,7 +231,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--unwatched movies-->
-					<control type="radiobutton" id="202">
+					<control type="radiobutton" id="203">
 						<label>$LOCALIZE[16101]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.unwatched)</onclick>
@@ -231,7 +239,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--movies in progress-->
-					<control type="radiobutton" id="203">
+					<control type="radiobutton" id="204">
 						<label>$LOCALIZE[575]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.inprogress)</onclick>
@@ -239,7 +247,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--trailers-->
-					<control type="radiobutton" id="204">
+					<control type="radiobutton" id="205">
 						<label>$LOCALIZE[31953]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.trailers)</onclick>
@@ -248,7 +256,7 @@
 						<enable>System.HasAddon(plugin.video.apple.movie.trailers.lite)</enable>
 					</control>
 					<!--genres-->
-					<control type="radiobutton" id="205">
+					<control type="radiobutton" id="206">
 						<label>$LOCALIZE[135]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.genres)</onclick>
@@ -256,7 +264,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--years-->
-					<control type="radiobutton" id="206">
+					<control type="radiobutton" id="207">
 						<label>$LOCALIZE[652]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.years)</onclick>
@@ -264,7 +272,7 @@
 						<include>dialog_Radio</include>
 					</control>
 					<!--actors-->
-					<control type="radiobutton" id="207">
+					<control type="radiobutton" id="208">
 						<label>$LOCALIZE[344]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(moviesmenu.actors)</onclick>
@@ -288,7 +296,7 @@
 						<label>$LOCALIZE[31086]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.watchlist)</onclick>
-						<selected>!Skin.HasSetting(tvshowsmenu.watchlist)</selected>
+						<selected>Skin.HasSetting(tvshowsmenu.watchlist)</selected>
 						<include>dialog_Radio</include>
 					</control>
 					<!--recent episodes-->
@@ -344,7 +352,7 @@
 						<label>$LOCALIZE[31070]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(tvshowsmenu.guide)</onclick>
-						<selected>!Skin.HasSetting(tvshowsmenu.guide)</selected>
+						<selected>Skin.HasSetting(tvshowsmenu.guide)</selected>
 						<include>dialog_Radio</include>
 					</control>
 				</control>

@@ -419,7 +419,7 @@
 						<label>$LOCALIZE[31086]</label>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(61)</onclick>
-						<visible>Library.HasContent(movies) + !Skin.HasSetting(tvshowsmenu.watchlist)</visible>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.watchlist)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31095]</label>
@@ -483,7 +483,7 @@
 						<label>$LOCALIZE[31086]</label>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(60)</onclick>
-						<visible>Library.HasContent(tvshows) + System.HasAddon(script.watchlist) + !Skin.HasSetting(tvshowsmenu.watchlist)</visible>
+						<visible>Library.HasContent(tvshows) + System.HasAddon(script.watchlist) + Skin.HasSetting(tvshowsmenu.watchlist)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31094]</label>

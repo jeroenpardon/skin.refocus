@@ -11,9 +11,6 @@
 			<orientation>vertical</orientation>
 			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 			<visible allowhiddenfocus="true">![ControlGroup(1100).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(2100).HasFocus()]</visible>	
-			<!--
-			<animation effect="slide" start="0" end="250" time="200" tween="cubic" easing="in" condition="Control.HasFocus(6000)">Conditional</animation>
-			-->
 			<include>transition_HomeMenu</include>
 			<include>homeMenusLayout</include>
 			<content>
@@ -21,34 +18,34 @@
 				<item id="1">
 					<label>$LOCALIZE[3]</label>
 					<onclick>SetFocus(1110)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat) + !Skin.HasSetting(homemenu.videos)</visible>
+					<visible>![IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)]</visible>
 				</item>
 				<item id="2">
 					<label>$LOCALIZE[3]</label>
 					<onclick>ActivateWindow(Videos,Files)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat) + !Skin.HasSetting(homemenu.videos)</visible>
+					<visible>IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)</visible>
 				</item>
 				<!--movies-->
 				<item id="3">
 					<label>$LOCALIZE[342]</label>
 					<onclick>SetFocus(1200)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat) + Library.HasContent(movies)</visible>
+					<visible>[Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
 				</item>
 				<item id="4">
 					<label>$LOCALIZE[342]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat) + Library.HasContent(movies)</visible>
+					<visible>![Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
 				</item>
 				<!--tv shows-->
 				<item id="5">
 					<label>$LOCALIZE[20343]</label>
 					<onclick>SetFocus(1210)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat) + Library.HasContent(tvshows)</visible>
+					<visible>[Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
 				</item>
 				<item id="6">
 					<label>$LOCALIZE[20343]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat) + Library.HasContent(tvshows)</visible>
+					<visible>![Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
 				</item>
 				<!--live tv-->
 				<item id="7">

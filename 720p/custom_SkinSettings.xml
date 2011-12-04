@@ -246,7 +246,7 @@
 				<label>$LOCALIZE[31109]</label>
 				<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
 				<onclick>ActivateWindow(61)</onclick>
-				<visible>!Skin.HasSetting(homemenu.flat)</visible>
+				<!--<visible>!Skin.HasSetting(homemenu.flat)</visible>-->
 				<include>button_Settings</include>
 			</control>
 		</control>
@@ -340,6 +340,7 @@
 				<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, silent=true,banner)</onclick>
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
+				<enable>System.HasAddon(script.artwork.downloader)</enable>
 			</control>
 			<!--tv show logos-->
 			<control type="radiobutton" id="614">
@@ -353,12 +354,20 @@
 				<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, silent=true,clearlogo)</onclick>
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(tvshowlogos.enable)</visible>
+				<enable>System.HasAddon(script.artwork.downloader)</enable>
 			</control>
 			<control type="radiobutton" id="617">
-				<label>use extrafanart in gallery view</label>
+				<label>use "extrafanart" images in gallery view</label>
 				<onclick>Skin.ToggleSetting(gallery.extrafanart)</onclick>
 				<include>button_Settings</include>
 				<selected>Skin.HasSetting(gallery.extrafanart)</selected>
+			</control>
+			<control type="button" id="618">
+				<label>- download extrafanart images</label>
+				<onclick>XBMC.runscript(script.artwork.downloader, mode=custom, extrafanart)</onclick>
+				<include>button_Settings</include>
+				<visible>Skin.HasSetting(gallery.extrafanart)</visible>
+				<enable>System.HasAddon(script.artwork.downloader)</enable>
 			</control>
 		</control>
 <!---VIEW SETTINGS------>					
