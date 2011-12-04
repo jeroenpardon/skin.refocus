@@ -89,7 +89,7 @@
 				<item id="14">
 					<label>$LOCALIZE[24001]</label>
 					<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
-					<visible>!Skin.HasSetting(homemenu.addons) + [!Skin.HasSetting(addonsmenu.updates) | !Skin.HasSetting(addonsmenu.programs) | IsEmpty(Skin.String(addonsmenu.addon1.label)) | IsEmpty(Skin.String(addonsmenu.addon1.label)) | IsEmpty(Skin.String(addonsmenu.addon3.label)) | IsEmpty(Skin.String(addonsmenu.addon4.label)) | IsEmpty(Skin.String(addonsmenu.addon5.label)) | IsEmpty(Skin.String(addonsmenu.addon6.label))]</visible>
+					<visible>!Skin.HasSetting(homemenu.addons) + ![Skin.HasSetting(addonsmenu.updates) | Skin.HasSetting(addonsmenu.programs) | !IsEmpty(Skin.String(addonsmenu.addon1.label)) | !IsEmpty(Skin.String(addonsmenu.addon2.label)) | !IsEmpty(Skin.String(addonsmenu.addon3.label)) | !IsEmpty(Skin.String(addonsmenu.addon4.label)) | !IsEmpty(Skin.String(addonsmenu.addon5.label)) | !IsEmpty(Skin.String(addonsmenu.addon6.label))]</visible>
 				</item>
 				<!--system-->
 				<item id="15">
