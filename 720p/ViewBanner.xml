@@ -318,9 +318,14 @@
 				<include>info_Sub</include>
 				<visible>!SubString(ListItem.Icon,default)</visible>
 			</control>
-			<control type="label">
-				<label></label>
-				<height>10</height>
+			<control type="image">
+				<posx>695</posx>
+				<posy>650</posy>
+				<width>128</width>
+				<height>48</height>
+				<texture>$INFO[ListItem.StarRating]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
 			</control>
 			<control type="textbox" id="4">
 				<width>500</width>
@@ -329,18 +334,14 @@
 				<include>description_Small</include>
 			</control>
 		</control>
-		<!---flags--->
 		<control type="image">
 			<posx>695</posx>
-			<posy>650</posy>
+			<posy>610</posy>
 			<width>128</width>
-			<height>32</height>
-			<texture>$INFO[ListItem.StarRating]</texture>
-			<aspectratio align="left">keep</aspectratio>
-			<include>toggle_Menu</include>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(541) + !IsEmpty(ListItem.TVShowTitle)</visible>
+			<height>64</height>
+			<aspectratio align="right">keep</aspectratio>
+			<texture>$VAR[flag_Studio]</texture>
+			<visible>Control.IsVisible(541) + [Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
 		</control>
 	</include>
 </includes>
