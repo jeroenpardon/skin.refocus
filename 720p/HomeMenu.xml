@@ -18,12 +18,12 @@
 				<item id="1">
 					<label>$LOCALIZE[3]</label>
 					<onclick>SetFocus(1110)</onclick>
-					<visible>![IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)]</visible>
+					<visible>!Skin.HasSetting(homemenu.videos) + ![IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)]</visible>
 				</item>
 				<item id="2">
 					<label>$LOCALIZE[3]</label>
 					<onclick>ActivateWindow(Videos,Files)</onclick>
-					<visible>IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)</visible>
+					<visible>!Skin.HasSetting(homemenu.videos) + IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)</visible>
 				</item>
 				<!--movies-->
 				<item id="3">
@@ -62,12 +62,12 @@
 				<item id="9">
 					<label>$LOCALIZE[2]</label>
 					<onclick>SetFocus(1130)</onclick>
-					<visible>[Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
+					<visible>!Skin.HasSetting(homemenu.music) + [Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
 				</item>
 				<item id="10">
 					<label>$LOCALIZE[2]</label>
 					<onclick>ActivateWindow(MyMusicLibrary)</onclick>
-					<visible>![Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
+					<visible>!Skin.HasSetting(homemenu.music) + ![Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
 				</item>
 				<!--pictures-->
 				<item id="11">
@@ -121,13 +121,6 @@
 					<onclick>SetFocus(1180)</onclick>
 					<visible>System.HasMediadvd + Skin.HasSetting(homemenu.disc)</visible>
 				</item>
-				<!--
-				<item id="13">
-					<label>$LOCALIZE[13012]</label>
-					<onclick>SetFocus(1170)</onclick>
-					<visible>!Skin.HasSetting(homemenu.exit)</visible>
-				</item>
-				-->
 				<item id="21">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
