@@ -164,13 +164,14 @@
 			<itemgap>0</itemgap>
 			<visible>Skin.String(SkinSettings,Menu)</visible>
 			<include>transition_Container</include>
-			<!--main menu-->
+			<!--main menu
 			<control type="label" id="201">
 				<label>$LOCALIZE[31961]</label>
 				<font>category</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
+			-->
 			<!--videos-->
 			<control type="radiobutton" id="202">
 				<label>$LOCALIZE[31952]</label>
@@ -227,26 +228,27 @@
 				<selected>Skin.HasSetting(homemenu.weather)</selected>
 				<include>button_Settings</include>
 			</control>
-			<!--submenus-->
+			<!--submenus
 			<control type="label" id="210">
 				<label>$LOCALIZE[31960]</label>
 				<font>category</font>
 				<textcolor>Color2</textcolor>
 				<include>button_Settings</include>
 			</control>
-			<!--no submenus--->
+			-->
+			<!--no submenus
 			<control type="radiobutton" id="211">
 				<label>$LOCALIZE[31036]</label>
 				<onclick>Skin.ToggleSetting(homemenu.flat)</onclick>
 				<selected>Skin.HasSetting(homemenu.flat)</selected>
 				<include>button_Settings</include>
 			</control>
+			--->
 			<!--select items-->
 			<control type="button" id="212">
 				<label>$LOCALIZE[31109]</label>
 				<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
 				<onclick>ActivateWindow(61)</onclick>
-				<!--<visible>!Skin.HasSetting(homemenu.flat)</visible>-->
 				<include>button_Settings</include>
 			</control>
 		</control>
