@@ -62,45 +62,45 @@
 				<item id="9">
 					<label>$LOCALIZE[2]</label>
 					<onclick>SetFocus(1130)</onclick>
-					<visible>!Skin.HasSetting(homemenu.music) + !Skin.HasSetting(homemenu.flat)</visible>
+					<visible>[Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
 				</item>
 				<item id="10">
 					<label>$LOCALIZE[2]</label>
 					<onclick>ActivateWindow(MyMusicLibrary)</onclick>
-					<visible>!Skin.HasSetting(homemenu.music) + Skin.HasSetting(homemenu.flat)</visible>
+					<visible>![Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
 				</item>
 				<!--pictures-->
 				<item id="11">
 					<label>$LOCALIZE[1]</label>
 					<onclick>SetFocus(1140)</onclick>
-					<visible>!Skin.HasSetting(homemenu.pictures) + !Skin.HasSetting(homemenu.flat)</visible>
+					<visible>!Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(picturesmenu.addons)</visible>
 				</item>
 				<item id="12">
 					<label>$LOCALIZE[1]</label>
 					<onclick>ActivateWindow(2)</onclick>
-					<visible>!Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(homemenu.flat)</visible>
+					<visible>!Skin.HasSetting(homemenu.pictures) + !Skin.HasSetting(picturesmenu.addons)</visible>
 				</item>
 				<!--addons-->
 				<item id="13">
 					<label>$LOCALIZE[24001]</label>
 					<onclick>SetFocus(1150)</onclick>
-					<visible>!Skin.HasSetting(homemenu.addons) + !Skin.HasSetting(homemenu.flat)</visible>-
+					<visible>!Skin.HasSetting(homemenu.addons) + [Skin.HasSetting(addonsmenu.updates) | Skin.HasSetting(addonsmenu.programs) | !IsEmpty(Skin.String(addonsmenu.addon1.label)) | !IsEmpty(Skin.String(addonsmenu.addon1.label)) | !IsEmpty(Skin.String(addonsmenu.addon3.label)) | !IsEmpty(Skin.String(addonsmenu.addon4.label)) | !IsEmpty(Skin.String(addonsmenu.addon5.label)) | !IsEmpty(Skin.String(addonsmenu.addon6.label))]</visible>
 				</item>
 				<item id="14">
 					<label>$LOCALIZE[24001]</label>
 					<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
-					<visible>!Skin.HasSetting(homemenu.addons) + Skin.HasSetting(homemenu.flat)</visible>-
+					<visible>!Skin.HasSetting(homemenu.addons) + [!Skin.HasSetting(addonsmenu.updates) | !Skin.HasSetting(addonsmenu.programs) | IsEmpty(Skin.String(addonsmenu.addon1.label)) | IsEmpty(Skin.String(addonsmenu.addon1.label)) | IsEmpty(Skin.String(addonsmenu.addon3.label)) | IsEmpty(Skin.String(addonsmenu.addon4.label)) | IsEmpty(Skin.String(addonsmenu.addon5.label)) | IsEmpty(Skin.String(addonsmenu.addon6.label))]</visible>
 				</item>
 				<!--system-->
 				<item id="15">
 					<label>$LOCALIZE[13000]</label>
 					<onclick>SetFocus(1160)</onclick>
-					<visible>!Skin.HasSetting(homemenu.flat)</visible>
+					<visible>[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.exit)]</visible>
 				</item>
 				<item id="16">
 					<label>$LOCALIZE[5]</label>
 					<onclick>ActivateWindow(settings)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat)</visible>
+					<visible>![Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.exit)]</visible>
 				</item>
 				<!--weather-->
 				<item id="17">

@@ -151,7 +151,7 @@
 					<item id="4">
 						<label>$LOCALIZE[133]</label>
 						<onclick>ActivateWindow(MusicLibrary,artists)</onclick>
-						<visible>!Skin.HasSetting(musicmenu.artists)</visible>
+						<visible>Skin.HasSetting(musicmenu.artists)</visible>
 					</item>
 					<item id="5">
 						<label>$LOCALIZE[135]</label>
@@ -302,14 +302,17 @@
 					<item id="2">
 						<label>$LOCALIZE[130]</label>
 						<onclick>ActivateWindow(SystemInfo)</onclick>
+						<visible>Skin.HasSetting(systemmenu.info)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[7]</label>
 						<onclick>ActivateWindow(Filemanager)</onclick>
+						<visible>Skin.HasSetting(systemmenu.filemanager)</visible>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[31013]</label>
 						<onclick>ActivateWindow(shutdownmenu)</onclick>
+						<visible>Skin.HasSetting(systemmenu.exit)</visible>
 					</item>
 				</content>
 			</control>

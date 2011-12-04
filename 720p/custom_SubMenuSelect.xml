@@ -71,8 +71,20 @@
 				</control>
 				<control type="button" id="105">
 					<width>206</width>
+					<label>$LOCALIZE[1]</label>
+					<onfocus>Skin.SetString(Sub,Pictures)</onfocus>
+					<include>dialog_Button-list</include>
+				</control>
+				<control type="button" id="106">
+					<width>206</width>
 					<label>$LOCALIZE[24001]</label>
 					<onfocus>Skin.SetString(Sub,Addons)</onfocus>
+					<include>dialog_Button-list</include>
+				</control>
+				<control type="button" id="107">
+					<width>206</width>
+					<label>$LOCALIZE[5]</label>
+					<onfocus>Skin.SetString(Sub,System)</onfocus>
 					<include>dialog_Button-list</include>
 				</control>
 			</control>
@@ -97,6 +109,7 @@
 						<onclick>Skin.ToggleSetting(videomenu.videoplaylists)</onclick>
 						<selected>!Skin.HasSetting(videomenu.videoplaylists)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--video addons-->
 					<control type="radiobutton" id="202">
@@ -105,6 +118,7 @@
 						<onclick>Skin.ToggleSetting(videomenu.addons)</onclick>
 						<selected>!Skin.HasSetting(videomenu.addons)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--playlist 1-->
 					<control type="button" id="210">
@@ -117,6 +131,7 @@
 						<onclick>Skin.SetFile(videomenu.playlist1.path,.xsp,special://profile/playlists/video/)</onclick>
 						<onclick>Skin.SetString(videomenu.playlist1.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--playlist 2-->
 					<control type="button" id="211">
@@ -129,6 +144,7 @@
 						<onclick>Skin.SetFile(videomenu.playlist2.path,.xsp,special://profile/playlists/video/)</onclick>
 						<onclick>Skin.SetString(videomenu.playlist2.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--playlist 3-->
 					<control type="button" id="212">
@@ -141,6 +157,7 @@
 						<onclick>Skin.SetFile(videomenu.playlist3.path,.xsp,special://profile/playlists/video/)</onclick>
 						<onclick>Skin.SetString(videomenu.playlist3.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--playlist 4-->
 					<control type="button" id="213">
@@ -153,6 +170,7 @@
 						<onclick>Skin.SetFile(videomenu.playlist4.path,.xsp,special://profile/playlists/video/)</onclick>
 						<onclick>Skin.SetString(videomenu.playlist4.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--folder 1-->
 					<control type="button" id="220">
@@ -165,6 +183,7 @@
 						<onclick>Skin.SetPath(videomenu.folder1.path)</onclick>
 						<onclick>Skin.SetString(videomenu.folder1.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--folder 2-->
 					<control type="button" id="221">
@@ -177,6 +196,7 @@
 						<onclick>Skin.SetPath(videomenu.folder2.path)</onclick>
 						<onclick>Skin.SetString(videomenu.folder2.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--folder 3-->
 					<control type="button" id="222">
@@ -189,6 +209,7 @@
 						<onclick>Skin.SetPath(videomenu.folder3.path)</onclick>
 						<onclick>Skin.SetString(videomenu.folder3.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 					<!--folder 4-->
 					<control type="button" id="223">
@@ -201,6 +222,7 @@
 						<onclick>Skin.SetPath(videomenu.folder4.path)</onclick>
 						<onclick>Skin.SetString(videomenu.folder4.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.videos)</enable>
 					</control>
 				</control>
 			<!--movies submenu-->
@@ -374,6 +396,7 @@
 						<onclick>Skin.ToggleSetting(musicmenu.recent)</onclick>
 						<selected>Skin.HasSetting(musicmenu.recent)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--recent played albums-->
 					<control type="radiobutton" id="202">
@@ -382,22 +405,25 @@
 						<onclick>Skin.ToggleSetting(musicmenu.played)</onclick>
 						<selected>Skin.HasSetting(musicmenu.played)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--artists-->
 					<control type="radiobutton" id="203">
 						<label>$LOCALIZE[133]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(musicmenu.artists)</onclick>
-						<selected>!Skin.HasSetting(musicmenu.artists)</selected>
+						<selected>Skin.HasSetting(musicmenu.artists)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--genres-->
 					<control type="radiobutton" id="204">
 						<label>$LOCALIZE[135]</label>
 						<width>557</width>
 						<onclick>Skin.ToggleSetting(musicmenu.genres)</onclick>
-						<selected>!Skin.HasSetting(musicmenu.genres)</selected>
+						<selected>Skin.HasSetting(musicmenu.genres)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--music addons-->
 					<control type="radiobutton" id="205">
@@ -406,6 +432,7 @@
 						<onclick>Skin.ToggleSetting(musicmenu.addons)</onclick>
 						<selected>Skin.HasSetting(musicmenu.addons)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--music playlists-->
 					<control type="radiobutton" id="206">
@@ -414,6 +441,7 @@
 						<onclick>Skin.ToggleSetting(musicmenu.playlists)</onclick>
 						<selected>Skin.HasSetting(musicmenu.playlists)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--partymode-->
 					<control type="radiobutton" id="207">
@@ -422,6 +450,7 @@
 						<onclick>Skin.ToggleSetting(musicmenu.partymode)</onclick>
 						<selected>Skin.HasSetting(musicmenu.partymode)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--lastfm-->
 					<control type="radiobutton" id="208">
@@ -430,6 +459,7 @@
 						<onclick>Skin.ToggleSetting(musicmenu.lastfm)</onclick>
 						<selected>Skin.HasSetting(musicmenu.lastfm)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
 					</control>
 					<!--music videos-->
 					<control type="radiobutton" id="209">
@@ -438,6 +468,28 @@
 						<onclick>Skin.ToggleSetting(musicmenu.videos)</onclick>
 						<selected>Skin.HasSetting(musicmenu.videos)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.music)</enable>
+					</control>
+				</control>
+			<!--music submenu-->
+				<control type="grouplist" id="200">
+					<posx>206</posx>
+					<width>557</width>
+					<height>480</height>
+					<onleft>100</onleft>
+					<onright>10</onright>
+					<onup>200</onup>
+					<ondown>200</ondown>
+					<itemgap>0</itemgap>
+					<visible>Skin.String(Sub,Pictures)</visible>
+					<!--recently added albums-->
+					<control type="radiobutton" id="201">
+						<label>$LOCALIZE[24001]</label>
+						<width>557</width>
+						<onclick>Skin.ToggleSetting(picturesmenu.addons)</onclick>
+						<selected>Skin.HasSetting(picturesmenu.addons)</selected>
+						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.pictures)</enable>
 					</control>
 				</control>
 			<!--addons submenu-->
@@ -458,6 +510,7 @@
 						<onclick>Skin.ToggleSetting(addonsmenu.updates)</onclick>
 						<selected>Skin.HasSetting(addonsmenu.updates)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--programs-->
 					<control type="radiobutton" id="202">
@@ -466,6 +519,7 @@
 						<onclick>Skin.ToggleSetting(addonsmenu.programs)</onclick>
 						<selected>Skin.HasSetting(addonsmenu.programs)</selected>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--addon 1-->
 					<control type="button" id="210">
@@ -478,6 +532,7 @@
 						<onclick>Skin.SetAddOn(addonsmenu.addon1.path,xbmc.python.pluginsource)</onclick>
 						<onclick>Skin.SetString(addonsmenu.addon1.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--addon 2-->
 					<control type="button" id="211">
@@ -490,6 +545,7 @@
 						<onclick>Skin.SetAddOn(addonsmenu.addon2.path,xbmc.python.pluginsource)</onclick>
 						<onclick>Skin.SetString(addonsmenu.addon2.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--addon 3-->
 					<control type="button" id="212">
@@ -502,6 +558,7 @@
 						<onclick>Skin.SetAddOn(addonsmenu.addon3.path,xbmc.python.pluginsource)</onclick>
 						<onclick>Skin.SetString(addonsmenu.addon3.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--addon 4-->
 					<control type="button" id="213">
@@ -514,6 +571,7 @@
 						<onclick>Skin.SetAddOn(addonsmenu.addon4.path,xbmc.python.pluginsource)</onclick>
 						<onclick>Skin.SetString(addonsmenu.addon4.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--addon 5-->
 					<control type="button" id="214">
@@ -526,6 +584,7 @@
 						<onclick>Skin.SetAddOn(addonsmenu.addon5.path,xbmc.python.pluginsource)</onclick>
 						<onclick>Skin.SetString(addonsmenu.addon5.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 					<!--addon 6-->
 					<control type="button" id="215">
@@ -538,9 +597,46 @@
 						<onclick>Skin.SetAddOn(addonsmenu.addon6.path,xbmc.python.pluginsource)</onclick>
 						<onclick>Skin.SetString(addonsmenu.addon6.label)</onclick>
 						<include>dialog_Radio</include>
+						<enable>!Skin.HasSetting(homemenu.addons)</enable>
 					</control>
 				</control>
-			</control>	
+			</control>
+			<!--system submenu-->
+			<control type="grouplist" id="200">
+				<posx>206</posx>
+				<width>557</width>
+				<height>480</height>
+				<onleft>100</onleft>
+				<onright>10</onright>
+				<onup>200</onup>
+				<ondown>200</ondown>
+				<itemgap>0</itemgap>
+				<visible>Skin.String(Sub,System)</visible>
+				<!--system info-->
+				<control type="radiobutton" id="201">
+					<label>$LOCALIZE[130]</label>
+					<width>557</width>
+					<onclick>Skin.ToggleSetting(systemmenu.info)</onclick>
+					<selected>Skin.HasSetting(systemmenu.info)</selected>
+					<include>dialog_Radio</include>
+				</control>
+				<!--file manager-->
+				<control type="radiobutton" id="202">
+					<label>$LOCALIZE[7]</label>
+					<width>557</width>
+					<onclick>Skin.ToggleSetting(systemmenu.filemanager)</onclick>
+					<selected>Skin.HasSetting(systemmenu.filemanager)</selected>
+					<include>dialog_Radio</include>
+				</control>
+				<!--file manager-->
+				<control type="radiobutton" id="203">
+					<label>$LOCALIZE[13012]</label>
+					<width>557</width>
+					<onclick>Skin.ToggleSetting(systemmenu.exit)</onclick>
+					<selected>Skin.HasSetting(systemmenu.exit)</selected>
+					<include>dialog_Radio</include>
+				</control>
+			</control>
 		</control>
 		<!--ok-->
 		<control type="button" id="10">
@@ -548,7 +644,7 @@
 			<posy>533</posy>
 			<label>$LOCALIZE[186]</label>
 			<onup>200</onup>
-			<onleft>12</onleft>
+			<onleft>100</onleft>
 			<onright>11</onright>
 			<ondown>311</ondown>
 			<onclick>Close</onclick>
