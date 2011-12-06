@@ -766,15 +766,15 @@
 				<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
 				<font>descriptionSmall</font>
 			</control>
-			<control type="image">
+			<control type="group">
 				<posx>62</posx>
 				<posy>106</posy>
-				<include>overlay_UnWatched</include>
-			</control>
-			<control type="image">
-				<posx>62</posx>
-				<posy>106</posy>
-				<include>overlay_Resumable</include>
+				<control type="image">
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 			<control type="image">
 				<posx>1060</posx>
@@ -828,15 +828,15 @@
 				<font>descriptionSmall</font>
 				<textcolor>Focused</textcolor>
 			</control>
-			<control type="image">
+			<control type="group">
 				<posx>62</posx>
 				<posy>106</posy>
-				<include>overlay_UnWatched</include>
-			</control>
-			<control type="image">
-				<posx>62</posx>
-				<posy>106</posy>
-				<include>overlay_Resumable</include>
+				<control type="image">
+					<include>overlay_UnWatched</include>
+				</control>
+				<control type="image">
+					<include>overlay_Resumable</include>
+				</control>
 			</control>
 			<control type="image">
 				<posx>1060</posx>
@@ -882,7 +882,7 @@
 					<posy>28</posy>
 					<width>770</width>
 					<label>$INFO[ListItem.Artist]</label>
-					<textcolor>Color1</textcolor>
+					<textcolor>Color3</textcolor>
 					<include>list_Label-sub</include>
 				</control>
 				<control type="label">
@@ -901,9 +901,9 @@
 			</control>
 			<control type="image">
 				<posx>1060</posx>
-				<posy>10</posy>
+				<posy>15</posy>
 				<width>128</width>
-				<height>32</height>
+				<height>22</height>
 				<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
@@ -948,9 +948,9 @@
 			</control>
 			<control type="image">
 				<posx>1060</posx>
-				<posy>10</posy>
+				<posy>15</posy>
 				<width>128</width>
-				<height>32</height>
+				<height>22</height>
 				<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
 				<colordiffuse>Color4</colordiffuse>
 				<aspectratio align="right">keep</aspectratio>
