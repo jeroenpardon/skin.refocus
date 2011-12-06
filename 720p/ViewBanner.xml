@@ -1,5 +1,5 @@
 ﻿<includes>
-<!---LIST------>
+<!---DECK------>
 	<include name="view_Banner">
 		<control type="fixedlist" id="54">
 			<viewtype label="535">bigwide</viewtype>
@@ -63,6 +63,17 @@
 					<texture diffuse="frames/frame_Wide-mask.png" fallback="thumbs/tvshow_banner.jpg">$VAR[view_Banner.Thumb]</texture>
 					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
 					<include>focus_Banner</include>
+				</control>
+				<control type="group">
+					<posx>787</posx>
+					<posy>132</posy>
+					<include>focus_Banner</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
 				</control>
 				<control type="image">
 					<posx>19</posx>
@@ -170,6 +181,25 @@
 					<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
 					<include>focus_Banner</include>
 				</control>
+				<control type="group">
+					<posx>164</posx>
+					<posy>239</posy>
+					<include>focus_Banner</include>
+					<control type="image">
+						<include>overlay_UnWatched</include>
+					</control>
+					<control type="image">
+						<include>overlay_Resumable</include>
+					</control>
+				</control>
+				<control type="image">
+					<posx>215</posx>
+					<posy>90</posy>
+					<width>690</width>
+					<include>dialog_Separator</include>
+					<include>focus_Banner</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+				</control>
 				<control type="label">
 					<posx>215</posx>
 					<posy>30</posy>
@@ -191,16 +221,8 @@
 					<include>focus_Banner</include>
 				</control>
 				<control type="image">
-					<posx>215</posx>
-					<posy>90</posy>
-					<width>690</width>
-					<include>dialog_Separator</include>
-					<include>focus_Banner</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
-				</control>
-				<control type="image">
 					<posx>780</posx>
-					<posy>60</posy>
+					<posy>57</posy>
 					<width>128</width>
 					<height>22</height>
 					<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
