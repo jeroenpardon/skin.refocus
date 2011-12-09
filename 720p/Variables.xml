@@ -34,13 +34,14 @@
 	</variable>
 	<variable name="global_Info.Video">
 		<!--is movie set--><value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
+		<!--video content sources--><value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + !SubString(Container.FolderPath,videodb)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>
 		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$VAR[tvshow_Info.NextAired, • ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<!--is linked movie--><value condition="[Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))] | [Container.Content(episodes) + IsEmpty(ListItem.Episode)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Genre]</value>
 		<!--seasons--><value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<!--episodes--><value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</value>
-		<!--music videos--><value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
+		<!--music videos--><value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
 		<!--addons--><value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<!--files--><value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • ]</value>
 		<value>$INFO[ListItem.Label2]</value>
@@ -134,7 +135,7 @@
 <!---FLAGS------>
 	<variable name="flag_Studio">
 		<value condition="Container.Content(movies)">$INFO[Listitem.studio,flags/studios/,.png]</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.studio,flags/networks/,.png]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.Studio,flags/networks/,.png]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[Listitem.studio,flags/labels/,.png]</value>
 		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
