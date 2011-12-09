@@ -95,6 +95,7 @@
 						<onclick>ActivateWindow(TV)</onclick>
 						<onclick>Setfocus(32)</onclick>
 						<onclick>Setfocus(11)</onclick>
+						<visible>Skin.HasSetting(tvmenu.channels)</visible>
 					</item>
 					<!--guide-->
 					<item id="2">
@@ -102,6 +103,7 @@
 						<onclick>ActivateWindow(TV)</onclick>
 						<onclick>Setfocus(31)</onclick>
 						<onclick>Setfocus(11)</onclick>
+						<visible>Skin.HasSetting(tvmenu.guide)</visible>
 					</item>
 					<!--recordings-->
 					<item id="3">
@@ -109,6 +111,7 @@
 						<onclick>ActivateWindow(TV)</onclick>
 						<onclick>Setfocus(34)</onclick>
 						<onclick>Setfocus(13)</onclick>
+						<visible>Skin.HasSetting(tvmenu.recordings)</visible>
 					</item>
 					<!--timers-->
 					<item id="4">
@@ -116,6 +119,7 @@
 						<onclick>ActivateWindow(TV)</onclick>
 						<onclick>Setfocus(35)</onclick>
 						<onclick>Setfocus(14)</onclick>
+						<visible>Skin.HasSetting(tvmenu.timers)</visible>
 					</item>
 				</content>
 			</control>
@@ -310,13 +314,19 @@
 						<visible>Skin.HasSetting(systemmenu.filemanager)</visible>
 					</item>
 					<item id="4">
+						<label>$LOCALIZE[31030]</label>
+						<onclick>SetFocus(9000)</onclick>
+						<onclick>ActivateWindow(61)</onclick>
+						<visible>Skin.HasSetting(systemmenu.home)</visible>
+					</item>
+					<item id="5">
 						<label>$LOCALIZE[31013]</label>
 						<onclick>ActivateWindow(shutdownmenu)</onclick>
 						<visible>Skin.HasSetting(systemmenu.exit)</visible>
 					</item>
 				</content>
 			</control>
-<!---EXIT SUBMENU------>
+<!---EXIT SUBMENU
 			<control type="list" id="1170">
 				<posx>-800</posx>
 				<width>900</width>
@@ -371,6 +381,7 @@
 					</item>
 				</content>
 			</control>
+		------>
 <!---DISC SUBMENU------>
 			<control type="list" id="1180">
 				<posx>-800</posx>

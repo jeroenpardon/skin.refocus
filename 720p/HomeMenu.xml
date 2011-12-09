@@ -29,34 +29,34 @@
 				<item id="3">
 					<label>$LOCALIZE[342]</label>
 					<onclick>SetFocus(1200)</onclick>
-					<visible>[Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
+					<visible>!Skin.HasSetting(homemenu.movies) + [Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
 				</item>
 				<item id="4">
 					<label>$LOCALIZE[342]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
-					<visible>![Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
+					<visible>!Skin.HasSetting(homemenu.movies) + ![Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
 				</item>
 				<!--tv shows-->
 				<item id="5">
 					<label>$LOCALIZE[20343]</label>
 					<onclick>SetFocus(1210)</onclick>
-					<visible>[Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
+					<visible>!Skin.HasSetting(homemenu.tvshows) + [Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
 				</item>
 				<item id="6">
 					<label>$LOCALIZE[20343]</label>
 					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
-					<visible>![Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
+					<visible>!Skin.HasSetting(homemenu.tvshows) + ![Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
 				</item>
 				<!--live tv-->
 				<item id="7">
 					<label>$LOCALIZE[31090]</label>
 					<onclick>SetFocus(1120)</onclick>
-					<visible>system.getbool(pvrmanager.enabled) + !Skin.HasSetting(homemenu.flat)</visible>
+					<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(homemenu.livetv) + [Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
 				</item>
 				<item id="8">
 					<label>$LOCALIZE[31090]</label>
 					<onclick>ActivateWindow(600)</onclick>
-					<visible>system.getbool(pvrmanager.enabled) + Skin.HasSetting(homemenu.flat)</visible>
+					<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(homemenu.livetv) + ![Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
 				</item>
 				<!--music-->
 				<item id="9">
