@@ -36,6 +36,7 @@
 					<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[Container(50).Listitem.Icon]</texture>
 					<width>414</width>
 					<height>617</height>
+					<aspectratio>scale</aspectratio>
 					<include>thumb_Portrait-List</include>
 					<visible>Control.HasFocus(50) + !Container.Content(musicvideos)</visible>
 				</control>
@@ -351,6 +352,76 @@
 						</control>
 					</focusedlayout>
 				</control>
+				
+				<!--edit list
+				<control type="list" id="60">
+					<width>645</width>
+					<height>176</height>
+					<onleft>8000</onleft>
+					<onright>8000</onright>
+					<onup>60</onup>
+					<ondown>60</ondown>
+					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+					<visible allowhiddenfocus="true">Control.HasFocus(8007) | Control.HasFocus(60)</visible>
+					<itemlayout height="44">
+						<control type="image">
+							<width>645</width>
+							<include>listButton_Alt</include>
+						</control>
+						<control type="label">
+							<posx>15</posx>
+							<width>615</width>
+							<label>$INFO[ListItem.Label]</label>
+							<include>listButton_Label</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="44">
+						<control type="image">
+							<width>645</width>
+							<include>listButton_Alt</include>
+							<visible>!Control.HasFocus(60)</visible>
+						</control>
+						<control type="image">
+							<width>645</width>
+							<include>listButton_Alt-focus</include>
+							<visible>Control.HasFocus(60)</visible>
+						</control>
+						<control type="label">
+							<posx>15</posx>
+							<width>615</width>
+							<label>$INFO[ListItem.Label]</label>
+							<include>listButton_Label</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[31942]</label>
+							<onclick>Close</onclick>
+							<onclick>SendClick(2003,6)</onclick>
+						</item>
+						<item id="2">
+							<label>$LOCALIZE[31943]</label>
+							<onclick>SendClick(2003,10)</onclick>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[31944]</label>
+							<onclick>SendClick(2003,12)</onclick>
+							<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+						</item>
+						<item id="4">
+							<label>$LOCALIZE[31945]</label>
+							<onclick>Close</onclick>
+							<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,seasonbanner)</onclick>
+							<visible>Container.Content(tvshows)</visible>
+						</item>
+						<item id="5">
+							<label>$LOCALIZE[31946]</label>
+							<onclick>Close</onclick>
+							<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,clearlogo)</onclick>
+							<visible>Container.Content(tvshows)</visible>
+						</item>
+					</content>
+				</control>-->
 			</control>
 			<!--flags-->
 			<control type="group">
