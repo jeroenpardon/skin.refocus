@@ -107,6 +107,15 @@
 					<bordersize>22</bordersize>
 				</control>
 				<control type="image">
+					<posx>32</posx>
+					<posy>176</posy>
+					<width>156</width>
+					<height>64</height>
+					<texture background="true">$INFO[ListItem.Path]logo.png</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Skin.HasSetting(tvshowlogos.enable) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://)]</visible>
+				</control>
+				<control type="image">
 					<posx>396</posx>
 					<posy>219</posy>
 					<include>overlay_UnWatched</include>
@@ -128,6 +137,15 @@
 					<bordertexture border="27">frames/frame_Square.png</bordertexture>
 					<aspectratio align="center">scale</aspectratio>
 					<bordersize>22</bordersize>
+				</control>
+				<control type="image">
+					<posx>32</posx>
+					<posy>176</posy>
+					<width>156</width>
+					<height>64</height>
+					<texture background="true">$INFO[ListItem.Path]logo.png</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Skin.HasSetting(tvshowlogos.enable) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://)]</visible>
 				</control>
 				<control type="image">
 					<posx>396</posx>
