@@ -125,11 +125,11 @@
 				<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
 			</control>
 			<control type="image">
-				<width>128</width>
+				<width>96</width>
 				<height>64</height>
 				<texture>$VAR[flag_Studio]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				<visible>Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
@@ -156,21 +156,4 @@
 			<visible>stringcompare(Listitem.ChannelName,flags/networks/,.png)</visible>
 		</control>
 	</include>
-	<!---
-	<include name="flag_Label">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</texture>
-	</include>
-	<include name="flag_Label-video">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[Listitem.Studio,flags/labels/,.png]</texture>
-	</include>
-	<include name="flag_Label-audio">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</texture>
-	</include>
-	--->
 </includes>
