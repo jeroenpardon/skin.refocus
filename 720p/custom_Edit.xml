@@ -83,15 +83,17 @@
 					<item id="4">
 						<label>$LOCALIZE[31945]</label>
 						<onclick>Close</onclick>
-						<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,banner)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle],banner)</onclick>
 						<visible>Container.Content(tvshows)</visible>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</item>
 					<!--logo-->
 					<item id="5">
 						<label>$LOCALIZE[31946]</label>
 						<onclick>Close</onclick>
-						<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,clearlogo)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle],clearlogo)</onclick>
 						<visible>Container.Content(tvshows)</visible>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</item>
 				</content>
 			</control>
