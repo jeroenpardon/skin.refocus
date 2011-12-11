@@ -78,9 +78,23 @@
 				<label>$LOCALIZE[20411]</label>
 				<altlabel>$LOCALIZE[31107]</altlabel>
 				<onup>14</onup>
+				<ondown>17</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+			</control>
+		</control>
+		<!--flatten-->
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<control type="togglebutton" id="17">
+				<label>$LOCALIZE[20411]</label>
+				<altlabel>unflatten</altlabel>
+				<onup>7</onup>
 				<ondown>8</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
+				<onclick>SetFocus(50)</onclick>
 			</control>
 		</control>
 		<!--search-->
@@ -90,7 +104,7 @@
 			<visible>!Skin.HasSetting(search.addon)</visible>
 			<control type="button" id="8">
 				<label>$LOCALIZE[137]</label>
-				<onup>7</onup>
+				<onup>17</onup>
 				<ondown>9</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
@@ -102,7 +116,7 @@
 			<visible>Skin.HasSetting(search.addon)</visible>
 			<control type="button" id="9">
 				<label>$LOCALIZE[137]</label>
-				<onup>7</onup>
+				<onup>17</onup>
 				<ondown>19</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
@@ -116,7 +130,7 @@
 			<control type="button" id="19">
 				<label>$LOCALIZE[587]</label>
 				<onup>9</onup>
-				<ondown>16</ondown>
+				<ondown>31</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
 			</control>
@@ -164,7 +178,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<control type="button" id="17">
+					<control type="button" id="31">
 						<label>$LOCALIZE[1036]</label>
 						<onup>16</onup>
 						<ondown>90</ondown>
@@ -181,7 +195,7 @@
 					<visible>Control.IsVisible(521) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31061]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Container.SetViewMode(52)</onclick>
@@ -197,7 +211,7 @@
 					<visible>Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31039]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Container.SetViewMode(521)</onclick>
@@ -213,7 +227,7 @@
 					<visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31063]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
@@ -229,7 +243,7 @@
 					<visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31062]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.gallery.full)</onclick>
@@ -246,7 +260,7 @@
 					<control type="togglebutton" id="90">
 						<label>$LOCALIZE[31061]</label>
 						<altlabel>$LOCALIZE[31039]</altlabel>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.list.fanart)</onclick>
@@ -261,7 +275,7 @@
 					<visible>Control.IsVisible(57) + [[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]]</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31975]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.thumbnails.info)</onclick>
@@ -277,7 +291,7 @@
 					<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31974]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.thumbnails.info)</onclick>
@@ -294,7 +308,7 @@
 					<control type="togglebutton" id="90">
 						<label>$LOCALIZE[31061]</label>
 						<altlabel>$LOCALIZE[31039]</altlabel>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
