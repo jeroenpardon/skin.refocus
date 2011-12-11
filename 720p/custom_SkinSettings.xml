@@ -253,13 +253,13 @@
 				<enable>System.HasAddon(script.artwork.downloader)</enable>
 			</control>
 			<control type="radiobutton" id="617">
-				<label>use "extrafanart" images in gallery view</label>
+				<label>$LOCALIZE[31132]</label>
 				<onclick>Skin.ToggleSetting(gallery.extrafanart)</onclick>
 				<include>button_Settings</include>
 				<selected>Skin.HasSetting(gallery.extrafanart)</selected>
 			</control>
 			<control type="button" id="618">
-				<label>- download extrafanart images</label>
+				<label>- $LOCALIZE[31131]</label>
 				<onclick>XBMC.runscript(script.artwork.downloader, mode=custom, extrafanart)</onclick>
 				<include>button_Settings</include>
 				<visible>Skin.HasSetting(gallery.extrafanart)</visible>

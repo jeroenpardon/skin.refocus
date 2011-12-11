@@ -9,7 +9,7 @@
 	<controls>
 		<control type="image">
 			<width>450</width>
-			<height>350</height>
+			<height>360</height>
 			<include>dialogWindow</include>
 		</control>
 		<control type="label" id="1">
@@ -92,6 +92,14 @@
 						<label>$LOCALIZE[31946]</label>
 						<onclick>Close</onclick>
 						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle],clearlogo)</onclick>
+						<visible>Container.Content(tvshows)</visible>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</item>
+					<!--extrafanart-->
+					<item id="6">
+						<label>$LOCALIZE[31131]</label>
+						<onclick>Close</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle],extrafanart)</onclick>
 						<visible>Container.Content(tvshows)</visible>
 						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</item>
