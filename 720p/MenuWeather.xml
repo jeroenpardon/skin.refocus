@@ -1,118 +1,85 @@
 ﻿<includes>
 	<include name="WeatherMenu">
-		<control type="group">
-			<visible>!Skin.HasSetting(global.kiosk)</visible>
-			<control type="group" id="6000">
-				<posx>-275</posx>
-				<posy>40</posy>
-				<onright>50</onright>
-				<onup>6000</onup>
-				<ondown>6000</ondown>
-				<itemgap>-125</itemgap>
-				<include>MenuOpen</include>
-				<include>transition_Container</include>
-				<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
-				<control type="spincontrolex" id="3">
-					<posy>0</posy>
-					<font>-</font>
-					<include>button_Menu</include>
-					<label>-</label>
-					<onup>310</onup>
-					<ondown>300</ondown>
-					<onright>50</onright>
-				</control>
-				<control type="label" id="299">
-					<posx>0</posx>
-					<posy>-3</posy>
-					<label>$LOCALIZE[396]</label>
-					<include>button_Menu</include>
-					<ondown>302</ondown>
-					<visible>!Control.HasFocus(3)</visible>
-				</control>
-				<control type="label" id="300">
-					<posx>0</posx>
-					<posy>-3</posy>
-					<label>$LOCALIZE[396]</label>
-					<textcolor>Focused</textcolor>
-					<include>button_Menu</include>
-					<ondown>2</ondown>
-					<visible>Control.HasFocus(3)</visible>
-				</control>
-				<control type="grouplist" id="301">
-					<posy>44</posy>
-					<onright>50</onright>
-					<onup>3</onup>
-					<ondown>3</ondown>
-					<itemgap>-125</itemgap>
+		<control type="grouplist" id="6000">
+			<posx>-275</posx>
+			<posy>40</posy>
+			<visible allowhiddenfocus="true">ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk)</visible>
+			<onright>50</onright>
+			<include>MenuOpen</include>
+			<include>transition_Menu</include>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--location-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
 					<!--refresh-->
-					<control type="button" id="2">
-						<onleft>1</onleft>
-						<onright>1</onright>
+					<control type="spincontrolex" id="3">
+						<description>change location button</description>
+						<height>170</height>
+						<posy>3</posy>
+						<onup>131</onup>
+						<ondown>2</ondown>
+						<onright>50</onright>
+						<texturefocus>home/menuSelect.png</texturefocus>
+						<textureup>-</textureup>
+						<texturedown>-</texturedown>
+						<textureupfocus>-</textureupfocus>
+						<texturedownfocus>-</texturedownfocus>
+						<font>-</font>
 						<include>button_Menu</include>
 					</control>
-					<!--overview-->
-					<control type="button" id="302">
-						<label>$LOCALIZE[31073]</label>
-						<onclick>SetProperty(Weather.CurrentView,Default)</onclick>
+					<control type="label">
+						<label>$LOCALIZE[35500]</label>
+						<textcolor>Color1</textcolor>
 						<include>button_Menu</include>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+						<visible>!Control.HasFocus(3)</visible>
 					</control>
-					<!--10 day-->
-					<control type="button" id="303">
-						<label>10 $LOCALIZE[12393]</label>
-						<onclick>SetProperty(Weather.CurrentView,10day)</onclick>
+					<control type="label">
+						<label>$LOCALIZE[35500]</label>
+						<textcolor>Focused</textcolor>
 						<include>button_Menu</include>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+						<visible>Control.HasFocus(3)</visible>
 					</control>
-					<!--36 hour-->
-					<control type="button" id="304">
-						<label>$LOCALIZE[33034]</label>
-						<onclick>SetProperty(Weather.CurrentView,36hour)</onclick>
-						<include>button_Menu</include>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
-					</control>
-					<!--weekend-->
-					<control type="button" id="305">
-						<include>button_Menu</include>
-						<label>$LOCALIZE[33037]</label>
-						<onclick>SetProperty(Weather.CurrentView,weekend)</onclick>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
-					</control>
-					<!--hourly-->
-					<control type="button" id="306">
-						<label>$LOCALIZE[33036]</label>
-						<onclick>SetProperty(Weather.CurrentView,hourly)</onclick>
-						<onclick>SetFocus(52)</onclick>
-						<include>button_Menu</include>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
-					</control>
-					<!--maps-->
-					<control type="button" id="307">
-						<label>$LOCALIZE[33035]</label>
-						<onclick>SetProperty(Weather.CurrentView,maps)</onclick>
-						<include>button_Menu</include>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
-					</control>
-					<!--alerts-->
-					<control type="button" id="308">
-						<label>$LOCALIZE[33050]</label>
-						<onclick>SetProperty(Weather.CurrentView,alerts)</onclick>
-						<include>button_Menu</include>
-						<visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
-						<enable>!IsEmpty(Window.Property(alerts))</enable>
-					</control>
-					<!--settings-->
-					<control type="button" id="309">
-						<label>$LOCALIZE[5]</label>
-						<onclick>ActivateWindow(MyWeatherSettings)</onclick>
-						<include>button_Menu</include>
-					</control>
-					<!--favourites-->
-					<control type="button" id="310">
-						<label>$LOCALIZE[1036]</label>
-						<onclick>ActivateWindow(Favourites)</onclick>
-						<include>button_Menu</include>
-					</control>
+				</control>
+			</control>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--refresh-->
+				<control type="button" id="2">
+					<label>$LOCALIZE[103]</label>
+					<onup>3</onup>
+					<ondown>4</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
+			</control>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--settings-->
+				<control type="button" id="4">
+					<label>$LOCALIZE[5]</label>
+					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
+					<onup>2</onup>
+					<ondown>131</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
+				</control>
+			</control>
+			<control type="group">
+				<width>220</width>
+				<height>42</height>
+				<!--favourites-->
+				<control type="button" id="131">
+					<label>$LOCALIZE[1036]</label>
+					<onclick>ActivateWindow(Favourites)</onclick>
+					<onup>4</onup>
+					<ondown>3</ondown>
+					<onright>50</onright>
+					<include>button_Menu</include>
 				</control>
 			</control>
 		</control>

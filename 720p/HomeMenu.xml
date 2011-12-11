@@ -107,7 +107,7 @@
 					<label>$LOCALIZE[8]</label>
 					<label2>$INFO[Weather.Conditions], $INFO[Weather.Temperature]</label2>
 					<onclick>ActivateWindow(weather)</onclick>
-					<visible>Weather.IsFetched + Skin.HasSetting(homemenu.weather)</visible>
+					<visible>!Skin.HasSetting(homemenu.weather) + Weather.IsFetched</visible>
 				</item>
 				<!--favourites-->
 				<item id="18">
@@ -136,16 +136,12 @@
 				<item id="23">
 					<label>$LOCALIZE[13012]</label>
 					<onclick>ActivateWindow(shutdownmenu)</onclick>
-					<visible>Skin.HasSetting(homemenu.flat) + !Skin.HasSetting(homemenu.exit)</visible>
+					<visible>!Skin.HasSetting(homemenu.exit)</visible>
 				</item>
 			</content>
 		</control>
 		<include>homeSubMenu</include>
-		
-		
-		
 		<!--
-		
 		<control type="fixedlist" id="6000">
 			<posx>-240</posx>
 			<posy>0</posy>
@@ -160,9 +156,7 @@
 			<pagecontrol>25</pagecontrol>
 			<scrolltime>200</scrolltime>
 			<focusposition>1</focusposition>
-			
 			<animation effect="slide" start="0" end="240" time="200" tween="cubic" easing="in" condition="Control.HasFocus(6000)">Conditional</animation>
-			
 			<itemlayout width="250" height="180">
 				<control type="image">
 					<posx>7</posx>
