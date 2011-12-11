@@ -1,6 +1,8 @@
 ﻿<window id="0">
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<onload condition="IsEmpty(Window(Home).Property(Watchlist_Running))">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=25)</onload>
+	<onload condition="IsEmpty(Window(Home).Property(Watchlist_Running))">SetProperty(Watchlist_Running,True)</onload>
 	<controls>
 	<!-- global background --->
 		<control type="largeimage">
