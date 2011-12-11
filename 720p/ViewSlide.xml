@@ -90,7 +90,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] | [Container.Content(movies) + !SubString(Container.FolderPath,plugin://) + Container.HasFiles] | [Container.Content(files) + Container.HasFiles]</visible>
+			<visible>[Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] | [Container.Content(movies) + !SubString(Container.FolderPath,plugin://) + Container.HasFiles] | [Container.Content(files) + Container.HasFiles]</visible>
 			<include condition="Window.IsVisible(videolibrary)">SlideWideVideo</include>
 			<include condition="Window.IsVisible(musiclibrary)">SlideWideMusic</include>
 		</control>	
