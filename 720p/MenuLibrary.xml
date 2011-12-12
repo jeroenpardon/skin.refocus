@@ -73,10 +73,10 @@
 		<control type="group">
 			<width>220</width>
 			<height>42</height>
-			<visible>Control.IsEnabled(7)</visible>
+			<visible>Control.IsEnabled(7) + Window.IsVisible(videolibrary)</visible>
 			<control type="togglebutton" id="7">
-				<label>$LOCALIZE[20411]</label>
-				<altlabel>$LOCALIZE[31107]</altlabel>
+				<label>$LOCALIZE[14000]</label>
+				<altlabel>$LOCALIZE[14001]</altlabel>
 				<onup>14</onup>
 				<ondown>17</ondown>
 				<onright>50</onright>
@@ -87,9 +87,10 @@
 		<control type="group">
 			<width>220</width>
 			<height>42</height>
+			<visible>Control.IsEnabled(17) + Window.IsVisible(videolibrary)</visible>
 			<control type="togglebutton" id="17">
 				<label>$LOCALIZE[20411]</label>
-				<altlabel>unflatten</altlabel>
+				<altlabel>$LOCALIZE[31905]</altlabel>
 				<onup>7</onup>
 				<ondown>8</ondown>
 				<onright>50</onright>
@@ -130,7 +131,7 @@
 			<control type="button" id="19">
 				<label>$LOCALIZE[587]</label>
 				<onup>9</onup>
-				<ondown>31</ondown>
+				<ondown>16</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
 			</control>
@@ -139,11 +140,11 @@
 		<control type="group">
 			<width>220</width>
 			<height>42</height>
-			<visible>Container.Content(musicvideos) | Window.IsVisible(mymusicfiles) | Window.IsActive(mymusiclibrary)</visible>
+			<visible>Container.Content(musicvideos) | Window.IsVisible(musicfiles) | Window.IsActive(musiclibrary)</visible>
 			<control type="button" id="16">
 				<label>$LOCALIZE[589]</label>
 				<onup>19</onup>
-				<ondown>17</ondown>
+				<ondown>31</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
 			</control>
@@ -535,7 +536,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<control type="button" id="17">
+					<control type="button" id="31">
 						<label>$LOCALIZE[1036]</label>
 						<onup>16</onup>
 						<ondown>90</ondown>
@@ -544,6 +545,7 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				
 <!--layout options-->
 				<!--SLIDE: landscape-->
 				<control type="group">
@@ -552,7 +554,7 @@
 					<visible>Container.Content(artists) + Control.IsVisible(522)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31039]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Container.SetViewMode(521)</onclick>
@@ -567,7 +569,7 @@
 					<visible>Container.Content(artists) + Control.IsVisible(521)</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31059]</label>
-						<onup>17</onup>
+						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Container.SetViewMode(522)</onclick>
