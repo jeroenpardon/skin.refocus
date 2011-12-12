@@ -58,36 +58,10 @@
 					<control type="button" id="32">
 						<label>$LOCALIZE[29800]</label>
 						<onup>4</onup>
-						<ondown>8</ondown>
+						<ondown>19</ondown>
 						<onright>50</onright>
 						<onclick>ReplaceWindow(MusicLibrary)</onclick>
 						<include>button_Menu</include>
-					</control>
-				</control>
-				<!--search-->
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<visible>!Skin.HasSetting(search.addon) + Window.IsVisible(videolibrary)</visible>
-					<control type="button" id="8">
-						<label>$LOCALIZE[137]</label>
-						<onup>32</onup>
-						<ondown>9</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-					</control>
-				</control>
-				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<visible>Skin.HasSetting(search.addon)</visible>
-					<control type="button" id="9">
-						<label>$LOCALIZE[137]</label>
-						<onup>8</onup>
-						<ondown>19</ondown>
-						<onright>50</onright>
-						<include>button_Menu</include>
-						<onclick>RunAddon(script.globalsearch)</onclick>
 					</control>
 				</control>
 				<!--filter-->
@@ -96,7 +70,7 @@
 					<height>42</height>
 					<control type="button" id="19">
 						<label>$LOCALIZE[587]</label>
-						<onup>9</onup>
+						<onup>32</onup>
 						<ondown>5</ondown>
 						<onright>50</onright>
 						<include>button_Menu</include>
