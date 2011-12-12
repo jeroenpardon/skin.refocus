@@ -104,7 +104,7 @@
 	<include name="global_Clock">
 		<control type="group">
 			<include>toggle_ToastMute</include>
-			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + ![Control.IsVisible(56)] + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(2004) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)] | Window.IsActive(videoplaylist)</visible>
+			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable)] + !Control.IsVisible(56) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(weather)] + ![Window.IsActive(pictures) + Control.IsVisible(52)]</visible>
 			<control type="label">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
