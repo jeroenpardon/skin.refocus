@@ -51,6 +51,7 @@
 				<posx>23</posx>
 				<posy>330</posy>
 				<itemgap>0</itemgap>
+				<visible>Player.HasVideo</visible>
 				<control type="label" id="1">
 					<width>510</width>
 					<label>$INFO[VideoPlayer.Title]</label>
@@ -64,7 +65,7 @@
 				</control>
 				<control type="label" id="1">
 					<width>510</width>
-					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss),, • ]$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
+					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss),, • ]$INFO[Player.FinishTime,$LOCALIZE[31068] ]</label>
 					<include>info_Sub</include>
 				</control>
 				<control type="textbox" id="4">
