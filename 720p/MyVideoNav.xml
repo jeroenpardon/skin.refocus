@@ -95,7 +95,7 @@
 				<posx>750</posx>
 				<posy>65</posy>
 				<control type="group">
-					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)]</visible>
 					<control type="image">
 						<include>frame_Poster-List</include>
 					</control>
