@@ -42,7 +42,7 @@
 				<control type="group">
 					<posx>655</posx>
 					<posy>68</posy>
-					<visible>!stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
+					<visible>!StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
 					<control type="image">
 						<include>frame_Landscape-List</include>
 						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
