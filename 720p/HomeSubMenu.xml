@@ -24,22 +24,22 @@
 					</item>
 					<item id="2">
 						<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
-						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist1.path)],return)</onclick>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist1.path)],return)</onclick>
 						<visible>!IsEmpty(Skin.String(videomenu.playlist1.path))</visible>
 					</item>
 					<item id="3">
 						<label>$INFO[Skin.String(videomenu.playlist2.label)]</label>
-						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist2.path)],return)</onclick>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist2.path)],return)</onclick>
 						<visible>!IsEmpty(Skin.String(videomenu.playlist2.path))</visible>
 					</item>
 					<item id="4">
 						<label>$INFO[Skin.String(videomenu.playlist3.label)]</label>
-						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist3.path)],return)</onclick>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist3.path)],return)</onclick>
 						<visible>!IsEmpty(Skin.String(videomenu.playlist3.path))</visible>
 					</item>
 					<item id="5">
 						<label>$INFO[Skin.String(videomenu.playlist4.label)]</label>
-						<onclick>ActivateWindow(myvideolibrary,$INFO[Skin.String(videomenu.playlist4.path)],return)</onclick>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist4.path)],return)</onclick>
 						<visible>!IsEmpty(Skin.String(videomenu.playlist4.path))</visible>
 					</item>
 					<item id="6">
@@ -69,7 +69,7 @@
 					</item>
 					<item id="11">
 						<label>$LOCALIZE[136]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,playlists)</onclick>
+						<onclick>ActivateWindow(videolibrary,playlists)</onclick>
 						<visible>!Skin.HasSetting(videomenu.videoplaylists)</visible>
 					</item>
 				</content>
@@ -184,7 +184,7 @@
 					</item>
 					<item id="9">
 						<label>$LOCALIZE[20389]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,musicvideotitles)</onclick>
+						<onclick>ActivateWindow(videolibrary,musicvideotitles)</onclick>
 						<visible>Library.HasContent(musicvideos) + Skin.HasSetting(musicmenu.videos)</visible>
 					</item>
 					<item id="10">
@@ -426,7 +426,7 @@
 				<content>
 					<item id="1">
 						<label>$LOCALIZE[1024]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
+						<onclick>ActivateWindow(videolibrary,movietitles)</onclick>
 						<visible>Library.HasContent(movies)</visible>
 					</item>
 					<item id="2">
@@ -437,37 +437,37 @@
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31095]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedmovies)</onclick>
+						<onclick>ActivateWindow(videolibrary,recentlyaddedmovies)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.recent)</visible>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[16101]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Unwatched Movies.xsp,return)</onclick>
+						<onclick>ActivateWindow(videolibrary,special://skin/playlists/Unwatched Movies.xsp,return)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.unwatched)</visible>
 					</item>
 					<item id="5">
 						<label>$LOCALIZE[575]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Movies In Progress.xsp,return)</onclick>
+						<onclick>ActivateWindow(videolibrary,special://skin/playlists/Movies In Progress.xsp,return)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.inprogress)</visible>
 					</item>
 					<item id="6">
 						<label>$LOCALIZE[31011]</label>
-						<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
+						<onclick>XBMC.ActivateWindow(videolibrary, plugin://plugin.video.apple.movie.trailers.lite/)</onclick>
 						<visible>Skin.HasSetting(moviesmenu.trailers) + System.HasAddon(plugin.video.apple.movie.trailers.lite)</visible>
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[135]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,moviegenres)</onclick>
+						<onclick>ActivateWindow(videolibrary,moviegenres)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.genres)</visible>
 					</item>
 					<item id="8">
 						<label>$LOCALIZE[652]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,movieyears)</onclick>
+						<onclick>ActivateWindow(videolibrary,movieyears)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.years)</visible>
 					</item>
 					<item id="9">
 						<label>$LOCALIZE[344]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,movieactors)</onclick>
+						<onclick>ActivateWindow(videolibrary,movieactors)</onclick>
 						<visible>Library.HasContent(movies) + Skin.HasSetting(moviesmenu.actors)</visible>
 					</item>
 				</content>
@@ -490,7 +490,7 @@
 				<content>
 					<item id="1">
 						<label>$LOCALIZE[1024]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
+						<onclick>ActivateWindow(videolibrary,tvshowtitles)</onclick>
 						<visible>Library.HasContent(tvshows)</visible>
 					</item>
 					<item id="2">
@@ -501,32 +501,32 @@
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31094]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,recentlyaddedepisodes)</onclick>
+						<onclick>ActivateWindow(videolibrary,recentlyaddedepisodes)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.recent)</visible>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[16101]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Unwatched Episodes.xsp,return)</onclick>
+						<onclick>ActivateWindow(videolibrary,special://skin/playlists/Unwatched Episodes.xsp,return)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.unwatched)</visible>
 					</item>
 					<item id="5">
 						<label>$LOCALIZE[575]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,special://skin/playlists/Episodes In Progress.xsp,return)</onclick>
+						<onclick>ActivateWindow(videolibrary,special://skin/playlists/Episodes In Progress.xsp,return)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.inprogress)</visible>
 					</item>
 					<item id="6">
 						<label>$LOCALIZE[135]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,tvshowgenres)</onclick>
+						<onclick>ActivateWindow(videolibrary,tvshowgenres)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.genres)</visible>
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[652]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,tvshowyears)</onclick>
+						<onclick>ActivateWindow(videolibrary,tvshowyears)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.years)</visible>
 					</item>
 					<item id="8">
 						<label>$LOCALIZE[344]</label>
-						<onclick>ActivateWindow(MyVideoLibrary,tvshowactors)</onclick>
+						<onclick>ActivateWindow(videolibrary,tvshowactors)</onclick>
 						<visible>Library.HasContent(tvshows) + Skin.HasSetting(tvshowsmenu.actors)</visible>
 					</item>
 					<item id="9">
