@@ -6,35 +6,18 @@
 			<onleft>6000</onleft>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-		<include>global_Background</include>
 	<!---backgrounds------>
-		<control type="group">
-			<visible>Weather.IsFetched</visible>
-			<control type="group">
-				<visible>Skin.HasSetting(fanart.weather)</visible>
-				<control type="multiimage" id="1">
-					<include>screen_Dimensions</include>
-					<aspectratio>scale</aspectratio>
-					<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
-					<timeperimage>10000</timeperimage>
-					<fadetime>850</fadetime>
-					<randomize>true</randomize>
-					<loop>yes</loop>
-					<include>transition_Container</include>
-				</control>
-				<control type="image" id="1">
-					<include>screen_Dimensions</include>
-					<texture flipy="false">overlays/weatherOverlay.png</texture>
-					<include>transition_Container</include>
-					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
-				</control>
-				<control type="image" id="1">
-					<include>screen_Dimensions</include>
-					<texture flipy="false">overlays/weatherOverlay.png</texture>
-					<include>transition_Container</include>
-					<visible>StringCompare(Window.Property(Weather.CurrentView),alerts)</visible>
-				</control>
-			</control>
+		<include>global_Background</include>
+		<control type="multiimage" id="1">
+			<include>screen_Dimensions</include>
+			<aspectratio>scale</aspectratio>
+			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<fadetime>850</fadetime>
+			<randomize>true</randomize>
+			<loop>yes</loop>
+			<include>transition_Container</include>
+			<visible>Skin.HasSetting(fanart.weather)</visible>
 		</control>
 		<control type="image">
 			<aspectratio align="left">stretch</aspectratio>
@@ -120,7 +103,6 @@
 							<aspectratio align="center">keep</aspectratio>
 						</control>
 						<control type="grouplist">
-							<posx>0</posx>
 							<posy>160</posy>
 							<orientation>vertical</orientation>
 							<itemgap>0</itemgap>
