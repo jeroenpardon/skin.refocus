@@ -133,6 +133,7 @@
 				<property name="Node">browse all tv shows in your library</property>
 				<thumb>thumbs/tvshow_portrait.jpg</thumb>
 				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
+				<property name="Fanart">backgrounds/tvshows.jpg</property>
 				<onclick>ActivateWindow(videolibrary,tvshowtitles,return)</onclick>
 			</item>
 			<item id="2">
@@ -140,6 +141,7 @@
 				<property name="Node">the 25 most recently added episodes</property>
 				<thumb>thumbs/tvshow_portrait.jpg</thumb>
 				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
+				<property name="Fanart">backgrounds/tvshows.jpg</property>
 				<property name="Latest1">$INFO[Window(Home).Property(WatchList_Episode.1.TVShowThumb)]</property>
 				<property name="Latest2">$INFO[Window(Home).Property(WatchList_Episode.2.TVShowThumb)]</property>
 				<property name="Latest3">$INFO[Window(Home).Property(WatchList_Episode.3.TVShowThumb)]</property>
@@ -555,11 +557,13 @@
 				<label>all</label>
 				<property name="Node">browse all movies in your library</property>
 				<thumb>thumbs/movie_portrait.jpg</thumb>
+				<property name="Fanart">backgrounds/movies.jpg</property>
 				<onclick>ActivateWindow(videolibrary,movietitles,return)</onclick>
 			</item>
 			<item id="2">
 				<label>new movies</label>
 				<property name="Node">the 25 most recently added movies</property>
+				<property name="Fanart">backgrounds/movies.jpg</property>
 				<property name="Latest1">$INFO[Window(Home).Property(LatestMovie.1.Thumb)]</property>
 				<property name="Latest2">$INFO[Window(Home).Property(LatestMovie.2.Thumb)]</property>
 				<property name="Latest3">$INFO[Window(Home).Property(LatestMovie.3.Thumb)]</property>
