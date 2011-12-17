@@ -58,16 +58,16 @@
 						<height>96</height>
 						<include>art_TVShowLogo</include>
 					</control>
-					<control type="image">
+					<control type="group">
 						<posx>532</posx>
 						<posy>295</posy>
-						<include>overlay_UnWatched</include>
-						<visible>!Container.Content(files)</visible>
-					</control>
-					<control type="image">
-						<posx>532</posx>
-						<posy>295</posy>
-						<include>overlay_Resumable-list</include>
+						<control type="image">
+							<include>overlay_UnWatched</include>
+							<visible>!Container.Content(files)</visible>
+						</control>
+						<control type="image">
+							<include>overlay_Resumable-list</include>
+						</control>
 					</control>
 				</control>
 				<control type="group">
@@ -103,15 +103,15 @@
 						<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
 						<include>thumb_Portrait-List</include>
 					</control>
-					<control type="image">
+					<control type="group">
 						<posx>397</posx>
 						<posy>591</posy>
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<posx>397</posx>
-						<posy>591</posy>
-						<include>overlay_Resumable-list</include>
+						<control type="image">
+							<include>overlay_UnWatched</include>
+						</control>
+						<control type="image">
+							<include>overlay_Resumable-list</include>
+						</control>
 					</control>
 				</control>
 			</control>
