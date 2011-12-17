@@ -2,6 +2,7 @@
 	<include file="Defaults.xml" />
 	<include file="HomeMenu.xml" />
 	<include file="HomeSubMenu.xml" />
+	<include file="MenuAddons.xml" />
 	<include file="MenuFiles.xml" />
 	<include file="MenuInfo.xml" />
 	<include file="MenuLibrary.xml" />
@@ -24,15 +25,7 @@
 	<include file="ViewBanner.xml" />
 	<include file="ViewGallery.xml" />
 	<include file="ViewsTV.xml" />
-	<include file="weather+\Current.xml" />
-	<include file="weather+\Default.xml" />
-	<include file="weather+\10Day.xml" />
-	<include file="weather+\36Hour.xml" />
-	<include file="weather+\Weekend.xml" />
-	<include file="weather+\Hourly.xml" />
-	<include file="weather+\Maps.xml" />
-	<include file="weather+\Alerts.xml" />
-	
+
 <!---CONSTANTS------>
 	<constant name="screen_Width">1280</constant>
 	<constant name="screen_Height">720</constant>
@@ -147,6 +140,14 @@
 			</control>
 		</control>
 	</include>
+	<include name="custom_Itemcount">
+		<posx>38</posx>
+		<posy>58</posy>
+		<width>500</width>
+		<font>smallerCaps</font>
+		<textcolor>Color3</textcolor>
+		<include>transition_WindowTitle</include>
+	</include>
 
 <!---NAVIGATION------>
 	<include name="nav_Indicator">
@@ -161,14 +162,14 @@
 				<height>32</height>
 				<texture>navigation/indicator_Left.png</texture>
 				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(572) | Control.IsVisible(575) | Window.IsActive(weather) | Window.IsActive(600)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
-				<animation effect="rotate" center="auto" start="0" end="-180" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
+				<include>nav_IndicatorLeft</include>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/indicator_Up.png</texture>
 				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
-				<animation effect="rotate" center="auto" start="0" end="-90" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
+				<include>nav_IndicatorUp</include>
 			</control>
 		</control>
 	</include>
