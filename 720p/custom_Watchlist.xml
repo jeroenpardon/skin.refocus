@@ -10,12 +10,10 @@
 			<fadetime>fadetime_Fanart</fadetime>
 			<visible>Control.HasFocus(52) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(52).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 		</control>
-
 	<!---includes------>
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<include>PageControls</include>
-
 	<!---window title--->
 		<control type="label">
 			<label>$LOCALIZE[20364] [COLOR=Color2]$LOCALIZE[31086][/COLOR]</label>
@@ -32,7 +30,6 @@
 			<label>[B]$INFO[Container(52).NumItems][/B] $LOCALIZE[31116]</label>
 			<include>custom_Itemcount</include>
 		</control>
-
 	<!--slide------>
 		<control type="group">
 			<include>transition_Container</include>
@@ -63,6 +60,39 @@
 							<bordersize>22</bordersize>
 						</control>
 						<control type="group">
+							<posx>22</posx>
+							<posy>22</posy>
+							<visible>![IsEmpty(ListItem.Property(Latest1) + IsEmpty(ListItem.Property(Latest2) + IsEmpty(ListItem.Property(Latest3) + IsEmpty(ListItem.Property(Latest4)]</visible>
+							<control type="image">
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest1)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posy>137</posy>
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest3)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posx>93</posx>
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest2)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posx>93</posx>
+								<posy>137</posy>
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest4)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+						</control>
+						<control type="group">
 							<posx>174</posx>
 							<posy>262</posy>
 							<control type="image">
@@ -90,6 +120,39 @@
 							<bordersize>22</bordersize>
 						</control>
 						<control type="group">
+							<posx>22</posx>
+							<posy>22</posy>
+							<visible>![IsEmpty(ListItem.Property(Latest1) + IsEmpty(ListItem.Property(Latest2) + IsEmpty(ListItem.Property(Latest3) + IsEmpty(ListItem.Property(Latest4)]</visible>
+							<control type="image">
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest1)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posy>137</posy>
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest3)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posx>93</posx>
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest2)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posx>93</posx>
+								<posy>137</posy>
+								<width>93</width>
+								<height>137</height>
+								<texture background="true">$INFO[ListItem.Property(Latest4)]</texture>
+								<aspectratio align="center">stretch</aspectratio>
+							</control>
+						</control>
+						<control type="group">
 							<posx>174</posx>
 							<posy>262</posy>
 							<control type="image">
@@ -108,7 +171,6 @@
 				<include condition="Skin.String(Watchlist,Shows)">watchlist_Shows</include>
 				<include condition="Skin.String(Watchlist,Movies)">watchlist_Movies</include>
 			</control>
-
 		<!---info------>
 			<control type="group">
 				<!---flags--->

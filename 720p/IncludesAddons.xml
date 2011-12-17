@@ -140,6 +140,10 @@
 				<property name="Node">the 25 most recently added episodes</property>
 				<thumb>thumbs/tvshow_portrait.jpg</thumb>
 				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
+				<property name="Latest1">$INFO[Window(Home).Property(WatchList_Episode.1.TVShowThumb)]</property>
+				<property name="Latest2">$INFO[Window(Home).Property(WatchList_Episode.2.TVShowThumb)]</property>
+				<property name="Latest3">$INFO[Window(Home).Property(WatchList_Episode.3.TVShowThumb)]</property>
+				<property name="Latest4">$INFO[Window(Home).Property(WatchList_Episode.4.TVShowThumb)]</property>
 				<onclick>ActivateWindow(videolibrary,recentlyaddedepisodes,return)</onclick>
 			</item>
 			<item id="3">
@@ -556,7 +560,10 @@
 			<item id="2">
 				<label>new movies</label>
 				<property name="Node">the 25 most recently added movies</property>
-				<thumb>thumbs/movie_portrait.jpg</thumb>
+				<property name="Latest1">$INFO[Window(Home).Property(LatestMovie.1.Thumb)]</property>
+				<property name="Latest2">$INFO[Window(Home).Property(LatestMovie.2.Thumb)]</property>
+				<property name="Latest3">$INFO[Window(Home).Property(LatestMovie.3.Thumb)]</property>
+				<property name="Latest4">$INFO[Window(Home).Property(LatestMovie.4.Thumb)]</property>
 				<onclick>ActivateWindow(videolibrary,recentlyaddedmovies,return)</onclick>
 			</item>
 			<item id="3">
