@@ -1,267 +1,163 @@
 ﻿<window id="63">
-	<defaultcontrol>60</defaultcontrol>
+	<defaultcontrol always="true">52</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
 	<!---fanart------>
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(60).ListItem.Property(Fanart)]</texture>
+			<texture background="true">$INFO[Container(52).ListItem.Property(Fanart)]</texture>
 			<include>transition_Fanart</include>
 			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Control.HasFocus(60) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(60).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+			<visible>Control.HasFocus(52) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(52).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 		</control>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(61).ListItem.Property(Fanart)]</texture>
-			<include>transition_Fanart</include>
-			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Control.HasFocus(61) + Skin.HasSetting(fanart.global) + !IsEmptyContainer(60).ListItem.Property(Fanart)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-		</control>
+
 	<!---includes------>
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<include>PageControls</include>
-		<include>nav_Indicator</include>
+
 	<!---window title--->
 		<control type="label">
-			<label>$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[31086][/COLOR]</label>
+			<label>$LOCALIZE[20364] [COLOR=Color2]$LOCALIZE[31086][/COLOR]</label>
 			<include>windowTitle</include>
+			<visible>Skin.String(Watchlist,Shows)</visible>
+		</control>
+		<control type="label">
+			<label>$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31086][/COLOR]</label>
+			<include>windowTitle</include>
+			<visible>Skin.String(Watchlist,Movies)</visible>
 		</control>
 	<!---item count------>
 		<control type="label">
-			<posx>38</posx>
-			<posy>58</posy>
-			<width>500</width>
-			<label>[B]$INFO[Container(60).NumItems][/B] $LOCALIZE[31116]</label>
-			<font>smallerCaps</font>
-			<textcolor>Color3</textcolor>
-			<include>transition_WindowTitle</include>
-			<visible>Control.HasFocus(60)</visible>
+			<label>[B]$INFO[Container(52).NumItems][/B] $LOCALIZE[31116]</label>
+			<include>custom_Itemcount</include>
 		</control>
-		<control type="label">
-			<posx>38</posx>
-			<posy>58</posy>
-			<width>500</width>
-			<label>[B]$INFO[Container(61).NumItems][/B] $LOCALIZE[31116]</label>
-			<font>smallerCaps</font>
-			<textcolor>Color3</textcolor>
-			<include>transition_WindowTitle</include>
-			<visible>Control.HasFocus(61)</visible>
-		</control>
-		<!---TV SHOWS--->
+
+	<!--slide------>
 		<control type="group">
-			<posx>30</posx>
-			<posy>100</posy>
 			<include>transition_Container</include>
-			<control type="group" id="50">
-				<control type="label">
-					<posx>20</posx>
-					<width>1100</width>
-					<label>$LOCALIZE[31097]</label>
-					<align>left</align>
-					<font>titleLow</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="list" id="60">
-					<viewtype label="535">list</viewtype> 	
-					<posy>25</posy>
-					<width>780</width>
-					<height>300</height>
-					<onup>51</onup>
-					<ondown>51</ondown>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
-					<preloaditems>2</preloaditems>
-					<orientation>horizontal</orientation>
-					<itemlayout width="192" height="300">
+			<include>toggle_Menu</include>
+			<control type="fixedlist" id="52">
+				<viewtype label="Slide">info</viewtype>
+				<posx>-210</posx>
+				<posy>90</posy>
+				<width>1660</width>
+				<height>425</height>
+				<onup>6000</onup>
+				<onleft>52</onleft>
+				<onright>52</onright>
+				<focusposition>2</focusposition>
+				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+				<orientation>horizontal</orientation>
+				<include>transition_Container</include>
+				<include>infoDialogHide</include>
+				<include>toggle_Menu</include>
+				<itemlayout height="400" width="205">
+					<control type="group">
 						<control type="image">
-							<width>204</width>
-							<height>273</height>
-							<texture border="55">frames/frame_Square.png</texture>
-							<aspectratio align="center">stretch</aspectratio>
-						</control>
-						<control type="image">
-							<posx>22</posx>
-							<posy>22</posy>
-							<width>160</width>
-							<height>230</height>
+							<width>228</width>
+							<height>316</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center">scale</aspectratio>
-						</control>
-					</itemlayout>
-					<focusedlayout width="192" height="300">
-						<control type="image">
-							<width>204</width>
-							<height>273</height>
-							<texture border="55">frames/frame_Square.png</texture>
+							<bordertexture border="40">frames/frame_Square.png</bordertexture>
 							<aspectratio align="center">stretch</aspectratio>
-							<visible>!Control.HasFocus(60)</visible>
+							<bordersize>22</bordersize>
 						</control>
-						<control type="image">
-							<posx>14</posx>
-							<posy>14</posy>
-							<width>176</width>
-							<height>246</height>
-							<texture border="10">views/list-focus-bigAlt.png</texture>
-							<visible>Control.HasFocus(60)</visible>
+						<control type="group">
+							<posx>174</posx>
+							<posy>262</posy>
+							<control type="image">
+								<include>overlay_UnWatched</include>
+							</control>
+							<control type="image">
+								<include>overlay_Resumable</include>
+							</control>
 						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="400" width="205">
+					<control type="group">
+						<include>focus_SlidePoster</include>
 						<control type="image">
-							<posx>22</posx>
-							<posy>22</posy>
-							<width>160</width>
-							<height>230</height>
+							<width>228</width>
+							<height>316</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center">scale</aspectratio>
+							<bordertexture border="40">frames/frame_Square.png</bordertexture>
+							<aspectratio align="center">stretch</aspectratio>
+							<bordersize>22</bordersize>
 						</control>
-					</focusedlayout>
-					<include>watchlist_Shows</include>
-				</control>
-				<control type="image">
-					<posx>774</posx>
-					<posy>152</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorRight.png</texture>
-					<aspectratio align="left">keep</aspectratio>
-					<include>fadeinout</include>
-					<visible>Control.HasFocus(60) + Container(60).HasNext</visible>
-				</control>
+						<control type="group">
+							<posx>174</posx>
+							<posy>262</posy>
+							<control type="image">
+								<include>overlay_UnWatched</include>
+							</control>
+							<control type="image">
+								<include>overlay_Resumable</include>
+							</control>
+						</control>
+					</control>
+				</focusedlayout>
+				<include condition="Skin.String(Watchlist,Shows)">watchlist_Shows</include>
+				<include condition="Skin.String(Watchlist,Movies)">watchlist_Movies</include>
 			</control>
-			<!---MOVIES--->
-			<control type="group" id="51">
-				<posy>300</posy>
-				<control type="label">
-					<posx>20</posx>
-					<width>1100</width>
-					<label>$LOCALIZE[31098]</label>
-					<align>left</align>
-					<font>titleLow</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="list" id="61">
-					<viewtype label="535">list</viewtype> 	
-					<posy>25</posy>
-					<width>780</width>
-					<height>275</height>
-					<onup>50</onup>
-					<ondown>52</ondown>
-					<onleft>61</onleft>
-					<onright>61</onright>
-					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
-					<preloaditems>2</preloaditems>
-					<orientation>horizontal</orientation>
-					<itemlayout width="192" height="300">
-						<control type="image">
-							<width>204</width>
-							<height>273</height>
-							<texture border="55">frames/frame_Square.png</texture>
-							<aspectratio align="center">stretch</aspectratio>
-						</control>
-						<control type="image">
-							<posx>22</posx>
-							<posy>22</posy>
-							<width>160</width>
-							<height>230</height>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center">scale</aspectratio>
-						</control>
-					</itemlayout>
-					<focusedlayout width="192" height="300">
-						<control type="image">
-							<width>204</width>
-							<height>273</height>
-							<texture border="55">frames/frame_Square.png</texture>
-							<aspectratio align="center">stretch</aspectratio>
-							<visible>!Control.HasFocus(61)</visible>
-						</control>
-						<control type="image">
-							<posx>14</posx>
-							<posy>14</posy>
-							<width>176</width>
-							<height>246</height>
-							<texture border="10">views/list-focus-bigAlt.png</texture>
-							<visible>Control.HasFocus(61)</visible>
-						</control>
-						<control type="image">
-							<posx>22</posx>
-							<posy>22</posy>
-							<width>160</width>
-							<height>230</height>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center">scale</aspectratio>
-						</control>
-					</focusedlayout>
-					<include>watchlist_Movies</include>
-				</control>
-				<control type="image">
-					<posx>774</posx>
-					<posy>152</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorRight.png</texture>
-					<aspectratio align="left">keep</aspectratio>
-					<include>fadeinout</include>
-					<visible>Control.HasFocus(61) + Container(61).HasNext</visible>
-				</control>
-			</control>
-			<!---INFO--->
+
+		<!---info------>
 			<control type="group">
-				<posx>815</posx>
-				<posy>50</posy>
+				<!---flags--->
 				<control type="group">
-					<visible>Control.HasFocus(60)</visible>
-					<control type="label">
-						<width>380</width>
-						<label>$INFO[Container(60).ListItem(0).Label]</label>
-						<include>info_Title</include>
+					<posx>60</posx>
+					<posy>459</posy>
+					<control type="image">
+						<width>128</width>
+						<height>64</height>
+						<aspectratio align="right">keep</aspectratio>
+						<texture>$INFO[Container(52).Listitem.Property(Studio),flags/studios/,.png]</texture>
+						<visible>Skin.String(Watchlist,Movies)</visible>
 					</control>
-					<control type="label">
-						<posy>28</posy>
-						<width>380</width>
-						<label>$INFO[Container(60).ListItem.Property(Episode)]</label>
-						<textcolor>Color3</textcolor>
-						<include>info_Sub</include>
-					</control>
-					<control type="label">
-						<posy>50</posy>
-						<width>380</width>
-						<label>$INFO[Container(60).ListItem(0).Label2]</label>
-						<include>info_Sub</include>
-					</control>
-					<control type="textbox">
-						<posy>80</posy>
-						<width>380</width>
-						<height>435</height>
-						<label>$INFO[Container(60).ListItem.Property(Plot)]</label>
-						<include>description_Small</include>
+					<control type="image">
+						<width>128</width>
+						<height>64</height>
+						<aspectratio align="right">keep</aspectratio>
+						<texture>$INFO[Container(52).Listitem.Property(Studio),flags/networks/,.png]</texture>
+						<visible>Skin.String(Watchlist,Shows)</visible>
 					</control>
 				</control>
 				<control type="group">
-					<visible>Control.HasFocus(61)</visible>
+					<posx>220</posx>
+					<posy>462</posy>
 					<control type="label">
-						<width>380</width>
-						<label>$INFO[Container(61).ListItem(0).Label]</label>
+						<width>960</width>
+						<label>$INFO[Container(52).ListItem(0).Label][COLOR=Color3]$INFO[Container(52).ListItem.Property(Title),: ][/COLOR]</label>
 						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posy>28</posy>
-						<width>380</width>
-						<label>$INFO[Container(61).ListItem.Property(Info)]</label>
+						<width>960</width>
+						<label>$INFO[Container(52).ListItem.Property(Node)]$INFO[Container(52).ListItem.Property(Year)]$INFO[Container(52).ListItem(0).Label2, • ]$INFO[Container(52).ListItem.Property(Genre), • ]</label>
 						<include>info_Sub</include>
+						<visible>Skin.String(Watchlist,Movies)</visible>
 					</control>
 					<control type="label">
-						<posy>50</posy>
-						<width>380</width>
-						<label>$INFO[Container(61).ListItem(0).Label2]</label>
+						<posy>28</posy>
+						<width>960</width>
+						<label>$INFO[Container(52).ListItem.Property(Node)]$INFO[Container(52).ListItem(0).Label2]</label>
 						<include>info_Sub</include>
+						<visible>Skin.String(Watchlist,Shows)</visible>
 					</control>
 					<control type="textbox">
-						<posy>80</posy>
-						<width>380</width>
-						<height>435</height>
-						<label>$INFO[Container(61).ListItem.Property(Plot)]</label>
+						<posy>60</posy>
+						<width>960</width>
+						<height>110</height>
+						<label>$INFO[Container(52).ListItem.Property(Plot)]</label>
 						<include>description_Small</include>
+					</control>
+					<control type="image">
+						<posy>198</posy>
+						<width>128</width>
+						<height>32</height>
+						<texture>$VAR[custom_Rating.Info]</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>IsEmpty(Container(52).ListItem.Property(Node))</visible>
 					</control>
 				</control>
 			</control>
