@@ -223,6 +223,36 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				<!--SLIDE: artist landscape-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(artists) + Control.IsVisible(522)</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31039]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(521)</onclick>
+						<onclick>SetFocus(521)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--SLIDE: artist thumbs-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(artists) + Control.IsVisible(521)</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31059]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(522)</onclick>
+						<onclick>SetFocus(522)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
 				<!--GALLERY: no fullscreen-->
 				<control type="group">
 					<width>220</width>
