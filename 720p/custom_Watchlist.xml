@@ -49,7 +49,7 @@
 				<include>transition_Container</include>
 				<include>infoDialogHide</include>
 				<include>toggle_Menu</include>
-				<itemlayout height="400" width="205">
+				<itemlayout condition="Skin.String(Watchlist,Movies) | Skin.String(Watchlist,Shows)" height="400" width="205">
 					<control type="group">
 						<control type="image">
 							<width>228</width>
@@ -108,7 +108,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="400" width="205">
+				<focusedlayout condition="Skin.String(Watchlist,Movies) | Skin.String(Watchlist,Shows)" height="400" width="205">
 					<control type="group">
 						<include>focus_SlidePoster</include>
 						<control type="image">
