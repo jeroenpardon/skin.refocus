@@ -5,12 +5,7 @@
 			<texture background="true">$VAR[global_Background.Fallback]</texture>
 			<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !ControlGroup(6000).HasFocus</visible>
 			<include>transition_Fanart</include>
-			<animation type="Hidden" condition="ControlGroup(6000).HasFocus">
-				<effect type="fade" time="250" start="100" end="0" reversible="true"/>
-			</animation>
-			<animation type="Visible" condition="!ControlGroup(6000).HasFocus">
-				<effect type="fade" time="250" start="0" end="100" reversible="true"/>
-			</animation>
+			<include>menu_BackgroundHide</include>
 		</control>
 		<control type="image">
 			<include>screen_Dimensions</include>
@@ -18,12 +13,7 @@
 			<visible>Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !ControlGroup(6000).HasFocus</visible>
 			<include>transition_Fanart</include>
 			<fadetime>fadetime_Fanart</fadetime>
-			<animation type="Hidden" condition="ControlGroup(6000).HasFocus">
-				<effect type="fade" time="250" start="100" end="0" reversible="true"/>
-			</animation>
-			<animation type="Visible" condition="!ControlGroup(6000).HasFocus">
-				<effect type="fade" time="250" start="0" end="100" reversible="true"/>
-			</animation>
+			<include>menu_BackgroundHide</include>
 		</control>
 		<!--playing video background-->
 		<control type="group">

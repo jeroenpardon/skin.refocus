@@ -103,7 +103,8 @@
 				<pauseatend>10000</pauseatend>
 				<randomize>true</randomize>
 				<loop>yes</loop>
-				<visible>Skin.HasSetting(gallery.extrafanart) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Path,,extrafanart)</visible>
+				<visible>Skin.HasSetting(gallery.extrafanart) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Path,,extrafanart) + !ControlGroup(6000).HasFocus</visible>
+				<include>menu_BackgroundHide</include>
 				<animation effect="zoom" start="100" end="173" time="200" center="362,185" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 			</control>
 			<control type="image">

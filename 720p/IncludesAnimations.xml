@@ -297,6 +297,14 @@
 			<effect type="fade" time="250" start="100" end="0" reversible="true"/>
 		</animation>
 	</include>
+	<include name="menu_BackgroundHide">
+		<animation type="Hidden" condition="ControlGroup(6000).HasFocus">
+			<effect type="fade" time="250" start="100" end="0" reversible="true"/>
+		</animation>
+		<animation type="Visible" condition="!ControlGroup(6000).HasFocus">
+			<effect type="fade" time="250" start="0" end="100" reversible="true"/>
+		</animation>
+	</include>
 	<include name="toggle_Menu">
 		<animation type="Conditional" condition="ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk) + !Window.IsActive(103)">
 			<effect type="zoom" time="250" center="screen_Center" start="100" end="85" reversible="true"/>
