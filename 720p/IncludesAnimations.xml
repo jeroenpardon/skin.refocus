@@ -288,23 +288,19 @@
 <!---TOGGLES------>
 	<include name="MenuOpen">
 		<animation type="Visible">
-			<effect type="slide" start="0" end="275" time="150" />
-			<effect type="zoom" time="400" center="screen_Center" start="140" end="100" tween="cubic" easing="out" />
-			<effect type="fade" time="400" center="screen_Center" start="0" end="100" />
+			<effect type="slide" start="0" end="275" time="150" reversible="true"/>
+			<effect type="zoom" time="400" center="screen_Center" start="140" end="100" tween="cubic" easing="out" reversible="true"/>
+			<effect type="fade" time="400" start="0" end="100" reversible="true"/>
 		</animation>			
 		<animation type="Hidden">
-			<effect type="zoom" time="250" center="screen_Center" start="100" end="140" tween="cubic" easing="in" />
-			<effect type="fade" time="250" center="screen_Center" start="100" end="0" />
+			<effect type="zoom" time="250" center="screen_Center" start="100" end="140" tween="cubic" easing="in" reversible="true"/>
+			<effect type="fade" time="250" start="100" end="0" reversible="true"/>
 		</animation>
 	</include>
 	<include name="toggle_Menu">
-		<animation type="Conditional" condition="[ControlGroup(6000).HasFocus] + !Skin.HasSetting(global.kiosk)">
-			<effect type="zoom" time="250" center="screen_Center" start="100" end="55" />
-			<effect type="fade" time="250" center="screen_Center" start="100" end="20" />
-		</animation>			
-		<animation type="Conditional" condition="![ControlGroup(6000).HasFocus] + !Skin.HasSetting(global.kiosk)">
-			<effect type="zoom" time="250" center="screen_Center" start="140" end="100" />
-			<effect type="fade" time="250" center="screen_Center" start="20" end="100" />
+		<animation type="Conditional" condition="ControlGroup(6000).HasFocus + !Skin.HasSetting(global.kiosk) + !Window.IsActive(103)">
+			<effect type="zoom" time="250" center="screen_Center" start="100" end="85" reversible="true"/>
+			<effect type="fade" time="250" start="100" end="10" reversible="true"/>
 		</animation>
 	</include>
 	<include name="toggle_NumItems-menumove">
