@@ -307,17 +307,29 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !SubString(Container.FolderPath,plugin://)</visible>
-					<control type="togglebutton" id="90">
-						<label>$LOCALIZE[31061]</label>
-						<altlabel>$LOCALIZE[31039]</altlabel>
+					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !SubString(Container.FolderPath,plugin://) + Skin.HasSetting(view.biglist.posters)</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31039]</label>
 						<onup>31</onup>
 						<ondown>1</ondown>
 						<onright>50</onright>
 						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
 						<onclick>SetFocus(51)</onclick>
-						<altclick>Skin.ToggleSetting(view.biglist.posters)</altclick>
-						<altclick>SetFocus(51)</altclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--BIG LIST: use fanart-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(view.biglist.posters)</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31061]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
+						<onclick>SetFocus(51)</onclick>
 						<include>button_Menu</include>
 					</control>
 				</control>
