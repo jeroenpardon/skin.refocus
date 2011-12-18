@@ -169,7 +169,7 @@
 	<variable name="window_Title.Video">
 	<!--video sources-->
 		<value condition="[Container.Content(Files) | SubString(Container.FolderPath,plugin://plugin.video)] + !SubString(Container.FolderPath,plugin://plugin.video.apple) + !StringCompare(Container.FolderPath,special://profile/playlists/video/)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | Container.Content(episodes)] + ![SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin) | SubString(Container.FolderPath,plugin)]">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<!--<value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + ![SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin) | SubString(Container.FolderPath,plugin)]">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>-->
 	<!--nodes-->
 		<!--movies--><value condition="stringcompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342]</value>
 		<!--tv shows--><value condition="stringcompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343]</value>
@@ -189,7 +189,7 @@
 		<!--new--><value condition="SubString(Container.FolderPath,videodb://5)">$LOCALIZE[31925]</value>
 		<!--<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb) + !IsEmpty(Container().ListItem(0).TVShowTitle) + StringCompare(Container.FolderName,$LOCALIZE[20366]) + ![stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://profile/playlists/video/)]">$INFO[ListItem.TVShowTitle]</value>-->
 	<!--music videos-->
-		<value condition="SubString(Container.FolderPath,videodb://3/) + !stringcompare(Container.FolderPath,videodb://3/)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="Container.Content(musicvideos) + !stringcompare(Container.FolderPath,videodb://3/)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<!--new--><value condition="SubString(Container.FolderPath,videodb://6/)">$LOCALIZE[31931]</value>
 	<!--playlists-->
 		<value condition="SubString(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[136][/COLOR]</value>
