@@ -169,8 +169,10 @@
 	<variable name="window_Title.Video">
 	<!--video sources-->
 		<value condition="[Container.Content(Files) | SubString(Container.FolderPath,plugin://plugin.video)] + !SubString(Container.FolderPath,plugin://plugin.video.apple) + !StringCompare(Container.FolderPath,special://profile/playlists/video/)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | Container.Content(episodes)] + ![SubString(Container.FolderPath,videodb://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin) | SubString(Container.FolderPath,plugin)]">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | Container.Content(episodes)] + ![SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin) | SubString(Container.FolderPath,plugin)]">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 	<!--nodes-->
+	<value condition="stringcompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342]</value>
+	
 		<!--movies--><value condition="stringcompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342]</value>
 		<!--tv shows--><value condition="stringcompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343]</value>
 		<!--music videos--><value condition="stringcompare(Container.FolderPath,videodb://3/)">$LOCALIZE[20389]</value>
