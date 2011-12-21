@@ -178,7 +178,8 @@
 		<value condition="SubString(Container.FolderPath,videodb://1/) + !StringCompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<!--new--><value condition="SubString(Container.FolderPath,videodb://4/)">$LOCALIZE[31926]</value>
 	<!--tvshows-->
-		<value condition="SubString(Container.FolderPath,videodb://2/) + !StringCompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="SubString(Container.FolderPath,videodb://2/)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<!--<value condition="SubString(Container.FolderPath,videodb://2/) + !StringCompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 	<!--seasons-->
 		<!--linked movie--><value condition="Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !SubString(ListItem.Icon,default)">$LOCALIZE[31091]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[ListItem.TVShowTitle] [COLOR=Color2]$LOCALIZE[33054][/COLOR]</value>
