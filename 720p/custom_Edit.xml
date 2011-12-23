@@ -103,6 +103,13 @@
 						<visible>Container.Content(tvshows)</visible>
 						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</item>
+					<item id="7">
+						<label>$LOCALIZE[31131]</label>
+						<onclick>Close</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=movie, medianame=$INFO[ListItem.Title],extrafanart)</onclick>
+						<visible>Container.Content(movies)</visible>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</item>
 				</content>
 			</control>
 		</control>
