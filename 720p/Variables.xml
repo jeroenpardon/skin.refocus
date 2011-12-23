@@ -28,7 +28,7 @@
 
 <!---VIEWS------>
 	<variable name="global_Title.Video">
-		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
+		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle][COLOR=Color3]$INFO[ListItem.Title,: ][/COLOR]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
