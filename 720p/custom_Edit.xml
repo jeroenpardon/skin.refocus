@@ -106,7 +106,7 @@
 					<item id="7">
 						<label>$LOCALIZE[31131]</label>
 						<onclick>Close</onclick>
-						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=movie, medianame=$INFO[ListItem.Title],extrafanart)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=movie, medianame=$INFO[ListItem.Title],mediapath=$INFO[ListItem.Path],extrafanart)</onclick>
 						<visible>Container.Content(movies)</visible>
 						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</item>
