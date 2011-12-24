@@ -28,7 +28,7 @@
 
 <!---VIEWS------>
 	<variable name="global_Title.Video">
-		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle][COLOR=Color3]$INFO[ListItem.Title,: ][/COLOR]</value>
+		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
@@ -79,6 +79,10 @@
 		<value condition="Window.IsActive(addonbrowser)">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]$INFO[ListItem.Property(Addon.Status), • ]</value>
 		<!--<value condition="!Window.IsActive(addonbrowser) + Substring(Container.FolderPath,addons://)">$INFO[ListItem.Property(Addon.Summary)]</value>-->
 		<value>$INFO[ListItem.Label2]</value>
+	</variable>
+	<variable name="gallery_Title">
+		<value condition="Container.Content(episodes) + !SubString(ListItem.Icon,default)">$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="gallery_Header">
 		<value condition="Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
