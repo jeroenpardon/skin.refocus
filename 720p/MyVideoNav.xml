@@ -226,11 +226,13 @@
 				<!---flags--->
 				<control type="image">
 					<posx>235r</posx>
-					<posy>630</posy>
+					<posy>632</posy>
 					<width>128</width>
-					<height>64</height>
-					<aspectratio align="right">keep</aspectratio>
-					<texture>$VAR[flag_Studio]</texture>
+					<height>48</height>
+					<info>ListItem.StarRating</info>
+					<aspectratio align="center">keep</aspectratio>
+					<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 				</control>
 				<control type="group">
 					<posx>85</posx>
