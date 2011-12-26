@@ -12,24 +12,24 @@
 			<include>fadeinout</include>
 		</control>
 		<control type="group">
-			<posx>472</posx>
-			<posy>170</posy>
+			<posx>460</posx>
+			<posy>182</posy>
 			<include>dialogOpen</include>
-			<control type="image">
-				<width>387</width>
-				<height>380</height>
-				<include>dialogWindow</include>
+			<control type="image" id="997">
+				<width>360</width>
+				<height>356</height>
+				<texture border="20">dialogs/button_Menu.png</texture>
 			</control>
 			<control type="image">
-				<posx>18</posx>
-				<posy>30</posy>
-				<width>351</width>
+				<posx>4</posx>
+				<posy>18</posy>
+				<width>352</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="grouplist" id="500">
-				<posx>19</posx>
-				<posy>30</posy>
-				<width>350</width>
+				<posx>4</posx>
+				<posy>18</posy>
+				<width>352</width>
 				<height>480</height>
 				<onup>500</onup>
 				<ondown>500</ondown>
@@ -38,7 +38,7 @@
 				<itemgap>0</itemgap>
 				<!--logoff-->
 				<control type="button" id="501">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[20126]</label>
 					<onclick>dialog.close(all,true)</onclick>
 					<onclick>system.logoff</onclick>		  
@@ -47,7 +47,7 @@
 				</control>
 				<!--quit-->
 				<control type="button" id="502">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[13009]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Quit()</onclick>
@@ -55,7 +55,7 @@
 				</control>
 				<!--hibernate-->
 				<control type="button" id="503">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[13010]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Hibernate</onclick>
@@ -64,7 +64,7 @@
 				</control>
 				<!--suspend-->
 				<control type="button" id="504">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[13011]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Suspend</onclick>
@@ -73,7 +73,7 @@
 				</control>
 				<!--reboot-->
 				<control type="button" id="505">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[13013]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Reset()</onclick>
@@ -81,7 +81,7 @@
 				</control>
 				<!--timer-->
 				<control type="button" id="506">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[20150]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Powerdown())</onclick>
@@ -90,7 +90,7 @@
 				</control>
 				<!--shutdown-->
 				<control type="button" id="507">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[13016]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Powerdown()</onclick>
@@ -98,7 +98,7 @@
 				</control>
 				<!--minimize-->
 				<control type="button" id="508">
-					<width>350</width>
+					<width>352</width>
 					<label>$LOCALIZE[13014]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
 					<onclick>XBMC.Minimize()</onclick>
