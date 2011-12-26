@@ -472,7 +472,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles)] | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)]]</visible>
+					<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)] | Container.Content(files) + Container.HasFiles]</visible>
 					<control type="button" id="406">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(575)</onclick>
