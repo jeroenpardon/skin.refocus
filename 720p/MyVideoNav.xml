@@ -301,6 +301,12 @@
 					<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
 					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 				</control>
+				<control type="label">
+					<width>435</width>
+					<label>-</label>
+					<include>info_Sub</include>
+					<visible>!IntegerGreaterThan(ListItem.Rating,0)</visible>
+				</control>
 				<control type="textbox" id="4">
 					<width>435</width>
 					<height>355</height>
@@ -313,9 +319,9 @@
 				<posy>610</posy>
 				<width>128</width>
 				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<texture>$VAR[flag_Studio]</texture>
-				<visible>Control.IsVisible(571) + [Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
+				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
 			</control>
 		</control>
 		<include>view_IconPoster</include>
