@@ -822,6 +822,26 @@
 					<include>dialog_Radio</include>
 				</control>
 			</control>
+			<!--now playing-->
+			<control type="grouplist" id="200">
+				<posx>206</posx>
+				<width>557</width>
+				<height>480</height>
+				<onleft>100</onleft>
+				<onright>10</onright>
+				<onup>200</onup>
+				<ondown>200</ondown>
+				<itemgap>0</itemgap>
+				<visible>Skin.String(Sub,Playing)</visible>
+				<!--main menu-->
+				<control type="radiobutton" id="201">
+					<label>$LOCALIZE[31938]</label>
+					<width>557</width>
+					<onclick>Skin.ToggleSetting(homemenu.playing)</onclick>
+					<selected>!Skin.HasSetting(homemenu.playing)</selected>
+					<include>dialog_Radio</include>
+				</control>
+			</control>
 			<!--weather submenu-->
 			<control type="grouplist" id="200">
 				<posx>206</posx>
