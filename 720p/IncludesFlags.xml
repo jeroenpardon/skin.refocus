@@ -21,13 +21,15 @@
 				<width>96</width>
 				<height>34</height>
 				<aspectratio align="center">keep</aspectratio>
-				<include>flag_Res</include>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
 			</control>
 			<control type="image">
 				<width>53</width>
 				<height>34</height>
 				<aspectratio align="center">keep</aspectratio>
-				<include>flag_Audio</include>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
 			</control>
 		</control>
 	</include>
