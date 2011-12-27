@@ -1,61 +1,4 @@
 ﻿<includes>
-<!---RESOLUTION------>
-	<include name="flag_Res">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-		<visible>!IsEmpty(Listitem.VideoResolution)</visible>
-	</include>
-	<include name="flag_Res-play">
-		<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-		<colordiffuse>Color4</colordiffuse>
-	</include>
-	<include name="flag_HD">
-		<texture>flags/video/HD/HD.png</texture>
-		<visible>stringcompare(Listitem.VideoResolution,720) | stringcompare(Listitem.VideoResolution,1080)</visible>
-	</include>
-	<include name="flag_HD-play">
-		<texture>flags/video/HD/HD.png</texture>
-		<visible>stringcompare(VideoPlayer.VideoResolution,720) | stringcompare(VideoPlayer.VideoResolution,1080)</visible>
-	</include>
-
-<!---AUDIO CHANNELS------>
-	<include name="flag_Audio">
-		<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
-		<visible>!IsEmpty(Listitem.AudioChannels)</visible>
-	</include>
-
-<!---CODEC------>
-	<include name="flag_VideoCodec-play">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</texture>
-	</include>
-	<include name="flag_AudioCodec-play">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[VideoPlayer.AudioCodec,flags/codec/,.png]</texture>
-	</include>
-
-<!---NETWORK------>	
-	<include name="flag_Network-mono">
-		<texture>$INFO[Listitem.studio,flags/networks/mono/,.png]</texture>
-		<width>128</width>
-		<height>64</height>
-		<visible>!IsEmpty(ListItem.Title)</visible>
-	</include>
-
-<!--- PVR ---------------------------------------->
-	<include name="flag_Channel">
-		<width>128</width>
-		<height>64</height>
-		<texture>$INFO[Listitem.ChannelName,flags/networks/,.png]</texture>
-		<aspectratio align="right">keep</aspectratio>
-	</include>
-
-	<include name="flag_Channel-mono-play">
-		<texture fallback="flags/networks/default.png">$INFO[VideoPlayer.ChannelName,flags/mono/networks/,.png]</texture>
-	</include>
-
-<!--- GROUPS ---------------------------------------->
 	<!--slide view-->
 	<include name="flags_Slide-media">
 		<control type="grouplist">
@@ -101,7 +44,6 @@
 				<height>64</height>
 				<info>ListItem.StarRating</info>
 				<aspectratio align="center">keep</aspectratio>
-				<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
 				<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 			</control>
 			<control type="image">
@@ -148,6 +90,7 @@
 			</control>
 		</control>
 	</include>
+	
 	<!--pvr-->
 	<include name="flags_PVR">
 		<control type="image">
