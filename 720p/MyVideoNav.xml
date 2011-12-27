@@ -229,10 +229,19 @@
 					<posy>632</posy>
 					<width>128</width>
 					<height>48</height>
-					<info>ListItem.StarRating</info>
+					<texture>$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="center">keep</aspectratio>
 					<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
 					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
+				</control>
+				<control type="image">
+					<posx>235r</posx>
+					<posy>637</posy>
+					<width>128</width>
+					<height>64</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="right">keep</aspectratio>
+					<visible>SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
 				</control>
 				<control type="group">
 					<posx>85</posx>
