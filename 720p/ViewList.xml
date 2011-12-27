@@ -103,9 +103,10 @@
 				<posy>35</posy>
 				<width>32</width>
 				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/nf-,.png]</texture>
+				<texture>flags/video/HD/nf-HD.png</texture>
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
 				<aspectratio align="right">keep</aspectratio>
+				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 			<control type="image">
 				<posx>475</posx>
@@ -163,8 +164,9 @@
 				<posy>35</posy>
 				<width>32</width>
 				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/nf-,.png]</texture>
+				<texture>flags/video/HD/nf-HD.png</texture>
 				<aspectratio align="right">keep</aspectratio>
+				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 			<control type="image">
 				<posx>475</posx>
@@ -645,7 +647,7 @@
 			</control>
 			<control type="image">
 				<posx>1060</posx>
-				<posy>40</posy>
+				<posy>15</posy>
 				<width>128</width>
 				<height>22</height>
 				<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
@@ -655,11 +657,13 @@
 			</control>
 			<control type="image">
 				<posx>1155</posx>
-				<posy>11</posy>
+				<posy>36</posy>
 				<width>32</width>
 				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/nf-,.png]</texture>
+				<texture>flags/video/HD/nf-HD.png</texture>
 				<aspectratio align="right">keep</aspectratio>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="625" height="150">
@@ -707,7 +711,7 @@
 			</control>
 			<control type="image">
 				<posx>1060</posx>
-				<posy>40</posy>
+				<posy>15</posy>
 				<width>128</width>
 				<height>22</height>
 				<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
@@ -717,12 +721,13 @@
 			</control>
 			<control type="image">
 				<posx>1155</posx>
-				<posy>11</posy>
+				<posy>36</posy>
 				<width>32</width>
 				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/fo-,.png]</texture>
+				<texture>flags/video/HD/fo-HD.png</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<colordiffuse>Color4</colordiffuse>
+				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</focusedlayout>
 		<itemlayout condition="Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]"width="625" height="150">
@@ -778,7 +783,7 @@
 			</control>
 			<control type="image">
 				<posx>1060</posx>
-				<posy>40</posy>
+				<posy>15</posy>
 				<width>128</width>
 				<height>22</height>
 				<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
@@ -788,11 +793,13 @@
 			</control>
 			<control type="image">
 				<posx>1155</posx>
-				<posy>11</posy>
+				<posy>36</posy>
 				<width>32</width>
 				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/nf-,.png]</texture>
+				<texture>flags/video/HD/nf-HD.png</texture>
 				<aspectratio align="right">keep</aspectratio>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout condition="Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]" width="625" height="150">
@@ -849,7 +856,7 @@
 			</control>
 			<control type="image">
 				<posx>1060</posx>
-				<posy>40</posy>
+				<posy>15</posy>
 				<width>128</width>
 				<height>22</height>
 				<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
@@ -859,12 +866,13 @@
 			</control>
 			<control type="image">
 				<posx>1155</posx>
-				<posy>11</posy>
+				<posy>36</posy>
 				<width>32</width>
 				<height>32</height>
-				<texture>$INFO[ListItem.VideoResolution,flags/hd/fo-,.png]</texture>
-				<colordiffuse>Color4</colordiffuse>
+				<texture>flags/video/HD/fo-HD.png</texture>
 				<aspectratio align="right">keep</aspectratio>
+				<colordiffuse>Color4</colordiffuse>
+				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</focusedlayout>
 	</include>
