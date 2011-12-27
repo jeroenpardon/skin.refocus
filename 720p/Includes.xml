@@ -419,7 +419,7 @@
 		<height>32</height>
 		<texture>overlays/OverlayResumable.png</texture>
 		<aspect>keepaspect</aspect>
-		<visible>ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp)</visible>
+		<visible>ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp) + IsEmpty(ListItem.Property(ReleaseDate)</visible>
 	</include>
 	<include name="overlay_Resumable-list">
 		<width>32</width>
