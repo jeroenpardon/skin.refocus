@@ -231,7 +231,6 @@
 					<height>48</height>
 					<texture>$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="center">keep</aspectratio>
-					<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
 					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 				</control>
 				<control type="image">
@@ -307,7 +306,6 @@
 					<height>48</height>
 					<info>ListItem.StarRating</info>
 					<aspectratio align="center">keep</aspectratio>
-					<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
 					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 				</control>
 				<control type="label">

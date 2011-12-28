@@ -407,7 +407,8 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists)]] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + SubString(Container.FolderPath,plugin://)] | [SubString(Container.FolderPath,special://skin/playlists/) + !Container.Content(episodes)]</visible>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<!--<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists)]] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + SubString(Container.FolderPath,plugin://)] | [SubString(Container.FolderPath,special://skin/playlists/) + !Container.Content(episodes)]</visible>-->
 					<control type="button" id="403">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(52)</onclick>

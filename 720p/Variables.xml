@@ -30,11 +30,12 @@
 	<variable name="global_Title.Video">
 		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="global_Info.Video">
 		<!--movie set--><value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
-		<!--video content sources--><value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,special://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>
+		
 		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$VAR[tvshow_Info.NextAired, • ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
@@ -44,7 +45,13 @@
 		<!--music videos--><value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
 		<!--addons--><value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<!--files--><value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • ]</value>
-		<value>$INFO[ListItem.Label2]</value>
+		<value>$INFO[ListItem.Label]</value>
+		
+		
+		
+		<!--video content sources<value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,special://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]</value>-->
+		
+		
 	</variable>
 	<variable name="global_Title.Music">
 		<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,, - ]$INFO[ListItem.Title]</value>
@@ -171,7 +178,7 @@
 <!---WINDOW TITLES------>
 	<variable name="window_Title.Video">
 	<!--video sources-->
-		<value condition="[Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(Files)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,skin) + !SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(Files)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,skin) + !SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 	<!--nodes-->
 		<!--movies--><value condition="StringCompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342]</value>
 		<!--tv shows--><value condition="StringCompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343]</value>
@@ -274,6 +281,7 @@
 		<value>$LOCALIZE[206]</value>
 	</variable>
 	<variable name="osdInfo.Info">
+		<value condition="!IsEmpty(ListItem.Property(ReleaseDate))">pijpen</value>
 		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
