@@ -333,6 +333,36 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				<!--THUMBS: addons info-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Control.IsVisible(576) + Container.Content(addons)</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31975]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(574)</onclick>
+						<onclick>SetFocus(576)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--THUMBS: addons no info-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Control.IsVisible(574) + Container.Content(addons)</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31974]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(576)</onclick>
+						<onclick>SetFocus(576)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
 				<!--BIG LIST: use posters-->
 				<control type="group">
 					<width>220</width>
@@ -489,7 +519,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>substring(Container.FolderPath,addons://)</visible>
+					<visible>SubString(Container.FolderPath,addons://)</visible>
 					<control type="button" id="407">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(574)</onclick>
