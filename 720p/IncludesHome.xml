@@ -24,6 +24,7 @@
 				<animation effect="fade" start="100" end="50" time="350" condition="System.IdleTime(5)">Conditional</animation>
 				<visible>!Control.HasFocus(888)</visible>
 			</control>
+			<!--
 			<control type="image">
 				<posy>0</posy>
 				<width>950</width>
@@ -31,8 +32,9 @@
 				<aspectratio align="left">stretch</aspectratio>
 				<texture border="80,0,0,0">home/menuSelect.png</texture>
 				<include>home_ListScroll</include>
-				<visible allowhiddenfocus="true">[Container(9000).HasFocus(21) | Container(9000).HasFocus(22) | Container(9000).HasFocus(17)]</visible>	
+				<visible allowhiddenfocus="true">[Container(9000).HasFocus(21) | Container(9000).HasFocus(22)]</visible>	
 			</control>
+			-->
 			<control type="label">
 				<posy>70</posy>
 				<posx>20</posx>
@@ -42,7 +44,7 @@
 				<align>left</align>
 				<textcolor>Color5</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<visible>![Container(9000).HasFocus(21) | Container(9000).HasFocus(22) | Container(9000).HasFocus(17)]</visible>
+				<!--<visible>![Container(9000).HasFocus(21) | Container(9000).HasFocus(22)]</visible>-->
 			</control>
 			<control type="label">
 				<posy>70</posy>
@@ -64,7 +66,7 @@
 				<align>left</align>
 				<textcolor>Color5</textcolor>
 				<label>[LOWERCASE]$INFO[ListItem.Label2][/LOWERCASE]</label>
-				<visible>Container(9000).HasFocus(21) | Container(9000).HasFocus(22) | Container(9000).HasFocus(17)</visible>
+				<!--<visible>Container(9000).HasFocus(21) | Container(9000).HasFocus(22)</visible>-->
 			</control>
 		</focusedlayout>
 	</include>

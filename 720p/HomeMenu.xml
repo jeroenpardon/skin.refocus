@@ -105,7 +105,6 @@
 				<!--weather-->
 				<item id="17">
 					<label>$LOCALIZE[8]</label>
-					<label2>$INFO[Weather.Conditions], $INFO[Weather.Temperature]</label2>
 					<onclick>ActivateWindow(weather)</onclick>
 					<visible>!Skin.HasSetting(homemenu.weather) + Weather.IsFetched</visible>
 				</item>
@@ -124,14 +123,14 @@
 				<item id="21">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<label2>$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Title]</label2>
+					<!--<label2>$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Title]</label2>-->
 					<visible>Player.HasAudio + !Skin.HasSetting(homemenu.playing)</visible>
 				</item>
 				<item id="22">
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<visible>Player.HasVideo + !Skin.HasSetting(homemenu.playing)</visible>
-					<label2>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title]</label2>
+					<!--<label2>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title]</label2>-->
 				</item>
 			</content>
 		</control>

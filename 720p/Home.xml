@@ -122,7 +122,7 @@
 				<include>fadeinout</include>
 			</control>
 		</control>
-	<!---library stats------>	
+	<!---stats------>	
 		<control type="group">
 			<posy>684</posy>
 			<visible>Skin.HasSetting(home.stats)</visible>
@@ -137,7 +137,7 @@
 				<posy>10</posy>
 				<label>[COLOR=Color1]$INFO[Window.Property(Movies.Count)] $LOCALIZE[20342][/COLOR]  $INFO[Window.Property(Movies.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Episodes.Count)] $LOCALIZE[20360][/COLOR]  $INFO[Window.Property(Episodes.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Music.ArtistsCount)] $LOCALIZE[133][/COLOR] $INFO[Window.Property(Music.AlbumsCount)] $LOCALIZE[132] $INFO[Window.Property(Music.SongsCount)] $LOCALIZE[134]</label>
 				<include>home_statuslabel</include>
-				<visible>![Library.HasContent(movies) + [Container(9000).HasFocus(3) | Container(9000).HasFocus(4)] | Library.HasContent(tvshows) + [Container(9000).HasFocus(5) | Container(9000).HasFocus(6)] | Library.HasContent(music) + [Container(9000).HasFocus(9) | Container(9000).HasFocus(10)]] + ![[Container(9000).HasFocus(7) | Container(9000).HasFocus(8)] + !IsEmpty(PVR.NextRecordingDateTime)]</visible>
+				<visible>![Library.HasContent(movies) + [Container(9000).HasFocus(3) | Container(9000).HasFocus(4)] | Library.HasContent(tvshows) + [Container(9000).HasFocus(5) | Container(9000).HasFocus(6)] | Library.HasContent(music) + [Container(9000).HasFocus(9) | Container(9000).HasFocus(10) | Container(9000).HasFocus(17) | Container(9000).HasFocus(21) | Container(9000).HasFocus(22)]] + ![[Container(9000).HasFocus(7) | Container(9000).HasFocus(8)] + !IsEmpty(PVR.NextRecordingDateTime)]</visible>
 			</control>
 			<control type="label">
 				<label>$LOCALIZE[31095]: [COLOR=Color1]$INFO[Window.Property(LatestMovie.1.Title),, • ]$INFO[Window.Property(LatestMovie.2.Title),, • ]$INFO[Window.Property(LatestMovie.3.Title),, • ]$INFO[Window.Property(LatestMovie.4.Title),, • ]$INFO[Window.Property(LatestMovie.5.Title)][/COLOR]</label>
@@ -158,6 +158,36 @@
 				<label>$LOCALIZE[31096]: [COLOR=Color1]$INFO[Window.Property(LatestAlbum.1.Title),, • ]$INFO[Window.Property(LatestAlbum.2.Title),, • ]$INFO[Window.Property(LatestAlbum.3.Title),, • ]$INFO[Window.Property(LatestAlbum.4.Title),, • ]$INFO[Window.Property(LatestAlbum.5.Title)][/COLOR]</label>
 				<include>home_statuslabel</include>
 				<visible>Library.HasContent(music) + [Container(9000).HasFocus(9) | Container(9000).HasFocus(10)]</visible>
+			</control>
+			<control type="label">
+				<label>$LOCALIZE[31965]: [COLOR=Color1]$INFO[Weather.Conditions], $INFO[Weather.Temperature][/COLOR] • $LOCALIZE[402]: [COLOR=Color1]$INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][/COLOR] • $LOCALIZE[406]: [COLOR=Color1]$INFO[Window(Weather).Property(Current.Humidity)][/COLOR] • $LOCALIZE[404]: [COLOR=Color1]$INFO[Window(Weather).Property(Current.Wind)][/COLOR]</label>
+				<include>home_statuslabel</include>
+				<visible>Container(9000).HasFocus(17)</visible>
+			</control>
+			<control type="label">
+				<label>[COLOR=Color1]$INFO[MusicPlayer.Title]$INFO[MusicPlayer.Artist,[COLOR=Color2] $LOCALIZE[31106][/COLOR] ][/COLOR]</label>
+				<include>home_statuslabel</include>
+				<visible>Container(9000).HasFocus(21)</visible>
+			</control>
+			<control type="label">
+				<label>[COLOR=Color1]$INFO[VideoPlayer.Title][/COLOR]$INFO[VideoPlayer.Genre, • ]</label>
+				<include>home_statuslabel</include>
+				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<label>[COLOR=Color1]$INFO[VideoPlayer.TVShowTitle,,: ][/COLOR]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Season, • $LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
+				<include>home_statuslabel</include>
+				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(episodes)</visible>
+			</control>
+			<control type="label">
+				<label>[COLOR=Color1]$INFO[VideoPlayer.Title][/COLOR] $LOCALIZE[31106] [COLOR=Color1]$INFO[VideoPlayer.Artist][/COLOR]</label>
+				<include>home_statuslabel</include>
+				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(musicvideos)</visible>
+			</control>
+			<control type="label">
+				<label>[COLOR=Color1]$INFO[VideoPlayer.Title][/COLOR]</label>
+				<include>home_statuslabel</include>
+				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(files)</visible>
 			</control>
 		</control>
 		<control type="group">
