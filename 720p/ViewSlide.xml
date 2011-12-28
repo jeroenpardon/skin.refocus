@@ -202,7 +202,7 @@
 			<focusposition>1</focusposition>
 			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 			<orientation>horizontal</orientation>
-			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)] | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows)]]</visible>
+			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)] | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
