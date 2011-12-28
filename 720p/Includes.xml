@@ -826,17 +826,18 @@
 					<visible>VideoPlayer.Content(musicvideos)</visible>
 					<control type="label">
 						<width>1000</width>
-						<label>$LOCALIZE[557][COLOR=Color1]$INFO[VideoPlayer.Artist, ][/COLOR]</label>
+						<label>$INFO[VideoPlayer.Artist]</label>
+						<textcolor>Color3</textcolor>
 						<include>info_Sub</include>
 					</control>
 					<control type="label">
 						<width>1000</width>
-						<label>$LOCALIZE[558][COLOR=Color1]$INFO[VideoPlayer.Album, ][/COLOR]</label>
+						<label>$INFO[VideoPlayer.Album]</label>
 						<include>info_Sub</include>
 					</control>
 					<control type="label">
 						<width>1000</width>
-						<label>$LOCALIZE[562][COLOR=Color1]$INFO[VideoPlayer.Year, ][/COLOR]</label>
+						<label>$INFO[VideoPlayer.Year]</label>
 						<include>info_Sub</include>
 					</control>
 				</control>
@@ -873,7 +874,7 @@
 					<height>18</height>
 					<texturebg border="10">dialogs/progressBackground.png</texturebg>
 					<info>Player.Progress</info>
-					<visible>Skin.HasSetting(osd.progressbar)</visible>
+					<visible>Skin.HasSetting(osd.progressbar) | [!Skin.HasSetting(osd.progressbar) + VideoPlayer.Content(musicvideos)]</visible>
 				</control>
 			</control>
 		</control>
