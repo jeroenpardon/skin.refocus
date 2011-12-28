@@ -12,12 +12,48 @@
 				<width>220</width>
 				<height>42</height>
 				<!--shuffle-->
-				<control type="button" id="20">
-					<label>$LOCALIZE[191]</label>
+				<control type="radiobutton" id="20">
+					<label>-</label>
 					<onup>22</onup>
 					<ondown>28</ondown>
 					<onright>50</onright>
+					<textureradiofocus>-</textureradiofocus>
+					<textureradionofocus>-</textureradionofocus>
 					<include>button_Menu</include>
+				</control>
+				<!--on-->
+				<control type="label" id="20">
+					<posx>35</posx>
+					<label>$LOCALIZE[191]$LOCALIZE[31114]</label>
+					<height>164</height>
+					<font>windowMenu</font>
+					<textcolor>Color1</textcolor>
+					<visible>!Control.HasFocus(20) + SubString(Control.GetLabel(20),*)</visible>
+				</control>
+				<control type="label" id="20">
+					<posx>35</posx>
+					<label>$LOCALIZE[191]$LOCALIZE[31114]</label>
+					<height>164</height>
+					<font>windowMenu</font>
+					<textcolor>Color5</textcolor>
+					<visible>Control.HasFocus(20) + SubString(Control.GetLabel(20),*)</visible>
+				</control>
+				<!--off-->
+				<control type="label" id="20">
+					<posx>35</posx>
+					<label>$LOCALIZE[191]$LOCALIZE[31113]</label>
+					<height>164</height>
+					<font>windowMenu</font>
+					<textcolor>Color1</textcolor>
+					<visible>!Control.HasFocus(20) + !SubString(Control.GetLabel(20),*)</visible>
+				</control>
+				<control type="label" id="20">
+					<posx>35</posx>
+					<label>$LOCALIZE[191]$LOCALIZE[31113]</label>
+					<height>164</height>
+					<font>windowMenu</font>
+					<textcolor>Color5</textcolor>
+					<visible>Control.HasFocus(20) + !SubString(Control.GetLabel(20),*)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -25,8 +61,8 @@
 				<height>42</height>
 				<!--randomize-->
 				<control type="togglebutton" id="28">
-					<label>$LOCALIZE[31114]</label>
-					<altlabel>$LOCALIZE[31113]</altlabel>
+					<label>$LOCALIZE[13319]$LOCALIZE[31114]</label>
+					<altlabel>$LOCALIZE[13319]$LOCALIZE[31113]</altlabel>
 					<onup>20</onup>
 					<ondown>26</ondown>
 					<onright>50</onright>
