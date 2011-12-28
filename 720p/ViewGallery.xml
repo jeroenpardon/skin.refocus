@@ -99,9 +99,9 @@
 				<imagepath background="true">$INFO[ListItem.Path,,extrafanart]</imagepath>
 				<aspectratio align="center">scale</aspectratio>
 				<timeperimage>1500</timeperimage>
-				<fadetime>1000</fadetime>
-				<pauseatend>10000</pauseatend>
-				<randomize>true</randomize>
+				<fadetime>800</fadetime>
+				<pauseatend>2000</pauseatend>
+				<randomize>false</randomize>
 				<loop>yes</loop>
 				<visible>Skin.HasSetting(gallery.extrafanart) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Path,,extrafanart) + !ControlGroup(6000).HasFocus</visible>
 				<include>menu_BackgroundHide</include>
@@ -223,10 +223,10 @@
 				<include>screen_Dimensions</include>
 				<imagepath background="true">$INFO[ListItem.Path,,extrafanart]</imagepath>
 				<aspectratio align="center">scale</aspectratio>
-				<timeperimage>3000</timeperimage>
-				<fadetime>1000</fadetime>
-				<pauseatend>10000</pauseatend>
-				<randomize>true</randomize>
+				<timeperimage>1500</timeperimage>
+				<fadetime>800</fadetime>
+				<pauseatend>2000</pauseatend>
+				<randomize>false</randomize>
 				<loop>yes</loop>
 				<visible>Container.Content(tvshows) + Skin.HasSetting(gallery.extrafanart) + System.IdleTime(3)</visible>
 			</control>
