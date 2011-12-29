@@ -141,37 +141,37 @@
 					<item id="1">
 						<label>$LOCALIZE[132]</label>
 						<onclick>ActivateWindow(MusicLibrary,albums)</onclick>
-						<visible>Library.HasContent(albums)</visible>
+						<visible>Library.HasContent(music)</visible>
 					</item>
 					<item id="2">
 						<label>$LOCALIZE[31970]</label>
 						<onclick>ActivateWindow(MusicLibrary,recentlyaddedalbums)</onclick>
-						<visible>Library.HasContent(albums) + Skin.HasSetting(musicmenu.recent)</visible>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.recent)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31971]</label>
 						<onclick>ActivateWindow(MusicLibrary,recentlyplayedalbums)</onclick>
-						<visible>Library.HasContent(albums) + Skin.HasSetting(musicmenu.played)</visible>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.played)</visible>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[133]</label>
 						<onclick>ActivateWindow(MusicLibrary,artists)</onclick>
-						<visible>Library.HasContent(albums) + Skin.HasSetting(musicmenu.artists)</visible>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.artists)</visible>
 					</item>
 					<item id="5">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(MusicLibrary,genres)</onclick>
-						<visible>Library.HasContent(albums) + Skin.HasSetting(musicmenu.genres)</visible>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.genres)</visible>
 					</item>
 					<item id="6">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(MusicLibrary,Addons)</onclick>
-						<visible>Library.HasContent(albums) + Skin.HasSetting(musicmenu.addons)</visible>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.addons)</visible>
 					</item>
 					<item id="6">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(MusicFiles,Addons)</onclick>
-						<visible>!Library.HasContent(albums) + Skin.HasSetting(musicmenu.addons)</visible>
+						<visible>!Library.HasContent(music) + Skin.HasSetting(musicmenu.addons)</visible>
 					</item>
 					<item id="8">
 						<label>$LOCALIZE[136]</label>
@@ -181,7 +181,7 @@
 					<item id="9">
 						<label>$LOCALIZE[589]</label>
 						<onclick>XBMC.PlayerControl(Partymode)</onclick>
-						<visible>Library.HasContent(albums) + Skin.HasSetting(musicmenu.partymode)</visible>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.partymode)</visible>
 					</item>
 					<item id="10">
 						<label>$LOCALIZE[15200]</label>
