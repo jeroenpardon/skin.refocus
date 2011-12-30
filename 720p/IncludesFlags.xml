@@ -15,7 +15,7 @@
 				<info>ListItem.StarRating</info>
 				<aspectratio align="center">keep</aspectratio>
 				<!--<visible>![Window.IsVisible(VideoFiles) | Container.Content(seasons) | Container.Content(musicvideos) | [ListItem.IsFolder + !Container.Content(tvshows)]] + IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>-->
-				<visible>!SubString(ListItem.Icon,default) + !IsEmpty(ListItem.StarRating) </visible>
+				<visible>!SubString(ListItem.Icon,default) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 			</control>
 			<control type="image">
 				<width>96</width>
