@@ -562,9 +562,9 @@
 			</control>
 			<control type="image">
 				<posx>29</posx>
-				<posy>206</posy>
+				<posy>237</posy>
 				<width>1205</width>
-				<height>120</height>
+				<height>146</height>
 				<texture border="10">views/list-focus-bigAlt.png</texture>
 				<animation effect="slide" start="0,0" end="0,8" time="0" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
 				<visible>Window.IsVisible(musiclibrary) + Control.IsVisible(51)</visible>
@@ -878,19 +878,19 @@
 	</include>
 
 	<include name="BigList_Music">
-		<itemlayout condition="Container.Content(albums) | Container.Content(songs)"width="625" height="119">
+		<itemlayout condition="Container.Content(albums) | Container.Content(songs)"width="625" height="150">
 			<control type="image">
-				<width>118</width>
-				<height>118</height>
+				<width>144</width>
+				<height>144</height>
 				<texture background="true" fallback="thumbs/album.png">$INFO[ListItem.Thumb]</texture>
 				<bordertexture border="6" width="384" height="384">frames/frame_Square-small.png</bordertexture>
 				<bordersize>6</bordersize>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<posx>135</posx>
+				<posx>160</posx>
+				<posy>4</posy>
 				<control type="label">
-					<posy>2</posy>
 					<width>770</width>
 					<label>$VAR[global_Title.Music]</label>
 					<include>list_Label</include>
@@ -916,6 +916,13 @@
 					<include>list_Label-sub</include>
 					<visible>Container.Content(songs)</visible>
 				</control>
+				<control type="label">
+					<posy>73</posy>
+					<width>770</width>
+					<label>$INFO[ListItem.Property(Album_Label)]</label>
+					<include>list_Label-sub</include>
+					<visible>Container.Content(albums)</visible>
+				</control>
 			</control>
 			<control type="image">
 				<posx>1060</posx>
@@ -927,25 +934,25 @@
 				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="Container.Content(albums) | Container.Content(songs)" width="625" height="119">
+		<focusedlayout condition="Container.Content(albums) | Container.Content(songs)" width="625" height="150">
 			<control type="image">
-				<width>118</width>
-				<height>118</height>
+				<width>144</width>
+				<height>144</height>
 				<texture background="true" fallback="thumbs/album.png">$INFO[ListItem.Thumb]</texture>
 				<bordertexture border="6" width="384" height="384">frames/frame_Square-small-border.png</bordertexture>
 				<bordersize>6</bordersize>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<posx>135</posx>
+				<posx>160</posx>
+				<posy>4</posy>
 				<control type="label">
-					<posy>2</posy>
 					<width>770</width>
 					<label>$VAR[global_Title.Music]</label>
 					<include>list_Label-focus</include>
 				</control>
 				<control type="label">
-					<posy>28</posy>
+					<posy>27</posy>
 					<width>770</width>
 					<label>$INFO[ListItem.Artist]</label>
 					<include>list_Label-sub-focus</include>
@@ -963,6 +970,13 @@
 					<label>$INFO[ListItem.Album]</label>
 					<include>list_Label-sub-focus</include>
 					<visible>Container.Content(songs)</visible>
+				</control>
+				<control type="label">
+					<posy>73</posy>
+					<width>770</width>
+					<label>$INFO[ListItem.Property(Album_Label)]</label>
+					<include>list_Label-sub-focus</include>
+					<visible>Container.Content(albums)</visible>
 				</control>
 			</control>
 			<control type="image">
