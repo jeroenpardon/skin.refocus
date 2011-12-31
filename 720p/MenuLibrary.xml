@@ -471,7 +471,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Container.Content(addons) | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+					<visible>Container.Content(addons) | [SubString(Container.FolderPath,plugin://) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Container.HasFiles]</visible>
 					<control type="button" id="404">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(522)</onclick>
