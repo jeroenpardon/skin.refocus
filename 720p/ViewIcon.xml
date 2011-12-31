@@ -241,7 +241,7 @@
 				<pagecontrol>78</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-				<visible>Container.Content(addons) + !IsEmpty(Container.FolderPath)</visible>
+				<visible>[Container.Content(addons) | Container.Content(programs)] + !IsEmpty(Container.FolderPath)</visible>
 				<itemlayout height="180" width="180">
 					<control type="image">
 						<width>176</width>
@@ -469,7 +469,7 @@
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
 			<animation effect="slide" end="0,15" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
-			<visible>Container.Content(addons)</visible>
+			<visible>Container.Content(addons) | Container.Content(programs)</visible>
 			<itemlayout height="264" width="224">
 				<control type="image">
 					<posx>4</posx>

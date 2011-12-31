@@ -15,7 +15,7 @@
 					<height>42</height>
 					<control type="button" id="1">
 						<label>$LOCALIZE[31930]</label>
-						<onup>31</onup>
+						<onup>90</onup>
 						<ondown>3</ondown>
 						<onright>50</onright>
 						<onclick>SetFocus(40)</onclick>
@@ -71,7 +71,7 @@
 					<control type="button" id="19">
 						<label>$LOCALIZE[587]</label>
 						<onup>32</onup>
-						<ondown>5</ondown>
+						<ondown>31</ondown>
 						<onright>50</onright>
 						<include>button_Menu</include>
 					</control>
@@ -110,10 +110,40 @@
 					<height>42</height>
 					<control type="button" id="31">
 						<label>$LOCALIZE[1036]</label>
-						<onup>6</onup>
-						<ondown>1</ondown>
+						<onup>19</onup>
+						<ondown>90</ondown>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--THUMBS: addons info-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Control.IsVisible(576) + [Container.Content(addons) | Container.Content(programs)]</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31975]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(574)</onclick>
+						<onclick>SetFocus(576)</onclick>
+						<include>button_Menu</include>
+					</control>
+				</control>
+				<!--THUMBS: addons no info-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Control.IsVisible(574) + [Container.Content(addons) | Container.Content(programs)]</visible>
+					<control type="button" id="90">
+						<label>$LOCALIZE[31974]</label>
+						<onup>31</onup>
+						<ondown>1</ondown>
+						<onright>50</onright>
+						<onclick>Container.SetViewMode(576)</onclick>
+						<onclick>SetFocus(576)</onclick>
 						<include>button_Menu</include>
 					</control>
 				</control>
