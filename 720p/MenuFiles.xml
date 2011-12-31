@@ -76,7 +76,7 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--auto-updates-->
+				<!--auto-updates
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
@@ -90,7 +90,6 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--notifications-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
@@ -104,6 +103,7 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				-->
 				<!--favourites-->
 				<control type="group">
 					<width>220</width>
@@ -140,20 +140,36 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				<!--slide addons-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(addons)</visible>
+					<control type="button" id="402">
+						<label>$LOCALIZE[31003]</label>
+						<onclick>Container.SetViewMode(522)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(522)</onclick>
+						<onright>50</onright>
+						<onup>401</onup>
+						<ondown>403</ondown>
+						<include>button_Menu</include>
+					</control>
+				</control>
 				<!--thumbnails-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
 					<visible>[Window.IsActive(2) | Window.IsActive(MusicLibrary)] + Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
-					<control type="button" id="402">
+					<control type="button" id="403">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(573)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(573)</onclick>
 						<onright>30</onright>
 						<onback>30</onback>
-						<onup>401</onup>
-						<ondown>403</ondown>
+						<onup>402</onup>
+						<ondown>404</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -162,14 +178,14 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>SubString(Container.FolderPath,addons) + !StringCompare(Container.FolderPath,addons://all/)</visible>
-					<control type="button" id="402">
+					<control type="button" id="404">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(574)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(574)</onclick>
 						<onright>30</onright>
-						<onup>401</onup>
-						<ondown>403</ondown>
+						<onup>403</onup>
+						<ondown>405</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>
@@ -178,13 +194,13 @@
 					<width>220</width>
 					<height>42</height>
 					<visible>Window.IsActive(2) + Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
-					<control type="button" id="403">
+					<control type="button" id="405">
 						<label>$LOCALIZE[31002]</label>
 						<onclick>Container.SetViewMode(53)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(572)</onclick>
 						<onright>30</onright>
-						<onup>402</onup>
+						<onup>404</onup>
 						<ondown>401</ondown>
 						<include>button_Menu</include>
 					</control>
@@ -306,19 +322,35 @@
 						<include>button_Menu</include>
 					</control>
 				</control>
+				<!--slide addons-->
+				<control type="group">
+					<width>220</width>
+					<height>42</height>
+					<visible>Container.Content(addons)</visible>
+					<control type="button" id="402">
+						<label>$LOCALIZE[31003]</label>
+						<onclick>Container.SetViewMode(522)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<onclick>SetFocus(522)</onclick>
+						<onright>50</onright>
+						<onup>401</onup>
+						<ondown>403</ondown>
+						<include>button_Menu</include>
+					</control>
+				</control>
 				<!--thumbnails addons-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
 					<visible>!IsEmpty(Container.FolderPath)</visible>
-					<control type="button" id="402">
+					<control type="button" id="403">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(574)</onclick>
 						<onclick>SetFocus(1)</onclick>
 						<onclick>SetFocus(574)</onclick>
 						<onright>30</onright>
-						<onup>401</onup>
-						<ondown>403</ondown>
+						<onup>402</onup>
+						<ondown>401</ondown>
 						<include>button_Menu</include>
 					</control>
 				</control>

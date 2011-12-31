@@ -1,4 +1,103 @@
 ﻿<includes>
+<!---INFO------>
+	<include name="info_Slide">
+		<control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
+			<include>infoDialogHide</include>
+			<visible>Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522)</visible>
+			<!---flags--->
+			<control type="image">
+				<posx>60</posx>
+				<posy>459</posy>
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+			</control>
+			<include>flags_Slide-media</include>
+			<!---info--->	
+			<control type="group">
+				<visible>!Container.Content(addons)</visible>
+				<posx>220</posx>
+				<posy>462</posy>
+				<control type="label">
+					<width>960</width>
+					<label>$VAR[global_Title]</label>
+					<include>info_Title</include>
+				</control>
+				<control type="label">
+					<posy>28</posy>
+					<width>960</width>
+					<label>$VAR[global_Info]</label>
+					<include>info_Sub</include>
+					<visible>!SubString(Container.FolderPath,plugin)</visible>
+				</control>
+				<control type="label">
+					<posy>28</posy>
+					<width>960</width>
+					<label>$VAR[global_Info.Addon]</label>
+					<include>info_Sub</include>
+					<visible>SubString(Container.FolderPath,plugin)</visible>
+				</control>
+				<control type="textbox">
+					<posy>60</posy>
+					<width>960</width>
+					<height>110</height>
+					<label>$VAR[global_Plot.Condition]</label>
+					<include>description_Small</include>
+					<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
+				</control>
+				<control type="textbox">
+					<posy>60</posy>
+					<width>960</width>
+					<height>163</height>
+					<label>$VAR[global_Plot.Condition]</label>
+					<include>description_Small</include>
+					<visible>!IsEmpty(ListItem.Property(ReleaseDate))</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="info_SlideAddons">
+		<!---info--->
+		<control type="group">
+			<posx>220</posx>
+			<posy>462</posy>
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(522) + [Container.Content(addons) | Container.Content(programs)]</visible>
+			<control type="label">
+				<width>960</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>info_Title</include>
+			</control>
+			<control type="label">
+				<posy>28</posy>
+				<width>960</width>
+				<label>$LOCALIZE[31979] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31106] $INFO[ListItem.Property(Addon.Creator)]</label>
+				<include>info_Sub</include>
+				<visible>!SubString(ListItem.Icon,default)</visible>
+			</control>
+			<control type="textbox">
+				<posy>60</posy>
+				<width>960</width>
+				<height>118</height>
+				<label>$INFO[ListItem.Property(Addon.Description)]</label>
+				<include>description_Small</include>
+				<visible>!SubString(ListItem.Icon,default)</visible>
+			</control>
+			<control type="image">
+				<posx>2</posx>
+				<posy>198</posy>
+				<width>128</width>
+				<height>32</height>
+				<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
+				<aspectratio align="center">keep</aspectratio>
+			</control>
+		</control>
+	</include>
+
 <!---PORTRAIT------>
 	<include name="view_SlidePoster">
 		<control type="fixedlist" id="52">
@@ -202,7 +301,7 @@
 			<focusposition>1</focusposition>
 			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 			<orientation>horizontal</orientation>
-			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)] | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
+			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons) | Container.Content(programs)] | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>

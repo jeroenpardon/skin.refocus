@@ -71,7 +71,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Title.Video]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label</include>
 				<visible>!Container.Content(files)</visible>
 			</control>
@@ -86,7 +86,7 @@
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Info.Video]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub</include>
 				<visible>!SubString(Container.FolderPath,plugin://)</visible>
 			</control>
@@ -132,7 +132,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Title.Video]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label-focus</include>
 				<visible>!Container.Content(files)</visible>
 			</control>
@@ -147,7 +147,7 @@
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Info.Video]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
 				<visible>!SubString(Container.FolderPath,plugin://)</visible>
 			</control>
@@ -187,7 +187,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
-				<label>$VAR[global_Title.Music]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label-single</include>
 			</control>
 			<control type="image">
@@ -211,7 +211,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
-				<label>$VAR[global_Title.Music]</label>
+				<label>$VAR[global_Title]</label>
 				<textcolor>Focused</textcolor>
 				<include>list_Label-single</include>
 			</control>
@@ -228,14 +228,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Title.Music]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Info.Music]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -262,14 +262,14 @@
 			<control type="label">
 				<posx>40</posx>
 				<width>440</width>
-				<label>$VAR[global_Title.Music]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
-				<label>$VAR[global_Info.Music]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
@@ -592,9 +592,9 @@
 			</control>
 		</control>
 	</include>
-			
+	<!--landscape-->
 	<include name="BigList_Video">
-		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="625" height="150">
+		<itemlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="625" height="150">
 			<control type="image">
 				<width>247</width>
 				<height>144</height>
@@ -614,7 +614,7 @@
 				<posx>260</posx>
 				<posy>30</posy>
 				<width>770</width>
-				<label>$VAR[global_Info.Video]</label>
+				<label>$VAR[global_Info.Video] $INFO[ListItem.Property(NextAired.NextDate),$LOCALIZE[31076] ]</label>
 				<include>list_Label-sub</include>
 				<visible>!SubString(Container.FolderPath,plugin)</visible>
 			</control>
@@ -666,7 +666,7 @@
 				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="625" height="150">
+		<focusedlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="625" height="150">
 			<control type="image">
 				<width>247</width>
 				<height>144</height>
@@ -730,7 +730,8 @@
 				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</focusedlayout>
-		<itemlayout condition="Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]"width="625" height="150">
+		<!--portrait-->
+		<itemlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]"width="625" height="150">
 			<control type="image">
 				<width>100</width>
 				<height>144</height>
@@ -802,7 +803,7 @@
 				<visible>IntegerGreaterThan(ListItem.VideoResolution,540)</visible>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="Skin.HasSetting(view.biglist.posters) + [Container.Content(tvshows) | Container.Content(movies)]" width="625" height="150">
+		<focusedlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="625" height="150">
 			<control type="image">
 				<width>100</width>
 				<height>144</height>

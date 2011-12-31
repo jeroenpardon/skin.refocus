@@ -31,8 +31,6 @@
 		</control>
 
 <!---LIST VIEW------>
-		<include>view_List</include>
-		<!---landscape--->
 		<control type="group">
 			<posx>655</posx>
 			<posy>68</posy>
@@ -49,58 +47,13 @@
 				<include>thumb_Landscape-List</include>
 			</control>
 		</control>
-		<!---info--->
+		<include>view_List</include>
 		<include>info_MusicList</include>
 		<include>info_AddonList</include>
 
 <!---SLIDE VIEW------>
-		<control type="group">
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522)</visible>
-			<!---flags--->
-			<control type="image">
-				<posx>60</posx>
-				<posy>459</posy>
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[flag_Studio]</texture>
-			</control>
-			<!---info--->
-			<control type="group">
-				<posx>220</posx>
-				<posy>462</posy>
-				<visible>!Container.Content(addons)</visible>
-				<control type="label">
-					<width>1080</width>
-					<label>$VAR[global_Title.Music]</label>
-					<include>info_Title</include>
-				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>920</width>
-					<label>$VAR[global_Info.Music]</label>
-					<include>info_Sub</include>
-				</control>
-				<control type="label">
-					<posy>60</posy>
-					<width>980</width>
-					<label>$INFO[ListItem.Duration]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(songs)</visible>
-				</control>
-				<control type="textbox">
-					<posy>60</posy>
-					<width>960</width>
-					<height>170</height>
-					<label>$VAR[global_Plot.Condition]</label>
-					<include>description_Small</include>
-				</control>
-			</control>
-		</control>
-		<include>info_AddonSlide</include>
+		<include>info_Slide</include>
+		<include>info_SlideAddons</include>
 
 <!---THUMBNAILS VIEW------>
 		<control type="group">
@@ -123,13 +76,13 @@
 					<posx>60</posx>
 					<posy>645</posy>
 					<control type="label">
-						<label>$VAR[global_Title.Music]</label>
+						<label>$VAR[global_Title]</label>
 						<width>1100</width>
 						<include>info_Title</include>
 					</control>
 					<control type="label">
 						<posy>28</posy>
-						<label>$VAR[global_Info.Music]</label>
+						<label>$VAR[global_Info]</label>
 						<width>750</width>
 						<include>info_Sub</include>
 					</control>
