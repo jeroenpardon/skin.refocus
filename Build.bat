@@ -16,6 +16,7 @@ xcopy "language\Dutch" "BUILD\skin.refocus.release\language\Dutch" /E /Q /I /Y
 xcopy "language\English" "BUILD\skin.refocus.release\language\English" /E /Q /I /Y
 xcopy "language\French" "BUILD\skin.refocus.release\language\French" /E /Q /I /Y
 xcopy "language\German" "BUILD\skin.refocus.release\language\German" /E /Q /I /Y
+xcopy "language\Italian" "BUILD\skin.refocus.release\language\Italian" /E /Q /I /Y
 xcopy "language\Korean" "BUILD\skin.refocus.release\language\Korean" /E /Q /I /Y
 xcopy "language\Norwegian" "BUILD\skin.refocus.release\language\Norwegian" /E /Q /I /Y
 xcopy "language\Polish" "BUILD\skin.refocus.release\language\Polish" /E /Q /I /Y
