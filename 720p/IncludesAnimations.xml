@@ -45,6 +45,14 @@
 			<effect type="slide" center="auto" start="0,40" end="0,0" time="100" tween="Quadratic" easing="Out"/>
 		</animation>
 	</include>
+	<include name="focus_ListScrollPVR">
+		<animation type="Focus" reversible="false" condition="Skin.HasSetting(smoothscrolling.enable) + Container.OnNext">
+			<effect type="slide" center="auto" start="0,-125" end="0,0" time="100" tween="Quadratic" easing="Out"/>
+		</animation>
+		<animation type="Focus" reversible="false" condition="Skin.HasSetting(smoothscrolling.enable) + Container.OnPrevious">
+			<effect type="slide" center="auto" start="0,125" end="0,0" time="100" tween="Quadratic" easing="Out"/>
+		</animation>
+	</include>
 	<include name="focus_ThumbPoster">
 		<animation effect="zoom" tween="Quadratic" start="100" end="125" center="90,125" time="200">Focus</animation>
 		<animation effect="zoom" tween="Quadratic" start="125" end="100" center="90,125" time="100">UnFocus</animation>

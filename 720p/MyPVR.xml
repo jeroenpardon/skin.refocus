@@ -13,7 +13,6 @@
 	<!---GLOBAL------>
 		<include>global_Background</include>
 		<include>global_Clock</include>
-		<include>global_Sortletter</include>
 		<include>windowTitle_PVR</include>
 		<include>PageControls</include>
 		<control type="label">
@@ -26,10 +25,10 @@
 			<textcolor>yellow</textcolor>
 			<visible>Skin.HasSetting(dev.enable)</visible>
 		</control>
-
+		
 	<!---VIEWS------>
 		<control type="group" id="50">
-			<include>view_TV-now</include>
+			<include>view_EPG-now</include>
 			<include>view_EPG-timeline</include>
 			<include>view_EPG-channels</include>
 			<include>view_TVChannels</include>
@@ -39,7 +38,7 @@
 			<include>view_TV-recordings</include>
 		</control>
 
-	<!---PREVIEW------>
+	<!---PREVIEW
 		<control type="group">
 			<posx>685</posx>
 			<posy>100</posy>
@@ -88,16 +87,20 @@
 				</control>
 			</control>
 		</control>
+		------>
 
 	<!---EPG INFO------>
 		<control type="group">
 			<posx>100</posx>
-			<posy>540</posy>
+			<posy>560</posy>
 			<include>transition_Container</include>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<visible>Control.IsVisible(10) | Control.IsVisible(16) | Control.IsVisible(17)</visible>
-			<control type="group">
-				<include>flags_PVR</include>
+			<visible>Control.IsVisible(10) | Control.IsVisible(15) |  Control.IsVisible(16) | Control.IsVisible(17)</visible>
+			<control type="image">
+				<width>128</width>
+				<height>64</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
 			</control>
 			<control type="grouplist">
 				<posx>185</posx>
@@ -126,8 +129,9 @@
 				</control>
 			</control>
 		</control>
+		
 
-	<!---RECORDINGS------>
+	<!---RECORDINGS
 		<control type="group">
 			<include>transition_Container</include>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
@@ -175,8 +179,10 @@
 				</control>
 			</control>
 		</control>
+		
+		------>
 
-	<!---GUIDE CHANNELS------>
+	<!---GUIDE CHANNELS
 		<control type="group">
 			<control type="group">
 				<posx>39</posx>
@@ -216,13 +222,20 @@
 					<label>552</label>
 				</control>
 			</control>
-		</control>
+		</control>------>
 		
 		<control type="image">
 			<posx>230</posx>
 			<include>screen_Separator</include>
 			<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
 			<visible>![Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
+		</control>
+		
+		<control type="image">
+			<posx>134</posx>
+			<include>screen_Separator</include>
+			<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
+			<visible>[Control.IsVisible(11) | Control.IsVisible(12)]</visible>
 		</control>
 
 		<include>TVMenu</include>
