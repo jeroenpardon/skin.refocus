@@ -38,72 +38,22 @@
 			<include>view_TV-recordings</include>
 		</control>
 
-	<!---PREVIEW
-		<control type="group">
-			<posx>685</posx>
-			<posy>100</posy>
-			<include>infoDialogHide</include>
-			<include>transition_Container</include>
-			<include>toggle_Menu</include>
-			<visible>Player.HasVideo + VideoPlayer.Content(livetv) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
-			<control type="image">
-				<width>510</width>
-				<height>287</height>
-				<texture>black.png</texture>
-				<visible>Player.HasVideo</visible>
-			</control>
-			<control type="videowindow">
-				<width>510</width>
-				<height>287</height>
-				<visible>Player.HasVideo + !ControlGroup(6000).HasFocus(0) + !Window.IsActive(2003)</visible>
-			</control>
-			<control type="grouplist">
-				<posy>310</posy>
-				<itemgap>0</itemgap>
-				<visible>!Control.IsVisible(13)</visible>
-				<control type="label" id="1">
-					<width>510</width>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<include>info_Title</include>
-				</control>
-				<control type="label" id="1">
-					<width>510</width>
-					<label>$INFO[VideoPlayer.Label]</label>
-					<include>info_Title</include>
-					<visible>IsEmpty(VideoPlayer.Title)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>510</width>
-					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss),, • ]$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
-					<include>info_Sub</include>
-				</control>
-				<control type="textbox" id="4">
-					<width>510</width>
-					<height>220</height>
-					<aligny>top</aligny>
-					<label>$INFO[VideoPlayer.Plot]</label>
-					<textcolor>Color7</textcolor>
-					<font>descriptionSmall</font>
-				</control>
-			</control>
-		</control>
-		------>
-
 	<!---EPG INFO------>
 		<control type="group">
-			<posx>100</posx>
-			<posy>560</posy>
+			<posx>160</posx>
+			<posy>550</posy>
 			<include>transition_Container</include>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
 			<visible>Control.IsVisible(10) | Control.IsVisible(15) |  Control.IsVisible(16) | Control.IsVisible(17)</visible>
 			<control type="image">
-				<width>128</width>
-				<height>64</height>
+				<width>72</width>
+				<height>72</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
 			</control>
 			<control type="grouplist">
-				<posx>185</posx>
+				<posy>8</posy>
+				<posx>125</posx>
 				<itemgap>0</itemgap>
 				<control type="label" id="1">
 					<width>950</width>
@@ -129,108 +79,13 @@
 				</control>
 			</control>
 		</control>
-		
 
-	<!---RECORDINGS
-		<control type="group">
-			<include>transition_Container</include>
-			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<visible>Control.IsVisible(13)</visible>
-			<control type="group">
-				<control type="group">
-					<visible>!Player.HasVideo</visible>
-					<posx>655</posx>
-					<posy>68</posy>
-					<control type="image">
-						<include>frame_Landscape-List</include>
-						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
-					</control>
-					<control type="image">
-						<texture fallback="backgrounds/livetv.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-						<include>thumb_Landscape-List</include>
-					</control>
-				</control>
-				<control type="grouplist" id="1000">
-					<posx>685</posx>
-					<posy>410</posy>
-					<itemgap>0</itemgap>
-					<control type="label" id="1">
-						<width>540</width>
-						<label>$INFO[ListItem.Title]</label>
-						<include>info_Title</include>
-					</control>
-					<control type="label" id="1">
-						<width>540</width>
-						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, • ]</label>
-						<include>info_Sub</include>
-					</control>
-					<control type="label" id="1">
-						<label></label>
-						<height>10</height>
-					</control>
-					<control type="textbox" id="4">
-						<width>540</width>
-						<height>413</height>
-						<aligny>top</aligny>
-						<label>$INFO[ListItem.Plot]</label>
-						<textcolor>Color7</textcolor>
-						<font>descriptionSmall</font>
-					</control>
-				</control>
-			</control>
-		</control>
-		
-		------>
-
-	<!---GUIDE CHANNELS
-		<control type="group">
-			<control type="group">
-				<posx>39</posx>
-				<posy>100</posy>
-				<include>transition_Container</include>
-				<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-				<visible>Control.IsVisible(15)</visible>
-				<control type="label">
-					<description>time</description>
-					<posx>15</posx>
-					<width>200</width>
-					<height>20</height>
-					<font>titleLow</font>
-					<textcolor>Color2</textcolor>
-					<aligny>center</aligny>
-					<label>555</label>
-					<align>left</align>
-				</control>
-				<control type="label">
-					<description>title</description>
-					<posx>235</posx>
-					<width>250</width>
-					<height>20</height>
-					<font>titleLow</font>
-					<textcolor>Color2</textcolor>
-					<aligny>center</aligny>
-					<label>369</label>
-				</control>
-				<control type="label">
-					<description>date</description>
-					<posx>880</posx>
-					<width>140</width>
-					<height>20</height>
-					<font>titleLow</font>
-					<textcolor>Color2</textcolor>
-					<aligny>center</aligny>
-					<label>552</label>
-				</control>
-			</control>
-		</control>------>
-		
 		<control type="image">
 			<posx>230</posx>
 			<include>screen_Separator</include>
 			<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
 			<visible>![Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
 		</control>
-		
 		<control type="image">
 			<posx>134</posx>
 			<include>screen_Separator</include>
