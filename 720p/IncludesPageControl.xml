@@ -68,18 +68,18 @@
 <!---live tv list------>
 		<control type="scrollbar" id="79">
 			<posx>1245</posx>
-			<posy>92</posy>
-			<height>580</height>
+			<posy>78</posy>
+			<height>620</height>
 			<onleft>11</onleft>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<visible allowhiddenfocus="true">Window.IsActive(600) + [Control.IsVisible(11) | Control.IsVisible(13)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(79)]</visible>
+			<visible allowhiddenfocus="true">Window.IsActive(600) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(79)]</visible>
 		</control>
 <!---live tv guide------>
 		<control type="scrollbar" id="80">
 			<description>live tv guide</description>
 			<posx>1245</posx>
-			<posy>165</posy>
-			<height>350</height>
+			<posy>135</posy>
+			<height>393</height>
 			<onleft>11</onleft>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
 			<visible allowhiddenfocus="true">[Window.IsActive(600) + [Control.IsVisible(16)]] + [Skin.HasSetting(scrollbar.enable) + !Skin.HasSetting(scrollbar.hide) | Skin.HasSetting(scrollbar.hide) + Control.HasFocus(80)]</visible>
