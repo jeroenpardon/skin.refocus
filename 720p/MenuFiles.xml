@@ -26,7 +26,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<!--<visible>Control.IsEnabled(3)</visible>-->
+					<visible>Control.IsEnabled(3)</visible>
 					<control type="button" id="3">
 						<label>$LOCALIZE[103]</label>
 						<onright>-</onright>
@@ -40,7 +40,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<!--<visible>Control.IsEnabled(4)</visible>-->
+					<visible>Control.IsEnabled(4)</visible>
 					<control type="togglebutton" id="4">
 						<label>$LOCALIZE[584]</label>
 						<altlabel>$LOCALIZE[585]</altlabel>
@@ -71,19 +71,19 @@
 					<control type="button" id="19">
 						<label>$LOCALIZE[587]</label>
 						<onup>32</onup>
-						<ondown>31</ondown>
+						<ondown>5</ondown>
 						<onright>50</onright>
 						<include>button_Menu</include>
 					</control>
 				</control>
-				<!--auto-updates
+				<!--auto-updates-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
 					<visible>Window.IsActive(addonbrowser)</visible>
 					<control type="togglebutton" id="5">
-						<label>$LOCALIZE[24063]</label>
-						<altlabel>$LOCALIZE[24063] ●</altlabel>
+						<label>$LOCALIZE[24063]$LOCALIZE[31113]</label>
+						<altlabel>$LOCALIZE[24063]$LOCALIZE[31114]</altlabel>
 						<onup>19</onup>
 						<ondown>6</ondown>
 						<onright>50</onright>
@@ -95,22 +95,21 @@
 					<height>42</height>
 					<visible>Window.IsActive(addonbrowser)</visible>
 					<control type="togglebutton" id="6">
-						<label>$LOCALIZE[25000]</label>
-						<altlabel>$LOCALIZE[25000] ●</altlabel>
+						<label>$LOCALIZE[25000]$LOCALIZE[31113]</label>
+						<altlabel>$LOCALIZE[25000]$LOCALIZE[31114]</altlabel>
 						<onup>5</onup>
 						<ondown>31</ondown>
 						<onright>50</onright>
 						<include>button_Menu</include>
 					</control>
 				</control>
-				-->
 				<!--favourites-->
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
 					<control type="button" id="31">
 						<label>$LOCALIZE[1036]</label>
-						<onup>19</onup>
+						<onup>6</onup>
 						<ondown>90</ondown>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
@@ -356,7 +355,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Container.Content(addons)</visible>
+					<visible>Container.Content(addons) + !SubString(Container.FolderName,$LOCALIZE[24032]) + !IsEmpty(Container.FolderPath)</visible>
 					<control type="button" id="402">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(522)</onclick>
@@ -372,7 +371,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>!IsEmpty(Container.FolderPath)</visible>
+					<visible>Container.Content(addons) + !SubString(Container.FolderName,$LOCALIZE[24032]) + !IsEmpty(Container.FolderPath)</visible>
 					<control type="button" id="403">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(574)</onclick>
