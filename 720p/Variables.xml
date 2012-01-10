@@ -206,7 +206,7 @@
 <!---WINDOW TITLES------>
 	<variable name="window_Title.Video">
 	<!--video sources-->
-		<value condition="[Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(Files)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,skin) + !SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(Files)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,skin) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 	<!--nodes-->
 		<!--movies--><value condition="StringCompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342]</value>
 		<!--tv shows--><value condition="StringCompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343]</value>
@@ -236,8 +236,8 @@
 		<value condition="SubString(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[136][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,special://profile/playlists/video/)">$LOCALIZE[559] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>		
 	<!--add-ons-->
-		<value condition="Container.Content(addons) + !SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</value>	
-		<!--movie trailers--><value condition="SubString(Container.FolderPath,plugin://plugin.video.apple)">$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</value>
+		<value condition="Container.Content(addons) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</value>	
+		<!--movie trailers--><value condition="SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</value>
 	</variable>
 
 	<variable name="window_Title.Music">

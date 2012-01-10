@@ -42,7 +42,7 @@
 				<control type="group">
 					<posx>655</posx>
 					<posy>68</posy>
-					<visible>!StringCompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
+					<visible>!StringCompare(Container.FolderPath,plugin://plugin.video.the.trailers/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
 					<control type="image">
 						<include>frame_Landscape-List</include>
 						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
@@ -73,7 +73,7 @@
 				<control type="group">
 					<posx>685</posx>
 					<posy>420</posy>
-					<visible>!stringcompare(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
+					<visible>!stringcompare(container.folderpath,plugin://plugin.video.the.trailers/)</visible>
 					<control type="textbox">
 						<width>525</width>
 						<height>244</height>
@@ -184,7 +184,7 @@
 					<height>64</height>
 					<texture>$VAR[flag_Studio]</texture>
 					<aspectratio align="right">keep</aspectratio>
-					<visible>SubString(Container.FolderPath,plugin://plugin.video.apple)</visible>
+					<visible>SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 				</control>
 				<control type="group">
 					<posx>85</posx>
