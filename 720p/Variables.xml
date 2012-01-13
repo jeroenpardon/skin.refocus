@@ -309,6 +309,7 @@
 		<value>$LOCALIZE[206]</value>
 	</variable>
 	<variable name="osdInfo.Info">
+		<value condition="Player.ChapterCount">$LOCALIZE[21396]$INFO[Player.Chapter,: ]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName, • ,]</value>
 		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
