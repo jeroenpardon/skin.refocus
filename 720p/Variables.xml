@@ -198,7 +198,7 @@
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.studio,flags/studios/,.png]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.studio,flags/networks/,.png]</value>
 		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.studio,flags/labels/,.png]</value>
-		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,flags/networks/,.png]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Icon]</value>
 		<value condition="VideoPlayer.Content(files)">$INFO[VideoPlayer.VideoCodec,flags/codec/,.png]</value>
 		<value condition="MusicPlayer.Content(files)">$INFO[MusicPlayer.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
@@ -309,7 +309,6 @@
 		<value>$LOCALIZE[206]</value>
 	</variable>
 	<variable name="osdInfo.Info">
-		<value condition="!IsEmpty(ListItem.Property(ReleaseDate))">pijpen</value>
 		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
@@ -319,8 +318,9 @@
 
 <!---OSD------>
 	<variable name="player_Plot.Condition">
-		<value condition="!IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
-		<value>$INFO[VideoPlayer.Plot]</value>
+		<value condition="!IsEmpty(VideoPlayer.Plotoutline) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Plotoutline]</value>
+		<value condition="!IsEmpty(VideoPlayer.Plot)">$INFO[VideoPlayer.Plot]</value>
+		<value>$LOCALIZE[416]</value>
 	</variable>
 	
 <!---PVR------>	
