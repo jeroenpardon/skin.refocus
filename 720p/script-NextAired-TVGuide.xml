@@ -7,7 +7,7 @@
 	<onload>ClearProperty(TVGuide.SaturdayList,Home)</onload>
 	<onload>ClearProperty(TVGuide.SundayList,Home)</onload>
 	<allowoverlay>no</allowoverlay>
-
+	
 	<controls>
 		<control type="group">
 			<include>transition_Fanart</include>
@@ -50,15 +50,12 @@
 		</control>
 
 		<include>global_Background</include>
-
 		<control type="label">
 			<posx>59</posx>
 			<label>$LOCALIZE[20364] [COLOR=Color2]$LOCALIZE[22020][/COLOR]</label>
 			<include>windowTitle</include>
 		</control>
-
 		<include>global_Includes</include>
-		
 		<control type="image">
 			<posx>20</posx>
 			<posy>21</posy>
@@ -148,807 +145,792 @@
 				</control>
 			</control>
 		
-		<control type="group" id="9002">
-			<posx>80</posx>
-			<posy>110</posy>
-			<control type="image">
-				<posx>0</posx>
-				<posy>25</posy>
-				<width>1110</width>
-				<height>383</height>
-				<texture>addons/nextaired/grid.png</texture>
-				<colordiffuse>column3</colordiffuse>
-			</control>
+			<control type="group" id="9002">
+				<posx>80</posx>
+				<posy>110</posy>
+				<control type="image">
+					<posx>0</posx>
+					<posy>25</posy>
+					<width>1110</width>
+					<height>383</height>
+					<texture>addons/nextaired/grid.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>
 			
-<!---MONDAY LIST------>
-			<control type="group">
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(200)">Conditional</animation>
-					<visible>Container(200).HasNext</visible>
+			<!---MONDAY LIST------>
+				<control type="group">
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(200)">Conditional</animation>
+						<visible>Container(200).HasNext</visible>
+					</control>
+					<control type="list" id="200">
+						<width>150</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>200</onup>
+						<ondown>200</ondown>
+						<onleft>SetProperty(TVGuide.MondayList,1,Home)</onleft>
+						<onleft>9000</onleft>
+						<onright>201</onright>
+						<itemlayout height="131" width="250">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="250">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(200)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(200)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
-				<control type="list" id="200">
-					<width>150</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>200</onup>
-					<ondown>200</ondown>
-					<onleft>SetProperty(TVGuide.MondayList,1,Home)</onleft>
-					<onleft>9000</onleft>
-					<onright>201</onright>
-					<itemlayout height="131" width="250">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="250">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(200)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(200)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
+			<!---TUESDAY LIST------>
+				<control type="group">
+					<posx>160</posx>
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(201)">Conditional</animation>
+						<visible>Container(201).HasNext</visible>
+					</control>				
+					<control type="list" id="201">
+						<width>160</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>201</onup>
+						<ondown>201</ondown>
+						<onleft>SetProperty(TVGuide.TuesdayList,1,Home)</onleft>
+						<onleft>200</onleft>
+						<onright>202</onright>
+						<itemlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(201)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(201)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
-			</control>
-
-<!---TUESDAY LIST------>
-			<control type="group">
-				<posx>160</posx>
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(201)">Conditional</animation>
-					<visible>Container(201).HasNext</visible>
-				</control>				
-				<control type="list" id="201">
-					<width>160</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>201</onup>
-					<ondown>201</ondown>
-					<onleft>SetProperty(TVGuide.TuesdayList,1,Home)</onleft>
-					<onleft>200</onleft>
-					<onright>202</onright>
-					<itemlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(201)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(201)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
+			<!---WEDNESDAY LIST------>
+				<control type="group">
+					<posx>320</posx>
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(202)">Conditional</animation>
+						<visible>Container(202).HasNext</visible>
+					</control>
+					<control type="list" id="202">
+						<width>1280</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>202</onup>
+						<ondown>202</ondown>
+						<onleft>SetProperty(TVGuide.WednesdayList,1,Home)</onleft>
+						<onleft>201</onleft>
+						<onright>203</onright>
+						<itemlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(202)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(202)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
-			</control>
-
-<!---WEDNESDAY LIST------>
-			<control type="group">
-				<posx>320</posx>
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(202)">Conditional</animation>
-					<visible>Container(202).HasNext</visible>
+			<!---THURSDAY LIST------>
+				<control type="group">
+					<posx>480</posx>
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(203)">Conditional</animation>
+						<visible>Container(203).HasNext</visible>
+					</control>				
+					<control type="list" id="203">
+						<width>160</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>203</onup>
+						<ondown>203</ondown>
+						<onleft>SetProperty(TVGuide.ThursdayList,1,Home)</onleft>
+						<onleft>202</onleft>
+						<onright>204</onright>
+						<itemlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(203)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(203)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
-				<control type="list" id="202">
-					<width>1280</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>202</onup>
-					<ondown>202</ondown>
-					<onleft>SetProperty(TVGuide.WednesdayList,1,Home)</onleft>
-					<onleft>201</onleft>
-					<onright>203</onright>
-					<itemlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(202)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(202)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
+			<!---FRIDAY LIST------>
+				<control type="group">
+					<posx>640</posx>
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(204)">Conditional</animation>
+						<visible>Container(204).HasNext</visible>
+					</control>		
+					<control type="list" id="204">
+						<width>160</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>204</onup>
+						<ondown>204</ondown>
+						<onleft>SetProperty(TVGuide.FridayList,1,Home)</onleft>
+						<onleft>203</onleft>
+						<onright>205</onright>
+						<itemlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(204)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(204)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
-			</control>
-
-<!---THURSDAY LIST------>
-			<control type="group">
-				<posx>480</posx>
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(203)">Conditional</animation>
-					<visible>Container(203).HasNext</visible>
-				</control>				
-				<control type="list" id="203">
-					<width>160</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>203</onup>
-					<ondown>203</ondown>
-					<onleft>SetProperty(TVGuide.ThursdayList,1,Home)</onleft>
-					<onleft>202</onleft>
-					<onright>204</onright>
-					<itemlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(203)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(203)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
+			<!---SATURDAY LIST------>
+				<control type="group">
+					<posx>800</posx>
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(205)">Conditional</animation>
+						<visible>Container(205).HasNext</visible>
+					</control>
+					<control type="list" id="205">
+						<width>160</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>205</onup>
+						<ondown>205</ondown>
+						<onleft>SetProperty(TVGuide.SaturdayList,1,Home)</onleft>
+						<onleft>204</onleft>
+						<onright>206</onright>
+						<itemlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(205)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(205)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
-			</control>
-
-<!---FRIDAY LIST------>
-			<control type="group">
-				<posx>640</posx>
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(204)">Conditional</animation>
-					<visible>Container(204).HasNext</visible>
-				</control>		
-				<control type="list" id="204">
-					<width>160</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>204</onup>
-					<ondown>204</ondown>
-					<onleft>SetProperty(TVGuide.FridayList,1,Home)</onleft>
-					<onleft>203</onleft>
-					<onright>205</onright>
-					<itemlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(204)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(204)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
-				</control>
-			</control>
-
-<!---SATURDAY LIST------>
-			<control type="group">
-				<posx>800</posx>
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(205)">Conditional</animation>
-					<visible>Container(205).HasNext</visible>
-				</control>
-				<control type="list" id="205">
-					<width>160</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>205</onup>
-					<ondown>205</ondown>
-					<onleft>SetProperty(TVGuide.SaturdayList,1,Home)</onleft>
-					<onleft>204</onleft>
-					<onright>206</onright>
-					<itemlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(205)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(205)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
-				</control>
-			</control>
-
-<!---SUNDAY LIST------>
-			<control type="group">
-				<posx>960</posx>
-				<posy>25</posy>
-				<control type="image">
-					<posx>71</posx>
-					<posy>395</posy>
-					<width>18</width>
-					<height>18</height>
-					<texture>navigation/scrollIndicatorDown.png</texture>
-					<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(206)">Conditional</animation>
-					<visible>Container(206).HasNext</visible>
-				</control>
-				<control type="list" id="206">
-					<width>160</width>
-					<height>394</height>
-					<orientation>vertical</orientation>
-					<scrolltime>200</scrolltime>
-					<onup>206</onup>
-					<ondown>206</ondown>
-					<onleft>SetProperty(TVGuide.SundayList,1,Home)</onleft>
-					<onleft>205</onleft>
-					<onright>207</onright>
-					<itemlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="131" width="160">
-						<control type="image">
-							<include>nextaired_Frame</include>
-							<visible>!Control.HasFocus(206)</visible>
-						</control>
-						<control type="image">
-							<include>nextaired_Frame-focus</include>
-							<visible>Control.HasFocus(206)</visible>
-						</control>
-						<!--next aired date-->
-						<control type="label">
-							<include>nextaired_Date</include>
-						</control>
-						<!--airing time-->
-						<control type="label">
-							<include>nextaired_Time-focus</include>
-						</control>
-						<!--thumb-->
-						<control type="image">
-							<include>nextaired_Thumb</include>
-						</control>
-						<!--banner-->
-						<control type="image">
-							<include>nextaired_Banner</include>
-						</control>
-						<!--logo-->
-						<control type="image">
-							<include>nextaired_Logo</include>
-						</control>
-					</focusedlayout>
+			<!---SUNDAY LIST------>
+				<control type="group">
+					<posx>960</posx>
+					<posy>25</posy>
+					<control type="image">
+						<posx>71</posx>
+						<posy>395</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>navigation/scrollIndicatorDown.png</texture>
+						<animation effect="fade" start="100" end="35" condition="!Control.HasFocus(206)">Conditional</animation>
+						<visible>Container(206).HasNext</visible>
+					</control>
+					<control type="list" id="206">
+						<width>160</width>
+						<height>394</height>
+						<orientation>vertical</orientation>
+						<scrolltime>200</scrolltime>
+						<onup>206</onup>
+						<ondown>206</ondown>
+						<onleft>SetProperty(TVGuide.SundayList,1,Home)</onleft>
+						<onleft>205</onleft>
+						<onright>207</onright>
+						<itemlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="131" width="160">
+							<control type="image">
+								<include>nextaired_Frame</include>
+								<visible>!Control.HasFocus(206)</visible>
+							</control>
+							<control type="image">
+								<include>nextaired_Frame-focus</include>
+								<visible>Control.HasFocus(206)</visible>
+							</control>
+							<!--next aired date-->
+							<control type="label">
+								<include>nextaired_Date</include>
+							</control>
+							<!--airing time-->
+							<control type="label">
+								<include>nextaired_Time-focus</include>
+							</control>
+							<!--thumb-->
+							<control type="image">
+								<include>nextaired_Thumb</include>
+							</control>
+							<!--banner-->
+							<control type="image">
+								<include>nextaired_Banner</include>
+							</control>
+							<!--logo-->
+							<control type="image">
+								<include>nextaired_Logo</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
 			</control>
 		</control>
-	</control>
-
 
 <!---ADDITIONAL SHOW INFO----->
-	<control type="group">
-		<posx>80</posx>
-		<posy>580</posy>
-		<include>transition_Container</include>
-		<!--monday info-->
 		<control type="group">
-			<visible>Control.HasFocus(200)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(200).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
+			<posx>80</posx>
+			<posy>580</posy>
+			<include>transition_Container</include>
+			<!--monday info-->
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(200).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(200).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(200)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(200).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(200).ListItem.Property(ShortTime),, • ]$INFO[Container(200).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(200).ListItem.Property(Genre),, • ]$INFO[Container(200).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(200).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(200).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(200).ListItem.Property(ShortTime),, • ]$INFO[Container(200).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(200).ListItem.Property(Genre),, • ]$INFO[Container(200).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
-		</control>
-
 		<!--tuesday info-->
-		<control type="group">
-			<visible>Control.HasFocus(201)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(201).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(201).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(201).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(201)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(201).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(201).ListItem.Property(ShortTime),, • ]$INFO[Container(201).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(201).ListItem.Property(Genre),, • ]$INFO[Container(201).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(201).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(201).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(201).ListItem.Property(ShortTime),, • ]$INFO[Container(201).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(201).ListItem.Property(Genre),, • ]$INFO[Container(201).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
-		</control>
-
 		<!--wednesday info-->
-		<control type="group">
-			<visible>Control.HasFocus(202)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(202).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(202).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(202).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(202)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(202).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(202).ListItem.Property(ShortTime),, • ]$INFO[Container(202).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(202).ListItem.Property(Genre),, • ]$INFO[Container(202).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(202).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(202).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(202).ListItem.Property(ShortTime),, • ]$INFO[Container(202).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(202).ListItem.Property(Genre),, • ]$INFO[Container(202).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
-		</control>
-
 		<!--thursday info-->
-		<control type="group">
-			<visible>Control.HasFocus(203)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(203).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(203).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(203).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(203)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(203).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(203).ListItem.Property(ShortTime),, • ]$INFO[Container(203).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(203).ListItem.Property(Genre),, • ]$INFO[Container(203).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(203).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(203).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(203).ListItem.Property(ShortTime),, • ]$INFO[Container(203).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(203).ListItem.Property(Genre),, • ]$INFO[Container(203).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
-		</control>
-
 		<!--friday info-->
-		<control type="group">
-			<visible>Control.HasFocus(204)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(204).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(204).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(204).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(204)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(204).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(204).ListItem.Property(ShortTime),, • ]$INFO[Container(204).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(204).ListItem.Property(Genre),, • ]$INFO[Container(204).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(204).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(204).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(204).ListItem.Property(ShortTime),, • ]$INFO[Container(204).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(204).ListItem.Property(Genre),, • ]$INFO[Container(204).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
-		</control>
-
 		<!--saturday info-->
-		<control type="group">
-			<visible>Control.HasFocus(205)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(205).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(205).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(205).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(205)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(205).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(205).ListItem.Property(ShortTime),, • ]$INFO[Container(205).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(205).ListItem.Property(Genre),, • ]$INFO[Container(205).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(205).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(205).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(205).ListItem.Property(ShortTime),, • ]$INFO[Container(205).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(205).ListItem.Property(Genre),, • ]$INFO[Container(205).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
-		</control>
-
 		<!--sunday info-->
-		<control type="group">
-			<visible>Control.HasFocus(206)</visible>
-			<control type="image">
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(206).ListItem.Property(Network),flags/networks/,.png]</texture>
-			</control>
 			<control type="group">
-				<posx>160</posx>
-				<posy>3</posy>
-				<control type="label">
-					<width>1120</width>
-					<label>$INFO[Container(206).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(206).ListItem.Property(NextTitle)][/COLOR]</label>
-					<font>title</font>
+				<visible>Control.HasFocus(206)</visible>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<aspectratio align="right">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Container(206).ListItem.Property(Network),flags/networks/,.png]</texture>
 				</control>
-				<control type="label">
-					<posy>27</posy>
-					<width>1120</width>
-					<label>$INFO[Container(206).ListItem.Property(ShortTime),, • ]$INFO[Container(206).ListItem.Property(NextDate)]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>1120</width>
-					<label>$INFO[Container(206).ListItem.Property(Genre),, • ]$INFO[Container(206).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
+				<control type="group">
+					<posx>160</posx>
+					<posy>3</posy>
+					<control type="label">
+						<width>1120</width>
+						<label>$INFO[Container(206).ListItem.Label,,: ][COLOR=Color3]$INFO[Container(206).ListItem.Property(NextTitle)][/COLOR]</label>
+						<font>title</font>
+					</control>
+					<control type="label">
+						<posy>27</posy>
+						<width>1120</width>
+						<label>$INFO[Container(206).ListItem.Property(ShortTime),, • ]$INFO[Container(206).ListItem.Property(NextDate)]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
+					<control type="label">
+						<posy>50</posy>
+						<width>1120</width>
+						<label>$INFO[Container(206).ListItem.Property(Genre),, • ]$INFO[Container(206).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<font>info</font>
+						<textcolor>Color2</textcolor>
+					</control>
 				</control>
 			</control>
 		</control>
-	</control>
-
-	<include>nextaired_Menu</include>
-
+		<include>nextaired_Menu</include>
 	</controls>
 </window>
