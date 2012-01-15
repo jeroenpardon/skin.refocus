@@ -10,13 +10,13 @@
 		<control type="group">
 			<control type="image">
 				<width>700</width>
-				<height>397</height>
+				<height>365</height>
 				<include>dialogWindow</include>
 			</control>
 			<control type="label" id="1">
 				<width>662</width>
 				<scroll>true</scroll>
-				<label>$LOCALIZE[19023]$INFO[VideoPlayer.ChannelGroup,, - ]</label>
+				<label>$LOCALIZE[19023]$INFO[VideoPlayer.ChannelGroup, - ]</label>
 				<include>dialog_Windowtitle</include>
 				<visible>PVR.IsPlayingTV</visible>
 			</control>
@@ -27,103 +27,95 @@
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posx>91</posx>
+				<posx>103</posx>
 				<posy>76</posy>
-				<height>288</height>
+				<height>251</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="list" id="11">
 				<posx>19</posx>
 				<posy>75</posy>
 				<width>663</width>
-				<height>288</height>
+				<height>252</height>
 				<onup>11</onup>
 				<ondown>11</ondown>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-				<itemlayout width="663" height="72">
+				<itemlayout width="663" height="84">
 					<control type="image">
 						<width>663</width>
-						<height>72</height>
+						<height>84</height>
 						<texture border="3">dialogs/list-nofocus.png</texture>
 					</control>
-					<control type="label">
-						<posx>165</posx>
-						<height>40</height>
-						<width>520</width>
-						<label>[B]$INFO[ListItem.Title][/B]</label>
-						<include>dialog_CommonListItem</include>
-					</control>
-					<control type="label">
-						<posx>165</posx>
-						<posy>25</posy>
-						<width>520</width>
-						<height>40</height>
-						<align>left</align>
-						<font>smallCaps</font>
-						<label>$INFO[ListItem.ChannelNumber] - $INFO[ListItem.Label]</label>
-						<include>dialog_CommonListItem</include>
+					<control type="image">
+						<posx>6</posx>
+						<posy>6</posy>
+						<width>72</width>
+						<height>72</height>
+						<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
 					</control>
 					<control type="group">
+						<posx>90</posx>
+						<posy>6</posy>
+						<control type="label">
+							<height>40</height>
+							<width>520</width>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<posy>25</posy>
+							<width>520</width>
+							<height>40</height>
+							<align>left</align>
+							<font>smallCaps</font>
+							<label>$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.Label]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</control>
+					<control type="image">
 						<posx>625</posx>
-						<posy>25</posy>
-						<control type="image">
-							<texture>pvr/status_none.png</texture>
-							<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
-							<include>dialog_PVRstatus</include>
-						</control>
-						<control type="image">
-							<texture>pvr/status_timer.png</texture>
-							<visible>ListItem.HasTimer</visible>
-							<include>dialog_PVRstatus</include>
-						</control>
-						<control type="image">
-							<texture>pvr/status_recording.png</texture>
-							<visible>ListItem.IsRecording</visible>
-							<include>dialog_PVRstatus</include>
-						</control>
+						<posy>31</posy>
+						<texture>$VAR[PVR_Status.Condition]</texture>
+						<include>dialog_PVRstatus</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="663" height="72">
+				<focusedlayout width="663" height="84">
 					<control type="image">
 						<width>663</width>
-						<height>72</height>
+						<height>84</height>
 						<texture>dialogs/list-focus.png</texture>
 					</control>
-					<control type="label">
-						<posx>165</posx>
-						<height>40</height>
-						<width>520</width>
-						<label>[B]$INFO[ListItem.Title][/B]</label>
-						<include>dialog_CommonListItemFocus</include>
-					</control>
-					<control type="label">
-						<posx>165</posx>
-						<posy>25</posy>
-						<width>520</width>
-						<height>40</height>
-						<align>left</align>
-						<font>smallCaps</font>
-						<label>$INFO[ListItem.ChannelNumber] - $INFO[ListItem.Label]</label>
-						<include>dialog_CommonListItemFocus</include>
+					<control type="image">
+						<posx>6</posx>
+						<posy>6</posy>
+						<width>72</width>
+						<height>72</height>
+						<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
 					</control>
 					<control type="group">
+						<posx>90</posx>
+						<posy>6</posy>
+						<control type="label">
+							<height>40</height>
+							<width>520</width>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<include>dialog_CommonListItemFocus</include>
+						</control>
+						<control type="label">
+							<posy>25</posy>
+							<width>520</width>
+							<height>40</height>
+							<align>left</align>
+							<font>smallCaps</font>
+							<label>$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.Label]</label>
+							<include>dialog_CommonListItemFocus</include>
+						</control>
+					</control>
+					<control type="image">
 						<posx>625</posx>
-						<posy>25</posy>
-						<control type="image">
-							<texture>pvr/status_none.png</texture>
-							<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
-							<include>dialog_PVRstatus-focus</include>
-						</control>
-						<control type="image">
-							<texture>pvr/status_timer.png</texture>
-							<visible>ListItem.HasTimer</visible>
-							<include>dialog_PVRstatus-focus</include>
-						</control>
-						<control type="image">
-							<texture>pvr/status_recording.png</texture>
-							<visible>ListItem.IsRecording</visible>
-							<include>dialog_PVRstatus-focus</include>
-						</control>
+						<posy>31</posy>
+						<texture>$VAR[PVR_Status.Condition]</texture>
+						<include>dialog_PVRstatus</include>
 					</control>
 				</focusedlayout>
 			</control>
