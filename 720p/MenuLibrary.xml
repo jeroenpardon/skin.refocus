@@ -455,7 +455,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles]</visible>
+					<visible>[Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles]] + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
 					<control type="button" id="404">
 						<label>$LOCALIZE[31003]</label>
 						<onclick>Container.SetViewMode(521)</onclick>
@@ -503,7 +503,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)] | Container.Content(files) + Container.HasFiles]</visible>
+					<visible>[[Container.Content(episodes) | Container.Content(musicvideos) | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)] | Container.Content(files) + Container.HasFiles]] + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
 					<control type="button" id="406">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(575)</onclick>

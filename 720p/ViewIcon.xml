@@ -285,7 +285,7 @@
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(episodes) | Container.Content(musicvideos)] | [Container.Content(files) + Container.HasFiles] | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)]</visible>
+			<visible>[[Container.Content(episodes) | Container.Content(musicvideos)] | [Container.Content(files) + Container.HasFiles] | [SubString(Container.FolderPath,plugin://) + Container.HasFiles + !Container.Content(movies)]] + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
 			<itemlayout height="280" width="400">
 				<control type="image">
 					<width>390</width>
