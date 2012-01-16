@@ -46,7 +46,7 @@
 					<height>110</height>
 					<label>$VAR[global_Plot.Condition]</label>
 					<include>description_Small</include>
-					<visible>IsEmpty(ListItem.Property(ReleaseDate))</visible>
+					<visible>IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>
 				</control>
 				<control type="textbox">
 					<posy>60</posy>
@@ -54,7 +54,7 @@
 					<height>163</height>
 					<label>$VAR[global_Plot.Condition]</label>
 					<include>description_Small</include>
-					<visible>!IsEmpty(ListItem.Property(ReleaseDate))</visible>
+					<visible>!IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>
 				</control>
 			</control>
 		</control>
