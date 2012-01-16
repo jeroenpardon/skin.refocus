@@ -607,14 +607,14 @@
 				<posy>4</posy>
 				<posx>260</posx>
 				<width>770</width>
-				<label>$VAR[global_Title.Video]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>260</posx>
 				<posy>30</posy>
 				<width>770</width>
-				<label>$VAR[global_Info.Video] $INFO[ListItem.Property(NextAired.NextDate),$LOCALIZE[31076] ]</label>
+				<label>$VAR[global_Info] $INFO[ListItem.Property(NextAired.NextDate),$LOCALIZE[31076] ]</label>
 				<include>list_Label-sub</include>
 				<visible>!SubString(Container.FolderPath,plugin)</visible>
 			</control>
@@ -679,14 +679,14 @@
 				<posy>4</posy>
 				<posx>260</posx>
 				<width>770</width>
-				<label>$VAR[global_Title.Video]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>260</posx>
 				<posy>30</posy>
 				<width>770</width>
-				<label>$VAR[global_Info.Video]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="textbox" id="4">
@@ -744,14 +744,14 @@
 				<posx>115</posx>
 				<posy>4</posy>
 				<width>775</width>
-				<label>$VAR[global_Title.Video]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label</include>
 			</control>
 			<control type="label">
 				<posx>115</posx>
 				<posy>30</posy>
 				<width>775</width>
-				<label>$VAR[global_Info.Video]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub</include>
 				<visible>!SubString(Container.FolderPath,plugin)</visible>
 			</control>
@@ -816,14 +816,14 @@
 				<posx>115</posx>
 				<posy>4</posy>
 				<width>775</width>
-				<label>$VAR[global_Title.Video]</label>
+				<label>$VAR[global_Title]</label>
 				<include>list_Label-focus</include>
 			</control>
 			<control type="label">
 				<posx>115</posx>
 				<posy>30</posy>
 				<width>775</width>
-				<label>$VAR[global_Info.Video]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
 				<visible>!SubString(Container.FolderPath,plugin)</visible>
 			</control>
@@ -920,7 +920,7 @@
 				<control type="label">
 					<posy>73</posy>
 					<width>770</width>
-					<label>$INFO[ListItem.Property(Album_Label)]</label>
+					<label>$INFO[ListItem.Year]$INFO[ListItem.Property(Album_Label), • ]</label>
 					<include>list_Label-sub</include>
 					<visible>Container.Content(albums)</visible>
 				</control>
@@ -975,7 +975,7 @@
 				<control type="label">
 					<posy>73</posy>
 					<width>770</width>
-					<label>$INFO[ListItem.Property(Album_Label)]</label>
+					<label>$INFO[ListItem.Year]$INFO[ListItem.Property(Album_Label), • ]</label>
 					<include>list_Label-sub-focus</include>
 					<visible>Container.Content(albums)</visible>
 				</control>
