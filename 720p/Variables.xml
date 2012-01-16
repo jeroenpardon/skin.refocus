@@ -51,7 +51,7 @@
 		<!--linked movie--><value condition="[Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))] | [Container.Content(episodes) + IsEmpty(ListItem.Episode)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Genre]</value>
 		<!--seasons--><value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<!--episodes--><value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</value>
-		<!--music videos--><value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
+		<!--music videos--><value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album , • ]</value>
 		<!--files--><value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • ]</value>
 		<!--artists--><value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
 		<!--albums--><value condition="Container.Content(albums)">$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]</value>
@@ -308,16 +308,22 @@
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[133]</value>
 		<value>$LOCALIZE[206]</value>
 	</variable>
-	<variable name="osdInfo.Info">
-		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
+
+<!---OSD------>
+	<variable name="osd.Title">
+		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumber,,. ]$INFO[VideoPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
+	</variable>
+	<variable name="osd.Info">
+		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album,, • ]$INFO[MusicPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
-		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]</value>
+		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, • ]$INFO[VideoPlayer.Year, • ]</value>
+		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
 		<value condition="Player.ChapterCount">$LOCALIZE[21396]$INFO[Player.Chapter,: ]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName, • ,]</value>
 	</variable>
-
-<!---OSD------>
 	<variable name="player_Plot.Condition">
 		<value condition="!IsEmpty(VideoPlayer.Plotoutline) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Plotoutline]</value>
 		<value condition="!IsEmpty(VideoPlayer.Plot)">$INFO[VideoPlayer.Plot]</value>

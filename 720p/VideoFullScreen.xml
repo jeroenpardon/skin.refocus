@@ -14,7 +14,8 @@
 			<control type="image" id="1">
 				<width>1270</width>
 				<height>113</height>
-				<texture border="16">black.png</texture>
+				<texture border="4">views/column_Single.png</texture>
+				<colordiffuse>Color5</colordiffuse>
 			</control>
 			<control type="group">
 				<posx>10</posx>
@@ -140,5 +141,13 @@
 				</control>
 			</control>
 		</control>
+		<!--clock-->
+		<control type="group" id="1">
+			<include>fadeinout</include>
+			<include>clock</include>
+			<visible>Player.ShowInfo + !Player.ShowCodec</visible>
+		</control>
+		<!--media info-->
+		<include>osd_Info</include>
 	</controls>
 </window>

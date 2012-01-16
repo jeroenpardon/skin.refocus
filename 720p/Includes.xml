@@ -111,18 +111,18 @@
 		</control>
 	</include>
 	<include name="clock">
-		<control type="group">
+		<control type="group" id="1">
 			<animation type="Conditional" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">
 				<effect type="slide" time="0" start="0" end="-50" />
 			</animation>
 			<visible>!Window.IsActive(infodialog)</visible>
-			<control type="label">
+			<control type="label" id="1">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
 			</control>
-			<control type="label">
+			<control type="label" id="1">
 				<posx>25r</posx>
 				<label>$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</label>
 				<textcolor>Color1</textcolor>
@@ -130,7 +130,7 @@
 				<include>toast_Bottom</include>
 				<visible>!Window.IsActive(fullscreenvideo)</visible>
 			</control>
-			<control type="label">
+			<control type="label" id="1">
 				<posx>25r</posx>
 				<label>$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
 				<textcolor>Color1</textcolor>
@@ -304,7 +304,7 @@
 		<width>1040</width>
 		<font>description</font>
 		<aligny>top</aligny>
-		<textcolor>Color7</textcolor>
+		<textcolor>Color3</textcolor>
 		<include>autoscroll-plot</include>
 	</include>
 	<include name="description_Small">
@@ -419,7 +419,7 @@
 		<height>32</height>
 		<texture>overlays/OverlayResumable.png</texture>
 		<aspect>keepaspect</aspect>
-		<visible>ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp) + IsEmpty(ListItem.Property(ReleaseDate)</visible>
+		<visible>[Container.Content(movies) | Container.Content(episodes)] + ListItem.IsResumable + Skin.HasSetting(overlay.resumable) + IsEmpty(ListItem.Property(ReleaseDate) + !SubString(Container.FolderPath,special://skin/playlists/Movies In Progress.xsp)</visible>
 	</include>
 	<include name="overlay_Resumable-list">
 		<width>32</width>
@@ -726,167 +726,207 @@
 
 <!---OSD / SLIDESHOW------>
 	<include name="osd_Info">
-		<control type="group">
-			<posy>300</posy>
+		<control type="group" id="1">			
+			<posx>40</posx>
+			<posy>430</posy>
+			<animation effect="slide" start="0,0" end="0,80" time="0" condition="VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
 			<include>transition_OSD</include>
-			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
-			<!---overlays--->
-			<control type="image">
-				<height>200</height>
-				<width>screen_Width</width>
-				<texture>osd/infoOverlayTop.png</texture>
+			<visible>Player.ShowInfo + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsVisible(bookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsActive(script-XBMC_Lyrics-main.xml)] | [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching]</visible>
+			<control type="image" id="1">
+				<posx>1</posx>
+				<posy>0</posy>
+				<width>1200</width>
+				<height>255</height>
+				<include>dialogWindow</include>
+				<visible>![VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
 			</control>
 			<control type="image" id="1">
-				<posy>200</posy>
-				<height>220</height>
-				<width>screen_Width</width>
-				<aspectratio>stretch</aspectratio>
-				<texture border="0,1,0,11">osd/infoOverlay.png</texture>
+				<posx>1</posx>
+				<posy>0</posy>
+				<width>1200</width>
+				<height>175</height>
+				<include>dialogWindow</include>
+				<visible>[VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
 			</control>
-			<!---flags--->
-			<control type="group">
-				<posx>40</posx>
-				<posy>220</posy>
-				<control type="image">
-					<width>128</width>
-					<height>64</height>
-					<texture>$VAR[flag_Studio.player]</texture>
-					<aspectratio align="center">keep</aspectratio>
-				</control>
-				<control type="image">
-					<posy>95</posy>
-					<aspectratio align="center">keep</aspectratio>
-					<include>flag_Label-audio</include>
-				</control>
-				<control type="image">
-					<posy>-11</posy>
-					<posx>1136</posx>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio align="center">keep</aspectratio>
-					<texture>flags/video/HD/HD.png</texture>
-					<visible>IntegerGreaterThan(VideoPlayer.VideoResolution,540)</visible>
-				</control>
+			<control type="image" id="1">
+				<posx>19</posx>
+				<posy>95</posy>
+				<width>1164</width>
+				<include>dialog_Separator</include>
+				<visible>![VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
+			</control>
+			<control type="image" id="1">
+				<posx>1120</posx>
+				<posy>24</posy>
+				<width>48</width>
+				<height>48</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>flags/video/hd/fo-HD.png</texture>
+				<colordiffuse>Color4</colordiffuse>
+				<visible>IntegerGreaterThan(VideoPlayer.VideoResolution,540)</visible>
 			</control>
 			<!---info--->
 			<control type="group" id="1">
-				<posx>200</posx>
-				<posy>223</posy>
-			<!---line 1--->
-				<control type="label">
+				<posx>34</posx>
+				<posy>30</posy>
+				<control type="label" id="1">
 					<width>970</width>
-					<label>$INFO[MusicPlayer.Title]</label>
+					<label>$VAR[osd.Title]</label>
+					<textcolor>Color4</textcolor>
 					<font>osdTitle</font>
-					<textcolor>Color1</textcolor>
 				</control>
-				<control type="label">
-					<width>970</width>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<font>osdTitle</font>
-					<textcolor>Color1</textcolor>
-				</control>
-			<!---line 2--->
-				<!--music-->
-				<control type="grouplist">
-					<itemgap>0</itemgap>
-					<posy>35</posy>
-					<control type="label">
-						<width>1000</width>
-						<height>20</height>
-						<label>$INFO[MusicPlayer.Artist]</label>
-						<font>info</font>
-						<textcolor>Color2</textcolor>
-					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[MusicPlayer.Album,, • ]$INFO[MusicPlayer.Year]</label>
-						<font>info</font>
-						<textcolor>Color2</textcolor>
-					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
-						<font>info</font>
-						<textcolor>Color3</textcolor>
-						<visible>!IsEmpty(MusicPlayer.offset(1).Title)</visible>
-					</control>
-				</control>
-				<!--video-->
 				<control type="label" id="1">
 					<posy>30</posy>
-					<visible>Player.HasVideo</visible>
 					<width>850</width>
-					<label>$VAR[osdInfo.Info]</label>
+					<label>$VAR[osd.Info]</label>
+					<textcolor>Color4</textcolor>
 					<include>info_Sub</include>
 				</control>
-				<!---music videos------>
-				<control type="grouplist">
-					<posy>30</posy>
-					<itemgap>0</itemgap>
-					<visible>VideoPlayer.Content(musicvideos)</visible>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.Artist]</label>
-						<textcolor>Color3</textcolor>
-						<include>info_Sub</include>
-					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.Album]</label>
-						<include>info_Sub</include>
-					</control>
-					<control type="label">
-						<width>1000</width>
-						<label>$INFO[VideoPlayer.Year]</label>
-						<include>info_Sub</include>
-					</control>
+				<control type="image">
+					<posx>1050</posx>
+					<posy>-3</posy>
+					<width>82</width>
+					<height>32</height>
+					<colordiffuse>Color4</colordiffuse>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>flags/codec/mono/$INFO[MusicPlayer.Codec,,.png]</texture>
+				</control>
+				<control type="image" id="1">
+					<posx>1004</posx>
+					<posy>32</posy>
+					<width>128</width>
+					<height>22</height>
+					<texture>$INFO[Player.StarRating,rating/fo-,]</texture>
+					<colordiffuse>Color4</colordiffuse>
+					<aspectratio align="right">keep</aspectratio>
 				</control>
 				<!---plot------>
-				<control type="group">
-					<posy>60</posy>
-					<visible>!VideoPlayer.Content(musicvideos)</visible>
-					<control type="textbox" id="8">
-						<height>87</height>
-						<label>$VAR[player_Plot.Condition]</label>
-						<include>description_OSD</include>
-						<visible>!Skin.HasSetting(osd.progressbar)</visible>
-					</control>
-					<control type="textbox" id="8">
-						<height>60</height>
-						<label>$VAR[player_Plot.Condition]</label>
-						<include>description_OSD</include>
-						<visible>Skin.HasSetting(osd.progressbar)</visible>
-					</control>
+				<control type="textbox" id="1">
+					<posy>74</posy>
+					<visible>![VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
+					<height>55</height>
+					<width>1132</width>
+					<label>$VAR[player_Plot.Condition]</label>
+					<textcolor>Color4</textcolor>
+					<font>descriptionSmall</font>
+					<include>description_OSD</include>
 				</control>
-				<!--progress-->
-				<control type="label">
-					<posx>1038</posx>
-					<posy>30</posy>
-					<width>1000</width>
-					<align>right</align>
-					<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
-					<font>info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="progress" id="1">
+				<!---progress------>
+				<control type="group" id="1">
 					<posy>135</posy>
-					<width>1038</width>
-					<height>18</height>
-					<texturebg border="10">dialogs/progressBackground.png</texturebg>
-					<info>Player.Progress</info>
-					<visible>Skin.HasSetting(osd.progressbar) | [!Skin.HasSetting(osd.progressbar) + VideoPlayer.Content(musicvideos)]</visible>
+					<animation effect="slide" start="0,0" end="0,-80" time="0" condition="VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
+					<control type="progress" id="1">
+						<width>1132</width>
+						<height>18</height>
+						<info>Player.CacheLevel</info>
+						<texturebg border="10">dialogs/cacheBackground.png</texturebg>
+						<midtexture border="10.5">dialogs/cacheSlider.png</midtexture>
+						<lefttexture>-</lefttexture>
+						<righttexture>-</righttexture>
+						<overlaytexture>-</overlaytexture>
+					</control>
+					<control type="progress" id="1">
+						<posy>10</posy>
+						<width>1132</width>
+						<height>18</height>
+						<texturebg border="10">dialogs/progressBackground.png</texturebg>
+						<info>Player.Progress</info>
+					</control>
+					<control type="group" id="1">
+						<posy>33</posy>
+						<control type="label" id="1">
+							<posx>0</posx>
+							<width>1000</width>
+							<label>$INFO[Player.Time]</label>
+							<font>info</font>
+							<textcolor>Color4</textcolor>
+						</control>
+						<control type="label" id="1">
+							<posx>1132</posx>
+							<width>1000</width>
+							<label>$INFO[Player.Duration]</label>
+							<align>right</align>
+							<font>info</font>
+							<textcolor>Color4</textcolor>
+						</control>
+						<control type="group" id="1">
+							<control type="label" id="1">
+								<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
+								<font>smallerCaps</font>
+								<include>dialog_Label-seekbar</include>
+								<visible>!IsEmpty(MusicPlayer.offset(1).Title) + ![Player.Paused | Player.Forwarding | Player.Rewinding | Player.Seeking | Player.Caching | Player.DisplayAfterSeek]</visible>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[773] $INFO[Player.SeekOffset]</label>
+								<include>dialog_Label-seekbar</include>
+								<visible>Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]</visible>
+							</control>
+							<!--buffering-->
+							<control type="label" id="1">
+								<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+								<include>dialog_Label-seekbar</include>
+								<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+							</control>
+							<!--paused-->
+							<control type="label" id="1">
+								<label>$LOCALIZE[112]</label>
+								<include>dialog_Label-seekbar</include>
+								<visible>[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek</visible>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31041]</label>
+								<visible>Player.Forwarding2x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31042]</label>
+								<visible>Player.Forwarding4x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31043]</label>
+								<visible>Player.Forwarding8x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31044]</label>
+								<visible>Player.Forwarding16x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31045]</label>
+								<visible>Player.Forwarding32x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31046]</label>
+								<visible>Player.Rewinding2x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31047]</label>
+								<visible>Player.Rewinding4x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31048]</label>
+								<visible>Player.Rewinding8x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31049]</label>
+								<visible>Player.Rewinding16x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+							<control type="label" id="1">
+								<label>$LOCALIZE[31050]</label>
+								<visible>Player.Rewinding32x</visible>
+								<include>dialog_Label-seekbar</include>
+							</control>
+						</control>
+					</control>
 				</control>
 			</control>
-		</control>
-		<control type="label">
-			<posx>200</posx>
-			<posy>450</posy>
-			<width>1080</width>
-			<label>$LOCALIZE[13350]</label>
-			<font>osdHeader</font>
-			<textcolor>Color3</textcolor>
-			<include>transition_OSD2</include>
-			<visible>[Player.ShowInfo | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
 		</control>
 	</include>
 
