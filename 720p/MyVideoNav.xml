@@ -79,7 +79,7 @@
 						<height>244</height>
 						<label>$INFO[ListItem.Plot]</label>
 						<include>description_Small</include>
-						<visible>[Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)]] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)] | Container.Content(musicvideos)</visible>
+						<visible>[[Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)]] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)] | Container.Content(musicvideos)] + !SubString(ListItem.Icon,default)</visible>
 					</control>
 					<control type="textbox">
 						<width>525</width>
@@ -263,6 +263,7 @@
 					<height>355</height>
 					<label>$VAR[global_Plot.Condition]</label>
 					<include>description_Small</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
 			</control>
 			<control type="image">
@@ -414,6 +415,7 @@
 					<label>$VAR[global_Plot.Condition]</label>
 					<textcolor>Color4</textcolor>
 					<include>description_Small</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
 			</control>
 		</control>
