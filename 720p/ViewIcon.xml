@@ -302,7 +302,7 @@
 					<height>64</height>
 					<texture background="true">$INFO[ListItem.Path]logo.png</texture>
 					<aspectratio align="center">keep</aspectratio>
-					<visible>stringcompare(Container.FolderPath,videodb://5/) + Skin.HasSetting(tvshowlogos.enable)</visible>
+					<visible>Skin.HasSetting(tvshowlogos.enable) + [StringCompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)]</visible>
 				</control>
 				<control type="group">
 					<posx>25</posx>
@@ -363,7 +363,7 @@
 					<height>64</height>
 					<texture background="true">$INFO[ListItem.Path]logo.png</texture>
 					<aspectratio align="center">keep</aspectratio>
-					<visible>stringcompare(Container.FolderPath,videodb://5/) + Skin.HasSetting(tvshowlogos.enable)</visible>
+					<visible>Skin.HasSetting(tvshowlogos.enable) + [StringCompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)]</visible>
 				</control>
 				<control type="group">
 					<posx>25</posx>
