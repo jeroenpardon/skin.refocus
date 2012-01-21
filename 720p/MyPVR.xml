@@ -40,20 +40,21 @@
 
 	<!---EPG INFO------>
 		<control type="group">
-			<posx>160</posx>
-			<posy>550</posy>
+			<posx>150</posx>
+			<posy>560</posy>
 			<include>transition_Container</include>
 			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
 			<visible>Control.IsVisible(10) | Control.IsVisible(15) |  Control.IsVisible(16) | Control.IsVisible(17)</visible>
 			<control type="image">
-				<width>72</width>
-				<height>72</height>
+				<posy>5</posy>
+				<width>84</width>
+				<height>84</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
 			</control>
 			<control type="grouplist">
-				<posy>8</posy>
-				<posx>125</posx>
+				<posx>135</posx>
+				<posy>0</posy>
 				<itemgap>0</itemgap>
 				<control type="label" id="1">
 					<width>950</width>
