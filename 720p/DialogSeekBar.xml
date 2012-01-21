@@ -1,8 +1,59 @@
 ﻿<window id="115">
 	<defaultcontrol>100</defaultcontrol>
-	<visible>Window.IsActive(fullscreenvideo) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(fullscreeninfo) | Window.IsActive(infodialog) | Window.IsActive(script-XBMC-Subtitles-main.xml)]</visible>
+	<visible>![Player.ShowInfo + Skin.HasSetting(osd.progressbar)] + Window.IsActive(fullscreenvideo) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(fullscreeninfo) | Window.IsActive(infodialog) | Window.IsActive(script-XBMC-Subtitles-main.xml)]</visible>
 	<controls>
 		<include>clock</include>
-		<include>osd_Info</include>
+		<control type="group" id="213">
+			<posy>677</posy>
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,64" end="0,0" tween="Cubic" center="auto" easing="Out" time="250" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0,0" end="0,64" tween="Cubic" center="auto" easing="Out" time="250" />
+			</animation>
+			<control type="image" id="1">
+				<width>screen_Width</width>
+				<height>50</height>
+				<texture flipy="false" border="3">osd/seekbar.png</texture>
+			</control>
+			<control type="group">
+				<posx>255</posx>
+				<posy>3</posy>
+				<!--cache progress-->
+				<control type="progress" id="1">
+					<width>770</width>
+					<height>22</height>
+					<info>Player.CacheLevel</info>
+					<texturebg border="10">dialogs/cacheBackground.png</texturebg>
+					<midtexture border="10.5">dialogs/cacheSlider.png</midtexture>
+					<lefttexture>-</lefttexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<!--playback progress-->
+				<control type="progress" id="1">
+					<posy>10</posy>
+					<width>770</width>
+					<height>22</height>
+					<texturebg border="10">dialogs/progressBackground.png</texturebg>
+					<info>Player.Progress</info>
+				</control>
+			</control>
+			<control type="group" id="1">
+				<posy>2</posy>
+				<control type="label" id="1">
+					<posx>240</posx>
+					<label>$VAR[player_Status.Condition]</label>
+					<include>seekbar_Label</include>
+				</control>
+				<control type="label" id="22">
+					<posx>1040</posx>
+					<width>250</width>
+					<align>left</align>
+					<label>[B]$INFO[Player.Time][/B] / $INFO[Player.Duration]</label>
+					<include>seekbar_Label</include>
+				</control>
+			</control>
+		</control>
 	</controls>
 </window>
