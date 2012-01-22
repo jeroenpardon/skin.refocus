@@ -35,6 +35,7 @@
 	
 	
 	<variable name="global_Title">
+		<value condition="SubString(Container.FolderPath,plugin.video.hulu)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -60,7 +61,7 @@
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	
-	
+	<!--
 	<variable name="global_Title.Video">
 		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -68,18 +69,21 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="global_Info.Video">
-		<!--movie set--><value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
-		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
-		<!--tvshows--><value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$VAR[tvshow_Info.NextAired, • ]</value>
-		<!--tvshows--><value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
-		<!--linked movie--><value condition="[Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))] | [Container.Content(episodes) + IsEmpty(ListItem.Episode)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Genre]</value>
-		<!--seasons--><value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
-		<!--episodes--><value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</value>
-		<!--music videos--><value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
-		<!--addons--><value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
-		<!--files--><value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • ]</value>
+		<value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
+		<value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
+		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$VAR[tvshow_Info.NextAired, • ]</value>
+		<value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
+		<value condition="[Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))] | [Container.Content(episodes) + IsEmpty(ListItem.Episode)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Genre]</value>
+		<value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
+		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • ]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
+	-->
+	
+	
 	<variable name="global_Title.Music">
 		<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
 		<value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
@@ -94,6 +98,7 @@
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="global_Info.Addon">
+		<!--hulu--><value condition="SubString(Container.FolderPath,plugin.video.hulu)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</value>
 		<!--amt--><value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]$INFO[ListItem.Genre, • ]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Duration) + !IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>

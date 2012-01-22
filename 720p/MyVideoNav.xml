@@ -38,11 +38,11 @@
 			<visible>Control.IsVisible(50)</visible>
 		<!---landscape--->
 			<control type="group">
-				<visible>!substring(container.folderpath,plugin://)</visible>
+				<visible>!SubString(Container.Folderpath,plugin://)</visible>
 				<control type="group">
 					<posx>655</posx>
 					<posy>68</posy>
-					<visible>!StringCompare(Container.FolderPath,plugin://plugin.video.the.trailers/) + [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
+					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes) | SubString(Container.FolderPath,plugin.video.hulu)</visible>
 					<control type="image">
 						<include>frame_Landscape-List</include>
 						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
@@ -73,7 +73,6 @@
 				<control type="group">
 					<posx>685</posx>
 					<posy>420</posy>
-					<visible>!stringcompare(container.folderpath,plugin://plugin.video.the.trailers/)</visible>
 					<control type="textbox">
 						<width>525</width>
 						<height>244</height>
@@ -94,8 +93,9 @@
 			<control type="group">
 				<posx>750</posx>
 				<posy>65</posy>
+				<visible>!SubString(Container.FolderPath,plugin://)</visible>
 				<control type="group">
-					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)]</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons)</visible>
 					<control type="image">
 						<include>frame_Poster-List</include>
 					</control>
