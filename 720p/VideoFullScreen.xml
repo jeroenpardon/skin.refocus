@@ -1,5 +1,5 @@
 ﻿<window id="2005">
-	<defaultcontrol always="true">503</defaultcontrol>
+	<defaultcontrol>-</defaultcontrol>
 	<controls>
 		<control type="image" id="1">
 			<include>screen_Dimensions</include>
@@ -8,7 +8,7 @@
 			<include>fadeinout</include>
 		</control>
 		<!--regular stream info-->
-		<control type="group">
+		<control type="group" id="0">
 			<posx>5</posx>
 			<posy>5</posy>
 			<control type="image" id="1">
@@ -17,7 +17,7 @@
 				<texture border="4">views/column_Single.png</texture>
 				<colordiffuse>Color5</colordiffuse>
 			</control>
-			<control type="group">
+			<control type="group" id="1">
 				<posx>10</posx>
 				<!--line 1-->
 				<control type="label" id="10">
@@ -148,6 +148,9 @@
 			<visible>Player.ShowInfo + !Player.ShowCodec</visible>
 		</control>
 		<!--media info-->
-		<include>osd_Info</include>
+		<control type="group" id="1">
+			<visible>Player.ShowInfo</visible>
+			<include>osd_Info</include>
+		</control>
 	</controls>
 </window>
