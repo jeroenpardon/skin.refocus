@@ -88,16 +88,16 @@
 				<width>510</width>
 				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub</include>
-				<visible>!SubString(Container.FolderPath,plugin://)</visible>
+				<!--<visible>!SubString(Container.FolderPath,plugin://)</visible>-->
 			</control>
-			<control type="label">
+			<!--<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>510</width>
 				<label>$VAR[global_Info.Addon]</label>
 				<include>list_Label-sub</include>
 				<visible>SubString(Container.FolderPath,plugin://)</visible>
-			</control>
+			</control>-->
 			<control type="image">
 				<posx>570</posx>
 				<posy>35</posy>
@@ -149,8 +149,9 @@
 				<width>510</width>
 				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
-				<visible>!SubString(Container.FolderPath,plugin://)</visible>
+				<!--<visible>!SubString(Container.FolderPath,plugin://)</visible>-->
 			</control>
+			<!--
 			<control type="label">
 				<posx>40</posx>
 				<posy>28</posy>
@@ -159,6 +160,7 @@
 				<include>list_Label-sub-focus</include>
 				<visible>SubString(Container.FolderPath,plugin://)</visible>
 			</control>
+			-->
 			<control type="image">
 				<posx>570</posx>
 				<posy>35</posy>
@@ -498,7 +500,7 @@
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>560</width>
-				<label>$VAR[global_Info.Files]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -530,7 +532,7 @@
 				<posx>40</posx>
 				<posy>28</posy>
 				<width>560</width>
-				<label>$VAR[global_Info.Files]</label>
+				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
 			<control type="image">
@@ -893,7 +895,7 @@
 				<posy>4</posy>
 				<control type="label">
 					<width>770</width>
-					<label>$VAR[global_Title.Music]</label>
+					<label>$VAR[global_Title]</label>
 					<include>list_Label</include>
 				</control>
 				<control type="label">
@@ -949,7 +951,7 @@
 				<posy>4</posy>
 				<control type="label">
 					<width>770</width>
-					<label>$VAR[global_Title.Music]</label>
+					<label>$VAR[global_Title]</label>
 					<include>list_Label-focus</include>
 				</control>
 				<control type="label">
