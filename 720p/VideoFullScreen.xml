@@ -47,7 +47,7 @@
 			</control>
 		</control>
 		<!--pvr stream info-->
-		<control type="group">
+		<control type="group" id="1">
 			<posx>5</posx>
 			<posy>128</posy>
 			<visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + System.GetBool(pvrplayback.signalquality)</visible>
@@ -59,7 +59,7 @@
 			<control type="group">
 				<posx>10</posx>
 				<!--header-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>5</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19005][/B]</label>
@@ -67,7 +67,7 @@
 					<font>smallerCaps</font>
 				</control>
 				<!--backend-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>31</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19012]:[/B] $INFO[PVR.ActStreamClient]</label>
@@ -75,7 +75,7 @@
 					<textcolor>Color1</textcolor>
 				</control>
 				<!--device-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>58</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19006]:[/B] $INFO[PVR.ActStreamDevice]</label>
@@ -83,7 +83,7 @@
 					<font>smallerCaps</font>
 				</control>
 				<!--signal-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>85</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19008]:[/B] $INFO[PVR.ActStreamStatus]</label>
@@ -91,7 +91,7 @@
 					<font>smallerCaps</font>
 				</control>
 				<!--signal progressbar-->
-				<control type="progress">
+				<control type="progress" id="1">
 					<posx>220</posx>
 					<posy>85</posy>
 					<width>910</width>
@@ -99,7 +99,7 @@
 					<info>PVR.ActStreamProgrSignal</info>
 				</control>
 				<!--SNR-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>112</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19009]:[/B] $INFO[PVR.ActStreamSNR]</label>
@@ -107,7 +107,7 @@
 					<font>smallerCaps</font>
 				</control>
 				<!--SNR progressbar-->
-				<control type="progress">
+				<control type="progress" id="1">
 					<posx>220</posx>
 					<posy>112</posy>
 					<width>910</width>
@@ -116,7 +116,7 @@
 					<info>PVR.ActStreamProgrSNR</info>
 				</control>
 				<!--BER-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>139</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19010]:[/B] $INFO[PVR.ActStreamBER]</label>
@@ -124,7 +124,7 @@
 					<font>smallerCaps</font>
 				</control>
 				<!--UNC-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>166</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19011]:[/B] $INFO[PVR.ActStreamUNC]</label>
@@ -132,7 +132,7 @@
 					<font>smallerCaps</font>
 				</control>
 				<!--encryption-->
-				<control type="label">
+				<control type="label" id="1">
 					<posy>193</posy>
 					<width>1260</width>
 					<label>[B]$LOCALIZE[19015]:[/B] $INFO[PVR.ActStreamEncryptionName]</label>
@@ -148,7 +148,7 @@
 			<visible>Player.ShowInfo + !Player.ShowCodec</visible>
 		</control>
 		<!--media info-->
-		<control type="group" id="1">
+		<control type="group" id="11">
 			<visible>Player.ShowInfo</visible>
 			<include>osd_Info</include>
 		</control>
