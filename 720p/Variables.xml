@@ -29,17 +29,16 @@
 <!---VIEWS------>
 	<variable name="global_Title">
 		<value condition="SubString(Container.FolderPath,plugin.video.hulu)">$INFO[ListItem.Label]</value>
-		<value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
-		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
-		<value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
-		<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
-		<value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
-		
-		<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
+		<!--episodes--><value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
+		<!--episodes--><value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<!--music videos--><value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<!--songs--><value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
+		<!--singles--><value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
+		<!--addons--><value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
+		<!--<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>-->
+		<!--<value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>-->
+		<!--<value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>-->
+		<!--<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>-->
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="global_Info">
@@ -75,8 +74,6 @@
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	-->
-
-
 	
 	<variable name="gallery_Title">
 		<value condition="Container.Content(episodes) + !SubString(ListItem.Icon,default)">$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
@@ -216,7 +213,6 @@
 		<value condition="Container.Content(addons) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[24001][/COLOR]</value>	
 		<!--movie trailers--><value condition="SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[20338] [COLOR=Color2]$LOCALIZE[31011][/COLOR]</value>
 	</variable>
-
 	<variable name="window_Title.Music">
 		<!--musicdb-->
 		<value condition="![SubString(Container.FolderPath,musicdb://6/) | SubString(Container.FolderPath,musicdb://7/)]">$LOCALIZE[2] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
@@ -225,7 +221,6 @@
 		<!--recently played albums-->
 		<value condition="SubString(Container.FolderPath,musicdb://7/)">$LOCALIZE[31941]</value>
 	</variable>
-	
 	<variable name="window_Title.System">
 		<value condition="Window.IsActive(settings)">xbmc [COLOR=Color2]$LOCALIZE[10004][/COLOR]</value>
 		<value condition="Window.IsActive(systeminfo)">$LOCALIZE[31968]</value>
@@ -271,7 +266,7 @@
 		<value condition="Window.IsVisible(musicplaylist) + !Window.IsActive(2001)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 	</variable>
 
-<!---INFO------>
+<!---INFODIALOG------>
 	<variable name="videoInfo.Header">
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
 		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>		
@@ -301,6 +296,8 @@
 		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
 		<value condition="Player.ChapterCount">$LOCALIZE[21396]$INFO[Player.Chapter,: ]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName, • ,]</value>
 	</variable>
+
+<!---PLAYER------>
 	<variable name="player_Plot.Condition">
 		<value condition="!IsEmpty(VideoPlayer.Plotoutline) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Plotoutline]</value>
 		<value condition="!IsEmpty(VideoPlayer.Plot)">$INFO[VideoPlayer.Plot]</value>
