@@ -728,9 +728,8 @@
 			<posx>0</posx>
 			<posy>458</posy>
 			<!--<animation effect="slide" start="0,0" end="0,40" time="0" condition="!Skin.HasSetting(osd.progressbar) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv)]">Conditional</animation>-->
-			<include>transition_OSD</include>
-			<visible>Window.IsVisible(fullscreenvideo) + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsVisible(bookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
-			<control type="image" id="1">
+			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsActive(visualisation)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsVisible(bookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
+			<control type="image" id="11">
 				<width>1280</width>
 				<height>240</height>
 				<texture border="24">osd/osdOverlay.png</texture>
@@ -752,6 +751,14 @@
 				<texture>$VAR[flag_Studio.player]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<visible>VideoPlayer.Content(movies)</visible>
+			</control>
+			<control type="image" id="1">
+				<posx>30</posx>
+				<posy>34</posy>
+				<width>96</width>
+				<height>96</height>
+				<texture>$INFO[MusicPlayer.Cover]</texture>
+				<aspectratio align="center">stretch</aspectratio>
 			</control>
 			<control type="image" id="1">
 				<posx>30</posx>
@@ -789,13 +796,12 @@
 					<include>info_Sub</include>
 				</control>
 				<control type="image">
-					<posx>1050</posx>
+					<posx>1020</posx>
 					<posy>-3</posy>
 					<width>82</width>
 					<height>32</height>
-					<colordiffuse>Color4</colordiffuse>
 					<aspectratio align="right">keep</aspectratio>
-					<texture>flags/codec/mono/$INFO[MusicPlayer.Codec,,.png]</texture>
+					<texture>flags/codec/$INFO[MusicPlayer.Codec,,.png]</texture>
 				</control>
 				<control type="image" id="1">
 					<posx>965</posx>

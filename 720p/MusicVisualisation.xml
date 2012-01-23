@@ -14,7 +14,7 @@
 			<include>transition_Fanart</include>
 			<animation effect="fade" start="100" end="80" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
 		</control>
-		<include>osd_Info</include>
+		
 		<control type="group">
 			<posx>5</posx>
 			<posy>5</posy>
@@ -49,5 +49,15 @@
 				</control>
 			</control>
 		</control>
+		
+		<control type="group" id="1">
+			<include>osd_Info</include>
+			<include>transition_OSD</include>
+			
+			<visible>Player.ShowInfo</visible>
+			
+			
+		</control>
+
 	</controls>
 </window>
