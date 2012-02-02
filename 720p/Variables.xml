@@ -33,7 +33,7 @@
 		<!--episodes--><value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<!--music videos--><value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<!--songs--><value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
-		<!--singles--><value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
+		<!--singles--><value condition="Container.Content(songs) + [SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>
 		<!--addons--><value condition="Container.Content(addons) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<!--<value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>-->
 		<!--<value condition="[SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Title]</value>-->
@@ -288,7 +288,7 @@
 		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
 	</variable>
 	<variable name="osd.Info">
-		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Album,, • ]$INFO[MusicPlayer.Year]</value>
+		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]$INFO[MusicPlayer.Year, • ]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,, • ]$INFO[VideoPlayer.NextTitle,$LOCALIZE[209]: ] ($INFO[VideoPlayer.Endtime])</value>
