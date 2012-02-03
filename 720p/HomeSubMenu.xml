@@ -439,7 +439,7 @@
 						<onclick>Skin.SetString(Watchlist,Movies)</onclick>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(52)</onclick>
-						<visible>Skin.HasSetting(moviesmenu.watchlist)</visible>
+						<visible>System.HasAddon(script.watchlist) + Skin.HasSetting(moviesmenu.watchlist) + !Skin.HasSetting(watchlist.disable)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31095]</label>
@@ -503,7 +503,7 @@
 						<onclick>Skin.SetString(Watchlist,Shows)</onclick>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(52)</onclick>
-						<visible>System.HasAddon(script.watchlist) + Skin.HasSetting(tvshowsmenu.watchlist)</visible>
+						<visible>System.HasAddon(script.watchlist) + Skin.HasSetting(tvshowsmenu.watchlist) + !Skin.HasSetting(watchlist.disable)</visible>
 					</item>
 					<item id="3">
 						<label>$LOCALIZE[31094]</label>

@@ -51,25 +51,37 @@
 					<include>button_Category</include>
 				</control>
 			</control>
-			<!--other-->
+			<!--addons-->
 			<control type="group">
 				<height>50</height>
 				<control type="button" id="17">
-					<label>$LOCALIZE[31119]</label>
-					<onfocus>Skin.SetString(SkinSettings,Other)</onfocus>
+					<label>$LOCALIZE[24001]</label>
+					<onfocus>Skin.SetString(SkinSettings,Addons)</onfocus>
 					<onright>800</onright>
 					<onup>16</onup>
 					<ondown>18</ondown>
 					<include>button_Category</include>
 				</control>
 			</control>
-			<!--credits-->
+			<!--other-->
 			<control type="group">
 				<height>50</height>
 				<control type="button" id="18">
+					<label>$LOCALIZE[31119]</label>
+					<onfocus>Skin.SetString(SkinSettings,Other)</onfocus>
+					<onright>900</onright>
+					<onup>17</onup>
+					<ondown>19</ondown>
+					<include>button_Category</include>
+				</control>
+			</control>
+			<!--credits-->
+			<control type="group">
+				<height>50</height>
+				<control type="button" id="19">
 					<label>$LOCALIZE[31909] reFocus</label>
 					<onfocus>Skin.SetString(SkinSettings,Credits)</onfocus>
-					<onup>17</onup>
+					<onup>18</onup>
 					<ondown>10</ondown>
 					<include>button_Category</include>
 				</control>
@@ -360,8 +372,36 @@
 				<include>button_Settings</include>
 			</control>
 		</control>
-<!---OTHER------>
+<!---ADDONS------>
 		<control type="grouplist" id="800">
+			<posx>340</posx>
+			<posy>93</posy>
+			<width>850</width>
+			<height>605</height>
+			<onleft>9001</onleft>
+			<onright>9001</onright>
+			<onup>800</onup>
+			<ondown>800</ondown>
+			<itemgap>0</itemgap>
+			<visible>Skin.String(SkinSettings,Addons)</visible>
+			<include>transition_Container</include>
+			<!--watchlist-->
+			<control type="radiobutton" id="801">
+				<label>$LOCALIZE[31082]</label>
+				<onclick>Skin.ToggleSetting(watchlist.disable)</onclick>
+				<selected>Skin.HasSetting(watchlist.disable)</selected>
+				<include>button_Settings</include>
+			</control>
+			<!--search-->
+			<control type="radiobutton" id="802">
+				<label>$LOCALIZE[31934]</label>
+				<onclick>Skin.ToggleSetting(search.addon)</onclick>
+				<selected>Skin.HasSetting(search.addon)</selected>
+				<include>button_Settings</include>
+			</control>
+		</control>
+<!---OTHER------>
+		<control type="grouplist" id="900">
 			<posx>340</posx>
 			<posy>93</posy>
 			<width>850</width>
@@ -374,50 +414,43 @@
 			<visible>Skin.String(SkinSettings,Other)</visible>
 			<include>transition_Container</include>
 			<!--smooth scrolling-->
-			<control type="radiobutton" id="701">
+			<control type="radiobutton" id="901">
 				<label>$LOCALIZE[31060]</label>
 				<onclick>Skin.ToggleSetting(smoothscrolling.enable)</onclick>
 				<selected>Skin.HasSetting(smoothscrolling.enable)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--progressbar-->
-			<control type="radiobutton" id="702">
+			<control type="radiobutton" id="901">
 				<label>$LOCALIZE[31917]</label>
 				<onclick>Skin.ToggleSetting(osd.progressbar)</onclick>
 				<selected>Skin.HasSetting(osd.progressbar)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--keyboard-->
-			<control type="radiobutton" id="703">
+			<control type="radiobutton" id="903">
 				<label>$LOCALIZE[31035]</label>
 				<onclick>Skin.ToggleSetting(keyboard.enable)</onclick>
 				<selected>!Skin.HasSetting(keyboard.enable)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--kiosk mode-->
-			<control type="radiobutton" id="704">
+			<control type="radiobutton" id="904">
 				<label>$LOCALIZE[31964]</label>
 				<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
 				<selected>Skin.HasSetting(global.kiosk)</selected>
 				<include>button_Settings</include>
 			</control>
 			<!--intro-->
-			<control type="radiobutton" id="705">
+			<control type="radiobutton" id="905">
 				<label>$LOCALIZE[31058]</label>
 				<onclick>Skin.ToggleSetting(intro.enable)</onclick>
 				<selected>!Skin.HasSetting(intro.enable)</selected>
 				<include>button_Settings</include>
 			</control>
-			<!--search-->
-			<control type="radiobutton" id="109">
-				<label>$LOCALIZE[31934]</label>
-				<onclick>Skin.ToggleSetting(search.addon)</onclick>
-				<selected>Skin.HasSetting(search.addon)</selected>
-				<include>button_Settings</include>
-			</control>
 		</control>
 <!---SKIN CREDITS------>					
-		<control type="group" id="900">
+		<control type="group" id="1000">
 			<posx>370</posx>
 			<posy>85</posy>
 			<visible>Skin.String(SkinSettings,Credits)</visible>
