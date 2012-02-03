@@ -61,7 +61,7 @@
 			<include>infoDialogHide</include>
 			<visible>Control.IsVisible(573) | Control.IsVisible(572)</visible>
 			<control type="group">
-				<!---flags--->
+				<!---flags
 				<control type="image">
 					<posx>195r</posx>
 					<posy>638</posy>
@@ -70,6 +70,7 @@
 					<aspectratio align="right">keep</aspectratio>
 					<texture>$VAR[flag_Studio]</texture>
 				</control>
+				--->
 				<control type="group">
 					<animation effect="slide" start="0,0" end="25,-5" time="0" condition="Container.Content(artists)">Conditional</animation>
 					<posx>60</posx>
@@ -84,6 +85,21 @@
 						<label>$VAR[global_Info]</label>
 						<width>750</width>
 						<include>info_Sub</include>
+					</control>
+					<control type="label">
+						<posx>1160</posx>
+						<posy>28</posy>
+						<width>300</width>
+						<label>$INFO[ListItem.Duration]</label>
+						<align>right</align>
+						<include>info_Sub</include>
+					</control>
+					<control type="image">
+						<posx>1035</posx>
+						<width>128</width>
+						<height>32</height>
+						<info>ListItem.StarRating</info>
+						<aspectratio align="right">keep</aspectratio>
 					</control>
 				</control>
 			</control>
