@@ -70,7 +70,9 @@
 		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)]" width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>440</width>
+				<height>27</height>
 				<label>$VAR[global_Title]</label>
 				<include>list_Label</include>
 				<visible>!Container.Content(files)</visible>
@@ -90,14 +92,6 @@
 				<include>list_Label-sub</include>
 				<!--<visible>!SubString(Container.FolderPath,plugin://)</visible>-->
 			</control>
-			<!--<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>510</width>
-				<label>$VAR[global_Info.Addon]</label>
-				<include>list_Label-sub</include>
-				<visible>SubString(Container.FolderPath,plugin://)</visible>
-			</control>-->
 			<control type="image">
 				<posx>570</posx>
 				<posy>35</posy>
@@ -131,7 +125,9 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>440</width>
+				<height>27</height>
 				<label>$VAR[global_Title]</label>
 				<include>list_Label-focus</include>
 				<visible>!Container.Content(files)</visible>
@@ -151,16 +147,6 @@
 				<include>list_Label-sub-focus</include>
 				<!--<visible>!SubString(Container.FolderPath,plugin://)</visible>-->
 			</control>
-			<!--
-			<control type="label">
-				<posx>40</posx>
-				<posy>28</posy>
-				<width>510</width>
-				<label>$VAR[global_Info.Addon]</label>
-				<include>list_Label-sub-focus</include>
-				<visible>SubString(Container.FolderPath,plugin://)</visible>
-			</control>
-			-->
 			<control type="image">
 				<posx>570</posx>
 				<posy>35</posy>
@@ -188,7 +174,9 @@
 		<itemlayout condition="IsEmpty(Container.FolderPath) | ![stringcompare(Container.FolderPath,addons://sources/audio/) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
-				<width>500</width>
+				<posy>6</posy>
+				<width>440</width>
+				<height>27</height>
 				<label>$VAR[global_Title]</label>
 				<include>list_Label-single</include>
 			</control>
@@ -229,7 +217,9 @@
 		<itemlayout width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>440</width>
+				<height>27</height>
 				<label>$VAR[global_Title]</label>
 				<include>list_Label</include>
 			</control>
@@ -238,6 +228,14 @@
 				<posy>28</posy>
 				<width>510</width>
 				<label>$VAR[global_Info]</label>
+				<include>list_Label-sub</include>
+			</control>
+			<control type="label">
+				<posx>600</posx>
+				<posy>28</posy>
+				<width>510</width>
+				<label>$INFO[ListItem.Duration]</label>
+				<align>right</align>
 				<include>list_Label-sub</include>
 			</control>
 			<control type="image">
@@ -274,6 +272,14 @@
 				<label>$VAR[global_Info]</label>
 				<include>list_Label-sub-focus</include>
 			</control>
+			<control type="label">
+				<posx>600</posx>
+				<posy>28</posy>
+				<width>510</width>
+				<label>$INFO[ListItem.Duration]</label>
+				<align>right</align>
+				<include>list_Label-sub-focus</include>
+			</control>
 			<control type="image">
 				<posx>475</posx>
 				<posy>12</posy>
@@ -292,7 +298,9 @@
 		<itemlayout width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>440</width>
+				<height>27</height>
 				<label>$VAR[playlist_Title]</label>
 				<include>list_Label</include>
 			</control>
@@ -335,7 +343,9 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
-				<width>440</width>
+				<posy>6</posy>
+				<width>500</width>
+				<height>27</height>
 				<label>$VAR[playlist_Title]</label>
 				<include>list_Label-focus</include>
 			</control>
@@ -371,7 +381,9 @@
 		<itemlayout width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>440</width>
+				<height>27</height>
 				<label>$INFO[ListItem.Title]</label>
 				<include>list_Label</include>
 			</control>
@@ -413,7 +425,9 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>440</width>
+				<height>27</height>
 				<label>$INFO[ListItem.Title]</label>
 				<include>list_Label-focus</include>
 			</control>
@@ -451,7 +465,9 @@
 		<itemlayout condition="!Container.HasFiles" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>500</width>
+				<height>27</height>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-single</include>
 			</control>
@@ -475,7 +491,9 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>500</width>
+				<height>27</height>
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>Focused</textcolor>
 				<include>list_Label-single</include>
@@ -492,7 +510,9 @@
 		<itemlayout condition="Container.HasFiles" width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>445</width>
+				<height>27</height>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label</include>
 			</control>
@@ -524,7 +544,9 @@
 			</control>
 			<control type="label">
 				<posx>40</posx>
+				<posy>6</posy>
 				<width>445</width>
+				<height>27</height>
 				<label>$INFO[ListItem.Label]</label>
 				<include>list_Label-focus</include>
 			</control>
@@ -901,7 +923,16 @@
 				<control type="label">
 					<posy>28</posy>
 					<width>770</width>
-					<label>$INFO[ListItem.Artist]</label>
+					<label>$VAR[global_Info]</label>
+					<textcolor>Color3</textcolor>
+					<include>list_Label-sub</include>
+				</control>
+				<control type="label">
+					<posx>1025</posx>
+					<posy>28</posy>
+					<width>300</width>
+					<label>$INFO[ListItem.Duration]</label>
+					<align>right</align>
 					<textcolor>Color3</textcolor>
 					<include>list_Label-sub</include>
 				</control>
@@ -957,7 +988,15 @@
 				<control type="label">
 					<posy>27</posy>
 					<width>770</width>
-					<label>$INFO[ListItem.Artist]</label>
+					<label>$VAR[global_Info]</label>
+					<include>list_Label-sub-focus</include>
+				</control>
+				<control type="label">
+					<posx>1025</posx>
+					<posy>28</posy>
+					<width>300</width>
+					<label>$INFO[ListItem.Duration]</label>
+					<align>right</align>
 					<include>list_Label-sub-focus</include>
 				</control>
 				<control type="label">
