@@ -5,7 +5,7 @@
 			<control type="group" id="600">
 				<posx>514</posx>
 				<posy>313</posy>
-				<visible allowhiddenfocus="true">ControlGroup(600).HasFocus</visible>
+				<visible allowhiddenfocus="true">Window.IsActive(fullscreenvideo) + ControlGroup(600).HasFocus</visible>
 				<include>toggle_PlayerMenu</include>
 				<control type="image">
 					<width>252</width>
@@ -99,7 +99,7 @@
 				<width>45</width>
 				<height>45</height>
 				<texture>osd/openSettings.png</texture>
-				<visible>!ControlGroup(600).HasFocus</visible>
+				<visible>Window.IsActive(fullscreenvideo) + !ControlGroup(600).HasFocus</visible>
 				<include>toggle_PlayerControls</include>
 			</control>
 			<control type="group" id="599">
@@ -198,7 +198,7 @@
 			<control type="group" id="600">
 				<posx>478</posx>
 				<posy>303</posy>
-				<visible allowhiddenfocus="true">ControlGroup(600).HasFocus</visible>
+				<visible allowhiddenfocus="true">Window.IsActive(fullscreenvideo) + ControlGroup(600).HasFocus</visible>
 				<include>toggle_PlayerMenu</include>
 				<control type="image">
 					<width>325</width>
@@ -320,7 +320,7 @@
 				<width>45</width>
 				<height>45</height>
 				<texture>osd/openSettings.png</texture>
-				<visible>!ControlGroup(600).HasFocus</visible>
+				<visible>Window.IsActive(fullscreenvideo) + !ControlGroup(600).HasFocus</visible>
 				<include>fadeinout</include>
 			</control>
 			<control type="group" id="599">
