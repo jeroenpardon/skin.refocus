@@ -44,7 +44,7 @@
 	<variable name="global_Info">
 		<!--movie set--><value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
 		<!--trailers---><value condition="Container.Content(movies) + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]$INFO[ListItem.Genre, • ]</value>
-		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
+		<!--movies--><value condition="Container.Content(movies)">$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]$VAR[tvshow_Info.NextAired, • ]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label)) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</value>
 		<!--tvshows--><value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.Label)) + IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Genre]</value>
