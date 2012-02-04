@@ -245,34 +245,20 @@
 	</include>
 	<include name="transition_OSD">
 		<animation type="Visible" reversible="false">
-			<effect type="fade" start="0" end="95" time="250" tween="Quadratic" easing="In" />
-			<!--<effect type="zoom" start="95" end="100" time="250" center="640,540" tween="Quadratic" easing="Out" />-->
+			<effect type="fade" start="0" end="95" time="300" tween="Quadratic" easing="Out" />
+			<effect type="slide" start="0,250" end="0,0" time="250" center="640,540" tween="Quadratic" easing="Out"/>
 		</animation>
 		<animation type="Hidden" reversible="false">
-			<!--<effect type="zoom" start="100" end="95" time="250" center="640,540" tween="Quadratic" easing="Out" />-->
-			<effect type="fade" start="95" end="0" time="250" tween="Quadratic" easing="In" />
+			<effect type="fade" start="95" end="0" time="300" tween="Quadratic" easing="Out" />
+			<effect type="slide" start="0," end="0,250" time="250" center="640,540" tween="Quadratic" easing="Out" />
 		</animation>
 		<animation type="WindowOpen" reversible="false">
-			<effect type="fade" start="0" end="95" time="250" tween="Quadratic" easing="In" />
-			<!--<effect type="zoom" start="95" end="100" time="250" center="640,540" tween="Quadratic" easing="Out" />-->
+			<effect type="fade" start="0" end="95" time="300" tween="Quadratic" easing="Out" />
+			<effect type="slide" start="0,250" end="0,0" time="250" center="640,540" tween="Quadratic" easing="Out"/>
 		</animation>
 		<animation type="WindowClose" reversible="false">
-			<!--<effect type="zoom" start="100" end="95" time="250" center="640,540" tween="Quadratic" easing="Out" />-->
-			<effect type="fade" start="95" end="0" time="250" tween="Quadratic" easing="In" />
-		</animation>
-	</include>
-	<include name="transition_OSD2">
-		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" delay="200" reversible="true" easing="Out" time="350" />
-		</animation>
-		<animation type="Visible">
-			<effect type="fade" start="0" end="100" delay="200" reversible="true" easing="Out" time="350" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" delay="0" reversible="true" easing="Out" time="200" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" delay="0" reversible="true" easing="Out" time="200" />
+			<effect type="fade" start="95" end="0" time="300" tween="Quadratic" easing="Out" />
+			<effect type="slide" start="0," end="0,250" time="250" center="640,540" tween="Quadratic" easing="Out" />
 		</animation>
 	</include>
 	<include name="transition_HomeMenu">
