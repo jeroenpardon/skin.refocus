@@ -97,7 +97,7 @@
 	<include name="global_Clock">
 		<control type="group">
 			<include>toggle_ToastMute</include>
-			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable) + !Window.IsVisible(28)] + !Control.IsVisible(56) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(weather)] + ![Window.IsActive(pictures) + Control.IsVisible(52)]</visible>
+			<visible>![Player.HasMedia + !Skin.HasSetting(overlay.enable) + !Window.IsVisible(28)] + !Control.IsVisible(56) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog) | Window.IsActive(weather) | Window.IsActive(614)] + ![Window.IsActive(pictures) + Control.IsVisible(52)]</visible>
 			<control type="label">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
@@ -111,16 +111,15 @@
 		</control>
 	</include>
 	<include name="clock">
-		<control type="group" id="1">
-			<include>toggle_ToastMute</include>
+		<control type="group">
 			<visible>!Window.IsActive(infodialog)</visible>
-			<control type="label" id="1">
+			<control type="label">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
 			</control>
-			<control type="label" id="1">
+			<control type="label">
 				<posx>25r</posx>
 				<label>$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</label>
 				<textcolor>Color1</textcolor>
@@ -128,7 +127,7 @@
 				<include>toast_Bottom</include>
 				<visible>!Window.IsActive(fullscreenvideo)</visible>
 			</control>
-			<control type="label" id="1">
+			<control type="label">
 				<posx>25r</posx>
 				<label>$LOCALIZE[31068] $INFO[Player.FinishTime]</label>
 				<textcolor>Color1</textcolor>
@@ -725,22 +724,28 @@
 <!---OSD / SLIDESHOW------>
 	<include name="osd_Info">
 		<control type="group" id="1">			
-			<posx>0</posx>
 			<posy>458</posy>
-			<!--<animation effect="slide" start="0,0" end="0,40" time="0" condition="!Skin.HasSetting(osd.progressbar) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv)]">Conditional</animation>-->
-			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsActive(visualisation)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsVisible(bookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
-			<control type="image" id="11">
+			<animation effect="slide" start="0,0" end="0,42" time="0" condition="Player.HasAudio | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
+			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsActive(visualisation)] + ![Window.IsActive(visualisationpresetlist) | Window.IsActive(videoosd) | Window.IsVisible(bookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsActive(script-XBMC_Lyrics-main.xml)]</visible>
+			<control type="image" id="1">
 				<width>1280</width>
 				<height>240</height>
 				<texture border="24">osd/osdOverlay.png</texture>
+				<visible>Player.HasVideo + ![VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
 			</control>
 			<control type="image" id="1">
-				<posx>10</posx>
+				<width>1280</width>
+				<height>198</height>
+				<texture border="24">osd/osdOverlay.png</texture>
+				<visible>Player.HasAudio | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)</visible>
+			</control>
+			<control type="image" id="1">
+				<posx>14</posx>
 				<posy>36</posy>
 				<width>128</width>
 				<height>48</height>
 				<texture>$VAR[flag_Studio.player]</texture>
-				<aspectratio align="right">keep</aspectratio>
+				<aspectratio align="center">keep</aspectratio>
 				<visible>!VideoPlayer.Content(movies)</visible>
 			</control>
 			<control type="image" id="1">
@@ -753,10 +758,10 @@
 				<visible>VideoPlayer.Content(movies)</visible>
 			</control>
 			<control type="image" id="1">
-				<posx>30</posx>
+				<posx>14</posx>
 				<posy>34</posy>
-				<width>96</width>
-				<height>96</height>
+				<width>128</width>
+				<height>128</height>
 				<texture>$INFO[MusicPlayer.Cover]</texture>
 				<aspectratio align="center">stretch</aspectratio>
 			</control>
@@ -795,7 +800,25 @@
 					<textcolor>Color2</textcolor>
 					<include>info_Sub</include>
 				</control>
-				<control type="image">
+				<control type="label" id="1">
+					<posy>54</posy>
+					<width>850</width>
+					<label>$LOCALIZE[209]: $INFO[MusicPlayer.Offset(1).Artist,]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<include>info_Sub</include>
+					<visible>Player.HasAudio</visible>
+				</control>
+				<control type="label" id="1">
+					<posy>54</posy>
+					<width>850</width>
+					<label>$LOCALIZE[209]: $INFO[VideoPlayer.Offset(1).Artist,]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[VideoPlayer.PlaylistPosition,]$INFO[VideoPlayer.PlaylistLength,/])</label>
+					<textcolor>Color3</textcolor>
+					<font>smallerCaps</font>
+					<include>info_Sub</include>
+					<visible>VideoPlayer.Content(musicvideos)</visible>
+				</control>
+				<control type="image" id="1">
 					<posx>1020</posx>
 					<posy>-3</posy>
 					<width>82</width>
@@ -814,6 +837,7 @@
 				<!---plot------>
 				<control type="group" id="1">
 					<posy>55</posy>
+					<visible>Player.HasVideo + ![VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)]</visible>
 					<control type="textbox" id="1">
 						<height>55</height>
 						<width>1090</width>
@@ -836,7 +860,7 @@
 				<!---progress------>
 				<control type="group" id="1">
 					<posy>120</posy>
-					<animation effect="slide" start="0,0" end="0,-80" time="0" condition="VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-44" time="0" condition="Player.HasAudio | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
 					<visible>Skin.HasSetting(osd.progressbar)</visible>
 					<control type="progress" id="1">
 						<posy>10</posy>
@@ -861,12 +885,6 @@
 							<align>right</align>
 							<font>smallerCaps</font>
 							<textcolor>Color3</textcolor>
-						</control>
-						<control type="label" id="1">
-							<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Artist,]$INFO[MusicPlayer.offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
-							<font>smallerCaps</font>
-							<include>seekbar_Label-Info</include>
-							<visible>!IsEmpty(MusicPlayer.offset(1).Title) + ![Player.Paused | Player.Forwarding | Player.Rewinding | Player.Seeking | Player.Caching | Player.DisplayAfterSeek]</visible>
 						</control>
 						<control type="label" id="1">
 							<label>$VAR[player_Status.Condition]</label>
