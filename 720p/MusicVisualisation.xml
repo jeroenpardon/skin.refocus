@@ -2,19 +2,16 @@
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<control type="visualisation" id="2">
-			<description>visualisation</description>
 			<include>screen_Dimensions</include>
 			<visible>!Skin.HasSetting(fanart.visualization) | Skin.HasSetting(fanart.visualization.blend)</visible>
 		</control>
 		<control type="image">
-			<description>Fanart image</description>
 			<include>screen_Dimensions</include>
 			<texture fallback="backgrounds/artist.jpg">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
 			<visible>Skin.HasSetting(fanart.visualization)</visible>
 			<include>transition_Fanart</include>
 			<animation effect="fade" start="100" end="80" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
 		</control>
-		
 		<control type="group">
 			<posx>5</posx>
 			<posy>5</posy>
@@ -49,15 +46,10 @@
 				</control>
 			</control>
 		</control>
-		
 		<control type="group" id="1">
 			<include>osd_Info</include>
 			<include>transition_OSD</include>
-			
 			<visible>Player.ShowInfo</visible>
-			
-			
 		</control>
-
 	</controls>
 </window>
