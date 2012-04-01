@@ -180,10 +180,10 @@
 <!---WINDOW TITLES------>
 	<variable name="window_Title.Video">
 	<!--video sources-->
-		<value condition="[Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(Files)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,skin) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(Files) | StringCompare(Container.FolderPath,sources://video/)] + !SubString(Container.FolderPath,videodb) + !SubString(Container.FolderPath,skin) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 	<!--nodes-->
 		<!--movies--><value condition="StringCompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342]</value>
-		<!--tv shows--><value condition="StringCompare(Container.FolderPath,videodb://2/)">$LOCALIZE[20343]</value>
+		<!--tv shows--><value condition="StringCompare(Container.FolderPath,videodb://2/) | IsEmpty(Container.FolderPath)">$LOCALIZE[20343]</value>
 		<!--music videos--><value condition="stringcompare(Container.FolderPath,videodb://3/)">$LOCALIZE[20389]</value>
 	<!--movies-->
 		<value condition="SubString(Container.FolderPath,videodb://1/) + !StringCompare(Container.FolderPath,videodb://1/)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
@@ -285,12 +285,13 @@
 	<variable name="osd.Title">
 		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Title]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumber,,. ]$INFO[VideoPlayer.Title]</value>
-		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ][COLOR=Color3]$INFO[VideoPlayer.Title][/COLOR]</value>
+		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
 	</variable>
 	<variable name="osd.Info">
 		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]$INFO[MusicPlayer.Year, • ]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</value>
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , -] $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,, • ]$INFO[VideoPlayer.NextTitle,$LOCALIZE[209]: ] ($INFO[VideoPlayer.Endtime])</value>
 		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, • ]$INFO[VideoPlayer.Year, • ]</value>
 		<value condition="VideoPlayer.Content(files) | [!VideoPlayer.Content(files) + Substring(Player.Filenameandpath,http)]">$INFO[Player.Filenameandpath]</value>
