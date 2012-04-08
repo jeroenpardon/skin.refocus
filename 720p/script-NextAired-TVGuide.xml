@@ -51,9 +51,9 @@
 
 		<include>global_Background</include>
 		<control type="label">
-			<posx>59</posx>
 			<label>$LOCALIZE[20364] [COLOR=Color2]$LOCALIZE[22020][/COLOR]</label>
 			<include>windowTitle</include>
+			<animation effect="slide" end="25" condition="Skin.HasSetting(indicator.enable)">Conditional</animation>
 		</control>
 		<include>global_Includes</include>
 		<control type="image">
@@ -64,6 +64,7 @@
 			<height>32</height>
 			<texture>navigation/indicator_Left.png</texture>
 			<animation effect="rotate" center="auto" start="0" end="-180" time="250" tween="Quadratic" condition="ControlGroup(9000).HasFocus">Conditional</animation>
+			<visible>Skin.HasSetting(indicator.enable) + ![Window.IsActive(busydialog) | Skin.HasSetting(global.kiosk)]</visible>
 		</control>
 
 		<control type="group">
