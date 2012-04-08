@@ -67,11 +67,13 @@
 						<label>$LOCALIZE[31942]</label>
 						<onclick>Close</onclick>
 						<onclick>SendClick(2003,6)</onclick>
+						<visible>!Window.IsActive(3000)</visible>
 					</item>
 					<!--thumbnail-->
 					<item id="2">
 						<label>$LOCALIZE[31943]</label>
 						<onclick>SendClick(2003,10)</onclick>
+						<visible>!Window.IsActive(3000)</visible>
 					</item>
 					<!--fanart-->
 					<item id="3">
@@ -109,6 +111,34 @@
 						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=movie, medianame=$INFO[ListItem.Title],mediapath=$INFO[ListItem.Path],extrafanart)</onclick>
 						<visible>Container.Content(movies)</visible>
 						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</item>
+					<!--metadata.actors-refresh-->
+					<item id="8">
+						<label>$LOCALIZE[31942]</label>
+						<onclick>Close</onclick>
+						<onclick>SendClick(3000,6)</onclick>
+						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
+					</item>
+					<!--metadata.actors-thumbnail-->
+					<item id="9">
+						<label>$LOCALIZE[31943]</label>
+						<onclick>SendClick(3000,10)</onclick>
+						<onclick>Close</onclick>
+						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
+					</item>
+					<!--metadata.actors-fanart-->
+					<item id="10">
+						<label>$LOCALIZE[31944]</label>
+						<onclick>SendClick(3000,20)</onclick>
+						<onclick>Close</onclick>
+						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
+					</item>
+					<!--metadata.actors-edit-->
+					<item id="11">
+						<label>$LOCALIZE[20067]</label>
+						<onclick>SendClick(3000,11)</onclick>
+						<onclick>Close</onclick>
+						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
 					</item>
 				</content>
 			</control>

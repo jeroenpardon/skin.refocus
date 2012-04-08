@@ -1,0 +1,323 @@
+<window id="3002">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<posx>240</posx>
+			<posy>82</posy>
+			<visible>!StringCompare(Window.Property(dialogprogress),1)</visible>
+			<control type="image">
+				<width>800</width>
+				<height>564</height>
+				<include>dialogWindow</include>
+			</control>
+			<control type="label" id="411">
+				<width>766</width>
+				<label>$LOCALIZE[1023]</label>
+				<include>dialog_Windowtitle</include>
+			</control>
+			<!--path-->
+			<control type="label" id="412">
+				<posy>65</posy>
+				<width>766</width>
+				<include>dialog_Line</include>
+			</control>
+			<control type="image">
+				<posx>19</posx>
+				<posy>95</posy>
+				<width>766</width>
+				<include>dialog_Separator</include>
+			</control>
+			<!--browser-->
+			<control type="list" id="450">
+				<posx>19</posx>
+				<posy>95</posy>
+				<width>765</width>
+				<height>376</height>
+				<onleft>9000</onleft>
+				<onright>5</onright>
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+				<itemlayout width="765" height="94">
+					<control type="image">
+						<posy>1</posy>
+						<width>164</width>
+						<height>92</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture>thumbs/user.png</texture>
+						<visible>StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>93</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture fallback="thumbs/user.png">$INFO[ListItem.Icon]</texture>
+						<visible>!StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="image">
+						<width>765</width>
+						<height>94</height>
+						<include>dialog_CommonList</include>
+					</control>
+					<control type="image">
+						<posx>164</posx>
+						<height>94</height>
+						<include>dialog_Separator-y</include>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>10</posy>
+						<width>565</width>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<include>dialog_CommonListItem</include>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>40</posy>
+						<width>565</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>dialog_CommonListItem</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="765" height="94">
+					<control type="image">
+						<posx>164</posx>
+						<width>765</width>
+						<height>93</height>
+						<include>dialog_CommonListFocus</include>
+					</control>
+					<control type="image">
+						<posy>1</posy>
+						<width>164</width>
+						<height>92</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture>thumbs/user.png</texture>
+						<visible>StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="image">
+						<posy>0</posy>
+						<width>164</width>
+						<height>93</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture fallback="thumbs/user.png">$INFO[ListItem.Icon]</texture>
+						<visible>!StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="image">
+						<width>765</width>
+						<height>94</height>
+						<include>dialog_CommonList</include>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>10</posy>
+						<width>565</width>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<scroll>false</scroll>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>40</posy>
+						<width>565</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="panel" id="451">
+				<posx>18</posx>
+				<posy>95</posy>
+				<width>765</width>
+				<height>368</height>
+				<onleft>9000</onleft>
+				<onright>5</onright>
+				<onup>451</onup>
+				<ondown>451</ondown>
+				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+				<visible>!StringCompare(Window.Property(dialogprogress),1)</visible>
+				<itemlayout width="765" height="92">
+					<control type="image">
+						<width>765</width>
+						<height>92</height>
+						<include>dialog_CommonList</include>
+					</control>
+					<control type="image">
+						<posx>164</posx>
+						<height>128</height>
+						<include>dialog_Separator-y</include>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>92</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture>thumbs/user.png</texture>
+						<visible>StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>92</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture fallback="thumbs/user.png">$INFO[ListItem.Icon]</texture>
+						<visible>!StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>10</posy>
+						<width>565</width>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<include>dialog_CommonListItem</include>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>40</posy>
+						<width>565</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>dialog_CommonListItem</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="765" height="92">
+					<control type="image">
+						<width>765</width>
+						<height>92</height>
+						<include>dialog_CommonListFocus</include>
+						<visible>!Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>92</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture>thumbs/user.png</texture>
+						<visible>StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>92</height>
+						<aspectratio align="left">scale</aspectratio>
+						<texture fallback="thumbs/user.png">$INFO[ListItem.Icon]</texture>
+						<visible>!StringCompare(ListItem.Label,current fanart)</visible>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>10</posy>
+						<width>565</width>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+					<control type="label">
+						<posx>186</posx>
+						<posy>40</posy>
+						<width>565</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+				</focusedlayout>
+			</control>
+			<!--dialog controls-->
+			<control type="grouplist" id="9000">
+				<posx>387</posx>
+				<posy>488</posy>
+				<width>1200</width>
+				<height>225</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<onleft>450</onleft>
+				<onright>450</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<enable>!StringCompare(Window.Property(dialogprogress),1)</enable>
+				<!--select all-->
+				<control type="button" id="415">
+					<label>119</label>
+					<include>dialog_Button</include>
+				</control>
+				<!--ok-->
+				<control type="button" id="413">
+					<label>186</label>
+					<include>dialog_Button</include>
+				</control>
+				<!--cancel-->
+				<control type="button" id="414">
+					<label>222</label>
+					<include>dialog_Button</include>
+				</control>
+				<!--flip-->
+				<control type="radiobutton" id="416">
+					<label>749</label>
+					<include>dialog_Button</include>
+					<visible>false</visible>
+				</control>
+			</control>
+		</control>
+		<!--progress-->
+		<control type="group">
+			<posx>365</posx>
+			<posy>210</posy>
+			<include>dialogOpen</include>
+			<visible>StringCompare(Window.Property(dialogprogress),1)</visible>
+			<control type="image">
+				<width>550</width>
+				<height>260</height>
+				<include>dialogWindow</include>
+			</control>
+			<!--fake header-->
+			<control type="label" id="1011">
+				<width>482</width>
+				<include>dialog_Windowtitle</include>
+			</control>
+			<!--header-->
+			<control type="label">
+				<width>482</width>	
+				<label>$INFO[Control.GetLabel(1011)] $INFO[Control.GetLabel(1015),- ,%]</label>
+				<include>dialog_Line</include>
+				<visible>false</visible>
+			</control>
+			<!--line 1-->
+			<control type="label" id="1012">
+				<width>482</width>	
+				<posy>65</posy>
+				<label>-</label>
+				<haspath>true</haspath>
+				<include>dialog_Line</include>
+			</control>
+			<!--line 2-->
+			<control type="label" id="1013">
+				<width>482</width>	
+				<posy>90</posy>
+				<label>-</label>
+				<haspath>true</haspath>
+				<include>dialog_Line</include>
+			</control>
+			<control type="label" id="1014">
+				<width>482</width>	
+				<posy>115</posy>
+				<label>-</label>
+				<haspath>true</haspath>
+				<include>dialog_Line</include>
+			</control>
+			<control type="progress" id="1015">
+				<posx>34</posx>
+				<posy>150</posy>
+				<width>482</width>
+				<height>12</height>
+			</control>
+			<!--cancel-->
+			<control type="button" id="1010">
+				<posx>218</posx>
+				<posy>185</posy>
+				<label>$LOCALIZE[222]</label>
+				<onleft>1010</onleft>
+				<onright>1010</onright>
+				<onup>1010</onup>
+				<ondown>1010</ondown>
+				<onclick>SetProperty(iscanceled,1)</onclick>
+				<include>dialog_Button</include>
+			</control>
+		</control>
+	</controls>
+</window>
