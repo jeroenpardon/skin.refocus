@@ -350,12 +350,12 @@
 			<effect type="fade" start="100" end="0" time="200" />
 		</animation>
 	</include>
-	<include name="infoDialogHide">		
-		<animation type="Conditional" condition="[Window.IsActive(2003) | Window.IsActive(2001) | Window.IsActive(script-globalsearch-main.xml)]">
+	<include name="infoDialogHide">
+		<animation type="Conditional" condition="[Window.IsActive(2003) | Window.IsActive(2001) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(3000)]">
 			<effect type="fade" start="100" end="0" time="250" />
 			<effect type="zoom" start="100" end="85" tween="Cubic" easing="Out" center="screen_Center" time="250"/>
 		</animation>
-		<animation type="Conditional" condition="![Window.IsActive(2003) | Window.IsActive(2001) | Window.IsActive(script-globalsearch-main.xml)]">
+		<animation type="Conditional" condition="![Window.IsActive(2003) | Window.IsActive(2001) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(3000)]">
 			<effect type="fade" start="0" end="100" time="250" />
 			<effect type="zoom" start="85" end="100" tween="Quadratic" easing="Out" center="screen_Center" time="250"/>
 		</animation>

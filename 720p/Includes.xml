@@ -59,7 +59,7 @@
 			<font>smallerCaps</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_WindowTitle</include>
-			<visible>Skin.HasSetting(numitems.enable) + [Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml)]</visible>
+			<visible>Skin.HasSetting(numitems.enable) + [Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(3000)]</visible>
 		</control>
 	</include>
 	<include name="global_Sortletter">
@@ -158,7 +158,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/indicator_Left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Window.IsActive(weather) | Window.IsActive(600)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Window.IsActive(weather) | Window.IsActive(600)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(3000)]</visible>
 				<include>nav_IndicatorLeft</include>
 			</control>
 			<control type="image">
@@ -170,6 +170,7 @@
 			</control>
 		</control>
 	</include>
+	<!--
 	<include name="nav_Indicator-info">
 		<control type="group" id="6100">
 			<posx>20</posx>
@@ -185,6 +186,7 @@
 			</control>
 		</control>
 	</include>
+	-->
 	<include name="scrollbar_X">
 		<showonepage>true</showonepage>
 		<height>8</height>
@@ -759,7 +761,7 @@
 			</control>
 			<control type="image" id="1">
 				<posx>14</posx>
-				<posy>34</posy>
+				<posy>20</posy>
 				<width>128</width>
 				<height>128</height>
 				<texture>$INFO[MusicPlayer.Cover]</texture>
@@ -919,7 +921,7 @@
 		<include>transition_WindowTitle</include>
 		<animation effect="slide" end="0,-3" condition="Skin.HasSetting(numitems.enable)">Conditional</animation>
 		<animation effect="slide" end="25" condition="Skin.HasSetting(indicator.enable) + Control.IsVisible(6100)">Conditional</animation>
-		<visible>!Window.IsActive(busydialog) + ![Control.IsVisible(9900) | Control.IsVisible(531) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+		<visible>!Window.IsActive(busydialog) + ![Control.IsVisible(9900) | Control.IsVisible(531) | Window.IsActive(3000) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 	</include>
 	<include name="windowTitle_Video">
 		<control type="label">
