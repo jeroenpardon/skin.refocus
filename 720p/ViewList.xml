@@ -25,7 +25,7 @@
 	</include>
 
 	<include name="List_Video">
-		<itemlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)]" width="625" height="40">
+		<itemlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | SubString(Container.FolderPath,library://) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)]" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
@@ -41,7 +41,7 @@
 				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources) + !SubString(Container.FolderPath,plugin://)</visible>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)]" width="625" height="40">
+		<focusedlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | SubString(Container.FolderPath,library://) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)]" width="625" height="40">
 			<control type="image">
 				<posy>-28</posy>
 				<width>650</width>
