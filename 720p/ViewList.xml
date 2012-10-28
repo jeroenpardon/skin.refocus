@@ -25,7 +25,7 @@
 	</include>
 
 	<include name="List_Video">
-		<itemlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | SubString(Container.FolderPath,library://) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)]" width="625" height="40">
+		<itemlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)] | SubString(Container.Folderpath,library://video/movies/) | SubString(Container.Folderpath,library://video/tvshows/)" width="625" height="40">
 			<control type="label">
 				<posx>40</posx>
 				<width>500</width>
@@ -41,7 +41,7 @@
 				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources) + !SubString(Container.FolderPath,plugin://)</visible>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | SubString(Container.FolderPath,library://) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)]" width="625" height="40">
+		<focusedlayout condition="IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,sources://video/) | [Container.Content(seasons) + SubString(Container.FolderPath,plugin://)] | SubString(Container.Folderpath,library://video/movies/) | SubString(Container.Folderpath,library://video/tvshows/)" width="625" height="40">
 			<control type="image">
 				<posy>-28</posy>
 				<width>650</width>
@@ -66,8 +66,8 @@
 				<visible>Window.IsVisible(Videos) + SubString(Container.Folderpath,sources) + !SubString(Container.FolderPath,plugin://)</visible>
 			</control>
 		</focusedlayout>
-		
-		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)]" width="625" height="67">
+
+		<itemlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | SubString(Container.FolderName,$LOCALIZE[575])" width="625" height="67">
 			<control type="label">
 				<posx>40</posx>
 				<posy>6</posy>
@@ -114,7 +114,7 @@
 				<visible>!Container.Content(artists)</visible>
 			</control>
 		</itemlayout>
-		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)]" width="625" height="67">
+		<focusedlayout condition="[[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(seasons) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(musicvideos)]] | Container.Content(addons) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | SubString(Container.FolderName,$LOCALIZE[575])" width="625" height="67">
 			<control type="image">
 				<posy>-30</posy>
 				<width>650</width>

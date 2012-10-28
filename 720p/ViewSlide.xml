@@ -112,12 +112,12 @@
 			<onright>52</onright>
 			<focusposition>1</focusposition>
 			<pagecontrol>72</pagecontrol>
-			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+			<scrolltime tween="Cubic" easing="Out">200</scrolltime>
 			<orientation>horizontal</orientation>
 			<include>transition_Container</include>
 			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin.video.hulu)</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin.video.hulu)</visible>
 			<include condition="Window.IsVisible(videolibrary)">SlidePoster_Video</include>
 		</control>
 	</include>

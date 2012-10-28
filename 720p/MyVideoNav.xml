@@ -28,7 +28,7 @@
 			<width>500</width>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-
+			
 	<!---LIST------>
 		<include>view_List</include>
 		<control type="group">
@@ -95,7 +95,7 @@
 				<posy>65</posy>
 				<visible>!SubString(Container.FolderPath,plugin://)</visible>
 				<control type="group">
-					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
 					<control type="image">
 						<include>frame_Poster-List</include>
 					</control>

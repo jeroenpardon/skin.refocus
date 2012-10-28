@@ -457,21 +457,26 @@
 						<visible>Skin.HasSetting(moviesmenu.inprogress)</visible>
 					</item>
 					<item id="6">
+						<label>$LOCALIZE[20434]</label>
+						<onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+						<visible>Library.HasContent(MovieSets) + Skin.HasSetting(moviesmenu.sets)</visible>
+					</item>
+					<item id="7">
 						<label>$LOCALIZE[31011]</label>
 						<onclick>XBMC.ActivateWindow(Videos, plugin://plugin.video.the.trailers/)</onclick>
 						<visible>Skin.HasSetting(moviesmenu.trailers) + System.HasAddon(plugin.video.the.trailers)</visible>
 					</item>
-					<item id="7">
+					<item id="8">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(Videos,moviegenres)</onclick>
 						<visible>Skin.HasSetting(moviesmenu.genres)</visible>
 					</item>
-					<item id="8">
+					<item id="9">
 						<label>$LOCALIZE[652]</label>
 						<onclick>ActivateWindow(Videos,movieyears)</onclick>
 						<visible>Skin.HasSetting(moviesmenu.years)</visible>
 					</item>
-					<item id="9">
+					<item id="10">
 						<label>$LOCALIZE[344]</label>
 						<onclick>ActivateWindow(Videos,movieactors)</onclick>
 						<visible>Skin.HasSetting(moviesmenu.actors)</visible>

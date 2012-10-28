@@ -124,7 +124,7 @@
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="thumb_Portrait.Condition">
-		<value condition="IsEmpty(ListItem.Thumb) + Container.Content(movies)">thumbs/movie_portrait.jpg</value>
+		<value condition="IsEmpty(ListItem.Thumb) + [Container.Content(movies) | Container.Content(sets)]">thumbs/movie_portrait.jpg</value>
 		<value condition="IsEmpty(ListItem.Thumb) + [Container.Content(tvshows) | Container.Content(seasons)]">thumbs/tvshow_portrait.jpg</value>
 		<value condition="IsEmpty(ListItem.Thumb) + Container.Content(actors)">thumbs/actor_portrait.jpg</value>
 		<value>$INFO[ListItem.Thumb]</value>
@@ -136,10 +136,10 @@
 		<value condition="[Container.Content(files) | Container.Content(addons)] + IsEmpty(ListItem.Thumb)">thumbs/addon.png</value>
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
-	<variable name="view_Banner.Thumb">
+	<!--<variable name="view_Banner.Thumb">
 		<value condition="!Skin.HasSetting(banners.local)">$INFO[ListItem.Thumb]</value>
 		<value>$INFO[ListItem.path]banner.jpg</value>
-	</variable>
+	</variable>-->
 	<variable name="global_Rating.Condition">
 		<value condition="!IsEmpty(ListItem.Artist) | !IsEmpty(ListItem.Title)">$INFO[ListItem.StarRating]</value>
 		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons)">$INFO[ListItem.Property(Addon.StarRating)]</value>

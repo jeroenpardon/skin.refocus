@@ -305,7 +305,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(57) + [[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]]</visible>
+					<visible>Control.IsVisible(57) + [[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin://)]]</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31975]</label>
 						<onup>31</onup>
@@ -321,7 +321,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
 					<control type="button" id="90">
 						<label>$LOCALIZE[31974]</label>
 						<onup>31</onup>
@@ -437,7 +437,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin.video.hulu)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin.video.hulu)</visible>
 					<!--<visible>[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists)]] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + SubString(Container.FolderPath,plugin://)] | [SubString(Container.FolderPath,special://skin/playlists/) + !Container.Content(episodes)]</visible>-->
 					<control type="button" id="403">
 						<label>$LOCALIZE[31003]</label>
@@ -487,7 +487,7 @@
 				<control type="group">
 					<width>220</width>
 					<height>42</height>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists) | SubString(Container.FolderPath,special://skin/playlists) | SubString(Container.FolderPath,plugin://)]</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,special://profile/playlists) | SubString(Container.FolderPath,special://skin/playlists) | SubString(Container.FolderPath,plugin://)]</visible>
 					<control type="button" id="405">
 						<label>$LOCALIZE[31014]</label>
 						<onclick>Container.SetViewMode(57)</onclick>

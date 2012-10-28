@@ -18,7 +18,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin/playlists)]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin/playlists)]</visible>
 			<itemlayout height="260" width="186">
 				<control type="image">
 					<width>177</width>
@@ -27,7 +27,7 @@
 					<bordertexture border="6" width="177" height="250">frames/frame_Square-small.png</bordertexture>
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<!--<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | Container.Content(tvshows) | Container.Content(seasons)</visible>-->
 				</control>
 				<control type="group">
 					<posx>139</posx>
@@ -49,7 +49,7 @@
 					<bordersize>6</bordersize>
 					<aspectratio>stretch</aspectratio>
 					<include>focus_ThumbPoster</include>
-					<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<!--<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://plugin.video.xbmcflicks) | Container.Content(tvshows) | Container.Content(seasons)</visible>-->
 				</control>
 				<control type="group">
 					<posx>139</posx>
@@ -85,7 +85,7 @@
 			<include>transition_Container</include>
 			<include>toggle_Menu</include>
 			<include>infoDialogHide</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin/playlists)]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + [SubString(Container.FolderPath,videodb) | SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,special://profile/playlists/video/) | SubString(Container.FolderPath,special://skin/playlists)]</visible>
 			<itemlayout height="190" width="140">
 				<control type="image">
 					<width>134</width>
