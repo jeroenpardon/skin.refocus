@@ -23,13 +23,13 @@
 		<value condition="[Window.IsActive(picturessettings) | Window.IsActive(appearancesettings) | Window.IsActive(networksettings) | Window.IsActive(videossettings) | Window.IsActive(systemsettings) | Window.IsActive(musicsettings) | Window.IsActive(weathersettings) | Window.IsActive(programssettings) | Window.IsActive(picturessettings) | Window.IsActive(filemanager) | Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)]">backgrounds/settings.jpg</value>
 		<value condition="Window.IsActive(59)">backgrounds/skin.jpg</value>
 		<value condition="Window.IsActive(addonbrowser)">backgrounds/addons.jpg</value>
-		<value condition="!Control.IsVisible(56)">$INFO[ListItem.Property(Fanart_Image)]</value>
+		<value condition="!Control.IsVisible(56)">$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 
 <!---VIEWS------>
 	<variable name="global_Title">
 		<value condition="SubString(Container.FolderPath,plugin.video.hulu)">$INFO[ListItem.Label]</value>
-		<!--episodes--><value condition="Container.Content(episodes) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
+		<!--episodes--><value condition="Container.Content(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<!--episodes--><value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<!--music videos--><value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<!--songs--><value condition="Container.Content(songs) + ![SubString(Container.FolderPath,musicdb://4/) | SubString(Container.FolderPath,musicdb://10/)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
@@ -112,10 +112,10 @@
 
 <!---IMAGES------>
 	<variable name="thumb_Landscape.Condition">
-		<value condition="!IsEmpty(ListItem.Property(Fanart_Image)) + ![Container.Content(episodes) | Container.Content(musicvideos)]">$INFO[ListItem.Property(Fanart_Image)]</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(ListItem.Thumb) + Container.Content(movies)">thumbs/movie_landscape.jpg</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(ListItem.Thumb) + Container.Content(tvshows)">thumbs/tvshow_landscape.jpg</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(ListItem.Thumb) + Container.Content(artists)">thumbs/artist_landscape.png</value>
+		<value condition="!IsEmpty(ListItem.Art(fanart)) + ![Container.Content(episodes) | Container.Content(musicvideos)]">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="IsEmpty(ListItem.Art(fanart)) + IsEmpty(ListItem.Thumb) + Container.Content(movies)">thumbs/movie_landscape.jpg</value>
+		<value condition="IsEmpty(ListItem.Art(fanart)) + IsEmpty(ListItem.Thumb) + Container.Content(tvshows)">thumbs/tvshow_landscape.jpg</value>
+		<value condition="IsEmpty(ListItem.Art(fanart)) + IsEmpty(ListItem.Thumb) + Container.Content(artists)">thumbs/artist_landscape.png</value>
 		<value condition="Container.Content(musicvideos) + IsEmpty(ListItem.Thumb)">thumbs/music_landscape.jpg</value>
 		<value condition="Container.Content(episodes) + IsEmpty(ListItem.Thumb)">thumbs/tvshow_landscape.jpg</value>
 		<value condition="Window.IsActive(pictures) + IsEmpty(ListItem.Thumb)">thumbs/picture_landscape.jpg</value>
@@ -124,9 +124,11 @@
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="thumb_Portrait.Condition">
+	<value condition="StringCompare(Container.FolderPath,plugin://plugin.video.the.trailers/)">$INFO[ListItem.Icon]</value>
 		<value condition="IsEmpty(ListItem.Thumb) + [Container.Content(movies) | Container.Content(sets)]">thumbs/movie_portrait.jpg</value>
 		<value condition="IsEmpty(ListItem.Thumb) + [Container.Content(tvshows) | Container.Content(seasons)]">thumbs/tvshow_portrait.jpg</value>
 		<value condition="IsEmpty(ListItem.Thumb) + Container.Content(actors)">thumbs/actor_portrait.jpg</value>
+		
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="thumb_Square.Condition">
