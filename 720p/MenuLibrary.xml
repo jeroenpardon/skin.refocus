@@ -129,12 +129,28 @@
 		<control type="group">
 			<width>220</width>
 			<height>42</height>
+			<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
 			<control type="button" id="19">
 				<label>$LOCALIZE[587]</label>
 				<onup>9</onup>
+				<ondown>20</ondown>
+				<onright>50</onright>
+				<include>button_Menu</include>
+				<onclick>SetFocus(300)</onclick>
+			</control>
+		</control>
+		<control type="group">
+			<width>220</width>
+			<height>42</height>
+			<visible>Container.CanFilterAdvanced</visible>
+			<control type="button" id="20">
+				<label>$LOCALIZE[587]</label>
+				<onup>19</onup>
 				<ondown>16</ondown>
 				<onright>50</onright>
 				<include>button_Menu</include>
+				<onclick>right</onclick>
+				<onclick>Filter</onclick>
 				<onclick>SetFocus(300)</onclick>
 			</control>
 		</control>
@@ -183,7 +199,7 @@
 					<height>42</height>
 					<control type="button" id="31">
 						<label>$LOCALIZE[1036]</label>
-						<onup>16</onup>
+						<onup>20</onup>
 						<ondown>90</ondown>
 						<onright>50</onright>
 						<onclick>ActivateWindow(Favourites)</onclick>
