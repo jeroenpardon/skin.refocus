@@ -26,7 +26,7 @@
 				<control type="image">
 					<width>414</width>
 					<height>617</height>
-					<texture background="true" fallback="thumbs/tvshow_portrait.jpg">$INFO[Container.TVShowThumb]</texture>
+					<texture background="true" fallback="thumbs/tvshow_portrait.jpg">$INFO[ListItem.Art(tvshow.poster)]</texture>
 					<aspectratio align="center">stretch</aspectratio>
 					<include>thumb_Portrait-List</include>
 					<visible>!Control.HasFocus(50) + Container.Content(episodes)</visible>
