@@ -112,7 +112,7 @@
 	</include>
 	<include name="clock">
 		<control type="group">
-			<visible>!Window.IsActive(infodialog)</visible>
+			<visible>![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]</visible>
 			<control type="label">
 				<posx>25r</posx>
 				<label>$VAR[global_Clock.Formats]</label>
