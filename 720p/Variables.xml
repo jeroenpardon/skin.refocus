@@ -124,12 +124,11 @@
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="thumb_Portrait.Condition">
-	<value condition="StringCompare(Container.FolderPath,plugin://plugin.video.the.trailers/)">$INFO[ListItem.Icon]</value>
+		<value condition="StringCompare(Container.FolderPath,plugin://plugin.video.the.trailers/)">$INFO[ListItem.Icon]</value>
 		<value condition="IsEmpty(ListItem.Thumb) + [Container.Content(movies) | Container.Content(sets)]">thumbs/movie_portrait.jpg</value>
 		<value condition="IsEmpty(ListItem.Thumb) + [Container.Content(tvshows) | Container.Content(seasons)]">thumbs/tvshow_portrait.jpg</value>
 		<value condition="IsEmpty(ListItem.Thumb) + Container.Content(actors)">thumbs/actor_portrait.jpg</value>
-		
-		<value>$INFO[ListItem.Thumb]</value>
+		<value>$INFO[ListItem.Art(poster)]</value>
 	</variable>
 	<variable name="thumb_Square.Condition">
 		<value condition="Container.Content(albums) + IsEmpty(ListItem.Thumb)">thumbs/album.png</value>
