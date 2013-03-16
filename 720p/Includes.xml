@@ -56,7 +56,7 @@
 			<posy>58</posy>
 			<width>500</width>
 			<label>[B]$INFO[Container.NumItems][/B] $LOCALIZE[31116], $LOCALIZE[31117] $INFO[Container.SortMethod]</label>
-			<font>smallerCaps</font>
+			<font>regular.SmallCaps</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_WindowTitle</include>
 			<visible>Skin.HasSetting(numitems.enable) + [Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(3000)]</visible>
@@ -82,7 +82,7 @@
 			<width>1280</width>
 			<align>left</align>
 			<label>$INFO[Window.Property(xmlfile)] • $INFO[Container.FolderPath] • $INFO[Container.FolderName] • $INFO[System.BuildVersion] • $INFO[System.BuildDate] • $INFO[System.ScreenResolution]</label>
-			<font>smallerCaps</font>
+			<font>regular.Small</font>
 			<textcolor>yellow</textcolor>
 			<visible>Skin.HasSetting(dev.enable)</visible>
 		</control>
@@ -217,18 +217,18 @@
 		<width>800</width>
 		<textcolor>Color7</textcolor>
 		<align>left</align>
-		<font>normal</font>
+		<font>list.Small</font>
 	</include>
 	<include name="label_Small-caps">
 		<height>20</height>
 		<aligny>center</aligny>
-		<font>smallCaps</font>
-		<textcolor>Color2</textcolor>
+		<font>regular.SmallCaps</font>
+		<textcolor>green</textcolor>
 	</include>
 	<include name="label_InfoDialog">
 		<height>20</height>
 		<aligny>center</aligny>
-		<font>smallerCaps</font>
+		<font>regular.SmallCaps</font>
 		<textcolor>Color2</textcolor>
 	</include>
 	<include name="label_Login">
@@ -301,7 +301,7 @@
 <!---TEXTBOXES------>
 	<include name="description_OSD">
 		<width>1040</width>
-		<font>regular.Description</font>
+		<font>regular.DescriptionSmall</font>
 		<aligny>top</aligny>
 		<textcolor>Color3</textcolor>
 		<include>autoscroll-plot</include>
@@ -333,9 +333,9 @@
 	<include name="button_Category">
 		<width>325</width>
 		<height>50</height>
-		<font>category</font>
+		<font>light.Menu</font>
 		<align>right</align>
-		<textoffsety>3</textoffsety>
+		<textoffsety>0</textoffsety>
 		<textoffsetx>25</textoffsetx>
 		<textcolor>Color1</textcolor>
 		<texturefocus border="13,6,13,6">settings/list-focusRev.png</texturefocus>
@@ -345,7 +345,7 @@
 	<include name="button_Settings">
 		<width>850</width>
 		<height>46</height>
-		<font>normal</font>
+		<font>regular.Big</font>
 		<textoffsetx>30</textoffsetx>
 		<textoffsety>7</textoffsety>
 		<textcolor>Color1</textcolor>
@@ -357,7 +357,7 @@
 	</include>
 	<include name="button_Inline">
 		<width>125</width>
-		<font>normal</font>
+		<font>regular.Big</font>
 		<align>center</align>
 		<textoffsety>2</textoffsety>
 		<textcolor>Color1</textcolor>
@@ -530,11 +530,11 @@
 <!---NOTIFICATIONS------>
 	<!--notificationTop-->
 	<include name="toast_Top">
-		<posy>7</posy>
+		<posy>6</posy>
 		<width>340</width>
 		<align>right</align>
 		<height>40</height>
-		<font>info</font>
+		<font>regular.SmallCaps</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
 		<scrollout>false</scrollout>
@@ -543,10 +543,10 @@
 	</include>
 	<!--notificationBottom-->
 	<include name="toast_Bottom">
-		<posy>26</posy>
+		<posy>25</posy>
 		<width>340</width>
 		<align>right</align>
-		<font>list.Info</font>
+		<font>regular.SmallCaps</font>
 		<height>40</height>
 		<aligny>center</aligny>
 		<textcolor>Color2</textcolor>
@@ -556,7 +556,7 @@
 	</include>
 	<!--notificationSide-->
 	<include name="toast_Side">
-		<posy>22</posy>
+		<posy>21</posy>
 		<align>left</align>
 		<aligny>center</aligny>
 		<font>light.ToastProgress</font>
@@ -811,7 +811,6 @@
 					<include>info_Sub</include>
 					<visible>Player.HasAudio</visible>
 				</control>
-				
 				<control type="label" id="1">
 					<posy>98</posy>
 					<width>850</width>
@@ -821,7 +820,7 @@
 					<include>info_Sub</include>
 					<visible>Player.HasAudio</visible>
 				</control>
-				
+
 				<control type="label" id="1">
 					<posy>54</posy>
 					<width>850</width>
@@ -856,7 +855,7 @@
 						<width>1090</width>
 						<label>$VAR[player_Plot.Condition]</label>
 						<textcolor>Color3</textcolor>
-						<font>descriptionSmall</font>
+						<font>regular.DescriptionSmall</font>
 						<include>description_OSD</include>
 						<visible>Skin.HasSetting(osd.progressbar)</visible>
 					</control>
