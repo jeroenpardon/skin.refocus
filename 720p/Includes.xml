@@ -819,7 +819,7 @@
 					<include>info_Sub</include>
 					<visible>Player.HasAudio</visible>
 				</control>
-				<control type="label" id="1">
+				<!--<control type="label" id="1">
 					<posy>54</posy>
 					<width>850</width>
 					<label>$LOCALIZE[209]: $INFO[VideoPlayer.Offset(1).Artist,]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[VideoPlayer.PlaylistPosition,]$INFO[VideoPlayer.PlaylistLength,/])</label>
@@ -827,6 +827,7 @@
 					<include>info_Sub</include>
 					<visible>VideoPlayer.Content(musicvideos)</visible>
 				</control>
+				-->
 				<control type="image" id="1">
 					<posx>1020</posx>
 					<posy>-3</posy>
@@ -870,7 +871,7 @@
 				<control type="group" id="1">
 					<posy>120</posy>
 					<animation effect="slide" start="0,0" end="0,-44" time="0" condition="Player.HasAudio | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
-					<visible>Skin.HasSetting(osd.progressbar)</visible>
+					<visible>!Skin.HasSetting(osd.progressbar)</visible>
 					<control type="progress" id="1">
 						<posy>10</posy>
 						<width>1090</width>
@@ -884,7 +885,7 @@
 							<posx>0</posx>
 							<width>1000</width>
 							<label>$INFO[Player.Time]</label>
-							<font>smallerCaps</font>
+							<font>regular.Info</font>
 							<textcolor>Color3</textcolor>
 						</control>
 						<control type="label" id="1">
@@ -892,12 +893,15 @@
 							<width>1000</width>
 							<label>$INFO[Player.Duration]</label>
 							<align>right</align>
-							<font>smallerCaps</font>
+							<font>regular.Info</font>
 							<textcolor>Color3</textcolor>
 						</control>
 						<control type="label" id="1">
+							<posx>465</posx>
 							<label>$VAR[player_Status.Condition]</label>
-							<include>seekbar_Label-Info</include>
+							<align>center</align>
+							<font>regular.Info</font>
+							<textcolor>Color3</textcolor>
 						</control>
 					</control>
 				</control>
