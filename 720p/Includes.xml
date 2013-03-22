@@ -233,7 +233,7 @@
 	</include>
 	<include name="label_Login">
 		<width>300</width>
-		<font>titleAlt</font>
+		<font>list.Regular</font>
 		<align>center</align>
 		<textcolor>Color1</textcolor>
 	</include>
@@ -871,7 +871,7 @@
 				<control type="group" id="1">
 					<posy>120</posy>
 					<animation effect="slide" start="0,0" end="0,-44" time="0" condition="Player.HasAudio | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">Conditional</animation>
-					<visible>!Skin.HasSetting(osd.progressbar)</visible>
+					<visible>Skin.HasSetting(osd.progressbar)</visible>
 					<control type="progress" id="1">
 						<posy>10</posy>
 						<width>1090</width>
