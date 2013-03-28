@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<window>
+﻿<window>
 	<allowoverlay>no</allowoverlay>
 	<include>dialogOpen</include>
 	<coordinates>
@@ -31,15 +30,14 @@
 				<include>dialog_Separator-y</include>
 			</control>
 		</control>
-
 	<!---category list------>
 		<control type="group">
+			<posx>19</posx>
 			<posy>75</posy>
 			<control type="group">
 				<control type="list" id="9000">
-					<posx>19</posx>
-					<width>570</width>
-					<height>819</height>
+					<width>282</width>
+					<height>600</height>
 					<onright>200</onright>
 					<onup>9000</onup>
 					<ondown>901</ondown>
@@ -51,13 +49,13 @@
 						</control>
 						<control type="label">
 							<width>389</width>
-							<include>dialog_Button-list</include>
+							<include>dialog_CommonListItem</include>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<posx>275</posx>
-							<width>389</width>
-							<include>dialog_Button-list</include>
+							<posx>270</posx>
+							<width>100</width>
+							<include>dialog_CommonListItem</include>
 							<align>right</align>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
@@ -75,8 +73,8 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<posx>275</posx>
-							<width>389</width>
+							<posx>270</posx>
+							<width>100</width>
 							<include>dialog_CommonListItemFocus</include>
 							<align>right</align>
 							<label>$INFO[ListItem.Label2]</label>
@@ -138,11 +136,11 @@
 						</item>
 					</content>
 				</control>
-	
-			<!---movie results------>
+			<!---search results------>
 				<control type="group" id="200">
+					<posx>281</posx>
+				<!---movie results------>
 					<control type="group" id="119">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(1) | Control.HasFocus(111)</visible>
 						<control type="list" id="111">
 							<width>682</width>
@@ -152,8 +150,6 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="682" height="120">
@@ -173,21 +169,21 @@
 								<control type="group">
 									<posx>80</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
@@ -197,7 +193,6 @@
 							<focusedlayout width="1358" height="120">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
@@ -205,7 +200,6 @@
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>81</width>
 									<height>119</height>
 									<texture fallback="thumbs/movie_portrait.png">$INFO[ListItem.Thumb]</texture>
@@ -214,21 +208,21 @@
 								<control type="group">
 									<posx>80</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
@@ -239,7 +233,6 @@
 					</control>
 				<!---tv show results------>
 					<control type="group" id="129">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(2) | Control.HasFocus(121)</visible>
 						<control type="list" id="121">
 							<width>682</width>
@@ -249,8 +242,6 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="682" height="120">
@@ -270,38 +261,45 @@
 								<control type="group">
 									<posx>80</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Episode), • , [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]$INFO[ListItem.Property(Rating), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Episode), • , $LOCALIZE[20360]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
+									</control>
+									<control type="image">
+										<posx>100</posx>
+										<posy>10</posy>
+										<width>128</width>
+										<height>22</height>
+										<info>ListItem.Property(Rating)</info>
+										<aspectratio align="right">keep</aspectratio>
 									</control>
 								</control>
 							</itemlayout>
 							<focusedlayout width="682" height="120">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(121)">Conditional</animation>
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>81</width>
 									<height>119</height>
 									<texture fallback="thumbs/tvshow_portrait.png">$INFO[ListItem.Thumb]</texture>
@@ -310,22 +308,22 @@
 								<control type="group">
 									<posx>80</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Episode), • , [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]$INFO[ListItem.Property(Rating), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Episode), • , $LOCALIZE[20360]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
@@ -335,7 +333,6 @@
 					</control>
 				<!---season results------>
 					<control type="group" id="139">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(3) | Control.HasFocus(131)</visible>
 						<control type="list" id="131">
 							<width>682</width>
@@ -345,8 +342,6 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="682" height="120">
@@ -366,21 +361,21 @@
 								<control type="group">
 									<posx>80</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Episode), • , [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
@@ -390,14 +385,13 @@
 							<focusedlayout width="682" height="120">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(131)">Conditional</animation>
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>81</width>
 									<height>119</height>
 									<texture fallback="thumbs/movie_portrait.png">$INFO[ListItem.Thumb]</texture>
@@ -406,21 +400,21 @@
 								<control type="group">
 									<posx>80</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Episode), • , [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
@@ -431,7 +425,6 @@
 					</control>
 				<!---episode results------>
 					<control type="group" id="149">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(4) | Control.HasFocus(141)</visible>
 						<control type="list" id="141">
 							<width>682</width>
@@ -441,8 +434,6 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="682" height="120">
@@ -462,21 +453,21 @@
 								<control type="group">
 									<posx>210</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(TVShowTitle)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Premiered)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
@@ -486,14 +477,13 @@
 							<focusedlayout width="682" height="120">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(141)">Conditional</animation>
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>212</width>
 									<height>119</height>
 									<texture fallback="thumbs/tvshow_landscape.png">$INFO[ListItem.Thumb]</texture>
@@ -502,21 +492,21 @@
 								<control type="group">
 									<posx>210</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(TVShowTitle)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Premiered)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
@@ -527,7 +517,6 @@
 					</control>
 				<!---music video results------>
 					<control type="group" id="159">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(5) | Control.HasFocus(151)</visible>
 						<control type="list" id="151">
 							<width>682</width>
@@ -537,8 +526,6 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="682" height="120">
@@ -558,22 +545,22 @@
 								<control type="group">
 									<posx>210</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Duration)</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
@@ -582,14 +569,13 @@
 							<focusedlayout width="682" height="120">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(151)">Conditional</animation>
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>212</width>
 									<height>119</height>
 									<texture fallback="thumbs/music_landscape.png">$INFO[ListItem.Thumb]</texture>
@@ -598,21 +584,21 @@
 								<control type="group">
 									<posx>210</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Duration)</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
@@ -622,7 +608,6 @@
 					</control>
 				<!---artist results------>
 					<control type="group" id="169">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(6) | Control.HasFocus(161)</visible>
 						<control type="list" id="161">
 							<width>1469</width>
@@ -632,21 +617,18 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="682" height="40">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>40</height>
 									<include>dialog_CommonList</include>
 								</control>
 								<control type="group">
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
@@ -656,14 +638,14 @@
 							<focusedlayout width="679" height="40">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>39</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(161)">Conditional</animation>
 								</control>
 								<control type="group">
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
@@ -674,7 +656,6 @@
 					</control>		
 				<!---album results------>
 					<control type="group" id="179">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(7) | Control.HasFocus(171)</visible>
 						<control type="panel" id="171">
 							<width>682</width>
@@ -684,8 +665,6 @@
 							<onleft>9000</onleft>
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
-							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="679" height="120">
@@ -705,22 +684,22 @@
 								<control type="group">
 									<posx>120</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Genre), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Year), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
@@ -729,14 +708,13 @@
 							<focusedlayout width="679" height="296">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(171)">Conditional</animation>
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>119</width>
 									<height>119</height>
 									<texture fallback="thumbs/album.png">$INFO[ListItem.Thumb]</texture>
@@ -745,22 +723,22 @@
 								<control type="group">
 									<posx>120</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Genre), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Year), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
@@ -770,7 +748,6 @@
 					</control>
 				<!---song results------>
 					<control type="group" id="189">
-						<posx>300</posx>
 						<visible>Container(9000).HasFocus(8) | Control.HasFocus(181)</visible>
 						<control type="list" id="181">
 							<width>1469</width>
@@ -781,7 +758,6 @@
 							<onright>9000</onright>
 							<orientation>vertical</orientation>
 							<pagecontrol>60</pagecontrol>
-							<focusposition>0</focusposition>
 							<scrolltime tween="quadratic">200</scrolltime>
 							<preloaditems>2</preloaditems>
 							<itemlayout width="679" height="120">
@@ -801,22 +777,22 @@
 								<control type="group">
 									<posx>120</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Genre), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Year), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItem</include>
 									</control>
@@ -825,14 +801,13 @@
 							<focusedlayout width="679" height="120">
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>682</width>
 									<height>119</height>
 									<include>dialog_CommonListFocus</include>
+									<animation effect="fade" start="100" end="40" reversible="true" time="150" condition="!Control.HasFocus(181)">Conditional</animation>
 								</control>
 								<control type="image">
 									<posx>1</posx>
-									<posy>0</posy>
 									<width>119</width>
 									<height>119</height>
 									<texture fallback="thumbs/album.png">$INFO[ListItem.Thumb]</texture>
@@ -841,22 +816,22 @@
 								<control type="group">
 									<posx>120</posx>
 									<control type="label">
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>regular.Big</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>22</posy>
-										<width>600</width>
+										<width>530</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
 									<control type="label">
 										<posy>42</posy>
-										<width>600</width>
-										<label>$INFO[ListItem.Property(Genre), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Year), • ]</label>
+										<width>530</width>
+										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<font>regular.SmallCaps</font>
 										<include>dialog_CommonListItemFocus</include>
 									</control>
@@ -866,10 +841,9 @@
 					</control>
 				</control>
 			</control>
-
 		<!---dialog controls------>
 			<control type="button" id="901">
-				<posx>34</posx>
+				<posx>15</posx>
 				<posy>545</posy>
 				<label>$ADDON[script.globalsearch 32299]</label>
 				<width>250</width>
@@ -879,7 +853,6 @@
 				<onclick>SendClick(198)</onclick>
 				<include>dialog_Button</include>
 			</control>
-			
 		<!-- Required Buttons -->
 			<control type="group" id="100">
 				<control type="button" id="110">
