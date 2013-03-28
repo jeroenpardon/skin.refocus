@@ -8,7 +8,6 @@
 		<posy>75</posy>
 	</coordinates>
 	<visible>Player.HasVideo</visible>
-	
 	<controls>
 	<!---LEFT PANE------>
 		<control type="group">
@@ -100,7 +99,6 @@
 				</focusedlayout>
 			</control>
 		</control>
-
 	<!---RIGHT PANE------>
 		<control type="group">
 			<animation effect="slide" start="0" end="140" time="250" tween="Cubic" easing="Out" condition="Control.HasFocus(150)">Conditional</animation>
@@ -141,29 +139,25 @@
 			<!--local subtitle available-->
 			<control type="group">
 				<posx>32</posx>
-				<posy>507</posy>
+				<posy>502</posy>
 				<control type="image">
-					<posy>4</posy>
+					<posy>9</posy>
 					<width>24</width>
 					<height>24</height>
 					<texture>addons/subtitles/icon_info.png</texture>
 				</control>
 				<control type="label">
-					<posx>35</posx>
+					<posx>20</posx>
 					<width min="10" max="700">auto</width>
-					<height>28</height>
-					<font>small</font>
-					<textcolor>Color4</textcolor>
 					<label>$LOCALIZE[31107]</label>
+					<include>dialog_Label</include>
 					<visible>!Control.IsVisible(111)</visible>
 				</control>
 				<control type="group" id="111">
 					<control type="label">
-						<posx>35</posx>
+						<posx>20</posx>
 						<width min="10" max="700">auto</width>
-						<height>28</height>
-						<font>small</font>
-						<textcolor>Color4</textcolor>
+						<include>dialog_Label</include>
 						<label>$LOCALIZE[SCRIPT655] - $LOCALIZE[31107]</label>
 					</control>
 				</control>
