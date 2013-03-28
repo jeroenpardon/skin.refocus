@@ -141,7 +141,7 @@
 		<posx>38</posx>
 		<posy>58</posy>
 		<width>500</width>
-		<font>smallerCaps</font>
+		<font>regular.SmallCaps</font>
 		<textcolor>Color3</textcolor>
 		<include>transition_WindowTitle</include>
 	</include>
@@ -287,7 +287,7 @@
 	<include name="info_TitleSmall">
 		<height>26</height>
 		<aligny>center</aligny>
-		<font>normalCaps</font>
+		<font>light.Title</font>
 		<textcolor>Color1</textcolor>
 	</include>
 	<include name="info_Sub">
@@ -639,8 +639,7 @@
 				<aligny>top</aligny>
 				<height>22</height>
 				<label>$LOCALIZE[21894] [COLOR=Color1]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
-				<textcolor>Color2</textcolor>
-				<font>smallCaps</font>
+				<include>info_Sub</include>
 				<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 			</control>
 			<control type="Label">
@@ -648,8 +647,7 @@
 				<aligny>top</aligny>
 				<height>22</height>
 				<label>$LOCALIZE[21893] [COLOR=Color1]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
-				<textcolor>Color2</textcolor>
-				<font>smallCaps</font>
+				<include>info_Sub</include>
 				<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 			</control>
 			<control type="Label">
@@ -657,8 +655,7 @@
 				<aligny>top</aligny>
 				<height>32</height>
 				<label>$LOCALIZE[21898] [COLOR=Color1]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
-				<textcolor>Color2</textcolor>
-				<font>smallCaps</font>
+				<include>info_Sub</include>
 				<visible>!IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 			</control>
 			<control type="textbox">
