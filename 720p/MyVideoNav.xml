@@ -17,7 +17,7 @@
 		<include>view_IconSquare3</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_Banner</include>
 		<include condition="Skin.HasSetting(banners.enable)">view_BannerWide</include>
-
+		
 	<!---TRIGGER------>	
 		<control type="button" id="8000">
 			<label>SHOULD NOT SEE ME</label>
@@ -353,10 +353,10 @@
 			</control>
 			<control type="group">
 				<posx>20</posx>
-				<posy>35</posy>
+				<posy>40</posy>
 				<control type="label">
 					<label>$VAR[global_Title]</label>
-					<font>osdTitle</font>
+					<font>light.Title</font>
 					<aligny>top</aligny>
 					<width>1100</width>
 					<textcolor>Color4</textcolor>
@@ -382,16 +382,16 @@
 					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
 				<control type="label">
-					<posy>40</posy>
+					<posy>35</posy>
 					<width>1100</width>
 					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-					<font>smallerCaps</font>
+					<font>regular.Info</font>
 					<align>left</align>	
 					<textcolor>Color4</textcolor>
 					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="label">
-					<posy>40</posy>
+					<posy>35</posy>
 					<width>1100</width>
 					<label>$VAR[global_Info]</label>
 					<font>smallerCaps</font>
