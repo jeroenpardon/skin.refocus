@@ -41,9 +41,10 @@
 					<width>352</width>
 					<label>$LOCALIZE[20126]</label>
 					<onclick>dialog.close(all,true)</onclick>
-					<onclick>system.logoff</onclick>		  
+					<onclick>System.LogOff</onclick>		  
 					<include>dialog_Button-list</include>
-					<visible>System.HasLoginScreen</visible>
+					<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+					<visible>System.Loggedon</visible>
 				</control>
 				<!--quit-->
 				<control type="button" id="502">
@@ -58,7 +59,7 @@
 					<width>352</width>
 					<label>$LOCALIZE[13010]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>XBMC.Hibernate</onclick>
+					<onclick>XBMC.Hibernate()</onclick>
 					<include>dialog_Button-list</include>
 					<visible>System.CanHibernate</visible>
 				</control>
@@ -67,7 +68,7 @@
 					<width>352</width>
 					<label>$LOCALIZE[13011]</label>
 					<onclick>Dialog.Close(shutdownmenu)</onclick>
-					<onclick>XBMC.Suspend</onclick>
+					<onclick>XBMC.Suspend()</onclick>
 					<include>dialog_Button-list</include>
 					<visible>System.CanSuspend</visible>
 				</control>
