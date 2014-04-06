@@ -1,924 +1,215 @@
-﻿<includes>
-<!---NEXTAIRED------>
-	<include name="nextaired_Date">
-		<posx>75</posx>
-		<posy>70</posy>
-		<width>150</width>
-		<height>20</height>
-		<label>$INFO[ListItem.Property(NextDate)]</label>
-		<textcolor>Color1</textcolor>
-		<font>regular.SmallCaps</font>
-		<align>center</align>
-	</include>
-	<include name="nextaired_Time">
-		<posx>75</posx>
-		<posy>90</posy>
-		<width>150</width>
-		<height>20</height>
-		<align>center</align>
-		<font>regular.SmallCaps</font>
-		<textcolor>Color2</textcolor>
-		<label>$INFO[ListItem.Property(ShortTime)]</label>
-	</include>
-	<include name="nextaired_Time-focus">
-		<posx>75</posx>
-		<posy>90</posy>
-		<width>150</width>
-		<height>20</height>
-		<align>center</align>
-		<font>regular.SmallCaps</font>
-		<textcolor>Color1</textcolor>
-		<label>$INFO[ListItem.Property(ShortTime)]</label>
-	</include>
-	<include name="nextaired_Frame">
-		<width>150</width>
-		<height>121</height>
-		<colordiffuse>column3</colordiffuse>
-		<include>listButton_Alt</include>
-	</include>
-	<include name="nextaired_Frame-focus">
-		<width>150</width>
-		<height>121</height>
-		<colordiffuse>column1</colordiffuse>
-		<include>listButton_Alt</include>
-	</include>
-	<include name="nextaired_Thumb">
-		<posx>11</posx>
-		<posy>11</posy>
-		<width>128</width>
-		<height>55</height>
-		<aspectratio>keep</aspectratio>
-		<texture background="true">$INFO[ListItem.Thumb]</texture>
-		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
-	</include>
-	<include name="nextaired_Banner">
-		<posx>1</posx>
-		<posy>7</posy>
-		<width>148</width>
-		<height>72</height>
-		<aspectratio>keep</aspectratio>
-		<texture background="true">$INFO[ListItem.Property(Path),,banner.jpg]</texture>
-		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
-	</include>
-	<include name="nextaired_Logo">
-		<posx>11</posx>
-		<posy>11</posy>
-		<width>128</width>
-		<height>50</height>
-		<aspectratio>keep</aspectratio>
-		<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
-		<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
-	</include>
-	<include name="nextaired_InfoImage">
-		<width>258</width>
-		<height>145</height>
-		<aspectratio>stretch</aspectratio>
-	</include>
-	<include name="nextaired_Fanart">
-		<include>screen_Dimensions</include>
-		<animation effect="fade" time="600">Visible</animation>
-		<animation effect="fade" time="600">Hidden</animation>
-	</include>
-	<include name="nextaired_MenuToggle">
-		<animation type="Conditional" condition="ControlGroup(9000).HasFocus">
-			<effect type="zoom" time="250" center="screen_Center" start="100" end="55" />
-			<effect type="fade" time="250" center="screen_Center" start="100" end="20" />
-		</animation>			
-		<animation type="Conditional" condition="!ControlGroup(9000).HasFocus">
-			<effect type="zoom" time="250" center="screen_Center" start="140" end="100" />
-			<effect type="fade" time="250" center="screen_Center" start="20" end="100" />
-		</animation>
-	</include>
-	<include name="nextaired_Menu">
-		<control type="group">
-			<control type="grouplist" id="9000">
-				<posx>-275</posx>
-				<posy>20</posy>
-				<width>800</width>
-				<height>800</height>
-				<onright>9002</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<orientation>vertical</orientation>
-				<include>MenuOpen</include>
-				<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--NEXTAIRED-->
+	<include name="TVGuideLayout">
+		<itemlayout width="880" height="150">
+			<control type="image">
+				<width>245</width>
+				<height>144</height>
+				<include>art_Frame-nf</include>
+			</control>
+			<control type="image">
+				<left>7</left>
+				<top>7</top>
+				<width>231</width>
+				<height>130</height>
+				<texture background="true">$INFO[ListItem.Property(Art(fanart))]</texture>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<left>15.5</left>
+				<top>45</top>
+				<width>220</width>
+				<height>85</height>
+				<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(logos.tvshows.enable)</visible>
+			</control>
+			<control type="group">
+				<left>265</left>
+				<top>4</top>
+				<control type="label">	
+					<width>657</width>
+					<label>$INFO[ListItem.Label,,: ]$INFO[ListItem.Property(NextTitle)]</label>
+					<include>container_Title</include>
+				</control>
+				<control type="label">
+					<top>28</top>
+					<width>620</width>
+					<label>$INFO[ListItem.Property(NextSeasonNumber),$LOCALIZE[20373] , - ]$INFO[ListItem.Property(NextEpisodeNumber),$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
+					<include>container_Sub</include>
+				</control>
+				<control type="label">
+					<left>600</left>
+					<top>28</top>
+					<width>620</width>
+					<label>$INFO[ListItem.Property(Status)]</label>
+					<textcolor>Color2</textcolor>
+					<align>right</align>
+					<include>container_Sub</include>
+				</control>
+				<control type="label">
+					<top>66</top>
+					<width>800</width>
+					<label>$INFO[ListItem.Property(Genre)]</label>
+					<include>container_Text</include>
+				</control>
+				<control type="label">
+					<top>103</top>
+					<width>775</width>
+					<label>[UPPERCASE]$INFO[ListItem.Property(ShortTime),, - ]$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]][/UPPERCASE]</label>
+					<include>container_Text</include>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout width="880" height="150">
+			<control type="group">
+				<visible>!ControlGroup(9000).HasFocus()</visible>
+				<control type="image">
+					<width>880</width>
+					<height>144</height>
+					<include>art_Frame-fo</include>
+				</control>
 				<control type="group">
-					<width>220</width>
-					<height>42</height>
-					<control type="button" id="8">
-						<label>$LOCALIZE[5]</label>
-						<onback>9002</onback>
-						<onup>8</onup>
-						<ondown>8</ondown>
-						<onright>9002</onright>
-						<include>button_Menu</include>
-						<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
-						<onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
-						<onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
-						<onright>ClearProperty(TVGuide.ThursdayList,Home)</onright>
-						<onright>ClearProperty(TVGuide.FridayList,Home)</onright>
-						<onright>ClearProperty(TVGuide.SaturdayList,Home)</onright>
-						<onright>ClearProperty(TVGuide.SundayList,Home)</onright>
+					<left>265</left>
+					<top>4</top>
+					<control type="label">	
+						<width>657</width>
+						<label>$INFO[ListItem.Label,,: ]$INFO[ListItem.Property(NextTitle)]</label>
+						<include>container_Title-focus</include>
 					</control>
+					<control type="label">
+						<top>28</top>
+						<width>800</width>
+						<label>$INFO[ListItem.Property(NextSeasonNumber),$LOCALIZE[20373] , - ]$INFO[ListItem.Property(NextEpisodeNumber),$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
+						<include>container_Sub-focus</include>
+					</control>
+					<control type="label">
+						<left>600</left>
+						<top>28</top>
+						<width>620</width>
+						<label>$INFO[ListItem.Property(Status)]</label>
+						<align>right</align>
+						<include>container_Sub-focus</include>
+					</control>
+					<control type="label">
+						<top>66</top>
+						<width>800</width>
+						<label>$INFO[ListItem.Property(Genre)]</label>
+						<include>container_Text-focus</include>
+					</control>
+					<control type="label">
+						<top>103</top>
+						<width>775</width>
+						<label>$INFO[ListItem.Property(ShortTime),, - ]$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<include>container_Text-focus</include>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>ControlGroup(9000).HasFocus()</visible>
+				<control type="group">
+					<left>265</left>
+					<top>4</top>
+					<control type="label">	
+						<width>657</width>
+						<label>$INFO[ListItem.Label,,: ]$INFO[ListItem.Property(NextTitle)]</label>
+						<include>container_Title</include>
+					</control>
+					<control type="label">
+						<top>28</top>
+						<width>800</width>
+						<label>$INFO[ListItem.Property(NextSeasonNumber),$LOCALIZE[20373] , - ]$INFO[ListItem.Property(NextEpisodeNumber),$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]</label>
+						<include>container_Sub</include>
+					</control>
+					<control type="label">
+						<left>600</left>
+						<top>28</top>
+						<width>620</width>
+						<label>$INFO[ListItem.Property(Status)]</label>
+						<textcolor>Color2</textcolor>
+						<align>right</align>
+						<include>container_Sub</include>
+					</control>
+					<control type="label">
+						<top>66</top>
+						<width>800</width>
+						<label>$INFO[ListItem.Property(Genre)]</label>
+						<include>container_Text</include>
+					</control>
+					<control type="label">
+						<top>103</top>
+						<width>775</width>
+						<label>$INFO[ListItem.Property(ShortTime),, - ]$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+						<include>container_Text</include>
+					</control>
+				</control>
+			</control>
+			<control type="image">
+				<width>245</width>
+				<height>144</height>
+				<include>art_Frame-nf</include>
+			</control>
+			<control type="image">
+				<left>7</left>
+				<top>7</top>
+				<width>231</width>
+				<height>130</height>
+				<texture background="true">$INFO[ListItem.Property(Art(fanart))]</texture>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<left>15.5</left>
+				<top>45</top>
+				<width>220</width>
+				<height>85</height>
+				<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(logos.tvshows.enable)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	
+<!--WATCHLIST-->
+	<include name="watchlist_ContainerCommons">
+		<control type="group">
+			<include>focus_SlidePoster</include>
+			<control type="image">
+				<width>203</width>
+				<height>300</height>
+				<texture border="10">frames/frame-alt.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<left>10</left>
+				<top>10</top>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">thumbs/default_Portrait.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<aspectratio align="center">stretch</aspectratio>
+					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
+				</control>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+					<aspectratio align="center">stretch</aspectratio>
+					<visible>IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 			</control>
 		</control>
 	</include>
-	
-<!---WATCHLIST------>	
 	<include name="watchlist_Shows">
-		<content>
-			<item id="1">
-				<label>$LOCALIZE[593]</label>
-				<property name="Node">$LOCALIZE[31079]</property>
-				<thumb>thumbs/tvshow_portrait.jpg</thumb>
-				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
-				<property name="Fanart">backgrounds/tvshows.jpg</property>
-				<property name="Latest1">$INFO[Window(Home).Property(RandomEpisode.1.Art(tvshow.poster))]</property>
-				<property name="Latest2">$INFO[Window(Home).Property(RandomEpisode.2.Art(tvshow.poster)]</property>
-				<property name="Latest3">$INFO[Window(Home).Property(RandomEpisode.3.Art(tvshow.poster)]</property>
-				<property name="Latest4">$INFO[Window(Home).Property(RandomEpisode.4.Art(tvshow.poster))]</property>
-				<onclick>ActivateWindow(videolibrary,tvshowtitles,return)</onclick>
-			</item>
-			<item id="2">
-				<label>$LOCALIZE[31094]</label>
-				<property name="Node">$LOCALIZE[31081]</property>
-				<thumb>thumbs/tvshow_portrait.jpg</thumb>
-				<property name="ShowThumb">thumbs/tvshow_portrait.jpg</property>
-				<property name="Fanart">backgrounds/tvshows.jpg</property>
-				<property name="Latest1">$INFO[Window(Home).Property(RecentEpisode.1.Art(tvshow.poster))]</property>
-				<property name="Latest2">$INFO[Window(Home).Property(RecentEpisode.2.Art(tvshow.poster)]</property>
-				<property name="Latest3">$INFO[Window(Home).Property(RecentEpisode.3.Art(tvshow.poster)]</property>
-				<property name="Latest4">$INFO[Window(Home).Property(RecentEpisode.4.Art(tvshow.poster))]</property>
-				<onclick>ActivateWindow(videolibrary,recentlyaddedepisodes,return)</onclick>
-			</item>
-			<item id="3">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.1.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.1.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.1.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.1.Art(tvshow.poster))]</icon>
-		  		<thumb>$INFO[Window(Home).Property(RecommendedEpisode.1.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.1.Label)]</property>
-				<property name="ShowThumb">$INFO[Window(Home).Property(RecommendedEpisode.1.Art(tvshow.poster))]</property>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.1.Thumb)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.1.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.1.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.1.Label)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.1.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.1.Studio)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.1.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.1.Title))</visible>
-			</item>
-			<item id="4">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.2.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.2.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.2.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.2.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.2.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.2.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.2.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.2.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.2.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.2.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.2.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.2.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.2.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.2.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.2.Title))</visible>
-			</item>
-			<item id="5">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.3.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.3.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.3.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.3.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.3.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.3.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.3.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.3.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.3.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.3.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.3.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.3.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.3.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.3.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.3.Title))</visible>
-			</item>
-			<item id="6">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.4.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.4.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.4.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.4.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.4.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.4.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.4.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.4.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.4.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.4.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.4.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.4.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.4.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.4.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.4.Title))</visible>
-			</item>
-			<item id="7">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.5.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.5.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.5.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.5.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.5.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.5.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.5.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.5.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.5.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.5.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.5.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.5.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.5.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.5.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.5.Title))</visible>
-			</item>
-			<item id="8">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.6.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.6.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.6.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.6.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.6.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.6.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.6.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.6.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.6.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.6.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.6.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.6.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.6.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.6.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.6.Title))</visible>
-			</item>
-			<item id="9">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.7.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.7.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.7.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.7.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.7.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.7.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.7.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.7.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.7.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.7.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.7.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.7.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.7.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.7.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.7.Title))</visible>
-			</item>
-			<item id="10">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.8.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.8.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.8.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.8.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.8.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.8.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.8.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.8.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.8.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.8.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.8.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.8.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.8.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.8.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.8.Title))</visible>
-			</item>
-			<item id="11">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.9.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.9.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.9.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.9.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.9.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.9.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.9.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.9.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.9.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.9.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.9.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.9.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.9.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.9.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.9.Title))</visible>
-			</item>
-			<item id="12">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.10.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.10.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.10.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.10.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.10.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.10.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.10.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.10.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.10.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.10.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.10.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.10.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.10.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.10.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.10.Title))</visible>
-			</item>
-			<item id="13">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.11.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.11.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.11.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.11.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.11.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.11.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.11.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.11.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.11.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.11.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.11.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.11.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.11.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.11.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.11.Title))</visible>
-			</item>
-			<item id="14">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.12.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.12.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.12.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.12.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.12.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.12.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.12.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.12.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.12.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.12.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.12.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.12.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.12.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.12.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.12.Title))</visible>
-			</item>
-			<item id="15">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.13.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.13.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.13.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.13.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.13.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.13.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.13.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.13.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.13.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.13.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.13.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.13.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.13.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.13.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.13.Title))</visible>
-			</item>
-			<item id="16">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.14.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.14.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.14.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.14.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.14.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.14.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.14.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.14.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.14.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.14.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.14.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.14.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.14.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.14.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.14.Title))</visible>
-			</item>
-			<item id="17">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.15.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.15.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.15.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.15.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.15.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.15.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.15.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.15.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.15.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.15.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.15.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.15.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.15.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.15.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.15.Title))</visible>
-			</item>
-			<item id="18">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.16.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.16.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.16.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.16.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.16.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.16.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.16.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.16.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.16.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.16.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.16.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.16.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.16.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.16.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.16.Title))</visible>
-			</item>
-			<item id="19">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.17.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.17.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.17.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.17.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.17.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.17.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.17.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.17.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.17.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.17.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.17.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.17.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.17.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.17.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.17.Title))</visible>
-			</item>
-			<item id="20">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.18.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.18.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.18.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.18.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.18.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.18.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.18.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.18.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.18.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.18.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.18.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.18.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.18.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.18.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.18.Title))</visible>
-			</item>
-			<item id="21">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.19.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.19.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.19.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.19.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.19.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.19.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.19.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.19.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.19.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.19.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.19.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.19.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.19.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.19.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.19.Title))</visible>
-			</item>
-			<item id="22">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.20.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.20.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.20.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.20.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.20.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.20.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.20.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.20.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.20.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.20.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.20.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.20.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.20.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.20.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.20.Title))</visible>
-			</item>
-			<item id="23">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.21.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.21.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.21.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.21.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.21.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.21.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.21.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.21.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.21.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.21.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.21.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.21.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.21.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.21.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.21.Title))</visible>
-			</item>
-			<item id="24">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.22.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.22.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.22.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.22.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.22.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.22.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.22.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.22.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.22.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.22.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.22.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.22.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.22.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.22.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.22.Title))</visible>
-			</item>
-			<item id="25">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.23TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.23.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.23.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.23.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.23.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.23.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.23.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.23.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.23.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.23.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.23.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.23.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.23.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.23.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.23.Title))</visible>
-			</item>
-			<item id="26">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.24.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.24.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.24.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.24.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.24.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.24.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.24.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.24.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.24.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.24.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.24.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.24.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.24.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.24.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.24.Title))</visible>
-			</item>
-			<item id="27">
-				<label>$INFO[Window(Home).Property(RecommendedEpisode.25.TVShowTitle)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedEpisode.25.Season),$LOCALIZE[31087] , - ]$INFO[Window(Home).Property(RecommendedEpisode.25.Episode),$LOCALIZE[31088] ]</label2>
-				<icon fallback="thumbs/tvshow_portrait.jpg">$INFO[Window(Home).Property(RecommendedEpisode.25.Art(tvshow.poster))]</icon>
-				<property name="EpisodeThumb">$INFO[Window(Home).Property(RecommendedEpisode.25.Thumb)]</property>
-				<thumb>$INFO[Window(Home).Property(RecommendedEpisode.25.SeasonThumb)]</thumb>
-				<property name="Title">$INFO[Window(Home).Property(RecommendedEpisode.25.Title)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedEpisode.25.Fanart)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedEpisode.25.Plot)]</property>
-				<property name="Episode">$INFO[Window(Home).Property(RecommendedEpisode.25.Title)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedEpisode.25.Rating)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedEpisode.25.Studio)]</property>
-				<property name="Progress">$INFO[Window(Home).Property(RecommendedEpisode.25.IsResumable)]</property>
-				<onclick>$INFO[Window(Home).Property(RecommendedEpisode.25.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.25.Title))</visible>
-			</item>
-		</content>
+		<content target="video">plugin://service.library.data.provider?type=recommendedepisodes&reload=$INFO[Window.Property(recommendedepisodes)</content>
 	</include>
 	<include name="watchlist_Movies">
-		<content>
-			<item id="1">
-				<label>$LOCALIZE[593]</label>
-				<property name="Node">$LOCALIZE[31078]</property>
-				<thumb>thumbs/movie_portrait.jpg</thumb>
-				<property name="Latest1">$INFO[Window(Home).Property(RandomMovie.1.Art(poster))]</property>
-				<property name="Latest2">$INFO[Window(Home).Property(RandomMovie.2.Art(poster))]</property>
-				<property name="Latest3">$INFO[Window(Home).Property(RandomMovie.3.Art(poster))]</property>
-				<property name="Latest4">$INFO[Window(Home).Property(RandomMovie.4.Art(poster))]</property>
-				<property name="Fanart">backgrounds/movies.jpg</property>
-				<onclick>ActivateWindow(videolibrary,movietitles,return)</onclick>
-			</item>
-			<item id="2">
-				<label>$LOCALIZE[31095]</label>
-				<property name="Node">$LOCALIZE[31080]</property>
-				<property name="Fanart">backgrounds/movies.jpg</property>
-				<thumb>thumbs/movie_portrait.jpg</thumb>
-				<property name="Latest1">$INFO[Window(Home).Property(LatestMovie.1.Thumb)]</property>
-				<property name="Latest2">$INFO[Window(Home).Property(LatestMovie.2.Thumb)]</property>
-				<property name="Latest3">$INFO[Window(Home).Property(LatestMovie.3.Thumb)]</property>
-				<property name="Latest4">$INFO[Window(Home).Property(LatestMovie.4.Thumb)]</property>
-				<onclick>ActivateWindow(videolibrary,recentlyaddedmovies,return)</onclick>
-			</item>
-			<item id="3">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.1.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.1.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(LatestMovie.1.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.1.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.1.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.1.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.1.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.1.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.1.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.1.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.1.Title))</visible>
-			</item>
-			<item id="4">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.2.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.2.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.2.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.2.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.2.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.2.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.2.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.2.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.2.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.2.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.2.Title))</visible>
-			</item>
-			<item id="5">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.3.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.3.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.3.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.3.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.3.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.3.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.3.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.3.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.3.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.3.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.3.Title))</visible>
-			</item>
-			<item id="6">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.4.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.4.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.4.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.4.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.4.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.4.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.4.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.4.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.4.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.4.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.4.Title))</visible>
-			</item>
-			<item id="7">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.5.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.5.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.5.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.5.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.5.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.5.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.5.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.5.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.5.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.5.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.5.Title))</visible>
-			</item>
-			<item id="8">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.6.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.6.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.6.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.6.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.6.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.6.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.6.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.6.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.6.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.6.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.6.Title))</visible>
-			</item>
-			<item id="9">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.7.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.7.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.7.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.7.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.7.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.7.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.7.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.7.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.7.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.7.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.7.Title))</visible>
-			</item>
-			<item id="10">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.8.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.8.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.8.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.8.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.8.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.8.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.8.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.8.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.8.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.8.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.8.Title))</visible>
-			</item>
-			<item id="11">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.9.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.9.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.9.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.9.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.9.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.9.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.9.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.9.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.9.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.9.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.9.Title))</visible>
-			</item>
-			<item id="12">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.10.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.10.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.10.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.10.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.10.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.10.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.10.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.10.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.10.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.10.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.10.Title))</visible>
-			</item>
-			<item id="13">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.11.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.11.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.11.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.11.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.11.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.11.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.11.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.11.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.11.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.11.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.11.Title))</visible>
-			</item>
-			<item id="14">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.12.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.12.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.12.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.12.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.12.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.12.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.12.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.12.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.12.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.12.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.12.Title))</visible>
-			</item>
-			<item id="15">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.13.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.13.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.13.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.13.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.13.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.13.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.13.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.13.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.13.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.13.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.13.Title))</visible>
-			</item>
-			<item id="16">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.14.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.14.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.14.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.14.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.14.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.14.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.14.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.14.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.14.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.14.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.14.Title))</visible>
-			</item>
-			<item id="17">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.15.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.15.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.15.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.15.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.15.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.15.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.15.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.15.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.15.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.15.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.15.Title))</visible>
-			</item>
-			<item id="18">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.16.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.16.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.16.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.16.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.16.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.16.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.16.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.16.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.16.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.16.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.16.Title))</visible>
-			</item>
-			<item id="19">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.17.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.17.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.17.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.17.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.17.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.17.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.17.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.17.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.17.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.17.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.17.Title))</visible>
-			</item>
-			<item id="20">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.18.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.18.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.18.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.18.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.18.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.18.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.18.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.18.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.18.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.18.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.18.Title))</visible>
-			</item>
-			<item id="21">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.19.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.19.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.19.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.19.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.19.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.19.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.19.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.19.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.19.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.19.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.19.Title))</visible>
-			</item>
-			<item id="22">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.20.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.20.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.20.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.20.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.20.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.20.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.20.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.20.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.20.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.20.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.20.Title))</visible>
-			</item>
-			<item id="23">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.21.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.21.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.21.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.21.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.21.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.21.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.21.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.21.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.21.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.21.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.21.Title))</visible>
-			</item>
-			<item id="24">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.22.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.22.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.22.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.22.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.22.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.22.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.22.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.22.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.22.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.22.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.22.Title))</visible>
-			</item>
-			<item id="25">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.23.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.23.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.23.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.23.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.23.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.23.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.23.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.23.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.23.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.23.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.23.Title))</visible>
-			</item>
-			<item id="26">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.24.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.24.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.24.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.24.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.24.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.24.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.24.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.24.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.24.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.24.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.24.Title))</visible>
-			</item>
-			<item id="27">
-				<label>$INFO[Window(Home).Property(RecommendedMovie.25.Title)]</label>
-				<label2>$INFO[Window(Home).Property(RecommendedMovie.25.Runtime),, $LOCALIZE[31100]]</label2>
-				<property name="Info">$INFO[Window(Home).Property(RecommendedMovie.25.Genre)]</property>
-				<property name="Year">$INFO[Window(Home).Property(RecommendedMovie.25.Year)]</property>
-				<property name="Studio">$INFO[Window(Home).Property(RecommendedMovie.25.Studio)]</property>
-				<property name="Rating">$INFO[Window(Home).Property(RecommendedMovie.25.Rating)]</property>
-				<property name="Plot">$INFO[Window(Home).Property(RecommendedMovie.25.Plot)]</property>
-				<property name="Fanart">$INFO[Window(Home).Property(RecommendedMovie.25.Fanart)]</property>
-				<icon fallback="thumbs/movie_portrait.jpg">$INFO[Window(Home).Property(RecommendedMovie.25.Art(poster))]</icon>
-				<onclick>$INFO[Window(Home).Property(RecommendedMovie.25.Play)]</onclick>
-				<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.25.Title))</visible>
-			</item>
-		</content>
-	</include>
-
-<!---GLOBAL SEARCH------>
-	<include name="globalsearch_Header">
-		<control type="image">
-			<width>1215</width>
-			<height>35</height>
-			<texture border="8">addons/globalsearch/header.png</texture>
-			<colordiffuse>column3</colordiffuse>
-		</control>
-		<control type="image">
-			<width>185</width>
-			<height>35</height>
-			<texture>addons/globalsearch/arrow.png</texture>
-			<colordiffuse>column2</colordiffuse>
-		</control>
+		<content target="video">plugin://service.library.data.provider?type=recommendedmovies</content>
 	</include>
 </includes>

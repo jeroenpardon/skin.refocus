@@ -1,24 +1,11 @@
-﻿<window id="502">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,51,52,521,522,53,572,573,574</views>
+	<views>50,51,52,521,522,57,572,574</views>
 	<controls>
-		<include>global_Background</include>
-		<include>global_Includes</include>
-		<include>global_Sortletter</include>
-		<include>nav_Indicator</include>
-		<include>PageControls</include>
-		<include>windowTitle_Music</include>
-		<include>view_SlideMusic</include>
-		<include>view_IconFiles</include>
-		<include>view_IconSquare</include>
-		<include>view_IconSquare2</include>
-		<include>view_SlideSquare</include>
-		<include>view_SlideLandscape</include>
-		<include>view_IconLandscape</include>
-		<include>view_BigList</include>
 
-<!---TRIGGER------>	
+	<!--trigger-->
 		<control type="button" id="8000">
 			<label>SHOULD NOT SEE ME</label>
 			<onup>54</onup>
@@ -29,81 +16,29 @@
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
 
-<!---LIST VIEW------>
-		<control type="group">
-			<posx>655</posx>
-			<posy>68</posy>
-			<include>toggle_Menu</include>
-			<include>infoDialogHide</include>
-			<include>transition_Container</include>
-			<visible>Control.IsVisible(50) + Container.Content(artists) + !substring(container.folderpath,plugin://)</visible>
-			<control type="image">
-				<include>frame_Landscape-List</include>
-				<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
-			</control>
-			<control type="image">
-				<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-				<include>thumb_Landscape-List</include>
-			</control>
-		</control>
-		<include>view_List</include>
-		<include>info_MusicList</include>
-		<include>info_AddonList</include>
+	<!--global includes-->
+		<include>global_Background</include>
+		<include>global_Includes</include>
+		<include>global_MenuGuide</include>
+		<include>windowTitle_Music</include>
+		<include>PageControls</include>
 
-<!---SLIDE VIEW------>
-		<include>info_Slide</include>
-		<include>info_SlideAddons</include>
+	<!--view includes-->
+		<include>view_List</include><!--50-->
+		<include>view_BigList</include><!--51-->
+		<include>view_SlideLandscape</include><!--521-->
+		<include>view_SlideSquare</include><!--522-->
+		<include>view_IconPortrait</include><!--57-->
+		<include>view_IconSquare</include><!--572-->
+		<include>view_IconSquareSmall</include><!--574-->
 
-<!---THUMBNAILS VIEW------>
-		<control type="group">
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(573) | Control.IsVisible(572)</visible>
-			<control type="group">
-				<!---flags
-				<control type="image">
-					<posx>195r</posx>
-					<posy>638</posy>
-					<width>128</width>
-					<height>64</height>
-					<aspectratio align="right">keep</aspectratio>
-					<texture>$VAR[flag_Studio]</texture>
-				</control>
-				--->
-				<control type="group">
-					<animation effect="slide" start="0,0" end="25,-5" time="0" condition="Container.Content(artists)">Conditional</animation>
-					<posx>60</posx>
-					<posy>645</posy>
-					<control type="label">
-						<label>$VAR[global_Title]</label>
-						<width>1100</width>
-						<include>info_Title</include>
-					</control>
-					<control type="label">
-						<posy>28</posy>
-						<label>$VAR[global_Info]</label>
-						<width>750</width>
-						<include>info_Sub</include>
-					</control>
-					<control type="label">
-						<posx>1160</posx>
-						<posy>28</posy>
-						<width>300</width>
-						<label>$INFO[ListItem.Duration]</label>
-						<align>right</align>
-						<include>info_Sub</include>
-					</control>
-					<control type="image">
-						<posx>1035</posx>
-						<width>128</width>
-						<height>32</height>
-						<info>ListItem.StarRating</info>
-						<aspectratio align="right">keep</aspectratio>
-					</control>
-				</control>
-			</control>
-		</control>
+	<!--detail includes-->
+		<include>detail_ListMusic</include>
+		<include>detail_ListAddons</include>
+		<include>detail_Thumbnails</include>
+		<include>detail_Slide</include>
+
+	<!--menu-->
 		<include>menu_Music</include>
 	</controls>
 </window>

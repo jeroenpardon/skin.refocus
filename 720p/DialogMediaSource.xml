@@ -1,74 +1,71 @@
-﻿<window id="129">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>290</posx>
-		<posy>104</posy>
+		<left>290</left>
+		<top>104</top>
 	</coordinates>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<controls>
 		<control type="image">
 			<width>700</width>
 			<height>512</height>
-			<include>dialogWindow</include>
+			<include>dialog_Window</include>
 		</control>
 		<control type="label" id="2">
-			<width>632</width>
-			<posx>34</posx>
+			<width>692</width>
 			<include>dialog_Windowtitle</include>
 		</control>
-		<!--sources--->
+		<!--sources-->
 		<control type="group">
-			<posx>19</posx>
-			<posy>75</posy>
+			<left>4</left>
+			<top>55</top>
 			<control type="label">
-				<posx>14</posx>
-				<width>613</width>
-				<height>36</height>
-				<align>left</align>
-				<textcolor>Color4</textcolor>	
-				<font>dialog.Caps</font>
+				<width>692</width>
 				<label>$LOCALIZE[1021]</label>
+				<include>dialog_Header</include>
+				<include>dialog_ControlCommons</include>
 			</control>
 			<control type="image">
-				<posy>40</posy>
-				<width>663</width>
+				<top>38</top>
+				<width>692</width>
+				<include>dialog_SectionSeparator</include>
+			</control>
+			<control type="image">
+				<top>80</top>
+				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>80</posy>
-				<width>663</width>
+				<top>120</top>
+				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>120</posy>
-				<width>663</width>
+				<top>160</top>
+				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>160</posy>
-				<width>663</width>
+				<top>200</top>
+				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>200</posy>
-				<width>663</width>
-				<include>dialog_Separator</include>
-			</control>
-			<control type="image">
-				<posy>240</posy>
-				<width>663</width>
+				<top>240</top>
+				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="list" id="10">
-				<posy>40</posy>
-				<width>543</width>
+				<top>40</top>
+				<width>572</width>
 				<height>200</height>
 				<onup>9001</onup>
 				<onleft>-</onleft>
 				<onright>9000</onright>
 				<ondown>12</ondown>
-				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+				<include>global_ListScroll</include>
 				<itemlayout height="40">
 					<control type="label">
 						<width>543</width>
@@ -79,12 +76,12 @@
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="image">
-						<width>543</width>
+						<width>572</width>
 						<include>dialog_CommonListFocus</include>
 						<visible>Control.HasFocus(10)</visible>
 					</control>
 					<control type="label">
-						<width>512</width>
+						<width>552</width>
 						<info>ListItem.Label</info>
 						<textcolor>Color4</textcolor>
 						<focusedcolor>Selected</focusedcolor>
@@ -92,37 +89,34 @@
 						<visible>!Control.HasFocus(10)</visible>
 					</control>
 					<control type="label">
-						<width>512</width>
+						<width>552</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItemFocus</include>
 						<visible>Control.HasFocus(10)</visible>
 					</control>
 				</focusedlayout>
 			</control>
-			<!---browse controls--->
+			<!--browse controls-->
 			<control type="group" id="9000">
-				<posx>543</posx>
-				<posy>40</posy>
+				<left>572</left>
+				<top>40</top>
 				<animation effect="slide" end="0,40" time="0" condition="Container(10).Row(1)">Conditional</animation>
 				<animation effect="slide" end="0,80" time="0" condition="Container(10).Row(2)">Conditional</animation>
 				<animation effect="slide" end="0,120" time="0" condition="Container(10).Row(3)">Conditional</animation>
 				<animation effect="slide" end="0,160" time="0" condition="Container(10).Row(4)">Conditional</animation>
 				<animation effect="slide" end="0,200" time="0" condition="Container(10).Row(5)">Conditional</animation>
 				<control type="image">
-					<posy>1</posy>
-					<height>39</height>
+					<height>40</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<posx>40</posx>
-					<posy>1</posy>
-					<height>39</height>
+					<left>40</left>
+					<height>40</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<posx>80</posx>
-					<posy>1</posy>
-					<height>39</height>
+					<left>80</left>
+					<height>40</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<!--browse-->
@@ -132,90 +126,79 @@
 					<onleft>10</onleft>
 					<onright>14</onright>
 					<ondown>10</ondown>
-					<texturenofocus border="0">dialogs/button_Inline-edit.png</texturenofocus>
-					<texturefocus border="0">dialogs/button_Inline-edit-focus.png</texturefocus>
-					<include>dialog_Button-inline</include>
+					<include>dialog_Inline-edit</include>
 				</control>
 				<!--remove path-->
 				<control type="button" id="14">
-					<posx>40</posx>
+					<left>40</left>
 					<label>-</label>
 					<onup>10</onup>
 					<onleft>11</onleft>
 					<onright>13</onright>
 					<ondown>10</ondown>
-					<texturenofocus border="0">dialogs/button_Inline-remove.png</texturenofocus>
-					<texturefocus border="0">dialogs/button_Inline-remove-focus.png</texturefocus>
-					<include>dialog_Button-inline</include>
+					<include>dialog_Inline-remove</include>
 				</control>
 				<!--add path-->
 				<control type="button" id="13">
-					<posx>80</posx>
+					<left>80</left>
 					<label>-</label>
 					<onup>10</onup>
 					<onleft>14</onleft>
 					<onright>-</onright>
 					<ondown>10</ondown>
-					<texturenofocus border="0">dialogs/button_Inline-add.png</texturenofocus>
-					<texturefocus border="0">dialogs/button_Inline-add-focus.png</texturefocus>
-					<include>dialog_Button-inline</include>
+					<include>dialog_Inline-add</include>
 				</control>
 			</control>
 		</control>
-		<!---set source name--->
+		<!--set source name-->
 		<control type="group">
-			<posx>19</posx>
-			<posy>330</posy>
+			<left>4</left>
+			<top>330</top>
 			<control type="image">
-				<posy>40</posy>
-				<width>663</width>
-				<include>dialog_Separator</include>
+				<top>38</top>
+				<width>692</width>
+				<include>dialog_SectionSeparator</include>
 			</control>
 			<control type="label">
-				<posx>14</posx>
-				<width>613</width>
-				<height>40</height>
-				<align>left</align>
-				<textcolor>Color4</textcolor>	
-				<font>dialog.Caps</font>
+				<width>692</width>
 				<label>$LOCALIZE[1022]</label>
+				<include>dialog_Header</include>
+				<include>dialog_ControlCommons</include>
 			</control>
 			<!--set name-->
 			<control type="edit" id="12">
-				<posx>0</posx>
-				<posy>40</posy>
-				<width>663</width>
+				<top>40</top>
+				<width>692</width>
 				<label>-</label>
 				<hinttext>551</hinttext>
 				<onleft>-</onleft>
 				<onright>-</onright>
 				<onup>10</onup>
 				<ondown>9001</ondown>
-				<height>40</height>
-				<include>dialog_Button-list</include>
+				<include>dialog_ControlCommons</include>
 			</control>
 		</control>
 		<control type="group" id="9001">
-			<posx>418</posx>
-			<posy>437</posy>
+			<left>417</left>
+			<top>440</top>
 			<!--ok-->
 			<control type="button" id="18">
-				<label>186</label>
+				<label>$LOCALIZE[186]</label>
 				<onleft>19</onleft>
 				<onright>19</onright>
 				<onup>12</onup>
 				<ondown>10</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
 			<!--cancel-->
 			<control type="button" id="19">
-				<posx>130</posx>
-				<label>222</label>
-				<onup>12</onup>
+				<left>130</left>
+				<label>$LOCALIZE[222]</label>
 				<onleft>18</onleft>
 				<onright>18</onright>
+				<onup>12</onup>
 				<ondown>10</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
 		</control>
 	</controls>

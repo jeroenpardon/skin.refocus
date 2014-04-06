@@ -1,188 +1,161 @@
-﻿<window id="146">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">10000</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>215</posx>
-		<posy>60</posy>
+		<left>225</left>
+		<top>70</top>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
 			<control type="image">
-				<width>850</width>
-				<height>600</height>
-				<include>dialogWindow</include>
+				<width>830</width>
+				<height>580</height>
+				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
-				<width>782</width>
+				<width>822</width>
 				<label>$INFO[ListItem.Property(Addon.Name)]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<posx>631</posx>
-				<posy>76</posy>
+				<left>625</left>
+				<top>61</top>
 				<height>199</height>
 				<include>dialog_Separator-y</include>
 			</control>
-			<control type="image">
-				<posx>632</posx>
-				<posy>75</posy>
-				<width>200</width>
-				<height>200</height>
-				<aspectratio>stretch</aspectratio>
-				<texture fallback="thumbs/addon.png" background="true">$INFO[ListItem.Thumb]</texture>
+			<control type="group">
+				<left>626</left>
+				<top>60</top>
+				<control type="image">
+					<width>200</width>
+					<height>200</height>
+					<aspectratio>keep</aspectratio>
+					<texture>thumbs/default_Square.png</texture>
+				</control>
+				<control type="image">
+					<width>200</width>
+					<height>200</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
 			</control>
 			<control type="group">
-				<posx>19</posx>
-				<posy>75</posy>
+				<left>4</left>
+				<top>60</top>
 				<control type="image">
-					<width>813</width>
+					<width>822</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<posx>613</posx>
-					<posy>199</posy>
-					<width>200</width>
+					<left>628</left>
+					<top>199</top>
+					<width>194</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<posy>435</posy>
-					<width>813</width>
+					<top>435</top>
+					<width>822</width>
 					<include>dialog_Separator</include>
 				</control>
-				<control type="list" id="100">
-					<width>612</width>
-					<height>305</height>
+				<control type="grouplist" id="100">
+					<width>800</width>
+					<height>480</height>
+					<itemgap>0</itemgap>
 					<onleft>-</onleft>
 					<onright>-</onright>
 					<onup>100</onup>
 					<ondown>100</ondown>
-					<itemlayout height="40">
-						<control type="image">
-							<width>612</width>
-							<height>40</height>
-							<include>dialog_CommonList</include>
-						</control>
-						<control type="label">
-							<width>532</width>
-							<height>36</height>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-						<control type="label">
-							<posx>595</posx>
-							<width>550</width>
-							<height>36</height>
-							<align>right</align>
-							<label fallback="231">$INFO[ListItem.Label2]</label>
-							<scroll>true</scroll>
-							<include>dialog_CommonListItem</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="40">
-						<control type="image">
-							<width>612</width>
-							<include>dialog_CommonList</include>
-						</control>
-						<control type="label">
-							<width>532</width>
-							<height>36</height>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-						<control type="label">
-							<posx>595</posx>
-							<width>550</width>
-							<height>36</height>
-							<align>right</align>
-							<label fallback="231">$INFO[ListItem.Label2]</label>
-							<scroll>true</scroll>
-							<include>dialog_CommonListItem</include>
-						</control>
-					</focusedlayout>
-					<content>
-						<item id="1">
-							<label>$LOCALIZE[467]</label>
-							<label2>$INFO[ListItem.Property(Addon.Type)]</label2>
-							<onclick>-</onclick>
-						</item>
-						<item id="2">
-							<label>$LOCALIZE[21863]</label>
-							<label2>$INFO[ListItem.Property(Addon.Creator)]</label2>
-							<onclick>-</onclick>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[24051]</label>
-							<label2>$INFO[ListItem.Property(Addon.Version)]</label2>
-							<onclick>-</onclick>
-						</item>
-						<item id="4">
-							<label>$LOCALIZE[563]</label>
-							<label2>$INFO[ListItem.Property(Addon.Rating)]</label2>
-							<onclick>-</onclick>
-						</item>
-						<item id="5">
-							<label>$LOCALIZE[24052]</label>
-							<label2>$INFO[ListItem.Property(Addon.Disclaimer)]</label2>
-							<onclick>-</onclick>
-						</item>
-					</content>
+					<include>global_ListScroll</include>
+					<control type="button" id="101">
+						<width>621</width>
+						<label>$LOCALIZE[467]</label>
+						<label2>$INFO[ListItem.Property(Addon.Type)]</label2>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="102">
+						<width>621</width>
+						<label>$LOCALIZE[21863]</label>
+						<label2>$INFO[ListItem.Property(Addon.Creator)]</label2>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="103">
+						<width>621</width>
+						<label>$LOCALIZE[24051]</label>
+						<label2>$INFO[ListItem.Property(Addon.Version)]</label2>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="104">
+						<width>621</width>
+						<label>$LOCALIZE[563]</label>
+						<label2>$INFO[ListItem.Property(Addon.Rating)]</label2>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="105">
+						<width>621</width>
+						<label>$LOCALIZE[24052]</label>
+						<label2>$INFO[ListItem.Property(Addon.Disclaimer)]</label2>
+						<include>dialog_ControlCommons</include>
+					</control>
 				</control>
 				<!--description-->
 				<control type="group">
-					<posx>15</posx>	
-					<posy>213</posy>
+					<left>15</left>	
+					<top>200</top>
 					<control type="textbox" id="400">
 						<width>795</width>
-						<height>195</height>
+						<height>235</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
-						<include>dialog_Textbox</include>
+						<include>dialog_Text</include>
 						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="textbox" id="400">
 						<width>660</width>
 						<height>145</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
-						<include>dialog_Textbox</include>
+						<include>dialog_Text</include>
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 				</control>
 				<!--status-->
 				<control type="group">
-					<posy>370</posy>
+					<top>370</top>
 					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					<control type="image">
-						<width>813</width>
+						<width>822</width>
 						<include>dialog_Separator</include>
 					</control>
 					<control type="image">
-						<posx>15</posx>
-						<posy>9</posy>
+						<left>15</left>
+						<top>9</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>toast/error.png</texture>
 						<colordiffuse>Color4</colordiffuse>
 					</control>
-					<control type="label">
-						<posx>65</posx>
-						<width>630</width>
-						<label>[B]$LOCALIZE[24096][/B]</label>
-						<include>dialog_Label</include>
-					</control>
-					<control type="label">
-						<posx>65</posx>
-						<posy>24</posy>
-						<width>630</width>
-						<label>$INFO[ListItem.Property(Addon.Broken)]</label>
-						<include>dialog_Label</include>
+					<control type="group">
+						<left>75</left>
+						<top>7</top>
+						<control type="label">
+							<width>730</width>
+							<label>[B]$LOCALIZE[24096][/B]</label>
+							<include>dialog_Text</include>
+						</control>
+						<control type="label">
+							<top>22</top>
+							<width>730</width>
+							<label>$INFO[ListItem.Property(Addon.Broken)]</label>
+							<include>dialog_Text</include>
+						</control>
 					</control>
 				</control>
 			</control>
-			<!---dialog buttons--->
+			<!--dialog buttons-->
 			<control type="grouplist" id="10000">
-				<posx>34</posx>
-				<posy>526</posy>
+				<left>20</left>
+				<top>515</top>
 				<onleft>10000</onleft>
 				<onright>10000</onright>
 				<onup>-</onup>
@@ -191,39 +164,39 @@
 				<orientation>horizontal</orientation>
 				<!--configure-->
 				<control type="button" id="9">
-					<posx>266</posx>
+					<left>266</left>
 					<label>$LOCALIZE[24020]</label>
-					<include>dialog_Button</include>
+					<include>dialog_WindowButton</include>
 				</control>
 				<!--update-->
 				<control type="button" id="8">
-					<posx>399</posx>
+					<left>399</left>
 					<label>$LOCALIZE[24069]</label>
-					<include>dialog_Button</include>
+					<include>dialog_WindowButton</include>
 				</control>
 				<!--uninstall-->
 				<control type="button" id="6">
 					<label>$LOCALIZE[24022]</label>
-					<include>dialog_Button</include>
+					<include>dialog_WindowButton</include>
 				</control>
 				<!--disable-->
 				<control type="button" id="7">
-					<posx>133</posx>
+					<left>133</left>
 					<label>$LOCALIZE[24021]</label>
-					<include>dialog_Button</include>
+					<include>dialog_WindowButton</include>
 				</control>
 				<!--rollback-->
 				<control type="button" id="11">
-					<posx>133</posx>
+					<left>133</left>
 					<label>$LOCALIZE[24048]</label>
-					<include>dialog_Button</include>
+					<include>dialog_WindowButton</include>
 				</control>
 				<!--changelog-->
 				<control type="button" id="10">
-					<posx>532</posx>
+					<left>532</left>
 					<label>$LOCALIZE[24036]</label>
 					<width>135</width>
-					<include>dialog_Button</include>
+					<include>dialog_WindowButton</include>
 				</control>
 			</control>
 		</control>

@@ -1,150 +1,135 @@
-﻿<window id="3">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">20</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
+
+	<!--global includes-->
 		<include>global_Background</include>
 		<include>global_Includes</include>
+		<include>windowTitle_System</include>
+		<include>global_Itemcount</include>
+
+	<!--content-->
 		<control type="group">
-			<control type="label">
-				<label>$LOCALIZE[31969]</label>
-				<include>windowTitle</include>
+			<left>40</left>
+			<top>100</top>
+			<include>transition_Content</include>
+			<!--left column label-->
+			<control type="label" id="101">
+				<width>595</width>
+				<font>regular</font>
+				<textcolor>Color2</textcolor>
 			</control>
-			<control type="group">
-				<posx>38</posx>
-				<posy>58</posy>
-				<control type="label">
-					<width>500</width>
-					<label>$INFO[Container(20).NumItems] $LOCALIZE[31116]</label>
-					<font>regular.SmallCaps</font>
-					<textcolor>Color3</textcolor>
-					<include>transition_WindowTitle</include>
-					<visible>Control.HasFocus(20)</visible>
-				</control>
-				<control type="label">
-					<width>500</width>
-					<label>$INFO[Container(21).NumItems] $LOCALIZE[31116]</label>
-					<font>regular.SmallCaps</font>
-					<textcolor>Color3</textcolor>
-					<include>transition_WindowTitle</include>
-					<visible>Control.HasFocus(21)</visible>
-				</control>
+			<!--right column label-->
+			<control type="label" id="102">
+				<left>605</left>
+				<width>595</width>
+				<font>regular</font>
+				<textcolor>Color2</textcolor>
 			</control>
-		</control>
-		<control type="group">
-			<include>transition_Container</include>
-			<control type="group">
-				<posy>110</posy>
-				<!--left column label-->
-				<control type="label" id="101">
-					<posx>70</posx>
-					<width>550</width>
-					<include>column_Header</include>
-				</control>
-				<!--right column label-->
-				<control type="label" id="102">
-					<posx>642</posx>
-					<width>550</width>
-					<include>column_Header</include>
-				</control>
-			</control>
+			<!--left column-->
 			<control type="list" id="20">
-				<posx>70</posx>
-				<posy>145</posy>
-				<width>568</width>
-				<height>528</height>
+				<top>40</top>
+				<width>595</width>
+				<height>552</height>
 				<onleft>21</onleft>
 				<onright>21</onright>
 				<onup>20</onup>
 				<ondown>20</ondown>
-				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+				<include>global_ListScroll</include>
 				<animation effect="fade" start="100" end="60" time="200" condition="Control.HasFocus(21)">Conditional</animation>
-				<itemlayout height="44">
+				<itemlayout width="595" height="46">
 					<control type="image">
-						<width>568</width>
-						<include>listButton</include>
+						<width>595</width>
+						<include>column_CommonList</include>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<width>400</width>
+						<left>15</left>
+						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>listButton_Label</include>
+						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem</include>
 					</control>
 					<control type="label">
-						<posx>550</posx>
-						<width>400</width>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<include>listButton_Label</include>
+						<left>15</left>
+						<width>570</width>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="550" height="44">
+				<focusedlayout width="595" height="46">
 					<control type="image">
-						<width>568</width>
-						<include>listButton-focus</include>
+						<width>595</width>
+						<include>column_CommonListFocus</include>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<width>400</width>
+						<left>15</left>
+						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>listButton_Label-focus</include>
+						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem-focus</include>
 					</control>
 					<control type="label">
-						<posx>550</posx>
-						<width>400</width>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<include>listButton_Label-focus</include>
+						<left>15</left>
+						<width>570</width>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem-focus</include>
 					</control>
 				</focusedlayout>
 			</control>
+			<!--right column-->
 			<control type="list" id="21">
-				<posx>642</posx>
-				<posy>145</posy>
-				<width>568</width>
-				<height>528</height>
+				<left>605</left>
+				<top>40</top>
+				<width>595</width>
+				<height>552</height>
 				<onleft>20</onleft>
 				<onright>20</onright>
 				<onup>21</onup>
 				<ondown>21</ondown>
-				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+				<include>global_ListScroll</include>
 				<animation effect="fade" start="100" end="60" time="200" condition="Control.HasFocus(20)">Conditional</animation>
-				<itemlayout height="44">
+				<itemlayout width="595" height="46">
 					<control type="image">
-						<width>568</width>
-						<colordiffuse>column3</colordiffuse>
-						<include>listButton</include>
+						<width>595</width>
+						<include>column_CommonList</include>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<width>400</width>
+						<left>15</left>
+						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>listButton_Label</include>
+						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem</include>
 					</control>
 					<control type="label">
-						<posx>550</posx>
-						<width>400</width>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<include>listButton_Label</include>
+						<left>15</left>
+						<width>570</width>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="550" height="44">
+				<focusedlayout width="595" height="46">
 					<control type="image">
-						<width>568</width>
-						<include>listButton-focus</include>
+						<width>595</width>
+						<include>column_CommonListFocus</include>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<width>400</width>
+						<left>15</left>
+						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
-						<include>listButton_Label-focus</include>
+						<visible>IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem-focus</include>
 					</control>
 					<control type="label">
-						<posx>550</posx>
-						<width>400</width>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<include>listButton_Label-focus</include>
+						<left>15</left>
+						<width>570</width>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<include>column_CommonListItem-focus</include>
 					</control>
 				</focusedlayout>
 			</control>

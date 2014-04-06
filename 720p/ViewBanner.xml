@@ -1,373 +1,241 @@
-﻿<includes>
-<!---DECK------>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--BANNERS SMALL GRID-->
+	<include name="view_Banner-ContainerCommons">
+		<control type="image">
+			<width>572</width>
+			<height>117</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">	
+				<width>558</width>
+				<height>103</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<centerleft>279</centerleft>
+				<centertop>51.5</centertop>
+				<width>72</width>
+				<height>72</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<centerleft>279</centerleft>
+				<centertop>51.5</centertop>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>
+			<control type="group">
+				<left>540</left>
+				<top>85</top>
+				<include>overlay_Watch</include>
+			</control>
+		</control>
+	</include>
 	<include name="view_Banner">
-		<control type="fixedlist" id="54">
-			<viewtype label="535">bigwide</viewtype>
-			<posx>225</posx>
-			<posy>76</posy>
-			<width>1000</width>
-			<height>605</height>
+		<control type="panel" id="54">
+			<viewtype label="31110">wide</viewtype> 	
+			<left>35</left>
+			<top>90</top>
+			<width>572</width>
+			<height>615</height>
 			<onleft>6000</onleft>
-			<onright>60</onright>
+			<onright>70</onright>
 			<onup>54</onup>
 			<ondown>54</ondown>
-			<pagecontrol>60</pagecontrol>
-			<focusposition>2</focusposition>
-			<wraparound>true</wraparound>
-			<scrolltime tween="Cubic" easing="Out">300</scrolltime>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>!substring(container.folderpath,plugin://) + [Container.Content(tvshows) + Skin.HasSetting(banners.enable)] | Container.Content(movies)</visible>
-			<animation effect="slide" start="0,0" end="-66,10" time="0" condition="Container.Content(movies)">Conditional</animation>
-			<itemlayout condition="Container.Content(tvshows)" width="560" height="65">
-				<control type="label">
-					<posx>55</posx>
-					<width>700</width>
-					<label>$VAR[global_Title]</label>
-					<font>list.Big</font>
-				</control>
-				<control type="label">
-					<posx>55</posx>
-					<posy>27</posy>
-					<width>700</width>
-					<label>$INFO[ListItem.Genre]</label>
-					<font>list.Info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="image">
-					<posx>685</posx>
-					<posy>12</posy>
-					<width>128</width>
-					<height>22</height>
-					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
-					<colordiffuse>Color7</colordiffuse>
-					<aspectratio align="right">keep</aspectratio>
-					<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-				</control>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="572" height="123">
+				<include>view_Banner-ContainerCommons</include>
 			</itemlayout>
-			<focusedlayout condition="Container.Content(tvshows)" width="560" height="290">
+			<focusedlayout width="572" height="123">
 				<control type="image">
-					<posx>1</posx>
-					<posy>0</posy>
-					<width>836</width>
-					<height>295</height>
-					<include>dialogWindow</include>
-					<include>focus_Banner</include>
+					<width>572</width>
+					<height>117</height>
+					<include>art_Frame-fo</include>
 				</control>
-				<control type="image">
-					<posx>19</posx>
-					<posy>16</posy>
-					<width>800</width>
-					<height>148</height>
-					<texture diffuse="frames/frame_Wide-mask.png" fallback="thumbs/tvshow_banner.jpg">$INFO[ListItem.Art(banner)]</texture>
-					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<include>focus_Banner</include>
-				</control>
-				<control type="group">
-					<posx>787</posx>
-					<posy>132</posy>
-					<include>focus_Banner</include>
-					<control type="image">
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<include>overlay_Resumable</include>
-					</control>
-				</control>
-				<control type="image">
-					<posx>19</posx>
-					<posy>164</posy>
-					<width>800</width>
-					<include>dialog_Separator</include>
-					<include>focus_Banner</include>
-				</control>
-				<control type="label">
-					<posx>34</posx>
-					<posy>178</posy>
-					<label>$VAR[global_Title]</label>
-					<font>list.Big</font>
-					<textcolor>Color4</textcolor>
-					<align>left</align>
-					<width>650</width>
-					<include>focus_Banner</include>
-				</control>
-				<control type="label">
-					<posx>34</posx>
-					<posy>210</posy>
-					<label>$INFO[ListItem.Genre]</label>
-					<font>list.Info</font>
-					<textcolor>Color4</textcolor>
-					<align>left</align>
-					<width>650</width>
-					<include>focus_Banner</include>
-					<visible>![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Property(UnWatchedEpisodes))]</visible>
-				</control>
-				<control type="label">
-					<posx>34</posx>
-					<posy>234</posy>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
-					<font>list.Info</font>
-					<textcolor>Color4</textcolor>
-					<align>left</align>
-					<width>650</width>
-					<include>focus_Banner</include>
-					<visible>![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Property(UnWatchedEpisodes))]</visible>
-				</control>
-				<control type="image">
-					<posx>678</posx>
-					<posy>180</posy>
-					<width>128</width>
-					<height>22</height>
-					<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
-					<colordiffuse>Color4</colordiffuse>
-					<aspectratio align="right">keep</aspectratio>
-					<include>focus_Banner</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
-				</control>
-				<control type="image">
-					<posx>678</posx>
-					<posy>214</posy>
-					<width>128</width>
-					<height>48</height>
-					<texture>$INFO[ListItem.Studio,flags/networks/mono/,.png]</texture>
-					<aspectratio align="right">keep</aspectratio>
-					<colordiffuse>Color4</colordiffuse>
-					<include>focus_Banner</include>
-				</control>
+				<include>view_Banner-ContainerCommons</include>
 			</focusedlayout>
-			
-			<itemlayout condition="Container.Content(movies)" width="560" height="65">
-				<control type="label">
-					<posx>55</posx>
-					<width>700</width>
+		</control>
+		<!--container info-->
+		<control type="group">
+			<left>645</left>
+			<top>85</top>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(54) + [Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
+			<control type="grouplist">	
+				<itemgap>0</itemgap>
+				<control type="label" id="1">
+					<width>550</width>
 					<label>$VAR[global_Title]</label>
-					<font>list.Big</font>
+					<include>detail_Title</include>
 				</control>
 				<control type="label">
-					<posx>55</posx>
-					<posy>27</posy>
-					<width>700</width>
-					<label>$INFO[ListItem.Genre]</label>
-					<font>list.Info</font>
-					<textcolor>Color2</textcolor>
-				</control>
-				<control type="image">
-					<posx>780</posx>
-					<posy>12</posy>
-					<width>128</width>
-					<height>22</height>
-					<info>ListItem.StarRating</info>
-					<aspectratio align="right">keep</aspectratio>
-					<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-				</control>
-			</itemlayout>
-			<focusedlayout condition="Container.Content(movies)" width="560" height="295">
-				<control type="image">
-					<posx>1</posx>
-					<posy>0</posy>
-					<width>950</width>
-					<height>295</height>
-					<include>dialogWindow</include>
-					<include>focus_Banner</include>
-				</control>
-				<control type="image">
-					<posx>24</posx>
-					<posy>23</posy>
-					<width>172</width>
-					<height>248</height>
-					<texture diffuse="frames/frame_Portrait-mask.png" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
-					<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-					<include>focus_Banner</include>
-				</control>
-				<control type="group">
-					<posx>164</posx>
-					<posy>239</posy>
-					<include>focus_Banner</include>
-					<control type="image">
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<include>overlay_Resumable</include>
-					</control>
-				</control>
-				<control type="image">
-					<posx>215</posx>
-					<posy>90</posy>
-					<width>690</width>
-					<include>dialog_Separator</include>
-					<include>focus_Banner</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
+					<width>550</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="label">
-					<posx>215</posx>
-					<posy>30</posy>
-					<label>$VAR[global_Title]</label>
-					<font>list.Big</font>
-					<textcolor>Color4</textcolor>
-					<align>left</align>
-					<width>695</width>
-					<include>focus_Banner</include>
+					<width>550</width>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows)</visible>
 				</control>
 				<control type="label">
-					<posx>215</posx>
-					<posy>54</posy>
-					<label>$INFO[ListItem.Genre]</label>
-					<font>list.Info</font>
-					<textcolor>Color4</textcolor>
-					<align>left</align>
-					<width>565</width>
-					<include>focus_Banner</include>
+					<width>550</width>
+					<label>$VAR[nextaired_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(ListItem.Icon,default)</visible>
 				</control>
 				<control type="image">
-					<posx>780</posx>
-					<posy>57</posy>
-					<width>128</width>
-					<height>22</height>
-					<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
-					<colordiffuse>Color4</colordiffuse>
-					<aspectratio align="right">keep</aspectratio>
-					<include>focus_Banner</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
+					<width>112</width>
+					<height>40</height>
+					<include>detail_StarRating</include>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>
 				<control type="textbox" id="4">
-					<posx>215</posx>
-					<posy>95</posy>
-					<width>690</width>
-					<height>163</height>
-					<label>$VAR[global_Plot.Condition]</label>
-					<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
-					<font>description.Regular</font>
-					<textcolor>Color4</textcolor>
-					<include>focus_Banner</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
+					<width>550</width>
+					<height>355</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
 				</control>
-			</focusedlayout>
+			</control>
+			<control type="image">
+				<bottom>40</bottom>
+				<width>128</width>
+				<height>48</height>
+				<aspectratio align="left">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+				<visible>Control.IsVisible(54) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
 		</control>
 	</include>
 
-<!---BANNERS------>
-	<include name="view_BannerWide">
+<!--BANNERS BIG GRID-->
+	<include name="view_BigBanner-ContainerCommons">
+		<control type="image">
+			<width>604</width>
+			<height>123</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">	
+				<width>590</width>
+				<height>109</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<left>259</left>
+				<top>18.5</top>
+				<width>72</width>
+				<height>72</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<width>590</width>
+				<height>109</height>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>
+			<control type="group">
+				<left>572</left>
+				<top>91</top>
+				<include>overlay_Watch</include>
+			</control>
+		</control>
+		<control type="image">
+			<right>14</right>
+			<top>133</top>
+			<height>22</height>
+			<include>detail_StarRating</include>
+			<aspectratio align="right">keep</aspectratio>
+			<visible>!SubString(ListItem.Icon,default)</visible>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>130</top>
+			<control type="label">
+				<width>470</width>
+				<label>$VAR[global_Title]</label>
+				<include>detail_Title</include>
+			</control>
+			<control type="group">
+				<top>22</top>
+				<control type="label">
+					<width>440</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="label">
+					<width>590</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="label">
+					<width>440</width>
+					<label>$VAR[global_Info.Addon]</label>
+					<include>detail_Title</include>
+					<visible>SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="label">
+					<left>590</left>
+					<width>150</width>
+					<label>$INFO[ListItem.Studio]</label>
+					<align>right</align>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="view_BigBanner">
 		<control type="panel" id="541">
-			<viewtype label="537">wide</viewtype> 	
-			<posx>25</posx>
-			<posy>85</posy>
-			<width>645</width>
-			<height>620</height>
+			<viewtype label="31110">bigwide</viewtype>
+			<left>25</left>
+			<top>105</top>
+			<width>1240</width>
+			<height>570</height>
 			<onleft>6000</onleft>
 			<onright>70</onright>
 			<onup>541</onup>
 			<ondown>541</ondown>
 			<pagecontrol>70</pagecontrol>
 			<preloaditems>2</preloaditems>
-			<scrolltime tween="Cubic" easing="Out">300</scrolltime>
 			<orientation>vertical</orientation>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(tvshows) + Skin.HasSetting(banners.enable)] + !substring(container.folderpath,plugin://)</visible>
-			<itemlayout width="645" height="122">
-				<control type="image">
-					<posx>10</posx>
-					<posy>10</posy>
-					<width>620</width>
-					<height>115</height>
-					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$INFO[ListItem.Art(banner)]</texture>
-					<bordertexture border="6" width="590" height="106">frames/frame_Square-small.png</bordertexture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="image">
-					<posx>592</posx>
-					<posy>87</posy>
-					<include>overlay_UnWatched</include>
-				</control>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="620" height="190">
+				<include>view_BigBanner-ContainerCommons</include>
 			</itemlayout>
-			<focusedlayout width="645" height="122">
+			<focusedlayout width="620" height="190">
 				<control type="image">
-					<posx>0</posx>
-					<width>640</width>
-					<height>135</height>
-					<texture border="10">views/list-focus-bigAlt.png</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
+					<width>604</width>
+					<height>123</height>
+					<include>art_Frame-fo</include>
 				</control>
-				<control type="image">
-					<posx>10</posx>
-					<posy>10</posy>
-					<width>620</width>
-					<height>115</height>
-					<texture fallback="thumbs/tvshow_banner.jpg" background="true">$INFO[ListItem.Art(banner)]</texture>
-					<bordersize>6</bordersize>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="image">
-					<posx>592</posx>
-					<posy>87</posy>
-					<include>overlay_UnWatched</include>
-				</control>
+				<include>view_BigBanner-ContainerCommons</include>
 			</focusedlayout>
-		</control>
-		<!---container info--->
-		<control type="grouplist">
-			<posx>695</posx>
-			<posy>100</posy>
-			<itemgap>0</itemgap>
-			<include>toggle_Menu</include>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(541) + Container.Content(tvshows)</visible>
-			<control type="label" id="1">
-				<width>500</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>info_Title</include>
-				<visible>!IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<width>500</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>info_Title</include>
-				<visible>IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<width>500</width>
-				<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-				<include>info_Sub</include>
-			</control>
-			<control type="label">
-				<width>500</width>
-				<label>$VAR[tvshow_Info.NextAired]</label>
-				<include>info_Sub</include>
-				<visible>!SubString(ListItem.Icon,default)</visible>
-			</control>
-			<control type="image">
-				<posx>695</posx>
-				<posy>650</posy>
-				<width>128</width>
-				<height>48</height>
-				<texture>$INFO[ListItem.StarRating]</texture>
-				<aspectratio align="left">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-			</control>
-			<control type="textbox" id="4">
-				<width>500</width>
-				<height>355</height>
-				<label>$VAR[global_Plot.Condition]</label>
-				<include>description_Small</include>
-			</control>
-		</control>
-		<control type="image">
-			<posx>695</posx>
-			<posy>610</posy>
-			<width>128</width>
-			<height>64</height>
-			<aspectratio align="left">keep</aspectratio>
-			<texture>$VAR[flag_Studio]</texture>
-			<include>toggle_Menu</include>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(541) + [Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
 		</control>
 	</include>
 </includes>

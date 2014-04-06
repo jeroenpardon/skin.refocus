@@ -1,91 +1,137 @@
-﻿<window id="29">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>52</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<left>0</left>
+		<top>0</top>
 	</coordinates>
 	<controls>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/background.png</texture>
-			<aspectratio>scale</aspectratio>
-			<include>transition_BG</include>
-		</control>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">overlays/vignette.png</texture>
-			<aspectratio>scale</aspectratio>
-			<include>transition_BG</include>
-		</control>
+		<include>global_Background</include>
+		<include>clock</include>
 		<control type="group">
-			<posy>200</posy>
-			<include>transition_Info</include>
+			<top>200</top>
+			<include>transition_Content</include>
 			<control type="label">
-				<label>$LOCALIZE[31102]</label>
-				<align>center</align>
+				<label>$LOCALIZE[31708]</label>
 				<width>screen_Width</width>
-				<font>light.Window</font>
+				<font>bold_Bigger</font>
 				<textcolor>Color1</textcolor>
+				<align>center</align>
 			</control>
 			<control type="label">
-				<posy>40</posy>
-				<label>$LOCALIZE[31110]</label>
-				<align>center</align>
+				<top>35</top>
+				<label>$LOCALIZE[31709]</label>
 				<width>screen_Width</width>
-				<font>light.Title</font>
+				<font>semibold-U</font>
 				<textcolor>Color2</textcolor>
+				<align>center</align>
+			</control>
+			<control type="list" id="52">
+				<left>390</left>
+				<top>100</top>
+				<width>500</width>
+				<height>288</height>
+				<onright>20</onright>
+				<onup>52</onup>
+				<ondown>52</ondown>
+				<focusposition>1</focusposition>
+				<include>global_ListScroll</include>
+				<itemlayout width="500" height="96">
+					<control type="image">
+						<width>86</width>
+						<height>86</height>
+						<include>art_Frame-nf</include>
+					</control>
+					<control type="image">
+						<left>7</left>
+						<top>7</top>
+						<width>72</width>
+						<height>72</height>
+						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<top>17</top>
+						<width>380</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>light_Category</font>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<top>46</top>
+						<width>380</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<include>detail_Sub</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="500" height="96">
+					<control type="group">
+						<visible>Control.HasFocus(52)</visible>
+						<control type="image">
+							<width>500</width>
+							<height>86</height>
+							<include>art_Frame-fo</include>
+						</control>
+						<control type="label">
+							<left>100</left>
+							<top>16</top>
+							<width>380</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>light_Category</font>
+							<textcolor>Color5</textcolor>
+						</control>
+						<control type="label">
+							<left>100</left>
+							<top>46</top>
+							<width>380</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<textcolor>Color5</textcolor>
+							<include>detail_Sub</include>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!Control.HasFocus(52)</visible>
+						<control type="label">
+							<left>100</left>
+							<top>16</top>
+							<width>380</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>light_Category</font>
+						</control>
+						<control type="label">
+							<left>100</left>
+							<top>46</top>
+							<width>380</width>
+							<label>$INFO[ListItem.Label2]</label>
+							<include>detail_Sub</include>
+						</control>
+					</control>
+					<control type="image">
+						<left>7</left>
+						<top>7</top>
+						<width>72</width>
+						<height>72</height>
+						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+				</focusedlayout>
 			</control>
 		</control>
-		<control type="wraplist" id="52">
-			<posx>-420</posx>
-			<posy>300</posy>
-			<width>2275</width>
-			<height>430</height>
+		<control type="button" id="20">
+			<right>20</right>
+			<bottom>20</bottom>
+			<width>64</width>
+			<height>64</height>
+			<label>-</label>
+			<font>-</font>
 			<onleft>52</onleft>
-			<onright>52</onright>
-			<scrolltime>150</scrolltime>
-			<orientation>horizontal</orientation>
-			<focusposition>2</focusposition>
-			<include>transition_Container</include>
-			<itemlayout width="430" height="300">
-				<control type="image">
-					<width>400</width>
-					<height>252</height>
-					<texture background="true" diffuse="frames/wideFrameMask.png" fallback="thumbs/user.png">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="22">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-				</control>
-				<control type="label" id="1">
-					<posx>200</posx>
-					<posy>240</posy>
-					<width>400</width>
-					<align>center</align>
-					<label>$INFO[ListItem.Label]</label>
-					<include>label_Login</include>
-				</control>
-			</itemlayout>
-			<focusedlayout width="430" height="300">
-				<control type="image">
-					<width>400</width>
-					<height>252</height>
-					<texture background="true" diffuse="frames/wideFrameMask.png" fallback="thumbs/user.png">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="22">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<include>focus_SlideLogin</include>
-				</control>
-				<control type="label" id="1">
-					<posx>200</posx>
-					<posy>240</posy>
-					<width>400</width>
-					<align>center</align>
-					<label>$INFO[ListItem.Label]</label>
-					<include>label_Login</include>
-					<include>focus_SlideLoginUser</include>
-				</control>
-			</focusedlayout>
+			<onup>52</onup>
+			<onclick>ActivateWindow(ShutdownMenu)</onclick>
+			<texturefocus colordiffuse="Color1">Power-fo.png</texturefocus>
+			<texturenofocus colordiffuse="Color3">Power.png</texturenofocus>
+			<include>transition_Toast</include>
 		</control>
 	</controls>
 </window>

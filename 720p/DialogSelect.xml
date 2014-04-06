@@ -1,46 +1,45 @@
-﻿<window type="dialog" id="2000">
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
 	<defaultcontrol>3</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>340</posx>
-		<posy>72</posy>
+		<left>340</left>
+		<top>88</top>
 	</coordinates>
 	<zorder>1</zorder>
 	<controls>
 		<control type="group">
 			<animation effect="fade" start="400" end="50" time="500" condition="Window.IsActive(virtualkeyboard)">Conditional</animation>
 			<control type="image">
-				<width>650</width>
-				<height>576</height>
-				<include>dialogWindow</include>
+				<width>600</width>
+				<height>545</height>
+				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
-				<width>582</width>
+				<width>592</width>
 				<scroll>true</scroll>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
-				<posx>19</posx>
-				<posy>75</posy>
+				<left>4</left>
+				<top>60</top>
 				<control type="image">
-					<width>612</width>
+					<width>592</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="list" id="3">
-					<width>613</width>
+					<width>592</width>
 					<height>400</height>
 					<onleft>5</onleft>
 					<onright>5</onright>
 					<onup>3</onup>
 					<ondown>3</ondown>
-					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+					<include>global_ListScroll</include>
 					<itemlayout height="40">
 						<control type="image">
-							<posy>0</posy>
-							<width>612</width>
-							<height>40</height>
-							<texture>dialogs/list-nofocus.png</texture>
+							<width>592</width>
+							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
 							<width>573</width>
@@ -50,10 +49,8 @@
 					</itemlayout>
 					<focusedlayout height="40">
 						<control type="image">
-							<posy>0</posy>
-							<width>613</width>
-							<height>40</height>
-							<texture>dialogs/list-focus.png</texture>
+							<width>592</width>
+							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="label">
 							<width>573</width>
@@ -63,86 +60,86 @@
 					</focusedlayout>
 				</control>
 				<control type="list" id="6">
-					<posy>1</posy>
+					<top>1</top>
 					<width>613</width>
 					<height>384</height>
 					<onleft>5</onleft>
 					<onright>5</onright>
 					<onup>6</onup>
 					<ondown>6</ondown>
-					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
-					<itemlayout width="600" height="128">
+					<include>global_ListScroll</include>
+					<itemlayout width="592" height="128">
 						<control type="image">
-							<width>613</width>
+							<width>592</width>
 							<height>128</height>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="image">
-							<posx>128</posx>
-							<posy>0</posy>
+							<left>128</left>
+							<top>0</top>
 							<height>128</height>
 							<include>dialog_Separator-y</include>
 						</control>
 						<control type="image">
 							<width>128</width>
 							<height>128</height>
-							<aspectratio align="left">keep</aspectratio>
-							<texture fallback="thumbs/addon.png">$INFO[ListItem.Icon]</texture>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">keep</aspectratio>
 						</control>
 						<control type="label">
-							<posx>150</posx>
-							<posy>14</posy>
+							<left>150</left>
+							<top>14</top>
 							<width>473</width>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<posx>150</posx>
-							<posy>44</posy>
+							<left>150</left>
+							<top>44</top>
 							<width>450</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<posx>150</posx>
-							<posy>70</posy>
+							<left>150</left>
+							<top>70</top>
 							<width>450</width>
-							<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31106] ]</label>
+							<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31144] ]</label>
 							<include>dialog_CommonListItem</include>
 							<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout width="600" height="128">
+					<focusedlayout width="592" height="128">
 						<control type="image">
-							<width>613</width>
+							<width>592</width>
 							<height>128</height>
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
 							<width>128</width>
 							<height>128</height>
-							<aspectratio align="left">keep</aspectratio>
-							<texture fallback="thumbs/addon.png">$INFO[ListItem.Icon]</texture>
-						</control>	
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">keep</aspectratio>
+						</control>
 						<control type="label">
-							<posx>150</posx>
-							<posy>14</posy>
+							<left>150</left>
+							<top>14</top>
 							<width>473</width>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="label">
-							<posx>150</posx>
-							<posy>44</posy>
+							<left>150</left>
+							<top>44</top>
 							<width>450</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="label">
-							<posx>150</posx>
-							<posy>70</posy>
+							<left>150</left>
+							<top>70</top>
 							<width>450</width>
-							<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31106] ]</label>
+							<label>$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31144] ]</label>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
 						</control>
@@ -151,15 +148,15 @@
 			</control>
 		<!--manual-->
 			<control type="button" id="5">
-				<posx>34</posx>
-				<posy>500</posy>
-				<width>120</width>
+				<left>19</left>
+				<top>480</top>
+				<width>250</width>
 				<label>$LOCALIZE[368]</label>
 				<onleft>3</onleft>
 				<onright>3</onright>
 				<onup>3</onup>
 				<ondown>3</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
 		</control>
 	</controls>

@@ -1,62 +1,63 @@
-﻿<window type="dialog" id="62">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="62">
 	<defaultcontrol always="true">100</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>415</posx>
-		<posy>185</posy>
+		<left>415</left>
+		<top>260</top>
 	</coordinates>
 	<controls>
 		<control type="image">
-			<width>450</width>
-			<height>360</height>
-			<include>dialogWindow</include>
+			<width>425</width>
+			<height>240</height>
+			<include>dialog_Window</include>
 		</control>
 		<control type="label" id="1">
-			<width>382</width>
+			<width>417</width>
 			<label>$LOCALIZE[21435]</label>
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<posx>19</posx>
-			<posy>75</posy>
+			<left>4</left>
+			<top>60</top>
 			<control type="image">
-				<width>413</width>
+				<width>417</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="list" id="100">
-				<width>413</width>
+				<width>417</width>
 				<height>320</height>
 				<onup>100</onup>
 				<ondown>100</ondown>
 				<onright>-</onright>
-				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+				<include>global_ListScroll</include>
 				<itemlayout height="40">
 					<control type="image">
-						<width>413</width>
+						<width>417</width>
 						<include>dialog_CommonList</include>
 					</control>
 					<control type="label">
-						<width>397</width>
+						<width>387</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItem</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="image">
-						<width>413</width>
+						<width>417</width>
 						<include>dialog_CommonList</include>
 						<visible>!Control.HasFocus(100)</visible>
 					</control>
 					<control type="image">
-						<width>413</width>
+						<width>417</width>
 						<height>40</height>
 						<include>dialog_CommonListFocus</include>
 						<visible>Control.HasFocus(100)</visible>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<width>397</width>
+						<left>15</left>
+						<width>417</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItemFocus</include>
 					</control>
@@ -64,67 +65,45 @@
 				<content>
 					<!--refresh-->
 					<item id="1">
-						<label>$LOCALIZE[31942]</label>
+						<label>$LOCALIZE[184]</label>
 						<onclick>Close</onclick>
 						<onclick>SendClick(2003,6)</onclick>
-						<visible>!Window.IsActive(3000)</visible>
 					</item>
-					<!--art-->
+					<!--artwork-->
 					<item id="2">
-						<label>$LOCALIZE[31943]</label>
+						<label>$LOCALIZE[31520]</label>
+						<onclick>Close</onclick>
 						<onclick>SendClick(2003,10)</onclick>
-						<visible>!Window.IsActive(3000)</visible>
+						<visible>Window.IsActive(movieinformation)</visible>
 					</item>
-					<!--logo-->
+					<!--get thumb-->
+					<item id="2">
+						<label>$LOCALIZE[13405]</label>
+						<onclick>Close</onclick>
+						<onclick>SendClick(2003,10)</onclick>
+						<visible>Window.IsActive(musicinformation)</visible>
+					</item>
+					<!--fanart-->
 					<item id="3">
-						<label>$LOCALIZE[31946]</label>
+						<label>$LOCALIZE[20413]</label>
 						<onclick>Close</onclick>
-						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle],clearlogo)</onclick>
-						<visible>Container.Content(tvshows)</visible>
-						<enable>System.HasAddon(script.artwork.downloader)</enable>
+						<onclick>SendClick(2003,12)</onclick>
+						<visible>Window.IsActive(musicinformation)</visible>
 					</item>
-					<!--extrafanart-->
+					<!--artwork downloader-->
 					<item id="4">
-						<label>$LOCALIZE[31131]</label>
+						<label>Artwork Downloader</label>
+						<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+						<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
 						<onclick>Close</onclick>
-						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle],extrafanart)</onclick>
-						<visible>Container.Content(tvshows)</visible>
-						<enable>System.HasAddon(script.artwork.downloader)</enable>
+						<visible>Window.IsActive(movieinformation) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)] + System.HasAddon(script.artwork.downloader)</visible>
 					</item>
+					<!--tvtunes-->
 					<item id="5">
-						<label>$LOCALIZE[31131]</label>
+						<label>$LOCALIZE[31521]</label>
 						<onclick>Close</onclick>
-						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=movie, medianame=$INFO[ListItem.Title],mediapath=$INFO[ListItem.Path],extrafanart)</onclick>
-						<visible>Container.Content(movies)</visible>
-						<enable>System.HasAddon(script.artwork.downloader)</enable>
-					</item>
-					<!--metadata.actors-refresh-->
-					<item id="6">
-						<label>$LOCALIZE[31942]</label>
-						<onclick>Close</onclick>
-						<onclick>SendClick(3000,6)</onclick>
-						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
-					</item>
-					<!--metadata.actors-thumbnail-->
-					<item id="7">
-						<label>$LOCALIZE[31943]</label>
-						<onclick>SendClick(3000,10)</onclick>
-						<onclick>Close</onclick>
-						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
-					</item>
-					<!--metadata.actors-fanart-->
-					<item id="8">
-						<label>$LOCALIZE[31944]</label>
-						<onclick>SendClick(3000,20)</onclick>
-						<onclick>Close</onclick>
-						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
-					</item>
-					<!--metadata.actors-edit-->
-					<item id="9">
-						<label>$LOCALIZE[20067]</label>
-						<onclick>SendClick(3000,11)</onclick>
-						<onclick>Close</onclick>
-						<visible>System.HasAddon(script.metadata.actors) + Container.Content(actors)</visible>
+						<onclick>RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[Window(Home).Property(TVShowPath)]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
+						<visible>System.HasAddon(script.tvtunes) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</item>
 				</content>
 			</control>

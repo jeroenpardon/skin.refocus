@@ -1,62 +1,62 @@
-﻿<window type="dialog" id="134">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
 	<defaultcontrol always="true">450</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>340</posx>
-		<posy>100</posy>
+		<left>340</left>
+		<top>98</top>
 	</coordinates>
 	<controls>
 		<control type="image">
 			<width>600</width>
-			<height>475</height>
-			<include>dialogWindow</include>
+			<height>515</height>
+			<include>dialog_Window</include>
 		</control>
 		<control type="label" id="1">
-			<width>532</width>
+			<width>592</width>
 			<label>$LOCALIZE[1036]</label>
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<posx>19</posx>
-			<posy>75</posy>
+			<left>4</left>
+			<top>55</top>
 			<control type="image">
-				<width>563</width>
+				<width>592</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="list" id="450">
-				<width>563</width>
-				<height>320</height>
+				<width>592</width>
+				<height>400</height>
 				<onup>450</onup>
 				<ondown>450</ondown>
 				<onright>-</onright>
-				<scrolltime tween="Cubic" easing="Out">scrolltime_Dialog</scrolltime>
+				<include>global_ListScroll</include>
 				<itemlayout height="40">
 					<control type="image">
-						<width>563</width>
+						<width>592</width>
 						<include>dialog_CommonList</include>
 					</control>
 					<control type="label">
-						<width>543</width>
+						<width>562</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItem</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="image">
-						<width>563</width>
+						<width>592</width>
 						<include>dialog_CommonList</include>
 						<visible>!Control.HasFocus(450)</visible>
 					</control>
 					<control type="image">
-						<width>563</width>
+						<width>592</width>
 						<height>40</height>
 						<include>dialog_CommonListFocus</include>
 						<visible>Control.HasFocus(450)</visible>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<width>543</width>
+						<width>562</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItemFocus</include>
 					</control>
@@ -64,11 +64,12 @@
 			</control>
 		</control>
 		<control type="label">
-			<posx>34</posx>
-			<posy>405</posy>
-			<width>534</width>
+			<left>19</left>
+			<top>460</top>
+			<width>592</width>
 			<label>$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages]</label>
-			<include>dialog_Label-pages</include>
+			<align>center</align>
+			<include>dialog_ControlCommons</include>
 		</control>
 	</controls>
 </window>

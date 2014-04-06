@@ -1,75 +1,83 @@
-﻿<window id="2003">
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable) + !SubString(Window(Videos).Property(CinemaExperienceRunning),True)">RunScript(script.tvtunes,backend=True)</onload>
 	<controls>
 		<control type="group">
-			<include>transition_Container</include>
-			<include>toggle_Menu</include>
-			<include>RecentTVShowPanel</include>
-			<!---images--->
+			<include>transition_Content</include>
+			<!--images-->
 			<control type="group">
-				<posx>20</posx>
-				<posy>28</posy>
+				<width>486</width>
+				<height>720</height>
 				<control type="image">
-					<width>460</width>
-					<height>663</height>
-					<include>frame_Poster-List</include>
-					<visible>!Container.Content(musicvideos)</visible>
-				</control>
-				<control type="image">
-					<width>414</width>
-					<height>617</height>
-					<texture background="true" fallback="thumbs/movie_portrait.jpg">$INFO[ListItem.Thumb]</texture>
-					<aspectratio align="center">stretch</aspectratio>
-					<include>thumb_Portrait-List</include>
-					<visible>!Control.HasFocus(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
-				</control>
-				<control type="image">
-					<width>414</width>
-					<height>617</height>
-					<texture background="true" fallback="thumbs/tvshow_portrait.jpg">$INFO[ListItem.Art(tvshow.poster)]</texture>
-					<aspectratio align="center">stretch</aspectratio>
-					<include>thumb_Portrait-List</include>
-					<visible>!Control.HasFocus(50) + Container.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<texture fallback="thumbs/actor_portrait.jpg" background="true">$INFO[Container(50).Listitem.Icon]</texture>
-					<width>414</width>
-					<height>617</height>
+					<width>486</width>
+					<height>720</height>
+					<texture>thumbs/default_Portrait.png</texture>
 					<aspectratio>scale</aspectratio>
-					<include>thumb_Portrait-List</include>
-					<visible>Control.HasFocus(50) + !Container.Content(musicvideos)</visible>
+				</control>
+				<control type="group">
+					<visible>!Control.HasFocus(50)</visible>
+					<control type="image">
+						<width>486</width>
+						<height>720</height>
+						<texture background="true">$VAR[thumb_Portrait]</texture>
+						<aspectratio>scale</aspectratio>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</control>
+					<control type="image">
+						<width>486</width>
+						<height>720</height>
+						<texture background="true">$INFO[ListItem.Art(season.poster)]</texture>
+						<aspectratio>scale</aspectratio>
+						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
+					</control>
 				</control>
 				<control type="image">
-					<posy>20</posy>
-					<width>450</width>
-					<height>273</height>
-					<texture fallback="thumbs/music_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="31">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
-					<visible>Container.Content(musicvideos)</visible>
+					<centerleft>243</centerleft>
+					<centertop>360</centertop>
+					<width>128</width>
+					<height>128</height>
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="group">
+					<visible>Control.HasFocus(50)</visible>
+					<control type="image">
+						<width>486</width>
+						<height>720</height>
+						<texture fallback="thumbs/default_Actor.png" background="true">$INFO[Container(50).Listitem.Art(thumb)]</texture>
+						<aspectratio>scale</aspectratio>
+						<fadetime>fadetime_Thumb</fadetime>
+						<visible>!Container.Content(musicvideos)</visible>
+					</control>
+					<control type="image">
+						<width>486</width>
+						<height>720</height>
+						<texture background="true" fallback="thumbs/music_landscape.jpg">$INFO[ListItem.Art(thumb)]</texture>
+						<aspectratio>scale</aspectratio>
+						<visible>Container.Content(musicvideos)</visible>
+					</control>
 				</control>
 			</control>
+
 			<!--header-->
 			<control type="grouplist">
-				<posx>500</posx>
-				<posy>70</posy>
+				<left>520</left>
+				<top>30</top>
+				<height>900</height>
 				<itemgap>0</itemgap>
 				<control type="label">
-					<height>57</height>
-					<width>700</width>
-					<aligny>top</aligny>
+					<width>720</width>
+					<height>27</height>
 					<label>$INFO[ListItem.Title]</label>
-					<font>light.Header</font>
+					<include>detail_Header</include>
 				</control>
 				<control type="label">
-					<label>$VAR[videoInfo.Header]</label>
-					<font>regular.Info</font>
-					<width>750</width>
-					<height>40</height>
-					<aligny>top</aligny>
-					<textcolor>Color2</textcolor>
+					<label>$VAR[videoInfo_Header]</label>
+					<width>720</width>
+					<height>50</height>
+					<include>detail_Sub</include>
 				</control>
 				<!--info container-->
 				<control type="grouplist" id="1000">
@@ -77,149 +85,235 @@
 					<height>320</height>
 					<itemgap>0</itemgap>
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>24</height>
-						<visible>!IsEmpty(ListItem.Genre) + [Container.Content(tvshows) | Container.Content(musicvideos) | [Container.Content(movies) + [!SubString(Container.FolderPath,plugin) |SubString(Container.FolderPath,plugin.video.apple)]]]</visible>
+						<visible>!IsEmpty(ListItem.Genre)</visible>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>$LOCALIZE[515] [COLOR=Color1]$INFO[ListItem.Genre][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--episode count-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
+						<height>22</height>
+						<visible>Container.Content(tvshows)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>$LOCALIZE[20360] [COLOR=Color1]$INFO[ListItem.Episode] ($INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101])[/COLOR]</label>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--next air date-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+						<control type="label">
+							<width>720</width>
+							<label>$LOCALIZE[31502] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.NextDate)][/COLOR]</label>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--last aired date-->
+					<control type="group">
+						<width>720</width>
 						<height>22</height>
 						<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))</visible>
 						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[31076] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.NextDate)][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<width>720</width>
+							<label>$LOCALIZE[31501] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.LatestDate)] ($LOCALIZE[20373]$INFO[Window(Home).Property(NextAired.LatestSeasonNumber), ] - $LOCALIZE[20452]$INFO[Window(Home).Property(NextAired.LatestEpisodeNumber), ])[/COLOR]</label>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
-							<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
-						</control>
-						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[31075] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.LatestDate)][/COLOR]</label>
-							<include>label_InfoDialog</include>
-							<include>autoscroll-line</include>
-							<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)) + !StringCompare(Window(Home).Property(NextAired.Status),canceled/ended)</visible>
-						</control>
-						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[31077] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.Status)][/COLOR]</label>
-							<include>label_InfoDialog</include>
-							<include>autoscroll-line</include>
-							<visible>IsEmpty(Window(Home).Property(NextAired.NextDate)) + StringCompare(Window(Home).Property(NextAired.Status),canceled/ended)</visible>
+							<visible>!IsEmpty(Window(Home).Property(NextAired.LatestDate)) + !StringCompare(Window(Home).Property(NextAired.Status),canceled/ended)</visible>
 						</control>
 					</control>
+					<!--first aired date-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
+						<height>22</height>
+						<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Premiered))</visible>
+						<control type="label">
+							<width>720</width>
+							<label>$LOCALIZE[20416] [COLOR=Color1]$INFO[Window(Home).Property(NextAired.Premiered)][/COLOR]</label>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--episode air date-->
+					<control type="group">
+						<width>720</width>
 						<height>22</height>
 						<visible>!IsEmpty(ListItem.Date) + Container.Content(episodes)</visible>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>$LOCALIZE[20416] [COLOR=Color1]$INFO[ListItem.Date][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--writer-->
 					<control type="group">
-						<width>700</width>
-						<height>22</height>
-						<visible>!IsEmpty(ListItem.Duration)</visible>
-						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[180] [COLOR=Color1]$INFO[ListItem.Duration] $LOCALIZE[12391][/COLOR]</label>
-							<include>label_InfoDialog</include>
-							<include>autoscroll-line</include>
-						</control>
-					</control>
-					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>22</height>
 						<visible>!IsEmpty(ListItem.Writer)</visible>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>$LOCALIZE[20417] [COLOR=Color1]$INFO[ListItem.Writer][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--director-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>22</height>
 						<visible>!IsEmpty(ListItem.Director)</visible>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>$LOCALIZE[20339] [COLOR=Color1]$INFO[ListItem.Director][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--studio-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>22</height>
-						<visible>!IsEmpty(ListItem.Studio)</visible>
+						<visible>Container.Content(movies) + !IsEmpty(ListItem.Studio)</visible>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>$LOCALIZE[572] [COLOR=Color1]$INFO[ListItem.Studio][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--channel-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>22</height>
-						<visible>Container.Content(tvshows)</visible>
+						<visible>!Container.Content(movies) + !IsEmpty(ListItem.Studio)</visible>
 						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[31089] [COLOR=Color1]$INFO[ListItem.Episode] $LOCALIZE[20360][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<width>720</width>
+							<label>$LOCALIZE[19029] [COLOR=Color1]$INFO[ListItem.Studio][/COLOR]</label>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--rating-->
 					<control type="group">
-						<width>700</width>
-						<height>22</height>
-						<visible>Container.Content(tvshows)</visible>
-						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[16101] [COLOR=Color1]$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[20360][/COLOR]</label>
-							<include>label_InfoDialog</include>
-							<include>autoscroll-line</include>
-						</control>
-					</control>
-					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>22</height>
 						<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>$LOCALIZE[563] [COLOR=Color1]$INFO[ListItem.RatingAndVotes][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--mpaa-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
 						<height>22</height>
 						<visible>!IsEmpty(ListItem.MPAA)</visible>
 						<control type="label">
-							<width>700</width>
-							<label>$LOCALIZE[31017] [COLOR=Color1]$INFO[ListItem.MPAA][/COLOR]</label>
-							<include>label_InfoDialog</include>
+							<width>720</width>
+							<label>$LOCALIZE[31500] [COLOR=Color1]$INFO[ListItem.MPAA][/COLOR]</label>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
+					<!--duration-->
 					<control type="group">
-						<width>700</width>
+						<width>720</width>
+						<height>22</height>
+						<visible>!IsEmpty(ListItem.Duration)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>$LOCALIZE[180] [COLOR=Color1]$INFO[ListItem.Duration] $LOCALIZE[12391][/COLOR]</label>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--video codec-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.VideoCodec)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>[COLOR=Color2]$LOCALIZE[21445][/COLOR] $INFO[ListItem.VideoCodec]</label>
+							<textcolor>Color1</textcolor>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--audio codec-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.AudioCodec)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>[COLOR=Color2]$LOCALIZE[21446][/COLOR] $INFO[ListItem.AudioCodec]</label>
+							<textcolor>Color1</textcolor>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--audio channels-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.AudioChannels)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>[COLOR=Color2]$LOCALIZE[21444][/COLOR] $INFO[ListItem.AudioChannels]</label>
+							<textcolor>Color1</textcolor>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--audio language-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>!IsEmpty(ListItem.AudioLanguage)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>[COLOR=Color2]$LOCALIZE[21447][/COLOR] $INFO[ListItem.AudioLanguage]</label>
+							<textcolor>Color1</textcolor>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--subtitle language-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+						<control type="label">
+							<width>720</width>
+							<label>[COLOR=Color2]$LOCALIZE[287][/COLOR] $INFO[ListItem.SubtitleLanguage]</label>
+							<textcolor>Color1</textcolor>
+							<include>detail_Sub</include>
+							<include>autoscroll-line</include>
+						</control>
+					</control>
+					<!--path-->
+					<control type="group">
+						<width>720</width>
 						<height>22</height>
 						<control type="label">
-							<width>700</width>
+							<width>720</width>
 							<label>[COLOR=Color2]$LOCALIZE[573][/COLOR] $INFO[ListItem.Path]</label>
 							<textcolor>Color1</textcolor>
-							<include>label_InfoDialog</include>
+							<include>detail_Sub</include>
 							<include>autoscroll-line</include>
 						</control>
 					</control>
@@ -232,7 +326,7 @@
 				<!--button area-->
 				<control type="grouplist" id="8000">
 					<height>45</height>
-					<width>700</width>
+					<width>720</width>
 					<itemgap>5</itemgap>
 					<orientation>horizontal</orientation>
 					<!--play-->
@@ -244,21 +338,21 @@
 							<onclick>SendClick(2003,8)</onclick>
 							<onleft>8007</onleft>
 							<onright>8002</onright>
-							<include>button_Inline</include>
+							<include>column_Button</include>
 						</control>
 					</control>
 					<!--cinema-->
 					<control type="group">
 						<width>125</width>
-						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + !SubString(Container.FolderPath,apple)</visible>
+						<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
 						<control type="button" id="8002">
-							<label>cinema</label>
-							<onleft>8001</onleft>
-							<onright>8003</onright>
-							<include>button_Inline</include>
+							<label>Cinema</label>
 							<onclick>Dialog.Close(MovieInformation)</onclick>
 							<onclick>Playlist.Clear</onclick>
-							<onclick>RunScript(script.cinema.experience)</onclick>					
+							<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+							<onleft>8001</onleft>
+							<onright>8003</onright>
+							<include>column_Button</include>
 						</control>
 					</control>
 					<!--browse-->
@@ -270,41 +364,41 @@
 							<onclick>SendClick(2003,8)</onclick>
 							<onleft>8002</onleft>
 							<onright>8004</onright>
-							<include>button_Inline</include>
+							<include>column_Button</include>
 						</control>
 					</control>
 					<!--cast/artists-->
 					<control type="group">
 						<width>125</width>
 						<control type="button" id="8004">
-							<label>$VAR[videoInfo.Cast]</label>
+							<label>$VAR[videoInfo_Cast]</label>
 							<onclick>SendClick(2003,5)</onclick>
 							<ondown>50</ondown>
 							<onleft>8003</onleft>
 							<onright>8005</onright>
-							<include>button_Inline</include>
+							<include>column_Button</include>
 						</control>
 					</control>
 					<!--trailer-->
 					<control type="group">
 						<width>125</width>
-						<visible>Container.Content(movies) + !SubString(ListItem.Path,plugin://)</visible>
+						<visible>Container.Content(movies)</visible>
 						<control type="button" id="8005">
 							<label>$LOCALIZE[20410]</label>
 							<onclick>SendClick(2003,11)</onclick>
 							<onleft>8004</onleft>
 							<onright>8007</onright>
-							<include>button_Inline</include>
+							<include>column_Button</include>
 						</control>
 					</control>
 					<!--edit-->
 					<control type="group">
 						<width>125</width>
-						<visible>!SubString(Container.FolderPath,plugin://)</visible>
+						<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 						<control type="button" id="8007">
 							<label>$LOCALIZE[21435]</label>
 							<onclick>ActivateWindow(62)</onclick>
-							<include>button_Inline</include>
+							<include>column_Button</include>
 							<onleft>8005</onleft>
 							<onright>8001</onright>
 						</control>
@@ -317,10 +411,10 @@
 				</control>
 				<!--plot-->
 				<control type="textbox" id="400">
-					<width>700</width>
-					<height>165</height>
+					<width>720</width>
+					<height>195</height>
 					<label>$INFO[ListItem.Plot]</label>
-					<font>regular.DescriptionSmall</font>
+					<include>detail_Text</include>
 					<include>autoscroll-plot</include>
 					<visible allowhiddenfocus="true">![Control.HasFocus(8004) | Control.HasFocus(50)]</visible>
 				</control>
@@ -328,118 +422,105 @@
 				<control type="list" id="50">
 					<width>645</width>
 					<height>176</height>
-					<onleft>8000</onleft>
-					<onright>8000</onright>
+					<onback>8004</onback>
+					<onleft>8003</onleft>
+					<onright>8005</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+					<include>global_ListScroll</include>
 					<visible allowhiddenfocus="true">Control.HasFocus(8004) | Control.HasFocus(50)</visible>
 					<itemlayout height="44">
 						<control type="image">
 							<width>645</width>
-							<include>listButton_Alt</include>
+							<include>column_ListButton</include>
 						</control>
 						<control type="label">
-							<posx>15</posx>
+							<left>15</left>
 							<width>615</width>
 							<label>$INFO[ListItem.Label]</label>
-							<include>listButton_Label</include>
+							<include>column_ListButtonLabel</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="44">
-						<control type="image">
-							<width>645</width>
-							<include>listButton_Alt</include>
-							<visible>!Control.HasFocus(50)</visible>
+						<control type="group">
+							<visible>Control.HasFocus(8004)</visible>
+							<control type="image">
+								<width>645</width>
+								<include>column_ListButton</include>
+							</control>
+							<control type="label">
+								<width>645</width>
+								<label>$INFO[ListItem.Label]</label>
+								<textoffsetx>15</textoffsetx>
+								<include>column_ListButtonLabel</include>
+							</control>
 						</control>
-						<control type="image">
-							<width>645</width>
-							<include>listButton_Alt-focus</include>
-							<visible>Control.HasFocus(50)</visible>
-						</control>
-						<control type="label">
-							<posx>15</posx>
-							<width>615</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>listButton_Label</include>
+						<control type="group">
+							<visible>!Control.HasFocus(8004)</visible>
+							<control type="image">
+								<width>645</width>
+								<include>column_ListButtonFocus</include>
+							</control>
+							<control type="label">
+								<width>645</width>
+								<label>$INFO[ListItem.Label]</label>
+								<textoffsetx>15</textoffsetx>
+								<textcolor>Color5</textcolor>
+								<include>column_ListButtonLabel</include>
+							</control>
 						</control>
 					</focusedlayout>
 				</control>
-				<!--edit list
-				<control type="list" id="60">
-					<width>645</width>
-					<height>176</height>
-					<onleft>8000</onleft>
-					<onright>8000</onright>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
-					<visible allowhiddenfocus="true">Control.HasFocus(8007) | Control.HasFocus(60)</visible>
-					<itemlayout height="44">
-						<control type="image">
-							<width>645</width>
-							<include>listButton_Alt</include>
-						</control>
-						<control type="label">
-							<posx>15</posx>
-							<width>615</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>listButton_Label</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="44">
-						<control type="image">
-							<width>645</width>
-							<include>listButton_Alt</include>
-							<visible>!Control.HasFocus(60)</visible>
-						</control>
-						<control type="image">
-							<width>645</width>
-							<include>listButton_Alt-focus</include>
-							<visible>Control.HasFocus(60)</visible>
-						</control>
-						<control type="label">
-							<posx>15</posx>
-							<width>615</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>listButton_Label</include>
-						</control>
-					</focusedlayout>
-					<content>
-						<item id="1">
-							<label>$LOCALIZE[31942]</label>
-							<onclick>Close</onclick>
-							<onclick>SendClick(2003,6)</onclick>
-						</item>
-						<item id="2">
-							<label>$LOCALIZE[31943]</label>
-							<onclick>SendClick(2003,10)</onclick>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[31944]</label>
-							<onclick>SendClick(2003,12)</onclick>
-							<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
-						</item>
-						<item id="4">
-							<label>$LOCALIZE[31945]</label>
-							<onclick>Close</onclick>
-							<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,seasonbanner)</onclick>
-							<visible>Container.Content(tvshows)</visible>
-						</item>
-						<item id="5">
-							<label>$LOCALIZE[31946]</label>
-							<onclick>Close</onclick>
-							<onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,clearlogo)</onclick>
-							<visible>Container.Content(tvshows)</visible>
-						</item>
-					</content>
-				</control>-->
 			</control>
 			<!--flags-->
-			<control type="group">
-				<posx>500</posx>
-				<posy>600</posy>
-				<include>flags_Type-info</include>
+			<control type="grouplist" id="100">
+				<left>520</left>
+				<bottom>20</bottom>
+				<width>900</width>
+				<height>64</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>128</width>
+					<height>64</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				</control>
 			</control>
 		</control>
 	</controls>

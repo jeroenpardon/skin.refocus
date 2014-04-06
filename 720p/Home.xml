@@ -1,225 +1,101 @@
-﻿<window id="0">
-	<defaultcontrol always="true">9000</defaultcontrol>
-	<onload>AlarmClock(home_Slideshow,Control.Move(600,1)),00:10,silent,loop)</onload>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9110</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<onload>CancelAlarm(StartupCheck,true)</onload>
+
 	<controls>
-	<!-- global background --->
-		<control type="largeimage">
-			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/background.png</texture>
-			<aspectratio>scale</aspectratio>
-			<animation type="WindowOpen" condition="Window.Previous(2999)">
-				<effect type="fade" start="0" end="100" time="600" delay="0" />
-			</animation>
-			<animation type="WindowOpen" condition="!Window.Previous(2999)">
-				<effect type="fade" start="0" end="100" time="200" delay="0" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="fade" start="100" end="0" time="200" delay="0" />
-			</animation>
-			<visible>![Player.HasVideo + !Skin.HasSetting(home.backgroundvideo)] | [Skin.HasSetting(slideshow.fanart) + ![Library.HasContent(movies) + Library.HasContent(tvshows)]]</visible>
-		</control>
-	<!-- slideshows--->
-		<include>home_Slideshows</include>
-	<!-- background video --->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture>black.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
-		</control>
-		<control type="videowindow">
-			<include>screen_Dimensions</include>
-			<visible>!Skin.HasSetting(home.backgroundvideo) + !Window.IsActive(videoplaylist) + Player.HasVideo</visible>
-		</control>
-	<!-- weather fanart --->
-		<control type="multiimage" id="1">
-			<include>screen_Dimensions</include>
-			<aspectratio>stretch</aspectratio>
-			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
-			<timeperimage>slideshow_Timer</timeperimage>
-			<fadetime>200</fadetime>
-			<randomize>true</randomize>
-			<loop>yes</loop>
-			<include>fadeinout</include>
-			<visible allowhiddenfocus="true">Skin.HasSetting(fanart.weather) + Container(9000).HasFocus(17)</visible>
-		</control>
-	<!-- now playing fanart --->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
-			<aspectratio>scale</aspectratio>
-			<fadetime>850</fadetime>
-			<include>fadeinout</include>
-			<visible allowhiddenfocus="true">Container(9000).HasFocus(21)</visible>
-		</control>
-	<!-- menu shade --->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture>home/menuBackground.png</texture>
-			<aspectratio align="left">stretch</aspectratio>
-			<include>fadeinout</include>
-		</control>
-	<!-- toast overlay --->
-		<control type="image" id="1">
-			<include>screen_Dimensions</include>
-			<texture border="16">overlays/vignette.png</texture>
-			<include>transition_Toast</include>
-			<visible>Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)</visible>
-		</control>
-	<!---time------>
 		<control type="group">
-			<include>clock</include>
-			<include>fadeinout</include>
-			<include>toggle_ToastMute</include>
-			<visible>Skin.HasSetting(home.time) + ![Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(infodialog)]</visible>
-		</control>
-	<!---menu------>
-		<include>HomeMenu</include>
-		<control type="group" id="6100">
-			<posx>20</posx>
-			<posy>20</posy>
-			<include>transition_Indicator</include>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>navigation/left.png</texture>
-				<colordiffuse>Color1</colordiffuse>
-				<animation type="Visible">
-					<effect type="fade" tween="Quadratic" easing="Out" start="0" end="100" time="250" />
-					<effect type="slide" tween="Quadratic" easing="Out" start="25" end="0" time="250" />
-				</animation>
-				<animation type="Hidden">
-					<effect type="fade" tween="Quadratic" easing="Out" start="100" end="0" time="250" />
-					<effect type="slide" tween="Quadratic" easing="Out" start="0" end="-25" time="250" />
-				</animation>
-				<visible>Skin.HasSetting(indicator.enable) + [Control.HasFocus(1110) | Control.HasFocus(1120) | Control.HasFocus(1130) | Control.HasFocus(1140) | Control.HasFocus(1150) | Control.HasFocus(1160) | Control.HasFocus(1170) | Control.HasFocus(1180) | Control.HasFocus(1200) | Control.HasFocus(1210)]</visible>
+			<include>transition_Home</include>
+			<include>home_Background</include>
+			<include>home_Menu</include>
+			<include>home_NowPlaying</include>
+
+		<!--clock-->
+			<control type="group">
+				<visible>Skin.HasSetting(home.time) + ![Control.HasFocus(9130) | Control.HasFocus(9140) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]</visible>
+				<include>clock</include>
+			</control>
+
+		<!--RSS-->
+			<control type="group">
+				<left>340</left>
+				<top>690</top>
+				<include>toggle_RSS</include>
+				<visible>System.GetBool(lookandfeel.enablerssfeeds) + ![Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
+				<control type="image">
+					<width>1280</width>
+					<height>30</height>
+					<texture>overlays/semitrans.png</texture>
+				</control>
+				<control type="rss">
+					<width>940</width>
+					<font>condensed-U</font>
+					<urlset>1</urlset>
+					<height>30</height>
+					<textcolor>Color1</textcolor>
+					<titlecolor>Color2</titlecolor>
+					<headlinecolor>Color1</headlinecolor>
+					<highlightcolor>Focused</highlightcolor>
+					<include>fadeinout</include>
+				</control>
 			</control>
 		</control>
-	<!---rss feed------>
-		<control type="group">
-			<posy>684</posy>
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(home.stats)</visible>
-			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
-			<control type="image">
-				<width>1281</width>
-				<height>52</height>
-				<texture border="0">home/homeRSS.png</texture>
-			</control>	
-			<control type="rss" id="1">
-				<posy>10</posy>
-				<width>screen_Width</width>
-				<font>regular.SmallCaps</font>
-				<urlset>1</urlset>
-				<height>32</height>
-				<aligny>center</aligny>
-				<textcolor>Color1</textcolor>
-				<titlecolor>Color2</titlecolor>
-				<headlinecolor>Color1</headlinecolor>
-				<highlightcolor>Focused</highlightcolor>
-				<include>fadeinout</include>
-			</control>
+
+	<!--home submenu triggers-->
+		<!--videos-->
+		<control type="button" id="1111">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[3])</onfocus>
+			<onfocus>SetFocus(203)</onfocus>
+			<include>TriggerButton</include>
 		</control>
-	<!---stats------>	
-		<control type="group">
-			<posy>684</posy>
-			<visible>Skin.HasSetting(home.stats)</visible>
-			<animation effect="slide" start="0,100" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,100" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
-			<control type="image">
-				<width>1281</width>
-				<height>52</height>
-				<texture border="0">home/homeRSS.png</texture>
-			</control>
-			<control type="label">
-				<label>[COLOR=Color1]$INFO[Window.Property(Movies.Count)] $LOCALIZE[20342][/COLOR]  $INFO[Window.Property(Movies.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Episodes.Count)] $LOCALIZE[20360][/COLOR]  $INFO[Window.Property(Episodes.UnWatched)] $LOCALIZE[16101] • [COLOR=Color1]$INFO[Window.Property(Music.ArtistsCount)] $LOCALIZE[133][/COLOR] $INFO[Window.Property(Music.AlbumsCount)] $LOCALIZE[132] $INFO[Window.Property(Music.SongsCount)] $LOCALIZE[134]</label>
-				<include>home_statuslabel</include>
-				<visible>!Container(9000).HasFocus(17) + ![Library.HasContent(movies) + [Container(9000).HasFocus(3) | Container(9000).HasFocus(4)] | Library.HasContent(tvshows) + [Container(9000).HasFocus(5) | Container(9000).HasFocus(6)] | Library.HasContent(music) + [Container(9000).HasFocus(9) | Container(9000).HasFocus(10) | Container(9000).HasFocus(21) | Container(9000).HasFocus(22)]] + ![[Container(9000).HasFocus(7) | Container(9000).HasFocus(8)] + !IsEmpty(PVR.NextRecordingDateTime)]</visible>
-			</control>
-			<control type="label">
-				<label>$LOCALIZE[31095]: [COLOR=Color1]$INFO[Window.Property(LatestMovie.1.Title),, • ]$INFO[Window.Property(LatestMovie.2.Title),, • ]$INFO[Window.Property(LatestMovie.3.Title),, • ]$INFO[Window.Property(LatestMovie.4.Title),, • ]$INFO[Window.Property(LatestMovie.5.Title)][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Library.HasContent(movies) + [Container(9000).HasFocus(3) | Container(9000).HasFocus(4)]</visible>
-			</control>
-			<control type="label">
-				<label>$LOCALIZE[31094]: [COLOR=Color1]$INFO[Window.Property(LatestEpisode.1.ShowTitle),,: ]$INFO[Window.Property(LatestEpisode.1.EpisodeTitle),, • ]$INFO[Window.Property(LatestEpisode.2.ShowTitle),,: ]$INFO[Window.Property(LatestEpisode.2.EpisodeTitle),, • ]$INFO[Window.Property(LatestEpisode.3.ShowTitle),,: ]$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Library.HasContent(tvshows) + [Container(9000).HasFocus(5) | Container(9000).HasFocus(6)]</visible>
-			</control>
-			<control type="label">
-				<label>$LOCALIZE[19157]: [COLOR=Color1]$INFO[PVR.NextRecordingTitle], $INFO[PVR.NextRecordingDateTime] - $INFO[PVR.NextRecordingChannel][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>[Container(9000).HasFocus(7) | Container(9000).HasFocus(8)] + !IsEmpty(PVR.NextRecordingDateTime)</visible>
-			</control>
-			<control type="label">
-				<label>$LOCALIZE[31096]: [COLOR=Color1]$INFO[Window.Property(LatestAlbum.1.Title),, • ]$INFO[Window.Property(LatestAlbum.2.Title),, • ]$INFO[Window.Property(LatestAlbum.3.Title),, • ]$INFO[Window.Property(LatestAlbum.4.Title),, • ]$INFO[Window.Property(LatestAlbum.5.Title)][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Library.HasContent(music) + [Container(9000).HasFocus(9) | Container(9000).HasFocus(10)]</visible>
-			</control>
-			<control type="label">
-				<label>$LOCALIZE[31965]: [COLOR=Color1]$INFO[Weather.Conditions], $INFO[Weather.Temperature][/COLOR] • $LOCALIZE[402]: [COLOR=Color1]$INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][/COLOR] • $LOCALIZE[406]: [COLOR=Color1]$INFO[Window(Weather).Property(Current.Humidity)][/COLOR] • $LOCALIZE[404]: [COLOR=Color1]$INFO[Window(Weather).Property(Current.Wind)][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Container(9000).HasFocus(17)</visible>
-			</control>
-			<control type="label">
-				<label>[COLOR=Color1]$INFO[MusicPlayer.Title]$INFO[MusicPlayer.Artist,[COLOR=Color2] $LOCALIZE[31106][/COLOR] ][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Container(9000).HasFocus(21)</visible>
-			</control>
-			<control type="label">
-				<label>[COLOR=Color1]$INFO[VideoPlayer.Title][/COLOR]$INFO[VideoPlayer.Genre, • ]</label>
-				<include>home_statuslabel</include>
-				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(movies)</visible>
-			</control>
-			<control type="label">
-				<label>[COLOR=Color1]$INFO[VideoPlayer.TVShowTitle,,: ][/COLOR]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Season, • $LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
-				<include>home_statuslabel</include>
-				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(episodes)</visible>
-			</control>
-			<control type="label">
-				<label>[COLOR=Color1]$INFO[VideoPlayer.Title][/COLOR] $LOCALIZE[31106] [COLOR=Color1]$INFO[VideoPlayer.Artist][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(musicvideos)</visible>
-			</control>
-			<control type="label">
-				<label>[COLOR=Color1]$INFO[VideoPlayer.Title][/COLOR]</label>
-				<include>home_statuslabel</include>
-				<visible>Container(9000).HasFocus(22) + VideoPlayer.Content(files)</visible>
-			</control>
+		<!--movies-->
+		<control type="button" id="2222">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[342])</onfocus>
+			<onfocus>SetFocus(22)</onfocus>
+			<include>TriggerButton</include>
 		</control>
-		<control type="group">
-			<include>fadeinout</include>
-			<control type="button" id="888">
-				<posx>1205</posx>
-				<posy>331</posy>
-				<label>-</label>
-				<width>56</width>
-				<height>56</height>
-				<texturenofocus>home/search.png</texturenofocus>
-				<texturefocus>home/search-focus.png</texturefocus>
-				<onleft>9000</onleft>
-				<onright>-</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<onclick>ActivateWindow(64)</onclick>
-				<visible>Skin.HasSetting(home.search) + !Skin.HasSetting(search.addon)</visible>
-			</control>
-			<control type="button" id="888">
-				<posx>1205</posx>
-				<posy>331</posy>
-				<label>-</label>
-				<width>56</width>
-				<height>56</height>
-				<texturenofocus>home/search.png</texturenofocus>
-				<texturefocus>home/search-focus.png</texturefocus>
-				<onleft>9000</onleft>
-				<onright>-</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<onclick>RunAddon(script.globalsearch)</onclick>
-				<visible>Skin.HasSetting(home.search) + Skin.HasSetting(search.addon)</visible>
-			</control>
+		<!--tv shows-->
+		<control type="button" id="3333">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[20343])</onfocus>
+			<onfocus>SetFocus(42)</onfocus>
+			<include>TriggerButton</include>
+		</control>
+		<!--pvr-->
+		<control type="button" id="4444">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[31113])</onfocus>
+			<onfocus>SetFocus(62)</onfocus>
+			<include>TriggerButton</include>
+		</control>
+		<!--music-->
+		<control type="button" id="5555">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[2])</onfocus>
+			<onfocus>SetFocus(82)</onfocus>
+			<include>TriggerButton</include>
+		</control>
+		<!--pictures-->
+		<control type="button" id="6666">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[1])</onfocus>
+			<onfocus>SetFocus(102)</onfocus>
+			<include>TriggerButton</include>
+		</control>
+		<!--add-ons-->
+		<control type="button" id="7777">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[24001])</onfocus>
+			<onfocus>SetFocus(122)</onfocus>
+			<include>TriggerButton</include>
+		</control>
+		<!--system-->
+		<control type="button" id="8888">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[13000])</onfocus>
+			<onfocus>SetFocus(142)</onfocus>
+			<include>TriggerButton</include>
+		</control>
+		<!--disc-->
+		<control type="button" id="9999">
+			<onfocus>Skin.SetString(sub,$LOCALIZE[427])</onfocus>
+			<onfocus>SetFocus(162)</onfocus>
+			<include>TriggerButton</include>
 		</control>
 	</controls>
 </window>

@@ -1,27 +1,28 @@
-﻿<window id="2903">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<left>0</left>
+		<top>0</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<visible>Player.HasAudio + !Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614)]</visible>
-			<include>toggle_ToastMute</include>
+			<include>transition_Info</include>
+			<visible>Player.HasAudio + Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614) | Window.IsActive(busydialog)]</visible>
 			<control type="label" id="200">
-				<posx>130r</posx>
+				<right>70</right>
 				<label>$INFO[MusicPlayer.Title]</label>
 				<include>toast_Top</include>
 			</control>
 			<control type="label" id="201">
-				<posx>130r</posx>
-				<label>$INFO[MusicPlayer.Artist]</label>
+				<right>70</right>
+				<label>$VAR[toast_Music]</label>
 				<include>toast_Bottom</include>
 			</control>
-			<control type="label" id="1">
-				<posx>120r</posx>
-				<label>$INFO[MusicPlayer.TimeRemaining(mm:ss)]</label>
-				<include>toast_Side</include>
+			<control type="image">
+				<include>toast_Icon</include>
+				<texture>toast/play.png</texture>
+				<visible>IntegerGreaterThan(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</controls>

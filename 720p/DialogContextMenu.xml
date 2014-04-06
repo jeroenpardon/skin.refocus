@@ -1,46 +1,37 @@
-﻿<window id="106">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>1000</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<left>0</left>
+		<top>0</top>
 		<origin x="485" y="100" />
 	</coordinates>
 	<controls>
 		<control type="image" id="999">
 			<width>310</width>
-			<height>436</height>
-			<texture border="20">dialogs/button_Menu.png</texture>
+			<height>536</height>
+			<include>dialog_Menu</include>
 		</control>
 		<control type="image">
-			<posx>4</posx>
-			<posy>18</posy>
+			<left>4</left>
+			<top>18</top>
 			<width>302</width>
 			<include>dialog_Separator</include>
 		</control>
 		<control type="grouplist" id="996">
-			<posx>4</posx>
-			<posy>18</posy>
+			<left>4</left>
+			<top>18</top>
 			<width>302</width>
-			<height min="40" max="400">auto</height>
+			<height min="40" max="500">auto</height>
 			<itemgap>0</itemgap>
-			<!--actor/director info
-			<control type="button" id="1245">
-				<posx>9</posx>
-				<width>335</width>
-				<label>Actor Information</label>
-				<onclick>RunScript(script.metadata.actors,$INFO[ListItem.Label])</onclick>
-				<visible>System.HasAddon(script.metadata.actors) + [SubString(Container.FolderPath,videodb://1/4/) | SubString(Container.FolderPath,videodb://1/5/) | SubString(Container.FolderPath,videodb://2/4/)]</visible>
-				<include>dialog_Button-list</include>			
-			</control>
-			-->
 		</control>
 		<!--default button-->
 		<control type="button" id="1000">
-			<posx>9</posx>
+			<left>9</left>
 			<width>335</width>
-			<include>dialog_Button-list</include>
+			<include>dialog_ControlCommons</include>
 		</control>
 	</controls>
 </window>

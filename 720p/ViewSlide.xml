@@ -1,331 +1,289 @@
-﻿<includes>
-<!---INFO------>
-	<include name="info_Slide">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="detail_Slide">
 		<control type="group">
-			<include>toggle_Menu</include>
 			<include>transition_Info</include>
-			<include>infoDialogHide</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522)</visible>
-			<!---flags--->
 			<control type="image">
-				<posx>60</posx>
-				<posy>459</posy>
-				<width>128</width>
-				<height>64</height>
+				<left>80</left>
+				<top>480</top>
+				<width>92</width>
+				<height>48</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture>$VAR[flag_Studio]</texture>
 			</control>
-			<include>flags_Slide-media</include>
-			<!---info--->	
 			<control type="group">
-				<visible>!Container.Content(addons)</visible>
-				<posx>220</posx>
-				<posy>462</posy>
-				<control type="label">
-					<width>960</width>
-					<label>$VAR[global_Title]</label>
-					<include>info_Title</include>
+				<left>192</left>
+				<top>477</top>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(522)">Conditional</animation>
+				<control type="group">
+					<control type="label">
+						<width>960</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+					</control>
+					<control type="group">
+						<top>28</top>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>960</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>960</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+					<control type="textbox">
+						<top>60</top>
+						<width>960</width>
+						<height>110</height>
+						<label>$VAR[global_Plot]</label>
+						<include>detail_Text</include>
+					</control>
 				</control>
-				<control type="label">
-					<posy>28</posy>
-					<width>960</width>
-					<label>$VAR[global_Info]</label>
-					<include>info_Sub</include>
-					<!--<visible>!SubString(Container.FolderPath,plugin)</visible>-->
+				<control type="grouplist">
+					<top>180</top>
+					<width>900</width>
+					<height>64</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="image">
+						<width>128</width>
+						<height>32</height> 
+						<texture>$VAR[global_Rating]</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!Container.Content(files)</visible>
+					</control>
+					<control type="image">
+						<width>96</width>
+						<height>34</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+						<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+					</control>
+					<control type="image">
+						<width>53</width>
+						<height>34</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+						<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+					</control>
 				</control>
-				<control type="label">
-					<posy>50</posy>
-					<width>960</width>
-					<label>$INFO[ListItem.Duration]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(songs)</visible>
-				</control>
-				<control type="textbox">
-					<posy>60</posy>
-					<width>960</width>
-					<height>110</height>
-					<label>$VAR[global_Plot.Condition]</label>
-					<include>description_Small</include>
-					<visible>IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>
-				</control>
-				<control type="textbox">
-					<posy>60</posy>
-					<width>960</width>
-					<height>163</height>
-					<label>$VAR[global_Plot.Condition]</label>
-					<include>description_Small</include>
-					<visible>!IsEmpty(ListItem.Property(ReleaseDate)) + !SubString(ListItem.Icon,default)</visible>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="info_SlideAddons">
-		<!---info--->
-		<control type="group">
-			<posx>220</posx>
-			<posy>462</posy>
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-			<visible>Control.IsVisible(522) + [Container.Content(addons) | Container.Content(programs)]</visible>
-			<control type="label">
-				<width>960</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>info_Title</include>
-			</control>
-			<control type="label">
-				<posy>28</posy>
-				<width>960</width>
-				<label>$LOCALIZE[31979] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31106] $INFO[ListItem.Property(Addon.Creator)]</label>
-				<include>info_Sub</include>
-				<visible>!SubString(ListItem.Icon,default)</visible>
-			</control>
-			<control type="textbox">
-				<posy>60</posy>
-				<width>960</width>
-				<height>118</height>
-				<label>$INFO[ListItem.Property(Addon.Description)]</label>
-				<include>description_Small</include>
-				<visible>!SubString(ListItem.Icon,default)</visible>
-			</control>
-			<control type="image">
-				<posx>2</posx>
-				<posy>198</posy>
-				<width>128</width>
-				<height>32</height>
-				<texture>$INFO[ListItem.Property(Addon.StarRating)]</texture>
-				<aspectratio align="center">keep</aspectratio>
 			</control>
 		</control>
 	</include>
 
-<!---PORTRAIT------>
+<!--PORTRAIT-->
 	<include name="view_SlidePoster">
 		<control type="fixedlist" id="52">
-			<viewtype label="Slide">info</viewtype>
-			<posx>-2</posx>
-			<posy>90</posy>
-			<width>1450</width>
+			<viewtype label="31112">wrap</viewtype>
+			<left>8</left>
+			<top>105</top>
+			<width>1272</width>
 			<height>425</height>
 			<onup>6000</onup>
-			<ondown>72</ondown>
+			<ondown>71</ondown>
 			<onleft>52</onleft>
 			<onright>52</onright>
 			<focusposition>1</focusposition>
-			<pagecontrol>72</pagecontrol>
-			<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+			<pagecontrol>71</pagecontrol>
 			<orientation>horizontal</orientation>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin.video.hulu)</visible>
-			<include condition="Window.IsVisible(videolibrary)">SlidePoster_Video</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			<itemlayout width="200" height="300">
+				<include>viewSlidePoster-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="200" height="300">
+				<include>viewSlidePoster-ContainerCommons</include>
+			</focusedlayout>
 		</control>
 	</include>
-	<include name="SlidePoster_Video">
-		<itemlayout height="400" width="205">
+	<include name="viewSlidePoster-ContainerCommons">
+		<control type="group">
+			<include>focus_SlidePoster</include>
+			<control type="image">
+				<width>203</width>
+				<height>300</height>
+				<texture border="10">frames/frame-alt.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
 			<control type="group">
+				<left>10</left>
+				<top>10</top>
 				<control type="image">
-					<width>228</width>
-					<height>316</height>
-					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">thumbs/default_Portrait.png</texture>
 					<aspectratio align="center">stretch</aspectratio>
-					<bordersize>22</bordersize>
+				</control>
+				<control type="image">
+					<left>43.5</left>
+					<top>92</top>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
 				</control>
 				<control type="group">
-					<posx>174</posx>
-					<posy>262</posy>
-					<control type="image">
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<include>overlay_Resumable</include>
-					</control>
+					<left>165</left>
+					<top>262</top>
+					<include>overlay_Watch</include>
 				</control>
 			</control>
-		</itemlayout>
-		<focusedlayout height="400" width="205">
-			<control type="group">
-				<include>focus_SlidePoster</include>
-				<control type="image">
-					<width>228</width>
-					<height>316</height>
-					<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<aspectratio align="center">stretch</aspectratio>
-					<bordersize>22</bordersize>
-				</control>
-				<control type="group">
-					<posx>174</posx>
-					<posy>262</posy>
-					<control type="image">
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<include>overlay_Resumable</include>
-					</control>
-				</control>
-			</control>
-		</focusedlayout>
+		</control>
 	</include>
 
-<!---LANDSCAPE------>
+<!--LANDSCAPE-->
 	<include name="view_SlideLandscape">
 		<control type="fixedlist" id="521">
-			<viewtype label="WideSlide">biginfo</viewtype>
-			<posx>-610</posx>
-			<posy>130</posy>
+			<viewtype label="31112">bigwrap</viewtype>
+			<left>-177</left>
+			<top>150</top>
 			<width>2200</width>
 			<height>430</height>
 			<onleft>521</onleft>
 			<onright>521</onright>
 			<onup>6000</onup>
-			<ondown>72</ondown>
-			<focusposition>2</focusposition>
-			<pagecontrol>72</pagecontrol>
-			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+			<ondown>71</ondown>
+			<focusposition>1</focusposition>
+			<pagecontrol>71</pagecontrol>
 			<preloaditems>2</preloaditems>
 			<orientation>horizontal</orientation>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists)] | [Container.Content(movies) + !SubString(Container.FolderPath,plugin://) + Container.HasFiles] | [Container.Content(files) + Container.HasFiles] + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
-			<include condition="Window.IsVisible(videolibrary)">SlideWideVideo</include>
-			<include condition="Window.IsVisible(musiclibrary)">SlideWideMusic</include>
-		</control>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+			<itemlayout width="445" height="259">
+				<include>view_SlideLandscape-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="445" height="259">
+				<include>view_SlideLandscape-ContainerCommons</include>
+			</focusedlayout>
+		</control>
 	</include>
-	<include name="SlideWideVideo">
-		<itemlayout width="425" height="300">
+	<include name="view_SlideLandscape-ContainerCommons">
+		<control type="group">
+			<include>focus_SlideWide</include>
+			<control type="image">
+				<width>446</width>
+				<height>259</height>
+				<texture border="10">frames/frame-alt.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
 			<control type="group">
-				<control type="image">
-					<width>450</width>
-					<height>272</height>
-					<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
-					<aspectratio align="center">scale</aspectratio>
-					<bordertexture border="31">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
+				<left>10</left>
+				<top>10</top>
+				<control type="image">		
+					<width>425</width>
+					<height>239</height>
+					<texture background="true">thumbs/default_Landscape.png</texture>
+					<aspectratio>stretch</aspectratio>
 				</control>
 				<control type="image">
-					<posx>32</posx>
-					<posy>176</posy>
-					<width>156</width>
+					<left>164.5</left>
+					<top>71.5</top>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>425</width>
+					<height>239</height>
+					<texture background="true">$VAR[thumb_Landscape]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<left>130</left>
+					<top>155</top>
+					<width>165</width>
 					<height>64</height>
-					<texture background="true">$INFO[ListItem.Path]logo.png</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>Skin.HasSetting(tvshowlogos.enable) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://)]</visible>
+					<include>art_ClearLogo</include>
 				</control>
 				<control type="group">
-					<posx>396</posx>
-					<posy>218</posy>
-					<control type="image">
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<include>overlay_Resumable</include>
-					</control>
+					<left>407</left>
+					<top>221</top>
+					<include>overlay_Watch</include>
 				</control>
 			</control>
-		</itemlayout>
-		<focusedlayout width="425" height="300">
-			<control type="group">
-				<include>focus_SlideWide</include>
-				<control type="image">
-					<width>450</width>
-					<height>272</height>
-					<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
-					<bordertexture border="27">frames/frame_Square.png</bordertexture>
-					<aspectratio align="center">scale</aspectratio>
-					<bordersize>22</bordersize>
-				</control>
-				<control type="image">
-					<posx>32</posx>
-					<posy>176</posy>
-					<width>156</width>
-					<height>64</height>
-					<texture background="true">$INFO[ListItem.Path]logo.png</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>Skin.HasSetting(tvshowlogos.enable) + [stringcompare(Container.FolderPath,videodb://5/) | SubString(Container.FolderPath,special://)]</visible>
-				</control>
-				<control type="group">
-					<posx>396</posx>
-					<posy>218</posy>
-					<control type="image">
-						<include>overlay_UnWatched</include>
-					</control>
-					<control type="image">
-						<include>overlay_Resumable</include>
-					</control>
-				</control>
-			</control>
-		</focusedlayout>
-	</include>
-	<include name="SlideWideMusic">
-		<itemlayout width="425" height="300">
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-				<bordertexture border="31">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
-				<visible>Container.Content(artists)</visible>
-			</control>
-		</itemlayout>
-		<focusedlayout width="425" height="300">
-			<control type="image">
-				<width>450</width>
-				<height>272</height>
-				<texture fallback="thumbs/artist_landscape.png" background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-				<bordertexture border="27">frames/frame_Square.png</bordertexture>
-				<bordersize>22</bordersize>
-				<aspectratio align="center">stretch</aspectratio>
-				<visible>Container.Content(artists)</visible>
-				<include>focus_SlideWide</include>
-			</control>
-		</focusedlayout>
+		</control>
 	</include>
 
-<!---SQUARE------>
+<!--SQUARE-->
 	<include name="view_SlideSquare">
-		<control type="wraplist" id="522">
-			<viewtype label="Slide">info</viewtype>
-			<posx>-55</posx>
-			<posy>115</posy>
-			<width>1400</width>
-			<height>600</height>
-			<onleft>52</onleft>
-			<onright>52</onright>
+		<control type="fixedlist" id="522">
+			<viewtype label="31112">wrap</viewtype>
+			<left>9</left>
+			<top>130</top>
+			<width>screen_Width</width>
+			<height>560</height>
+			<onleft>522</onleft>
+			<onright>522</onright>
 			<onup>6000</onup>
-			<ondown>72</ondown>
-			<pagecontrol>72</pagecontrol>
+			<ondown>71</ondown>
+			<pagecontrol>71</pagecontrol>
 			<focusposition>1</focusposition>
-			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 			<orientation>horizontal</orientation>
-			<visible>[Container.Content(albums) | Container.Content(singles) | Container.Content(songs) | Container.Content(artists) | Container.Content(programs)] | [SubString(Container.FolderPath,plugin://) + !Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]] | [Container.Content(addons) + !StringCompare(Container.FolderName,$LOCALIZE[24032])]</visible>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<itemlayout height="226" width="280">
-				<control type="image">
-					<width>300</width>
-					<height>300</height>
-					<texture background="true">$VAR[thumb_Square.Condition]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio>scale</aspectratio>
-				</control>
+			<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles) | Container.Content(artists) | Container.Content(addons)</visible>
+			<itemlayout height="280" width="280">
+				<include>view_SlideSquare-ContainerCommons</include>
 			</itemlayout>
-			<focusedlayout height="250" width="280">	
-				<control type="image">
-					<width>300</width>
-					<height>300</height>
-					<texture background="true">$VAR[thumb_Square.Condition]</texture>
-					<bordertexture border="40">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aspectratio>scale</aspectratio>
-					<include>focus_SlideMusic</include>
-				</control>
+			<focusedlayout height="280" width="280">	
+				<include>view_SlideSquare-ContainerCommons</include>
 			</focusedlayout>
+		</control>
+	</include>
+	<include name="view_SlideSquare-ContainerCommons">
+		<control type="group">
+			<include>focus_SlideMusic</include>
+			<control type="image">
+				<width>280</width>
+				<height>280</height>
+				<texture border="10">frames/frame-alt.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<left>10</left>
+				<top>10</top>
+				<control type="image">
+					<width>260</width>
+					<height>260</height>
+					<texture background="true">thumbs/default_Square.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>130</centerleft>
+					<centertop>130</centertop>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>260</width>
+					<height>260</height>
+					<texture background="true">$VAR[thumb_Square]</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+			</control>
 		</control>
 	</include>
 </includes>

@@ -1,26 +1,28 @@
-﻿<window id="131">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>5</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>340</posx>
-		<posy>120</posy>
+		<left>315</left>
+		<top>127</top>
 	</coordinates>
 	<controls>
 		<control type="image">
-			<width>600</width>
-			<height>494</height>
-			<include>dialogWindow</include>
+			<width>650</width>
+			<height>465</height>
+			<include>dialog_Window</include>
 		</control>
-		<control type="label" id="2">
-			<width>532</width>
+		<control type="label">
+			<label>$LOCALIZE[20066]</label>
+			<width>642</width>
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<posx>19</posx>
-			<posy>75</posy>
+			<left>4</left>
+			<top>60</top>
 			<control type="image">
-				<width>563</width>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="spincontrol" id="60">
@@ -28,7 +30,7 @@
 			</control>
 			<!--control area-->
 			<control type="grouplist" id="5">
-				<width>563</width>
+				<width>642</width>
 				<height>320</height>
 				<itemgap>0</itemgap>
 				<pagecontrol>60</pagecontrol>
@@ -38,39 +40,41 @@
 				<ondown>28</ondown>
 			</control>
 		</control>
-	<!---defaults--->
+	<!--defaults-->
 		<control type="button" id="7">
-			<include>dialog_Button-list</include>
+			<include>dialog_ControlCommons</include>
 		</control>
 		<control type="radiobutton" id="8">
 			<include>dialog_Radio</include>
+			<include>dialog_ControlCommons</include>
 		</control>
 		<control type="spincontrolex" id="9">
 			<include>dialog_Spin</include>
+			<include>dialog_ControlCommons</include>
 		</control>
-	<!---dialog controls--->
+	<!--dialog controls-->
 		<control type="group" id="9001">
-			<posx>14</posx>
-			<posy>415</posy>
+			<left>19</left>
+			<top>400</top>
 			<!--ok-->
 			<control type="button" id="28">
-				<posx>302</posx>
+				<left>487</left>
 				<label>$LOCALIZE[186]</label>
 				<onleft>29</onleft>
 				<onright>29</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
 			<!--cancel-->
 			<control type="button" id="29">
-				<posx>432</posx>
+				<left>357</left>
 				<label>$LOCALIZE[222]</label>
 				<onleft>28</onleft>
 				<onright>28</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
 		</control>
 	</controls>

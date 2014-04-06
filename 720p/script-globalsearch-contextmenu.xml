@@ -1,53 +1,47 @@
-﻿<window>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>1001</defaultcontrol>
-	<include>dialogOpen</include>
 	<coordinates>
 		<system>1</system>
-		<posx>110</posx>
-		<posy>100</posy>
+		<left>0</left>
+		<top>0</top>
+		<origin x="469" y="280" />
 	</coordinates>
+	<include>transition_Dialog</include>
 	<controls>
+		<control type="image" id="999">
+			<width>342</width>
+			<height>80</height>
+			<texture border="20">dialogs/frame/menu2.png</texture>
+		</control>
 		<control type="group">
-			<control type="image" id="997">
-				<width>342</width>
-				<height>114</height>
-				<texture border="16">dialogs/button_Menu.png</texture>
+			<left>4</left>
+			<top>20</top>
+			<control type="button" id="1001">
+				<width>335</width>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>1003</onup>
+				<ondown>1002</ondown>
+				<include>dialog_ControlCommons</include>
 			</control>
-			<control type="image" id="999">
-				<visible>false</visible>
+			<control type="button" id="1002">
+				<top>40</top>
+				<width>335</width>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>1001</onup>
+				<ondown>1003</ondown>
+				<include>dialog_ControlCommons</include>
 			</control>
-			<control type="image" id="998">
-				<visible>false</visible>
-			</control>
-			<control type="group">
-				<posx>3</posx>
-				<posy>0</posy>
-				<control type="image">
-					<posx>360</posx>
-					<posy>198</posy>
-					<width>335</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="group">
-					<posy>17</posy>
-					<control type="button" id="1001">
-						<width>335</width>
-						<onleft>-</onleft>
-						<onright>-</onright>
-						<onup>1002</onup>
-						<ondown>1002</ondown>
-						<include>dialog_Button-list</include>
-					</control>
-					<control type="button" id="1002">
-						<posy>40</posy>
-						<width>335</width>
-						<onleft>-</onleft>
-						<onright>-</onright>
-						<onup>1001</onup>
-						<ondown>1001</ondown>
-						<include>dialog_Button-list</include>
-					</control>
-				</control>
+			<control type="button" id="1003">
+				<top>40</top>
+				<width>335</width>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>1002</onup>
+				<ondown>1001</ondown>
+				<include>dialog_ControlCommons</include>
 			</control>
 		</control>
 	</controls>

@@ -1,129 +1,126 @@
-﻿<window id="609">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">11</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>290</posx>
-		<posy>270</posy>
+		<left>290</left>
+		<top>250</top>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<control type="image">
 				<width>700</width>
-				<height>410</height>
-				<include>dialogWindow</include>
+				<height>435</height>
+				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
-				<width>662</width>
+				<width>692</width>
 				<scroll>true</scroll>
 				<label>$INFO[VideoPlayer.ChannelGroup]</label>
 				<include>dialog_Windowtitle</include>
 				<visible>PVR.IsPlayingTV</visible>
 			</control>
-			<control type="image">
-				<posx>19</posx>
-				<posy>75</posy>
-				<width>662</width>
-				<include>dialog_Separator</include>
+			<control type="label" id="1">
+				<left>4</left>
+				<top>55</top>
+				<width>692</width>
+				<label>$INFO[System.Date]$INFO[System.Time, - ]</label>
+				<include>dialog_Header</include>
+				<include>dialog_ControlCommons</include>
 			</control>
 			<control type="image">
-				<posx>92</posx>
-				<posy>76</posy>
-				<height>295</height>
-				<include>dialog_Separator-y</include>
+				<left>4</left>
+				<top>95</top>
+				<width>692</width>
+				<include>dialog_SectionSeparator</include>
 			</control>
 			<control type="list" id="11">
-				<posx>19</posx>
-				<posy>75</posy>
-				<width>663</width>
-				<height>296</height>
+				<left>4</left>
+				<top>95</top>
+				<width>692</width>
+				<height>320</height>
+				<onleft>PreviousChannelGroup</onleft>
+				<onright>NextChannelGroup</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
-				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-				<itemlayout width="663" height="74">
+				<include>global_ListScroll</include>
+				<itemlayout width="663" height="80">
 					<control type="image">
-						<width>663</width>
-						<height>74</height>
-						<texture border="3">dialogs/list-nofocus.png</texture>
+						<width>692</width>
+						<height>80</height>
+						<include>dialog_CommonList</include>
 					</control>
 					<control type="image">
-						<posx>1</posx>
-						<posy>1</posy>
+						<left>4</left>
+						<top>4</top>
 						<width>72</width>
 						<height>72</height>
 						<aspectratio>stretch</aspectratio>
-						<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="LiveTV.png">$INFO[ListItem.Thumb]</texture>
 					</control>
 					<control type="group">
-						<posx>75</posx>
-						<posy>4</posy>
+						<left>75</left>
+						<top>6</top>
 						<control type="label">
-							<height>40</height>
-							<width>520</width>
-							<label>[B]$INFO[ListItem.Title][/B]</label>
-							<font>normalAlt</font>
+							<width>540</width>
+							<label>$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.ChannelName]</label>
+							<include>dialog_Title</include>
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<posy>25</posy>
-							<width>520</width>
-							<height>40</height>
-							<align>left</align>
-							<font>normalAlt</font>
-							<label>[UPPERCASE]$LOCALIZE[209][/UPPERCASE]$INFO[ListItem.NextTitle,: ]</label>
+							<top>25</top>
+							<width>540</width>
+							<label>$INFO[ListItem.Title,, • ]$LOCALIZE[209]$INFO[ListItem.NextTitle,: ]$INFO[ListItem.NextStartTime, (]$INFO[ListItem.NextEndTime, - ,)]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</control>
 					<control type="image">
-						<posx>625</posx>
-						<posy>26</posy>
-						<texture>$VAR[PVR_Status.Condition]</texture>
+						<left>655</left>
+						<top>28</top>
+						<texture>$VAR[pvr_Status]</texture>
 						<include>dialog_PVRstatus</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="663" height="74">
+				<focusedlayout width="663" height="80">
 					<control type="image">
-						<width>663</width>
-						<height>74</height>
-						<texture border="3">dialogs/list-nofocus.png</texture>
+						<width>692</width>
+						<height>80</height>
+						<include>dialog_CommonList</include>
 					</control>
 					<control type="image">
-						<width>663</width>
-						<height>74</height>
-						<texture>dialogs/list-focus.png</texture>
+						<width>692</width>
+						<height>80</height>
+						<include>dialog_CommonListFocus</include>
 					</control>
 					<control type="image">
-						<posx>1</posx>
-						<posy>1</posy>
+						<left>4</left>
+						<top>4</top>
 						<width>72</width>
 						<height>72</height>
 						<aspectratio>stretch</aspectratio>
-						<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="LiveTV.png">$INFO[ListItem.Thumb]</texture>
 					</control>
 					<control type="group">
-						<posx>75</posx>
-						<posy>4</posy>
+						<left>75</left>
+						<top>6</top>
 						<control type="label">
-							<height>40</height>
-							<width>520</width>
-							<label>[B]$INFO[ListItem.Title][/B]</label>
-							<font>normalAlt</font>
+							<width>540</width>
+							<label>$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.ChannelName]</label>
+							<include>dialog_Title</include>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="label">
-							<posy>25</posy>
-							<width>520</width>
-							<height>40</height>
-							<align>left</align>
-							<font>normalAlt</font>
-							<label>[UPPERCASE]$LOCALIZE[209][/UPPERCASE]$INFO[ListItem.NextTitle,: ]</label>
+							<top>25</top>
+							<width>540</width>
+							<label>$INFO[ListItem.Title,, • ]$LOCALIZE[209]$INFO[ListItem.NextTitle,: ]$INFO[ListItem.NextStartTime, (]$INFO[ListItem.NextEndTime, - ,)]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 					</control>
 					<control type="image">
-						<posx>625</posx>
-						<posy>26</posy>
-						<texture>$VAR[PVR_Status.Condition]</texture>
+						<left>655</left>
+						<top>28</top>
+						<texture>$VAR[pvr_Status]</texture>
 						<colordiffuse>Color1</colordiffuse>
 						<include>dialog_PVRstatus</include>
 					</control>

@@ -1,4 +1,5 @@
-﻿<window id="600">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>6000</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
@@ -10,23 +11,15 @@
 			</control>
 		</control>
 
-	<!---GLOBAL------>
+	<!--GLOBAL-->
 		<include>global_Background</include>
 		<include>global_Clock</include>
+		<include>global_MenuGuide</include>
+		<include>global_Itemcount</include>
 		<include>windowTitle_PVR</include>
 		<include>PageControls</include>
-		<control type="label">
-			<posx>1280</posx>
-			<posy>22r</posy>
-			<width>screen_Width</width>
-			<align>right</align>
-			<label>$INFO[Window.Property(xmlfile)] • $INFO[Container.FolderPath] • $INFO[Container.FolderName] • $INFO[System.BuildVersion] • $INFO[System.BuildDate] • $INFO[System.ScreenResolution]</label>
-			<font>smallerCaps</font>
-			<textcolor>yellow</textcolor>
-			<visible>Skin.HasSetting(dev.enable)</visible>
-		</control>
 		
-	<!---VIEWS------>
+	<!--VIEWS-->
 		<control type="group" id="50">
 			<include>view_EPG-now</include>
 			<include>view_EPG-timeline</include>
@@ -38,33 +31,53 @@
 			<include>view_TV-recordings</include>
 		</control>
 
-	<!---EPG INFO------>
+	<!--EPG INFO-->
 		<control type="group">
-			<posx>150</posx>
-			<posy>560</posy>
-			<include>transition_Container</include>
-			<animation effect="fade" start="100" end="10" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<visible>Control.IsVisible(10) | Control.IsVisible(15) |  Control.IsVisible(16) | Control.IsVisible(17)</visible>
+			<left>90</left>
+			<top>530</top>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>[Control.IsVisible(10) | Control.IsVisible(15) |  Control.IsVisible(16) | Control.IsVisible(17)] + !IsEmpty(ListItem.Title)</visible>
 			<control type="image">
-				<posy>5</posy>
-				<width>84</width>
-				<height>84</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture fallback="pvr/defaultTV.png">$INFO[ListItem.Thumb]</texture>
+				<width>142</width>
+				<height>142</height>
+				<include>art_Frame-nf</include>
+			</control>
+			<control type="group">
+				<left>7</left>
+				<top>7</top>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<texture>thumbs/default_Square.png</texture>
+				</control>
+				<control type="image">
+					<centerleft>64</centerleft>
+					<centertop>64</centertop>
+					<width>72</width>
+					<height>72</height>
+					<texture>LiveTV.png</texture>
+					<visible>IsEmpty(ListItem.Icon)</visible>
+				</control>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+				</control>
 			</control>
 			<control type="grouplist">
-				<posx>135</posx>
-				<posy>0</posy>
+				<left>168</left>
 				<itemgap>0</itemgap>
 				<control type="label" id="1">
 					<width>950</width>
 					<label>$INFO[ListItem.Title]</label>
-						<include>info_Title</include>
+					<include>detail_Title</include>
 				</control>
 				<control type="label" id="1">
 					<width>950</width>
-					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre,  • ]</label>
-					<include>info_Sub</include>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, • ]</label>
+					<include>detail_Sub</include>
 				</control>
 				<control type="label" id="1">
 					<label></label>
@@ -72,27 +85,14 @@
 				</control>
 				<control type="textbox">
 					<width>950</width>
-					<height>90</height>
-					<aligny>top</aligny>
+					<height>80</height>
 					<label>$INFO[ListItem.Plot]</label>
-					<textcolor>Color7</textcolor>
-					<font>description.Regular</font>
+					<include>detail_Text</include>
 				</control>
 			</control>
 		</control>
-		<control type="image">
-			<posx>230</posx>
-			<include>screen_Separator</include>
-			<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<visible>![Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
-		</control>
-		<control type="image">
-			<posx>134</posx>
-			<include>screen_Separator</include>
-			<animation effect="fade" start="100" end="30" time="150" condition="ControlGroup(6000).HasFocus()">Conditional</animation>
-			<visible>[Control.IsVisible(11) | Control.IsVisible(12)]</visible>
-		</control>
-		<include>TVMenu</include>
-		<include>nav_Indicator</include>
+
+	<!--menu-->
+		<include>menu_TV</include>
 	</controls>
 </window>

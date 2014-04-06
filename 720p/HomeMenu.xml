@@ -1,246 +1,945 @@
-﻿<includes>
-	<include name="HomeMenu">
-		<control type="list" id="9000">
-			<posy>20</posy>
-			<width>1000</width>
-			<height>700</height>
-			<onup>9000</onup>
-			<ondown>9000</ondown>
-			<onright>8000</onright>
-			<onleft>6000</onleft>
-			<orientation>vertical</orientation>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>	
+	<include name="home_Menu">
+		<control type="grouplist">
+			<include>screen_Dimensions</include>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<!--make the main container not wrap by using non-existant focus control-->
+			<onright>99999</onright>
+			<!---->
 			<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-			<visible allowhiddenfocus="true">![ControlGroup(1100).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(2100).HasFocus()]</visible>	
-			<include>transition_HomeMenu</include>
-			<include>homeMenusLayout</include>
-			<content>
-				<!--videos-->
-				<item id="1">
-					<label>$LOCALIZE[3]</label>
-					<onclick>SetFocus(1110)</onclick>
-					<visible>!Skin.HasSetting(homemenu.videos) + ![IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)]</visible>
-				</item>
-				<item id="2">
-					<label>$LOCALIZE[3]</label>
-					<onclick>ActivateWindow(Videos,Files)</onclick>
-					<visible>!Skin.HasSetting(homemenu.videos) + IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + Skin.HasSetting(videomenu.addons) + Skin.HasSetting(videomenu.videoplaylists)</visible>
-				</item>
-				<!--movies-->
-				<item id="3">
-					<label>$LOCALIZE[342]</label>
-					<onclick>SetFocus(1200)</onclick>
-					<visible>Library.HasContent(movies) + !Skin.HasSetting(homemenu.movies) + [Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
-				</item>
-				<item id="4">
-					<label>$LOCALIZE[342]</label>
-					<onclick>ActivateWindow(MyVideoLibrary,movietitles)</onclick>
-					<visible>Library.HasContent(movies) + !Skin.HasSetting(homemenu.movies) + ![Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors)]</visible>
-				</item>
-				<!--tv shows-->
-				<item id="5">
-					<label>$LOCALIZE[20343]</label>
-					<onclick>SetFocus(1210)</onclick>
-					<visible>Library.HasContent(tvshows) + !Skin.HasSetting(homemenu.tvshows) + [Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
-				</item>
-				<item id="6">
-					<label>$LOCALIZE[20343]</label>
-					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles)</onclick>
-					<visible>Library.HasContent(tvshows) + !Skin.HasSetting(homemenu.tvshows) + ![Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.guide)]</visible>
-				</item>
-				<!--live tv-->
-				<item id="7">
-					<label>$LOCALIZE[31090]</label>
-					<onclick>SetFocus(1120)</onclick>
-					<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(homemenu.livetv) + [Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
-				</item>
-				<item id="8">
-					<label>$LOCALIZE[31090]</label>
-					<onclick>ActivateWindow(600)</onclick>
-					<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(homemenu.livetv) + ![Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
-				</item>
-				<!--music-->
-				<item id="9">
-					<label>$LOCALIZE[2]</label>
-					<onclick>SetFocus(1130)</onclick>
-					<visible>!Skin.HasSetting(homemenu.music) + [Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
-				</item>
-				<item id="10">
-					<label>$LOCALIZE[2]</label>
-					<onclick>ActivateWindow(MyMusicLibrary)</onclick>
-					<visible>!Skin.HasSetting(homemenu.music) + ![Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
-				</item>
-				<!--pictures-->
-				<item id="11">
-					<label>$LOCALIZE[1]</label>
-					<onclick>SetFocus(1140)</onclick>
-					<visible>!Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(picturesmenu.addons)</visible>
-				</item>
-				<item id="12">
-					<label>$LOCALIZE[1]</label>
-					<onclick>ActivateWindow(2)</onclick>
-					<visible>!Skin.HasSetting(homemenu.pictures) + !Skin.HasSetting(picturesmenu.addons)</visible>
-				</item>
-				<!--addons-->
-				<item id="13">
-					<label>$LOCALIZE[24001]</label>
-					<onclick>SetFocus(1150)</onclick>
-					<visible>!Skin.HasSetting(homemenu.addons) + [Skin.HasSetting(addonsmenu.updates) | Skin.HasSetting(addonsmenu.programs) | !IsEmpty(Skin.String(addonsmenu.addon1.label)) | !IsEmpty(Skin.String(addonsmenu.addon1.label)) | !IsEmpty(Skin.String(addonsmenu.addon3.label)) | !IsEmpty(Skin.String(addonsmenu.addon4.label)) | !IsEmpty(Skin.String(addonsmenu.addon5.label)) | !IsEmpty(Skin.String(addonsmenu.addon6.label))]</visible>
-				</item>
-				<item id="14">
-					<label>$LOCALIZE[24001]</label>
-					<onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
-					<visible>!Skin.HasSetting(homemenu.addons) + ![Skin.HasSetting(addonsmenu.updates) | Skin.HasSetting(addonsmenu.programs) | !IsEmpty(Skin.String(addonsmenu.addon1.label)) | !IsEmpty(Skin.String(addonsmenu.addon2.label)) | !IsEmpty(Skin.String(addonsmenu.addon3.label)) | !IsEmpty(Skin.String(addonsmenu.addon4.label)) | !IsEmpty(Skin.String(addonsmenu.addon5.label)) | !IsEmpty(Skin.String(addonsmenu.addon6.label))]</visible>
-				</item>
-				<!--system-->
-				<item id="15">
-					<label>$LOCALIZE[13000]</label>
-					<onclick>SetFocus(1160)</onclick>
-					<visible>[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.exit)]</visible>
-				</item>
-				<item id="16">
-					<label>$LOCALIZE[5]</label>
-					<onclick>ActivateWindow(settings)</onclick>
-					<visible>![Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.exit)]</visible>
-				</item>
-				<!--weather-->
-				<item id="17">
-					<label>$LOCALIZE[8]</label>
-					<onclick>ActivateWindow(weather)</onclick>
-					<visible>!Skin.HasSetting(homemenu.weather) + Weather.IsFetched</visible>
-				</item>
-				<!--favourites-->
-				<item id="18">
-					<label>$LOCALIZE[1036]</label>
-					<onclick>ActivateWindow(Favourites)</onclick>
-					<visible>!Skin.HasSetting(homemenu.favourites)</visible>
-				</item>
-				<!--disc-->
-				<item id="19">
-					<label>$LOCALIZE[427]</label>
-					<onclick>SetFocus(1180)</onclick>
-					<visible>System.HasMediadvd + !Skin.HasSetting(homemenu.disc)</visible>
-				</item>
-				<item id="21">
-					<label>$LOCALIZE[13350]</label>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<!--<label2>$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Title]</label2>-->
-					<visible>Player.HasAudio + !Skin.HasSetting(homemenu.playing)</visible>
-				</item>
-				<item id="22">
-					<label>$LOCALIZE[13350]</label>
-					<onclick>ActivateWindow(videoplaylist)</onclick>
-					<visible>Player.HasVideo + !Skin.HasSetting(homemenu.playing)</visible>
-					<!--<label2>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title]</label2>-->
-				</item>
-			</content>
-		</control>
-		<include>homeSubMenu</include>
-		<!--
-		<control type="fixedlist" id="6000">
-			<posx>-240</posx>
-			<posy>0</posy>
-			<width>600</width>
-			<height>720</height>
-			<visible>true</visible>
-			<onup>6000</onup>
-			<ondown>6000</ondown>
-			<onleft>1</onleft>
-			<onright>9000</onright>
-			<orientation>vertical</orientation>
-			<pagecontrol>25</pagecontrol>
-			<scrolltime>200</scrolltime>
-			<focusposition>1</focusposition>
-			<animation effect="slide" start="0" end="240" time="200" tween="cubic" easing="in" condition="Control.HasFocus(6000)">Conditional</animation>
-			<itemlayout width="250" height="180">
+			<visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
+		<!--MAIN MENU-->
+			<control type="group" id="9109">
+				<width>340</width>
 				<control type="image">
-					<posx>7</posx>
-					<posy>7</posy>
-					<width>250</width>
-					<height>141</height>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<width>340</width>
+					<height>screen_Height</height>
+					<texture background="true">white.png</texture>
+					<colordiffuse>base_3</colordiffuse>
+					<animation effect="fade" start="100" end="95" time="0" condition="!Skin.HasSetting(shelf.enabled)">Conditional</animation>
 				</control>
-				<control type="label">
-					<posx>30</posx>
-					<posy>3</posy>
-					<width>430</width>
-					<height>22</height>
-					<font>font13</font>
-					<aligny>center</aligny>
-					<selectedcolor>green</selectedcolor>
-					<align>left</align>
-					<info>ListItem.Label</info>
-				</control>
+				<control type="grouplist" id="9110">
+					<left>10</left>
+					<top>10</top>
+					<width>320</width>
+					<height>700</height>
+					<onup>9110</onup>
+					<ondown>9110</ondown>
+					<itemgap>1</itemgap>
+					<pagecontrol>80</pagecontrol>
+					<include>global_ListScroll</include>
+					<orientation>vertical</orientation>
+				<!--VIDEOS-->
+					<!--submenu items disabled-->
+					<control type="button" id="201">
+						<label>$LOCALIZE[3]</label>
+						<onclick>ActivateWindow(Videos,return)</onclick>
+						<include>home_MenuButton</include>	
+						<!--<onright>Skin.SetString(sub,videoaddons)</onright>-->
+						<visible>Skin.HasSetting(homemenu.videos) + [IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]</visible>
+					</control>
+					<!--submenu items enabled-->
+					<control type="button" id="202">
+						<label>$LOCALIZE[3]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(1111)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<!--<onright>Skin.SetString(sub,videoaddons)</onright>-->
+						<visible>Skin.HasSetting(homemenu.videos) + [![IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path))] | [Skin.HasSetting(videomenu.addons) | Skin.HasSetting(videomenu.videoplaylists)]]</visible>
+					</control>
+					<!--videos files-->
+					<control type="button" id="203">
+						<label>$LOCALIZE[744]</label>
+						<onclick>ActivateWindow(Videos,return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.videos) + [![IsEmpty(Skin.String(videomenu.playlist1.path)) + IsEmpty(Skin.String(videomenu.playlist2.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.playlist4.path)) + IsEmpty(Skin.String(videomenu.folder1.path)) + IsEmpty(Skin.String(videomenu.folder2.path)) + IsEmpty(Skin.String(videomenu.folder3.path)) + IsEmpty(Skin.String(videomenu.folder4.path))] | [Skin.HasSetting(videomenu.addons) | Skin.HasSetting(videomenu.videoplaylists)]] + [Control.HasFocus(1111) | Control.HasFocus(3) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos playlist 1-->
+					<control type="button" id="204">
+						<label>$INFO[Skin.String(videomenu.playlist1.label)]</label>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist1.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.playlist1.path)) + [Control.HasFocus(1111) | Control.HasFocus(4) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos playlist 2-->
+					<control type="button" id="205">
+						<label>$INFO[Skin.String(videomenu.playlist2.label)]</label>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist2.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.playlist2.path)) + [Control.HasFocus(1111) | Control.HasFocus(5) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos playlist 3-->
+					<control type="button" id="206">
+						<label>$INFO[Skin.String(videomenu.playlist3.label)]</label>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist3.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.playlist3.path)) + [Control.HasFocus(1111) | Control.HasFocus(6) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos playlist 4-->
+					<control type="button" id="207">
+						<label>$INFO[Skin.String(videomenu.playlist4.label)]</label>
+						<onclick>ActivateWindow(videolibrary,$INFO[Skin.String(videomenu.playlist4.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.playlist4.path)) + [Control.HasFocus(1111) | Control.HasFocus(7) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos folder 1-->
+					<control type="button" id="208">
+						<label>$INFO[Skin.String(videomenu.folder1.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder1.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.folder1.path)) + [Control.HasFocus(1111) | Control.HasFocus(8) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos folder 2-->
+					<control type="button" id="209">
+						<label>$INFO[Skin.String(videomenu.folder2.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder2.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.folder2.path)) + [Control.HasFocus(1111) | Control.HasFocus(9) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos folder 3-->
+					<control type="button" id="211">
+						<label>$INFO[Skin.String(videomenu.folder4.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder4.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.folder4.path)) + [Control.HasFocus(1111) | Control.HasFocus(11) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos folder 4-->
+					<control type="button" id="212">
+						<label>$INFO[Skin.String(videomenu.folder4.label)]</label>
+						<onclick>ActivateWindow(Videos,$INFO[Skin.String(videomenu.folder4.path)],return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(videomenu.folder4.path)) + [Control.HasFocus(1111) | Control.HasFocus(12) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos playlists-->
+					<control type="button" id="213">
+						<label>$LOCALIZE[136]</label>
+						<onclick>ActivateWindow(VideoLibrary,PLaylists,return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(videomenu.videoplaylists) + [Control.HasFocus(1111) | Control.HasFocus(13) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+					<!--videos addons-->
+					<control type="button" id="214">
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(VideoLibrary,Addons,return)</onclick>
+						<onleft>202</onleft>
+						<onback>202</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(videomenu.addons) + [Control.HasFocus(1111) | Control.HasFocus(14) | Skin.String(sub,$LOCALIZE[3])]</visible>
+					</control>
+				<!--MOVIES-->
+					<!--submenu items disabled-->
+					<control type="button" id="20">
+						<label>$LOCALIZE[342]</label>
+						<onclick>ActivateWindow(Videos,movietitles,return)</onclick>	
+						<include>home_MenuButton</include>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(homemenu.movies) + ![Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]</visible>
+					</control>
+					<!--submenu items enabled-->
+					<control type="button" id="21">
+						<label>$LOCALIZE[342]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(2222)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Library.HasContent(movies) + Skin.HasSetting(homemenu.movies) + [Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]</visible>
+					</control>
+					<!--movies browse-->
+					<control type="button" id="22">
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(Videos,movietitles,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.movies) + Skin.HasSetting(homemenu.movies) + [Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] + [Control.HasFocus(2222) | Control.HasFocus(22) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--movies watchlist-->
+					<control type="button" id="23">
+						<label>$LOCALIZE[31013]</label>
+						<onclick>Skin.SetString(Watchlist,Movies)</onclick>
+						<onclick>ActivateWindow(63)</onclick>
+						<onclick>SetFocus(52)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>System.HasAddon(service.library.data.provider) + Skin.HasSetting(moviesmenu.watchlist) + [Control.HasFocus(2222) | Control.HasFocus(23) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--new movies-->
+					<control type="button" id="24">
+						<label>$LOCALIZE[31011]</label>
+						<onclick>ActivateWindow(Videos,recentlyaddedmovies,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.recent) + [Control.HasFocus(2222) | Control.HasFocus(24) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--unwatched movies-->
+					<control type="button" id="25">
+						<label>$LOCALIZE[16101]</label>
+						<onclick>ActivateWindow(Videos,special://skin/playlists/movies/unwatched.xsp,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.unwatched)+ [Control.HasFocus(2222) | Control.HasFocus(25) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--in progress movies-->
+					<control type="button" id="26">
+						<label>$LOCALIZE[575]</label>
+						<onclick>ActivateWindow(videolibrary,special://skin/playlists/movies/in progress.xsp,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.inprogress) + [Control.HasFocus(2222) | Control.HasFocus(26) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--genres movies-->
+					<control type="button" id="27">
+						<label>$LOCALIZE[135]</label>
+						<onclick>ActivateWindow(Videos,moviegenres,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.genres) + [Control.HasFocus(2222) | Control.HasFocus(27) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--years movies-->
+					<control type="button" id="28">
+						<label>$LOCALIZE[652]</label>
+						<onclick>ActivateWindow(Videos,movieyears,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.years) + [Control.HasFocus(2222) | Control.HasFocus(28) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--actors movies-->
+					<control type="button" id="29">
+						<label>$LOCALIZE[344]</label>
+						<onclick>ActivateWindow(Videos,movieactors,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.actors) + [Control.HasFocus(2222) | Control.HasFocus(29) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--directors movies-->
+					<control type="button" id="30">
+						<label>$LOCALIZE[20348]</label>
+						<onclick>ActivateWindow(Videos,moviedirectors,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.directors) + [Control.HasFocus(2222) | Control.HasFocus(30) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--sets movies-->
+					<control type="button" id="31">
+						<label>$LOCALIZE[20434]</label>
+						<onclick>ActivateWindow(Videos,moviesets,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>System.GetBool(videolibrary.groupmoviesets) + Skin.HasSetting(moviesmenu.sets) + [Control.HasFocus(2222) | Control.HasFocus(31) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--countries movies-->
+					<control type="button" id="32">
+						<label>$LOCALIZE[20451]</label>
+						<onclick>ActivateWindow(Videos,moviecountries,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.countries) + [Control.HasFocus(2222) | Control.HasFocus(32) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--tags movies-->
+					<control type="button" id="33">
+						<label>$LOCALIZE[20459]</label>
+						<onclick>ActivateWindow(Videos,movietags,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.tags) + [Control.HasFocus(2222) | Control.HasFocus(33) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--trailers movies-->
+					<control type="button" id="34">
+						<label>$LOCALIZE[31015]</label>
+						<onclick>XBMC.ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</onclick>
+						<onleft>21</onleft>
+						<onback>21</onback>
+						<include>home_SubMenuButton</include>
+						<visible>System.HasAddon(plugin.video.the.trailers) + Skin.HasSetting(moviesmenu.trailers) + [Control.HasFocus(2222) | Control.HasFocus(34) | Skin.String(sub,$LOCALIZE[342])]</visible>
+					</control>
+				<!--TV SHOWS-->
+					<!--submenu items disabled-->		
+					<control type="button" id="40">
+						<label>$LOCALIZE[20343]</label>
+						<onclick>ActivateWindow(Videos,tvshowtitles,return)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(homemenu.tvshows) + ![Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
+					</control>
+					<!--submenu items enabled-->		
+					<control type="button" id="41">
+						<label>$LOCALIZE[20343]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(3333)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(homemenu.tvshows) + [Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
+					</control>
+					<!--tv shows browse-->
+					<control type="button" id="42">
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(Videos,tvshowtitles,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>[Control.HasFocus(3333) | Control.HasFocus(42) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--watchlist tvshows-->
+					<control type="button" id="43">
+						<label>$LOCALIZE[31013]</label> 
+						<onclick>Skin.SetString(Watchlist,Shows)</onclick>
+						<onclick>ActivateWindow(63)</onclick>
+						<onclick>SetFocus(52)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>System.HasAddon(service.library.data.provider) + Skin.HasSetting(tvshowsmenu.watchlist) + [Control.HasFocus(3333) | Control.HasFocus(43) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--in progress tvshows-->
+					<control type="button" id="44">
+						<label>$LOCALIZE[575]</label>
+						<onclick>ActivateWindow(Videos,library://video/inprogressshows.xml,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.inprogress) + [Control.HasFocus(3333) | Control.HasFocus(46) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--recent tvshows-->
+					<control type="button" id="45">
+						<label>$LOCALIZE[31010]</label>
+						<onclick>ActivateWindow(Videos,recentlyaddedepisodes,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.recent) + [Control.HasFocus(3333) | Control.HasFocus(44) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--unwatched tvshows-->
+					<control type="button" id="46">
+						<label>$LOCALIZE[16101]</label>
+						<onclick>ActivateWindow(Videos,special://skin/playlists/episodes/unwatched.xsp,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.unwatched) + [Control.HasFocus(3333) | Control.HasFocus(45) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--genres tvshows-->
+					<control type="button" id="47">
+						<label>$LOCALIZE[135]</label>
+						<onclick>ActivateWindow(Videos,tvshowgenres,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.genres) + [Control.HasFocus(3333) | Control.HasFocus(47) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--years tvshows-->
+					<control type="button" id="48">
+						<label>$LOCALIZE[652]</label>
+						<onclick>ActivateWindow(Videos,tvshowyears,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.years) + [Control.HasFocus(3333) | Control.HasFocus(48) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--actors tvshows-->
+					<control type="button" id="49">
+						<label>$LOCALIZE[344]</label>
+						<onclick>ActivateWindow(Videos,tvshowactors,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.actors) + [Control.HasFocus(3333) | Control.HasFocus(49) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--studios tvshows-->
+					<control type="button" id="50">
+						<label>$LOCALIZE[20388]</label>
+						<onclick>ActivateWindow(Videos,tvshowstudios,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.studios) + [Control.HasFocus(3333) | Control.HasFocus(50) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--tags tvshows-->
+					<control type="button" id="51">
+						<label>$LOCALIZE[20459]</label>
+						<onclick>ActivateWindow(Videos,tvshowtags,return)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.tags) + [Control.HasFocus(3333) | Control.HasFocus(51) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+					<!--tvshows guide-->
+					<control type="button" id="52">
+						<label>$LOCALIZE[22020]</label>
+						<onclick>RunAddon(script.tv.show.next.aired)</onclick>
+						<onleft>41</onleft>
+						<onback>41</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvshowsmenu.guide) + [Control.HasFocus(3333) | Control.HasFocus(52) | Skin.String(sub,$LOCALIZE[20343])]</visible>
+					</control>
+				<!--PVR-->
+					<!--submenu items disabled-->
+					<control type="button" id="60">
+						<label>$LOCALIZE[31014]</label>
+						<onclick>ActivateWindow(PVR)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + System.GetBool(pvrmanager.enabled) + ![Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
+					</control>
+					<!--submenu items enabled-->
+					<control type="button" id="61">
+						<label>$LOCALIZE[31014]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(4444)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + System.GetBool(pvrmanager.enabled) + [Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
+					</control>
+					<!--tv channels-->
+					<control type="button" id="62">
+						<label>$LOCALIZE[19023]</label>
+						<onclick>ActivateWindowAndFocus(MyPVR, 32,0, 11,0)</onclick>
+						<onleft>61</onleft>
+						<onback>61</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + Skin.HasSetting(tvmenu.channels) + [Control.HasFocus(4444) | Control.HasFocus(62) | Skin.String(sub,$LOCALIZE[31113])]</visible>
+					</control>
+					<!--radio channels-->
+					<control type="button" id="63">
+						<label>$LOCALIZE[19024]</label>
+						<onclick>ActivateWindowAndFocus(MyPVR, 33,0, 12,0)</onclick>
+						<onleft>61</onleft>
+						<onback>61</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + Skin.HasSetting(tvmenu.channels) + [Control.HasFocus(4444) | Control.HasFocus(63) | Skin.String(sub,$LOCALIZE[31113])]</visible>
+					</control>
+					<!--epg-->
+					<control type="button" id="64">
+						<label>$LOCALIZE[19069]</label>
+						<onclick>ActivateWindowAndFocus(MyPVR, 31,0, 10,0)</onclick>
+						<onleft>61</onleft>
+						<onback>61</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + Skin.HasSetting(tvmenu.guide) + [Control.HasFocus(4444) | Control.HasFocus(64) | Skin.String(sub,$LOCALIZE[31113])]</visible>
+					</control>
+					<!--recordings-->
+					<control type="button" id="65">
+						<label>$LOCALIZE[19163]</label>
+						<onclick>ActivateWindowAndFocus(MyPVR, 34,0, 13,0)</onclick>
+						<onleft>61</onleft>
+						<onback>61</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + Skin.HasSetting(tvmenu.recordings) + [Control.HasFocus(4444) | Control.HasFocus(65) | Skin.String(sub,$LOCALIZE[31113])]</visible>
+					</control>
+					<!--timers-->
+					<control type="button" id="66">
+						<label>$LOCALIZE[19040]</label>
+						<onclick>ActivateWindowAndFocus(MyPVR, 35,0, 14,0)</onclick>
+						<onleft>61</onleft>
+						<onback>61</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.livetv) + Skin.HasSetting(tvmenu.recordings) + [Control.HasFocus(4444) | Control.HasFocus(66) | Skin.String(sub,$LOCALIZE[31113])]</visible>
+					</control>
+				<!--MUSIC-->
+					<!--submenu items disabled-->
+					<control type="button" id="80">
+						<label>$LOCALIZE[2]</label>
+						<onclick condition="Library.HasContent(music)">ActivateWindow(MyMusicLibrary,return)</onclick>
+						<onclick condition="!Library.HasContent(music)">ActivateWindow(MusicFiles,return)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.music) + ![Skin.HasSetting(musicmenu.albums) | Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
+					</control>
+					<!--submenu items enabled-->		
+					<control type="button" id="81">
+						<label>$LOCALIZE[2]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(5555)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.music) + [Skin.HasSetting(musicmenu.albums) | Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
+					</control>				
+					<!--music browse-->
+					<control type="button" id="82">
+						<label>$LOCALIZE[1024]</label>
+						<onclick condition="Library.HasContent(music)">ActivateWindow(MusicLibrary)</onclick>
+						<onclick condition="!Library.HasContent(music)">ActivateWindow(MusicFiles)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>[Control.HasFocus(5555) | Control.HasFocus(82) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music albums-->
+					<control type="button" id="83">
+						<label>$LOCALIZE[132]</label>
+						<onclick>ActivateWindow(MusicLibrary,Albums)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.albums) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(82) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music new albums-->
+					<control type="button" id="84">
+						<label>$LOCALIZE[31012]</label>
+						<onclick>ActivateWindow(MusicLibrary,recentlyaddedalbums)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.recent) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(83) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music recent albums-->
+					<control type="button" id="85">
+						<label>$LOCALIZE[31016]</label>
+						<onclick>ActivateWindow(MusicLibrary,recentlyplayedalbums)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.played) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(84) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music artists-->
+					<control type="button" id="86">
+						<label>$LOCALIZE[133]</label>
+						<onclick>ActivateWindow(MusicLibrary,artists)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.artists) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(85) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music genres-->
+					<control type="button" id="87">
+						<label>$LOCALIZE[135]</label>
+						<onclick>ActivateWindow(MusicLibrary,genres)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.genres) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(86) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music addons-->
+					<control type="button" id="88">
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(MusicLibrary,Addons)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.addons) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(87) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<control type="button" id="89">
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(MusicFiles,Addons)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!Library.HasContent(music) + Skin.HasSetting(musicmenu.addons) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(88) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music playlists-->
+					<control type="button" id="90">
+						<label>$LOCALIZE[136]</label>
+						<onclick>ActivateWindow(MusicLibrary,playlists)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.playlists) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(89) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music partymode-->
+					<control type="button" id="91">
+						<label>$LOCALIZE[589]</label>
+						<onclick>XBMC.PlayerControl(Partymode)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(music) + Skin.HasSetting(musicmenu.partymode) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(90) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music lastfm-->
+					<control type="button" id="92">
+						<label>$LOCALIZE[15200]</label>
+						<onclick>ActivateWindow(MyMusicLibrary,lastfm://)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(musicmenu.lastfm) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(91) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--music videos-->
+					<control type="button" id="93">
+						<label>$LOCALIZE[20389]</label>
+						<onclick>ActivateWindow(videolibrary,musicvideotitles)</onclick>
+						<onleft>81</onleft>
+						<onback>81</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Library.HasContent(musicvideos) + Skin.HasSetting(musicmenu.videos) + Skin.HasSetting(homemenu.music) + [Control.HasFocus(5555) | Control.HasFocus(92) | Skin.String(sub,$LOCALIZE[2])]</visible>
+					</control>
+				<!--PICTURES-->
+					<!--submenu items disabled-->		
+					<control type="button" id="100">
+						<label>$LOCALIZE[1]</label>
+						<onclick>ActivateWindow(Pictures)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.pictures) + !Skin.HasSetting(picturesmenu.addons)</visible>
+					</control>
+					<!--submenu items enabled-->		
+					<control type="button" id="101">
+						<label>$LOCALIZE[1]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(6666)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(picturesmenu.addons)</visible>
+					</control>
+					<!--pictures browse-->
+					<control type="button" id="102">
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(Pictures)</onclick>
+						<onleft>101</onleft>
+						<onback>101</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.pictures) + Skin.HasSetting(picturesmenu.addons) + [Control.HasFocus(6666) | Control.HasFocus(102) | Skin.String(sub,$LOCALIZE[1])]</visible>
+					</control>
+					<!--pictures addons-->
+					<control type="button" id="103">
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(Pictures,Addons)</onclick>
+						<onleft>101</onleft>
+						<onback>101</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(picturesmenu.addons) + [Control.HasFocus(6666) | Control.HasFocus(102) | Skin.String(sub,$LOCALIZE[1])]</visible>
+					</control>
+				<!--ADDONS-->
+					<!--submenu items disabled-->		
+					<control type="button" id="120">
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(AddonBrowser,root)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.addons) + ![Skin.HasSetting(addonsmenu.video) | Skin.HasSetting(addonsmenu.music) | Skin.HasSetting(addonsmenu.pictures) | Skin.HasSetting(addonsmenu.programs) | Skin.HasSetting(addonsmenu.weather)]</visible>
+					</control>
+					<!--submenu items enabled-->
+					<control type="button" id="121">
+						<label>$LOCALIZE[24001]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(7777)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.addons) + [Skin.HasSetting(addonsmenu.video) | Skin.HasSetting(addonsmenu.music) | Skin.HasSetting(addonsmenu.pictures) | Skin.HasSetting(addonsmenu.programs) | Skin.HasSetting(addonsmenu.weather)]</visible>
+					</control>
+					<!--addons browse-->
+					<control type="button" id="122">
+						<label>$LOCALIZE[1024]</label>
+						<onclick>ActivateWindow(AddonBrowser,root)</onclick>
+						<onleft>121</onleft>
+						<onback>121</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(homemenu.addons) + [Skin.HasSetting(addonsmenu.video) | Skin.HasSetting(addonsmenu.music) | Skin.HasSetting(addonsmenu.pictures) | Skin.HasSetting(addonsmenu.programs) | Skin.HasSetting(addonsmenu.weather)] + [Control.HasFocus(7777) | Control.HasFocus(122) | Skin.String(sub,$LOCALIZE[24001])]</visible>
+					</control>
+					<!--addons video-->
+					<control type="button" id="123">
+						<label>$LOCALIZE[157]</label>
+						<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+
+						<onleft>121</onleft>
+						<onback>121</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(addonsmenu.video) + [Control.HasFocus(7777) | Control.HasFocus(123) | Skin.String(sub,$LOCALIZE[24001])]</visible>
+					</control>
+					<!--addons music-->
+					<control type="button" id="124">
+						<label>$LOCALIZE[249]</label>
+						<onclick>ActivateWindow(MusicLibrary,Addons,return)</onclick>
+						<onleft>121</onleft>
+						<onback>121</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(addonsmenu.music) + [Control.HasFocus(7777) | Control.HasFocus(124) | Skin.String(sub,$LOCALIZE[24001])]</visible>
+					</control>
+					<!--addons pictures-->
+					<control type="button" id="125">
+						<label>$LOCALIZE[1]</label>
+						<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+						<onleft>121</onleft>
+						<onback>121</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(addonsmenu.pictures) + [Control.HasFocus(7777) | Control.HasFocus(125) | Skin.String(sub,$LOCALIZE[24001])]</visible>
+					</control>
+					<!--addons programs-->
+					<control type="button" id="126">
+						<label>$LOCALIZE[0]</label>
+						<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+						<onleft>121</onleft>
+						<onback>121</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(addonsmenu.programs) + [Control.HasFocus(7777) | Control.HasFocus(126) | Skin.String(sub,$LOCALIZE[24001])]</visible>
+					</control>
+					<!--addons weather-->
+					<control type="button" id="127">
+						<label>$LOCALIZE[8]</label>
+						<onclick>ActivateWindow(weather)</onclick>
+						<onleft>121</onleft>
+						<onback>121</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(addonsmenu.weather) + [Control.HasFocus(7777) | Control.HasFocus(127) | Skin.String(sub,$LOCALIZE[24001])]</visible>
+					</control>
+				<!--SYSTEM-->
+					<!--submenu items disabled-->		
+					<control type="button" id="140">
+						<label>$LOCALIZE[13000]</label>
+						<onclick>ActivateWindow(settings)</onclick>
+						<include>home_MenuButton</include>
+						<visible>![Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]</visible>
+					</control>
+					<!--submenu items enabled-->		
+					<control type="button" id="141">
+						<label>$LOCALIZE[13000]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(8888)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]</visible>
+					</control>
+					<!--system settings-->
+					<control type="button" id="142">
+						<label>$LOCALIZE[5]</label>
+						<onclick>ActivateWindow(settings)</onclick>
+						<onleft>141</onleft>
+						<onback>141</onback>
+						<include>home_SubMenuButton</include>
+						<visible>[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)] + [Control.HasFocus(8888) | Control.HasFocus(142) | Skin.String(sub,$LOCALIZE[13000])]</visible>
+					</control>
+					<!--system info-->
+					<control type="button" id="143">
+						<label>$LOCALIZE[130]</label>
+						<onclick>ActivateWindow(SystemInfo)</onclick>
+						<onleft>141</onleft>
+						<onback>141</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(systemmenu.info) + [Control.HasFocus(8888) | Control.HasFocus(143) | Skin.String(sub,$LOCALIZE[13000])]</visible>
+					</control>
+					<!--system filemanager-->
+					<control type="button" id="144">
+						<label>$LOCALIZE[7]</label>
+						<onclick>ActivateWindow(Filemanager)</onclick>
+						<onleft>141</onleft>
+						<onback>141</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(systemmenu.filemanager) + [Control.HasFocus(8888) | Control.HasFocus(144) | Skin.String(sub,$LOCALIZE[13000])]</visible>
+					</control>
+					<!--system home menu-->
+					<control type="button" id="145">
+						<label>$LOCALIZE[31000]</label>
+						<onclick>SetFocus(9000)</onclick>
+						<onclick>ActivateWindow(61)</onclick>
+						<onleft>141</onleft>
+						<onback>141</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(systemmenu.home) + [Control.HasFocus(8888) | Control.HasFocus(145) | Skin.String(sub,$LOCALIZE[13000])]</visible>
+					</control>
+					<!--system exit-->
+					<control type="button" id="146">
+						<label>$LOCALIZE[13012]</label>
+						<onclick>ActivateWindow(shutdownmenu)</onclick>
+						<onleft>141</onleft>
+						<onback>141</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(systemmenu.exit) + [Control.HasFocus(8888) | Control.HasFocus(146) | Skin.String(sub,$LOCALIZE[13000])]</visible>
+					</control>
+				<!--WEATHER-->
+					<control type="button" id="151">
+						<label>$LOCALIZE[400]</label>
+						<onclick>ActivateWindow(Weather)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.weather)</visible>
+					</control>
+				<!--DISC-->
+					<control type="button" id="161">
+						<label>$LOCALIZE[427]</label>
+						<label2>›</label2>
+						<onclick>SetFocus(9999)</onclick>
+						<onback>Skin.SetString(sub,none)</onback>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.disc)</visible>
+					</control>
+					<!--disc play-->
+					<control type="button" id="162">
+						<label>$LOCALIZE[208]</label>
+						<onclick>PlayDVD</onclick>
+						<onleft>161</onleft>
+						<onback>161</onback>
+						<include>home_SubMenuButton</include>
+						<visible>[Control.HasFocus(9999) | Control.HasFocus(162) | Skin.String(sub,$LOCALIZE[427])]</visible>
+					</control>
+					<!--disc eject-->
+					<control type="button" id="163">
+						<label>$LOCALIZE[13391]</label>
+						<onclick>EjectTray()</onclick>
+						<onleft>161</onleft>
+						<onback>161</onback>
+						<include>home_SubMenuButton</include>
+						<visible>[Control.HasFocus(9999) | Control.HasFocus(163) | Skin.String(sub,$LOCALIZE[427])]</visible>
+					</control>
+				<!--FAVOURITES-->
+					<control type="button" id="180">
+						<label>$LOCALIZE[1036]</label>
+						<onclick>ActivateWindow(Favourites)</onclick>
+						<include>home_MenuButton</include>
+					</control>
+				<!--SEARCH-->
+					<control type="button" id="181">
+						<label>$LOCALIZE[137]</label>
+						<onclick>RunAddon(script.globalsearch)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(search.addon)</visible>
+					</control>
+					<control type="button" id="182">
+						<label>$LOCALIZE[137]</label>
+						<onclick>ActivateWindow(64)</onclick>
+						<include>home_MenuButton</include>
+						<visible>!Skin.HasSetting(search.addon)</visible>
+					</control>
+				<!--NOW PLAYING-->
+					<control type="button" id="190">
+						<label>$LOCALIZE[31034]</label>
+						<onclick>ActivateWindow(musicplaylist)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Player.HasAudio + !Skin.HasSetting(homemenu.playing)</visible>
+					</control>
+					<control type="button" id="191">
+						<label>$LOCALIZE[31034]</label>
+						<onclick>ActivateWindow(videoplaylist)</onclick>
+						<include>home_MenuButton</include>
+						<visible>Player.HasVideo + !Skin.HasSetting(homemenu.playing)</visible>
+					</control>
+				</control>			
+			</control>
+
+		<!--now playing-->
+			<control type="list" id="9120">
+				<include>screen_Dimensions</include>
+				<onback>9110</onback>
+				<onup>9120</onup>
+				<ondown>9120</ondown>
+				<pagecontrol>70</pagecontrol>
+				<include>shelf_Container</include>
+				<visible>Skin.HasSetting(shelf.enabled) + Player.HasMedia + Skin.HasSetting(home.nowplaying)</visible>
+				<itemlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
 				</itemlayout>
-			<focusedlayout width="250" height="180">
-				<control type="image">
-					<width>264</width>
-					<height>155</height>
-					<texture border="10">views/list-focus-bigAlt.png</texture>
-				</control>
-				<control type="image">
-					<posx>7</posx>
-					<posy>7</posy>
-					<width>250</width>
-					<height>141</height>
-					<texture>$INFO[ListItem.Icon]</texture>
+				<focusedlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+					<include>shelf_ContainerCommons-fo</include>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<property name="Title">$INFO[MusicPlayer.Title]</property>
+						<property name="Info">$INFO[MusicPlayer.Artist]</property>
+						<property name="Description">$INFO[MusicPlayer.Album]</property>
+						<thumb background="true">$VAR[fanart_Fallback.Player]</thumb>
+						<onclick>ActivateWindow(visualisation)</onclick>
+						<visible>Player.HasAudio</visible>
+					</item>
+					<item id="2">
+						<property name="Title">$VAR[osd_Title]</property>
+						<property name="Info">$VAR[osd_Info]</property>
+						<property name="Description">$VAR[player_Plot]</property>
+						<thumb background="true">$VAR[fanart_Fallback.Player]</thumb>
+						<onclick>ActivateWindow(fullscreenvideo)</onclick>
+						<visible>Player.HasVideo</visible>
+					</item>
+				</content>
+			</control>
+			<control type="list" id="9130">
+				<include>screen_Dimensions</include>
+				<onback>9110</onback>
+				<onup>9130</onup>
+				<ondown>9130</ondown>
+				<pagecontrol>70</pagecontrol>
+				<include>shelf_Container</include>
+				<visible allowhiddenfocus="true">Skin.HasSetting(shelf.enabled) + IntegerGreaterThan(Container(9130).NumItems,0)</visible>
+				<itemlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+				</itemlayout>
+				<focusedlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+					<include>shelf_ContainerCommons-fo</include>
+				</focusedlayout>
+				<content target="video">$VAR[shelf_Widget1Source]</content>
+			</control>
+			<control type="list" id="9140">
+				<include>screen_Dimensions</include>
+				<onback>9110</onback>
+				<onup>9140</onup>
+				<ondown>9140</ondown>
+				<pagecontrol>71</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<include>shelf_Container</include>
+				<visible allowhiddenfocus="true">Skin.HasSetting(shelf.enabled) + IntegerGreaterThan(Container(9140).NumItems,0)</visible>
+				<itemlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+				</itemlayout>
+				<focusedlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+					<include>shelf_ContainerCommons-fo</include>
+				</focusedlayout>
+				<content target="video">$VAR[shelf_Widget2Source]</content>
+			</control>
+		</control>
+	<!--pagecontrol-->
+		<control type="group">
+			<visible>Skin.HasSetting(shelf.enabled)</visible>
+			<control type="scrollbar" id="70">
+				<left>1272</left>
+				<height>screen_Height</height>
+				<onleft>50</onleft>
+				<texturesliderbar border="0">views/pagecontrol/grip-fo.png</texturesliderbar>
+				<visible>Control.HasFocus(9130)</visible>
+			</control>
+			<control type="scrollbar" id="71">
+				<left>1272</left>
+				<height>screen_Height</height>
+				<onleft>50</onleft>
+				<texturesliderbar border="0">views/pagecontrol/grip-fo.png</texturesliderbar>
+				<visible>Control.HasFocus(9140)</visible>
+			</control>
+		</control>
+	<!--overlays-->
+		<control type="group">
+			<visible>[Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140)] + Skin.HasSetting(shelf.enabled)</visible>
+			<include>fadeinout</include>
+			<control type="group">
+				<left>39</left>
+				<top>30</top>
+				<control type="label">
+					<width>950</width>
+					<label>$VAR[shelf_ContainerTitle]</label>
+					<font>light_Header</font>
+					<textcolor>Color1</textcolor>
 				</control>
 				<control type="label">
-					<posx>30</posx>
-					<posy>3</posy>
-					<width>430</width>
-					<height>22</height>
-					<font>font13</font>
-					<aligny>center</aligny>
-					<selectedcolor>green</selectedcolor>
-					<align>left</align>
-					<info>ListItem.Label</info>
+					<top>32</top>
+					<width>950</width>
+					<label>$VAR[shelf_ContainerNumItems]</label>
+					<font>regular_Small-U</font>
+					<textcolor>Color3</textcolor>
 				</control>
-			</focusedlayout>
-			<content>
-				<item id="1">
-					<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
-					<label2></label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.1.Fanart)]</icon>
-					<thumb>-</thumb>
-				</item>
-				<item id="2">
-					<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
-					<label2></label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.2.Fanart)]</icon>
-					<thumb>-</thumb>
-				</item>
-				<item id="3">
-					<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
-					<label2></label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.3.Fanart)]</icon>
-					<thumb>-</thumb>
-				</item>
-				<item id="4">
-					<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
-					<label2></label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.4.Fanart)]</icon>
-					<thumb>-</thumb>
-				</item>
-				<item id="5">
-					<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
-					<label2></label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.5.Fanart)]</icon>
-					<thumb>-</thumb>
-				</item>
-				<item id="6">
-					<label>$INFO[Window.Property(LatestMovie.6.Title)]</label>
-					<label2></label2>
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.6.Path)])</onclick>
-					<icon>$INFO[Window.Property(LatestMovie.6.Fanart)]</icon>
-					<thumb>-</thumb>
-				</item>
-			</content>
+			</control>
 		</control>
-			-->
 	</include>
 </includes>

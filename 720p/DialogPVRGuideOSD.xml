@@ -1,81 +1,84 @@
-﻿<window id="610">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">11</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>290</posx>
-		<posy>270</posy>
+		<left>290</left>
+		<top>250</top>
 	</coordinates>
 	<include>clock</include>
 	<controls>
 		<control type="group">
 			<control type="image">
 				<width>700</width>
-				<height>410</height>
-				<include>dialogWindow</include>
+				<height>435</height>
+				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
-				<width>662</width>
+				<width>692</width>
 				<scroll>true</scroll>
 				<label>$INFO[VideoPlayer.ChannelName]</label>
 				<include>dialog_Windowtitle</include>
 				<visible>pvr.IsPlayingTV</visible>
 			</control>
 			<control type="label" id="1">
-				<posy>62</posy>
-				<width>662</width>
+				<left>4</left>
+				<top>55</top>
+				<width>692</width>
 				<label>$INFO[Container(11).ListItem.StartDate]</label>
-				<include>dialog_Line</include>
+				<include>dialog_Header</include>
+				<include>dialog_ControlCommons</include>
 			</control>
 			<control type="image">
-				<posx>19</posx>
-				<posy>95</posy>
-				<width>662</width>
+				<left>4</left>
+				<top>55</top>
+				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posx>138</posx>
-				<posy>96</posy>
-				<height>263</height>
+				<left>4</left>
+				<top>95</top>
+				<width>692</width>
+				<include>dialog_SectionSeparator</include>
+			</control>
+			<control type="image">
+				<left>118</left>
+				<top>96</top>
+				<height>318</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="list" id="11">
-				<posx>19</posx>
-				<posy>95</posy>
-				<width>663</width>
-				<height>264</height>
+				<left>4</left>
+				<top>95</top>
+				<width>692</width>
+				<height>320</height>
 				<onleft>5</onleft>
 				<onright>5</onright>
 				<onup>3</onup>
 				<ondown>3</ondown>
-				<scrolltime>200</scrolltime>
-				<itemlayout width="663" height="44">
+				<include>global_ListScroll</include>
+				<itemlayout width="663" height="40">
 					<control type="image">
-						<width>663</width>
-						<height>44</height>
-						<texture border="3">dialogs/list-nofocus.png</texture>
+						<width>692</width>
+						<include>dialog_CommonList</include>
 					</control>
 					<control type="label">
-						<posx>108</posx>
 						<width>128</width>
-						<height>40</height>
+						<!--<label>$INFO[ListItem.Property(StartTime)]</label>-->
 						<label>$INFO[ListItem.StartTime]</label>
-						<font>smallCaps</font>
-						<align>right</align>
-						<aligny>center</aligny>
 						<include>dialog_CommonListItem</include>
 					</control>
 					<control type="label">
-						<posx>130</posx>
-						<height>40</height>
-						<width>520</width>
+						<left>130</left>
+						<width>500</width>
+						<!--<label>$INFO[ListItem.Label]</label>-->
 						<label>$INFO[ListItem.Title]</label>
-						<font>smallAlt</font>
 						<include>dialog_CommonListItem</include>
 					</control>
 					<control type="group">
-						<posx>625</posx>
-						<posy>11</posy>
+						<left>655</left>
+						<top>9</top>
 						<control type="image">
 							<texture>pvr/status_none.png</texture>
 							<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>
@@ -93,33 +96,28 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="663" height="44">
+				<focusedlayout width="663" height="40">
 					<control type="image">
-						<width>663</width>
-						<height>44</height>
-						<texture>dialogs/list-focus.png</texture>
+						<width>692</width>
+						<height>40</height>
+						<include>dialog_CommonListFocus</include>
 					</control>
 					<control type="label">
-						<posx>108</posx>
 						<width>128</width>
-						<height>40</height>
+						<!--<label>$INFO[ListItem.Property(StartTime)]</label>-->
 						<label>$INFO[ListItem.StartTime]</label>
-						<font>smallCaps</font>
-						<align>right</align>
-						<aligny>center</aligny>
 						<include>dialog_CommonListItemFocus</include>
 					</control>
 					<control type="label">
-						<posx>130</posx>
-						<height>40</height>
-						<width>520</width>
+						<left>130</left>
+						<width>500</width>
+						<!--<label>$INFO[ListItem.Label]</label>-->
 						<label>$INFO[ListItem.Title]</label>
-						<font>smallAlt</font>
 						<include>dialog_CommonListItemFocus</include>
 					</control>
 					<control type="group">
-						<posx>625</posx>
-						<posy>11</posy>
+						<left>655</left>
+						<top>9</top>
 						<control type="image">
 							<texture>pvr/status_none.png</texture>
 							<visible>![ListItem.HasTimer + ListItem.IsRecording]</visible>

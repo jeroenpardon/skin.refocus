@@ -1,63 +1,65 @@
-﻿<window id="129">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window id="129">
 	<defaultcontrol>13</defaultcontrol>
-	<include>dialogOpen</include>
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>315</posx>
-		<posy>163</posy>
+		<left>315</left>
+		<top>168</top>
 	</coordinates>
 	<controls>
 		<control type="image" id="1">
-			<include>dialogWindow</include>
 			<width>650</width>
-			<height>395</height>
+			<height>385</height>
+			<include>dialog_Window</include>
 		</control>
 		<control type="label" id="2">
-			<posx>34</posx>
-			<width>582</width>
+			<width>646</width>
+			<left>4</left>
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="label" id="3">
-			<posy>65</posy>
-			<width>582</width>
+			<top>60</top>
+			<width>631</width>
 			<label>$LOCALIZE[1021]</label>
-			<include>dialog_Line</include>
+			<include>dialog_Header</include>
+			<include>dialog_ControlCommons</include>
 		</control>
-		<!---container--->
+		<!--container-->
 		<control type="group">
-			<posx>19</posx>
-			<posy>100</posy>
+			<left>4</left>
+			<top>100</top>
 			<control type="image">
-				<width>612</width>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>40</posy>
-				<width>612</width>
+				<top>40</top>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>80</posy>
-				<width>612</width>
+				<top>80</top>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>120</posy>
-				<width>612</width>
+				<top>120</top>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>160</posy>
-				<width>612</width>
+				<top>160</top>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<posy>200</posy>
-				<width>612</width>
+				<top>200</top>
+				<width>642</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="list" id="10">
-				<width>533</width>
+				<width>642</width>
 				<height>200</height>
 				<onup>9001</onup>
 				<onleft>-</onleft>
@@ -66,108 +68,104 @@
 				<scrolltime>200</scrolltime>
 				<itemlayout height="40">
 					<control type="label">
-						<width>533</width>
+						<width>642</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItem</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="image">
-						<width>533</width>
+						<width>562</width>
 						<include>dialog_CommonListFocus</include>
 						<visible>Control.HasFocus(10)</visible>
 					</control>
 					<control type="label">
-						<width>533</width>
+						<width>642</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItem</include>
 						<visible>!Control.HasFocus(10)</visible>
 					</control>
 					<control type="label">
-						<width>533</width>
+						<width>642</width>
 						<info>ListItem.Label</info>
 						<include>dialog_CommonListItemFocus</include>
 						<visible>Control.HasFocus(10)</visible>
 					</control>
 				</focusedlayout>
 			</control>
-			<!---browse controls--->
+			<!--browse controls-->
 			<control type="group" id="6001">
-				<posx>533</posx>
+				<left>562</left>
 				<animation effect="slide" end="0,40" time="0" condition="Container(10).Row(1)">Conditional</animation>
 				<animation effect="slide" end="0,80" time="0" condition="Container(10).Row(2)">Conditional</animation>
 				<animation effect="slide" end="0,120" time="0" condition="Container(10).Row(3)">Conditional</animation>
 				<animation effect="slide" end="0,160" time="0" condition="Container(10).Row(4)">Conditional</animation>
 				<animation effect="slide" end="0,200" time="0" condition="Container(10).Row(5)">Conditional</animation>
 				<control type="image">
-					<posy>1</posy>
+					<top>1</top>
 					<height>39</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<posx>40</posx>
-					<posy>1</posy>
+					<left>40</left>
+					<top>1</top>
 					<height>39</height>
 					<include>dialog_Separator-y</include>
 				</control>
+			<!--remove feed-->
 				<control type="button" id="14">
-					<description>remove button</description>
 					<label>-</label>
 					<onup>10</onup>
 					<onleft>10</onleft>
 					<onright>13</onright>
 					<ondown>10</ondown>
-					<texturenofocus border="0">dialogs/button_Inline-remove.png</texturenofocus>
-					<texturefocus border="0">dialogs/button_Inline-remove-focus.png</texturefocus>
-					<include>dialog_Button-inline</include>
+					<include>dialog_Inline-remove</include>
 				</control>
+			<!--add feed-->
 				<control type="button" id="13">
-					<description>add button</description>
-					<posx>40</posx>
+					<left>40</left>
 					<label>-</label>
 					<onup>10</onup>
 					<onleft>14</onleft>
 					<onright>-</onright>
 					<ondown>10</ondown>
-					<texturenofocus border="0">dialogs/button_Inline-add.png</texturenofocus>
-					<texturefocus border="0">dialogs/button_Inline-add-focus.png</texturefocus>
-					<include>dialog_Button-inline</include>
+					<include>dialog_Inline-add</include>
 				</control>
 			</control>
 		</control>
-		<!---window buttons--->
+	<!--window buttons-->
 		<control type="group" id="9001">
-			<posx>34</posx>
-			<posy>320</posy>
+			<left>19</left>
+			<top>320</top>
+			<!--change set-->
 			<control type="button" id="11">
-				<description>change set Button</description>
-				<label>1024</label>
+				<label>$LOCALIZE[1024]</label>
 				<onup>10</onup>
 				<onleft>19</onleft>
 				<onright>18</onright>
 				<ondown>10</ondown>
 				<width>140</width>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
+			<!--ok-->
 			<control type="button" id="18">
-				<description>Ok button</description>
-				<posx>334</posx>
-				<label>186</label>
+				<left>357</left>
+				<label>$LOCALIZE[186]</label>
 				<onleft>11</onleft>
 				<onright>19</onright>
 				<onup>10</onup>
 				<ondown>10</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
+			<!--cancel-->
 			<control type="button" id="19">
-				<description>Cancel button</description>
-				<posx>464</posx>
-				<label>222</label>
+				<left>487</left>
+				<label>$LOCALIZE[222]</label>
 				<onleft>18</onleft>
 				<onright>11</onright>
 				<onup>10</onup>
 				<ondown>10</ondown>
-				<include>dialog_Button</include>
+				<include>dialog_WindowButton</include>
 			</control>
 		</control>
 	</controls>

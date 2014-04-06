@@ -1,23 +1,12 @@
-﻿<window type="dialog" id="142">
-	<defaultcontrol>7000</defaultcontrol>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<controls>
-	<!---TRIGGER--->
-		<control type="button" id="6000">
-			<label>SHOULD NOT SEE ME</label>
-			<onup>-</onup>
-			<ondown>7000</ondown>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
-		<control type="button" id="7000">
-			<label>SHOULD NOT SEE ME</label>
-			<onup>6000</onup>
-			<ondown>-</ondown>
-			<visible allowhiddenfocus="true">false</visible>
-		</control>
-		<include>clock</include>
+		<!--clock-->
 		<control type="group">
-			<include>osd_Info</include>
-			<include>transition_OSD</include>
+			<visible>![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]</visible>
+			<include>clock</include>
 		</control>
+		<!--media info-->
+		<include>osd_Video</include>
 	</controls>
 </window>

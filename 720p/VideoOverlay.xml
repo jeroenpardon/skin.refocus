@@ -1,4 +1,5 @@
-﻿<window id="2904">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<coordinates>
 		<system>1</system>
 		<posx>0</posx>
@@ -6,46 +7,29 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<visible>Player.HasVideo + !Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(videoscan) | Window.IsActive(musicscan) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614)]</visible>
-			<include>toggle_ToastMute</include>
-			<control type="label" id="200">
-				<posx>180r</posx>
+			<include>transition_Info</include>
+			<visible>Player.HasVideo + Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(busydialog)]</visible>
+			<control type="label" id="201">
+				<right>70</right>
 				<label>$INFO[VideoPlayer.Title]</label>
 				<include>toast_Top</include>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="label" id="201">
-				<posx>180r</posx>
-				<label>$INFO[VideoPlayer.Genre]</label>
-				<include>toast_Bottom</include>
-				<visible>VideoPlayer.Content(movies) + !SubString(Player.Filenameandpath,http://)</visible>
-			</control>
-			<control type="label" id="203">
-				<posx>180r</posx>
-				<label>$INFO[VideoPlayer.TVShowTitle]</label>
-				<include>toast_Bottom</include>
-				<visible>VideoPlayer.Content(episodes)</visible>
-			</control>
-			<control type="label" id="204">
-				<posx>180r</posx>
-				<label>$INFO[VideoPlayer.Artist]</label>
-				<include>toast_Bottom</include>
-				<visible>VideoPlayer.Content(musicvideos)</visible>
+				<right>70</right>
+				<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.Title,: ]</label>
+				<include>toast_Top</include>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="label" id="201">
-				<posx>180r</posx>
-				<label>$INFO[VideoPlayer.ChannelName]</label>
+				<right>70</right>
+				<label>$VAR[toast_Video]</label>
 				<include>toast_Bottom</include>
 			</control>
-			<control type="label" id="201">
-				<posx>180r</posx>
-				<label>$INFO[VideoPlayer.Duration,, $LOCALIZE[31100]]</label>
-				<include>toast_Bottom</include>
-				<visible>VideoPlayer.Content(files) | SubString(Player.Filenameandpath,http://)</visible>
-			</control>
-			<control type="label" id="1">
-				<posx>170r</posx>
-				<label>$INFO[VideoPlayer.TimeRemaining(hh:mm:ss)]</label>
-				<include>toast_Side</include>
+			<control type="image">
+				<include>toast_Icon</include>
+				<texture>toast/play.png</texture>
+				<visible>IntegerGreaterThan(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</controls>

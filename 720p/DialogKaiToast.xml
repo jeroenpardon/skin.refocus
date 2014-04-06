@@ -1,43 +1,44 @@
-﻿<window id="107">
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<left>0</left>
+		<top>0</top>
 	</coordinates>
 	<zorder>1</zorder>
 	<controls>
 		<control type="group">
-			<!--line 1-->
-			<control type="fadelabel" id="401">
-				<posx>470r</posx>
-				<width>400</width>
+			<visible>![Window.IsActive(startup) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<control type="label" id="401">
+				<right>70</right>
 				<include>toast_Top</include>
 			</control>
-			<!--line 2-->
-			<control type="fadelabel" id="402">
-				<posx>470r</posx>
-				<width>400</width>
+			<control type="label" id="402">
+				<right>70</right>
 				<include>toast_Bottom</include>
 			</control>
-			<!--icon-->
-			<control type="image" id="400">
-				<include>toast_Icon</include>
-				<texture>toast/info.png</texture>
-			</control>
+			<!--info-->
 			<control type="image" id="403">
 				<include>toast_Icon</include>
 				<visible>false</visible>
 				<texture>toast/info.png</texture>
 			</control>
+			<!--warning-->
 			<control type="image" id="404">
 				<include>toast_Icon</include>
 				<visible>false</visible>
 				<texture>toast/warning.png</texture>
 			</control>
+			<!--error-->
 			<control type="image" id="405">
 				<include>toast_Icon</include>
 				<visible>false</visible>
 				<texture>toast/error.png</texture>
+			</control>
+			<!--default-->
+			<control type="image">
+				<include>toast_Icon</include>
+				<texture>toast/info.png</texture>
 			</control>
 		</control>
 	</controls>

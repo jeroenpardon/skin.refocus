@@ -1,52 +1,54 @@
-﻿<window id="12">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>888</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<include>windowTitle_System</include>
-		<!--button area-->
-		<control type="grouplist" id="3">
-			<posx>15</posx>
-			<posy>125</posy>
-			<height>410</height>
-			<itemgap>0</itemgap>
-			<onleft>5</onleft>
-			<onright>5</onright>
-			<onup>3</onup>
-			<ondown>3</ondown>
-			<include>transition_Container</include>
-		</control>
-		<!--control area-->
-		<control type="grouplist" id="5">
-			<posx>340</posx>
-			<posy>90</posy>
-			<width>850</width>
-			<height>600</height>
-			<itemgap>0</itemgap>
-			<onleft>3</onleft>
-			<onright>3</onright>
-			<onup>5</onup>
-			<ondown>5</ondown>
-			<include>transition_Container</include>
+		<control type="group">
+			<left>65</left>
+			<top>90</top>
+			<include>transition_Content</include>
+			<!--button area-->
+			<control type="grouplist" id="3">
+				<height>410</height>
+				<itemgap>2</itemgap>
+				<onleft>5</onleft>
+				<onright>5</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+			</control>
+			<!--control area-->
+			<control type="group">
+				<left>302</left>
+				<control type="grouplist" id="5">
+					<width>850</width>
+					<height>598</height>
+					<itemgap>2</itemgap>
+					<onleft>3</onleft>
+					<onright>70</onright>
+					<onup>5</onup>
+					<ondown>5</ondown>
+					<pagecontrol>70</pagecontrol>
+				</control>
+			</control>
 		</control>
 		<!--defaults-->
 		<control type="button" id="7">
-			<include>button_Settings</include>
+			<include>settings_Listbutton</include>
 		</control>
 		<control type="radiobutton" id="8">
-			<include>button_Settings</include>
+			<include>settings_Radiobutton</include>
 		</control>
 		<control type="spincontrolex" id="9">
-			<include>button_Settings</include>
+			<include>settings_Listbutton</include>
 		</control>
 		<control type="button" id="10">
-			<label>[UPPERCASE]224[/UPPERCASE]</label>
-			<include>button_Category</include>
+			<label>$LOCALIZE[224]</label>
+			<include>settings_Menu</include>
 		</control>
-		<control type="image">
-			<posx>311</posx>
-			<include>screen_Separator</include>
-		</control>
+		<!--scrollbars-->
+		<include>PageControls</include>
 	</controls>
 </window>

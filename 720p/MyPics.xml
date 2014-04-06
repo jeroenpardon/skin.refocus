@@ -1,16 +1,10 @@
-﻿<window id="2">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,53,531,573,574</views>
+	<views>50,53,572,574</views>
 	<controls>
-		<include>global_Background</include>
-		<include>global_Includes</include>
-		<include>nav_Indicator</include>
-		<include>view_List</include>
-		<include>PageControls</include>
-		<include>windowTitle_Pictures</include>
-
-<!---TRIGGER------>	
+	<!--menu trigger-->
 		<control type="button" id="8000">
 			<label>SHOULD NOT SEE ME</label>
 			<onup>53</onup>
@@ -21,98 +15,55 @@
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
 
-<!---LIST VIEW------>
+	<!--global includes-->
+		<include>global_Background</include>
+		<include>global_Includes</include>
+		<include>global_MenuGuide</include>
+		<include>windowTitle_Pictures</include>
+
+	<!--view includes-->
+		<include>view_List</include><!--50-->
+		<include>view_Gallery</include><!--53-->
+		<include>view_IconSquare</include><!--572-->
+		<include>view_IconSquareSmall</include><!--574-->
+
+	<!--detail includes-->
+		<include>detail_ListAddons</include>
+
+	<!--list-->
 		<control type="group">
-			<include>infoDialogHide</include>
 			<include>toggle_Menu</include>
-			<include>transition_Container</include>
-			<visible>Control.IsVisible(50) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons) + !substring(container.folderpath,plugin://plugin.image)</visible>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(50) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons)</visible>
 			<control type="group">
-				<posx>650</posx>
-				<posy>60</posy>
+				<left>680</left>
+				<top>80</top>
 				<control type="image">
-					<width>580</width>
-					<height>650</height>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<bordersize>22</bordersize>
-					<aligny>top</aligny>
-					<aspectratio align="center">keep</aspectratio>
+					<width>532</width>
+					<height>532</height>
+					<texture fallback="thumbs/default_Portrait.jpg" background="true">$INFO[ListItem.Thumb]</texture>
+					<bordersize>7</bordersize>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<fadetime>fadetime_Thumb</fadetime>
-					<visible>ListItem.IsFolder</visible>
+					<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack)</visible>
 				</control>
 				<control type="image">
-					<width>580</width>
-					<height>650</height>
-					<texture fallback="thumbs/picture_landscape.jpg" background="true">$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="31" width="400" height="315">frames/frame_Square.png</bordertexture>
-					<bordersize>22</bordersize>
-					<aligny>top</aligny>
-					<aspectratio align="center">keep</aspectratio>
+					<width>532</width>
+					<height>614</height>
+					<texture fallback="thumbs/default_Portrait.jpg" background="true">$INFO[ListItem.FilenameAndPath]</texture>
+					<bordertexture border="0">frames/frame-nf.png</bordertexture>
+					<bordersize>7</bordersize>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<fadetime>fadetime_Thumb</fadetime>
 					<visible>!ListItem.IsFolder</visible>
 				</control>
 			</control>
 		</control>
 
-		<!---addons--->
-		<include>info_AddonList</include>
-
-<!---THUMBNAILS VIEW------>
-		<include>view_IconFiles</include>
-		<control type="group">
-			<visible>Control.IsVisible(573)</visible>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<posx>85</posx>
-			<posy>640</posy>
-			<control type="label">
-				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-				<font>title</font>
-				<textcolor>Color1</textcolor>
-				<align>left</align>
-				<width>900</width>
-			</control>
-			<control type="label">
-				<posy>25</posy>
-				<label>$INFO[ListItem.PictureResolution]$INFO[ListItem.PictureDateTime, • ]</label>
-				<font>info</font>
-				<textcolor>Color2</textcolor>
-				<align>left</align>
-				<width>750</width>
-			</control>
-		</control>
-
-<!---GALLERY VIEW------>	
-		<control type="group">
-			<posx>265</posx>
-			<posy>105</posy>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<include>infoDialogHide</include>
-			<visible>Control.IsVisible(53)</visible>
-			<control type="group">
-				<posy>480</posy>
-				<control type="label">
-					<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
-					<width>940</width>
-					<include>info_TitleSmall</include>
-				</control>
-				<control type="label">
-					<posy>23</posy>
-					<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
-					<width>750</width>
-					<include>info_Sub</include>
-				</control>
-				<control type="label">
-					<posy>46</posy>
-					<label>[UPPERCASE]$INFO[ListItem.PictureDateTime][/UPPERCASE]</label>
-					<width>750</width>
-					<include>info_Sub</include>
-				</control>
-			</control>
-		</control>
-		<include>view_Gallery</include>
-		<include>view_GalleryFull</include>
+	<!--scrollbars-->
+		<include>PageControls</include>
+	
+	<!--menu-->
 		<include>menu_Files</include>
 	</controls>
 </window>

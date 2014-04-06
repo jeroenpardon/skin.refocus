@@ -1,24 +1,13 @@
-﻿<window id="25">
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,51,52,521,522,53,531,54,541,57,571,574,575,576,592</views>
-	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
+	<views>50,51,52,521,522,53,531,54,541,57,571,572,574,575</views>
+	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,backend=True)</onload>
+	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
 	<controls>
-		<include>global_Background</include>
-		<include>global_Includes</include>
-		<include>windowTitle_Video</include>
-		<include>PageControls</include>
-		<include>nav_Indicator</include>
-		<include>view_GalleryFull</include>
-		<include>view_ThumbEpisode</include>
-		<include>view_IconSquare</include>
-		<include>view_SlideMusic</include>
-		<include>view_SlideSquare</include>
-		<include>view_IconSquare3</include>
-		<include condition="Skin.HasSetting(banners.enable)">view_Banner</include>
-		<include condition="Skin.HasSetting(banners.enable)">view_BannerWide</include>
-		
-	<!---TRIGGER------>	
+
+	<!--trigger-->
 		<control type="button" id="8000">
 			<label>SHOULD NOT SEE ME</label>
 			<onup>53</onup>
@@ -28,398 +17,170 @@
 			<width>500</width>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-			
-	<!---LIST------>
-		<include>view_List</include>
+	
+	<!--global includes-->
+		<include>global_Background</include>
+		<include>global_Includes</include>
+		<include>global_MenuGuide</include>
+		<include>windowTitle_Video</include>
+
+	<!--view includes-->
+		<include>view_List</include><!--50-->
+		<include>view_BigList</include><!--51-->
+		<include>view_SlidePoster</include><!--52-->
+		<include>view_SlideLandscape</include><!--521-->
+		<include>view_SlideSquare</include><!--522-->
+		<include>view_Gallery</include><!--53-->
+		<include>view_GalleryFull</include><!--531-->
+		<include>view_Banner</include><!--54-->
+		<include>view_BigBanner</include><!--541-->
+		<include>view_IconPortrait</include><!--57-->
+		<include>view_IconPortraitSmall</include><!--571-->
+		<include>view_IconSquare</include><!--572-->
+		<include>view_IconSquareSmall</include><!--574-->
+		<include>view_IconWide</include><!--575-->
+
+	<!--detail includes-->
+		<include>detail_ListMusic</include>
+		<include>detail_ListAddons</include>
+		<include>detail_Slide</include>
+		<include>detail_Thumbnails</include>
+
+	<!--list-->
 		<control type="group">
 			<include>toggle_Menu</include>
-			<include>infoDialogHide</include>
-			<include>transition_Container</include>
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+			<include>fadeinout</include>
 			<visible>Control.IsVisible(50)</visible>
-		<!---landscape--->
+			<!--landscape-->
 			<control type="group">
 				<visible>!SubString(Container.Folderpath,plugin://)</visible>
 				<control type="group">
-					<posx>655</posx>
-					<posy>68</posy>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(episodes) | SubString(Container.FolderPath,plugin.video.hulu)</visible>
+					<left>680</left>
+					<top>90</top>
+					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart)] | Container.Content(artists) | Container.Content(episodes)</visible>
 					<control type="image">
-						<include>frame_Landscape-List</include>
-						<visible>!IsEmpty(Container.FolderName) + !Container.Content(files)</visible>
-					</control>
-					<control type="image">
-						<texture background="true">$VAR[thumb_Landscape.Condition]</texture>
-						<include>thumb_Landscape-List</include>
-					</control>
-					<control type="image">
-						<posx>22</posx>
-						<posy>220</posy>
-						<width>542</width>
-						<height>96</height>
-						<include>art_TVShowLogo</include>
+						<width>546</width>
+						<height>309</height>
+						<include>art_Frame-nf</include>
 					</control>
 					<control type="group">
-						<posx>532</posx>
-						<posy>295</posy>
+						<left>7</left>
+						<top>7</top>
+						<control type="image">	
+							<width>532</width>
+							<height>295</height>
+							<texture background="true">thumbs/default_Landscape.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
 						<control type="image">
-							<include>overlay_UnWatched</include>
+							<left>202</left>
+							<top>83.5</top>
+							<width>128</width>
+							<height>128</height>
+							<include>art_DefaultIcon</include>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<width>532</width>
+							<height>295</height>
+							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+						</control>
+						<control type="textbox">
+							<top>315</top>
+							<width>532</width>
+							<height max="280">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+						</control>
+						<control type="group">
+							<left>514</left>
+							<top>277</top>
+							<include>overlay_Watch</include>
 							<visible>!Container.Content(files)</visible>
 						</control>
-						<control type="image">
-							<include>overlay_Resumable-list</include>
-						</control>
-					</control>
-				</control>
-				<control type="group">
-					<posx>685</posx>
-					<posy>420</posy>
-					<control type="textbox">
-						<width>525</width>
-						<height>244</height>
-						<label>$INFO[ListItem.Plot]</label>
-						<include>description_Small</include>
-						<visible>[[Skin.HasSetting(view.list.fanart) + [Container.Content(movies) | Container.Content(tvshows)]] | [Container.Content(episodes) + !IsEmpty(ListItem.Title)] | Container.Content(musicvideos)] + !SubString(ListItem.Icon,default)</visible>
-					</control>
-					<control type="textbox">
-						<width>525</width>
-						<height>244</height>
-						<label>$INFO[Container.ShowPlot]</label>
-						<include>description_Small</include>
-						<visible>Container.Content(episodes) + IsEmpty(ListItem.Title)</visible>
 					</control>
 				</control>
 			</control>
-			<!---portrait--->
+			<!--portrait-->
 			<control type="group">
-				<posx>750</posx>
-				<posy>65</posy>
-				<!--<visible>!SubString(Container.FolderPath,plugin://)</visible>-->
+				<left>750</left>
+				<top>80</top>
 				<control type="group">
 					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
 					<control type="image">
-						<include>frame_Poster-List</include>
-					</control>
-					<control type="image">
-						<texture background="true">$VAR[thumb_Portrait.Condition]</texture>
-						<include>thumb_Portrait-List</include>
+						<width>420</width>
+						<height>614</height>
+						<include>art_Frame-nf</include>
 					</control>
 					<control type="group">
-						<posx>397</posx>
-						<posy>591</posy>
-						<control type="image">
-							<include>overlay_UnWatched</include>
+						<left>7</left>
+						<top>7</top>
+						<control type="image">	
+							<width>406</width>
+							<height>600</height>
+							<texture background="true">thumbs/default_Portrait.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
 						</control>
 						<control type="image">
-							<include>overlay_Resumable-list</include>
+							<left>139</left>
+							<top>236</top>
+							<width>128</width>
+							<height>128</height>
+							<include>art_DefaultIcon</include>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<width>406</width>
+							<height>600</height>
+							<texture background="true">$VAR[thumb_Portrait]</texture>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="group">
+							<left>388</left>
+							<top>582</top>
+							<include>overlay_Watch</include>
+							<visible>!Container.Content(files)</visible>
 						</control>
 					</control>
 				</control>
 			</control>
-			<!---files--->
+			<!--files-->
 			<control type="group">
-				<visible>Container.Content(files)</visible>
+				<visible>Container.Content(musicvideos) | Container.Content(files)</visible>
 				<control type="group">
-					<posx>655</posx>
-					<posy>80</posy>
+					<left>680</left>
+					<top>80</top>
 					<control type="image">
-						<width>580</width>
-						<height>625</height>
-						<texture background="true">$INFO[ListItem.Thumb]</texture>
-						<bordertexture border="31" width="400" height="315">frames/frame_Square.png</bordertexture>
-						<bordersize>22</bordersize>
-						<aspectratio align="right" aligny="top">keep</aspectratio>
+						<width>532</width>
+						<height>614</height>
+						<texture fallback="thumbs/default_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="7">frames/frame-nf.png</bordertexture>
+						<bordersize>7</bordersize>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
 						<fadetime>fadetime_Thumb</fadetime>
-						<visible>!IsEmpty(ListItem.Thumb) + !substring(Container.FolderPath,plugin://) + !IsEmpty(Container.FolderPath)</visible>
+						<visible>!IsEmpty(ListItem.Thumb) + !SubString(Container.FolderPath,plugin://) + !IsEmpty(Container.FolderPath)</visible>
 					</control>
-					<control type="image">
-						<posx>-54</posx>
-						<posy>526</posy>
+					<control type="group">
+						<left>-25</left>
+						<top>507</top>
+						<include>overlay_Watch</include>
 						<animation effect="rotate" end="90" time="0" condition="True">Conditional</animation>
-						<include>overlay_UnWatched</include>
 						<visible>!SubString(Container.FolderPath,special://videoplaylists)</visible>
 					</control>
-					<control type="image">
-						<posx>-54</posx>
-						<posy>526</posy>
-						<animation effect="rotate" end="90" time="0" condition="True">Conditional</animation>
-						<include>overlay_Resumable-list</include>
-					</control>
 				</control>
 			</control>
 		</control>
-		<include>info_MusicList</include>
-		<include>info_AddonList</include>
 
-<!---BIG LIST------>
-		<include>view_BigList</include>
-
-<!---SLIDE------>
-		<include>view_SlidePoster</include>
-		<include>view_SlideLandscape</include>
-		<include>info_Slide</include>
-		<include>info_SlideAddons</include>
-
-<!---THUMBNAILS------>
-		<control type="group">
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<include>toggle_Menu</include>
-			<!---large grid--->
-			<control type="group">
-				<visible>Control.IsVisible(57) | Control.IsVisible(573)</visible>
-				<!---flags--->
-				<control type="image">
-					<posx>235r</posx>
-					<posy>632</posy>
-					<width>128</width>
-					<height>48</height>
-					<texture>$INFO[ListItem.StarRating]</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
-				</control>
-				<control type="image">
-					<posx>235r</posx>
-					<posy>637</posy>
-					<width>128</width>
-					<height>64</height>
-					<texture>$VAR[flag_Studio]</texture>
-					<aspectratio align="right">keep</aspectratio>
-					<visible>SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
-				</control>
-				<control type="group">
-					<posx>85</posx>
-					<posy>640</posy>
-					<control type="label">
-						<label>$VAR[global_Title]</label>
-						<width>1100</width>
-						<include>info_Title</include>
-					</control>
-					<control type="label">
-						<posy>28</posy>
-						<label>$VAR[global_Info]</label>
-						<width>750</width>
-						<include>info_Sub</include>
-						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
-					</control>
-					<control type="label">
-						<posy>28</posy>
-						<label>$VAR[global_Info.Addon]</label>
-						<width>750</width>
-						<include>info_Sub</include>
-						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
-					</control>
-				</control>
-			</control>
-			<!---small grid--->
-			<control type="grouplist" id="1000">
-				<posx>780</posx>
-				<posy>115</posy>
-				<itemgap>0</itemgap>
-				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
-				<control type="label">
-					<width>435</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>info_Title</include>
-				</control>
-				<control type="label">
-					<width>435</width>
-					<label>$INFO[ListItem.Genre]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<width>435</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-				</control>
-				<control type="label">
-					<width>435</width>
-					<label>$VAR[movie_Info.Date]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<width>435</width>
-					<label>$VAR[tvshow_Info.NextAired]</label>
-					<include>info_Sub</include>
-					<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-				</control>
-				<control type="image">
-					<width>128</width>
-					<height>48</height>
-					<info>ListItem.StarRating</info>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
-				</control>
-				<control type="label">
-					<width>435</width>
-					<label>-</label>
-					<include>info_Sub</include>
-					<visible>!IntegerGreaterThan(ListItem.Rating,0)</visible>
-				</control>
-				<control type="textbox" id="4">
-					<width>435</width>
-					<height>355</height>
-					<label>$VAR[global_Plot.Condition]</label>
-					<include>description_Small</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
-				</control>
-			</control>
-			<control type="image">
-				<posx>780</posx>
-				<posy>610</posy>
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="left">keep</aspectratio>
-				<texture>$VAR[flag_Studio]</texture>
-				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + ![IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Title)]</visible>
-			</control>
-		</control>
-		<include>view_IconPoster</include>
-		<include>view_IconPosterSmall</include>
-
-<!--GALLERY------>
-		<control type="group">
-			<visible>Control.IsVisible(53)</visible>
-			<include>infoDialogHide</include>
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-			<!---flags--->
-			<control type="image">
-				<posx>105</posx>
-				<posy>590</posy>
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[flag_Studio]</texture>
-			</control>
-			<!---strip bottom--->
-			<control type="group">
-				<posx>265</posx>
-				<posy>585</posy>
-				<control type="group">
-					<control type="label">
-						<label>$VAR[gallery_Header]</label>
-						<width>940</width>
-						<include>info_TitleSmall</include>
-					</control>
-					<control type="group">
-						<visible>Container.Content(movies) + !IsEmpty(ListItem.Title)</visible>
-						<control type="label">
-							<posy>24</posy>
-							<label>$INFO[ListItem.Genre]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-						</control>
-						<control type="label">
-							<posy>47</posy>
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31100]]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-						<control type="label">
-							<posy>24</posy>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-						</control>
-						<control type="label">
-							<posy>47</posy>
-							<label>$VAR[tvshow_Info.NextAired]</label>
-							<width>750</width>
-							<include>info_Sub</include>
-						</control>
-					</control>
-				</control>
-			</control>
-		</control>
-		<include>view_Gallery</include>
-		<!---fullscreen/expanded--->
-		<control type="group">
-			<posy>475</posy>
-			<include>transition_Container</include>
-			<include>infoDialogHide</include>
-			<animation effect="slide" start="0,600" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
-			<animation effect="slide" start="0,0" end="0,600" easing="Out" tween="Quadratic" time="350">Hidden</animation>
-			<visible>[[Control.IsVisible(53) + Control.HasFocus(8000)] | Control.IsVisible(531)] + !ControlGroup(6000).HasFocus()</visible>
-			<control type="image">
-				<width>1280</width>
-				<height>245</height>
-				<texture border="0,0,0,15">osd/fullscreenInfo.png</texture>
-			</control>
-			<control type="group">
-				<posx>20</posx>
-				<posy>40</posy>
-				<control type="label">
-					<label>$VAR[global_Title]</label>
-					<font>light.Title</font>
-					<aligny>top</aligny>
-					<width>1100</width>
-					<textcolor>Color4</textcolor>
-					<width>screen_Width</width>
-				</control>
-				<control type="image">
-					<posx>1190</posx>
-					<posy>4</posy>
-					<width>48</width>
-					<height>48</height>
-					<texture>$INFO[ListItem.VideoResolution,flags/hd/fo-,.png]</texture>
-					<colordiffuse>Color4</colordiffuse>
-					<aspectratio align="right">keep</aspectratio>
-				</control>
-				<control type="image">
-					<posx>1110</posx>
-					<posy>43</posy>
-					<width>128</width>
-					<height>22</height>
-					<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
-					<colordiffuse>Color4</colordiffuse>
-					<aspectratio align="right">keep</aspectratio>
-					<visible>!SubString(ListItem.Icon,default)</visible>
-				</control>
-				<control type="label">
-					<posy>35</posy>
-					<width>1100</width>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31100]]$INFO[ListItem.Genre, • ]</label>
-					<font>regular.Info</font>
-					<align>left</align>	
-					<textcolor>Color4</textcolor>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<posy>35</posy>
-					<width>1100</width>
-					<label>$VAR[global_Info]</label>
-					<font>smallerCaps</font>
-					<align>left</align>	
-					<textcolor>Color4</textcolor>
-					<visible>Container.Content(tvshows) + !SubString(ListItem.Icon,default)</visible>
-				</control>
-				<control type="image">
-					<posx>-250</posx>
-					<posy>75</posy>
-					<width>1530</width>
-					<height>1</height>
-					<texture>views/separatorFaded.png</texture>
-					<colordiffuse>Color4</colordiffuse>
-					<visible>!IsEmpty(ListItem.Title)</visible>
-				</control>
-				<control type="textbox" id="4">
-					<posy>80</posy>
-					<width>1240</width>
-					<height>115</height>
-					<label>$VAR[global_Plot.Condition]</label>
-					<textcolor>Color4</textcolor>
-					<include>description_Small</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
-				</control>
-			</control>
-		</control>
-<!---WINDOWMENU------>
+	<!--scrollbars-->
+		<include>PageControls</include>
+	<!--menu-->
 		<include>menu_Video</include>
 	</controls>
 </window>

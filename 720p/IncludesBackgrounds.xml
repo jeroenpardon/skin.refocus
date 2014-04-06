@@ -1,227 +1,52 @@
-﻿<includes>
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
 	<include name="global_Background">
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">$VAR[global_Background.Fallback]</texture>
-			<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<!--<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !ControlGroup(6000).HasFocus</visible><include>transition_Fanart</include>-->
-			<include>transition_Fanart</include>
-			<include>menu_BackgroundHide</include>
-		</control>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-			<visible>Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !ControlGroup(6000).HasFocus</visible>
-			<include>transition_Fanart</include>
-			<fadetime>fadetime_Fanart</fadetime>
-			<include>menu_BackgroundHide</include>
-		</control>
-		<!--playing video background-->
 		<control type="group">
-			<visible>Player.HasVideo + Skin.HasSetting(backgroundvideo.global)</visible>
+			<include>transition_Background</include>
 			<control type="image">
-				<aspectratio>stretch</aspectratio>
 				<include>screen_Dimensions</include>
-				<texture>black.png</texture>
-				<visible></visible>
+				<include>toggle_Menu</include>
+				<texture background="true">$VAR[global_Background]</texture>
+				<visible>!Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+				<fadetime>fadetime_Fanart</fadetime>
 			</control>
-			<control type="videowindow">
+			<control type="image">
 				<include>screen_Dimensions</include>
-				<visible>![Window.IsActive(pictures) + Control.IsVisible(531)]</visible>
+				<include>toggle_Menu</include>
+				<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<visible>!Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531)</visible>
+				<include>fadeinout</include>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+			<!--use the fanart image of the first real item in the list as a fallback for the "parent folder" entry. seasons and episodes level only.-->
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<include>toggle_Menu</include>
+				<texture background="true">$INFO[Container().ListItem(1).Property(Fanart_Image)]</texture>
+				<visible>StringCompare(Listitem.Icon,DefaultFolderBack.png) + [Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531)</visible>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+			<!--playing video background-->
+			<control type="group">
+				<visible>Skin.HasSetting(backgroundvideo.global) + Player.HasVideo + !Window.IsActive(weather)</visible>
+				<control type="image">
+					<aspectratio>stretch</aspectratio>
+					<include>screen_Dimensions</include>
+					<texture>black.png</texture>
+				</control>
+				<control type="videowindow">
+					<include>screen_Dimensions</include>
+					<visible>![Window.IsActive(pictures) + Control.IsVisible(531)]</visible>
+				</control>
 			</control>
 		</control>
-		<!--global background-->
+		<!--base color-->
 		<control type="image">
-			<aspectratio>stretch</aspectratio>
+			<aspectratio>keep</aspectratio>
 			<include>screen_Dimensions</include>
-			<texture background="true">backgrounds/background.png</texture>
-			<visible>[![Window.IsActive(2) + Control.IsVisible(531)] + !Window.IsActive(2006)] + !Window.IsActive(weather)</visible>
-			<include>transition_BG</include>
-		</control>
-		<!--vignette-->
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">overlays/vignette.png</texture>
-			<visible>[![Window.IsActive(2) + Control.IsVisible(531)] + !Window.IsActive(2006)] + Skin.HasSetting(fanart.global.alt)</visible>
-			<include>transition_BG</include>
-		</control>
-	</include>
-	<!--slideshows-->
-	<include name="home_Slideshows">
-		<control type="fixedlist" id="600">
-			<width>1280</width>
-			<height>720</height>
-			<onleft>52</onleft>
-			<onright>52</onright>
-			<focusposition>0</focusposition>
-			<scrolltime tween="Cubic" easing="In">1500</scrolltime>
-			<include>home_Slideshow</include>
-			<orientation>horizontal</orientation>
-			<visible>!Skin.HasSetting(slideshow.fanart) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.home)] + !ControlGroup(2100).HasFocus</visible>
-			<itemlayout width="1280" height="720">
-				<control type="image">
-					<include>screen_Dimensions</include>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio align="center">scale</aspectratio>
-				</control>
-				<control type="label">
-					<posx>1260</posx>
-					<posy>500</posy>
-					<width>960</width>
-					<label>$INFO[ListItem.Label]</label>
-					<font>light.Menu</font>
-					<align>right</align>
-				</control>
-				<control type="label">
-					<posx>1260</posx>
-					<posy>530</posy>
-					<width>960</width>
-					<label>$INFO[ListItem.Label2]</label>
-					<font>regular.BigCaps</font>
-					<align>right</align>
-				</control>
-				<control type="textbox">
-					<posx>660</posx>
-					<posy>560</posy>
-					<width>600</width>
-					<height>118</height>
-					<label>$INFO[ListItem.Property(Plot)]</label>
-					<align>right</align>
-					<include>description_Small</include>
-				</control>
-			</itemlayout>
-			<focusedlayout width="1280" height="720">
-				<control type="image">
-					<posx>600</posx>
-					<posy>530</posy>
-					<width>960</width>
-					<height>100</height>
-					<texture background="true">grey.png</texture>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
-				<control type="image">
-					<include>screen_Dimensions</include>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio align="center">scale</aspectratio>
-				</control>
-				<control type="label">
-					<posx>1260</posx>
-					<posy>500</posy>
-					<width>960</width>
-					<label>$INFO[ListItem.Label]</label>
-					<font>light.Menu</font>
-					<align>right</align>
-				</control>
-				<control type="label">
-					<posx>1260</posx>
-					<posy>530</posy>
-					<width>960</width>
-					<label>$INFO[ListItem.Label2]</label>
-					<font>regular.BigCaps</font>
-					<align>right</align>
-				</control>
-				<control type="textbox">
-					<posx>660</posx>
-					<posy>560</posy>
-					<width>600</width>
-					<height>118</height>
-					<label>$INFO[ListItem.Property(Plot)]</label>
-					<align>right</align>
-					<include>description_Small</include>
-				</control>
-			</focusedlayout>
-			<content>
-				<item id="1">
-					<label>$INFO[Window(Home).Property(RandomEpisode.1.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomEpisode.1.TVShowTitle)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomEpisode.1.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomEpisode.1.Art(tvshow.fanart))]</icon>
-					<onclick>$INFO[Window(Home).Property(RandomEpisode.1.Play)]</onclick>
-				</item>
-				<item id="2">
-					<label>$INFO[Window(Home).Property(RandomMovie.1.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomMovie.1.Genre)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomMovie.1.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomMovie.1.Art(fanart))]</icon>
-					<onclick>$INFO[Window(Home).Property(RandomMovie.1.Play)]</onclick>
-				</item>
-				<item id="3">
-					<label>$INFO[Window(Home).Property(RandomEpisode.2.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomEpisode.2.TVShowTitle)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomEpisode.2.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomEpisode.2.Art(tvshow.fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="4">
-					<label>$INFO[Window(Home).Property(RandomMovie.2.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomMovie.2.Genre)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomMovie.2.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomMovie.2.Art(fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="5">
-					<label>$INFO[Window(Home).Property(RandomEpisode.3.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomEpisode.3.TVShowTitle)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomEpisode.3.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomEpisode.3.Art(tvshow.fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="6">
-					<label>$INFO[Window(Home).Property(RandomMovie.4.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomMovie.4.Genre)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomMovie.4.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomMovie.4.Art(fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="7">
-					<label>$INFO[Window(Home).Property(RandomEpisode.5.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomEpisode.5.TVShowTitle)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomEpisode.5.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomEpisode.5.Art(tvshow.fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="8">
-					<label>$INFO[Window(Home).Property(RandomMovie.5.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomMovie.5.Genre)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomMovie.5.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomMovie.5.Art(fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="9">
-					<label>$INFO[Window(Home).Property(RandomEpisode.6.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomEpisode.6.TVShowTitle)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomEpisode.6.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomEpisode.6.Art(tvshow.fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="10">
-					<label>$INFO[Window(Home).Property(RandomMovie.6.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomMovie.6.Genre)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomMovie.6.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomMovie.6.Art(fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="11">
-					<label>$INFO[Window(Home).Property(RandomEpisode.7.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomEpisode.7.TVShowTitle)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomEpisode.7.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomEpisode.7.Art(tvshow.fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-				<item id="12">
-					<label>$INFO[Window(Home).Property(RandomMovie.7.Title)]</label>
-					<label2>$INFO[Window(Home).Property(RandomMovie.7.Genre)]</label2>
-					<property name="Plot">$INFO[Window(Home).Property(RandomMovie.7.Plot)]</property>
-					<icon>$INFO[Window(Home).Property(RandomMovie.7.Art(fanart))]</icon>
-					<onclick>-</onclick>
-				</item>
-			</content>
-		</control>
-		<control type="multiimage" id="1">
-			<info>Skin.String(slideshow.custom)</info>
-			<visible>Skin.HasSetting(slideshow.fanart) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.home)]</visible>
-			<include>home_Slideshow</include>
-			<include>screen_Dimensions</include>
+			<texture background="true">overlays/base_color.png</texture>
+			<colordiffuse>base_1</colordiffuse> 
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
 		</control>
 	</include>
 </includes>

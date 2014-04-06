@@ -1,20 +1,59 @@
-﻿<window id="138">
-	<defaultcontrol always="true">99</defaultcontrol>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>-</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>30</posx>
-		<posy>8</posy>
+		<left>59</left>
+		<top>15</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<include>fadeinout</include>
+			<width>950</width>
 			<visible>!Window.IsActive(startup)</visible>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>busy/busy.png</texture>
-				<aspectratio>keep</aspectratio>
-				<animation effect="rotate" start="360" end="0" center="24,24" time="1200" loop="true" condition="true">conditional</animation>
+			<include>transition_WindowTitle</include>
+			<include>toggle_Menu</include>
+			<control type="list">
+				<width>600</width>
+				<height>60</height>
+				<scrolltime>0</scrolltime>
+				<autoscroll time="1000">true</autoscroll>
+				<orientation>vertical</orientation>
+				<itemlayout height="60">
+					<control type="label">
+						<width>950</width>
+						<aligny>center</aligny>
+						<font>light_Window</font>
+						<textcolor>Color1</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60">
+					<control type="label">
+						<width>950</width>
+						<aligny>center</aligny>
+						<font>light_Window</font>
+						<textcolor>Color1</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$LOCALIZE[31712]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31712].</label>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31712]..</label>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31712]...</label>
+						<onclick>noop</onclick>
+					</item>
+				</content>
 			</control>
 		</control>
 	</controls>

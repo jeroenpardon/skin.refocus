@@ -1,47 +1,68 @@
-﻿<window id="11">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol>8</defaultcontrol>
-	<backgroundcolor>0xff000000</backgroundcolor>
 	<controls>
 		<control type="videowindow" id="20">
 			<include>screen_Dimensions</include>
+			<visible>Player.HasVideo</visible>
 		</control>
+		<!--overlay-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture>black.png</texture>
+		</control>	
+		<!--top left mover-->
 		<control type="mover" id="8">
-			<description>top left mover</description>
-			<texturefocus>calibration/topleft-focus.png</texturefocus>
-			<texturenofocus>calibration/topleft.png</texturenofocus>
+			<width>128</width>
+			<height>128</height>
+			<texturenofocus>calibration/TopLeft.png</texturenofocus>
+			<texturefocus>calibration/TopLeft-focus.png</texturefocus>
 		</control>
+		<!--right bottom mover-->
 		<control type="mover" id="9">
-			<description>right bottom mover</description>
-			<posx>700</posx>
-			<posy>500</posy>
-			<texturefocus>calibration/bottomright-focus.png</texturefocus>
-			<texturenofocus>calibration/bottomright.png</texturenofocus>
+			<left>700</left>
+			<top>500</top>
+			<width>128</width>
+			<height>128</height>
+			<texturenofocus>calibration/BottomRight.png</texturenofocus>
+			<texturefocus>calibration/BottomRight-focus.png</texturefocus>
 		</control>
+		<!--subtitle position mover-->
 		<control type="mover" id="10">
-			<description>subtitle position mover</description>
-			<posx>200</posx>
-			<posy>500</posy>
-			<texturefocus>calibration/subtitles-focus.png</texturefocus>
-			<texturenofocus>calibration/subtitles.png</texturenofocus>
+			<left>200</left>
+			<top>500</top>
+			<width>512</width>
+			<height>128</height>
+			<texturenofocus>calibration/Subtitles.png</texturenofocus>
+			<texturefocus>calibration/Subtitles-focus.png</texturefocus>
 		</control>
+		<!--pixel aspect ratio box-->
 		<control type="resize" id="11">
-			<description>pixel aspect ratio box</description>
-			<posy>270</posy>
-			<width>288</width>
-			<height>288</height>
-			<texturefocus>calibration/pixelratio-focus.png</texturefocus>
-			<texturenofocus>calibration/pixelratio.png</texturenofocus>
+			<top>232</top>
+			<width>256</width>
+			<height>256</height>
+			<texturenofocus>calibration/PixelRatio.png</texturenofocus>
+			<texturefocus>calibration/PixelRatio-focus.png</texturefocus>
 		</control>
-		<control type="label" id="2">
-			<description>coordinates label</description>
-			<posy>20</posy>
-			<label>-</label>
-			<font>normalCaps</font>
-			<align>center</align>
-			<posy>60</posy>
-			<label>-</label>
-			<width>screen_Width</width>
-			<align>center</align>
+		<control type="group">
+			<left>20</left>
+			<top>80</top>
+			<!--coordinates label-->
+			<control type="label" id="2">
+				<top>10</top>
+				<width>1240</width>
+				<label>-</label>
+				<font>semibold-U</font>
+				<align>center</align>
+			</control>
+			<!--help information-->
+			<control type="label" id="3">
+				<top>40</top>
+				<width>1240</width>
+				<label>-</label>
+				<font>regular</font>
+				<align>center</align>
+			</control>
 		</control>
 	</controls>
 </window>

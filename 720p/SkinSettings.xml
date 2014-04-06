@@ -1,488 +1,590 @@
-<window id="59">
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
+
+	<!--global includes-->
 		<include>global_Background</include>
 		<include>global_Includes</include>
-		<control type="label">
-			<label>$LOCALIZE[5] [COLOR=Color2]$LOCALIZE[166][/COLOR]</label>
-			<include>windowTitle</include>
+		<include>windowTitle_System</include>
+
+		<control type="group">
+			<left>65</left>
+			<top>90</top>
+			<include>transition_Content</include>
+
+		<!--CATEGORIES-->
+			<control type="grouplist" id="9001">
+				<height>800</height>
+				<itemgap>2</itemgap>
+				<!--homescreen-->
+				<control type="group">
+					<height>44</height>
+					<control type="button" id="10">
+						<label>$LOCALIZE[31200]</label>
+						<onfocus>Skin.SetString(SkinSettings,Home)</onfocus>
+						<onup>19</onup>
+						<onright>SetFocus(100)</onright>
+						<ondown>15</ondown>
+						<include>settings_Menu</include>
+					</control>
+				</control>
+				<!--artwork-->
+				<control type="group">
+					<height>44</height>
+					<control type="button" id="15">
+						<label>$LOCALIZE[31201]</label>
+						<onfocus>Skin.SetString(SkinSettings,Artwork)</onfocus>
+						<onright>600</onright>
+						<onup>10</onup>
+						<ondown>16</ondown>
+						<include>settings_Menu</include>
+					</control>
+				</control>
+				<!--views-->
+				<control type="group">
+					<height>44</height>
+					<control type="button" id="16">
+						<label>$LOCALIZE[31202]</label>
+						<onfocus>Skin.SetString(SkinSettings,Views)</onfocus>
+						<onright>700</onright>
+						<onup>15</onup>
+						<ondown>17</ondown>
+						<include>settings_Menu</include>
+					</control>
+				</control>
+				<!--addons-->
+				<control type="group">
+					<height>44</height>
+					<control type="button" id="17">
+						<label>$LOCALIZE[24001]</label>
+						<onfocus>Skin.SetString(SkinSettings,Addons)</onfocus>
+						<onright>800</onright>
+						<onup>16</onup>
+						<ondown>18</ondown>
+						<include>settings_Menu</include>
+					</control>
+				</control>
+				<!--other-->
+				<control type="group">
+					<height>44</height>
+					<control type="button" id="18">
+						<label>$LOCALIZE[31203]</label>
+						<onfocus>Skin.SetString(SkinSettings,Other)</onfocus>
+						<onright>900</onright>
+						<onup>17</onup>
+						<ondown>19</ondown>
+						<include>settings_Menu</include>
+					</control>
+				</control>
+				<!--credits-->
+				<control type="group">
+					<height>44</height>
+					<control type="button" id="19">
+						<label>$LOCALIZE[31204] reFocus</label>
+						<onfocus>Skin.SetString(SkinSettings,Credits)</onfocus>
+						<onright>70</onright>
+						<onup>18</onup>
+						<ondown>10</ondown>
+						<include>settings_Menu</include>
+					</control>
+				</control>
+			</control>
+
+			<control type="group">
+				<left>302</left>
+			<!--HOME SCREEN-->
+				<control type="grouplist" id="100">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>70</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Home)</visible>
+					<!--date & time-->
+					<control type="radiobutton" id="101">
+						<label>$LOCALIZE[14063]</label>
+						<onclick>Skin.ToggleSetting(home.time)</onclick>
+						<selected>Skin.HasSetting(home.time)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--playing item on home-->
+					<control type="radiobutton" id="102">
+						<label>$LOCALIZE[31216]</label>
+						<onclick>Skin.ToggleSetting(home.nowplaying)</onclick>
+						<selected>Skin.HasSetting(home.nowplaying)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--home menu configuration-->
+					<control type="button" id="103">
+						<label>$LOCALIZE[31210]</label>
+						<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
+						<onclick>ActivateWindow(61)</onclick>
+						<include>settings_Listbutton</include>
+					</control>
+					<!--shelf-->
+					<control type="radiobutton" id="110">
+						<label>$LOCALIZE[31211]</label>
+						<onclick>Skin.ToggleSetting(fanartgrabber.init)</onclick>
+						<onclick>Skin.ToggleSetting(shelf.enabled)</onclick>
+						<selected>Skin.HasSetting(shelf.enabled)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--shelf widget 1-->
+					<control type="button" id="111">
+						<label>$LOCALIZE[31035]</label>
+						<label2>$VAR[shelf_Widget1Select]</label2>
+						<onclick condition="!StringCompare(Skin.String(shelf.1),playlist) + !StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,recent)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.1),playlist)">Skin.SetString(shelf.1,featured)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,playlist)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(shelf.enabled)</visible>
+						<enable>Skin.HasSetting(shelf.enabled)</enable>
+					</control>
+					<control type="button" id="112">
+						<label>- $LOCALIZE[524]</label>
+						<label2>$INFO[Skin.String(shelf.1.playlist)]</label2>
+						<onclick>Skin.Reset(shelf.1.playlist)</onclick>
+						<onclick>Skin.Reset(shelf.1.playlistname)</onclick>
+						<onclick>Skin.SetFile(shelf.1.playlist,.xsp|.m3u,special://skin/playlists/episodes/)</onclick>
+						<onclick>Skin.SetString(shelf.1.playlistname)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(shelf.enabled)</visible>
+						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.1,playlist)</enable>
+					</control>
+					<!--shelf widget 2-->
+					<control type="button" id="113">
+						<label>$LOCALIZE[31036]</label>
+						<label2>$VAR[shelf_Widget2Select]</label2>
+						<onclick condition="!StringCompare(Skin.String(shelf.2),playlist) + !StringCompare(Skin.String(shelf.2),recent)">Skin.SetString(shelf.2,recent)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.2),playlist)">Skin.SetString(shelf.2,featured)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.2),recent)">Skin.SetString(shelf.2,playlist)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(shelf.enabled)</visible>
+						<enable>Skin.HasSetting(shelf.enabled)</enable>
+					</control>
+					<control type="button" id="114">
+						<label>- $LOCALIZE[524]</label>
+						<label2>$INFO[Skin.String(shelf.2.playlist)]</label2>
+						<onclick>Skin.Reset(shelf.2.playlist)</onclick>
+						<onclick>Skin.Reset(shelf.2.playlistname)</onclick>
+						<onclick>Skin.SetFile(shelf.2.playlist,.xsp|.m3u,special://skin/playlists/movies/)</onclick>
+						<onclick>Skin.SetString(shelf.2.playlistname)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(shelf.enabled)</visible>
+						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.2,playlist)</enable>
+					</control>
+					<!--single image-->
+					<control type="button" id="120">
+						<label>$LOCALIZE[31212]</label>
+						<onclick>Skin.ToggleSetting(fanartgrabber.init)</onclick>
+						<onclick>Skin.Reset(HomeBackground)</onclick>
+						<onclick>Skin.Reset(home.background.image)</onclick>
+						<onclick>Skin.SetString(HomeBackground,single)</onclick>
+						<onclick>Skin.SetImage(home.background.image)</onclick>
+						<include>settings_Listbutton</include>
+						<enable>!Skin.HasSetting(shelf.enabled)</enable>
+					</control>
+					<!--multi image-->
+					<control type="button" id="121">
+						<label>$LOCALIZE[31213]</label>
+						<onclick>Skin.ToggleSetting(fanartgrabber.init)</onclick>
+						<onclick>Skin.Reset(HomeBackground)</onclick>
+						<onclick>Skin.Reset(home.background.folder)</onclick>
+						<onclick>Skin.SetString(HomeBackground,multi)</onclick>
+						<onclick>Skin.SetPath(home.background.folder)</onclick>
+						<include>settings_Listbutton</include>
+						<enable>!Skin.HasSetting(shelf.enabled)</enable>
+					</control>
+					<!--fanart grabber-->
+					<control type="radiobutton" id="122">
+						<label>$LOCALIZE[31214]</label>
+						<onclick>Skin.ToggleSetting(fanartgrabber.init)</onclick>
+						<selected>Skin.HasSetting(fanartgrabber.init)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.grab.fanart) + !Skin.HasSetting(shelf.enabled)</enable>
+					</control>
+					<!--show fanart info-->
+					<control type="radiobutton" id="123">
+						<label>- $LOCALIZE[31217]</label>
+						<onclick>Skin.ToggleSetting(fanart.info)</onclick>
+						<selected>Skin.HasSetting(fanart.info)</selected>
+						<include>settings_Radiobutton</include>
+						<visible>Skin.HasSetting(fanartgrabber.init)</visible>
+						<enable>Skin.HasSetting(fanartgrabber.init)</enable>
+					</control>
+					<!--apply-->
+					<control type="button" id="124">
+						<label>- $LOCALIZE[31405] ($LOCALIZE[31218])</label>
+						<onclick>Skin.Reset(HomeBackground)</onclick>
+						<onclick>Skin.SetString(HomeBackground,fanart)</onclick>
+						<onclick>AlarmClock(SkinInit,ReplaceWindow(startup),00:01,silent)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(fanartgrabber.init)</visible>
+						<enable>Skin.HasSetting(fanartgrabber.init)</enable>
+					</control>	
+				</control>
+
+			<!--ARTWORK-->
+				<control type="grouplist" id="600">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>70</onright>
+					<onup>600</onup>
+					<ondown>600</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Artwork)</visible>
+					<!--global fanart-->
+					<control type="radiobutton" id="602">
+						<label>$LOCALIZE[31230]</label>
+						<onclick>Skin.ToggleSetting(fanart.global)</onclick>
+						<selected>!Skin.HasSetting(fanart.global)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--weather fanart-->
+					<control type="radiobutton" id="604">
+						<label>$LOCALIZE[31231]</label>
+						<onclick>Skin.ToggleSetting(fanart.weather)</onclick>
+						<selected>Skin.HasSetting(fanart.weather)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<control type="button" id="605">
+						<label>- $LOCALIZE[31232]</label>
+						<onclick>Skin.Reset(fanart.weather.path)</onclick>
+						<onclick>Skin.SetPath(fanart.weather.path)</onclick>
+						<label2>$INFO[Skin.String(fanart.weather.path)]</label2>
+						<enable>Skin.HasSetting(fanart.weather)</enable>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(fanart.weather)</visible>
+					</control>
+					<!--visualization fanart-->
+					<control type="radiobutton" id="606">
+						<label>$LOCALIZE[31234]</label>
+						<onclick>Skin.ToggleSetting(fanart.visualization)</onclick>
+						<selected>Skin.HasSetting(fanart.visualization)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--blend visualization & fanart-->
+					<control type="radiobutton" id="607">
+						<label>- $LOCALIZE[31235]</label>
+						<onclick>Skin.ToggleSetting(fanart.visualization.blend)</onclick>
+						<selected>Skin.HasSetting(fanart.visualization.blend)</selected>
+						<visible>Skin.HasSetting(fanart.visualization)</visible>
+						<enable>Skin.HasSetting(fanart.visualization)</enable>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--tv show clearlogos-->
+					<control type="radiobutton" id="614">
+						<label>$LOCALIZE[31236]</label>
+						<onclick>Skin.ToggleSetting(logos.tvshows.enable)</onclick>
+						<selected>Skin.HasSetting(logos.tvshows.enable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</control>
+					<control type="button" id="615">
+						<label>- $LOCALIZE[31238]</label>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=tvshow, silent=true, clearlogo)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(logos.tvshows.enable)</visible>
+					</control>
+					<!--movie clearlogos-->
+					<control type="radiobutton" id="616">
+						<label>$LOCALIZE[31237]</label>
+						<onclick>Skin.ToggleSetting(logos.movies.enable)</onclick>
+						<selected>Skin.HasSetting(logos.movies.enable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</control>
+					<control type="button" id="617">
+						<label>- $LOCALIZE[31238]</label>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=movie, silent=true, clearlogo)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(logos.movies.enable)</visible>
+					</control>
+					<!--movie banners-->
+					<control type="radiobutton" id="618">
+						<label>$LOCALIZE[31239]</label>
+						<onclick>Skin.ToggleSetting(banner.movies.enable)</onclick>
+						<selected>Skin.HasSetting(banner.movies.enable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</control>
+					<control type="button" id="619">
+						<label>- $LOCALIZE[31240]</label>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=movie, silent=true, banner)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(banner.movies.enable)</visible>
+					</control>
+					<!--prefer landscape-->
+					<control type="radiobutton" id="620">
+						<label>$LOCALIZE[31241]</label>
+						<onclick>Skin.ToggleSetting(landscapethumb.enable)</onclick>
+						<selected>Skin.HasSetting(landscapethumb.enable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
+					</control>
+					<control type="button" id="621">
+						<label>- $LOCALIZE[31242]</label>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, silent=true, landscape)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(landscapethumb.enable)</visible>
+					</control>
+				</control>
+
+			<!--VIEW SETTINGS-->					
+				<control type="grouplist" id="700">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>70</onright>
+					<onup>700</onup>
+					<ondown>700</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Views)</visible>
+					<!--sortletter-->
+					<control type="radiobutton" id="701">
+						<label>$LOCALIZE[31251]</label>
+						<onclick>Skin.ToggleSetting(sortletter.enable)</onclick>
+						<selected>Skin.HasSetting(sortletter.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--fullscreen button-->
+					<control type="radiobutton" id="702">
+						<label>$LOCALIZE[31252]</label>
+						<onclick>Skin.ToggleSetting(menu.nowplaying)</onclick>
+						<selected>Skin.HasSetting(menu.nowplaying)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<control type="radiobutton" id="703">
+						<label>- $LOCALIZE[31283]</label>
+						<onclick>Skin.ToggleSetting(menu.playlist)</onclick>
+						<selected>Skin.HasSetting(menu.playlist)</selected>
+						<enable>Skin.HasSetting(menu.nowplaying)</enable>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--media overlays-->
+					<control type="radiobutton" id="704">
+						<label>$LOCALIZE[31253]</label>
+						<onclick>Skin.ToggleSetting(overlay.enable)</onclick>
+						<selected>Skin.HasSetting(overlay.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--unwatched status-->
+					<control type="radiobutton" id="705">
+						<label>$LOCALIZE[31254]</label>
+						<onclick>Skin.ToggleSetting(overlay.movies)</onclick>
+						<selected>Skin.HasSetting(overlay.movies)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<control type="radiobutton" id="706">
+						<label>$LOCALIZE[31255]</label>
+						<onclick>Skin.ToggleSetting(overlay.tvshows)</onclick>
+						<selected>Skin.HasSetting(overlay.tvshows)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<control type="radiobutton" id="707">
+						<label>$LOCALIZE[31256]</label>
+						<onclick>Skin.ToggleSetting(overlay.episodes)</onclick>
+						<selected>Skin.HasSetting(overlay.episodes)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<control type="radiobutton" id="708">
+						<label>$LOCALIZE[31257]</label>
+						<onclick>Skin.ToggleSetting(overlay.files)</onclick>
+						<selected>Skin.HasSetting(overlay.files)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<control type="radiobutton" id="709">
+						<label>$LOCALIZE[31258]</label>
+						<onclick>Skin.ToggleSetting(overlay.resumable)</onclick>
+						<selected>Skin.HasSetting(overlay.resumable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--background video-->
+					<control type="radiobutton" id="710">
+						<label>$LOCALIZE[31215]</label>
+						<onclick>Skin.ToggleSetting(backgroundvideo.global)</onclick>
+						<selected>Skin.HasSetting(backgroundvideo.global)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+				</control>
+
+			<!--ADDONS-->
+				<control type="grouplist" id="800">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>7</onright>
+					<onup>800</onup>
+					<ondown>800</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Addons)</visible>
+					<!--globalsearch-->
+					<control type="radiobutton" id="801">
+						<label>$LOCALIZE[31260]</label>
+						<onclick>Skin.ToggleSetting(search.addon)</onclick>
+						<selected>Skin.HasSetting(search.addon)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.globalsearch)</enable>
+					</control>
+					<!--next aired-->
+					<control type="radiobutton" id="802">
+						<label>$LOCALIZE[31259]</label>
+						<onclick>Skin.ToggleSetting(nextaired.disable)</onclick>
+						<selected>Skin.HasSetting(nextaired.disable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.tv.show.next.aired)</enable>
+					</control>
+					<!--artistslideshow-->
+					<control type="radiobutton" id="803">
+						<label>$LOCALIZE[31261]</label>
+						<onclick>Skin.ToggleSetting(artistslideshow.disable)</onclick>
+						<selected>Skin.HasSetting(artistslideshow.disable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artistslideshow)</enable>
+					</control>
+					<!--tvtunes-->
+					<control type="radiobutton" id="804">
+						<label>$LOCALIZE[31282]</label>
+						<onclick>Skin.ToggleSetting(tvtunes.enable)</onclick>
+						<selected>Skin.HasSetting(tvtunes.enable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.tvtunes)</enable>
+					</control>
+				</control>
+
+			<!--OTHER-->
+				<control type="grouplist" id="900">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>70</onright>
+					<onup>800</onup>
+					<ondown>800</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Other)</visible>
+					<!--keyboard-->
+					<control type="radiobutton" id="901">
+						<label>$LOCALIZE[31263]</label>
+						<onclick>Skin.ToggleSetting(keyboard.enable)</onclick>
+						<selected>!Skin.HasSetting(keyboard.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--kiosk mode-->
+					<control type="radiobutton" id="902">
+						<label>$LOCALIZE[31264]</label>
+						<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
+						<selected>Skin.HasSetting(global.kiosk)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+				</control>
+
+			<!--SKIN CREDITS-->			
+				<control type="grouplist" id="1000">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>70</onright>
+					<onup>800</onup>
+					<ondown>800</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Credits)</visible>
+					<control type="button" id="1001">
+						<label>[UPPERCASE]Skin Design + Development[/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1002">
+						<label>Jeroen Pardon</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1003">
+						<label>[UPPERCASE]Version[/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1004">
+						<label>$INFO[System.AddonVersion(skin.refocus)]</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1005">
+						<label>[UPPERCASE]Special Thanks[/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1006">
+						<label>Team-XBMC, the XBMC Community, and YOU for using reFocus!</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1007">
+						<label>[UPPERCASE]Attribution[/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1008">
+						<label>Climacons by Adam Whitcroft - [B]adamwhitcroft.com/climacons[/B]</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="10010">
+						<label>[UPPERCASE]Translations[/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1011">
+						<label>epoke (Korean), fabiodacosta (Portuguese), Galefury (Romanian), Jeroen (Dutch)</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1012">
+						<label>legostrike (French), ZZRX (Finnish)</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1020">
+						<label>[UPPERCASE]Final Note[/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1021">
+						<label>Please consider supporting the development of xbmc - [B]xbmc.org/contribute/[/B]</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+				</control>
+			</control>
 		</control>
-<!---CATEGORIES------->
-		<control type="grouplist" id="9001">
-			<posx>15</posx>
-			<posy>125</posy>
-			<height>800</height>
-			<itemgap>0</itemgap>
-			<include>transition_Container</include>
-			<!--homescreen-->
-			<control type="group">
-				<height>50</height>
-				<control type="button" id="10">
-					<label>$LOCALIZE[31124]</label>
-					<onfocus>Skin.SetString(SkinSettings,Home)</onfocus>
-					<onup>19</onup>
-					<onright>SetFocus(100)</onright>
-					<ondown>15</ondown>
-					<include>button_Category</include>
-				</control>
-			</control>
-			<!--artwork-->
-			<control type="group">
-				<height>50</height>
-				<control type="button" id="15">
-					<label>$LOCALIZE[31127]</label>
-					<onfocus>Skin.SetString(SkinSettings,Artwork)</onfocus>
-					<onright>600</onright>
-					<onup>10</onup>
-					<ondown>16</ondown>
-					<include>button_Category</include>
-				</control>
-			</control>
-			<!--views-->
-			<control type="group">
-				<height>50</height>
-				<control type="button" id="16">
-					<label>$LOCALIZE[31015]</label>
-					<onfocus>Skin.SetString(SkinSettings,Views)</onfocus>
-					<onright>700</onright>
-					<onup>15</onup>
-					<ondown>17</ondown>
-					<include>button_Category</include>
-				</control>
-			</control>
-			<!--addons-->
-			<control type="group">
-				<height>50</height>
-				<control type="button" id="17">
-					<label>$LOCALIZE[24001]</label>
-					<onfocus>Skin.SetString(SkinSettings,Addons)</onfocus>
-					<onright>800</onright>
-					<onup>16</onup>
-					<ondown>18</ondown>
-					<include>button_Category</include>
-				</control>
-			</control>
-			<!--other-->
-			<control type="group">
-				<height>50</height>
-				<control type="button" id="18">
-					<label>$LOCALIZE[31119]</label>
-					<onfocus>Skin.SetString(SkinSettings,Other)</onfocus>
-					<onright>900</onright>
-					<onup>17</onup>
-					<ondown>19</ondown>
-					<include>button_Category</include>
-				</control>
-			</control>
-			<!--credits-->
-			<control type="group">
-				<height>50</height>
-				<control type="button" id="19">
-					<label>$LOCALIZE[31909] reFocus</label>
-					<onfocus>Skin.SetString(SkinSettings,Credits)</onfocus>
-					<onup>18</onup>
-					<ondown>10</ondown>
-					<include>button_Category</include>
-				</control>
-			</control>
-		</control>
-<!---HOME SCREEN------>	
-		<control type="grouplist" id="100">
-			<posx>340</posx>
-			<posy>93</posy>
-			<width>850</width>
-			<height>600</height>
+		<control type="scrollbar" id="70">
+			<left>1272</left>
+			<height>screen_Height</height>
 			<onleft>9001</onleft>
-			<onright>9001</onright>
-			<onup>100</onup>
-			<ondown>100</ondown>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(SkinSettings,Home)</visible>
-			<include>transition_Container</include>
-			<!--home menu configuration-->
-			<control type="button" id="101">
-				<label>$LOCALIZE[31031]</label>
-				<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
-				<onclick>ActivateWindow(61)</onclick>
-				<include>button_Settings</include>
-			</control>
-			<!--time-->
-			<control type="radiobutton" id="102">
-				<label>$LOCALIZE[31907]</label>
-				<onclick>Skin.ToggleSetting(home.time)</onclick>
-				<selected>Skin.HasSetting(home.time)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--statistics-->
-			<control type="radiobutton" id="103">
-				<label>$LOCALIZE[31128]</label>
-				<onclick>Skin.ToggleSetting(home.stats)</onclick>
-				<selected>Skin.HasSetting(home.stats)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--slideshows-->
-			<control type="radiobutton" id="104">
-				<label>$LOCALIZE[31936]</label>
-				<onclick>Skin.ToggleSetting(slideshow.fanart)</onclick>
-				<selected>!Skin.HasSetting(slideshow.fanart)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="105">
-				<label>$LOCALIZE[31937]</label>
-				<onclick>Skin.SetPath(slideshow.custom)</onclick>
-				<label2>[COLOR=Color2]$INFO[Skin.String(slideshow.custom)][/COLOR]</label2>
-				<enable>Skin.HasSetting(slideshow.fanart)</enable>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(slideshow.fanart)</visible>
-			</control>
-			<!--background video-->
-			<control type="radiobutton" id="106">
-				<label>$LOCALIZE[31028]</label>
-				<onclick>Skin.ToggleSetting(home.backgroundvideo)</onclick>
-				<selected>!Skin.HasSetting(home.backgroundvideo)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--search-->
-			<control type="radiobutton" id="107">
-				<label>$LOCALIZE[31933]</label>
-				<onclick>Skin.ToggleSetting(home.search)</onclick>
-				<selected>Skin.HasSetting(home.search)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="108">
-				<label>- $LOCALIZE[31934]</label>
-				<onclick>Skin.ToggleSetting(search.addon)</onclick>
-				<selected>Skin.HasSetting(search.addon)</selected>
-				<visible>Skin.HasSetting(home.search)</visible>
-				<include>button_Settings</include>
-			</control>
 		</control>
-<!---ARTWORK------>
-		<control type="grouplist" id="600">
-			<posx>340</posx>
-			<posy>93</posy>
-			<width>850</width>
-			<height>605</height>
-			<onleft>9001</onleft>
-			<onright>9001</onright>
-			<onup>600</onup>
-			<ondown>600</ondown>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(SkinSettings,Artwork)</visible>
-			<include>transition_Container</include>
-			<control type="label" id="601">
-				<label>$LOCALIZE[31016]</label>
-				<font>light.Category</font>
-				<textcolor>Color2</textcolor>
-				<include>button_Settings</include>
-			</control>
-			<!--global fanart-->
-			<control type="radiobutton" id="602">
-				<label>$LOCALIZE[31099]</label>
-				<onclick>Skin.ToggleSetting(fanart.global)</onclick>
-				<selected>Skin.HasSetting(fanart.global)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--vignette-->
-			<control type="radiobutton" id="603">
-				<label>$LOCALIZE[31929]</label>
-				<onclick>Skin.ToggleSetting(fanart.global.alt)</onclick>
-				<selected>Skin.HasSetting(fanart.global.alt)</selected>
-				<include>button_Settings</include>
-				<enable>Skin.HasSetting(fanart.global)</enable>
-			</control>
-			<!--weather fanart-->
-			<control type="radiobutton" id="604">
-				<label>$LOCALIZE[31966]</label>
-				<onclick>Skin.ToggleSetting(fanart.weather)</onclick>
-				<selected>Skin.HasSetting(fanart.weather)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="605">
-				<label>- $LOCALIZE[31967]</label>
-				<onclick>Skin.SetPath(fanart.weather.path)</onclick>
-				<label2>[COLOR=Color2]$INFO[Skin.String(fanart.weather.path)][/COLOR]</label2>
-				<enable>Skin.HasSetting(fanart.weather)</enable>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(fanart.weather)</visible>
-			</control>
-			<!--visualization fanart-->
-			<control type="radiobutton" id="606">
-				<label>$LOCALIZE[31120]</label>
-				<onclick>Skin.ToggleSetting(fanart.visualization)</onclick>
-				<onclick>Skin.ToggleSetting(fanart.visualization.blend)</onclick>
-				<selected>Skin.HasSetting(fanart.visualization)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="607">
-				<label>- $LOCALIZE[31126]</label>
-				<onclick>Skin.ToggleSetting(fanart.visualization.blend)</onclick>
-				<selected>Skin.HasSetting(fanart.visualization.blend)</selected>
-				<visible>Skin.HasSetting(fanart.visualization)</visible>
-				<enable>Skin.HasSetting(fanart.visualization)</enable>
-				<include>button_Settings</include>
-			</control>
-			<control type="label" id="610">
-				<label>$LOCALIZE[31119]</label>
-				<font>light.Category</font>
-				<textcolor>Color2</textcolor>
-				<include>button_Settings</include>
-			</control>
-			<!--banners-->
-			<control type="radiobutton" id="611">
-				<label>$LOCALIZE[31066]</label>
-				<onclick>Skin.ToggleSetting(banners.enable)</onclick>
-				<selected>Skin.HasSetting(banners.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="612">
-				<label>- $LOCALIZE[31067]</label>
-				<onclick>Skin.ToggleSetting(banners.local)</onclick>
-				<selected>Skin.HasSetting(banners.local)</selected>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(banners.enable)</visible>
-			</control>
-			<control type="button" id="613">
-				<label>- $LOCALIZE[31129]</label>
-				<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, silent=true,banner)</onclick>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(banners.enable) + Skin.HasSetting(banners.local)</visible>
-				<enable>System.HasAddon(script.artwork.downloader)</enable>
-			</control>
-			<!--tv show logos-->
-			<control type="radiobutton" id="614">
-				<label>$LOCALIZE[31972]</label>
-				<onclick>Skin.ToggleSetting(tvshowlogos.enable)</onclick>
-				<selected>Skin.HasSetting(tvshowlogos.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="button" id="615">
-				<label>- $LOCALIZE[31130]</label>
-				<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, mediatype=tvshow, silent=true,clearlogo)</onclick>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(tvshowlogos.enable)</visible>
-				<enable>System.HasAddon(script.artwork.downloader)</enable>
-			</control>
-			<control type="radiobutton" id="617">
-				<label>$LOCALIZE[31132]</label>
-				<onclick>Skin.ToggleSetting(gallery.extrafanart)</onclick>
-				<include>button_Settings</include>
-				<selected>Skin.HasSetting(gallery.extrafanart)</selected>
-			</control>
-			<control type="button" id="618">
-				<label>- $LOCALIZE[31131]</label>
-				<onclick>XBMC.runscript(script.artwork.downloader, mode=custom, extrafanart)</onclick>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(gallery.extrafanart)</visible>
-				<enable>System.HasAddon(script.artwork.downloader)</enable>
-			</control>
-		</control>
-<!---VIEW SETTINGS------>					
-		<control type="grouplist" id="700">
-			<posx>340</posx>
-			<posy>93</posy>
-			<width>850</width>
-			<height>605</height>
-			<onleft>9001</onleft>
-			<onright>9001</onright>
-			<onup>700</onup>
-			<ondown>700</ondown>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(SkinSettings,Views)</visible>
-			<include>transition_Container</include>
-			<!--scrollbars-->
-			<control type="radiobutton" id="701">
-				<label>21383</label>
-				<onclick>Skin.ToggleSetting(scrollbar.enable)</onclick>
-				<selected>Skin.HasSetting(scrollbar.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="702">
-				<label>- $LOCALIZE[31055]</label>
-				<onclick>Skin.ToggleSetting(scrollbar.hide)</onclick>
-				<selected>Skin.HasSetting(scrollbar.hide)</selected>
-				<enable>Skin.HasSetting(scrollbar.enable)</enable>
-				<include>button_Settings</include>
-				<visible>Skin.HasSetting(scrollbar.enable)</visible>
-			</control>
-			<!--menu indicator-->
-			<control type="radiobutton" id="703">
-				<label>$LOCALIZE[31053]</label>
-				<onclick>Skin.ToggleSetting(indicator.enable)</onclick>
-				<selected>Skin.HasSetting(indicator.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--item count-->
-			<control type="radiobutton" id="704">
-				<label>$LOCALIZE[31040]</label>
-				<onclick>Skin.ToggleSetting(numitems.enable)</onclick>
-				<selected>Skin.HasSetting(numitems.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--sortletter-->
-			<control type="radiobutton" id="705">
-				<label>$LOCALIZE[31037]</label>
-				<onclick>Skin.ToggleSetting(sortletter.enable)</onclick>
-				<selected>Skin.HasSetting(sortletter.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--media overlays-->
-			<control type="radiobutton" id="706">
-				<label>$LOCALIZE[31025]</label>
-				<onclick>Skin.ToggleSetting(overlay.enable)</onclick>
-				<selected>!Skin.HasSetting(overlay.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="707">
-				<label>$LOCALIZE[31922]</label>
-				<onclick>Skin.ToggleSetting(overlay.movies)</onclick>
-				<selected>Skin.HasSetting(overlay.movies)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="708">
-				<label>$LOCALIZE[31921]</label>
-				<onclick>Skin.ToggleSetting(overlay.tvshows)</onclick>
-				<selected>Skin.HasSetting(overlay.tvshows)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="709">
-				<label>$LOCALIZE[31924]</label>
-				<onclick>Skin.ToggleSetting(overlay.episodes)</onclick>
-				<selected>Skin.HasSetting(overlay.episodes)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="710">
-				<label>$LOCALIZE[31920]</label>
-				<onclick>Skin.ToggleSetting(overlay.files)</onclick>
-				<selected>Skin.HasSetting(overlay.files)</selected>
-				<include>button_Settings</include>
-			</control>
-			<control type="radiobutton" id="711">
-				<label>$LOCALIZE[31918]</label>
-				<onclick>Skin.ToggleSetting(overlay.resumable)</onclick>
-				<selected>Skin.HasSetting(overlay.resumable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--background video-->
-			<control type="radiobutton" id="712">
-				<label>$LOCALIZE[31028]</label>
-				<onclick>Skin.ToggleSetting(backgroundvideo.global)</onclick>
-				<selected>Skin.HasSetting(backgroundvideo.global)</selected>
-				<include>button_Settings</include>
-			</control>
-		</control>
-<!---ADDONS------>
-		<control type="grouplist" id="800">
-			<posx>340</posx>
-			<posy>93</posy>
-			<width>850</width>
-			<height>605</height>
-			<onleft>9001</onleft>
-			<onright>9001</onright>
-			<onup>800</onup>
-			<ondown>800</ondown>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(SkinSettings,Addons)</visible>
-			<include>transition_Container</include>
-			<!--watchlist-->
-			<control type="radiobutton" id="801">
-				<label>$LOCALIZE[31082]</label>
-				<onclick>Skin.ToggleSetting(watchlist.disable)</onclick>
-				<selected>Skin.HasSetting(watchlist.disable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--search-->
-			<control type="radiobutton" id="802">
-				<label>$LOCALIZE[31934]</label>
-				<onclick>Skin.ToggleSetting(search.addon)</onclick>
-				<selected>Skin.HasSetting(search.addon)</selected>
-				<include>button_Settings</include>
-			</control>
-		</control>
-<!---OTHER------>
-		<control type="grouplist" id="900">
-			<posx>340</posx>
-			<posy>93</posy>
-			<width>850</width>
-			<height>605</height>
-			<onleft>9001</onleft>
-			<onright>9001</onright>
-			<onup>800</onup>
-			<ondown>800</ondown>
-			<itemgap>0</itemgap>
-			<visible>Skin.String(SkinSettings,Other)</visible>
-			<include>transition_Container</include>
-			<!--smooth scrolling-->
-			<control type="radiobutton" id="901">
-				<label>$LOCALIZE[31060]</label>
-				<onclick>Skin.ToggleSetting(smoothscrolling.enable)</onclick>
-				<selected>Skin.HasSetting(smoothscrolling.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--progressbar-->
-			<control type="radiobutton" id="902">
-				<label>$LOCALIZE[31917]</label>
-				<onclick>Skin.ToggleSetting(osd.progressbar)</onclick>
-				<selected>Skin.HasSetting(osd.progressbar)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--keyboard-->
-			<control type="radiobutton" id="903">
-				<label>$LOCALIZE[31035]</label>
-				<onclick>Skin.ToggleSetting(keyboard.enable)</onclick>
-				<selected>!Skin.HasSetting(keyboard.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--kiosk mode-->
-			<control type="radiobutton" id="904">
-				<label>$LOCALIZE[31964]</label>
-				<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
-				<selected>Skin.HasSetting(global.kiosk)</selected>
-				<include>button_Settings</include>
-			</control>
-			<!--intro-->
-			<control type="radiobutton" id="905">
-				<label>$LOCALIZE[31058]</label>
-				<onclick>Skin.ToggleSetting(intro.enable)</onclick>
-				<selected>!Skin.HasSetting(intro.enable)</selected>
-				<include>button_Settings</include>
-			</control>
-		</control>
-<!---SKIN CREDITS------>					
-		<control type="group" id="1000">
-			<posx>370</posx>
-			<posy>85</posy>
-			<visible>Skin.String(SkinSettings,Credits)</visible>
-			<include>transition_Container</include>
-			<control type="textbox">
-				<label>31000</label>
-				<width>850</width>
-				<height>680</height>
-				<onleft>15</onleft>
-				<align>left</align>
-				<autoscroll time="1000" delay="5000" repeat="5000">true</autoscroll>
-				<textcolor>Color1</textcolor>
-				<font>regular.DescriptionSmall</font>
-				<include>textBox</include>
-			</control>
-		</control>
-<!---IMAGES------>
 		<control type="image">
-			<posx>90</posx>
-			<posy>590</posy>
-			<width>224</width>
+			<left>75</left>
+			<top>600</top>
+			<width>200</width>
 			<texture>logos/refocuslogo.png</texture>
-			<aspectratio align="right">keep</aspectratio>
-			<include>transition_Container</include>
-		</control>
-		<control type="image">
-			<posx>311</posx>
-			<height>1080</height>
-			<width>29</width>
-			<texture>settings/separator.png</texture>
-			<aspectratio align="right">stretch</aspectratio>
-			<include>transition_Container</include>
+			<aspectratio align="left">keep</aspectratio>
+			<include>transition_Content</include>
 		</control>
 	</controls>
 </window>
