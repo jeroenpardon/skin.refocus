@@ -291,7 +291,7 @@
 						<label>$LOCALIZE[20343]</label>
 						<onclick>ActivateWindow(Videos,tvshowtitles,return)</onclick>
 						<include>home_MenuButton</include>
-						<visible>Library.HasContent(tvshows) + Skin.HasSetting(homemenu.tvshows) + ![Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
+						<visible>Library.HasContent(tvshows) + Skin.HasSetting(homemenu.tvshows) + ![Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
 					</control>
 					<!--submenu items enabled-->		
 					<control type="button" id="41">
@@ -775,7 +775,7 @@
 						<onclick>SetFocus(9999)</onclick>
 						<onback>Skin.SetString(sub,none)</onback>
 						<include>home_MenuButton</include>
-						<visible>Skin.HasSetting(homemenu.disc)</visible>
+						<visible>!Skin.HasSetting(homemenu.disc)</visible>
 					</control>
 					<!--disc play-->
 					<control type="button" id="162">
@@ -800,19 +800,20 @@
 						<label>$LOCALIZE[1036]</label>
 						<onclick>ActivateWindow(Favourites)</onclick>
 						<include>home_MenuButton</include>
+						<visible>Skin.HasSetting(homemenu.favourites)</visible>
 					</control>
 				<!--SEARCH-->
 					<control type="button" id="181">
 						<label>$LOCALIZE[137]</label>
 						<onclick>RunAddon(script.globalsearch)</onclick>
 						<include>home_MenuButton</include>
-						<visible>Skin.HasSetting(search.addon)</visible>
+						<visible>Skin.HasSetting(homemenu.search) + Skin.HasSetting(search.addon)</visible>
 					</control>
 					<control type="button" id="182">
 						<label>$LOCALIZE[137]</label>
 						<onclick>ActivateWindow(64)</onclick>
 						<include>home_MenuButton</include>
-						<visible>!Skin.HasSetting(search.addon)</visible>
+						<visible>Skin.HasSetting(homemenu.search) + !Skin.HasSetting(search.addon)</visible>
 					</control>
 				<!--NOW PLAYING-->
 					<control type="button" id="190">
