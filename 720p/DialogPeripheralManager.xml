@@ -34,27 +34,57 @@
 					<onup>20</onup>
 					<ondown>20</ondown>
 					<onleft>10</onleft>
-					<onright>11</onright>
+					<onright>10</onright>
 					<include>global_ListScroll</include>
-					<itemlayout height="40">
+					<itemlayout height="90">
 						<control type="image">
 							<width>642</width>
+							<height>90</height>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
 							<width>627</width>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<!--vendor id-->
+						<control type="label">
+							<top>25</top>
+							<width>627</width>
+							<label>$LOCALIZE[35504]$INFO[ListItem.Property(Product),: ] $LOCALIZE[35503]$INFO[ListItem.Property(Vendor),: ]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<!--class-->
+						<control type="label">
+							<top>50</top>
+							<width>627</width>
+							<label>$LOCALIZE[35501]$INFO[ListItem.Property(Class),: ] $LOCALIZE[19114]$INFO[ListItem.Property(Version),: ]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</itemlayout>
-					<focusedlayout height="40">
+					<focusedlayout height="90">
 						<control type="image">
 							<width>642</width>
+							<height>90</height>
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="label">
 							<width>627</width>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<include>dialog_CommonListItemFocus</include>
+						</control>
+						<!--vendor id-->
+						<control type="label">
+							<top>25</top>
+							<width>627</width>
+							<label>$LOCALIZE[35504]$INFO[ListItem.Property(Product),: ] $LOCALIZE[35503]$INFO[ListItem.Property(Vendor),: ]</label>
+							<include>dialog_CommonListItemFocus</include>
+						</control>
+						<!--class-->
+						<control type="label">
+							<top>50</top>
+							<width>627</width>
+							<label>$LOCALIZE[35501]$INFO[ListItem.Property(Class),: ] $LOCALIZE[19114]$INFO[ListItem.Property(Version),: ]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 					</focusedlayout>
@@ -66,21 +96,10 @@
 				<top>439</top>
 				<!--settings-->
 				<control type="button" id="10">
-					<label>$LOCALIZE[5]</label>
-					<onup>20</onup>
-					<onleft>11</onleft>
-					<onright>11</onright>
-					<ondown>9</ondown>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--close-->
-				<control type="button" id="11">
 					<left>493</left>
 					<label>$LOCALIZE[186]</label>
 					<onup>20</onup>
-					<onleft>10</onleft>
-					<onright>10</onright>
-					<ondown>9</ondown>
+					<ondown>20</ondown>
 					<include>dialog_WindowButton</include>
 				</control>
 			</control>
