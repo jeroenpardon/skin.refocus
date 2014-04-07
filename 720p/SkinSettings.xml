@@ -450,8 +450,14 @@
 						<include>settings_Radiobutton</include>
 						<enable>System.HasAddon(script.artistslideshow)</enable>
 					</control>
+					<!--set default lyrics add-on-->
+					<control type="button" id="804">
+						<label>$LOCALIZE[31607]</label>
+						<onclick>Skin.SetAddon(addon.lyrics.path,xbmc.python.lyrics)</onclick>
+						<include>settings_Listbutton</include>
+					</control>
 					<!--tvtunes-->
-					<control type="radiobutton" id="804">
+					<control type="radiobutton" id="805">
 						<label>$LOCALIZE[31282]</label>
 						<onclick>Skin.ToggleSetting(tvtunes.enable)</onclick>
 						<selected>Skin.HasSetting(tvtunes.enable)</selected>
