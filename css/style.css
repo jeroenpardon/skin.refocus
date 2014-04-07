@@ -1,0 +1,187 @@
+@import url("reset.css") screen;
+@import url("animation.css") screen;
+
+html, body {
+	font-size:12px;
+	font-family: 'Open Sans', sans-serif;
+	min-width:960px;
+	background-color:#f5f5f5;
+	}
+
+h1 {
+	font-weight: 300;
+	font-size: 42px;
+	line-height: 2;
+	}
+
+h2 {
+	font-weight: 300;
+	font-size: 26px;
+	text-transform: uppercase;
+	line-height: 2;
+	}
+
+a{
+	line-height: 1.8;
+	}
+
+p {
+	font-weight: 300;
+	font-size: 14px;
+	padding-bottom:10px;
+	line-height: 1.8;
+	}
+
+img {
+	display: block; 
+	max-width: 100%;
+	width: auto;
+	}
+
+div {
+	color: #ffffff;
+	}
+
+#header	{
+	background-color: #000000;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	}
+
+#logo	{
+	width:820px;
+	height:48px;
+	padding-top:20px;
+	padding-bottom:20px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+
+#logo img{
+	margin-left:0px;
+	width:auto;
+	height:48px;
+	}
+
+#frame {
+	width:100%;
+	height:100%;
+	background-color: #0c2c40;
+	padding-top:20px;
+	padding-bottom:20px;
+	}
+
+.section{
+	width:820px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom:10px;
+	}
+
+#main{
+	width: 100%;
+	height:100%;
+	}
+
+#about{
+	width:100%;
+	background-color: #004160;
+	}
+
+#required{
+	width:100%;
+	background-color: #2d5a83;
+	}
+
+#download{
+	width:100%;
+	background-color: #f5f5f5;
+	}
+
+#download p{
+	color:#696a6c;
+	}
+
+#download h2{
+	color:#696a6c;
+	}
+
+.links ul{
+	list-style:none;
+	}
+.links ul li{
+	font-size: 14px;
+	}
+.links ul li a{
+	color:#696a6c;
+	text-decoration:none;
+	display:block;
+	}
+.links ul li a:hover{
+	text-decoration:underline;
+	}
+.links ul li#active{
+	}
+
+#slider {
+	width:800px;
+	height:450px;
+	margin-left: auto;
+	margin-right: auto;
+	border:10px solid white;
+	}
+
+#slider ul {
+	position:relative;
+	margin-left:0px;
+	margin-right: auto;
+	}
+
+#slider li {
+	width:800px;
+	height:450px;
+	margin-left: 0px;
+	position:absolute;
+	background-color: green;
+	top:-325px;
+	list-style:none;
+	}
+
+#mask {
+	overflow:hidden;
+	width:800px;
+	height:450px;
+	}
+
+#slider img {
+	width:800px;
+	height:450px;
+	}
+
+#slider li.firstanimation {
+	-moz-animation:cycle 25s linear infinite;	
+	-webkit-animation:cycle 25s linear infinite;		
+	}
+#slider li.secondanimation {
+	-moz-animation:cycletwo 25s linear infinite;
+	-webkit-animation:cycletwo 25s linear infinite;		
+	}
+#slider li.thirdanimation {
+	-moz-animation:cyclethree 25s linear infinite;
+	-webkit-animation:cyclethree 25s linear infinite;		
+	}
+#slider li.fourthanimation {
+	-moz-animation:cyclefour 25s linear infinite;
+	-webkit-animation:cyclefour 25s linear infinite;		
+	}
+#slider li.fifthanimation {
+	-moz-animation:cyclefive 25s linear infinite;
+	-webkit-animation:cyclefive 25s linear infinite;		
+	}
+
+#slider:hover li, 
+#slider:hover .progress-bar {
+	-moz-animation-play-state:paused;
+	-webkit-animation-play-state:paused;
+	}
