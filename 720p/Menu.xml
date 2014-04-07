@@ -97,7 +97,7 @@
 			<include>menu_Header</include>
 		</control>
 		<control type="button" id="103">
-			<label>$LOCALIZE[31142]$INFO[Container.ViewMode,: ]</label>
+			<label>$LOCALIZE[31114]$INFO[Container.ViewMode,: ]</label>
 			<include>menu_Button</include>
 			<onclick>SetFocus(4000)</onclick>
 		</control>
@@ -247,7 +247,7 @@
 					<label>$LOCALIZE[31120]: $LOCALIZE[31121]</label>
 					<altlabel>$LOCALIZE[31120]: $LOCALIZE[31122]</altlabel>
 					<onclick>Skin.ToggleSetting(view.list.fanart)</onclick>
-					<usealttexture>Skin.HasSetting(view.list.fanart)</usealttexture>
+					<usealttexture>!Skin.HasSetting(view.list.fanart)</usealttexture>
 					<include>menu_Button</include>
 					<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 				</control>
@@ -256,7 +256,7 @@
 					<label>$LOCALIZE[31120]: $LOCALIZE[31121]</label>
 					<altlabel>$LOCALIZE[31120]: $LOCALIZE[31122]</altlabel>
 					<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
-					<usealttexture>!Skin.HasSetting(view.biglist.posters)</usealttexture>
+					<usealttexture>Skin.HasSetting(view.biglist.posters)</usealttexture>
 					<include>menu_Button</include>
 					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !SubString(Container.FolderPath,plugin://)</visible>
 				</control>
@@ -497,7 +497,7 @@
 					<label>$LOCALIZE[31112]</label>
 					<include>menu_Button</include>
 					<onclick>Container.SetViewMode(522)</onclick>
-					<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles)</visible>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(singles)</visible>
 				</control>
 				<!--thumbnails-->
 				<control type="button" id="404">
