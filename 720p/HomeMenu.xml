@@ -775,7 +775,7 @@
 						<onclick>SetFocus(9999)</onclick>
 						<onback>Skin.SetString(sub,none)</onback>
 						<include>home_MenuButton</include>
-						<visible>!Skin.HasSetting(homemenu.disc)</visible>
+						<visible>System.HasMediadvd + !Skin.HasSetting(homemenu.disc)</visible>
 					</control>
 					<!--disc play-->
 					<control type="button" id="162">
@@ -784,7 +784,7 @@
 						<onleft>161</onleft>
 						<onback>161</onback>
 						<include>home_SubMenuButton</include>
-						<visible>[Control.HasFocus(9999) | Control.HasFocus(162) | Skin.String(sub,$LOCALIZE[427])]</visible>
+						<visible>System.HasMediadvd + !Skin.HasSetting(homemenu.disc) + [Control.HasFocus(9999) | Control.HasFocus(162) | Skin.String(sub,$LOCALIZE[427])]</visible>
 					</control>
 					<!--disc eject-->
 					<control type="button" id="163">
@@ -793,7 +793,7 @@
 						<onleft>161</onleft>
 						<onback>161</onback>
 						<include>home_SubMenuButton</include>
-						<visible>[Control.HasFocus(9999) | Control.HasFocus(163) | Skin.String(sub,$LOCALIZE[427])]</visible>
+						<visible>System.HasMediadvd + !Skin.HasSetting(homemenu.disc) + [Control.HasFocus(9999) | Control.HasFocus(162) | Skin.String(sub,$LOCALIZE[427])]</visible>
 					</control>
 				<!--FAVOURITES-->
 					<control type="button" id="180">
