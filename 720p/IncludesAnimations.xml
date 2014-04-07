@@ -200,9 +200,15 @@
 
 <!--toggles-->
 	<include name="toggle_Menu">
+
+		<animation type="Conditional" condition="!StringCompare(Window.Property(MenuOpen),true) + !Skin.HasSetting(global.kiosk) + !Window.IsActive(virtualkeyboard)" reversible="true">
+			<effect type="Slide" start="0" end="270" time="350" tween="Quadratic" easing="Out" />
+		</animation>
+		<!--
 		<animation type="Conditional" condition="[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus] + !Skin.HasSetting(global.kiosk) + !Window.IsActive(virtualkeyboard)" reversible="true">
 			<effect type="Slide" start="0" end="270" time="350" tween="Quadratic" easing="Out" />
 		</animation>
+		-->
 	</include>
 
 	<include name="toggle_RSS">

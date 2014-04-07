@@ -9,7 +9,11 @@
 			<height>612</height>
 			<onup>50</onup>
 			<ondown>50</ondown>
-			<onleft>6000</onleft>
+			<!--<onleft>6000</onleft>-->
+
+<onleft>SetProperty(MenuOpen,true)</onleft>
+<onleft>SetFocus(6000)</onleft>
+
 			<onright condition="!Window.IsActive(videoplaylist) | [Window.IsActive(videoplaylist) + !Player.HasVideo]">70</onright>
 			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
 			<pagecontrol>70</pagecontrol>
@@ -232,20 +236,6 @@
 				<top>268</top>
 				<itemgap>0</itemgap>
 				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
-				<!--
-				<control type="textbox" id="1001">
-					<width>532</width>
-					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-					<height min="28" max="56">auto</height>
-					<aligny>top</aligny>
-					<include>detail_Title</include>
-				</control>
-				<control type="label" id="1002">
-					<width>532</width>
-					<label>$INFO[ListItem.Property(Addon.Creator)]</label>
-					<include>detail_Sub</include>
-				</control>
-				-->
 				<control type="textbox" id="1003">
 					<width>532</width>
 					<height>330</height>
@@ -279,7 +269,13 @@
 				<top>90</top>
 				<width>1205</width>
 				<height>616</height>
+
+<onleft>SetProperty(MenuOpen,true)</onleft>
+<onleft>SetFocus(6000)</onleft>
+
+				<!--
 				<onleft>6000</onleft>
+				-->
 				<onright>70</onright>
 				<onup>51</onup>
 				<ondown>51</ondown>
@@ -702,7 +698,13 @@
 				<height>528</height>
 				<onup>50</onup>
 				<ondown>50</ondown>
+
+<onleft>SetProperty(MenuOpen,true)</onleft>
+<onleft>SetFocus(6000)</onleft>
+
+				<!--
 				<onleft>6000</onleft>
+				-->
 				<onright>70</onright>
 				<pagecontrol>70</pagecontrol>
 				<include>global_ListScroll</include>

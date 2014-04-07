@@ -9,9 +9,17 @@
 			<animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
 			<colordiffuse>base_2</colordiffuse>
 		</control>
+
+<animation type="Conditional" reversible="true" condition="StringCompare(Window.Property(MenuOpen),true)">
+	<effect type="slide" time="350" start="262" end="0" tween="Quadratic" easing="In" />
+</animation>
+
+		<!--
 		<animation type="Conditional" reversible="true" condition="ControlGroup(6000).HasFocus() | ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
 			<effect type="slide" time="350" start="0" end="262" tween="Quadratic" easing="Out" />
 		</animation>
+		-->
+
 		<include>transition_Content</include>
 		<include>transition_Info</include>
 		<visible>!Skin.HasSetting(global.kiosk)</visible>
@@ -21,7 +29,11 @@
 		<width>270</width>
 		<height>670</height>
 		<onleft>-</onleft>
-		<onright>50</onright>
+
+<onright>ClearProperty(MenuOpen)</onright>
+<onright>50</onright>	
+		
+		<!--<onright>50</onright>-->
 		<onup>6000</onup>
 		<ondown>6000</ondown>
 		<onback>50</onback>
@@ -62,6 +74,9 @@
 		<alttexturefocus colordiffuse="column2">white.png</alttexturefocus>
 		<alttexturenofocus>-</alttexturenofocus>
 		<onback condition="ControlGroup(6000).HasFocus()">50</onback>
+
+<onback condition="ControlGroup(6000).HasFocus()">ClearProperty(MenuOpen)</onback>
+		
 		<onback condition="ControlGroup(4000).HasFocus()">6000</onback>
 		<onclick condition="ControlGroup(4000).HasFocus()">back</onclick>
 	</include>
@@ -154,7 +169,6 @@
 			<onclick>SendClick(14)</onclick>
 			<include>menu_Button</include>
 			<include>menu_RadioButton</include>
-			<visible>!StringCompare(Control.GetLabel(211),(*))</visible>
 			<visible>!StringCompare(Control.GetLabel(14),(*))</visible>
 			<enable>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(sets)</enable>
 		</control>
@@ -163,7 +177,6 @@
 			<onclick>SendClick(14)</onclick>
 			<include>menu_Button</include>
 			<include>menu_RadioButton</include>
-			<visible>StringCompare(Control.GetLabel(211),(*))</visible>
 			<visible>StringCompare(Control.GetLabel(14),(*))</visible>
 			<enable>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(sets)</enable>
 		</control>
@@ -217,8 +230,7 @@
 		<control type="label" id="218">
 			<label>$LOCALIZE[31034]</label>
 			<include>menu_Header</include>
-			<visible>[Skin.HasSetting(menu.nowplaying) + Player.HasMedia] | [Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)]</visible>
-			<visible>![Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist)]</visible>
+			<visible>Skin.HasSetting(menu.nowplaying) + [Player.HasMedia | [Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [Window.IsActive(musiclibrary) + !StringCompare(Playlist.Length(music),0)] | [Window.IsActive(musicfiles) + !StringCompare(Playlist.Length(music),0)]]</visible>
 		</control>
 		<control type="button" id="219">
 			<label>$VAR[playing_Title]</label>
@@ -804,7 +816,13 @@
 				<!--location-->
 				<control type="group" id="300">
 					<height>46</height>
+<onback>Close</onback>
+<onright>ClearProperty(MenuOpen)</onright>
+<onright>50</onright>	
+
+					<!--
 					<onright>50</onright>
+					-->
 					<control type="spincontrolex" id="3">
 						<label>-</label>
 						<font>-</font>
@@ -826,8 +844,9 @@
 				<!--refresh-->
 				<control type="button" id="2">
 					<label>$LOCALIZE[103]</label>
+					<!--
 					<onright>50</onright>
-					<onleft>50</onleft>
+					-->
 					<include>menu_Button</include>
 				</control>
 				<!--settings-->
