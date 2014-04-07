@@ -4,6 +4,7 @@
 	<visible>[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(infodialog) | Window.IsActive(SubtitleSearch)]</visible>
 	<controls>
 		<control type="group">
+			<include>clock</include>
 			<include>transition_OSD</include>
 			<control type="label">
 				<left>40</left>
