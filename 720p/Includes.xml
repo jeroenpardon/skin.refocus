@@ -68,7 +68,7 @@
 	<include name="global_Clock">
 		<control type="group">
 			<include>toggle_Menu</include>
-			<visible>![Player.HasMedia + Skin.HasSetting(overlay.enable)] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)] + ![Window.IsActive(pictures) + Control.IsVisible(52)]</visible>
+			<visible>![Player.HasMedia + Skin.HasSetting(overlay.enable)] | [Player.HasMedia + !IsEmpty(Window(10025).Property(TvTunesIsAlive))] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather) | [Window.IsActive(pictures) + Control.IsVisible(52)]]]</visible>
 			<control type="label">
 				<label>$VAR[clock_Format]</label>
 				<include>toast_Top</include>
