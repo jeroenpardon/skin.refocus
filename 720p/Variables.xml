@@ -190,6 +190,7 @@
 		<value condition="Container.Content(seasons) + IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[episodes_UnwatchedCountLabel]</value>
 		<value condition="Container.Content(episodes) + [IsEmpty(ListItem.Season) + IsEmpty(ListItem.Episode)]">$INFO[ListItem.Premiered]</value>
+		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$VAR[video_Type, • ]</value>
 		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$VAR[video_Type,, • ]$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
