@@ -14,6 +14,7 @@ cp -R language/Dutch BUILD/skin.refocus/language/Dutch
 cp -R language/English BUILD/skin.refocus/language/English
 cp -R language/Finnish BUILD/skin.refocus/language/Finnish
 cp -R language/French BUILD/skin.refocus/language/French
+cp -R language/Italian BUILD/skin.refocus/language/Italian
 cp -R language/Korean BUILD/skin.refocus/language/Korean
 cp -R language/Polish BUILD/skin.refocus/language/Polish
 cp -R language/Portuguese (Brazil) BUILD/skin.refocus/language/Portuguese (Brazil)
