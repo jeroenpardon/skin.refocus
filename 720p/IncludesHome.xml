@@ -30,7 +30,7 @@
 				<shadowcolor>Color5</shadowcolor>
 				<align>right</align>
 				<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
-				<visible>Skin.String(HomeBackground,fanart) + Skin.HasSetting(fanart.info)</visible>
+				<visible>Skin.String(HomeBackground,fanart) + Skin.HasSetting(fanart.info) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
 			</control>
 		</control>
 		<control type="group">
