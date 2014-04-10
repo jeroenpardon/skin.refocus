@@ -167,7 +167,7 @@
 						<control type="button" id="512">
 							<width>484</width>
 							<label>Custom Item 1</label>
-							<label2>$INFO[Skin.String(customitem.video1.type)]: $INFO[Skin.String(customitem.video1.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.video1.type)]$INFO[Skin.String(customitem.video1.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,video,Home)</onclick>
@@ -183,7 +183,7 @@
 						<control type="button" id="513">
 							<width>484</width>
 							<label>Custom Item 2</label>
-							<label2>$INFO[Skin.String(customitem.video2.type)]: $INFO[Skin.String(customitem.video2.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.video2.type)]$INFO[Skin.String(customitem.video2.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,video,Home)</onclick>
@@ -199,7 +199,7 @@
 						<control type="button" id="514">
 							<width>484</width>
 							<label>Custom Item 3</label>
-							<label2>$INFO[Skin.String(customitem.video3.type)]: $INFO[Skin.String(customitem.video3.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.video3.type)]$INFO[Skin.String(customitem.video3.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,video,Home)</onclick>
@@ -347,7 +347,7 @@
 						<control type="button" id="520">
 							<width>484</width>
 							<label>Custom Item 1</label>
-							<label2>$INFO[Skin.String(customitem.movies1.type)]: $INFO[Skin.String(customitem.movies1.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.movies1.type)]$INFO[Skin.String(customitem.movies1.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,movies,Home)</onclick>
@@ -366,7 +366,7 @@
 						<control type="button" id="521">
 							<width>484</width>
 							<label>Custom Item 2</label>
-							<label2>$INFO[Skin.String(customitem.movies2.type)]: $INFO[Skin.String(customitem.movies2.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.movies2.type)]$INFO[Skin.String(customitem.movies2.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,movies,Home)</onclick>
@@ -385,7 +385,7 @@
 						<control type="button" id="522">
 							<width>484</width>
 							<label>Custom Item 3</label>
-							<label2>$INFO[Skin.String(customitem.movies3.type)]: $INFO[Skin.String(customitem.movies3.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.movies3.type)]$INFO[Skin.String(customitem.movies3.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,movies,Home)</onclick>
@@ -415,16 +415,6 @@
 						<pagecontrol>70</pagecontrol>
 						<include>global_ListScroll</include>
 						<visible>Skin.String(Section,Shows)</visible>
-						<!--watchlist
-						<control type="radiobutton" id="502">
-							<label>$LOCALIZE[31013]</label>
-							<width>484</width>
-							<onclick>Skin.ToggleSetting(tvshowsmenu.watchlist)</onclick>
-							<selected>Skin.HasSetting(tvshowsmenu.watchlist)</selected>
-							<enable>System.HasAddon(service.library.data.provider) + Library.HasContent(tvshows)</enable>
-							<include>dialog_Radio-alt</include>
-						</control>
-						-->
 						<!--episodes in progress-->
 						<control type="radiobutton" id="503">
 							<label>$LOCALIZE[575]</label>
@@ -510,7 +500,7 @@
 						<control type="button" id="512">
 							<width>484</width>
 							<label>Custom Item 1</label>
-							<label2>$INFO[Skin.String(customitem.tvshows1.type)]: $INFO[Skin.String(customitem.tvshows1.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.tvshows1.type)]$INFO[Skin.String(customitem.tvshows1.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,tvshows,Home)</onclick>
@@ -526,7 +516,7 @@
 						<control type="button" id="513">
 							<width>484</width>
 							<label>Custom Item 2</label>
-							<label2>$INFO[Skin.String(customitem.tvshows2.type)]: $INFO[Skin.String(customitem.tvshows2.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.tvshows2.type)]$INFO[Skin.String(customitem.tvshows2.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,tvshows,Home)</onclick>
@@ -542,7 +532,7 @@
 						<control type="button" id="514">
 							<width>484</width>
 							<label>Custom Item 3</label>
-							<label2>$INFO[Skin.String(customitem.tvshows3.type)]: $INFO[Skin.String(customitem.tvshows3.label)]</label2>
+							<label2>$INFO[Skin.String(customitem.tvshows3.type)]$INFO[Skin.String(customitem.tvshows3.label),: ]</label2>
 							<!--(re)set category-->
 							<onclick>ClearProperty(customitem.category,Home)</onclick>
 							<onclick>SetProperty(customitem.category,tvshows,Home)</onclick>
