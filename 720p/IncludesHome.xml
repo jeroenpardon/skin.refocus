@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="home_Background">
-
 		<control type="group">
 			<visible>[!Skin.HasSetting(shelf.enabled) + ![Player.HasVideo + Skin.HasSetting(home.nowplaying)] | IsEmpty(Skin.String(HomeBackground))]</visible>
 			<control type="image">
@@ -50,15 +49,6 @@
 		<loop>yes</loop>
 		<timeperimage>slideshow_Timer</timeperimage>
 		<fadetime>fadetime_Slideshow</fadetime>
-		<animation type="WindowOpen" condition="!Window.Previous(startup)">
-			<effect type="fade" time="transition_Open" start="0" tween="cubic" easing="out" end="100" />
-		</animation>			
-		<animation type="WindowClose">
-			<effect type="fade" time="transition_Close" start="100" tween="cubic" easing="in" end="0" />
-		</animation>
-		<animation type="WindowOpen" condition="Window.Previous(startup)">
-			<effect type="fade" start="0" end="100" time="600" delay="0" />
-		</animation>
 	</include>
 
 	<include name="home_NowPlaying">
@@ -192,7 +182,8 @@
 		<texturefocus border="0" colordiffuse="Color1">white.png</texturefocus>
 		<radioheight>30</radioheight>
 		<radiowidth>30</radiowidth>
-		<onleft>Skin.SetString(sub,none)</onleft>
+		<onleft>Skin.SetString(HomeSub,none)</onleft>
+		<onback>Skin.SetString(HomeSub,none)</onback>
 	</include>
 
 	<include name="home_SubMenuButton">
@@ -208,7 +199,9 @@
 		<texturefocus border="0" colordiffuse="Color1">white.png</texturefocus>	
 		<radioheight>30</radioheight>
 		<radiowidth>30</radiowidth>
-		<onleft>Skin.SetString(sub,none)</onleft>
+		<onleft>Skin.SetString(HomeSub,none)</onleft>
+		<onback>Skin.SetString(HomeSub,none)</onback>
 		<include>fadeinout</include>
+		<visible>IsEmpty(Window(Home).Property(HomeConfig))</visible>
 	</include>
 </includes>

@@ -15,6 +15,14 @@
 			<effect type="Fade" start="100" end="0" time="150" />
 		</animation>
 	</include>
+	<include name="fadein">
+		<animation type="WindowOpen">
+			<effect type="Fade" start="0" end="100" time="350" />
+		</animation>
+		<animation type="Visible">
+			<effect type="Fade" start="0" end="100" time="250" />
+		</animation>
+	</include>
 
 <!--menu guide-->
 	<include name="nav_IndicatorLeft">
@@ -182,7 +190,7 @@
 	<include name="transition_Dialog">
 		<animation type="WindowOpen">
 			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="screen_Center"/>
-			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In"  />
+			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In" />
 		</animation>			
 		<animation type="WindowClose">
 			<effect type="zoom" time="transition_DialogClose" start="100" end="90" tween="Sine" easing="Out" center="screen_Center"/>
@@ -190,10 +198,28 @@
 		</animation>
 		<animation type="Visible">
 			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="screen_Center"/>
-			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In"  />
+			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In" />
 		</animation>			
 		<animation type="Hidden">
 			<effect type="zoom" time="transition_DialogClose" start="100" end="90" tween="Sine" easing="Out" center="screen_Center"/>
+			<effect type="Fade" time="transition_DialogClose" start="100" end="0" tween="Sine" easing="Out" />
+		</animation>
+	</include>
+	<include name="transition_Dialog-HomeMenuSettings">
+		<animation type="WindowOpen">
+			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="508,360"/>
+			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In" />
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="zoom" time="transition_DialogClose" start="100" end="90" tween="Sine" easing="Out" center="508,360"/>
+			<effect type="Fade" time="transition_DialogClose" start="100" end="0" tween="Sine" easing="Out" />
+		</animation>
+		<animation type="Visible">
+			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="508,360"/>
+			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In" />
+		</animation>			
+		<animation type="Hidden">
+			<effect type="zoom" time="transition_DialogClose" start="100" end="90" tween="Sine" easing="Out" center="508,360"/>
 			<effect type="Fade" time="transition_DialogClose" start="100" end="0" tween="Sine" easing="Out" />
 		</animation>
 	</include>

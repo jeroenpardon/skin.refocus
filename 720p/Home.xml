@@ -3,8 +3,10 @@
 	<defaultcontrol always="true">9110</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>CancelAlarm(StartupCheck,true)</onload>
-
+	<onload>AlarmClock(StartupComplete,SetProperty(StartupComplete,true,Home),00:05,silent)</onload>
 	<controls>
+		
+
 		<control type="group">
 			<include>transition_Home</include>
 			<include>home_Background</include>
@@ -45,57 +47,67 @@
 	<!--home submenu triggers-->
 		<!--videos-->
 		<control type="button" id="1111">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[3])</onfocus>
-			<onfocus>SetFocus(203)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[3])</onfocus>
+			<onfocus>SetFocus(102)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--movies-->
 		<control type="button" id="2222">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[342])</onfocus>
-			<onfocus>SetFocus(22)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[342])</onfocus>
+			<onfocus>SetFocus(202)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--tv shows-->
 		<control type="button" id="3333">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[20343])</onfocus>
-			<onfocus>SetFocus(42)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[20343])</onfocus>
+			<onfocus>SetFocus(302)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--pvr-->
 		<control type="button" id="4444">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[31113])</onfocus>
-			<onfocus>SetFocus(62)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[31113])</onfocus>
+			<onfocus>SetFocus(402)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--music-->
 		<control type="button" id="5555">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[2])</onfocus>
-			<onfocus>SetFocus(82)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[2])</onfocus>
+			<onfocus>SetFocus(502)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--pictures-->
 		<control type="button" id="6666">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[1])</onfocus>
-			<onfocus>SetFocus(102)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[1])</onfocus>
+			<onfocus>SetFocus(602)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--add-ons-->
 		<control type="button" id="7777">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[24001])</onfocus>
-			<onfocus>SetFocus(122)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[24001])</onfocus>
+			<onfocus>SetFocus(702)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--system-->
 		<control type="button" id="8888">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[13000])</onfocus>
-			<onfocus>SetFocus(142)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[13000])</onfocus>
+			<onfocus>SetFocus(802)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--disc-->
 		<control type="button" id="9999">
-			<onfocus>Skin.SetString(sub,$LOCALIZE[427])</onfocus>
-			<onfocus>SetFocus(162)</onfocus>
+			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[427])</onfocus>
+			<onfocus>SetFocus(902)</onfocus>
 			<include>TriggerButton</include>
+		</control>
+
+		<control type="image">
+			<top>screen_Height</top>
+			<include>screen_Dimensions</include>
+			<texture>special://skin/fanart.jpg</texture>
+			<animation type="WindowOpen" condition="Window.Previous(startup)" reversible="false">
+				<effect type="slide" time="500" start="0,-720" end="0,0" tween="Cubic" easing="InOut" center="screen_Center" delay="0"/>
+			</animation>
+			<visible>Window.Previous(startup)</visible>
 		</control>
 	</controls>
 </window>
