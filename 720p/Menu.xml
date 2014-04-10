@@ -9,17 +9,9 @@
 			<animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
 			<colordiffuse>base_2</colordiffuse>
 		</control>
-
-<animation type="Conditional" reversible="true" condition="StringCompare(Window.Property(MenuOpen),true)">
-	<effect type="slide" time="350" start="262" end="0" tween="Quadratic" easing="In" />
-</animation>
-
-		<!--
 		<animation type="Conditional" reversible="true" condition="ControlGroup(6000).HasFocus() | ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
 			<effect type="slide" time="350" start="0" end="262" tween="Quadratic" easing="Out" />
 		</animation>
-		-->
-
 		<include>transition_Content</include>
 		<include>transition_Info</include>
 		<visible>!Skin.HasSetting(global.kiosk)</visible>
@@ -29,11 +21,7 @@
 		<width>270</width>
 		<height>670</height>
 		<onleft>-</onleft>
-
-<onright>ClearProperty(MenuOpen)</onright>
-<onright>50</onright>	
-		
-		<!--<onright>50</onright>-->
+		<onright>50</onright>
 		<onup>6000</onup>
 		<ondown>6000</ondown>
 		<onback>50</onback>
@@ -74,9 +62,6 @@
 		<alttexturefocus colordiffuse="column2">white.png</alttexturefocus>
 		<alttexturenofocus>-</alttexturenofocus>
 		<onback condition="ControlGroup(6000).HasFocus()">50</onback>
-
-<onback condition="ControlGroup(6000).HasFocus()">ClearProperty(MenuOpen)</onback>
-		
 		<onback condition="ControlGroup(4000).HasFocus()">6000</onback>
 		<onclick condition="ControlGroup(4000).HasFocus()">back</onclick>
 	</include>
@@ -816,13 +801,7 @@
 				<!--location-->
 				<control type="group" id="300">
 					<height>46</height>
-<onback>Close</onback>
-<onright>ClearProperty(MenuOpen)</onright>
-<onright>50</onright>	
-
-					<!--
 					<onright>50</onright>
-					-->
 					<control type="spincontrolex" id="3">
 						<label>-</label>
 						<font>-</font>
@@ -844,9 +823,7 @@
 				<!--refresh-->
 				<control type="button" id="2">
 					<label>$LOCALIZE[103]</label>
-					<!--
 					<onright>50</onright>
-					-->
 					<include>menu_Button</include>
 				</control>
 				<!--settings-->
