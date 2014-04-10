@@ -793,9 +793,9 @@
 			<include>menu_Commons</include>
 			<control type="grouplist" id="6000">
 				<include>menu_ContainerCommons</include>
-			<!--options-->
+				<!--weather functions-->
 				<control type="label" id="203">
-					<label>$LOCALIZE[33063]</label>
+					<label>$LOCALIZE[8]</label>
 					<include>menu_Header</include>
 				</control>
 				<!--location-->
@@ -826,12 +826,34 @@
 					<onright>50</onright>
 					<include>menu_Button</include>
 				</control>
+				<!--weather settings-->
+				<control type="label" id="204">
+					<label>$LOCALIZE[33063]</label>
+					<include>menu_Header</include>
+				</control>
 				<!--settings-->
 				<control type="button" id="4">
 					<label>$LOCALIZE[5]</label>
 					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
 					<include>menu_Button</include>
 				</control>
+				<!--fanart-->
+				<control type="radiobutton" id="5">
+					<label>$LOCALIZE[31231]</label>
+					<onclick>Skin.ToggleSetting(fanart.weather)</onclick>
+					<selected>Skin.HasSetting(fanart.weather)</selected>
+					<include>menu_RadioButton</include>
+					<include>menu_Button</include>
+				</control>
+				<control type="button" id="6">
+					<label>$LOCALIZE[31232]</label>
+					<onclick>Skin.Reset(fanart.weather.path)</onclick>
+					<onclick>Skin.SetPath(fanart.weather.path)</onclick>
+					<enable>Skin.HasSetting(fanart.weather)</enable>
+					<include>menu_Button</include>
+					<visible>Skin.HasSetting(fanart.weather)</visible>
+				</control>
+				<!--commons-->
 				<include>menu_Playing</include>
 			</control>
 		</control>
