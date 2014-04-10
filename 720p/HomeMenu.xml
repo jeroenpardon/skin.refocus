@@ -119,7 +119,7 @@
 						<label>$LOCALIZE[342]</label>
 						<onclick>ActivateWindow(Videos,movietitles,return)</onclick>	
 						<include>home_MenuButton</include>
-						<visible>Library.HasContent(movies) + ![Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]</visible>
+						<visible>Library.HasContent(movies) + ![Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]</visible>
 					</control>
 					<!--submenu items enabled-->
 					<control type="button" id="201">
@@ -127,7 +127,7 @@
 						<label2>›</label2>
 						<onclick>SetFocus(2222)</onclick>
 						<include>home_MenuButton</include>
-						<visible>Library.HasContent(movies) + [Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]</visible>
+						<visible>Library.HasContent(movies) + [Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]</visible>
 					</control>
 					<!--movies browse-->
 					<control type="button" id="202">
@@ -136,21 +136,21 @@
 						<onleft>201</onleft>
 						<onback>201</onback>
 						<include>home_SubMenuButton</include>
-						<visible>[Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] + [Control.HasFocus(2222) | Control.HasFocus(202) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+						<visible>[Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.trailers) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] + [Control.HasFocus(2222) | Control.HasFocus(202) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
 					<!--movies watchlist-->
 					<control type="button" id="203">
-						<label>$LOCALIZE[31013]</label>
+						<label>$LOCALIZE[31017]</label>
 						<!--
 						<onclick>Skin.SetString(Watchlist,Movies)</onclick>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(52)</onclick>
 						-->
-						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedmovies&reload=$INFO[Window.Property(recommendedmovies)])</onclick>
+						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedmovies&reload=$INFO[Window.Property(recommendedmovies)],return)</onclick>
 						<onleft>201</onleft>
 						<onback>201</onback>
 						<include>home_SubMenuButton</include>
-						<visible>System.HasAddon(service.library.data.provider) + Skin.HasSetting(moviesmenu.watchlist) + [Control.HasFocus(2222) | Control.HasFocus(203) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+						<visible>System.HasAddon(service.library.data.provider) + Skin.HasSetting(moviesmenu.recommended) + [Control.HasFocus(2222) | Control.HasFocus(203) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
 					<!--new movies-->
 					<control type="button" id="204">
@@ -291,7 +291,7 @@
 						<label>$LOCALIZE[20343]</label>
 						<onclick>ActivateWindow(Videos,tvshowtitles,return)</onclick>
 						<include>home_MenuButton</include>
-						<visible>Library.HasContent(tvshows) + ![Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
+						<visible>Library.HasContent(tvshows) + ![Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.recommended) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
 					</control>
 					<!--submenu items enabled-->		
 					<control type="button" id="301">
@@ -299,7 +299,7 @@
 						<label2>›</label2>
 						<onclick>SetFocus(3333)</onclick>
 						<include>home_MenuButton</include>
-						<visible>Library.HasContent(tvshows) + [Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
+						<visible>Library.HasContent(tvshows) + [Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.recommended) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]</visible>
 					</control>
 					<!--tv shows browse-->
 					<control type="button" id="302">
@@ -310,15 +310,15 @@
 						<include>home_SubMenuButton</include>
 						<visible>[Control.HasFocus(3333) | Control.HasFocus(302) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
-					<!--watchlist tvshows-->
+					<!--watchlist tvshows
 					<control type="button" id="303">
 						<label>$LOCALIZE[31013]</label> 
-						<!--
+						
 						<onclick>Skin.SetString(Watchlist,Shows)</onclick>
 						<onclick>ActivateWindow(63)</onclick>
 						<onclick>SetFocus(52)</onclick>
-						-->
-						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedepisodes&reload=$INFO[Window.Property(recommendedepisodes)])</onclick>
+
+						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedepisodes&reload=$INFO[Window.Property(recommendedepisodes)],return)</onclick>
 						<onleft>301</onleft>
 						<onback>301</onback>
 						<include>home_SubMenuButton</include>
@@ -331,7 +331,7 @@
 						<onleft>301</onleft>
 						<onback>301</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(tvshowsmenu.inprogress) + [Control.HasFocus(3333) | Control.HasFocus(304) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
+						<visible>Skin.HasSetting(tvshowsmenu.recommended) + [Control.HasFocus(3333) | Control.HasFocus(304) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
 					<!--recent tvshows-->
 					<control type="button" id="305">
