@@ -58,7 +58,6 @@
 						<visible>!Skin.HasSetting(homemenu.videos.disable) + ![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)] + [Control.HasFocus(1111) | Control.HasFocus(102) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
 					
-
 					<!--custom video entry 1-->		
 					<control type="button" id="103">
 						<label>$INFO[Skin.String(customitem.video1.label)]</label>
@@ -66,7 +65,7 @@
 						<onback>101</onback>
 						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video1.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video1.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[24001])">RunAddon($INFO[Skin.String(customitem.video1.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video1.addonpath)])</onclick>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.video1.label)) + [Control.HasFocus(1111) | Control.HasFocus(103) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
@@ -77,7 +76,7 @@
 						<onback>101</onback>
 						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video2.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video2.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[24001])">RunAddon($INFO[Skin.String(customitem.video2.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video2.addonpath)])</onclick>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.video2.label)) + [Control.HasFocus(1111) | Control.HasFocus(104) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
@@ -88,12 +87,10 @@
 						<onback>101</onback>
 						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video3.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video3.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[24001])">RunAddon($INFO[Skin.String(customitem.video3.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video3.addonpath)])</onclick>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.video3.label)) + [Control.HasFocus(1111) | Control.HasFocus(105) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
-
-
 					<!--videos playlists-->
 					<control type="button" id="110">
 						<label>$LOCALIZE[136]</label>

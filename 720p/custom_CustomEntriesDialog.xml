@@ -27,10 +27,27 @@
 				<top>55</top>
 				<control type="label">
 					<width>792</width>
-					<label>$LOCALIZE[31142]$VAR[home_CustomSelection,: ]</label>
+					<label>$LOCALIZE[31142]: $VAR[home_CustomSelectionVideo]</label>
 					<textcolor>Color4</textcolor>
 					<include>dialog_Header</include>
 					<include>dialog_ControlCommons</include>
+					<visible>StringCompare(Window(Home).Property(customitem.category),video)</visible>
+				</control>
+				<control type="label">
+					<width>792</width>
+					<label>$LOCALIZE[31142]: $VAR[home_CustomSelectionMovies]</label>
+					<textcolor>Color4</textcolor>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+					<visible>StringCompare(Window(Home).Property(customitem.category),movies)</visible>
+				</control>
+				<control type="label">
+					<width>792</width>
+					<label>$LOCALIZE[31142]: $VAR[home_CustomSelectionTVShows]</label>
+					<textcolor>Color4</textcolor>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+					<visible>StringCompare(Window(Home).Property(customitem.category),tvshows)</visible>
 				</control>
 				<control type="image">
 					<top>40</top>
@@ -178,57 +195,57 @@
 						<!--videos-->
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.Reset(customitem.video1.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.Reset(customitem.video1.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.SetString(customitem.video1.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.SetString(customitem.video1.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.SetAddon(customitem.video1.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.SetString(customitem.video1.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.video1.addonpath)])])</onclick>
 
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.Reset(customitem.video2.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.Reset(customitem.video2.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.SetString(customitem.video2.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.SetString(customitem.video2.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.SetAddon(customitem.video2.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.SetString(customitem.video2.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.video2.addonpath)])])</onclick>
 
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.Reset(customitem.video3.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.Reset(customitem.video3.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.SetString(customitem.video3.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.SetString(customitem.video3.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.SetAddon(customitem.video3.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.SetString(customitem.video3.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.video3.addonpath)])])</onclick>
 						
 						<!--movies-->
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.Reset(customitem.movies1.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.Reset(customitem.movies1.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.SetString(customitem.movies1.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.SetString(customitem.movies1.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.SetAddon(customitem.movies1.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.SetString(customitem.movies1.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.movies1.addonpath)])])</onclick>
 
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.Reset(customitem.movies2.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.Reset(customitem.movies2.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.SetString(customitem.movies2.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.SetString(customitem.movies2.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.SetAddon(customitem.movies2.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.SetString(customitem.movies2.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.movies2.addonpath)])])</onclick>
 
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.Reset(customitem.movies3.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.Reset(customitem.movies3.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.SetString(customitem.movies3.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.SetString(customitem.movies3.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.SetAddon(customitem.movies3.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.SetString(customitem.movies3.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.movies3.addonpath)])])</onclick>
 
 						<!--tvshows-->
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.Reset(customitem.tvshows1.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.Reset(customitem.tvshows1.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.SetString(customitem.tvshows1.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.SetString(customitem.tvshows1.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.SetAddon(customitem.tvshows1.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.SetString(customitem.tvshows1.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.tvshows1.addonpath)])])</onclick>
 
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.Reset(customitem.tvshows2.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.Reset(customitem.tvshows2.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.SetString(customitem.tvshows2.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.SetString(customitem.tvshows2.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.SetAddon(customitem.tvshows2.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.SetString(customitem.tvshows2.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.tvshows2.addonpath)])])</onclick>
 
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.Reset(customitem.tvshows3.type)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.Reset(customitem.tvshows3.label)</onclick>
-						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.type,$LOCALIZE[24001])</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.type,$LOCALIZE[24000])</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetAddon(customitem.tvshows3.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.tvshows3.addonpath)])])</onclick>
 						<include>dialog_ControlCommons</include>
@@ -243,11 +260,16 @@
 				<onright>90</onright>
 				<include>dialog_WindowButton</include>
 				<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),1)">Skin.Reset(customitem.video1.label)</onclick>
-				<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.Reset(customitem.video1.label)</onclick>
-				<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.Reset(customitem.video1.label)</onclick>
-				<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.Reset(customitem.video1.label)</onclick>
-				<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.Reset(customitem.video1.label)</onclick>
-				<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.Reset(customitem.video1.label)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),2)">Skin.Reset(customitem.video2.label)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),video) + StringCompare(Window(Home).Property(customitem.video.number),3)">Skin.Reset(customitem.video3.label)</onclick>
+
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),1)">Skin.Reset(customitem.movies1.label)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),2)">Skin.Reset(customitem.movies2.label)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),movies) + StringCompare(Window(Home).Property(customitem.movies.number),3)">Skin.Reset(customitem.movies3.label)</onclick>
+
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">Skin.Reset(customitem.tvshows1.label)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">Skin.Reset(customitem.tvshows2.label)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.Reset(customitem.tvshows3.label)</onclick>
 			</control>
 			<control type="button" id="90">
 				<left>456</left>
