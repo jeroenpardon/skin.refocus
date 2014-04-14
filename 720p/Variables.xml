@@ -135,7 +135,7 @@
 		<value>$INFO[MusicPlayer.Duration,, $LOCALIZE[31701]]</value>
 	</variable>
 	<variable name="toast_Weather">
-		<value condition="IntegerGreaterThan(Player.Volume,0) + Weather.IsFetched">$INFO[Window(weather).Property(Day0.FanartCode),weather/small/,.png]</value>
+		<value condition="IntegerGreaterThan(Player.Volume,0) + Weather.IsFetched">$INFO[Window(weather).Property(Current.FanartCode),weather/small/,.png]</value>
 		<value condition="IntegerGreaterThan(Player.Volume,0) + !Weather.IsFetched">weather/small/na.png</value>
 	</variable>
 
