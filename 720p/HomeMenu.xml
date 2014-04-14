@@ -47,7 +47,6 @@
 						<include>home_MenuButton</include>
 						<visible>!Skin.HasSetting(homemenu.videos.disable) + ![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]</visible>
 					</control>
-
 					<!--videos files-->
 					<control type="button" id="102">
 						<label>$LOCALIZE[744]</label>
@@ -57,7 +56,6 @@
 						<include>home_SubMenuButton</include>
 						<visible>!Skin.HasSetting(homemenu.videos.disable) + ![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)] + [Control.HasFocus(1111) | Control.HasFocus(102) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
-					
 					<!--custom video entry 1-->		
 					<control type="button" id="103">
 						<label>$INFO[Skin.String(customitem.video1.label)]</label>
@@ -635,7 +633,7 @@
 					<!--browse pictures-->
 					<control type="button" id="603">
 						<label>$LOCALIZE[1024]</label>
-						<onclick>ActivateWindow(AddonBrowser,root)</onclick>
+						<onclick>ActivateWindow(Pictures,return)</onclick>
 						<onleft>602</onleft>
 						<onback>602</onback>
 						<include>home_SubMenuButton</include>
