@@ -643,7 +643,9 @@
 		<control type="group">			
 			<top>545</top>
 			<include>transition_OSD</include>
-			<visible>![Window.IsVisible(visualisationpresetlist) | Window.IsVisible(selectdialog)]</visible>
+			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
+
+			
 			<control type="image">
 				<width>screen_Width</width>
 				<height>170</height>
