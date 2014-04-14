@@ -11,15 +11,8 @@
 		<control type="group">
 			<include>transition_Background</include>
 			<control type="image">
-				<width>screen_Width</width>
-				<aspectratio align="center" aligny="top">scale</aspectratio>
-				<texture fallback="backgrounds/music.jpg">$INFO[MusicPlayer.Cover]</texture>
-				<animation effect="fade" start="0" end="70" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
-				<visible>Skin.HasSetting(artistslideshow.disable) | Skin.HasSetting(fanart.visualization)</visible>
-			</control>
-			<control type="image">
 				<include>screen_Dimensions</include>
-				<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+				<texture>$VAR[fanart_Fallback.Player]</texture>
 				<animation effect="fade" start="0" end="60" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
 				<visible>Skin.HasSetting(fanart.visualization) + Skin.HasSetting(artistslideshow.disable)</visible>
 			</control>
