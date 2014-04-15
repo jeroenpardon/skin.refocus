@@ -121,7 +121,7 @@
 			<label>[B]$INFO[ListItem.SortLetter][/B]</label>
 			<include>transition_WindowTitle</include>
 			<include>toggle_Menu</include>
-			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml) </visible>
+			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
 		</control>
 	</include>
 	
@@ -645,7 +645,7 @@
 			<include>transition_OSD</include>
 			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
 
-			
+
 			<control type="image">
 				<width>screen_Width</width>
 				<height>170</height>
@@ -842,7 +842,7 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)]</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
 	</include>
 	<include name="windowTitle_Video">
