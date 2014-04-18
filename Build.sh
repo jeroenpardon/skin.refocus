@@ -9,6 +9,7 @@ cp -R backgrounds BUILD/skin.refocus/backgrounds
 cp -R colors BUILD/skin.refocus/colors
 cp -R fonts BUILD/skin.refocus/fonts
 cp -R language BUILD/skin.refocus/language
+cp -R language/Czech BUILD/skin.refocus/language/Czech
 cp -R language/Danish BUILD/skin.refocus/language/Danish
 cp -R language/Dutch BUILD/skin.refocus/language/Dutch
 cp -R language/English BUILD/skin.refocus/language/English
