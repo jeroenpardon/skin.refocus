@@ -86,27 +86,30 @@
 		</control>
 	</include>
 	<include name="clock">
-		<control type="label">
-			<label>$VAR[clock_Format]</label>
-			<shadowcolor>black</shadowcolor>
-			<include>toast_Top</include>
-		</control>
-		<control type="label">
-			<label>$VAR[clock_Date]</label>
-			<textcolor>Color1</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<include>toast_Bottom</include>
-		</control>
-		<control type="image">
-			<top>19</top>
-			<colordiffuse>black</colordiffuse>
-			<include>toast_Icon</include>
-			<texture>$VAR[toast_Weather]</texture>
-		</control>
-		<control type="image">
-			<top>18</top>
-			<include>toast_Icon</include>
-			<texture>$VAR[toast_Weather]</texture>
+		<control type="group">
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic]</visible>
+			<control type="label">
+				<label>$VAR[clock_Format]</label>
+				<shadowcolor>black</shadowcolor>
+				<include>toast_Top</include>
+			</control>
+			<control type="label">
+				<label>$VAR[clock_Date]</label>
+				<textcolor>Color1</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<include>toast_Bottom</include>
+			</control>
+			<control type="image">
+				<top>19</top>
+				<colordiffuse>black</colordiffuse>
+				<include>toast_Icon</include>
+				<texture>$VAR[toast_Weather]</texture>
+			</control>
+			<control type="image">
+				<top>18</top>
+				<include>toast_Icon</include>
+				<texture>$VAR[toast_Weather]</texture>
+			</control>
 		</control>
 	</include>
 
@@ -409,7 +412,6 @@
 	<include name="art_Frame-fo">
 		<texture border="0">frames/frame-fo.png</texture>
 		<aspectratio>stretch</aspectratio>
-		<!--<include>focus_Image</include>-->
 	</include>
 
 <!--OVERLAYS-->
@@ -644,8 +646,6 @@
 			<top>545</top>
 			<include>transition_OSD</include>
 			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
-
-
 			<control type="image">
 				<width>screen_Width</width>
 				<height>170</height>
