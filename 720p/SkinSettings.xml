@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
+	<onunload>ClearProperty(Fanartgrabber,skinsettings)</onunload>
 	<controls>
 
 	<!--global includes-->
@@ -201,30 +202,11 @@
 						<enable>!Skin.HasSetting(shelf.enabled)</enable>
 					</control>
 					<!--fanart grabber-->
-					<control type="radiobutton" id="122">
+					<control type="button" id="122">
 						<label>$LOCALIZE[31214]</label>
-						<onback>ClearProperty(Fanartgrabber,skinsettings)</onback>
-						<onclick>SetProperty(Fanartgrabber,Init,skinsettings)</onclick>
-						<selected>!IsEmpty(Window(skinsettings).Property(Fanartgrabber))</selected>
+						<onclick>ActivateWindow(65)</onclick>
 						<include>settings_Radiobutton</include>
 						<enable>System.HasAddon(script.grab.fanart) + !Skin.HasSetting(shelf.enabled)</enable>
-					</control>
-					<!--show fanart info-->
-					<control type="radiobutton" id="123">
-						<label>- $LOCALIZE[31217]</label>
-						<onclick>Skin.ToggleSetting(fanart.info)</onclick>
-						<selected>Skin.HasSetting(fanart.info)</selected>
-						<include>settings_Radiobutton</include>
-						<visible>!IsEmpty(Window(skinsettings).Property(Fanartgrabber))</visible>
-					</control>
-					<!--apply-->
-					<control type="button" id="124">
-						<label>- $LOCALIZE[31405] ($LOCALIZE[31218])</label>
-						<onclick>Skin.Reset(HomeBackground)</onclick>
-						<onclick>Skin.SetString(HomeBackground,fanart)</onclick>		
-						<onclick>AlarmClock(SkinInit,ReplaceWindow(startup),00:01,silent)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>!IsEmpty(Window(skinsettings).Property(Fanartgrabber))</visible>
 					</control>
 				</control>
 
@@ -494,7 +476,9 @@
 					<!--reset skin settings-->
 					<control type="button" id="910">
 						<label>[COLOR=Warning]$LOCALIZE[31713][/COLOR]</label>
-						<onclick>Skin.ResetSettings</onclick>
+						<!--ask confirmation-->
+						<onclick>SetProperty(ConfirmDialog,ResetSettings,200)</onclick>
+						<onclick>ActivateWindow(200)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 				</control>

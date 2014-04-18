@@ -20,19 +20,33 @@
 				<include>fadeinout</include>
 				<visible>Player.HasMedia + Skin.HasSetting(home.nowplaying)</visible>
 			</control>
+		</control>
+		<!--fanart slideshow info-->
+		<control type="group">
+			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
+			<visible>Skin.String(HomeBackground,fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
 			<control type="label">
 				<right>25</right>
 				<bottom>25</bottom>
-				<width>880</width>
-				<label>$INFO[Window(Home).Property(script.grab.fanart.Video.Title)]</label>
+				<width>256</width>
+				<label>$VAR[home_SlideshowInfo]</label>
 				<font>condensed-U</font>
 				<textcolor>Color1</textcolor>
 				<shadowcolor>Color5</shadowcolor>
 				<align>right</align>
-				<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
-				<visible>Skin.String(HomeBackground,fanart) + Skin.HasSetting(fanart.info) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
+				<visible>Skin.String(fanartinfo.text,true)</visible>
+			</control>
+			<control type="image">
+				<right>25</right>
+				<bottom>25</bottom>
+				<width>256</width>
+				<height>99</height>
+				<texture>$VAR[home_SlideshowInfo]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Skin.String(fanartinfo.logo,true)</visible>
 			</control>
 		</control>
+		<!--now playing video-->
 		<control type="group">
 			<visible>!Skin.HasSetting(shelf.enabled) + [Player.HasVideo + Skin.HasSetting(home.nowplaying)]</visible>
 			<control type="videowindow">
