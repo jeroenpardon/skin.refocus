@@ -10,7 +10,6 @@
 		<top>28</top>
 		<origin x="368" y="28">Window.IsActive(Home)</origin>
 	</coordinates>
-
 	<controls>
 		<control type="group">
 			<include condition="Window.IsVisible(Home)">transition_Dialog-HomeMenuSettings</include>
@@ -213,6 +212,7 @@
 							<enable>!Skin.HasSetting(homemenu.videos.disable)</enable>
 						</control>
 					</control>
+
 				<!--movies submenu-->
 					<control type="grouplist" id="500">
 						<left>250</left>
@@ -402,6 +402,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 					</control>
+
 				<!--tv shows submenu-->
 					<control type="grouplist" id="500">
 						<left>250</left>
@@ -543,7 +544,8 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 					</control>
-				<!--livetv submenu-->
+
+				<!--pvr submenu-->
 					<control type="grouplist" id="500">
 						<left>250</left>
 						<width>484</width>
@@ -589,6 +591,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 					</control>
+
 				<!--music submenu-->
 					<control type="grouplist" id="500">
 						<left>250</left>
@@ -647,8 +650,17 @@
 							<include>dialog_Radio-alt</include>
 							<enable>!Skin.HasSetting(homemenu.music.disable) + Library.HasContent(music)</enable>
 						</control>
-						<!--add-ons-->
+						<!--years-->
 						<control type="radiobutton" id="507">
+							<label>$LOCALIZE[652]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(musicmenu.years)</onclick>
+							<selected>Skin.HasSetting(musicmenu.years)</selected>
+							<include>dialog_Radio-alt</include>
+							<enable>!Skin.HasSetting(homemenu.music.disable) + Library.HasContent(music)</enable>
+						</control>
+						<!--add-ons-->
+						<control type="radiobutton" id="508">
 							<label>$LOCALIZE[24001]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(musicmenu.addons)</onclick>
@@ -657,7 +669,7 @@
 							<enable>!Skin.HasSetting(homemenu.music.disable)</enable>
 						</control>			
 						<!--music playlists-->
-						<control type="radiobutton" id="508">
+						<control type="radiobutton" id="509">
 							<label>$LOCALIZE[136]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(musicmenu.playlists)</onclick>
@@ -666,7 +678,7 @@
 							<enable>!Skin.HasSetting(homemenu.music.disable) + Library.HasContent(music)</enable>
 						</control>
 						<!--partymode-->
-						<control type="radiobutton" id="509">
+						<control type="radiobutton" id="510">
 							<label>$LOCALIZE[589]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(musicmenu.partymode)</onclick>
@@ -675,7 +687,7 @@
 							<enable>!Skin.HasSetting(homemenu.music.disable) + Library.HasContent(music)</enable>
 						</control>
 						<!--lastfm-->
-						<control type="radiobutton" id="510">
+						<control type="radiobutton" id="511">
 							<label>$LOCALIZE[15200]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(musicmenu.lastfm)</onclick>
@@ -684,7 +696,7 @@
 							<enable>!Skin.HasSetting(homemenu.music.disable)</enable>
 						</control>
 						<!--music videos-->
-						<control type="radiobutton" id="511">
+						<control type="radiobutton" id="512">
 							<label>$LOCALIZE[20389]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(musicmenu.videos)</onclick>
@@ -775,111 +787,111 @@
 							<enable>!Skin.HasSetting(homemenu.addons.disable)</enable>
 						</control>
 					</control>
-				</control>
+
 				<!--system submenu-->
-				<control type="grouplist" id="500">
-					<left>250</left>
-					<width>484</width>
-					<height>520</height>
-					<onleft>10</onleft>
-					<onright>70</onright>
-					<onup>500</onup>
-					<ondown>600</ondown>
-					<itemgap>0</itemgap>
-					<pagecontrol>70</pagecontrol>
-					<include>global_ListScroll</include>
-					<visible>Skin.String(Section,System)</visible>
-					<!--system info-->
-					<control type="radiobutton" id="503">
-						<label>$LOCALIZE[130]</label>
+					<control type="grouplist" id="500">
+						<left>250</left>
 						<width>484</width>
-						<onclick>Skin.ToggleSetting(systemmenu.info)</onclick>
-						<selected>Skin.HasSetting(systemmenu.info)</selected>
-						<include>dialog_Radio-alt</include>
+						<height>520</height>
+						<onleft>10</onleft>
+						<onright>70</onright>
+						<onup>500</onup>
+						<ondown>600</ondown>
+						<itemgap>0</itemgap>
+						<pagecontrol>70</pagecontrol>
+						<include>global_ListScroll</include>
+						<visible>Skin.String(Section,System)</visible>
+						<!--system info-->
+						<control type="radiobutton" id="503">
+							<label>$LOCALIZE[130]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(systemmenu.info)</onclick>
+							<selected>Skin.HasSetting(systemmenu.info)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--file manager-->
+						<control type="radiobutton" id="504">
+							<label>$LOCALIZE[7]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(systemmenu.filemanager)</onclick>
+							<selected>Skin.HasSetting(systemmenu.filemanager)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--home menu config-->
+						<control type="radiobutton" id="505">
+							<label>$LOCALIZE[31000]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(systemmenu.home)</onclick>
+							<selected>Skin.HasSetting(systemmenu.home)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--exit-->
+						<control type="radiobutton" id="506">
+							<label>$LOCALIZE[13012]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(systemmenu.exit)</onclick>
+							<selected>Skin.HasSetting(systemmenu.exit)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
 					</control>
-					<!--file manager-->
-					<control type="radiobutton" id="504">
-						<label>$LOCALIZE[7]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(systemmenu.filemanager)</onclick>
-						<selected>Skin.HasSetting(systemmenu.filemanager)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-					<!--home menu config-->
-					<control type="radiobutton" id="505">
-						<label>$LOCALIZE[31000]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(systemmenu.home)</onclick>
-						<selected>Skin.HasSetting(systemmenu.home)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-					<!--exit-->
-					<control type="radiobutton" id="506">
-						<label>$LOCALIZE[13012]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(systemmenu.exit)</onclick>
-						<selected>Skin.HasSetting(systemmenu.exit)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-				</control>
+	
 
 				<!--other submenu-->
-				<control type="grouplist" id="500">
-					<left>250</left>
-					<width>484</width>
-					<height>520</height>
-					<onleft>10</onleft>
-					<onright>70</onright>
-					<onup>500</onup>
-					<ondown>600</ondown>
-					<itemgap>0</itemgap>
-					<pagecontrol>70</pagecontrol>
-					<include>global_ListScroll</include>
-					<visible>Skin.String(Section,Other)</visible>
-					<!--weather-->
-					<control type="radiobutton" id="501">
-						<label>$LOCALIZE[8]</label>
+					<control type="grouplist" id="500">
+						<left>250</left>
 						<width>484</width>
-						<onclick>Skin.ToggleSetting(homemenu.weather)</onclick>
-						<selected>Skin.HasSetting(homemenu.weather)</selected>
-						<include>dialog_Radio-alt</include>
+						<height>520</height>
+						<onleft>10</onleft>
+						<onright>70</onright>
+						<onup>500</onup>
+						<ondown>600</ondown>
+						<itemgap>0</itemgap>
+						<pagecontrol>70</pagecontrol>
+						<include>global_ListScroll</include>
+						<visible>Skin.String(Section,Other)</visible>
+						<!--weather-->
+						<control type="radiobutton" id="501">
+							<label>$LOCALIZE[8]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(homemenu.weather)</onclick>
+							<selected>Skin.HasSetting(homemenu.weather)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--favourites-->
+						<control type="radiobutton" id="502">
+							<label>$LOCALIZE[1036]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(homemenu.favourites)</onclick>
+							<selected>Skin.HasSetting(homemenu.favourites)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--search-->
+						<control type="radiobutton" id="503">
+							<label>$LOCALIZE[137]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(homemenu.search.disable)</onclick>
+							<selected>!Skin.HasSetting(homemenu.search.disable)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--disc-->
+						<control type="radiobutton" id="504">
+							<label>$LOCALIZE[427]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(homemenu.disc.disable)</onclick>
+							<selected>!Skin.HasSetting(homemenu.disc.disable)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
+						<!--now playing-->
+						<control type="radiobutton" id="505">
+							<label>$LOCALIZE[31034]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(homemenu.playing.disable)</onclick>
+							<selected>!Skin.HasSetting(homemenu.playing.disable)</selected>
+							<include>dialog_Radio-alt</include>
+						</control>
 					</control>
-					<!--favourites-->
-					<control type="radiobutton" id="502">
-						<label>$LOCALIZE[1036]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(homemenu.favourites)</onclick>
-						<selected>Skin.HasSetting(homemenu.favourites)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-					<!--search-->
-					<control type="radiobutton" id="503">
-						<label>$LOCALIZE[137]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(homemenu.search.disable)</onclick>
-						<selected>!Skin.HasSetting(homemenu.search.disable)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-					<!--disc-->
-					<control type="radiobutton" id="504">
-						<label>$LOCALIZE[427]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(homemenu.disc.disable)</onclick>
-						<selected>!Skin.HasSetting(homemenu.disc.disable)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-					<!--now playing-->
-					<control type="radiobutton" id="505">
-						<label>$LOCALIZE[31034]</label>
-						<width>484</width>
-						<onclick>Skin.ToggleSetting(homemenu.playing.disable)</onclick>
-						<selected>!Skin.HasSetting(homemenu.playing.disable)</selected>
-						<include>dialog_Radio-alt</include>
-					</control>
-					
 				</control>
 			</control>
-
 			<!--pagecontrol-->
 			<control type="scrollbar" id="70">
 				<left>738</left>
@@ -890,7 +902,6 @@
 				<onright>80</onright>
 				<include>dialog_Scrollbar</include>
 			</control>
-
 			<!--ok-->
 			<control type="button" id="80">
 				<left>606</left>
