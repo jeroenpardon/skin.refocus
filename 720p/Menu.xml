@@ -149,21 +149,11 @@
 		</control>
 	</include>
 	<include name="menu_Watched">
-		<control type="radiobutton" id="211">
+		<control type="radiobutton" id="14">
 			<label>$LOCALIZE[20367]</label>
-			<onclick>SendClick(14)</onclick>
 			<include>menu_Button</include>
 			<include>menu_RadioButton</include>
-			<visible>!StringCompare(Control.GetLabel(14),(*))</visible>
-			<enable>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(sets)</enable>
-		</control>
-		<control type="radiobutton" id="212">
-			<label>$LOCALIZE[20367]</label>
-			<onclick>SendClick(14)</onclick>
-			<include>menu_Button</include>
-			<include>menu_RadioButton</include>
-			<visible>StringCompare(Control.GetLabel(14),(*))</visible>
-			<enable>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(sets)</enable>
+			<visible>Control.IsEnabled(14)</visible>
 		</control>
 	</include>
 	<include name="menu_Filter">
