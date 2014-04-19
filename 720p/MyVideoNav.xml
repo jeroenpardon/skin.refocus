@@ -5,9 +5,7 @@
 	<views>50,51,52,521,522,53,531,54,541,57,571,572,574,575</views>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
-
 	<controls>
-
 	<!--trigger-->
 		<control type="button" id="8000">
 			<label>SHOULD NOT SEE ME</label>
@@ -56,7 +54,6 @@
 			<visible>Control.IsVisible(50)</visible>
 			<!--landscape-->
 			<control type="group">
-	
 				<control type="group">
 					<left>680</left>
 					<top>90</top>
@@ -172,7 +169,7 @@
 						<left>-25</left>
 						<top>507</top>
 						<include>overlay_Watch</include>
-						<animation effect="rotate" end="90" time="0" condition="True">Conditional</animation>
+						<animation effect="rotate" end="90" time="0" condition="true">Conditional</animation>
 						<visible>!SubString(Container.FolderPath,special://videoplaylists)</visible>
 					</control>
 				</control>

@@ -35,32 +35,28 @@
 					<!--submenu items disabled-->		
 					<control type="button" id="100">
 						<label>$LOCALIZE[3]</label>
-						<onclick>ActivateWindow(Videos,return)</onclick>
+						<label2>$VAR[home_SubIndicatorVideos]</label2>
+						<!--submenu items disabled-->
+						<onclick condition="[IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]">ActivateWindow(Videos,return)</onclick>
+						<!--submenu items enabled-->
+						<onclick condition="![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]">SetFocus(1111)</onclick>
 						<include>home_MenuButton</include>
-						<visible>!Skin.HasSetting(homemenu.videos.disable) + [IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]</visible>
-					</control>
-					<!--submenu items enabled-->		
-					<control type="button" id="101">
-						<label>$LOCALIZE[3]</label>
-						<label2>›</label2>
-						<onclick>SetFocus(1111)</onclick>
-						<include>home_MenuButton</include>
-						<visible>!Skin.HasSetting(homemenu.videos.disable) + ![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]</visible>
+						<visible>!Skin.HasSetting(homemenu.videos.disable)</visible>
 					</control>
 					<!--videos files-->
 					<control type="button" id="102">
 						<label>$LOCALIZE[744]</label>
 						<onclick>ActivateWindow(Videos,sources://video/,return)</onclick>
-						<onleft>101</onleft>
-						<onback>101</onback>
+						<onleft>100</onleft>
+						<onback>100</onback>
 						<include>home_SubMenuButton</include>
 						<visible>!Skin.HasSetting(homemenu.videos.disable) + ![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)] + [Control.HasFocus(1111) | Control.HasFocus(102) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
 					<!--custom video entry 1-->		
 					<control type="button" id="103">
 						<label>$INFO[Skin.String(customitem.video1.label)]</label>
-						<onleft>101</onleft>
-						<onback>101</onback>
+						<onleft>100</onleft>
+						<onback>100</onback>
 						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video1.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video1.playlistpath)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video1.addonpath)])</onclick>
@@ -70,8 +66,8 @@
 					<!--custom video entry 2-->
 					<control type="button" id="104">
 						<label>$INFO[Skin.String(customitem.video2.label)]</label>
-						<onleft>101</onleft>
-						<onback>101</onback>
+						<onleft>100</onleft>
+						<onback>100</onback>
 						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video2.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video2.playlistpath)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video2.addonpath)])</onclick>
@@ -81,8 +77,8 @@
 					<!--custom video entry 3-->
 					<control type="button" id="105">
 						<label>$INFO[Skin.String(customitem.video3.label)]</label>
-						<onleft>101</onleft>
-						<onback>101</onback>
+						<onleft>100</onleft>
+						<onback>100</onback>
 						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video3.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video3.playlistpath)],return)</onclick>
 						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video3.addonpath)])</onclick>
@@ -93,8 +89,8 @@
 					<control type="button" id="110">
 						<label>$LOCALIZE[136]</label>
 						<onclick>ActivateWindow(VideoLibrary,PLaylists,return)</onclick>
-						<onleft>101</onleft>
-						<onback>101</onback>
+						<onleft>100</onleft>
+						<onback>100</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(videomenu.videoplaylists) + [Control.HasFocus(1111) | Control.HasFocus(111) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
@@ -102,21 +98,20 @@
 					<control type="button" id="111">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(VideoLibrary,Addons,return)</onclick>
-						<onleft>101</onleft>
-						<onback>101</onback>
+						<onleft>100</onleft>
+						<onback>100</onback>
 						<include>home_SubMenuButton</include>
 						<visible>[Control.HasFocus(1111) | Control.HasFocus(112) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
 
 				<!--MOVIES-->
-					
 					<control type="button" id="200">
 						<label>$LOCALIZE[342]</label>
 						<label2>$VAR[home_SubIndicatorMovies]</label2>
 						<!--submenu items disabled-->
-						<onclick condition="![Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] | [IsEmpty(Skin.String(customitem.movies1.label) + IsEmpty(Skin.String(customitem.movies2.label) + IsEmpty(Skin.String(customitem.movies3.label)]">ActivateWindow(Videos,movietitles,return)</onclick>
+						<onclick condition="![Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.studios) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] + [IsEmpty(Skin.String(customitem.movies1.label) + IsEmpty(Skin.String(customitem.movies2.label) + IsEmpty(Skin.String(customitem.movies3.label)]">ActivateWindow(Videos,movietitles,return)</onclick>
 						<!--submenu items enabled-->
-						<onclick condition="[Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] | ![IsEmpty(Skin.String(customitem.movies1.label) + IsEmpty(Skin.String(customitem.movies2.label) + IsEmpty(Skin.String(customitem.movies3.label)]">SetFocus(2222)</onclick>	
+						<onclick condition="[Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.studios) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)] | ![IsEmpty(Skin.String(customitem.movies1.label) + IsEmpty(Skin.String(customitem.movies2.label) + IsEmpty(Skin.String(customitem.movies3.label)]">SetFocus(2222)</onclick>	
 						<include>home_MenuButton</include>
 						<visible>Library.HasContent(movies)</visible>
 					</control>
@@ -128,25 +123,10 @@
 						<include>home_SubMenuButton</include>
 						<visible>[Control.HasFocus(2222) | Control.HasFocus(202) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
-					<!--submenu items enabled
-					<control type="button" id="201">
-						<label>$LOCALIZE[342]</label>
-						<label2>›</label2>
-						<onclick>SetFocus(2222)</onclick>
-						<include>home_MenuButton</include>
-						<visible>Library.HasContent(movies) + [Skin.HasSetting(moviesmenu.recommended) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers) | IsEmpty(Skin.String(customitem.movies1.label) | IsEmpty(Skin.String(customitem.movies2.label) | IsEmpty(Skin.String(customitem.movies3.label)]</visible>
-					</control>-->
-					<!--movies browse-->
-					
-					<!--movies watchlist-->
+					<!--movies recommended-->
 					<control type="button" id="203">
 						<label>$LOCALIZE[31017]</label>
-						<!--
-						<onclick>Skin.SetString(Watchlist,Movies)</onclick>
-						<onclick>ActivateWindow(63)</onclick>
-						<onclick>SetFocus(52)</onclick>
-						-->
-						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedmovies&reload=$INFO[Window.Property(recommendedmovies)],return)</onclick>
+						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window(10000).Property(recommendedmovies)],return)</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
@@ -215,41 +195,50 @@
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(moviesmenu.directors) + [Control.HasFocus(2222) | Control.HasFocus(210) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
-					<!--sets movies-->
+					<!--studios movies-->
 					<control type="button" id="211">
+						<label>$LOCALIZE[20388]</label>
+						<onclick>ActivateWindow(Videos,moviestudios,return)</onclick>
+						<onleft>200</onleft>
+						<onback>200</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(moviesmenu.studios) + [Control.HasFocus(2222) | Control.HasFocus(211) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+					</control>
+					<!--sets movies-->
+					<control type="button" id="212">
 						<label>$LOCALIZE[20434]</label>
 						<onclick>ActivateWindow(Videos,moviesets,return)</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
-						<visible>System.GetBool(videolibrary.groupmoviesets) + Skin.HasSetting(moviesmenu.sets) + [Control.HasFocus(2222) | Control.HasFocus(211) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+						<visible>System.GetBool(videolibrary.groupmoviesets) + Skin.HasSetting(moviesmenu.sets) + [Control.HasFocus(2222) | Control.HasFocus(212) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
 					<!--countries movies-->
-					<control type="button" id="212">
+					<control type="button" id="213">
 						<label>$LOCALIZE[20451]</label>
 						<onclick>ActivateWindow(Videos,moviecountries,return)</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(moviesmenu.countries) + [Control.HasFocus(2222) | Control.HasFocus(212) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+						<visible>Skin.HasSetting(moviesmenu.countries) + [Control.HasFocus(2222) | Control.HasFocus(213) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
 					<!--tags movies-->
-					<control type="button" id="213">
+					<control type="button" id="214">
 						<label>$LOCALIZE[20459]</label>
 						<onclick>ActivateWindow(Videos,movietags,return)</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(moviesmenu.tags) + [Control.HasFocus(2222) | Control.HasFocus(213) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+						<visible>Skin.HasSetting(moviesmenu.tags) + [Control.HasFocus(2222) | Control.HasFocus(214) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
 					<!--trailers movies-->
-					<control type="button" id="214">
+					<control type="button" id="215">
 						<label>$LOCALIZE[31015]</label>
 						<onclick>XBMC.ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
-						<visible>System.HasAddon(plugin.video.the.trailers) + Skin.HasSetting(moviesmenu.trailers) + [Control.HasFocus(2222) | Control.HasFocus(214) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
+						<visible>System.HasAddon(plugin.video.the.trailers) + Skin.HasSetting(moviesmenu.trailers) + [Control.HasFocus(2222) | Control.HasFocus(215) | Skin.String(HomeSub,$LOCALIZE[342])]</visible>
 					</control>
 					<!--custom movies entry 1-->
 					<control type="button" id="220">
@@ -304,35 +293,21 @@
 						<include>home_SubMenuButton</include>
 						<visible>[Control.HasFocus(3333) | Control.HasFocus(302) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
-					<!--watchlist tvshows
-					<control type="button" id="303">
-						<label>$LOCALIZE[31013]</label> 
-						
-						<onclick>Skin.SetString(Watchlist,Shows)</onclick>
-						<onclick>ActivateWindow(63)</onclick>
-						<onclick>SetFocus(52)</onclick>
-
-						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedepisodes&reload=$INFO[Window.Property(recommendedepisodes)],return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
-						<include>home_SubMenuButton</include>
-						<visible>System.HasAddon(service.library.data.provider) + Skin.HasSetting(tvshowsmenu.watchlist) + [Control.HasFocus(3333) | Control.HasFocus(303) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
-					</control>
-					<!--in progress tvshows-->
+					<!--recommended episodes-->
 					<control type="button" id="304">
-						<label>$LOCALIZE[575]</label>
-						<onclick>ActivateWindow(Videos,library://video/inprogressshows.xml,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<label>$LOCALIZE[31017]</label>
+						<onclick>ActivateWindow(Videos,plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window(10000).Property(recommendedepisodes)],return)</onclick>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(tvshowsmenu.recommended) + [Control.HasFocus(3333) | Control.HasFocus(304) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
+						<visible>System.HasAddon(service.library.data.provider) + Skin.HasSetting(tvshowsmenu.recommended) + [Control.HasFocus(3333) | Control.HasFocus(304) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
 					<!--recent tvshows-->
 					<control type="button" id="305">
 						<label>$LOCALIZE[31010]</label>
 						<onclick>ActivateWindow(Videos,recentlyaddedepisodes,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.recent) + [Control.HasFocus(3333) | Control.HasFocus(305) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -340,8 +315,8 @@
 					<control type="button" id="306">
 						<label>$LOCALIZE[16101]</label>
 						<onclick>ActivateWindow(Videos,special://skin/playlists/episodes/unwatched.xsp,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.unwatched) + [Control.HasFocus(3333) | Control.HasFocus(306) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -349,8 +324,8 @@
 					<control type="button" id="307">
 						<label>$LOCALIZE[135]</label>
 						<onclick>ActivateWindow(Videos,tvshowgenres,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.genres) + [Control.HasFocus(3333) | Control.HasFocus(307) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -358,8 +333,8 @@
 					<control type="button" id="308">
 						<label>$LOCALIZE[652]</label>
 						<onclick>ActivateWindow(Videos,tvshowyears,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.years) + [Control.HasFocus(3333) | Control.HasFocus(308) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -367,8 +342,8 @@
 					<control type="button" id="309">
 						<label>$LOCALIZE[344]</label>
 						<onclick>ActivateWindow(Videos,tvshowactors,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.actors) + [Control.HasFocus(3333) | Control.HasFocus(309) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -376,8 +351,8 @@
 					<control type="button" id="310">
 						<label>$LOCALIZE[20388]</label>
 						<onclick>ActivateWindow(Videos,tvshowstudios,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.studios) + [Control.HasFocus(3333) | Control.HasFocus(310) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -385,8 +360,8 @@
 					<control type="button" id="311">
 						<label>$LOCALIZE[20459]</label>
 						<onclick>ActivateWindow(Videos,tvshowtags,return)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.tags) + [Control.HasFocus(3333) | Control.HasFocus(311) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -394,8 +369,8 @@
 					<control type="button" id="312">
 						<label>$LOCALIZE[22020]</label>
 						<onclick>RunAddon(script.tv.show.next.aired)</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvshowsmenu.guide) + [Control.HasFocus(3333) | Control.HasFocus(312) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -405,8 +380,8 @@
 						<onclick condition="Skin.String(customitem.tvshows1.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows1.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.tvshows1.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows1.playlistpath)],return)</onclick>
 						<onclick condition="Skin.String(customitem.tvshows1.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.tvshows1.addonpath)])</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.tvshows1.label)) + [Control.HasFocus(2222) | Control.HasFocus(320) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -416,8 +391,8 @@
 						<onclick condition="Skin.String(customitem.tvshows2.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows2.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.tvshows2.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows2.playlistpath)],return)</onclick>
 						<onclick condition="Skin.String(customitem.tvshows2.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.tvshows2.addonpath)])</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.tvshows2.label)) + [Control.HasFocus(2222) | Control.HasFocus(321) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -427,8 +402,8 @@
 						<onclick condition="Skin.String(customitem.tvshows3.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows3.path)],return)</onclick>
 						<onclick condition="Skin.String(customitem.tvshows3.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows3.playlistpath)],return)</onclick>
 						<onclick condition="Skin.String(customitem.tvshows3.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.tvshows3.addonpath)])</onclick>
-						<onleft>301</onleft>
-						<onback>301</onback>
+						<onleft>300</onleft>
+						<onback>300</onback>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.tvshows3.label)) + [Control.HasFocus(2222) | Control.HasFocus(322) | Skin.String(HomeSub,$LOCALIZE[20343])]</visible>
 					</control>
@@ -437,62 +412,58 @@
 					<!--submenu items disabled-->
 					<control type="button" id="400">
 						<label>$LOCALIZE[31014]</label>
-						<onclick>ActivateWindow(PVR)</onclick>
+						<label2>$VAR[home_SubIndicatorPVR]</label2>
+						<!--submenu items disabled-->
+						<onclick condition="![Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]">ActivateWindow(PVR)</onclick>
+						<!--submenu items enabled-->
+						<onclick condition="[Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]">SetFocus(4444)</onclick>
 						<include>home_MenuButton</include>
-						<visible>System.GetBool(pvrmanager.enabled) + ![Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
-					</control>
-					<!--submenu items enabled-->
-					<control type="button" id="401">
-						<label>$LOCALIZE[31014]</label>
-						<label2>›</label2>
-						<onclick>SetFocus(4444)</onclick>
-						<include>home_MenuButton</include>
-						<visible>System.GetBool(pvrmanager.enabled) + [Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]</visible>
+						<visible>System.GetBool(pvrmanager.enabled)</visible>
 					</control>
 					<!--tv channels-->
-					<control type="button" id="402">
+					<control type="button" id="401">
 						<label>$LOCALIZE[19023]</label>
 						<onclick>ActivateWindowAndFocus(MyPVR, 32,0, 11,0)</onclick>
-						<onleft>401</onleft>
-						<onback>401</onback>
+						<onleft>400</onleft>
+						<onback>400</onback>
+						<include>home_SubMenuButton</include>
+						<visible>Skin.HasSetting(tvmenu.channels) + [Control.HasFocus(4444) | Control.HasFocus(401) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
+					</control>
+					<!--radio channels-->
+					<control type="button" id="402">
+						<label>$LOCALIZE[19024]</label>
+						<onclick>ActivateWindowAndFocus(MyPVR, 33,0, 12,0)</onclick>
+						<onleft>400</onleft>
+						<onback>400</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(tvmenu.channels) + [Control.HasFocus(4444) | Control.HasFocus(402) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
 					</control>
-					<!--radio channels-->
-					<control type="button" id="403">
-						<label>$LOCALIZE[19024]</label>
-						<onclick>ActivateWindowAndFocus(MyPVR, 33,0, 12,0)</onclick>
-						<onleft>401</onleft>
-						<onback>401</onback>
-						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(tvmenu.channels) + [Control.HasFocus(4444) | Control.HasFocus(403) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
-					</control>
 					<!--epg-->
-					<control type="button" id="404">
+					<control type="button" id="403">
 						<label>$LOCALIZE[19069]</label>
 						<onclick>ActivateWindowAndFocus(MyPVR, 31,0, 10,0)</onclick>
-						<onleft>401</onleft>
-						<onback>401</onback>
+						<onleft>400</onleft>
+						<onback>400</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(tvmenu.guide) + [Control.HasFocus(4444) | Control.HasFocus(404) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
+						<visible>Skin.HasSetting(tvmenu.guide) + [Control.HasFocus(4444) | Control.HasFocus(403) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
 					</control>
 					<!--recordings-->
-					<control type="button" id="405">
+					<control type="button" id="404">
 						<label>$LOCALIZE[19163]</label>
 						<onclick>ActivateWindowAndFocus(MyPVR, 34,0, 13,0)</onclick>
-						<onleft>401</onleft>
-						<onback>401</onback>
+						<onleft>400</onleft>
+						<onback>400</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(tvmenu.recordings) + [Control.HasFocus(4444) | Control.HasFocus(405) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
+						<visible>Skin.HasSetting(tvmenu.recordings) + [Control.HasFocus(4444) | Control.HasFocus(404) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
 					</control>
 					<!--timers-->
-					<control type="button" id="406">
+					<control type="button" id="405">
 						<label>$LOCALIZE[19040]</label>
 						<onclick>ActivateWindowAndFocus(MyPVR, 35,0, 14,0)</onclick>
-						<onleft>401</onleft>
-						<onback>401</onback>
+						<onleft>400</onleft>
+						<onback>400</onback>
 						<include>home_SubMenuButton</include>
-						<visible>Skin.HasSetting(tvmenu.recordings) + [Control.HasFocus(4444) | Control.HasFocus(406) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
+						<visible>Skin.HasSetting(tvmenu.recordings) + [Control.HasFocus(4444) | Control.HasFocus(405) | Skin.String(HomeSub,$LOCALIZE[31113])]</visible>
 					</control>
 
 				<!--MUSIC-->
@@ -502,7 +473,7 @@
 						<onclick condition="Library.HasContent(music)">ActivateWindow(MyMusicLibrary,return)</onclick>
 						<onclick condition="!Library.HasContent(music)">ActivateWindow(MusicFiles,return)</onclick>
 						<include>home_MenuButton</include>
-						<visible>!Skin.HasSetting(homemenu.music.disable) + ![Skin.HasSetting(musicmenu.albums) | Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
+						<visible>!Skin.HasSetting(homemenu.music.disable) + ![Skin.HasSetting(musicmenu.albums) | Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.years) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
 					</control>
 					<!--submenu items enabled-->		
 					<control type="button" id="501">
@@ -510,7 +481,7 @@
 						<label2>›</label2>
 						<onclick>SetFocus(5555)</onclick>
 						<include>home_MenuButton</include>
-						<visible>!Skin.HasSetting(homemenu.music.disable) + [Skin.HasSetting(musicmenu.albums) | Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
+						<visible>!Skin.HasSetting(homemenu.music.disable) + [Skin.HasSetting(musicmenu.albums) | Skin.HasSetting(musicmenu.recent) | Skin.HasSetting(musicmenu.artists) | Skin.HasSetting(musicmenu.played) | Skin.HasSetting(musicmenu.genres) | Skin.HasSetting(musicmenu.years) | Skin.HasSetting(musicmenu.addons) | Skin.HasSetting(musicmenu.playlists) | Skin.HasSetting(musicmenu.partymode) | Skin.HasSetting(musicmenu.lastfm) | Skin.HasSetting(musicmenu.videos)]</visible>
 					</control>
 					<!--music browse-->
 					<control type="button" id="502">
@@ -685,8 +656,8 @@
 					<control type="button" id="704">
 						<label>$LOCALIZE[249]</label>
 						<onclick>ActivateWindow(MusicLibrary,Addons,return)</onclick>
-						<onleft>701</onleft>
-						<onback>701</onback>
+						<onleft>700</onleft>
+						<onback>700</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(addonsmenu.music) + [Control.HasFocus(7777) | Control.HasFocus(704) | Skin.String(HomeSub,$LOCALIZE[24001])]</visible>
 					</control>
@@ -694,8 +665,8 @@
 					<control type="button" id="705">
 						<label>$LOCALIZE[1]</label>
 						<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
-						<onleft>701</onleft>
-						<onback>701</onback>
+						<onleft>700</onleft>
+						<onback>700</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(addonsmenu.pictures) + [Control.HasFocus(7777) | Control.HasFocus(705) | Skin.String(HomeSub,$LOCALIZE[24001])]</visible>
 					</control>
@@ -703,8 +674,8 @@
 					<control type="button" id="706">
 						<label>$LOCALIZE[0]</label>
 						<onclick>ActivateWindow(Programs,Addons,return)</onclick>
-						<onleft>701</onleft>
-						<onback>701</onback>
+						<onleft>700</onleft>
+						<onback>700</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(addonsmenu.programs) + [Control.HasFocus(7777) | Control.HasFocus(706) | Skin.String(HomeSub,$LOCALIZE[24001])]</visible>
 					</control>
@@ -712,8 +683,8 @@
 					<control type="button" id="707">
 						<label>$LOCALIZE[8]</label>
 						<onclick>ActivateWindow(weather)</onclick>
-						<onleft>701</onleft>
-						<onback>701</onback>
+						<onleft>700</onleft>
+						<onback>700</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(addonsmenu.weather) + [Control.HasFocus(7777) | Control.HasFocus(707) | Skin.String(HomeSub,$LOCALIZE[24001])]</visible>
 					</control>
@@ -722,24 +693,20 @@
 					<!--submenu items disabled-->		
 					<control type="button" id="800">
 						<label>$LOCALIZE[13000]</label>
-						<onclick>ActivateWindow(settings)</onclick>
+						<label2>$VAR[home_SubIndicatorSystem]</label2>
+						<!--submenu items disabled-->
+						<onclick condition="![Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]">ActivateWindow(settings)</onclick>
+						<!--submenu items enabled-->
+						<onclick condition="[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]">SetFocus(8888)</onclick>
 						<include>home_MenuButton</include>
-						<visible>![Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]</visible>
-					</control>
-					<!--submenu items enabled-->		
-					<control type="button" id="801">
-						<label>$LOCALIZE[13000]</label>
-						<label2>›</label2>
-						<onclick>SetFocus(8888)</onclick>
-						<include>home_MenuButton</include>
-						<visible>[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]</visible>
+						<visible></visible>
 					</control>
 					<!--system settings-->
 					<control type="button" id="802">
 						<label>$LOCALIZE[5]</label>
 						<onclick>ActivateWindow(settings)</onclick>
-						<onleft>801</onleft>
-						<onback>801</onback>
+						<onleft>800</onleft>
+						<onback>800</onback>
 						<include>home_SubMenuButton</include>
 						<visible>[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)] + [Control.HasFocus(8888) | Control.HasFocus(142) | Skin.String(HomeSub,$LOCALIZE[13000])]</visible>
 					</control>
@@ -747,8 +714,8 @@
 					<control type="button" id="803">
 						<label>$LOCALIZE[130]</label>
 						<onclick>ActivateWindow(SystemInfo)</onclick>
-						<onleft>801</onleft>
-						<onback>801</onback>
+						<onleft>800</onleft>
+						<onback>800</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(systemmenu.info) + [Control.HasFocus(8888) | Control.HasFocus(803) | Skin.String(HomeSub,$LOCALIZE[13000])]</visible>
 					</control>
@@ -756,8 +723,8 @@
 					<control type="button" id="804">
 						<label>$LOCALIZE[7]</label>
 						<onclick>ActivateWindow(Filemanager)</onclick>
-						<onleft>801</onleft>
-						<onback>801</onback>
+						<onleft>800</onleft>
+						<onback>800</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(systemmenu.filemanager) + [Control.HasFocus(8888) | Control.HasFocus(804) | Skin.String(HomeSub,$LOCALIZE[13000])]</visible>
 					</control>
@@ -766,8 +733,8 @@
 						<label>$LOCALIZE[31000]</label>
 						<onclick>SetFocus(9000)</onclick>
 						<onclick>ActivateWindow(61)</onclick>
-						<onleft>801</onleft>
-						<onback>801</onback>
+						<onleft>800</onleft>
+						<onback>800</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(systemmenu.home) + [Control.HasFocus(8888) | Control.HasFocus(805) | Skin.String(HomeSub,$LOCALIZE[13000])]</visible>
 					</control>
@@ -775,8 +742,8 @@
 					<control type="button" id="806">
 						<label>$LOCALIZE[13012]</label>
 						<onclick>ActivateWindow(shutdownmenu)</onclick>
-						<onleft>801</onleft>
-						<onback>801</onback>
+						<onleft>800</onleft>
+						<onback>800</onback>
 						<include>home_SubMenuButton</include>
 						<visible>Skin.HasSetting(systemmenu.exit) + [Control.HasFocus(8888) | Control.HasFocus(806) | Skin.String(HomeSub,$LOCALIZE[13000])]</visible>
 					</control>
