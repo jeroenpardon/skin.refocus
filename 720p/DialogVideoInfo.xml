@@ -23,14 +23,7 @@
 						<height>720</height>
 						<texture background="true">$VAR[thumb_Portrait]</texture>
 						<aspectratio>scale</aspectratio>
-						<visible>[Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</control>
-					<control type="image">
-						<width>486</width>
-						<height>720</height>
-						<texture background="true">$INFO[ListItem.Art(season.poster)]</texture>
-						<aspectratio>scale</aspectratio>
-						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
 				</control>
 				<control type="image">
