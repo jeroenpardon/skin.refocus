@@ -169,47 +169,4 @@
 			</control>
 		</focusedlayout>
 	</include>
-	
-<!--WATCHLIST-->
-	<include name="watchlist_ContainerCommons">
-		<control type="group">
-			<include>focus_SlidePoster</include>
-			<control type="image">
-				<width>203</width>
-				<height>300</height>
-				<texture border="10">frames/frame-alt.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="group">
-				<left>10</left>
-				<top>10</top>
-				<control type="image">
-					<width>183</width>
-					<height>280</height>
-					<texture background="true">thumbs/default_Portrait.png</texture>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
-				<control type="image">
-					<width>183</width>
-					<height>280</height>
-					<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
-					<aspectratio align="center">stretch</aspectratio>
-					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-				</control>
-				<control type="image">
-					<width>183</width>
-					<height>280</height>
-					<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-					<aspectratio align="center">stretch</aspectratio>
-					<visible>IsEmpty(ListItem.TVShowTitle)</visible>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="watchlist_Shows">
-		<content target="video">plugin://service.library.data.provider?type=recommendedepisodes&reload=$INFO[Window.Property(recommendedepisodes)</content>
-	</include>
-	<include name="watchlist_Movies">
-		<content target="video">plugin://service.library.data.provider?type=recommendedmovies</content>
-	</include>
 </includes>

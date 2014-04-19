@@ -140,7 +140,10 @@
 						<label>$LOCALIZE[31035]</label>
 						<label2>$VAR[shelf_Widget1Select]</label2>
 						<onclick condition="!StringCompare(Skin.String(shelf.1),playlist) + !StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,recent)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.1),playlist)">Skin.SetString(shelf.1,featured)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.1),playlist)">Skin.SetString(shelf.1,inprogress)</onclick>
+
+						<onclick condition="StringCompare(Skin.String(shelf.1),inprogress)">Skin.SetString(shelf.1,recommended)</onclick>
+
 						<onclick condition="StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,playlist)</onclick>
 						<include>settings_Listbutton</include>
 						<visible>Skin.HasSetting(shelf.enabled)</visible>
