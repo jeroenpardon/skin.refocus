@@ -416,17 +416,26 @@
 						<pagecontrol>70</pagecontrol>
 						<include>global_ListScroll</include>
 						<visible>Skin.String(Section,Shows)</visible>
-						<!--episodes in progress-->
+						<!--recommended-->
 						<control type="radiobutton" id="503">
-							<label>$LOCALIZE[575]</label>
+							<label>$LOCALIZE[31017]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.recommended)</onclick>
 							<selected>Skin.HasSetting(tvshowsmenu.recommended)</selected>
 							<include>dialog_Radio-alt</include>
 							<enable>Library.HasContent(tvshows)</enable>
 						</control>
-						<!--recent episodes-->
+						<!--episodes in progress-->
 						<control type="radiobutton" id="504">
+							<label>$LOCALIZE[575]</label>
+							<width>484</width>
+							<onclick>Skin.ToggleSetting(tvshowsmenu.inprogress)</onclick>
+							<selected>Skin.HasSetting(tvshowsmenu.inprogress)</selected>
+							<include>dialog_Radio-alt</include>
+							<enable>Library.HasContent(tvshows)</enable>
+						</control>
+						<!--recent episodes-->
+						<control type="radiobutton" id="505">
 							<label>$LOCALIZE[31010]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.recent)</onclick>
@@ -435,7 +444,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--unwatched episodes-->
-						<control type="radiobutton" id="505">
+						<control type="radiobutton" id="506">
 							<label>$LOCALIZE[16101]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.unwatched)</onclick>
@@ -444,7 +453,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--genres-->
-						<control type="radiobutton" id="506">
+						<control type="radiobutton" id="507">
 							<label>$LOCALIZE[135]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.genres)</onclick>
@@ -453,7 +462,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--years-->
-						<control type="radiobutton" id="507">
+						<control type="radiobutton" id="508">
 							<label>$LOCALIZE[652]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.years)</onclick>
@@ -462,7 +471,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--actors-->
-						<control type="radiobutton" id="508">
+						<control type="radiobutton" id="509">
 							<label>$LOCALIZE[344]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.actors)</onclick>
@@ -471,7 +480,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--studios-->
-						<control type="radiobutton" id="509">
+						<control type="radiobutton" id="510">
 							<label>$LOCALIZE[20388]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.studios)</onclick>
@@ -480,7 +489,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--tags-->
-						<control type="radiobutton" id="510">
+						<control type="radiobutton" id="511">
 							<label>$LOCALIZE[20459]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.tags)</onclick>
@@ -489,7 +498,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--tv guide-->
-						<control type="radiobutton" id="511">
+						<control type="radiobutton" id="512">
 							<label>$LOCALIZE[22020]</label>
 							<width>484</width>
 							<onclick>Skin.ToggleSetting(tvshowsmenu.guide)</onclick>
@@ -498,7 +507,7 @@
 							<include>dialog_Radio-alt</include>
 						</control>
 						<!--custom tv items-->
-						<control type="button" id="512">
+						<control type="button" id="513">
 							<width>484</width>
 							<label>Custom Item 1</label>
 							<label2>$INFO[Skin.String(customitem.tvshows1.label)]</label2>
@@ -513,7 +522,7 @@
 							<onclick>ActivateWindow(96)</onclick>
 							<include>dialog_Radio-alt</include>
 						</control>
-						<control type="button" id="513">
+						<control type="button" id="514">
 							<width>484</width>
 							<label>Custom Item 2</label>
 							<label2>$INFO[Skin.String(customitem.tvshows2.label)]</label2>
@@ -528,7 +537,7 @@
 							<onclick>ActivateWindow(96)</onclick>
 							<include>dialog_Radio-alt</include>
 						</control>
-						<control type="button" id="514">
+						<control type="button" id="515">
 							<width>484</width>
 							<label>Custom Item 3</label>
 							<label2>$INFO[Skin.String(customitem.tvshows3.label)]</label2>
