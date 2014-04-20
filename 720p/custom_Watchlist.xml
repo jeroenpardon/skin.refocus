@@ -1,0 +1,150 @@
+﻿<window id="63">
+	<defaultcontrol always="true">52</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+	
+	<!--background-->
+		<control type="group">
+			<visible>[Control.HasFocus(52) | Control.HasFocus(71)] + !Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture background="true">$INFO[Container(52).ListItem.Art(Fanart_Image)]</texture>
+				<include>transition_Background</include>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture background="true">$INFO[Container(52).ListItem.Art(fanart)]</texture>
+				<include>transition_Background</include>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+		</control>
+		<include>global_Background</include>
+	
+	<!--window title-->
+		<control type="label">
+			<left>35</left>
+			<label>$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</label>
+			<include>windowTitle</include>
+			<visible>Skin.String(Watchlist,Shows)</visible>
+		</control>
+		<control type="label">
+			<left>35</left>
+			<label>$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</label>
+			<include>windowTitle</include>
+			<visible>Skin.String(Watchlist,Movies)</visible>
+		</control>
+	
+	<!--global includes-->
+		<include>global_Includes</include>
+		<include>global_Itemcount</include>
+		<include>global_Clock</include>
+		<include>PageControls</include>
+
+	<!--content-->
+		<control type="group">
+			<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<!--info-->
+			<control type="group">
+				<control type="image">
+					<left>80</left>
+					<top>480</top>
+					<width>92</width>
+					<height>48</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$INFO[Container(52).Listitem.Studio,flags/studios/,.png]</texture>
+					<visible>Skin.String(Watchlist,Movies)</visible>
+				</control>
+				<control type="image">
+					<left>80</left>
+					<top>480</top>
+					<width>92</width>
+					<height>48</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$INFO[Container(52).Listitem.Studio,flags/networks/,.png]</texture>
+					<visible>Skin.String(Watchlist,Shows)</visible>
+				</control>
+				<control type="group">
+					<left>192</left>
+					<top>477</top>
+					<control type="group">
+						<control type="label">
+							<width>960</width>
+							<label>[COLOR=Color3]$INFO[Container(52).ListItem(0).TVShowTitle][/COLOR]$INFO[Container(52).ListItem.Title,: ]</label>
+							<include>detail_Title</include>
+							<visible>Skin.String(Watchlist,Shows)</visible>
+						</control>
+						<control type="label">
+							<width>960</width>
+							<label>$INFO[Container(52).ListItem.Title]</label>
+							<include>detail_Title</include>
+							<visible>Skin.String(Watchlist,Movies)</visible>
+						</control>
+						<control type="label">
+							<top>28</top>
+							<width>960</width>
+							<label>$INFO[Container(52).ListItem(0).Season,$LOCALIZE[20373] , - ]$INFO[Container(52).ListItem(0).Episode,$LOCALIZE[20359] ]</label>
+							<include>detail_Sub</include>
+							<visible>Skin.String(Watchlist,Shows)</visible>
+						</control>
+						<control type="label">
+							<top>28</top>
+							<width>960</width>
+							<label>$INFO[Container(52).ListItem.Year,, • ]$INFO[Container(52).ListItem.Duration,, $LOCALIZE[31701] ]$INFO[Container(52).ListItem.Genre, • ]</label>
+							<include>detail_Sub</include>
+							<visible>Skin.String(Watchlist,Movies)</visible>
+						</control>
+						<control type="textbox">
+							<top>60</top>
+							<width>960</width>
+							<height>110</height>
+							<label>$INFO[Container(52).ListItem.Plot]</label>
+							<include>detail_Text</include>
+							<visibility>System.GetBool(videolibrary.showunwatchedplots)</visibility>
+						</control>
+					</control>
+					<control type="grouplist">
+						<top>180</top>
+						<width>900</width>
+						<height>64</height>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<control type="image">
+							<width>128</width>
+							<height>32</height>
+							<texture>$VAR[custom_Rating.Info]</texture>
+							<aspectratio align="center">keep</aspectratio>
+							<visible>IntegerGreaterThan(Container(52).NumItems,0)</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+			<!--container-->
+			<control type="fixedlist" id="52">
+				<left>8</left>
+				<top>105</top>
+				<width>1272</width>
+				<height>425</height>
+				<onup>-</onup>
+				<ondown>71</ondown>
+				<onleft>52</onleft>
+				<onright>52</onright>
+				<focusposition>1</focusposition>
+				<pagecontrol>71</pagecontrol>
+				<orientation>horizontal</orientation>
+				<include>global_Scrolltime</include>
+				<include>transition_Content</include>
+				<include>toggle_Menu</include>
+				<itemlayout condition="Skin.String(Watchlist,Movies) | Skin.String(Watchlist,Shows)" height="300" width="200">
+					<include>watchlist_ContainerCommons</include>
+				</itemlayout>
+				<focusedlayout condition="Skin.String(Watchlist,Movies) | Skin.String(Watchlist,Shows)" height="300" width="200">
+					<include>watchlist_ContainerCommons</include>
+				</focusedlayout>
+				<include condition="Skin.String(Watchlist,Shows)">watchlist_Shows</include>
+				<include condition="Skin.String(Watchlist,Movies)">watchlist_Movies</include>
+			</control>
+		</control>
+	</controls>
+</window>
