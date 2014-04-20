@@ -380,8 +380,7 @@
 			<onleft condition="Window.IsActive(SettingsCategory.xml)">5</onleft>
 			<onleft condition="!Window.IsActive(videoplaylist)">50</onleft>
 			<onleft condition="Window.IsActive(videoplaylist)">99</onleft>
-
-			<visible allowhiddenfocus="true">![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<visible>![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 		</control>
 		<!--horizontal-->
 		<control type="scrollbar" id="71">
@@ -391,7 +390,7 @@
 			<onup condition="Control.IsVisible(522)">522</onup>
 			<onup condition="Control.IsVisible(53) | Control.IsVisible(531)">53</onup>
 			<orientation>horizontal</orientation>
-			<visible allowhiddenfocus="true">[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 		</control>
 	</include>	
 
