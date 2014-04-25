@@ -11,20 +11,21 @@
 				<texture>black.png</texture>
 				<animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
 			</control>
+
+			<!--<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>-->
+
 			<control type="group">
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
+					<width>160</width>
+					<height>360</height>
 					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(thumb)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>300</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
@@ -33,42 +34,18 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>210</left>
-				<width>210</width>
+				<left>180</left>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(banner)]</texture>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
-				</control>
-				<control type="label">
-					<top>300</top>
-					<width>210</width>
-					<font>condensed_Smaller</font>
-					<haspath>true</haspath>
-					<align>center</align>
-					<label>ListItem.Art(banner)</label>
-					<textcolor>yellow</textcolor>
-				</control>
-			</control>
-			<control type="group">
-				<left>420</left>
-				<width>210</width>
-				<height>360</height>
-				<control type="image">
-					<width>210</width>
-					<height>320</height>
+					<width>160</width>
+					<height>360</height>
 					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(poster)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>300</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
@@ -77,42 +54,18 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>640</left>
-				<width>210</width>
+				<left>360</left>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(fanart)]</texture>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
-				</control>
-				<control type="label">
-					<top>300</top>
-					<width>210</width>
-					<font>condensed_Smaller</font>
-					<haspath>true</haspath>
-					<align>center</align>
-					<label>ListItem.Art(fanart)</label>
-					<textcolor>yellow</textcolor>
-				</control>
-			</control>
-			<control type="group">
-				<left>840</left>
-				<width>210</width>
-				<height>360</height>
-				<control type="image">
-					<width>210</width>
-					<height>320</height>
+					<width>160</width>
+					<height>360</height>
 					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>300</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
@@ -121,20 +74,78 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>1050</left>
-				<width>210</width>
+				<left>540</left>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.poster)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>300</top>
-					<width>210</width>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(season.poster)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<left>720</left>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<top>300</top>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(tvshow.banner)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<left>900</left>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<top>300</top>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(season.banner)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<left>1080</left>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<top>300</top>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
@@ -144,88 +155,80 @@
 			</control>
 			<control type="group">
 				<top>340</top>
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.poster)]</texture>
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(banner)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>320</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
-					<label>ListItem.Art(season.poster)</label>
+					<label>ListItem.Art(banner)</label>
 					<textcolor>yellow</textcolor>
 				</control>
 			</control>
 			<control type="group">
-				<left>210</left>
+				<left>180</left>
 				<top>340</top>
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.banner)]</texture>
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(landscape)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>320</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
-					<label>ListItem.Art(season.banner)</label>
+					<label>ListItem.Art(landscape)</label>
 					<textcolor>yellow</textcolor>
 				</control>
 			</control>
 			<control type="group">
-				<left>420</left>
+				<left>360</left>
 				<top>340</top>
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.fanart)]</texture>
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(fanart)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>320</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
-					<label>ListItem.Art(season.fanart)</label>
+					<label>ListItem.Art(fanart)</label>
 					<textcolor>yellow</textcolor>
 				</control>
 			</control>
 			<control type="group">
-				<left>630</left>
+				<left>540</left>
 				<top>340</top>
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
+					<width>160</width>
+					<height>360</height>
 					<texture fallback="DefaultIconError.png">$INFO[Player.Art(fanart)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
-					<top>320</top>
-					<width>210</width>
+					<top>320</top> 
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
@@ -234,21 +237,19 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>840</left>
+				<left>720</left>
 				<top>340</top>
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
+					<width>160</width>
+					<height>360</height>
 					<texture fallback="DefaultIconError.png">$INFO[Player.Art(tvshow.poster)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>320</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
@@ -257,25 +258,44 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>1050</left>
+				<left>900</left>
 				<top>340</top>
-				<width>210</width>
+				<width>160</width>
 				<height>360</height>
 				<control type="image">
-					<width>210</width>
-					<height>320</height>
-					<texture fallback="DefaultIconError.png">$INFO[Player.Art(thumb)]</texture>
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[Player.Art(tvshow.landscape)]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<bordertexture border="10">frames/frame-nf.png</bordertexture>
-					<bordersize>10</bordersize>
 				</control>
 				<control type="label">
 					<top>320</top>
-					<width>210</width>
+					<width>160</width>
 					<font>condensed_Smaller</font>
 					<haspath>true</haspath>
 					<align>center</align>
-					<label>Player.Art(thumb)</label>
+					<label>Player.Art(tvshow.landscape)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<left>1080</left>
+				<top>340</top>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.landscape)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<top>320</top>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(tvshow.landscape)</label>
 					<textcolor>yellow</textcolor>
 				</control>
 			</control>
