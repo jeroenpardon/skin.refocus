@@ -366,13 +366,20 @@
 
 	<variable name="osd_Art">
 		<value condition="Player.HasAudio">$INFO[Player.Art(thumb)]</value>
-		<value condition="!IsEmpty(Player.Art(tvshow.landscape))">$INFO[Player.Art(tvshow.landscape)]</value>
-		<value condition="!IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
+		<value condition="VideoPlayer.Content(movies) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(fanart)]</value>
+		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
+		<value condition="VideoPlayer.Content(episodes) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(fanart)]</value>
+		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(tvshow.landscape))">$INFO[Player.Art(tvshow.landscape)]</value>
 		<value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value>$INFO[Player.Art(thumb)]</value>
-	</variable>	
-	
+	</variable>
+
+	<variable name="osd_ClearLogo">
+		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(logos.movies.enable) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(tvshow.clearlogo)]</value>
+	</variable>
+
 
 <!--MEDIA VIEWS-->
 	<variable name="nextaired_Info">
@@ -458,6 +465,26 @@
 		<value condition="Player.HasVideo + IsEmpty(Player.Art(fanart))">$INFO[Player.Art(thumb)]</value>
 		<value condition="Player.HasVideo + !IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 	</variable>
+
+	
+
+
+
+
+
+
+	<variable name="art_ClearLogo">
+		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(531)">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="Container.Content(movies) + Skin.HasSetting(logos.movies.enable) + [IsEmpty(ListItem.Art(landscape)) | [!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(landscapethumb.enable)]]">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="Container.Content(tvshows) + Skin.HasSetting(logos.tvshows.enable) + [IsEmpty(ListItem.Art(landscape)) | [!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(landscapethumb.enable)]]">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="Container.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [StringCompare(Container.FolderPath,videodb://recentlyaddedepisodes/) | StringCompare(Container.FolderPath,special://skin/playlists/episodes/unwatched.xsp) | SubString(Container.FolderPath,plugin://service.library.data.provider/)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+	</variable>
+
+
+
+
+
+
 
 	<variable name="player_Plot">
 		<value condition="!IsEmpty(VideoPlayer.Plotoutline) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Plotoutline]</value>
@@ -610,10 +637,6 @@
 		<value condition="SubString(Container.FolderPath,videodb://movies/,left)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,videodb://recentlyaddedmovies/)">$LOCALIZE[31704]</value>
 
-		<value condition="StringCompare(Container.FolderName,$LOCALIZE[626])">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
-		<value condition="StringCompare(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]</value>
-		<value condition="SubString(Container.FolderPath,videodb://tvshows/,left)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-
 		<value condition="Container.Content(seasons) + IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[Container().ListItem(1).TVShowTitle]</value>
 		<value condition="Container.Content(seasons)">$INFO[Container().ListItem().TVShowTitle]</value>
 
@@ -673,9 +696,9 @@
 		<value condition="SubString(Container.FolderPath,pvr://channels/tv/)">$LOCALIZE[19020] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,pvr://channels/radio/)">$LOCALIZE[19021] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,pvr://recordings/) | SubString(Container.FolderPath,pvr://timers/)">$INFO[Container.FolderName]</value>
-		<value condition="Control.IsVisible(16)">$LOCALIZE[19069] [COLOR=Color2]$LOCALIZE[19030][/COLOR]</value>
 		<value condition="Control.IsVisible(10)">$LOCALIZE[19069] [COLOR=Color2]$LOCALIZE[19032][/COLOR]</value>
 		<value condition="Control.IsVisible(13)">$LOCALIZE[19163]</value>
+		<value condition="Control.IsVisible(15)">$LOCALIZE[19069] [COLOR=Color2]$LOCALIZE[19019][/COLOR]</value>
 		<value condition="Control.IsVisible(17)">$LOCALIZE[137]</value>
 	</variable>
 	<variable name="window_Title.Pictures">
