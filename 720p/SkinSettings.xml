@@ -141,9 +141,7 @@
 						<label2>$VAR[shelf_Widget1Select]</label2>
 						<onclick condition="!StringCompare(Skin.String(shelf.1),playlist) + !StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,recent)</onclick>
 						<onclick condition="StringCompare(Skin.String(shelf.1),playlist)">Skin.SetString(shelf.1,inprogress)</onclick>
-
 						<onclick condition="StringCompare(Skin.String(shelf.1),inprogress)">Skin.SetString(shelf.1,recommended)</onclick>
-
 						<onclick condition="StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,playlist)</onclick>
 						<include>settings_Listbutton</include>
 						<visible>Skin.HasSetting(shelf.enabled)</visible>
@@ -475,6 +473,13 @@
 						<label>$LOCALIZE[31264]</label>
 						<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
 						<selected>Skin.HasSetting(global.kiosk)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--clean library-->
+					<control type="radiobutton" id="903">
+						<label>$LOCALIZE[31265]</label>
+						<onclick>Skin.ToggleSetting(cleanlibrary.enable)</onclick>
+						<selected>Skin.HasSetting(cleanlibrary.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--reset skin settings-->

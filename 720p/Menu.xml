@@ -186,8 +186,10 @@
 		<control type="togglebutton" id="216">
 			<label>$LOCALIZE[653]</label>
 			<altlabel>$LOCALIZE[13353]</altlabel>
-			<onclick>SendClick(20)</onclick>
 			<onclick>SetFocus(50)</onclick>
+			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(videolibrary)">XBMC.CleanLibrary(video)</onclick>
+			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(musiclibrary)">XBMC.CleanLibrary(music)</onclick>
+			<onclick>SendClick(20)</onclick>
 			<usealttexture>Library.IsScanningVideo | Library.IsScanningMusic</usealttexture>
 			<include>menu_Button</include>
 		</control>
