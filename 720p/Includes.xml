@@ -70,18 +70,18 @@
 			<include>toggle_Menu</include>
 			<visible>[![Player.HasMedia + Skin.HasSetting(overlay.enable)] | [Player.HasMedia + !IsEmpty(Window(10025).Property(TvTunesIsAlive))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
 			<control type="label">
-				<label>$VAR[clock_Format]</label>
+				<label>$VAR[toast_Top]</label>
 				<include>toast_Top</include>
 			</control>
 			<control type="label">
-				<label>$VAR[clock_Date]</label>
+				<label>$VAR[toast_Bottom]</label>
 				<textcolor>Color2</textcolor>
 				<include>toast_Bottom</include>
 			</control>
 			<control type="image">
 				<top>18</top>
 				<include>toast_Icon</include>
-				<texture>$VAR[toast_Weather]</texture>
+				<texture>$VAR[toast_Icon]</texture>
 				<visible>!Player.Muted</visible>
 			</control>
 		</control>
@@ -90,12 +90,12 @@
 		<control type="group">
 			<visible>![Library.IsScanningVideo | Library.IsScanningMusic]</visible>
 			<control type="label">
-				<label>$VAR[clock_Format]</label>
+				<label>$VAR[toast_Top]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
 			</control>
 			<control type="label">
-				<label>$VAR[clock_Date]</label>
+				<label>$VAR[toast_Bottom]</label>
 				<textcolor>Color1</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Bottom</include>
@@ -854,7 +854,7 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | [Window.IsActive(busydialog) + Window.IsActive(addoninformation)] | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
 	</include>
 	<include name="windowTitle_Video">

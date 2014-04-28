@@ -167,6 +167,18 @@
 
 
 <!--TOAST-->
+	<variable name="toast_Top">
+		<value condition="SubString(System.Time,AM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</value>
+		<value condition="SubString(System.Time,PM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</value>
+		<value>[B]$INFO[System.Time][/B]</value>
+	</variable>
+
+	<variable name="toast_Bottom">
+		<value condition="!Window.IsActive(fullscreenvideo) + Pvr.HasTimer">$INFO[Pvr.NextRecordingChannel,,:]$INFO[Pvr.NextRecordingTitle]</value>
+		<value condition="!Window.IsActive(fullscreenvideo)">$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</value>
+		<value condition="Window.IsActive(fullscreenvideo)">$LOCALIZE[31323] $INFO[Player.FinishTime]</value>
+	</variable>
+
 	<variable name="toast_Video">
 		<value condition="VideoPlayer.Content(livetv)">$LOCALIZE[209]$INFO[VideoPlayer.NextTitle,: ]</value>
 		<value condition="VideoPlayer.Content(episodes) + !IsEmpty(VideoPlayer.TVShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
@@ -174,13 +186,16 @@
 		<value condition="VideoPlayer.Content(musicvideos) + !IsEmpty(VideoPlayer.Artist)">$INFO[VideoPlayer.Artist]</value>
 		<value>$INFO[VideoPlayer.Duration,, $LOCALIZE[31701]]</value>
 	</variable>
+
 	<variable name="toast_Music">
 		<value condition="!Player.IsInternetStream">$INFO[MusicPlayer.Artist]</value>
 		<value>$INFO[MusicPlayer.Duration,, $LOCALIZE[31701]]</value>
 	</variable>
-	<variable name="toast_Weather">
+
+	<variable name="toast_Icon">
+		<value condition="IntegerGreaterThan(Player.Volume,0) + Pvr.HasTimer">DefaultTimer.png</value>
 		<value condition="IntegerGreaterThan(Player.Volume,0) + Weather.IsFetched">$INFO[Window(weather).Property(Day0.FanartCode),weather/small/,.png]</value>
-		<value condition="IntegerGreaterThan(Player.Volume,0) + !Weather.IsFetched">weather/small/na.png</value>
+		<value>weather/small/na.png</value>
 	</variable>
 
 
@@ -298,17 +313,6 @@
 		<value condition="Control.IsVisible(50) + Container.Content(tvshows) + !IsEmpty(ListItem.Plot)">[UPPERCASE][B]$VAR[nextaired_Info,,[CR]][/B][/UPPERCASE]$INFO[ListItem.Plot]</value>
 		<value condition="!IsEmpty(ListItem.Plotoutline)">$INFO[ListItem.Plotoutline]</value>
 		<value>$INFO[ListItem.Plot]</value>
-	</variable>
-
-	<variable name="clock_Date">
-		<value condition="!Window.IsActive(fullscreenvideo)">$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</value>
-		<value condition="Window.IsActive(fullscreenvideo)">$LOCALIZE[31323] $INFO[Player.FinishTime]</value>
-	</variable>
-
-	<variable name="clock_Format">
-		<value condition="SubString(System.Time,AM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</value>
-		<value condition="SubString(System.Time,PM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]PM</value>
-		<value>[B]$INFO[System.Time][/B]</value>
 	</variable>
 
 
