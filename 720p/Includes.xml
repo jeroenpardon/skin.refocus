@@ -82,7 +82,7 @@
 				<top>18</top>
 				<include>toast_Icon</include>
 				<texture>$VAR[toast_Icon]</texture>
-				<visible>!Player.Muted</visible>
+				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</include>
