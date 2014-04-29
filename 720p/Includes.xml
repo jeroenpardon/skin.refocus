@@ -88,7 +88,7 @@
 	</include>
 	<include name="clock">
 		<control type="group">
-			<visible>![Library.IsScanningVideo | Library.IsScanningMusic]</visible>
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog)]</visible>
 			<control type="label">
 				<label>$VAR[toast_Top]</label>
 				<shadowcolor>black</shadowcolor>
@@ -101,7 +101,7 @@
 				<include>toast_Bottom</include>
 			</control>
 			<control type="group">
-				<visible>!Player.Muted</visible>
+				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 				<control type="image">
 					<top>19</top>
 					<colordiffuse>black</colordiffuse>
