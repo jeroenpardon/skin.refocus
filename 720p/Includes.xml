@@ -854,7 +854,7 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | [Window.IsActive(busydialog) + Window.IsActive(addoninformation)] | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)]</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
 	</include>
 	<include name="windowTitle_Video">
