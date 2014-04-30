@@ -889,6 +889,24 @@
 				</focusedlayout>
 				<content target="video">$VAR[shelf_Widget2Source]</content>
 			</control>
+			<control type="list" id="9150">
+				<include>screen_Dimensions</include>
+				<onback>9110</onback>
+				<onup>9150</onup>
+				<ondown>9150</ondown>
+				<pagecontrol>71</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<include>shelf_Container</include>
+				<visible allowhiddenfocus="true">Skin.HasSetting(shelf.enabled) + IntegerGreaterThan(Container(9150).NumItems,0)</visible>
+				<itemlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+				</itemlayout>
+				<focusedlayout width="screen_Width" height="screen_Height">
+					<include>shelf_ContainerCommons</include>
+					<include>shelf_ContainerCommons-fo</include>
+				</focusedlayout>
+				<content target="video">$VAR[shelf_Widget3Source]</content>
+			</control>
 		</control>
 	<!--pagecontrol-->
 		<control type="group">
@@ -910,7 +928,7 @@
 		</control>
 	<!--overlays-->
 		<control type="group">
-			<visible>[Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140)] + Skin.HasSetting(shelf.enabled)</visible>
+			<visible>[Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140) | Control.HasFocus(9150)] + Skin.HasSetting(shelf.enabled)</visible>
 			<include>fadeinout</include>
 			<control type="group">
 				<left>39</left>

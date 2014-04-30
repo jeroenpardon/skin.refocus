@@ -85,6 +85,7 @@
 	</variable>
 	<variable name="shelf_ItemInfo">
 		<value condition="Skin.String(shelf.1,inprogress)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]</value>
+		<value condition="!IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
 		<value condition="!IsEmpty(ListItem.Property(Info))">$INFO[ListItem.Property(Info)]</value>
 		<value condition="!IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Title]$INFO[ListItem.Season, • $LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]</value>
 		<value condition="IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Genre,, • ]$INFO[ListItem.Director,, • ]$INFO[ListItem.Studio,, • ]$INFO[ListItem.Year]</value>
@@ -93,10 +94,12 @@
 		<value condition="Control.HasFocus(9120)">$INFO[Player.Duration] / $INFO[Player.TimeRemaining]</value>
 		<value condition="Control.HasFocus(9130)">$LOCALIZE[31033] [B]$INFO[Container(9130).CurrentPage][/B] of [B]$INFO[Container(9130).NumItems][/B]</value>
 		<value condition="Control.HasFocus(9140)">$LOCALIZE[31033] [B]$INFO[Container(9140).CurrentPage][/B] of [B]$INFO[Container(9140).NumItems][/B]</value>
+		<value condition="Control.HasFocus(9150)">$LOCALIZE[31033] [B]$INFO[Container(9150).CurrentPage][/B] of [B]$INFO[Container(9150).NumItems][/B]</value>
 	</variable>
 	<variable name="shelf_FocusIcon">
 		<value condition="Control.HasFocus(9130)">DefaultIconPlay.png</value>
 		<value condition="Control.HasFocus(9140)">DefaultIconPlay.png</value>
+		<value condition="Control.HasFocus(9150)">DefaultMusicSongs.png</value>
 		<value condition="Container(9120).HasFocus(1)">DefaultMusicSongs.png</value>
 		<value condition="Container(9120).HasFocus(2) + VideoPlayer.Content(livetv)">LiveTV.png</value>
 		<value condition="Container(9120).HasFocus(2) + VideoPlayer.Content(movies)">DefaultMovie.png</value>
@@ -106,6 +109,7 @@
 	</variable>
 	<variable name="shelf_Plot">
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
+		<value condition="!IsEmpty(ListItem.Artist)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 	<variable name="shelf_Art">
@@ -118,6 +122,7 @@
 		<value condition="Control.HasFocus(9120)">$LOCALIZE[31034]</value>
 		<value condition="Control.HasFocus(9130)">$VAR[shelf_Widget1Select]</value>
 		<value condition="Control.HasFocus(9140)">$VAR[shelf_Widget2Select]</value>
+		<value condition="Control.HasFocus(9150)">$VAR[shelf_Widget3Select]</value>
 	</variable>
 	<variable name="shelf_Widget1Select">
 		<value condition="StringCompare(Skin.String(shelf.1),recent)">$LOCALIZE[31010]</value>
@@ -132,6 +137,12 @@
 		<value condition="StringCompare(Skin.String(shelf.2),playlist)">$INFO[Skin.String(shelf.2.playlistname)]</value>
 		<value>$LOCALIZE[31030]</value>
 	</variable>
+	<variable name="shelf_Widget3Select">
+		<value condition="StringCompare(Skin.String(shelf.3),recent)">$LOCALIZE[31012]</value>
+		<value condition="StringCompare(Skin.String(shelf.3),playlist) + IsEmpty(Skin.String(shelf.3.playlistname))">$LOCALIZE[559]</value>
+		<value condition="StringCompare(Skin.String(shelf.3),playlist)">$INFO[Skin.String(shelf.3.playlistname)]</value>
+		<value>$LOCALIZE[31032]</value>
+	</variable>
 	<variable name="shelf_Widget1Source">
 		<value condition="Skin.String(shelf.1,inprogress)">library://video/inprogressshows.xml</value>
 		<value condition="Skin.String(shelf.1,recommended)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window(10000).Property(recommendedepisodes)]</value>
@@ -142,6 +153,11 @@
 		<value condition="Skin.String(shelf.2,featured)">special://skin/playlists/movies/recommended.xsp</value>
 		<value condition="Skin.String(shelf.2,recent)">videodb://recentlyaddedmovies/</value>
 		<value condition="Skin.String(shelf.2,playlist)">$INFO[Skin.String(shelf.2.playlist)]</value>
+	</variable>
+	<variable name="shelf_Widget3Source">
+		<value condition="Skin.String(shelf.3,featured)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window(10000).Property(recommendedalbums)]</value>
+		<value condition="Skin.String(shelf.3,recent)">musicdb://recentlyplayedalbums/</value>
+		<value condition="Skin.String(shelf.3,playlist)">$INFO[Skin.String(shelf.3.playlist)]</value>
 	</variable>
 
 

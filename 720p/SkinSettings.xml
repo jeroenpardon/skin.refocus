@@ -180,6 +180,30 @@
 						<visible>Skin.HasSetting(shelf.enabled)</visible>
 						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.2,playlist)</enable>
 					</control>
+
+					<!--shelf widget 3-->
+					<control type="button" id="115">
+						<label>$LOCALIZE[31037]</label>
+						<label2>$VAR[shelf_Widget3Select]</label2>
+						<onclick condition="!StringCompare(Skin.String(shelf.3),playlist) + !StringCompare(Skin.String(shelf.3),recent)">Skin.SetString(shelf.3,recent)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.3),playlist)">Skin.SetString(shelf.3,featured)</onclick>
+						<onclick condition="StringCompare(Skin.String(shelf.3),recent)">Skin.SetString(shelf.3,playlist)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(shelf.enabled)</visible>
+						<enable>Skin.HasSetting(shelf.enabled)</enable>
+					</control>
+					<control type="button" id="116">
+						<label>- $LOCALIZE[524]</label>
+						<label2>$INFO[Skin.String(shelf.3.playlist)]</label2>
+						<onclick>Skin.Reset(shelf.3.playlist)</onclick>
+						<onclick>Skin.Reset(shelf.3.playlistname)</onclick>
+						<onclick>Skin.SetFile(shelf.3.playlist,.xsp|.m3u,special://skin/playlists/albums/)</onclick>
+						<onclick>Skin.SetString(shelf.3.playlistname)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(shelf.enabled)</visible>
+						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.3,playlist)</enable>
+					</control>
+
 					<!--single image-->
 					<control type="button" id="120">
 						<label>$LOCALIZE[31212]</label>
