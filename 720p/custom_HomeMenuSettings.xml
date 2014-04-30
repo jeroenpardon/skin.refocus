@@ -228,12 +228,12 @@
 						<visible>Skin.String(Section,Movies)</visible>
 						<!--watchlist-->
 						<control type="radiobutton" id="502">
-							<label>$LOCALIZE[31030]</label>
+							<label>$LOCALIZE[31013]</label>
 							<width>484</width>
-							<onclick>Skin.ToggleSetting(moviesmenu.recommended)</onclick>
-							<selected>Skin.HasSetting(moviesmenu.recommended)</selected>
+							<onclick>Skin.ToggleSetting(moviesmenu.watchlist)</onclick>
+							<selected>Skin.HasSetting(moviesmenu.watchlist)</selected>
 							<include>dialog_Radio-alt</include>
-							<enable>System.HasAddon(service.library.data.provider) + Library.HasContent(movies)</enable>
+							<enable>System.HasAddon(script.watchlist) + Library.HasContent(movies)</enable>
 						</control>
 						<!--recent movies-->
 						<control type="radiobutton" id="503">
@@ -416,14 +416,14 @@
 						<pagecontrol>70</pagecontrol>
 						<include>global_ListScroll</include>
 						<visible>Skin.String(Section,Shows)</visible>
-						<!--recommended-->
+						<!--watchlist-->
 						<control type="radiobutton" id="503">
-							<label>$LOCALIZE[31017]</label>
+							<label>$LOCALIZE[31013]</label>
 							<width>484</width>
-							<onclick>Skin.ToggleSetting(tvshowsmenu.recommended)</onclick>
-							<selected>Skin.HasSetting(tvshowsmenu.recommended)</selected>
+							<onclick>Skin.ToggleSetting(tvshowsmenu.watchlist)</onclick>
+							<selected>Skin.HasSetting(tvshowsmenu.watchlist)</selected>
 							<include>dialog_Radio-alt</include>
-							<enable>Library.HasContent(tvshows)</enable>
+							<enable>System.HasAddon(script.watchlist) + Library.HasContent(tvshows)</enable>
 						</control>
 						<!--episodes in progress-->
 						<control type="radiobutton" id="504">
