@@ -24,7 +24,7 @@
 		<!--fanart slideshow info-->
 		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
-			<visible>Skin.String(HomeBackground,fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
+			<visible>Skin.String(HomeBackground,fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)] + !Skin.HasSetting(shelf.enabled)</visible>
 			<control type="label">
 				<right>25</right>
 				<bottom>25</bottom>
@@ -179,7 +179,7 @@
 			<aspectratio align="center" aligny="center">keep</aspectratio>
 			<animation effect="fade" start="0" end="100" time="300" tween="Cubic" easing="In">Focus</animation>
 			<animation effect="fade" start="100" end="0" time="250" tween="Cubic" easing="Out">UnFocus</animation>
-			<visible>Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140)</visible>
+			<visible>Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140) | Control.HasFocus(9150)</visible>
 		</control>
 	</include>
 
