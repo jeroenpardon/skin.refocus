@@ -21,6 +21,7 @@ cp -R language/Korean BUILD/skin.refocus/language/Korean
 cp -R language/Polish BUILD/skin.refocus/language/Polish
 cp -R language/Portuguese (Brazil) BUILD/skin.refocus/language/Portuguese (Brazil)
 cp -R language/Romanian BUILD/skin.refocus/language/Romanian
+cp -R language/Swedish BUILD/skin.refocus/language/Swedish
 cp -R playlists BUILD/skin.refocus/playlists
 cp -R sounds BUILD/skin.refocus/sounds
 cp *.xml BUILD/skin.refocus/
