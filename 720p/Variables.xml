@@ -241,9 +241,9 @@
 	</variable>
 
 	<variable name="global_Fanart">
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(ListItem.Art(Fanart))">$INFO[ListItem.Art(thumb)]</value>
-		<value condition="IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Art(Fanart)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+		<value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Art(Fanart)]</value>
+		<value condition="!IsEmpty(ListItem.Property(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value>thumbs/default_Landscape.png</value>
 	</variable>
 
