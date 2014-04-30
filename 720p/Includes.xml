@@ -15,6 +15,7 @@
 	<include file="ViewList.xml" />
 	<include file="ViewSlide.xml" />
 	<include file="ViewsTV.xml" />
+	<include file="script-skinshortcuts-includes.xml"/>
 
 <!--CONSTANTS-->
 	<constant name="screen_Width">1280</constant>
@@ -854,7 +855,8 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)]</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] +
+ !Control.IsVisible(9900)</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
 	</include>
 	<include name="windowTitle_Video">
@@ -912,4 +914,64 @@
 			<include>windowTitle</include>
 		</control>
 	</include>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<include name="shortcuts_ContainerCommons">
+		<itemlayout width="500" height="70">
+			<control type="image">
+				<width>592</width>
+				<height>70</height>
+				<include>dialog_CommonList</include>
+			</control>
+			<control type="label">
+				<width>573</width>
+				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<include>dialog_CommonListItem</include>
+			</control>
+			<control type="label">
+				<top>25</top>
+				<width>573</width>
+				<label>$INFO[ListItem.Label2]</label>
+				<include>dialog_CommonListItem</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="500" height="70">
+			<control type="image">
+				<width>592</width>
+				<height>70</height>
+				<include>dialog_CommonListFocus</include>
+			</control>
+			<control type="label">
+				<width>573</width>
+				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<include>dialog_CommonListItemFocus</include>
+			</control>
+			<control type="label">
+				<top>25</top>
+				<width>573</width>
+				<label>$INFO[ListItem.Label2]</label>
+				<include>dialog_CommonListItemFocus</include>
+			</control>
+		</focusedlayout>
+	</include>
+
+
+
+
+
+	
 </includes>
