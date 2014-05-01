@@ -219,12 +219,10 @@
 	<variable name="confirm_Windowtitle">
 		<value condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">$LOCALIZE[20183]</value>
 		<value condition="StringCompare(Window(200).Property(ConfirmDialog),ResetSettings)">$LOCALIZE[10035]</value>
-		<value>should not see me</value>
 	</variable>
 	<variable name="confirm_Textbox">
 		<value condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">$LOCALIZE[31714][CR]$LOCALIZE[31715]</value>
 		<value condition="StringCompare(Window(200).Property(ConfirmDialog),ResetSettings)">$LOCALIZE[31716][CR]$LOCALIZE[750]</value>
-		<value>should not see me</value>
 	</variable>
 
 
@@ -582,11 +580,14 @@
 		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
 
-	<variable name="flag_WatchStatus">
-		<value condition="ListItem.IsResumable + Skin.HasSetting(overlay.resumable)">$INFO[ListItem.Overlay,overlays/info/inprogress/]</value>
-		<value condition="Skin.HasSetting(overlay.enable)">$INFO[ListItem.Overlay,overlays/info/watched/]</value>
-		<value condition="Skin.HasSetting(overlay.enable)">$INFO[ListItem.Overlay,overlays/info/unwatched/]</value>
-		<value condition="!IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
+	<variable name="status_List">
+		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable)">views/status/list/OverlayWatching.png</value>
+		<value condition="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]">$INFO[ListItem.Overlay,views/status/list/]</value>
+	</variable>
+
+	<variable name="status_Info">
+		<value condition="ListItem.IsResumable + Skin.HasSetting(overlay.resumable.disable)">views/status/info/OverlayWatching.png</value>
+		<value condition="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]">$INFO[ListItem.Overlay,views/status/info/]</value>
 	</variable>
 
 	<variable name="flag_VideoType">
