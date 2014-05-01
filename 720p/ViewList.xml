@@ -194,15 +194,15 @@
 			</control>
 			<!--portrait-->
 			<control type="group">
-				<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Window.IsActive(MusicFiles)] + !Skin.HasSetting(view.list.artistfanart)</visible>
+				<visible>[Container.Content(albums) | Container.Content(songs) | Window.IsActive(MusicFiles)] | [Container.Content(artists) + !Skin.HasSetting(view.list.artistfanart)]</visible>
 				<control type="image">
 					<width>532</width>
-					<height>532</height>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<height>500</height>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<bordertexture border="7">frames/frame-nf.png</bordertexture>
 					<bordersize>7</bordersize>
 					<include>fadeinout</include>
-					<aspectratio align="center" aligny="top">scale</aspectratio>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<fadetime>fadetime_Thumb</fadetime>
 					<visible>!SubString(Container.FolderPath,plugin://)</visible>
 				</control>
