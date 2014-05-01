@@ -107,9 +107,16 @@
 
 	<include name="shelf_ContainerCommons">
 		<control type="image">
+			<texture background="true">$INFO[ListItem.Thumb]</texture>
+			<include>screen_Dimensions</include>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>!IsEmpty(ListItem.Property(Title))</visible>
+		</control>
+		<control type="image">
 			<texture background="true">$VAR[global_Fanart]</texture>
 			<include>screen_Dimensions</include>
 			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>IsEmpty(ListItem.Property(Title))</visible>
 		</control>
 		<control type="group">
 			<visible>Player.HasVideo + !IsEmpty(ListItem.Property(Title))</visible>
