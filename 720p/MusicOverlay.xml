@@ -22,7 +22,7 @@
 			<control type="image">
 				<include>toast_Icon</include>
 				<texture>toast/play.png</texture>
-				<visible>IntegerGreaterThan(Player.Volume,0)</visible>
+				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</controls>
