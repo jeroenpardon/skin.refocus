@@ -14,7 +14,7 @@
 				<include>screen_Dimensions</include>
 				<texture>$VAR[player_Fanart]</texture>
 				<aspectratio align="center" aligny="top">scale</aspectratio>
-				<animation effect="fade" start="0" end="60" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
+				<animation effect="fade" end="60" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
 				<visible>Skin.HasSetting(fanart.visualization) + Skin.HasSetting(artistslideshow.disable)</visible>
 			</control>
 			<control type="multiimage">
@@ -23,7 +23,7 @@
 				<aspectratio>scale</aspectratio>
 				<timeperimage>8000</timeperimage>
 				<fadetime>fadetime_Slideshow</fadetime>
-				<animation effect="fade" start="0" end="60" time="250" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
+				<animation effect="fade" end="60" time="250" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
 				<visible>Skin.HasSetting(fanart.visualization) + !Skin.HasSetting(artistslideshow.disable)</visible>
 			</control>
 		</control>
