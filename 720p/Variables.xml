@@ -668,7 +668,8 @@
 		
 		<value condition="SubString(Container.FolderPath,plugin://plugin)">$LOCALIZE[24001] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,special://profile/playlists/video/)">$LOCALIZE[559] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="Container.Content(files)">$LOCALIZE[744] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<!--<value condition="Container.Content(files)">$LOCALIZE[744] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>-->
+		<value>$LOCALIZE[744] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 	</variable>
 	<variable name="window_Title.Music">
 		<value condition="StringCompare(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
