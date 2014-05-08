@@ -418,21 +418,20 @@
 		<aspectratio>stretch</aspectratio>
 	</include>
 
-<!--OVERLAYS-->
-	<include name="overlay_Watch">
+<!--STATUS INDICATORS-->
+	<include name="status_List">
+		<right>15</right>
+		<top>21.5</top>
+		<width>24</width>
+		<height>24</height>
+		<aspectratio>keep</aspectratio>
+	</include> 
+	<include name="status_Info">
 		<control type="image">
-			<width>18</width>
-			<height>18</height>
+			<width>26</width>
+			<height>26</height>
 			<aspectratio>keep</aspectratio>
-			<texture>$INFO[ListItem.Overlay]</texture>
-			<visible>[Container.Content(movies) + Skin.HasSetting(overlay.movies)] | [Container.Content(tvshows) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(episodes) + Skin.HasSetting(overlay.episodes)] | [Container.Content(seasons) + Skin.HasSetting(overlay.tvshows)] | [Container.Content(Files) + Container.HasFiles + Skin.HasSetting(overlay.files)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
-		</control>
-		<control type="image">
-			<width>18</width>
-			<height>18</height>
-			<aspectratio>keep</aspectratio>
-			<texture>OverlayWatching.png</texture>
-			<visible>ListItem.IsResumable + Skin.HasSetting(overlay.resumable)</visible>
+			<texture>$VAR[status_Info]</texture>
 		</control>
 	</include>
 	<include name="pvr_Status">

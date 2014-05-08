@@ -95,12 +95,6 @@
 							<label>$VAR[global_Plot]</label>
 							<include>detail_Text</include>
 						</control>
-						<control type="group">
-							<left>514</left>
-							<top>277</top>
-							<include>overlay_Watch</include>
-							<visible>!Container.Content(files)</visible>
-						</control>
 					</control>
 				</control>
 			</control>
@@ -140,12 +134,6 @@
 							<aspectratio align="center" aligny="center">scale</aspectratio>
 							<fadetime>fadetime_Thumb</fadetime>
 						</control>
-						<control type="group">
-							<left>388</left>
-							<top>582</top>
-							<include>overlay_Watch</include>
-							<visible>!Container.Content(files)</visible>
-						</control>
 					</control>
 				</control>
 			</control>
@@ -164,13 +152,6 @@
 						<aspectratio align="center" aligny="top">keep</aspectratio>
 						<fadetime>fadetime_Thumb</fadetime>
 						<visible>!IsEmpty(ListItem.Thumb) + !SubString(Container.FolderPath,plugin://) + !IsEmpty(Container.FolderPath)</visible>
-					</control>
-					<control type="group">
-						<left>-25</left>
-						<top>507</top>
-						<include>overlay_Watch</include>
-						<animation effect="rotate" end="90" time="0" condition="true">Conditional</animation>
-						<visible>!SubString(Container.FolderPath,special://videoplaylists)</visible>
 					</control>
 				</control>
 			</control>

@@ -53,7 +53,7 @@
 				<control type="label">
 					<left>15</left>
 					<top>6</top>
-					<width>470</width>
+					<width>550</width>
 					<height>27</height>
 					<label>$VAR[global_Title]</label>
 					<include>container_Title</include>
@@ -61,10 +61,11 @@
 				<control type="label">
 					<left>15</left>
 					<top>28</top>
-					<width>590</width>
+					<width>550</width>
 					<label>$VAR[global_Info]</label>
 					<include>container_Sub</include>
 				</control>
+				<!--
 				<control type="image">
 					<left>485</left>
 					<top>9</top>
@@ -73,6 +74,11 @@
 					<texture>$VAR[global_Rating]</texture>
 					<aspectratio align="right">keep</aspectratio>
 					<visible>!Container.Content(artists)</visible>
+				</control>
+				-->
+				<control type="image">
+					<texture colordiffuse="Color3">$VAR[status_List]</texture>
+					<include>status_List</include>
 				</control>
 			</itemlayout>
 			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures)] + Container.HasFiles]" width="620" height="67">
@@ -86,7 +92,7 @@
 					<control type="label">
 						<left>15</left>
 						<top>6</top>
-						<width>470</width>
+						<width>550</width>
 						<height>27</height>
 						<label>$VAR[global_Title]</label>
 						<include>container_Title-focus</include>
@@ -94,10 +100,15 @@
 					<control type="label">
 						<left>15</left>
 						<top>28</top>
-						<width>590</width>
+						<width>550</width>
 						<label>$VAR[global_Info]</label>
 						<include>container_Sub-focus</include>
 					</control>
+					<control type="image">
+						<texture colordiffuse="Color4">$VAR[status_List]</texture>
+						<include>status_List</include>
+					</control>
+					<!--
 					<control type="image">
 						<left>485</left>
 						<top>9</top>
@@ -108,13 +119,14 @@
 						<aspectratio align="right">keep</aspectratio>
 						<visible>!Container.Content(artists)</visible>
 					</control>
+					-->
 				</control>
 				<control type="group">
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					<control type="label">
 						<left>15</left>
 						<top>6</top>
-						<width>470</width>
+						<width>550</width>
 						<height>27</height>
 						<label>$VAR[global_Title]</label>
 						<include>container_Title</include>
@@ -122,10 +134,11 @@
 					<control type="label">
 						<left>15</left>
 						<top>28</top>
-						<width>590</width>
+						<width>550</width>
 						<label>$VAR[global_Info]</label>
 						<include>container_Sub</include>
 					</control>
+					<!--
 					<control type="image">
 						<left>485</left>
 						<top>9</top>
@@ -134,6 +147,11 @@
 						<texture>$VAR[global_Rating]</texture>
 						<aspectratio align="right">keep</aspectratio>
 						<visible>!Container.Content(artists)</visible>
+					</control>
+					-->
+					<control type="image">
+						<texture colordiffuse="Color3">$VAR[status_List]</texture>
+						<include>status_List</include>
 					</control>
 				</control>
 			</focusedlayout>
@@ -178,7 +196,7 @@
 						<control type="image">
 							<width>532</width>
 							<height>295</height>
-							<texture background="true" fallback="thumbs/default_Actor.png">$VAR[thumb_Landscape]</texture>
+							<texture background="true">$VAR[thumb_Landscape]</texture>
 							<aspectratio>scale</aspectratio>
 							<fadetime>fadetime_Thumb</fadetime>
 						</control>
@@ -349,8 +367,7 @@
 								<top>11</top>
 								<width>128</width>
 								<height>22</height>
-								<texture>$VAR[global_Rating-fo]</texture>
-								<colordiffuse>Color4</colordiffuse>
+								<texture colordiffuse="Color4">$VAR[global_Rating-fo]</texture>
 								<aspectratio align="right">keep</aspectratio>
 								<visible>!IsEmpty(ListItem.Title)</visible>
 							</control>
@@ -559,9 +576,9 @@
 				<include>art_ClearLogo</include>
 			</control>
 			<control type="group">
-				<left>213</left>
-				<top>112</top>
-				<include>overlay_Watch</include>
+				<left>205</left>
+				<top>104</top>
+				<include>status_Info</include>
 			</control>
 		</control>	
 	</include>
@@ -595,9 +612,9 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<left>72</left>
-				<top>112</top>
-				<include>overlay_Watch</include>
+				<left>64</left>
+				<top>104</top>
+				<include>status_Info</include>
 			</control>
 		</control>
 	</include>
