@@ -3,9 +3,7 @@
 	<defaultcontrol always="true">9110</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>CancelAlarm(StartupCheck,true)</onload>
-
 	<controls>
-
 		<control type="group">
 			<include>transition_Home</include>
 			<include>home_Background</include>
@@ -65,7 +63,10 @@
 		<!--pvr-->
 		<control type="button" id="4444">
 			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[31113])</onfocus>
-			<onfocus>SetFocus(401)</onfocus>
+			<onfocus condition="Skin.HasSetting(tvmenu.channels)">SetFocus(401)</onfocus>
+			<onfocus condition="!Skin.HasSetting(tvmenu.channels) + Skin.HasSetting(tvmenu.guide)">SetFocus(403)</onfocus>
+			<onfocus condition="!Skin.HasSetting(tvmenu.channels) + !Skin.HasSetting(tvmenu.guide) + Skin.HasSetting(tvmenu.recordings)">SetFocus(404)</onfocus>
+			<onfocus condition="!Skin.HasSetting(tvmenu.channels) + !Skin.HasSetting(tvmenu.guide) + !Skin.HasSetting(tvmenu.recordings) + Skin.HasSetting(tvmenu.timers)">SetFocus(405)</onfocus>
 			<include>TriggerButton</include>
 		</control>
 		<!--music-->
