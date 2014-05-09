@@ -32,7 +32,7 @@ cp *.jpg BUILD/skin.refocus/
 cp *.md BUILD/skin.refocus/
 
 echo Creating XBT File...
-./TexturePacker -input media/ -output media/Textures.xbt
+./TexturePacker -dupecheck -input media/ -output media/Textures.xbt
 mkdir BUILD/skin.refocus/media/
 cp media/*.xbt BUILD/skin.refocus/media/
 
