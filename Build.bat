@@ -35,7 +35,7 @@ xcopy "*.md" "BUILD\skin.refocus\" /Q /I /Y
 
 ECHO ------------------------------
 ECHO Creating XBT File...
-START /B /WAIT TexturePacker.exe -dupecheck -input media\ -output media\Textures.xbt
+START /B /WAIT TexturePacker -dupecheck -input media\ -output media\Textures.xbt
 
 xcopy "media\*.xbt" "BUILD\skin.refocus\media\" /Q /I /Y
 
