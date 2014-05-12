@@ -386,9 +386,9 @@
 
 	<variable name="osd_Art">
 		<value condition="Player.HasAudio">$INFO[Player.Art(thumb)]</value>
-		<value condition="VideoPlayer.Content(movies) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(fanart)]</value>
+		<value condition="VideoPlayer.Content(movies) + [[Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)]">$INFO[Player.Art(fanart)]</value>
 		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
-		<value condition="VideoPlayer.Content(episodes) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(fanart)]</value>
+		<value condition="VideoPlayer.Content(episodes) + [[Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)]">$INFO[Player.Art(fanart)]</value>
 		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(tvshow.landscape))">$INFO[Player.Art(tvshow.landscape)]</value>
 		<value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
@@ -405,7 +405,7 @@
 	<variable name="nextaired_Info">
 		<value condition="StringCompare(Window(Home).Property(NextAired.Status),cancelled/ended)">$INFO[Window(Home).Property(NextAired.Status)]</value>
 		<value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), • $LOCALIZE[31502] ]</value>	
-		<value condition="IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.LatestDate), • $LOCALIZE[31502] ]</value>
+		<value condition="IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.LatestDate), • $LOCALIZE[31501] ]</value>
 	</variable>
 	<variable name="nextaired_Header">
 		<value condition="StringCompare(Window(Home).Property(tvguide),monday)">$INFO[Container(200).Listitem.Property(NextDate),$LOCALIZE[11] ]</value>
