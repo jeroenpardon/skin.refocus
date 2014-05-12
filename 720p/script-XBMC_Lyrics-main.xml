@@ -14,6 +14,12 @@
 				<label>$ADDON[script.cu.lrclyrics 32199]</label>
 				<visible>false</visible>
 			</control>
+			<control type="image">
+				<width>screen_Width</width>
+				<height>545</height>
+				<texture>white.png</texture>
+				<colordiffuse>bb0c2c40</colordiffuse>
+			</control>
 			<!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
 			<control type="list" id="110">
 				<left>145</left>
@@ -32,7 +38,6 @@
 						<label fallback="">$INFO[ListItem.Label]</label>
 						<font>lyrics</font>
 						<textcolor>Color2</textcolor>
-						<shadowcolor>black</shadowcolor>
 						<wrapmultiline>true</wrapmultiline>
 					</control>
 				</itemlayout>
@@ -43,7 +48,6 @@
 						<label fallback="">$INFO[ListItem.Label]</label>
 						<font>lyrics2</font>
 						<textcolor>Color1</textcolor>
-						<shadowcolor>black</shadowcolor>
 						<wrapmultiline>true</wrapmultiline>
 					</control>
 				</focusedlayout>
