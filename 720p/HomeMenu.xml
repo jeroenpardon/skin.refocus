@@ -561,7 +561,8 @@
 					<!--music addons-->
 					<control type="button" id="509">
 						<label>$LOCALIZE[24001]</label>
-						<onclick>ActivateWindow(MusicLibrary,Addons)</onclick>
+						<onclick condition="Library.HasContent(music)">ActivateWindow(MusicLibrary,Addons)</onclick>
+						<onclick condition="!Library.HasContent(music)">ActivateWindow(MusicFiles,Addons)</onclick>
 						<onleft>501</onleft>
 						<onback>501</onback>
 						<include>home_SubMenuButton</include>
@@ -666,7 +667,8 @@
 					<!--addons music-->
 					<control type="button" id="704">
 						<label>$LOCALIZE[249]</label>
-						<onclick>ActivateWindow(MusicLibrary,Addons,return)</onclick>
+						<onclick condition="Library.HasContent(music)">ActivateWindow(MusicLibrary,Addons)</onclick>
+						<onclick condition="!Library.HasContent(music)">ActivateWindow(MusicFiles,Addons)</onclick>
 						<onleft>700</onleft>
 						<onback>700</onback>
 						<include>home_SubMenuButton</include>
