@@ -1,14 +1,13 @@
 #!/bin/bash 
 
 ScriptPath=$(cd "$(dirname "$0")"; pwd)
-
+ScriptName=$(basename "${ScriptPath}")
 OUTPUTDIR=build
 
 SkinPath=$ScriptPath
 TexturePackerPath=/Applications/TexturePacker
 OutputPath=$SkinPath/$OUTPUTDIR
-
-
+IgnoreRegex=".*((build|media)(\/.*)?|\.(db|psd|backup|sh|bat|DS_Store))"
 
 Usage()
 {
@@ -19,6 +18,7 @@ $0 [OPTION] REQ1 REQ2
 options:
 
     -o -output  Path to output to
+    -r -regex  Regex for ignored files
     -s -skin  Path to the skin to build
     -p -path  Path to TexturePacker installation
     -h --help   display this message
@@ -62,6 +62,13 @@ GetOpts() {
                 OutputPath="$1"
                 shift
                 ;;
+            -r|--regex)
+                if [ $# -eq 0 -o "${1:0:1}" = "-" ]; then
+                    Die "The ${opt} option requires an argument."
+                fi
+                IgnoreRegex="$1"
+                shift
+                ;;
             -h|--help)
                 Usage;;
             *)
@@ -84,18 +91,17 @@ echo "argv ${argv}"
 echo "Skin Name ${SkinName}"
 
 echo Creating reFocus Build Folder
+
+
+echo Creating ${SkinName} Directory...
 rm -fr "$OutputPath"
 mkdir "$OutputPath"
 mkdir "$OutputPath/$SkinName"
 
-echo Building Skin Directory...
-
-for directory in $( ls "${SkinPath}" )
-do
-     if [ \( $directory != 'media' -a $directory != 'build' -a $directory != 'build.sh' \) ]; then
-         cp -R "${SkinPath}/$directory" "$OutputPath/$SkinName/$directory"
-     fi
-done
+echo Copying ${SkinName} resources...
+cd "${SkinPath}"
+find -E ./ -type f ! -iregex ${IgnoreRegex} | rsync --files-from=- ./ "$OutputPath/$SkinName"
+cd -
 
 echo Creating XBT File...
 cd "${TexturePackerPath}"
