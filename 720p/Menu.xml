@@ -779,6 +779,29 @@
 		</control>
 	</include>
 
+<!--SETTINGS MENU-->
+	<include name="menu_Settings">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+			<!--Settings level-->
+				<control type="label" id="19">
+					<label>$LOCALIZE[31205]</label>
+					<include>menu_Header</include>
+				</control>
+				<control type="button" id="20">
+					<onback>PreviousMenu</onback>
+					<label>$LOCALIZE[10037]</label>
+					<onclick>SettingsLevelChange</onclick>
+					<include>menu_Button</include>
+				</control>
+				<!--now playing-->
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	</include>
+
 <!--WEATHER-->
 	<include name="menu_Weather">
 		<control type="group">
