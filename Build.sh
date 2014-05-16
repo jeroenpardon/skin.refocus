@@ -7,7 +7,7 @@ OUTPUTDIR=build
 SkinPath=$ScriptPath
 TexturePackerPath=/Applications/TexturePacker
 OutputPath=$SkinPath/$OUTPUTDIR
-IgnoreRegex=".*((build|media)(\/.*)?|\.(db|psd|backup|sh|bat|DS_Store))"
+IgnoreRegex=".*((build|media)(\/.*)?|\.(db|psd|backup|sh|bat|DS_Store|sublime-project|sublime-workspace|command|workflow|app))"
 
 Usage()
 {
