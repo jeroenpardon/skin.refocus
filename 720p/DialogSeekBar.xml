@@ -4,9 +4,13 @@
 	<visible>[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(infodialog) | Window.IsActive(SubtitleSearch) | Player.ShowCodec]</visible>
 	<controls>
 		<control type="group">
-			<include>clock</include>
 			<include>osd_Video</include>
+			<visible>Player.Paused | [VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused]]</visible>
+		</control>
+		<control type="group">
+			<include>clock</include>
 			<include>transition_OSD</include>
+			<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching</visible>
 			<control type="label">
 				<left>40</left>
 				<top>30</top>
