@@ -2,9 +2,10 @@
 <window>
 	<defaultcontrol always="true">700</defaultcontrol>
 	<controls>
-		<!--display media info on channel select-->
+		<!--display media info on pvr channel select-->
 		<control type="group">
 			<include>osd_Video</include>
+			<visible>VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused]</visible>
 		</control>
 		<!--player controls-->
 		<control type="group">

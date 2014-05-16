@@ -1,28 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>-</defaultcontrol>
-	<visible>[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(infodialog) | Window.IsActive(SubtitleSearch) | Player.ShowCodec]</visible>
+	<visible>[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)] + ![Window.IsActive(infodialog) | Window.IsActive(SubtitleSearch) | Player.ShowCodec]</visible>
 	<controls>
 		<control type="group">
-			<include>osd_Video</include>
-			<visible>Player.Paused | [VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused]]</visible>
-		</control>
-		<control type="group">
-			<include>clock</include>
 			<include>transition_OSD</include>
-			<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching</visible>
-			<control type="label">
-				<left>40</left>
-				<top>30</top>
-				<width>screen_Width</width>
-				<label>$VAR[player_Status]</label>
-				<textcolor>Color1</textcolor>
-				<font>light_Header</font>
+			<control type="group">
+				<include>osd_Video</include>
+				<visible>VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused]</visible>
 			</control>
 			<control type="group">
-				<top>680</top>
-				<include>osd_Seekbar</include>
-				<visible>!Window.IsActive(fullscreeninfo)</visible>
+				<include>clock</include>
+				<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching</visible>
+				<control type="label">
+					<left>40</left>
+					<top>30</top>
+					<width>screen_Width</width>
+					<label>$VAR[player_Status]</label>
+					<textcolor>Color1</textcolor>
+					<font>light_Header</font>
+				</control>
+				<control type="group">
+					<top>680</top>
+					<include>osd_Seekbar</include>
+					<visible>!Window.IsActive(fullscreeninfo)</visible>
+				</control>
 			</control>
 		</control>
 	</controls>
