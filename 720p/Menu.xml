@@ -46,7 +46,7 @@
 		<height>50</height>
 		<font>semibold_Small-U</font>
 		<textoffsetx>15</textoffsetx>
-		<textoffsety>4</textoffsety> 
+		<textoffsety>4</textoffsety>
 		<textcolor>Color3</textcolor>
 	</include>
 	<include name="menu_Button">
@@ -74,22 +74,6 @@
 		<radioheight>24</radioheight>
 		<disabledcolor>Disabled</disabledcolor>
 	</include>
-
-<!--COMMON CONTROLS-->
-	<!--
-	<include name="menu_QuickNav">
-		<control type="label" id="100">
-			<height>50</height>
-			<label>Shortcuts</label>
-			<include>menu_Header</include>
-		</control>
-		<control type="button" id="101">
-			<label>Video</label>
-			<include>menu_Button</include>
-			<onclick>SetFocus(7000)</onclick>
-		</control>
-	</include>
-	-->
 	<include name="menu_ViewMode">
 		<control type="label" id="102">
 			<height>50</height>
@@ -375,59 +359,6 @@
 					</control>
 				</control>
 			</control>
-			<!--
-			<control type="group">
-				<top>41</top>
-				<visible allowhiddenfocus="true">Control.HasFocus(7000)</visible>
-				<control type="label" id="401">
-					<label>Navigation</label>
-					<include>menu_Header</include>
-				</control>
-				<control type="list" id="7000">
-					<top>50</top>
-					<onback>6000</onback>
-					<onup>7000</onup>
-					<ondown>7000</ondown>
-					<onleft>6000</onleft>
-					<onright>50</onright>
-					<width>270</width>
-					<height>670</height>
-					<onback>6000</onback>
-					<itemgap>0</itemgap>
-					<itemlayout width="270" height="40">
-						<control type="label">
-							<width>270</width>
-							<height>38</height>
-							<font>light_Menu</font>
-							<textcolor>Color3</textcolor>
-							<focusedcolor>Color1</focusedcolor>
-							<textoffsety>3</textoffsety>
-							<textoffsetx>15</textoffsetx>
-							<info>ListItem.Label</info>
-						</control>
-					</itemlayout>
-					<focusedlayout width="270" height="40">
-						<control type="image">
-							<width>270</width>
-							<height>40</height>
-							<aspectratio>stretch</aspectratio>
-							<texture colordiffuse="column2">white.png</texture>
-						</control>
-						<control type="label">
-							<width>270</width>
-							<height>38</height>
-							<font>light_Menu</font>
-							<textcolor>Color1</textcolor>
-							<focusedcolor>Color1</focusedcolor>
-							<textoffsety>3</textoffsety>
-							<textoffsetx>15</textoffsetx>
-							<info>ListItem.Label</info>
-						</control>
-					</focusedlayout>
-					<content target="video">videodb://</content>
-				</control>
-			</control>
-			-->
 		</control>
 	</include>
 
