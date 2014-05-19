@@ -5,11 +5,11 @@ reFocus is a graphical interface for XBMC Media Center that understands your med
 
 ### Download and installation
 
-#### stable build (recommended)
+#### stable build
 Install the repository add-on [here](https://github.com/jeroenpardon/xbmc.repo.jeroen/releases
 ) and follow the instructions
 
-#### manual installation / unstable
+#### manual installation
 After you have downloaded the zip file on the right of this page, please refer to [this guide](http://wiki.xbmc.org/index.php?title=HOW-TO:Install_an_Add-on_from_a_zip_file) to learn how to install the skin in XBMC.
 
 ### License
