@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<controls>
-		<!--clock-->
 		<control type="group">
-			<visible>![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]</visible>
+			<include>transition_OSD</include>
 			<include>clock</include>
+			<include>osd_Video</include>
+			<include>osd_Seekbar</include>
 		</control>
-		<!--media info-->
-		<include>osd_Video</include>
 	</controls>
 </window>

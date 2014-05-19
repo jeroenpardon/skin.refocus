@@ -29,7 +29,7 @@
 		</control>
 		<control type="group">
 			<visible>Player.ShowCodec</visible>
-			<control type="image" id="1">
+			<control type="image">
 				<width>Screen_Width</width>
 				<height>93</height>
 				<texture>white.png</texture>
@@ -60,10 +60,11 @@
 				</control>
 			</control>
 		</control>
-		<control type="group" id="1">
-			<include>osd_Music</include>
+		<control type="group">
 			<include>transition_OSD</include>
 			<visible>Player.ShowInfo</visible>
+			<include>osd_Music</include>
+			<include>osd_Seekbar</include>
 		</control>
 	</controls>
 </window>
