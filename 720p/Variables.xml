@@ -398,8 +398,8 @@
 	</variable>
 
 	<variable name="osd_ClearLogo">
-		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(logos.movies.enable) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(clearlogo)]</value>
-		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(logos.movies.enable) + [!Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))]]">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [!Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))]]">$INFO[Player.Art(tvshow.clearlogo)]</value>
 	</variable>
 
 
