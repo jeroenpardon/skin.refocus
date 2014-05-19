@@ -12,6 +12,7 @@ xcopy "backgrounds" "BUILD\skin.refocus\backgrounds" /E /Q /I /Y
 xcopy "fonts" "BUILD\skin.refocus\fonts" /E /Q /I /Y
 xcopy "language" "BUILD\skin.refocus\language" /E /Q /I /Y
 xcopy "language\Bulgarian" "BUILD\skin.refocus\language\Bulgarian" /E /Q /I /Y
+xcopy "language\Catalan" "BUILD\skin.refocus\language\Catalan" /E /Q /I /Y
 xcopy "language\Czech" "BUILD\skin.refocus\language\Czech" /E /Q /I /Y
 xcopy "language\Danish" "BUILD\skin.refocus\language\Danish" /E /Q /I /Y
 xcopy "language\Dutch" "BUILD\skin.refocus\language\Dutch" /E /Q /I /Y
