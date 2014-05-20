@@ -15,7 +15,6 @@
 	<include file="ViewList.xml" />
 	<include file="ViewSlide.xml" />
 	<include file="ViewsTV.xml" />
-	<include file="script-skinshortcuts-includes.xml"/>
 
 <!--CONSTANTS-->
 	<constant name="screen_Width">1280</constant>
@@ -37,6 +36,7 @@
 	<constant name="autoscroll_Delay">10000</constant>
 	<constant name="autoscroll_Time">3300</constant>
 	<constant name="autoscroll_Repeat">10000</constant>
+	<constant name="autoscroll_Speed">40</constant>
 
 <!--GLOBAL-->	
 	<include name="TriggerButton">
@@ -52,12 +52,10 @@
 	<include name="global_Scrolltime">
 		<scrolltime tween="Quadratic" easing="Out">400</scrolltime>
 	</include>
-	<include name="autoscroll_Plot">
-		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="autoscroll_Repeat">true</autoscroll>
-	</include>
+
 	<include name="autoscroll_Line">
 		<scroll>true</scroll>
-		<scrollspeed>40</scrollspeed>
+		<scrollspeed>autoscroll_Speed</scrollspeed>
 	</include>
 	<include name="screen_Dimensions">
 		<width>screen_Width</width>
@@ -198,7 +196,6 @@
 		<textcolor>Color7</textcolor>
 		<font>regular</font>
 		<aligny>top</aligny>
-		<include>autoscroll_Plot</include>
 	</include>
 	<include name="detail_StarRating">
 		<width>128</width>
@@ -834,7 +831,6 @@
 						<height>55</height>
 						<label>$VAR[player_Plot]</label>
 						<include>osd_Text</include>
-						<include>autoscroll_Plot</include>
 						<visible>Player.HasVideo</visible>
 					</control>
 				</control>
