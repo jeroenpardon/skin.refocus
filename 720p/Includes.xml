@@ -34,6 +34,9 @@
 	<constant name="transition_DialogOpen">200</constant>
 	<constant name="transition_DialogClose">200</constant>
 	<constant name="slideshow_Timer">20000</constant>
+	<constant name="autoscroll_Delay">10000</constant>
+	<constant name="autoscroll_Time">3300</constant>
+	<constant name="autoscroll_Repeat">10000</constant>
 
 <!--GLOBAL-->	
 	<include name="TriggerButton">
@@ -49,10 +52,10 @@
 	<include name="global_Scrolltime">
 		<scrolltime tween="Quadratic" easing="Out">400</scrolltime>
 	</include>
-	<include name="autoscroll-plot">
-		<autoscroll delay="10000" time="3300" repeat="10000">!Control.HasFocus(4)</autoscroll>
+	<include name="autoscroll_Plot">
+		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="autoscroll_Repeat">true</autoscroll>
 	</include>
-	<include name="autoscroll-line">
+	<include name="autoscroll_Line">
 		<scroll>true</scroll>
 		<scrollspeed>40</scrollspeed>
 	</include>
@@ -195,7 +198,7 @@
 		<textcolor>Color7</textcolor>
 		<font>regular</font>
 		<aligny>top</aligny>
-		<include>autoscroll-plot</include>
+		<include>autoscroll_Plot</include>
 	</include>
 	<include name="detail_StarRating">
 		<width>128</width>
@@ -831,6 +834,7 @@
 						<height>55</height>
 						<label>$VAR[player_Plot]</label>
 						<include>osd_Text</include>
+						<include>autoscroll_Plot</include>
 						<visible>Player.HasVideo</visible>
 					</control>
 				</control>
