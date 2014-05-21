@@ -179,9 +179,15 @@
 	</variable>
 
 	<variable name="playing_Title">
+		<value condition="!Player.HasMedia">$LOCALIZE[13350]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
 		<value condition="Player.HasVideo">$INFO[VideoPlayer.Title]</value>
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.Title]</value>
+	</variable>
+
+	<variable name="playing_Header">
+		<value condition="Player.HasMedia">$LOCALIZE[31034]</value>
+		<value condition="!Player.HasMedia">$LOCALIZE[31034]</value>
 	</variable>
 
 
