@@ -179,6 +179,7 @@
 	</variable>
 
 	<variable name="playing_Title">
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName]</value>
 		<value condition="Player.HasVideo">$INFO[VideoPlayer.Title]</value>
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.Title]</value>
 	</variable>
