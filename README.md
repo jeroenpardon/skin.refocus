@@ -18,6 +18,8 @@ Or use a Git client to checkout and make sure the skin.refocus folder resides in
 [Attribution-NonCommercial-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 ### Links
+[FAQ](https://github.com/jeroenpardon/skin.refocus/wiki)
+
 [reFocus forum](http://forum.xbmc.org/forumdisplay.php?fid=72)
 
 [XBMC](http://www.xbmc.org/)
