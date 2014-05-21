@@ -4,41 +4,41 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>225</left>
+		<left>160</left>
 		<top>70</top>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
 			<control type="image">
-				<width>830</width>
+				<width>960</width>
 				<height>580</height>
 				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
-				<width>822</width>
+				<width>952</width>
 				<label>$INFO[ListItem.Property(Addon.Name)]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<left>625</left>
+				<left>755</left>
 				<top>61</top>
 				<height>199</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="group">
-				<left>626</left>
+				<left>756</left>
 				<top>60</top>
 				<control type="image">
 					<width>200</width>
 					<height>200</height>
-					<aspectratio>keep</aspectratio>
+					<aspectratio>scale</aspectratio>
 					<texture>thumbs/default_Square.png</texture>
 				</control>
 				<control type="image">
 					<width>200</width>
 					<height>200</height>
-					<aspectratio>keep</aspectratio>
+					<aspectratio>scale</aspectratio>
 					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 			</control>
@@ -46,7 +46,7 @@
 				<left>4</left>
 				<top>60</top>
 				<control type="image">
-					<width>822</width>
+					<width>952</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
@@ -57,11 +57,11 @@
 				</control>
 				<control type="image">
 					<top>435</top>
-					<width>822</width>
+					<width>952</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="grouplist" id="100">
-					<width>800</width>
+					<width>930</width>
 					<height>480</height>
 					<itemgap>0</itemgap>
 					<onleft>-</onleft>
@@ -70,31 +70,31 @@
 					<ondown>100</ondown>
 					<include>global_ListScroll</include>
 					<control type="button" id="101">
-						<width>621</width>
+						<width>751</width>
 						<label>$LOCALIZE[467]</label>
 						<label2>$INFO[ListItem.Property(Addon.Type)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="102">
-						<width>621</width>
+						<width>751</width>
 						<label>$LOCALIZE[21863]</label>
 						<label2>$INFO[ListItem.Property(Addon.Creator)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="103">
-						<width>621</width>
+						<width>751</width>
 						<label>$LOCALIZE[24051]</label>
 						<label2>$INFO[ListItem.Property(Addon.Version)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="104">
-						<width>621</width>
+						<width>751</width>
 						<label>$LOCALIZE[563]</label>
 						<label2>$INFO[ListItem.Property(Addon.Rating)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="105">
-						<width>621</width>
+						<width>751</width>
 						<label>$LOCALIZE[24052]</label>
 						<label2>$INFO[ListItem.Property(Addon.Disclaimer)]</label2>
 						<include>dialog_ControlCommons</include>
@@ -105,14 +105,14 @@
 					<left>15</left>	
 					<top>200</top>
 					<control type="textbox" id="400">
-						<width>795</width>
+						<width>925</width>
 						<height>235</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
 						<include>dialog_Text</include>
 						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="textbox" id="400">
-						<width>660</width>
+						<width>790</width>
 						<height>145</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
 						<include>dialog_Text</include>
@@ -164,14 +164,17 @@
 				<orientation>horizontal</orientation>
 				<!--configure-->
 				<control type="button" id="9">
-					<left>266</left>
 					<label>$LOCALIZE[24020]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--update-->
 				<control type="button" id="8">
-					<left>399</left>
 					<label>$LOCALIZE[24069]</label>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--launch-->
+				<control type="button" id="12">
+					<label>$LOCALIZE[518]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--uninstall-->
@@ -181,19 +184,16 @@
 				</control>
 				<!--disable-->
 				<control type="button" id="7">
-					<left>133</left>
 					<label>$LOCALIZE[24021]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--rollback-->
 				<control type="button" id="11">
-					<left>133</left>
 					<label>$LOCALIZE[24048]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--changelog-->
 				<control type="button" id="10">
-					<left>532</left>
 					<label>$LOCALIZE[24036]</label>
 					<width>135</width>
 					<include>dialog_WindowButton</include>
