@@ -23,7 +23,8 @@ xcopy "language\Galician" "BUILD\skin.refocus\language\Galician" /E /Q /I /Y
 xcopy "language\Italian" "BUILD\skin.refocus\language\Italian" /E /Q /I /Y
 xcopy "language\Korean" "BUILD\skin.refocus\language\Korean" /E /Q /I /Y
 xcopy "language\Polish" "BUILD\skin.refocus\language\Polish" /E /Q /I /Y
-xcopy "language\Portuguese" "BUILD\skin.refocus\language\Portuguese" /E /Q /I /Y
+xcopy "language\Portuguese (Brazil)" "BUILD\skin.refocus\language\Portuguese (Brazil)" /E /Q /I /Y
+xcopy "language\Portuguese (Portugal)" "BUILD\skin.refocus\language\Portuguese (Portugal)" /E /Q /I /Y
 xcopy "language\Romanian" "BUILD\skin.refocus\language\Romanian" /E /Q /I /Y
 xcopy "language\Swedish" "BUILD\skin.refocus\language\Swedish" /E /Q /I /Y
 xcopy "language\Spanish" "BUILD\skin.refocus\language\Spanish" /E /Q /I /Y
