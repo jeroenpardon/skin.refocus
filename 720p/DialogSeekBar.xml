@@ -27,7 +27,7 @@
 				</control>
 				<!--seekbar-->
 				<include>osd_Seekbar</include>
-				<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching</visible>
+				<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + !Window.IsActive(pvrosdchannels)</visible>
 			</control>
 		</control>
 	</controls>
