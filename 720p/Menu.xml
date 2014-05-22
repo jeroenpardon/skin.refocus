@@ -189,7 +189,7 @@
 	</include>
 	<include name="menu_Playing">
 		<control type="label" id="218">
-			<label>$LOCALIZE[31034]</label>
+			<label>$VAR[playing_Header]</label>
 			<include>menu_Header</include>
 			<visible>[Skin.HasSetting(menu.nowplaying) + Player.HasMedia] | [Skin.HasSetting(menu.nowplaying) + Skin.HasSetting(menu.playlist) + !Player.HasMedia + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0) | [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)]]] + ![Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist)]</visible>
 		</control>
