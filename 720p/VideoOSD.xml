@@ -2,17 +2,12 @@
 <window>
 	<defaultcontrol always="true">700</defaultcontrol>
 	<controls>
-		<!--display media info on pvr channel select-->
-		<control type="group">
-			<include>osd_Video</include>
-			<visible>VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused]</visible>
-		</control>
 		<!--player controls-->
 		<control type="group">
 			<visible>![Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
 			<control type="group">
 				<left>479</left>
-				<top>205</top>
+				<top>190</top>
 				<width>322</width>
 				<include>transition_Dialog</include>
 				<include>player_Controls-commons</include>

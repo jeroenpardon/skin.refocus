@@ -61,10 +61,9 @@
 			</control>
 		</control>
 		<control type="group">
+			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
 			<include>transition_OSD</include>
-			<visible>Player.ShowInfo</visible>
 			<include>osd_Music</include>
-			<include>osd_Seekbar</include>
 		</control>
 	</controls>
 </window>
