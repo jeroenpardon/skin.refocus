@@ -2,7 +2,6 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-	<onunload>ClearProperty(MenuOpen)</onunload>
 	<controls>
 
 	<!--trigger button-->
@@ -16,7 +15,7 @@
 		<include>global_Background</include>
 
 	<!--weather images-->
-		<control type="multiimage" id="1">
+		<control type="multiimage">
 			<include>screen_Dimensions</include>
 			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
@@ -40,6 +39,7 @@
 			<top>330</top>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
+
 			<!--current-->
 			<control type="group" id="5000">
 				<onleft>6000</onleft>
@@ -115,6 +115,7 @@
 					</control>
 				</control>
 			</control>
+
 			<!--today-->
 			<control type="group">
 				<left>235</left>
@@ -161,6 +162,7 @@
 					</control>
 				</control>
 			</control>
+
 			<!--day 1-->
 			<control type="group">
 				<left>470</left>
@@ -207,6 +209,7 @@
 					</control>
 				</control>
 			</control>
+
 			<!--day 2-->
 			<control type="group">
 				<left>705</left>
@@ -253,6 +256,7 @@
 					</control>
 				</control>
 			</control>
+
 			<!--day 3-->
 			<control type="group">
 				<left>940</left>

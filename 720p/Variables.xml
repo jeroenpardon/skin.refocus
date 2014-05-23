@@ -192,8 +192,8 @@
 	</variable>
 
 	<variable name="toast_Bottom">
-		<value condition="!Window.IsActive(fullscreenvideo) + PVR.HasNonRecordingTimer">$INFO[Pvr.NextRecordingChannel,,:]$INFO[Pvr.NextRecordingTitle]</value>
-		<value condition="!Window.IsActive(fullscreenvideo) + PVR.IsRecording">$INFO[Pvr.NowRecordingChannel,,:]$INFO[Pvr.NowRecordingTitle]</value>
+		<value condition="Window.IsActive(pvr) + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$INFO[Pvr.NextRecordingChannel,,:]$INFO[Pvr.NextRecordingTitle]</value>
+		<value condition="Window.IsActive(pvr) + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$INFO[Pvr.NowRecordingChannel,,:]$INFO[Pvr.NowRecordingTitle]</value>
 		<value condition="!Window.IsActive(fullscreenvideo)">$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</value>
 		<value condition="Window.IsActive(fullscreenvideo)">$LOCALIZE[31323] $INFO[Player.FinishTime]</value>
 	</variable>
@@ -417,6 +417,22 @@
 		<value condition="StringCompare(Window(Home).Property(tvguide),friday)">$INFO[Container(204).Listitem.Property(NextDate),$LOCALIZE[15] ]</value>
 		<value condition="StringCompare(Window(Home).Property(tvguide),saturday)">$INFO[Container(205).Listitem.Property(NextDate),$LOCALIZE[16] ]</value>
 		<value condition="StringCompare(Window(Home).Property(tvguide),sunday)">$INFO[Container(206).Listitem.Property(NextDate),$LOCALIZE[17] ]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),yesterday)">$INFO[Window(home).Property(NextAired.YesterdayText)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),today)">$INFO[Window(home).Property(NextAired.TodayText)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),tomorrow)">$INFO[Window(home).Property(NextAired.TomorrowText)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus2)">$INFO[Window(home).Property(NextAired.203.Weekday)] $INFO[Window(home).Property(NextAired.203.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus3)">$INFO[Window(home).Property(NextAired.204.Weekday)] $INFO[Window(home).Property(NextAired.204.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus4)">$INFO[Window(home).Property(NextAired.205.Weekday)] $INFO[Window(home).Property(NextAired.205.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus5)">$INFO[Window(home).Property(NextAired.206.Weekday)] $INFO[Window(home).Property(NextAired.206.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus6)">$INFO[Window(home).Property(NextAired.207.Weekday)] $INFO[Window(home).Property(NextAired.207.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus7)">$INFO[Window(home).Property(NextAired.208.Weekday)] $INFO[Window(home).Property(NextAired.208.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus8)">$INFO[Window(home).Property(NextAired.209.Weekday)] $INFO[Window(home).Property(NextAired.209.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus9)">$INFO[Window(home).Property(NextAired.210.Weekday)] $INFO[Window(home).Property(NextAired.210.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus10)">$INFO[Window(home).Property(NextAired.211.Weekday)] $INFO[Window(home).Property(NextAired.211.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus11)">$INFO[Window(home).Property(NextAired.212.Weekday)] $INFO[Window(home).Property(NextAired.212.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus12)">$INFO[Window(home).Property(NextAired.213.Weekday)] $INFO[Window(home).Property(NextAired.213.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus13)">$INFO[Window(home).Property(NextAired.214.Weekday)] $INFO[Window(home).Property(NextAired.214.Date)]</value>
+		<value condition="StringCompare(Window(Home).Property(tvguide),nplus14)">$INFO[Window(home).Property(NextAired.215.Weekday)] $INFO[Window(home).Property(NextAired.215.Date)]</value>
 	</variable>
 
 	<variable name="gallery_Title">
