@@ -192,8 +192,8 @@
 	</variable>
 
 	<variable name="toast_Bottom">
-		<value condition="Window.IsActive(pvr) + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$INFO[Pvr.NextRecordingChannel,,:]$INFO[Pvr.NextRecordingTitle]</value>
-		<value condition="Window.IsActive(pvr) + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$INFO[Pvr.NowRecordingChannel,,:]$INFO[Pvr.NowRecordingTitle]</value>
+		<value condition="[Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$INFO[Pvr.NextRecordingChannel,,:]$INFO[Pvr.NextRecordingTitle]</value>
+		<value condition="[Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">2222$INFO[Pvr.NowRecordingChannel,,:]$INFO[Pvr.NowRecordingTitle]</value>
 		<value condition="!Window.IsActive(fullscreenvideo)">$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</value>
 		<value condition="Window.IsActive(fullscreenvideo)">$LOCALIZE[31323] $INFO[Player.FinishTime]</value>
 	</variable>
