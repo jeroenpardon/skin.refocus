@@ -541,12 +541,12 @@
 
 	<variable name="player_Time">
 		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.Time(hh:mm:ss)]</value>
-		<value>$INFO[Player.Time(hh:mm)]</value>
+		<value>$INFO[Player.StartTime(hh:mm:22)]</value>
 	</variable>
 
 	<variable name="player_Duration">
 		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.Duration(hh:mm:ss)]</value>
-		<value>$INFO[Player.Duration(hh:mm)]</value>
+		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
 	</variable>
 
 	<variable name="playlist_Type">
