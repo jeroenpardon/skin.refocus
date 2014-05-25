@@ -51,12 +51,28 @@
 						<height>80</height>
 						<include>dialog_CommonList</include>
 					</control>
-					<control type="image">
+					<control type="group">
 						<left>4</left>
 						<top>4</top>
-						<width>72</width>
-						<height>72</height>
-						<texture fallback="LiveTV.png">$INFO[ListItem.Thumb]</texture>
+						<control type="image">	
+							<width>72</width>
+							<height>72</height>
+							<texture>thumbs/default_Square.png</texture>
+							<visible>IsEmpty(ListItem.Art(thumb))</visible>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>48</width>
+							<height>48</height>
+							<texture colordiffuse="Color1">LiveTV.png</texture>
+							<visible>IsEmpty(ListItem.Art(thumb))</visible>
+						</control>
+						<control type="image">
+							<width>72</width>
+							<height>72</height>
+							<texture>$INFO[ListItem.Art(thumb)]</texture>
+						</control>
 					</control>
 					<control type="group">
 						<left>75</left>
@@ -105,12 +121,28 @@
 						<height>80</height>
 						<include>dialog_CommonListFocus</include>
 					</control>
-					<control type="image">
+					<control type="group">
 						<left>4</left>
 						<top>4</top>
-						<width>72</width>
-						<height>72</height>
-						<texture fallback="LiveTV.png">$INFO[ListItem.Thumb]</texture>
+						<control type="image">	
+							<width>72</width>
+							<height>72</height>
+							<texture>thumbs/default_Square.png</texture>
+							<visible>IsEmpty(ListItem.Art(thumb))</visible>
+						</control>
+						<control type="image">
+							<left>12</left>
+							<top>12</top>
+							<width>48</width>
+							<height>48</height>
+							<texture colordiffuse="Color1">LiveTV.png</texture>
+							<visible>IsEmpty(ListItem.Art(thumb))</visible>
+						</control>
+						<control type="image">
+							<width>72</width>
+							<height>72</height>
+							<texture>$INFO[ListItem.Art(thumb)]</texture>
+						</control>
 					</control>
 					<control type="group">
 						<left>75</left>
