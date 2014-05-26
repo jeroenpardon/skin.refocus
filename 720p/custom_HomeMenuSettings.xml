@@ -721,6 +721,57 @@
 							<include>dialog_Radio-alt</include>
 							<enable>!Skin.HasSetting(homemenu.music.disable) + Library.HasContent(musicvideos)</enable>
 						</control>
+
+						<!--custom video items-->
+						<control type="button" id="520">
+							<width>484</width>
+							<label>$LOCALIZE[31018] 1</label>
+							<label2>$INFO[Skin.String(customitem.music1.label)]</label2>
+							<!--(re)set category-->
+							<onclick>ClearProperty(customitem.category,Home)</onclick>
+							<onclick>SetProperty(customitem.category,music,Home)</onclick>
+							<!--reset previous item values-->
+							<onclick>Skin.Reset(customitem.music1.path)</onclick>
+							<onclick>Skin.Reset(customitem.music1.type)</onclick>
+							<!--set up new item value-->
+							<onclick>SetProperty(customitem.music.number,1,Home)</onclick>
+							<onclick>ActivateWindow(96)</onclick>
+							<include>dialog_Radio-alt</include>
+							<enable>!Skin.HasSetting(homemenu.music.disable)</enable>
+						</control>
+						<control type="button" id="521">
+							<width>484</width>
+							<label>$LOCALIZE[31018] 2</label>
+							<label2>$INFO[Skin.String(customitem.music2.label)]</label2>
+							<!--(re)set category-->
+							<onclick>ClearProperty(customitem.category,Home)</onclick>
+							<onclick>SetProperty(customitem.category,music,Home)</onclick>
+							<!--reset previous item values-->
+							<onclick>Skin.Reset(customitem.music2.path)</onclick>
+							<onclick>Skin.Reset(customitem.music2.type)</onclick>
+							<!--set up new item value-->
+							<onclick>SetProperty(customitem.music.number,2,Home)</onclick>
+							<onclick>ActivateWindow(96)</onclick>
+							<include>dialog_Radio-alt</include>
+							<enable>!Skin.HasSetting(homemenu.music.disable)</enable>
+						</control>
+						<control type="button" id="522">
+							<width>484</width>
+							<label>$LOCALIZE[31018] 3</label>
+							<label2>$INFO[Skin.String(customitem.music3.label)]</label2>
+							<!--(re)set category-->
+							<onclick>ClearProperty(customitem.category,Home)</onclick>
+							<onclick>SetProperty(customitem.category,music,Home)</onclick>
+							<!--reset previous item values-->
+							<onclick>Skin.Reset(customitem.music3.path)</onclick>
+							<onclick>Skin.Reset(customitem.music3.type)</onclick>
+							<!--set up new item value-->
+							<onclick>SetProperty(customitem.music.number,3,Home)</onclick>
+							<onclick>ActivateWindow(96)</onclick>
+							<include>dialog_Radio-alt</include>
+							<enable>!Skin.HasSetting(homemenu.music.disable)</enable>
+						</control>
+
 					</control>
 
 				<!--pictures submenu-->

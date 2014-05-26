@@ -105,6 +105,20 @@
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.type,folder)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetPath(customitem.tvshows3.path)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.label)</onclick>
+
+						<!--music-->
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetString(customitem.music1.type,folder)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetPath(customitem.music1.path)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetString(customitem.music1.label)</onclick>
+
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetString(customitem.music2.type,folder)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetPath(customitem.music2.path)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetString(customitem.music2.label)</onclick>
+
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetString(customitem.music3.type,folder)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetPath(customitem.music3.path)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetString(customitem.music3.label)</onclick>
+
 						<include>dialog_ControlCommons</include>
 					</control>
 					<!--Playlist-->
@@ -149,6 +163,20 @@
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.type,playlist)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetFile(customitem.tvshows3.playlistpath,.xsp|.m3u,special://profile/playlists/video/)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.label)</onclick>
+
+						<!--music-->
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetString(customitem.music1.type,playlist)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetFile(customitem.music1.playlistpath,.xsp|.m3u,special://profile/playlists/)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetString(customitem.music1.label)</onclick>
+
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetString(customitem.music2.type,playlist)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetFile(customitem.music2.playlistpath,.xsp|.m3u,special://profile/playlists/)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetString(customitem.music2.label)</onclick>
+
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetString(customitem.music3.type,playlist)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetFile(customitem.music3.playlistpath,.xsp|.m3u,special://profile/playlists/)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetString(customitem.music3.label)</onclick>
+
 						<include>dialog_ControlCommons</include>
 					</control>
 					<!--Add-on-->
@@ -193,6 +221,20 @@
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.type,addon)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetAddon(customitem.tvshows3.addonpath,xbmc.addon.video)</onclick>
 						<onclick condition="StringCompare(Window(Home).Property(customitem.category),tvshows) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">Skin.SetString(customitem.tvshows3.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.tvshows3.addonpath)])])</onclick>
+
+						<!--music-->
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetString(customitem.music1.type,addon)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetAddon(customitem.music1.addonpath,xbmc.addon.audio)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),1)">Skin.SetString(customitem.music1.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.music1.addonpath)])])</onclick>
+
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetString(customitem.music2.type,addon)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetAddon(customitem.music2.addonpath,xbmc.addon.audio)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),2)">Skin.SetString(customitem.music2.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.music2.addonpath)])])</onclick>
+
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetString(customitem.music3.type,addon)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetAddon(customitem.music3.addonpath,xbmc.addon.audio)</onclick>
+						<onclick condition="StringCompare(Window(Home).Property(customitem.category),music) + StringCompare(Window(Home).Property(customitem.music.number),3)">Skin.SetString(customitem.music3.label,$INFO[System.AddonTitle($INFO[Skin.String(customitem.music3.addonpath)])])</onclick>
+
 						<include>dialog_ControlCommons</include>
 					</control>
 				</control>

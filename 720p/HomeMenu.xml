@@ -604,6 +604,40 @@
 						<visible>!Skin.HasSetting(homemenu.music.disable) + Skin.HasSetting(musicmenu.videos) + [Control.HasFocus(5555) | Control.HasFocus(513) | Skin.String(HomeSub,$LOCALIZE[2])]</visible>
 					</control>
 
+					<!--custom music entry 1-->
+					<control type="button" id="520">
+						<label>$INFO[Skin.String(customitem.music1.label)]</label>
+						<onclick condition="Skin.String(customitem.music1.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.music1.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.music1.type,playlist)">ActivateWindow(MusicLibrary,$INFO[Skin.String(customitem.music1.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.music1.type,addon)">RunAddon($INFO[Skin.String(customitem.music1.addonpath)])</onclick>
+						<onleft>300</onleft>
+						<onback>300</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(customitem.music1.label)) + [Control.HasFocus(5555) | Control.HasFocus(520) | Skin.String(HomeSub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--custom music entry 2-->
+					<control type="button" id="521">
+						<label>$INFO[Skin.String(customitem.music2.label)]</label>
+						<onclick condition="Skin.String(customitem.music2.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.music2.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.music2.type,playlist)">ActivateWindow(MusicLibrary,$INFO[Skin.String(customitem.music2.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.music2.type,addon)">RunAddon($INFO[Skin.String(customitem.music2.addonpath)])</onclick>
+						<onleft>300</onleft>
+						<onback>300</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(customitem.music2.label)) + [Control.HasFocus(5555) | Control.HasFocus(521) | Skin.String(HomeSub,$LOCALIZE[2])]</visible>
+					</control>
+					<!--custom music entry 3-->
+					<control type="button" id="522">
+						<label>$INFO[Skin.String(customitem.music3.label)]</label>
+						<onclick condition="Skin.String(customitem.music3.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.music3.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.music3.type,playlist)">ActivateWindow(MusicLibrary,$INFO[Skin.String(customitem.music3.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.music3.type,addon)">RunAddon($INFO[Skin.String(customitem.music3.addonpath)])</onclick>
+						<onleft>300</onleft>
+						<onback>300</onback>
+						<include>home_SubMenuButton</include>
+						<visible>!IsEmpty(Skin.String(customitem.music3.label)) + [Control.HasFocus(5555) | Control.HasFocus(522) | Skin.String(HomeSub,$LOCALIZE[2])]</visible>
+					</control>
+
 				<!--PICTURES-->
 					<control type="button" id="600">
 						<label>$LOCALIZE[1]</label>
