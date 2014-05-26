@@ -57,9 +57,9 @@
 						<label>$INFO[Skin.String(customitem.video1.label)]</label>
 						<onleft>100</onleft>
 						<onback>100</onback>
-						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video1.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video1.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video1.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video1.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.video1.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.video1.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.video1.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video1.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.video1.type,addon)">RunAddon($INFO[Skin.String(customitem.video1.addonpath)])</onclick>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.video1.label)) + [Control.HasFocus(1111) | Control.HasFocus(103) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
@@ -68,9 +68,9 @@
 						<label>$INFO[Skin.String(customitem.video2.label)]</label>
 						<onleft>100</onleft>
 						<onback>100</onback>
-						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video2.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video2.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video2.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video2.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.video2.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.video2.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.video2.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video2.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.video2.type,addon)">RunAddon($INFO[Skin.String(customitem.video2.addonpath)])</onclick>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.video2.label)) + [Control.HasFocus(1111) | Control.HasFocus(104) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
@@ -79,9 +79,9 @@
 						<label>$INFO[Skin.String(customitem.video3.label)]</label>
 						<onleft>100</onleft>
 						<onback>100</onback>
-						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.video3.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video3.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.video3.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.video3.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.video3.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.video3.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.video3.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.video3.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.video3.type,addon)">RunAddon($INFO[Skin.String(customitem.video3.addonpath)])</onclick>
 						<include>home_SubMenuButton</include>
 						<visible>!IsEmpty(Skin.String(customitem.video3.label)) + [Control.HasFocus(1111) | Control.HasFocus(105) | Skin.String(HomeSub,$LOCALIZE[3])]</visible>
 					</control>
@@ -244,9 +244,9 @@
 					<!--custom movies entry 1-->
 					<control type="button" id="220">
 						<label>$INFO[Skin.String(customitem.movies1.label)]</label>
-						<onclick condition="Skin.String(customitem.movies1.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.movies1.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.movies1.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.movies1.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.movies1.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.movies1.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.movies1.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.movies1.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.movies1.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.movies1.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.movies1.type,addon)">RunAddon($INFO[Skin.String(customitem.movies1.addonpath)])</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
@@ -255,9 +255,9 @@
 					<!--custom movies entry 2-->
 					<control type="button" id="221">
 						<label>$INFO[Skin.String(customitem.movies2.label)]</label>
-						<onclick condition="Skin.String(customitem.movies2.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.movies2.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.movies2.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.movies2.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.movies2.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.movies2.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.movies2.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.movies2.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.movies2.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.movies2.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.movies2.type,addon)">RunAddon($INFO[Skin.String(customitem.movies2.addonpath)])</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
@@ -266,9 +266,9 @@
 					<!--custom movies entry 3-->
 					<control type="button" id="222">
 						<label>$INFO[Skin.String(customitem.movies3.label)]</label>
-						<onclick condition="Skin.String(customitem.movies3.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.movies3.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.movies3.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.movies3.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.movies3.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.movies3.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.movies3.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.movies3.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.movies3.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.movies3.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.movies3.type,addon)">RunAddon($INFO[Skin.String(customitem.movies3.addonpath)])</onclick>
 						<onleft>200</onleft>
 						<onback>200</onback>
 						<include>home_SubMenuButton</include>
@@ -388,9 +388,9 @@
 					<!--custom tvshows entry 1-->
 					<control type="button" id="320">
 						<label>$INFO[Skin.String(customitem.tvshows1.label)]</label>
-						<onclick condition="Skin.String(customitem.tvshows1.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows1.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.tvshows1.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows1.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.tvshows1.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.tvshows1.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.tvshows1.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows1.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.tvshows1.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows1.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.tvshows1.type,addon)">RunAddon($INFO[Skin.String(customitem.tvshows1.addonpath)])</onclick>
 						<onleft>300</onleft>
 						<onback>300</onback>
 						<include>home_SubMenuButton</include>
@@ -399,9 +399,9 @@
 					<!--custom tvshows entry 2-->
 					<control type="button" id="321">
 						<label>$INFO[Skin.String(customitem.tvshows2.label)]</label>
-						<onclick condition="Skin.String(customitem.tvshows2.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows2.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.tvshows2.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows2.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.tvshows2.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.tvshows2.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.tvshows2.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows2.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.tvshows2.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows2.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.tvshows2.type,addon)">RunAddon($INFO[Skin.String(customitem.tvshows2.addonpath)])</onclick>
 						<onleft>300</onleft>
 						<onback>300</onback>
 						<include>home_SubMenuButton</include>
@@ -410,9 +410,9 @@
 					<!--custom tvshows entry 3-->
 					<control type="button" id="322">
 						<label>$INFO[Skin.String(customitem.tvshows3.label)]</label>
-						<onclick condition="Skin.String(customitem.tvshows3.type,$LOCALIZE[20334])">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows3.path)],return)</onclick>
-						<onclick condition="Skin.String(customitem.tvshows3.type,$LOCALIZE[559])">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows3.playlistpath)],return)</onclick>
-						<onclick condition="Skin.String(customitem.tvshows3.type,$LOCALIZE[24000])">RunAddon($INFO[Skin.String(customitem.tvshows3.addonpath)])</onclick>
+						<onclick condition="Skin.String(customitem.tvshows3.type,folder)">ActivateWindow(Videos,$INFO[Skin.String(customitem.tvshows3.path)],return)</onclick>
+						<onclick condition="Skin.String(customitem.tvshows3.type,playlist)">ActivateWindow(VideoLibrary,$INFO[Skin.String(customitem.tvshows3.playlistpath)],return)</onclick>
+						<onclick condition="Skin.String(customitem.tvshows3.type,addon)">RunAddon($INFO[Skin.String(customitem.tvshows3.addonpath)])</onclick>
 						<onleft>300</onleft>
 						<onback>300</onback>
 						<include>home_SubMenuButton</include>
