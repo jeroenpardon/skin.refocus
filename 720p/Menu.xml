@@ -144,15 +144,16 @@
 		<control type="edit" id="213">
 			<label>$LOCALIZE[587]</label>
 			<include>menu_Button</include>
-			<onclick>SendClick(8)</onclick>
+			<onclick>SendClick(19)</onclick>
 			<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
 		</control>
-		<control type="button" id="214">
+		<control type="radiobutton" id="214">
 			<label>$LOCALIZE[587]</label>
 			<onclick>right</onclick>
 			<onclick>Filter</onclick>
 			<selected>Container.Filtered</selected>
 			<include>menu_Button</include>
+			<include>menu_RadioButton</include>
 			<visible>Container.CanFilterAdvanced</visible>
 		</control>
 	</include>
@@ -352,6 +353,13 @@
 						<onclick>Container.SetViewMode(53)</onclick>
 						<visible>[Container.Content(tvshows) | Container.Content(movies)] + !SubString(Container.FolderPath,plugin://plugin)</visible>
 					</control>
+
+					<control type="button" id="412">
+						<label>addons</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(573)</onclick>
+					</control>
+
 				</control>
 			</control>
 		</control>
@@ -754,7 +762,7 @@
 					</control>
 					<control type="label" id="301">
 						<label>$LOCALIZE[35500]</label>
-						<textwidth>175</textwidth>
+						<width>175</width>
 						<include>menu_Button</include>
 					</control>
 				</control>
@@ -775,7 +783,6 @@
 					<label>$LOCALIZE[33063]</label>
 					<include>menu_Header</include>
 				</control>
-				
 				<!--fanart-->
 				<control type="radiobutton" id="5">
 					<label>$LOCALIZE[31231]</label>
