@@ -15,6 +15,7 @@
 	<include file="ViewList.xml" />
 	<include file="ViewSlide.xml" />
 	<include file="ViewsTV.xml" />
+	<include file="script-skinshortcuts-includes.xml" />
 
 <!--CONSTANTS-->
 	<constant name="screen_Width">1280</constant>
@@ -33,9 +34,9 @@
 	<constant name="transition_DialogOpen">200</constant>
 	<constant name="transition_DialogClose">200</constant>
 	<constant name="slideshow_Timer">20000</constant>
-	<constant name="autoscroll_Delay">10000</constant>
-	<constant name="autoscroll_Time">3300</constant>
-	<constant name="autoscroll_Repeat">10000</constant>
+	<constant name="autoscroll_Delay">3000</constant>
+	<constant name="autoscroll_Time">1000</constant>
+	<constant name="autoscroll_Repeat">1000</constant>
 	<constant name="autoscroll_Speed">40</constant>
 
 <!--GLOBAL-->	
@@ -592,7 +593,7 @@
 	<include name="osd_Text">
 		<font>regular_Small</font>
 		<textcolor>Color3</textcolor>
-		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="autoscroll_Repeat">Skin.HasSetting(autoscroll.enable)</autoscroll>
+		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="1000">Skin.HasSetting(autoscroll.enable)</autoscroll>
 	</include>
 
 	<include name="osd_Seekbar">
