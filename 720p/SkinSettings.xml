@@ -2,6 +2,10 @@
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
+
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onunload>
+
+
 	<onunload>ClearProperty(Fanartgrabber,skinsettings)</onunload>
 	<controls>
 
@@ -124,9 +128,17 @@
 					<control type="button" id="103">
 						<label>$LOCALIZE[31210]</label>
 						<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
+						<onclick>RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
+						<include>settings_Listbutton</include>
+					</control>
+					<!--
+					<control type="button" id="103">
+						<label>$LOCALIZE[31210]</label>
+						<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
 						<onclick>ActivateWindow(61)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
+					-->
 					<!--shelf-->
 					<control type="radiobutton" id="110">
 						<label>$LOCALIZE[31211]</label>
