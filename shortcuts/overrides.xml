@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+	<shortcut label="Watchlist" type="Movies">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+	<shortcut label="Watchlist" type="TV Shows">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+	<shortcut label="Unwatched" type="Movies">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
+	<shortcut label="Unwatched" type="Episodes">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return)</shortcut>
+	<shortcut label="Recently Added" type="Movies">ActivateWindow(Videos,videodb://recentlyaddedmovies,return)</shortcut>
+	<shortcut label="Recently Added" type="Episodes">ActivateWindow(Videos,videodb://recentlyaddedepisodes,return)</shortcut>
+	<shortcut label="Recently Added" type="Music">ActivateWindow(Music,musicdb://recentlyaddedalbums,return)</shortcut>
+	<shortcut label="Recently Played" type="Music">ActivateWindow(Music,musicdb://recentlyplayedalbums,return)</shortcut>
+	<shortcut label="In Progress" type="Movies">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
+	<shortcut label="In Progress" type="TV Shows">ActivateWindow(Videos,library://video/inprogressshows.xml,return)</shortcut>
+	<shortcut label="Trailers" type="Movies" condition="System.HasAddon(plugin.video.the.trailers)">ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</shortcut>
+	<shortcut label="Add-ons" type="Browse">ActivateWindow(AddonBrowser,root)</shortcut>
+	<shortcut label="Add-ons" type="Video">ActivateWindow(Videos,Addons,return)</shortcut>
+	<shortcut label="Add-ons" type="Music">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+	<shortcut label="Add-ons" type="Pictures">ActivateWindow(Pictures,Addons,return)</shortcut>
+	<shortcut label="Programs" type="Programs">ActivateWindow(Programs,Addons,return)</shortcut>
+	<shortcut label="TV Guide" type="Program" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
+	<shortcut label="Customize menu" type="Opens the home menu customization window">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
+	<shortcut label="Quit" type="Opens the shutdown menu">ActivateWindow(shutdownmenu)</shortcut>
+	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return)">Unwatched</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)">In Progress</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return)">Unwatched</availableshortcutlabel>
+	<availableshortcutlabel action="RunAddon(script.globalsearch)">Search</availableshortcutlabel>
+</overrides>
