@@ -196,7 +196,7 @@
 			<control type="label">
 				<top>25</top>
 				<label>$VAR[global_Info]</label>
-				<width>1128</width>
+				<width>1100</width>
 				<include>detail_Sub</include>
 			</control>
 			<control type="label">
@@ -232,7 +232,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures)</visible>
+			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Container.Content(files) + !Container.HasFiles]</visible>
 			<itemlayout width="188" height="188">
 				<include>view_IconSquare-ContainerCommons</include>
 			</itemlayout>											
@@ -587,6 +587,101 @@
 					<texture>$VAR[flag_Studio]</texture>
 				</control>
 			</control>
+		</control>
+	</include>
+
+<!--TILES-->
+	<include name="view_IconTiles-ContainerCommons">
+		<control type="image">
+			<width>78</width>
+			<height>78</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">
+				<width>64</width>
+				<height>64</height>
+				<texture>thumbs/default_Square.png</texture>
+			</control>
+			<control type="image">
+				<left>8</left>
+				<top>8</top>
+				<width>48</width>
+				<height>48</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<width>64</width>
+				<height>64</height>
+				<texture background="true">$VAR[thumb_Square]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+		</control>
+	</include>
+	<include name="view_IconTiles">
+		<control type="panel" id="58">
+			<viewtype label="Tiles">bigicon</viewtype>
+			<left>50</left>
+			<top>95</top>
+			<width>1230</width>
+			<height>595</height>
+			<onleft>58</onleft>
+			<onright>58</onright>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<orientation>horizontal</orientation>
+			<pagecontrol>71</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<itemlayout width="520" height="85">
+				<include>view_IconTiles-ContainerCommons</include>
+				<control type="group">
+					<left>95</left>
+					<top>10</top>
+					<control type="label" id="110">
+						<width>395</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+					</control>
+					<control type="label" id="110">
+						<top>27</top>
+						<width>395</width>
+						<label>$VAR[global_Info]</label>
+						<textcolor>Color2</textcolor>
+						<include>detail_Info</include>
+					</control>
+				</control>
+			</itemlayout>											
+			<focusedlayout width="520" height="85">
+				<control type="image">
+					<width>500</width>
+					<height>78</height>
+					<include>art_Frame-fo</include>
+				</control>
+				<include>view_IconTiles-ContainerCommons</include>
+				<control type="group">
+					<left>95</left>
+					<top>10</top>
+					<control type="label" id="110">
+						<width>395</width>
+						<label>$VAR[global_Title]</label>
+						<textcolor>Color5</textcolor>
+						<include>detail_Title</include>
+					</control>
+					<control type="label" id="110">
+						<top>27</top>
+						<width>395</width>
+						<label>$VAR[global_Info]</label>
+						<textcolor>Color5</textcolor>
+						<include>detail_Info</include>
+					</control>
+				</control>
+			</focusedlayout>
 		</control>
 	</include>
 </includes>

@@ -309,7 +309,7 @@
 						<label>$LOCALIZE[31112]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(521)</onclick>
-						<visible>Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+						<visible>Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://)]</visible>
 					</control>
 					<!--slide square-->
 					<control type="button" id="406">
@@ -330,36 +330,36 @@
 						<label>$LOCALIZE[31113]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(575)</onclick>
-						<visible>Container.Content(episodes) | Container.Content(musicvideos) | [[Container.Content(files) + Container.HasFiles] + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+						<visible>Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]</visible>
 					</control>
 					<!--thumbnails square-->
 					<control type="button" id="409">
 						<label>$LOCALIZE[31113]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(572)</onclick>
-						<visible>Container.Content(addons) | [Container.Content(files) + SubString(Container.FolderPath,plugin://plugin)]</visible>
+						<visible>[Container.Content(addons) | [Container.Content(files) + !Container.HasFiles + SubString(Container.FolderPath,plugin://)]]</visible>
 					</control>
 					<!--banners-->
 					<control type="button" id="410">
 						<label>$LOCALIZE[31110]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(541)</onclick>
-						<visible>[Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]] + !SubString(Container.FolderPath,plugin://plugin)</visible>
+						<visible>[Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]] + !SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 					<!--gallery-->
 					<control type="button" id="411">
 						<label>$LOCALIZE[31111]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(53)</onclick>
-						<visible>[Container.Content(tvshows) | Container.Content(movies)] + !SubString(Container.FolderPath,plugin://plugin)</visible>
+						<visible>[Container.Content(tvshows) | Container.Content(movies)] + !SubString(Container.FolderPath,plugin://)</visible>
 					</control>
-
+					<!--tiles-->
 					<control type="button" id="412">
-						<label>addons</label>
+						<label>$LOCALIZE[31109]</label>
 						<include>menu_Button</include>
-						<onclick>Container.SetViewMode(573)</onclick>
+						<onclick>Container.SetViewMode(58)</onclick>
+						<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)]</visible>
 					</control>
-
 				</control>
 			</control>
 		</control>
@@ -437,6 +437,13 @@
 					<onclick>Container.SetViewMode(572)</onclick>
 					<include>menu_Button</include>
 					<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles)</visible>
+				</control>
+				<!--tiles-->
+				<control type="button" id="412">
+					<label>$LOCALIZE[31109]</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(58)</onclick>
+					<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
 				</control>
 			</control>
 		</control>
@@ -611,6 +618,13 @@
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(572)</onclick>
 						<visible>Container.Content(addons) + !IsEmpty(Container.FolderPath) + ![StringCompare(Container.FolderPath,addons://disabled/) | StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://repos/)]</visible>
+					</control>
+					<!--tiles-->
+					<control type="button" id="405">
+						<label>$LOCALIZE[31109]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(58)</onclick>
+						<visible>Container.Content(addons)</visible>
 					</control>
 				</control>
 			</control>
