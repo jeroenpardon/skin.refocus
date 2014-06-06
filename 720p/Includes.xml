@@ -167,7 +167,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/up.png</texture>
-				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
+				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
 				<include>nav_IndicatorUp</include>
 			</control>
 		</control>
@@ -389,17 +389,18 @@
 			<onleft condition="Window.IsActive(SettingsCategory.xml)">5</onleft>
 			<onleft condition="!Window.IsActive(videoplaylist)">50</onleft>
 			<onleft condition="Window.IsActive(videoplaylist)">99</onleft>
-			<visible>![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<visible>![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 		</control>
 		<!--horizontal-->
 		<control type="scrollbar" id="71">
 			<top>712</top>
 			<width>screen_Width</width>
+			<onup condition="Control.IsVisible(58)">58</onup>
 			<onup condition="Control.IsVisible(52) | Control.IsVisible(521)">52</onup>
 			<onup condition="Control.IsVisible(522)">522</onup>
 			<onup condition="Control.IsVisible(53) | Control.IsVisible(531)">53</onup>
 			<orientation>horizontal</orientation>
-			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 		</control>
 	</include>	
 
