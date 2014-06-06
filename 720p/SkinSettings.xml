@@ -2,10 +2,7 @@
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-
 	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onunload>
-
-
 	<onunload>ClearProperty(Fanartgrabber,skinsettings)</onunload>
 	<controls>
 
@@ -553,155 +550,90 @@
 					<itemgap>2</itemgap>
 					<pagecontrol>70</pagecontrol>
 					<visible>Skin.String(SkinSettings,Credits)</visible>
-					<control type="button" id="1001">
-						<label>[UPPERCASE]Skin Design + Development[/UPPERCASE]</label>
-						<onclick>noop</onclick>
-						<textcolor>Color2</textcolor>
-						<include>settings_Listbutton</include>
+					<control type="grouplist" id="1000">
+						<width>850</width>
+						<height>44</height>
+						<itemgap>2</itemgap>
+						<orientation>horizontal</orientation>
+						<control type="button" id="1001">
+							<width>425</width>
+							<label>[UPPERCASE]$LOCALIZE[31800][/UPPERCASE]</label>
+							<onclick>noop</onclick>
+							<textcolor>Color2</textcolor>
+							<include>settings_Listbutton</include>
+						</control>
+						<control type="button" id="1002">
+							<width>425</width>
+							<label>[UPPERCASE]$LOCALIZE[19114][/UPPERCASE]</label>
+							<onclick>noop</onclick>
+							<textcolor>Color2</textcolor>
+							<include>settings_Listbutton</include>
+						</control>
 					</control>
-					<control type="button" id="1002">
-						<label>Jeroen Pardon</label>
-						<onclick>noop</onclick> 
-						<include>settings_Listbutton</include>
-					</control>
-					<!--
-					<control type="button" id="1003">
-						<label>[UPPERCASE]Version[/UPPERCASE]</label>
-						<onclick>noop</onclick>
-						<textcolor>Color2</textcolor>
-						<include>settings_Listbutton</include>
-					</control>
-					<control type="button" id="1004">
-						<label>$INFO[System.AddonVersion(skin.refocus)]</label>
-						<onclick>noop</onclick> 
-						<include>settings_Listbutton</include>
-					</control>
-					-->
-					<control type="button" id="1005">
-						<label>[UPPERCASE]Special Thanks[/UPPERCASE]</label>
-						<onclick>noop</onclick>
-						<textcolor>Color2</textcolor>
-						<include>settings_Listbutton</include>
+					<control type="grouplist" id="1003">
+						<width>850</width>
+						<height>44</height>
+						<itemgap>2</itemgap>
+						<orientation>horizontal</orientation>
+						<control type="button" id="1004">
+							<width>425</width>
+							<label>Jeroen Pardon</label>
+							<onclick>noop</onclick>
+							<include>settings_Listbutton</include>
+						</control>
+						<control type="button" id="1005">
+							<width>425</width>
+							<label>$INFO[System.AddonVersion(skin.refocus)]</label>
+							<onclick>noop</onclick>
+							<include>settings_Listbutton</include>
+						</control>
 					</control>
 					<control type="button" id="1006">
-						<label>Team-XBMC, the XBMC Community, and YOU for using reFocus!</label>
-						<onclick>noop</onclick> 
+						<label>[UPPERCASE]$LOCALIZE[31801][/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="button" id="1007">
-						<label>[UPPERCASE]Attribution[/UPPERCASE]</label>
+						<label>$LOCALIZE[31805]</label>
+						<onclick>noop</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="1008">
+						<label>[UPPERCASE]$LOCALIZE[31802][/UPPERCASE]</label>
 						<onclick>noop</onclick>
 						<textcolor>Color2</textcolor>
 						<include>settings_Listbutton</include>
 					</control>
-					<control type="button" id="1008">
+					<control type="button" id="1009">
 						<label>Climacons by Adam Whitcroft - [B]adamwhitcroft.com/climacons[/B]</label>
 						<onclick>noop</onclick> 
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="button" id="10010">
-						<label>[UPPERCASE]Translations[/UPPERCASE]</label>
+						<label>[UPPERCASE]$LOCALIZE[31803][/UPPERCASE]</label>
 						<onclick>noop</onclick>
 						<textcolor>Color2</textcolor>
 						<include>settings_Listbutton</include>
 					</control>
-					<control type="group">
-						<height>180</height>
-						<control type="grouplist">
-							<width>283</width>
-							<itemgap>2</itemgap>
-							<control type="button" id="1011">
-								<label>[B]Bulgarian: [/B]NEOhidra</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1012">
-								<label>[B]Czech: [/B]rosiste</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1013">
-								<label>[B]Danish: [/B]LoADrunner</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1014">
-								<label>[B]Finnish: [/B]ZZRX</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-						</control>
-						<control type="grouplist">
-							<left>285</left>
-							<width>283</width>
-							<itemgap>2</itemgap>
-							<control type="button" id="1021">
-								<label>[B]French: [/B]legostrike &amp; Frisson</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1022">
-								<label>[B]Italian: [/B]peppe_sr</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1023">
-								<label>[B]Korean: [/B]epoke</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1024">
-								<label>[B]Polish: [/B]Okashu</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-						</control>
-						<control type="grouplist">
-							<left>570</left>
-							<width>283</width>
-							<itemgap>2</itemgap>
-							<control type="button" id="1032">
-								<label>[B]Portuguese: [/B]fabiodacosta</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1033">
-								<label>[B]Romanian: [/B]Galefury</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1034">
-								<label>[B]Swedish: [/B]Diazz &amp; thedarer</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-							<control type="button" id="1035">
-								<label>[B]Spanish: [/B]Seque</label>
-								<width>283</width>
-								<onclick>noop</onclick> 
-								<include>settings_Listbutton</include>
-							</control>
-						</control>
+					<control type="button" id="10020">
+						<label>bcubic, Diazz, epoke, fabiodacosta, Frisson, Galefury, legostrike, LoADrunner, NEOhidra</label>
+						<onclick>noop</onclick>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="button" id="10021">
+						<label>Okashu, peppe_sr, piodio, rosiste, samuelmanso, Seque, thedarer, Zapata11, ZZRX, xurxo</label>
+						<onclick>noop</onclick>
+						<include>settings_Listbutton</include>
 					</control>
 					<control type="button" id="1040">
-						<label>[UPPERCASE]Final Note[/UPPERCASE]</label>
+						<label>[UPPERCASE]$LOCALIZE[31804][/UPPERCASE]</label>
 						<onclick>noop</onclick>
 						<textcolor>Color2</textcolor>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="button" id="1041">
-						<label>Please consider supporting the development of xbmc - [B]xbmc.org/contribute/[/B]</label>
+						<label>$LOCALIZE[31806]</label>
 						<onclick>noop</onclick> 
 						<include>settings_Listbutton</include>
 					</control>
