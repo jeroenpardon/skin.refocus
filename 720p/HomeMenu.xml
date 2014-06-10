@@ -19,12 +19,20 @@
 					<texture background="true">white.png</texture>
 					<colordiffuse>base_3</colordiffuse>
 					<animation effect="fade" start="100" end="95" time="0" condition="!Skin.HasSetting(shelf.enabled)">Conditional</animation>
+					<visible>!Skin.HasSetting(homemenu.compact)</visible>
+				</control>
+				<control type="image">
+					<width>340</width>
+					<height>10</height>
+					<texture background="true">white.png</texture>
+					<colordiffuse>base_3</colordiffuse>
+					<visible>Skin.HasSetting(homemenu.compact)</visible>
 				</control>
 				<control type="list" id="9110">
-					<left>10</left>
+					<left>0</left>
 					<top>10</top>
-					<width>320</width>
-					<height>700</height>
+					<width>340</width>
+					<height min="50" max="screen_Height">auto</height>
 					<onup>9110</onup>
 					<ondown>9110</ondown>
 					<onright condition="Skin.HasSetting(shelf.enabled)">9120</onright>
@@ -34,61 +42,91 @@
 					<onback condition="!IsEmpty(Container(9110).ListItem.Property(isSubmenu))">SetFocus(9110,$INFO[Window(10000).Property(submenuHidden)])</onback>
 					<onback>ClearProperty(submenuVisibility, 10000)</onback>
 					<onback>ClearProperty(submenuHidden, 10000)</onback>
-					<!--<onback>ActivateWindow(ShutdownMenu)</onback>-->
-					<itemgap>1</itemgap>
+					<itemgap>0</itemgap>
 					<pagecontrol>80</pagecontrol>
 					<include>global_ListScroll</include>
 					<orientation>vertical</orientation>
-					<itemlayout width="320" height="50">
+					<itemlayout width="340" height="50">
 						<control type="image">
-							<width>320</width>
-							<height>49</height>
-							<texture colordiffuse="base_2">white.png</texture>
-							<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+							<width>340</width>
+							<height>60</height>
+							<texture colordiffuse="base_3">white.png</texture>
+							<visible>Skin.HasSetting(homemenu.compact)</visible>
 						</control>
-						<control type="image">
-							<width>320</width>
-							<height>49</height>
-							<texture colordiffuse="accent_2">white.png</texture>
-							<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+						<control type="group">
+							<left>10</left>
+							<control type="image">
+								<width>320</width>
+								<height>49</height>
+								<texture colordiffuse="base_2">white.png</texture>
+								<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>49</height>
+								<texture colordiffuse="accent_2">white.png</texture>
+								<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+							</control>
 						</control>
-						<control type="label">
-							<left>15</left>
-							<height>46</height>
-							<font>light_Home</font>
-							<textcolor>Color3</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>300</left>
-							<height>46</height>
-							<font>light_Home</font>
-							<label>›</label>
-							<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
-							<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
+						<control type="group">
+							<left>10</left>
+							<top>1</top>
+							<control type="label">
+								<left>15</left>
+								<height>46</height>
+								<font>light_Home</font>
+								<textcolor>Color3</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<left>300</left>
+								<height>46</height>
+								<font>light_Home</font>
+								<label>›</label>
+								<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
+								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
+							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="320" height="50">
+					<focusedlayout width="340" height="50">
 						<control type="image">
+							<width>340</width>
+							<height>60</height>
+							<texture colordiffuse="base_3">white.png</texture>
+							<visible>Skin.HasSetting(homemenu.compact) + IsEmpty(Container(9110).ListItemNoWrap(1).Label) + Container(9110).HasFocus()</visible>
+						</control>
+						<control type="image">
+							<width>340</width>
+							<height>50</height>
+							<texture colordiffuse="base_3">white.png</texture>
+							<visible>Skin.HasSetting(homemenu.compact)</visible>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>1</top>
 							<width>320</width>
-							<height>49</height>
+							<height>50</height>
 							<texture colordiffuse="Color1">white.png</texture>
 						</control>
-						<control type="label">
-							<left>15</left>
-							<height>46</height>
-							<font>light_Home</font>
-							<textcolor>Focused</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>	
-						<control type="label">
-							<left>300</left>
-							<height>46</height>
-							<font>light_Home</font>
-							<textcolor>Focused</textcolor>
-							<label>›</label>
-							<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
-							<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
+						<control type="group">
+							<left>10</left>
+							<top>1</top>
+							<control type="label">
+								<left>15</left>
+								<height>46</height>
+								<font>light_Home</font>
+								<textcolor>Focused</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>	
+							<control type="label">
+								<left>300</left>
+								<height>46</height>
+								<font>light_Home</font>
+								<textcolor>Focused</textcolor>
+								<label>›</label>
+								<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
+								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
+							</control>
 						</control>
 					</focusedlayout>
 					<content>

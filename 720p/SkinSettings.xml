@@ -124,9 +124,16 @@
 					<!--home menu configuration-->
 					<control type="button" id="103">
 						<label>$LOCALIZE[31210]</label>
-						<onfocus>Skin.SetString(SubMenu,Video)</onfocus>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
 						<include>settings_Listbutton</include>
+					</control>
+					<!--compact menu-->
+					<control type="radiobutton" id="104">
+						<label>$LOCALIZE[31209]</label>
+						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
+						<selected>Skin.HasSetting(homemenu.compact)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>!Skin.HasSetting(shelf.enabled)</enable>
 					</control>
 					<!--
 					<control type="button" id="103">
@@ -139,6 +146,8 @@
 					<!--shelf-->
 					<control type="radiobutton" id="110">
 						<label>$LOCALIZE[31211]</label>
+						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
+						
 						<onclick>ClearProperty(Fanartgrabber,skinsettings)</onclick>
 						<onclick>Skin.ToggleSetting(shelf.enabled)</onclick>
 						<selected>Skin.HasSetting(shelf.enabled)</selected>
