@@ -36,12 +36,8 @@
 					<onup>9110</onup>
 					<ondown>9110</ondown>
 					<onright condition="Skin.HasSetting(shelf.enabled)">9120</onright>
-					<onleft condition="!IsEmpty(Container(9110).ListItem.Property(isSubmenu))">SetFocus(9110,$INFO[Window(10000).Property(submenuHidden)])</onleft>
-					<onleft>ClearProperty(submenuVisibility, 10000)</onleft>
-					<onleft>ClearProperty(submenuHidden, 10000)</onleft>
-					<onback condition="!IsEmpty(Container(9110).ListItem.Property(isSubmenu))">SetFocus(9110,$INFO[Window(10000).Property(submenuHidden)])</onback>
-					<onback>ClearProperty(submenuVisibility, 10000)</onback>
-					<onback>ClearProperty(submenuHidden, 10000)</onback>
+					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9110)</onleft>
+					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9110)</onback>
 					<itemgap>0</itemgap>
 					<pagecontrol>80</pagecontrol>
 					<include>global_ListScroll</include>
