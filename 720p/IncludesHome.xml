@@ -192,40 +192,4 @@
 			<visible>Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140) | Control.HasFocus(9150)</visible>
 		</control>
 	</include>
-
-	<include name="home_MenuButton">
-		<width>320</width>
-		<height>49</height>
-		<font>light_Home</font>
-		<onright condition="Skin.HasSetting(shelf.enabled)">9120</onright>
-		<textoffsetx>15</textoffsetx>
-		<textoffsety>5</textoffsety>
-		<textcolor>Color3</textcolor>
-		<focusedcolor>Focused</focusedcolor>
-		<texturenofocus border="0" colordiffuse="base_2">white.png</texturenofocus>
-		<texturefocus border="0" colordiffuse="Color1">white.png</texturefocus>
-		<radioheight>30</radioheight>
-		<radiowidth>30</radiowidth>
-		<onleft>Skin.SetString(HomeSub,none)</onleft>
-		<onback>Skin.SetString(HomeSub,none)</onback>
-	</include>
-
-	<include name="home_SubMenuButton">
-		<width>320</width>
-		<height>49</height>
-		<font>light_Home</font>
-		<onright condition="Skin.HasSetting(shelf.enabled)">9120</onright>
-		<textoffsetx>15</textoffsetx>
-		<textoffsety>5</textoffsety>
-		<textcolor>Color3</textcolor>
-		<focusedcolor>Focused</focusedcolor>
-		<texturenofocus border="0" colordiffuse="accent_2">white.png</texturenofocus>
-		<texturefocus border="0" colordiffuse="Color1">white.png</texturefocus>	
-		<radioheight>30</radioheight>
-		<radiowidth>30</radiowidth>
-		<onleft>Skin.SetString(HomeSub,none)</onleft>
-		<onback>Skin.SetString(HomeSub,none)</onback>
-		<include>fadeinout</include>
-		<visible>IsEmpty(Window(Home).Property(HomeConfig))</visible>
-	</include>
 </includes>
