@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
 	<!--watchlist-->
-	<shortcut label="31013" type="::SCRIPT::32015" grouping="customvideonode" thumbnail="Watchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
-	<shortcut label="31013" type="::SCRIPT::32016" grouping="customvideonode" thumbnail="Watchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
-	
+	<shortcut label="31013" type="::SCRIPT::32015" grouping="customvideonode" icon="Watchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+	<shortcut label="31013" type="::SCRIPT::32016" grouping="customvideonode" icon="Watchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
 	<!--unwatched-->
-	<shortcut label="16101" type="::SCRIPT::32015" grouping="movie" thumbnail="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
-	<shortcut label="16101" type="::SCRIPT::32016" grouping="tvshow" thumbnail="DefaultTVShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return))</shortcut>
-	
+	<shortcut label="16101" type="::SCRIPT::32015" grouping="movie" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
+	<shortcut label="16101" type="::SCRIPT::32016" grouping="tvshow" icon="DefaultTVShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return))</shortcut>
 	<!--in progress-->
-	<shortcut label="575" type="::SCRIPT::32015" grouping="movie" thumbnail="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
-
+	<shortcut label="575" type="::SCRIPT::32015" grouping="movie" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
 	<!--trailers-->
-	<shortcut label="31015" type="::SCRIPT::32015" grouping="movie" thumbnail="DefaultMovies.png" condition="System.HasAddon(plugin.video.the.trailers)">ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</shortcut>
-	
+	<shortcut label="31015" type="::SCRIPT::32015" grouping="movie" icon="DefaultMovies.png" condition="System.HasAddon(plugin.video.the.trailers)">ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</shortcut>
 	<!--TV Guide-->
-	<shortcut label="31606" type="::SCRIPT::32009" grouping="tvshow" thumbnail="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
-	
+	<shortcut label="31606" type="::SCRIPT::32009" grouping="tvshow" icon="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
 	<!--customize menu-->
-	<shortcut label="31210" type="::SCRIPT::32034" grouping="common" thumbnail="Settings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
-	
+	<shortcut label="31210" type="::SCRIPT::32034" grouping="common" icon="Settings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
 	<!--quit-->
-	<shortcut label="13009" type="::SCRIPT::32057" grouping="commands" thumbnail="Power-fo.png">ActivateWindow(shutdownmenu)</shortcut>
-	
+	<shortcut label="13009" type="::SCRIPT::32057" grouping="commands" icon="Power-fo.png">ActivateWindow(shutdownmenu)</shortcut>
 	<!--search-->
-	<shortcut label="137" type="::SCRIPT::32034" grouping="common" thumbnail="Search.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
-	
+	<shortcut label="137" type="::SCRIPT::32034" grouping="common" icon="Search.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
 	<!--PVR-->
-	<shortcut label="PVR" type="::SCRIPT::32022" grouping="pvr" thumbnail="LiveTV.png">ActivateWindow(MyPVR)</shortcut>
-
+	<shortcut label="PVR" type="::SCRIPT::32022" grouping="pvr" icon="LiveTV.png">ActivateWindow(MyPVR)</shortcut>
 	<!--addons-->
-	<shortcut label="24001" type="::SCRIPT::32034" grouping="common" thumbnail="DefaultAddon.png">ActivateWindow(addonbrowser)</shortcut>
-	
+	<shortcut label="24001" type="::SCRIPT::32034" grouping="common" icon="DefaultAddon.png">ActivateWindow(addonbrowser)</shortcut>
+
 	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return)">16101</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)">575</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return)">16101</availableshortcutlabel>
@@ -41,50 +32,25 @@
 	<availableshortcutlabel action="ActivateWindow(Videos,recentlyaddedepisodes,return)">31705</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(Music,recentlyaddedalbums,return)">31705</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(Music,recentlyplayedalbums,return)">31016</availableshortcutlabel>
-	
 
-	<thumbnail labelID="livetv">LiveTV.png</thumbnail>
-	<thumbnail labelID="19023">LiveTV.png</thumbnail>
-	<thumbnail labelID="19024">LiveTV.png</thumbnail>
-	<thumbnail labelID="19069">LiveTV.png</thumbnail>
-	<thumbnail labelID="19163">LiveTV.png</thumbnail>
-	<thumbnail labelID="32023">LiveTV.png</thumbnail>
-
-
-
-
-	<thumbnail labelID="settings">Settings.png</thumbnail>
-	<thumbnail labelID="weather">DefaultAddonWeather.png</thumbnail>
-	<thumbnail labelID="13200">DefaultActor.png</thumbnail>
-	<thumbnail labelID="20348">DefaultMovies.png</thumbnail>
-
-	<thumbnail labelID="10003">DefaultIconInfo.png</thumbnail>
-	<thumbnail labelID="Favourites">Favourite.png</thumbnail>
-
-	<thumbnail labelID="1037">DefaultAddonVideo.png</thumbnail>
-	<thumbnail labelID="1038">DefaultAddonMusic.png</thumbnail>
-	<thumbnail labelID="1039">DefaultAddonPicture.png</thumbnail>
-	<thumbnail labelID="32023">DefaultAddonProgram.png</thumbnail>
-
-	<thumbnail labelID="135">DefaultGenre.png</thumbnail>
-	<thumbnail labelID="369">DefaultMovies.png</thumbnail>
-
-	<thumbnail labelID="20388">DefaultMovies.png</thumbnail>
-	<thumbnail labelID="20451">DefaultMovies.png</thumbnail>
-	<thumbnail labelID="20459">DefaultMovies.png</thumbnail>
-
-	<thumbnail labelID="10003">DefaultIconInfo.png</thumbnail>
-
-	<thumbnail labelID="10504">DefaultMusicTop100.png</thumbnail>
-	<thumbnail labelID="10505">DefaultMusicTop100.png</thumbnail>
-
-
-
-	<shortcut label="Add-ons" type="Browse">ActivateWindow(AddonBrowser,root)</shortcut>
-	<shortcut label="Add-ons" type="Video">ActivateWindow(Videos,Addons,return)</shortcut>
-	<shortcut label="Add-ons" type="Music">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
-	<shortcut label="Add-ons" type="Pictures">ActivateWindow(Pictures,Addons,return)</shortcut>
-	<shortcut label="Programs" type="Programs">ActivateWindow(Programs,Addons,return)</shortcut>
-
-
+	<icon labelID="livetv">LiveTV.png</icon>
+	<icon labelID="programs">DefaultProgram.png</icon>
+	<icon labelID="settings">Settings.png</icon>
+	<icon labelID="weather">DefaultAddonWeather.png</icon>
+	<icon labelID="1036">Favourite.png</icon>
+	<icon labelID="10007">DefaultIconInfo.png</icon>
+	<icon labelID="10504">DefaultMusicTop100.png</icon>
+	<icon labelID="10505">DefaultMusicTop100.png</icon>
+	<icon labelID="19023">LiveTV.png</icon>
+	<icon labelID="19024">LiveTV.png</icon>
+	<icon labelID="19069">LiveTV.png</icon>
+	<icon labelID="19163">LiveTV.png</icon>
+	<icon labelID="32009">DefaultAddon.png</icon>
+	<icon labelID="32010">DefaultAddon.png</icon>
+	<icon labelID="32011">DefaultAddon.png</icon>
+	<icon labelID="32012">DefaultAddon.png</icon>
+	<icon labelID="32023">LiveTV.png</icon>
+	<icon labelID="32066">LiveTV.png</icon>
+	<icon labelID="32067">LiveTV.png</icon>
+	<icon labelID="32068">LiveTV.png</icon>
 </overrides>
