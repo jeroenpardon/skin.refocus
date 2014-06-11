@@ -19,7 +19,7 @@
 					<texture background="true">white.png</texture>
 					<colordiffuse>base_3</colordiffuse>
 					<animation effect="fade" start="100" end="95" time="0" condition="!Skin.HasSetting(shelf.enabled)">Conditional</animation>
-					<visible>!Skin.HasSetting(homemenu.compact)</visible>
+					<visible>!Skin.HasSetting(homemenu.compact) | Skin.HasSetting(shelf.enabled)</visible>
 				</control>
 				<control type="image">
 					<width>340</width>
@@ -89,7 +89,7 @@
 							<width>340</width>
 							<height>60</height>
 							<texture colordiffuse="base_3">white.png</texture>
-							<visible>Skin.HasSetting(homemenu.compact) + IsEmpty(Container(9110).ListItemNoWrap(1).Label) + Container(9110).HasFocus()</visible>
+							<visible>Skin.HasSetting(homemenu.compact) + IsEmpty(Container(9110).ListItemNoWrap(1).Label) + Container(9110).HasFocus() + ![Window.IsActive(keyboard) | Window.IsActive(61)]</visible>
 						</control>
 						<control type="image">
 							<width>340</width>

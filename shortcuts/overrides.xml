@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
 	<!--watchlist-->
-	<shortcut label="31013" type="::SCRIPT::32015" grouping="customvideonode" icon="Watchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
-	<shortcut label="31013" type="::SCRIPT::32016" grouping="customvideonode" icon="Watchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+	<shortcut label="31013" type="::SCRIPT::32015" grouping="customvideonode" icon="VideoWatchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+	<shortcut label="31013" type="::SCRIPT::32016" grouping="customvideonode" icon="VideoWatchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
 	<!--unwatched-->
 	<shortcut label="16101" type="::SCRIPT::32015" grouping="movie" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
 	<shortcut label="16101" type="::SCRIPT::32016" grouping="tvshow" icon="DefaultTVShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return))</shortcut>
@@ -13,31 +13,24 @@
 	<!--TV Guide-->
 	<shortcut label="31606" type="::SCRIPT::32009" grouping="tvshow" icon="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
 	<!--customize menu-->
-	<shortcut label="31210" type="::SCRIPT::32034" grouping="common" icon="Settings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
-	<!--quit-->
-	<shortcut label="13009" type="::SCRIPT::32057" grouping="commands" icon="Power-fo.png">ActivateWindow(shutdownmenu)</shortcut>
+	<shortcut label="31210" type="::SCRIPT::32034" grouping="common" icon="CommonSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
+	<!--exit (shutdown menu)-->
+	<shortcut label="13012" type="::SCRIPT::32054" grouping="commands">ActivateWindow(shutdownmenu)</shortcut>
 	<!--search-->
-	<shortcut label="137" type="::SCRIPT::32034" grouping="common" icon="Search.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
+	<shortcut label="137" type="::SCRIPT::32034" grouping="common" icon="CommonSearch.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
 	<!--PVR-->
 	<shortcut label="PVR" type="::SCRIPT::32022" grouping="pvr" icon="LiveTV.png">ActivateWindow(MyPVR)</shortcut>
 	<!--addons-->
 	<shortcut label="24001" type="::SCRIPT::32034" grouping="common" icon="DefaultAddon.png">ActivateWindow(addonbrowser)</shortcut>
 
-	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return)">16101</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)">575</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return)">16101</availableshortcutlabel>
-	<availableshortcutlabel action="RunAddon(script.globalsearch)">137</availableshortcutlabel>
-	<availableshortcutlabel action="RunAddon(script.tv.show.next.aired)">31606</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(Videos,recentlyaddedmovies,return)">31705</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(Videos,recentlyaddedepisodes,return)">31705</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(Music,recentlyaddedalbums,return)">31705</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(Music,recentlyplayedalbums,return)">31016</availableshortcutlabel>
+	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
 
+	<icon labelID="32015">LiveTV.png</icon>
 	<icon labelID="livetv">LiveTV.png</icon>
 	<icon labelID="programs">DefaultProgram.png</icon>
-	<icon labelID="settings">Settings.png</icon>
+	<icon labelID="settings">CommonSettings.png</icon>
 	<icon labelID="weather">DefaultAddonWeather.png</icon>
-	<icon labelID="1036">Favourite.png</icon>
+	<icon labelID="1036">CommonFavourite.png</icon>
 	<icon labelID="10007">DefaultIconInfo.png</icon>
 	<icon labelID="10504">DefaultMusicTop100.png</icon>
 	<icon labelID="10505">DefaultMusicTop100.png</icon>
