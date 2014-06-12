@@ -379,10 +379,6 @@
 		<value condition="StringCompare(Window(Home).Property(tvguide),nplus14)">$INFO[Window(home).Property(NextAired.215.Weekday)] $INFO[Window(home).Property(NextAired.215.Date)]</value>
 	</variable>
 
-	<variable name="gallery_Title">
-		<value condition="Container.Content(episodes) + !SubString(ListItem.Icon,default)">$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
-		<value>$INFO[ListItem.Label]</value>
-	</variable>
 	<variable name="gallery_Header">
 		<value condition="Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(movies) + ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Year]</value><!--movie set-->
