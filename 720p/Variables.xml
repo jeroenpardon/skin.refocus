@@ -29,54 +29,6 @@
 		<value>should not see me</value>
 	</variable>
 
-<!--HOME MENU-->
-	<variable name="home_SubIndicatorVideos">
-		<value condition="![IsEmpty(Skin.String(customitem.video1.label)) + IsEmpty(Skin.String(customitem.video2.label)) + IsEmpty(Skin.String(customitem.video3.label)) + !Skin.HasSetting(videomenu.addons) + !Skin.HasSetting(videomenu.videoplaylists)]">›</value>
-	</variable>
-
-	<variable name="home_SubIndicatorTV">
-		<value condition="![IsEmpty(Skin.String(customitem.tvshows1.label)) + IsEmpty(Skin.String(customitem.tvshows2.label)) + IsEmpty(Skin.String(customitem.tvshows3.label))] | [Skin.HasSetting(tvshowsmenu.recent) | Skin.HasSetting(tvshowsmenu.unwatched) | Skin.HasSetting(tvshowsmenu.inprogress) | Skin.HasSetting(tvshowsmenu.watchlist) | Skin.HasSetting(tvshowsmenu.genres) | Skin.HasSetting(tvshowsmenu.years) | Skin.HasSetting(tvshowsmenu.actors) | Skin.HasSetting(tvshowsmenu.studios) | Skin.HasSetting(tvshowsmenu.tags)]">›</value>
-	</variable>
-
-	<variable name="home_SubIndicatorMovies">
-		<value condition="![IsEmpty(Skin.String(customitem.movies1.label)) + IsEmpty(Skin.String(customitem.movies2.label)) + IsEmpty(Skin.String(customitem.movies3.label))] | [Skin.HasSetting(moviesmenu.watchlist) | Skin.HasSetting(moviesmenu.recent) | Skin.HasSetting(moviesmenu.unwatched) | Skin.HasSetting(moviesmenu.inprogress) | Skin.HasSetting(moviesmenu.genres) | Skin.HasSetting(moviesmenu.years) | Skin.HasSetting(moviesmenu.actors) | Skin.HasSetting(moviesmenu.directors) | Skin.HasSetting(moviesmenu.studios) | Skin.HasSetting(moviesmenu.sets) | Skin.HasSetting(moviesmenu.countries) | Skin.HasSetting(moviesmenu.tags) | Skin.HasSetting(moviesmenu.trailers)]">›</value>
-	</variable>
-
-	<variable name="home_SubIndicatorPVR">
-		<value condition="[Skin.HasSetting(tvmenu.channels) | Skin.HasSetting(tvmenu.guide) | Skin.HasSetting(tvmenu.recordings) | Skin.HasSetting(tvmenu.timers)]">›</value>
-	</variable>
-
-	<variable name="home_SubIndicatorPictures">
-		<value condition="Skin.HasSetting(picturesmenu.addons)">›</value>
-	</variable>
-
-	<variable name="home_SubIndicatorAddons">
-		<value condition="[Skin.HasSetting(addonsmenu.video) | Skin.HasSetting(addonsmenu.music) | Skin.HasSetting(addonsmenu.pictures) | Skin.HasSetting(addonsmenu.programs) | Skin.HasSetting(addonsmenu.weather)]">›</value>
-	</variable>
-
-	<variable name="home_SubIndicatorSystem">
-		<value condition="[Skin.HasSetting(systemmenu.info) | Skin.HasSetting(systemmenu.filemanager) | Skin.HasSetting(systemmenu.home) | Skin.HasSetting(systemmenu.exit)]">›</value>
-	</variable>
-
-	<variable name="home_CustomSelectionVideo">
-		<value condition="!IsEmpty(Skin.String(customitem.video1.label)) + StringCompare(Window(Home).Property(customitem.video.number),1)">$INFO[Skin.String(customitem.video1.label)] $INFO[Skin.String(customitem.video1.type),(,)]</value>
-		<value condition="!IsEmpty(Skin.String(customitem.video2.label)) + StringCompare(Window(Home).Property(customitem.video.number),2)">$INFO[Skin.String(customitem.video2.label)] $INFO[Skin.String(customitem.video2.type),(,)]</value>
-		<value condition="!IsEmpty(Skin.String(customitem.video3.label)) + StringCompare(Window(Home).Property(customitem.video.number),3)">$INFO[Skin.String(customitem.video3.label)] $INFO[Skin.String(customitem.video3.type),(,)]</value>
-		<value>$LOCALIZE[231]</value>
-	</variable>
-	<variable name="home_CustomSelectionMovies">
-		<value condition="!IsEmpty(Skin.String(customitem.movies1.label)) + StringCompare(Window(Home).Property(customitem.movies.number),1)">$INFO[Skin.String(customitem.movies1.label)] $INFO[Skin.String(customitem.movies1.type),(,)]</value>
-		<value condition="!IsEmpty(Skin.String(customitem.movies2.label)) + StringCompare(Window(Home).Property(customitem.movies.number),2)">$INFO[Skin.String(customitem.movies2.label)] $INFO[Skin.String(customitem.movies2.type),(,)]</value>
-		<value condition="!IsEmpty(Skin.String(customitem.movies3.label)) + StringCompare(Window(Home).Property(customitem.movies.number),3)">$INFO[Skin.String(customitem.movies3.label)] $INFO[Skin.String(customitem.movies3.type),(,)]</value>
-		<value>$LOCALIZE[231]</value>
-	</variable>
-	<variable name="home_CustomSelectionTVShows">
-		<value condition="!IsEmpty(Skin.String(customitem.tvshows1.label)) + StringCompare(Window(Home).Property(customitem.tvshows.number),1)">$INFO[Skin.String(customitem.tvshows1.label)] $INFO[Skin.String(customitem.tvshows1.type),(,)]</value>
-		<value condition="!IsEmpty(Skin.String(customitem.tvshows2.label)) + StringCompare(Window(Home).Property(customitem.tvshows.number),2)">$INFO[Skin.String(customitem.tvshows2.label)] $INFO[Skin.String(customitem.tvshows2.type),(,)]</value>
-		<value condition="!IsEmpty(Skin.String(customitem.tvshows3.label)) + StringCompare(Window(Home).Property(customitem.tvshows.number),3)">$INFO[Skin.String(customitem.tvshows3.label)] $INFO[Skin.String(customitem.tvshows3.type),(,)]</value>
-		<value>$LOCALIZE[231]</value>
-	</variable>
-	
 
 <!--SHELF-->
 	<variable name="shelf_ItemTitle">
@@ -785,15 +737,5 @@
 		<value condition="Window.IsVisible(VideoOSDSettings.xml)">VideoOSDSettings.xml</value>
 		<value condition="Window.IsVisible(VideoOverlay.xml)">VideoOverlay.xml</value>
 		<value condition="Window.IsVisible(VisualisationPresetList.xml)">VisualisationPresetList.xml</value>
-		<value condition="Window.IsVisible(custom_Edit.xml)">custom_Edit.xml</value>
-		<value condition="Window.IsVisible(custom_HomeMenuSettings.xml)">custom_HomeMenuSettings.xml</value>
-		<value condition="Window.IsVisible(custom_Search.xml)">custom_Search.xml</value>
-		<value condition="Window.IsVisible(script-globalsearch-contextmenu.xml)">script-globalsearch-contextmenu.xml</value>
-		<value condition="Window.IsVisible(script-globalsearch-infodialog.xml)">script-globalsearch-infodialog.xml</value>
-		<value condition="Window.IsVisible(script-globalsearch-main.xml)">script-globalsearch-main.xml</value>
-		<value condition="Window.IsVisible(script-NextAired-TVGuide.xml)">script-NextAired-TVGuide.xml</value>
-		<value condition="Window.IsVisible(script-RSS_Editor-rssEditor.xml)">script-RSS_Editor-rssEditor.xml</value>
-		<value condition="Window.IsVisible(script-RSS_Editor-setEditor.xml)">script-RSS_Editor-setEditor.xml</value>
-		<value condition="Window.IsVisible(script-XBMC_Lyrics-main.xml)">script-XBMC_Lyrics-main.xml</value>
 	</variable>
 </includes>
