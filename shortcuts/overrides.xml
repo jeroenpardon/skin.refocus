@@ -22,6 +22,15 @@
 	<shortcut label="PVR" type="::SCRIPT::32022" grouping="pvr" icon="LiveTV.png">ActivateWindow(MyPVR)</shortcut>
 	<!--addons-->
 	<shortcut label="24001" type="::SCRIPT::32034" grouping="common" icon="DefaultAddon.png">ActivateWindow(addonbrowser)</shortcut>
+	<!--now playing-->
+	<shortcut label="31034" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
+	<override action="fullscreen">
+		<condition>Player.HasVideo</condition>
+	</override>
+	<override action="fullscreen">
+		<condition>Player.HasAudio</condition>
+		<action>ActivateWindow(musicplaylist)</action>
+	</override>
 
 	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
 
