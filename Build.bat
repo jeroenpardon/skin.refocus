@@ -7,8 +7,8 @@ md BUILD
 ECHO ------------------------------
 ECHO Building Skin Directory...
 xcopy "720p" "BUILD\skin.refocus\720p" /E /Q /I /Y
-xcopy "colors" "BUILD\skin.refocus\colors" /E /Q /I /Y
 xcopy "backgrounds" "BUILD\skin.refocus\backgrounds" /E /Q /I /Y
+xcopy "colors" "BUILD\skin.refocus\colors" /E /Q /I /Y
 xcopy "fonts" "BUILD\skin.refocus\fonts" /E /Q /I /Y
 xcopy "language" "BUILD\skin.refocus\language" /E /Q /I /Y
 xcopy "language\Bulgarian" "BUILD\skin.refocus\language\Bulgarian" /E /Q /I /Y
@@ -30,6 +30,7 @@ xcopy "language\Romanian" "BUILD\skin.refocus\language\Romanian" /E /Q /I /Y
 xcopy "language\Swedish" "BUILD\skin.refocus\language\Swedish" /E /Q /I /Y
 xcopy "language\Spanish" "BUILD\skin.refocus\language\Spanish" /E /Q /I /Y
 xcopy "playlists" "BUILD\skin.refocus\playlists" /E /Q /I /Y
+xcopy "shortcuts" "BUILD\skin.refocus\shortcuts" /E /Q /I /Y
 xcopy "sounds" "BUILD\skin.refocus\sounds" /E /Q /I /Y
 xcopy "*.xml" "BUILD\skin.refocus\" /Q /I /Y
 xcopy "*.txt" "BUILD\skin.refocus\" /Q /I /Y
