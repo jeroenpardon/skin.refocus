@@ -591,7 +591,7 @@
 	</include>
 
 <!--TILES-->
-	<include name="view_IconTiles-ContainerCommons">
+	<include name="view_Tiles-ContainerCommons">
 		<control type="image">
 			<width>78</width>
 			<height>78</height>
@@ -620,7 +620,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="view_IconTiles">
+	<include name="view_Tiles">
 		<control type="panel" id="58">
 			<viewtype label="Tiles">bigicon</viewtype>
 			<left>50</left>
@@ -638,8 +638,9 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
+			<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)]</visible>
 			<itemlayout width="520" height="85">
-				<include>view_IconTiles-ContainerCommons</include>
+				<include>view_Tiles-ContainerCommons</include>
 				<control type="group">
 					<left>95</left>
 					<top>10</top>
@@ -663,7 +664,7 @@
 					<height>78</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_IconTiles-ContainerCommons</include>
+				<include>view_Tiles-ContainerCommons</include>
 				<control type="group">
 					<left>95</left>
 					<top>10</top>

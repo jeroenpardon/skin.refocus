@@ -530,6 +530,7 @@
 					<textwidth>250</textwidth>
 					<include>menu_Button</include>
 					<onclick>Container.SetViewMode(572)</onclick>
+					<visible>!IsEmpty(Container.FolderPath)</visible>
 				</control>
 				<!--gallery-->
 				<control type="button" id="405">
@@ -537,7 +538,14 @@
 					<textwidth>250</textwidth>
 					<include>menu_Button</include>
 					<onclick>Container.SetViewMode(53)</onclick>
-					<visible>Window.IsActive(Pictures) + Container().HasFiles + !IsEmpty(Container.FolderPath) + !substring(container.folderpath,addons://sources/)</visible>
+					<visible>Window.IsActive(Pictures) + Container.HasFiles + !IsEmpty(Container.FolderPath) + !SubString(Container.Folderpath,addons://sources/)</visible>
+				</control>
+				<!--tiles-->
+				<control type="button" id="406">
+					<label>$LOCALIZE[31109]</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(58)</onclick>
+					<visible>[Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)]</visible>
 				</control>
 			</control>
 		</control>
