@@ -2,6 +2,7 @@
 <window>
 	<allowoverlay>no</allowoverlay>
 	<defaultcontrol always="false">101</defaultcontrol>
+	<zorder>1</zorder>
 	<coordinates>
 		<system>1</system>
 		<left>0</left>
@@ -16,16 +17,37 @@
 			</control>
 			<control type="image">
 				<width>screen_Width</width>
-				<height>545</height>
+				<height>745</height>
 				<texture>white.png</texture>
 				<colordiffuse>bb0c2c40</colordiffuse>
 			</control>
+
+			
+			<control type="group">
+				<left>20</left>
+				<top>20</top>
+				<control type="label">
+					<width>1260</width>
+					<label>$VAR[osd_Title]</label>
+					<align>center</align>
+					<include>osd_Title</include>
+				</control>
+				<control type="label">
+					<top>28</top>
+					<width>1260</width>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<align>center</align>
+					<textcolor>Color3</textcolor>
+					<include>detail_Sub</include>
+				</control>
+			</control>
+
 			<!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
 			<control type="list" id="110">
-				<left>140</left>
-				<top>70</top>
-				<width>1130</width>
-				<height>400</height>
+				<left>20</left>
+				<top>100</top>
+				<width>1260</width>
+				<height>620</height>
 				<onleft>dialog.close(all,true)</onleft>
 				<onright>dialog.close(all,true)</onright>
 				<onup>110</onup>
@@ -33,20 +55,22 @@
 				<scrolltime>200</scrolltime>
 				<itemlayout height="40">
 					<control type="label">
-						<left>0</left>
-						<width>1130</width>
+						<left>630</left>
+						<width>1260</width>
 						<label fallback="">$INFO[ListItem.Label]</label>
-						<font>lyrics</font>
+						<font>semibold_Big</font>
+						<align>center</align>
 						<textcolor>Color2</textcolor>
 						<wrapmultiline>true</wrapmultiline>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="label">
-						<left>0</left>
+						<left>630</left>
 						<width>1130</width>
-						<label fallback="">$INFO[ListItem.Label]</label>
-						<font>lyrics2</font>
+						<label fallback="">[B]$INFO[ListItem.Label][/B]</label>
+						<font>semibold_Big</font>
+						<align>center</align>
 						<textcolor>Color1</textcolor>
 						<wrapmultiline>true</wrapmultiline>
 					</control>

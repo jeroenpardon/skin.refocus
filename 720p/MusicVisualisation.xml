@@ -2,6 +2,7 @@
 <window>
 	<onload condition="System.HasAddon(script.artistslideshow) + !Skin.HasSetting(artistslideshow.disable)">RunScript(script.artistslideshow, daemon=True)</onload>
 	<allowoverlay>no</allowoverlay>
+	<zorder>2</zorder>
 	<controls>
 		<control type="visualisation" id="2">
 			<include>screen_Dimensions</include>
@@ -61,7 +62,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
+			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-XBMC_Lyrics-main.xml)]</visible>
 			<include>transition_OSD</include>
 			<include>osd_Music</include>
 		</control>
