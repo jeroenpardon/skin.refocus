@@ -31,6 +31,7 @@
 					<texture>overlays/semitrans.png</texture>
 				</control>
 				<control type="rss">
+					<top>2</top>
 					<width>940</width>
 					<font>condensed-U</font>
 					<urlset>1</urlset>
@@ -42,65 +43,6 @@
 					<include>fadeinout</include>
 				</control>
 			</control>
-		</control>
-
-	<!--home submenu triggers-->
-		<!--videos-->
-		<control type="button" id="1111">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[3])</onfocus>
-			<onfocus>SetFocus(102)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--movies-->
-		<control type="button" id="2222">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[342])</onfocus>
-			<onfocus>SetFocus(202)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--tv shows-->
-		<control type="button" id="3333">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[20343])</onfocus>
-			<onfocus>SetFocus(302)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--pvr-->
-		<control type="button" id="4444">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[31113])</onfocus>
-			<onfocus condition="Skin.HasSetting(tvmenu.channels)">SetFocus(401)</onfocus>
-			<onfocus condition="!Skin.HasSetting(tvmenu.channels) + Skin.HasSetting(tvmenu.guide)">SetFocus(403)</onfocus>
-			<onfocus condition="!Skin.HasSetting(tvmenu.channels) + !Skin.HasSetting(tvmenu.guide) + Skin.HasSetting(tvmenu.recordings)">SetFocus(404)</onfocus>
-			<onfocus condition="!Skin.HasSetting(tvmenu.channels) + !Skin.HasSetting(tvmenu.guide) + !Skin.HasSetting(tvmenu.recordings) + Skin.HasSetting(tvmenu.timers)">SetFocus(405)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--music-->
-		<control type="button" id="5555">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[2])</onfocus>
-			<onfocus>SetFocus(502)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--pictures-->
-		<control type="button" id="6666">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[1])</onfocus>
-			<onfocus>SetFocus(601)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--add-ons-->
-		<control type="button" id="7777">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[24001])</onfocus>
-			<onfocus>SetFocus(702)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--system-->
-		<control type="button" id="8888">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[13000])</onfocus>
-			<onfocus>SetFocus(802)</onfocus>
-			<include>TriggerButton</include>
-		</control>
-		<!--disc-->
-		<control type="button" id="9999">
-			<onfocus>Skin.SetString(HomeSub,$LOCALIZE[427])</onfocus>
-			<onfocus>SetFocus(902)</onfocus>
-			<include>TriggerButton</include>
 		</control>
 
 		<control type="image">
