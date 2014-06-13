@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">300</defaultcontrol>
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onunload>
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
@@ -217,21 +218,7 @@
 			<onright>10</onright>
 			<include>dialog_WindowButton</include>
 		</control>
-		<!--apply-->
-		<control type="button" id="10">
-			<left>756</left>
-			<top>600</top>
-			<label>$LOCALIZE[186]</label>
-			<onup>301</onup>
-			<onleft>308</onleft>
-			<onright>-</onright>
-			<ondown>401</ondown>
-			<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onclick>
-			<onclick>Close</onclick>
-			<include>dialog_WindowButton</include>
-			<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
-		</control>
-		<!--close-->
+		<!--ok-->
 		<control type="button" id="10">
 			<left>756</left>
 			<top>600</top>
@@ -242,7 +229,6 @@
 			<ondown>401</ondown>
 			<onclick>Close</onclick>
 			<include>dialog_WindowButton</include>
-			<visible>!StringCompare(Window.Property("groupname"),mainmenu)</visible>
 		</control>
 	</controls>
 </window>
