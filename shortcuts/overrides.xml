@@ -32,10 +32,12 @@
 		<action>ActivateWindow(musicplaylist)</action>
 	</override>
 
-	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
+	<!--settings removal warning-->
+	<warn heading="$LOCALIZE[19098]" message="$LOCALIZE[31018]">ActivateWindow(Settings)</warn>
 
-	<icon labelID="32015">LiveTV.png</icon>
-	<icon labelID="livetv">LiveTV.png</icon>
+	<!--icon overrides-->
+	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
+	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
 	<icon labelID="programs">DefaultProgram.png</icon>
 	<icon labelID="settings">CommonSettings.png</icon>
 	<icon labelID="weather">DefaultAddonWeather.png</icon>
@@ -43,16 +45,23 @@
 	<icon labelID="10007">DefaultIconInfo.png</icon>
 	<icon labelID="10504">DefaultMusicTop100.png</icon>
 	<icon labelID="10505">DefaultMusicTop100.png</icon>
-	<icon labelID="19023">LiveTV.png</icon>
-	<icon labelID="19024">LiveTV.png</icon>
-	<icon labelID="19069">LiveTV.png</icon>
-	<icon labelID="19163">LiveTV.png</icon>
+	<!--pvr grouping-->
+	<icon labelID="19023">LiveTV.png</icon><!--tv channels-->
+	<icon labelID="19024">LiveTV.png</icon><!--radio channels-->
+	<icon labelID="19069">LiveTV.png</icon><!--epg-->
+	<icon labelID="19163">LiveTV.png</icon><!--recordings-->
+	<icon labelID="32023">LiveTV.png</icon><!--timers-->
+	<icon labelID="32066">LiveTV.png</icon><!--last tv channel-->
+	<icon labelID="32067">LiveTV.png</icon><!--last radio channel-->
+	<icon labelID="32068">LiveTV.png</icon><!--last channel-->
+
+	<!--
+	<icon labelID="32015">LiveTV.png</icon>
+	<icon labelID="livetv">LiveTV.png</icon>
 	<icon labelID="32009">DefaultAddon.png</icon>
 	<icon labelID="32010">DefaultAddon.png</icon>
 	<icon labelID="32011">DefaultAddon.png</icon>
 	<icon labelID="32012">DefaultAddon.png</icon>
-	<icon labelID="32023">LiveTV.png</icon>
-	<icon labelID="32066">LiveTV.png</icon>
-	<icon labelID="32067">LiveTV.png</icon>
-	<icon labelID="32068">LiveTV.png</icon>
+	-->
+
 </overrides>
