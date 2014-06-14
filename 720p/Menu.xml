@@ -183,8 +183,8 @@
 		<control type="button" id="217">
 			<label>$LOCALIZE[137]</label>
 			<onclick>SetFocus(300)</onclick>
-			<onclick condition="!Skin.HasSetting(search.addon)">SendClick(8)</onclick>
-			<onclick condition="Skin.HasSetting(search.addon)">RunAddon(script.globalsearch)</onclick>
+			<onclick condition="Skin.HasSetting(search.disable)">SendClick(8)</onclick>
+			<onclick condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</onclick>
 			<include>menu_Button</include>
 		</control>
 	</include>
