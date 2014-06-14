@@ -26,6 +26,13 @@
 			<width>302</width>
 			<height min="40" max="500">auto</height>
 			<itemgap>0</itemgap>
+			<control type="button" id="997">
+				<width>302</width>
+				<label>$LOCALIZE[20410]</label>
+				<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
+				<include>dialog_ControlCommons</include>
+				<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
+			</control>
 		</control>
 		<!--default button-->
 		<control type="button" id="1000">
