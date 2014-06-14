@@ -5,6 +5,8 @@
 	<views>50,51,52,521,522,53,531,54,541,57,571,572,574,575,58</views>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+	<!--<onload condition="!Skin.HasSetting(runonce)">ActivateWindow(63)</onload>-->
+
 	<controls>
 	<!--trigger-->
 		<control type="button" id="8000">
