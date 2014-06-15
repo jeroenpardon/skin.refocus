@@ -1,7 +1,7 @@
 reFocus for XBMC
 ============
 
-reFocus is a graphical interface for XBMC Media Center that understands your media is what truly matters. Elegance, simplicity, refinement and a clean look are keywords for this skin.
+reFocus is a graphical interface for XBMC that understands your media is what truly matters. Elegance, simplicity, refinement, consistency and balanced design are keywords for this skin.
 
 ### Download and installation
 
