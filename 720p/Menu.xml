@@ -810,16 +810,9 @@
 					<label>$LOCALIZE[31231]</label>
 					<onclick>Skin.ToggleSetting(fanart.weather)</onclick>
 					<selected>Skin.HasSetting(fanart.weather)</selected>
+					<onclick condition="!Skin.HasSetting(fanart.weather)">Skin.SetPath(fanart.weather.path)</onclick>
 					<include>menu_RadioButton</include>
 					<include>menu_Button</include>
-				</control>
-				<control type="button" id="6">
-					<label>$LOCALIZE[31232]</label>
-					<onclick>Skin.Reset(fanart.weather.path)</onclick>
-					<onclick>Skin.SetPath(fanart.weather.path)</onclick>
-					<enable>Skin.HasSetting(fanart.weather)</enable>
-					<include>menu_Button</include>
-					<visible>Skin.HasSetting(fanart.weather)</visible>
 				</control>
 				<!--commons-->
 				<include>menu_Playing</include>
