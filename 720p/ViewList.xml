@@ -49,7 +49,7 @@
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 				</control>
 			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures)] + Container.HasFiles]" width="620" height="67">
+			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + !Container.HasFolders]" width="620" height="67">
 				<control type="label">
 					<left>15</left>
 					<top>6</top>
@@ -70,7 +70,7 @@
 					<include>status_List</include>
 				</control>
 			</itemlayout>
-			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures)] + Container.HasFiles]" width="620" height="67">
+			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + !Container.HasFolders]" width="620" height="67">
 				<control type="group">
 					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					<control type="image">
@@ -201,7 +201,10 @@
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
-			<visible>Control.IsVisible(50) + ![IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + [StringCompare(Container.FolderPath,addons://outdated/) | StringCompare(Container.FolderPath,addons://disabled/) | SubString(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://repos/) | SubString(Container.FolderPath,addons://all/) | Container.Content(addons) | Container.Content(files) + SubString(Container.FolderPath,plugin://plugin.)]</visible>
+			<visible>Control.IsVisible(50) + [SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin)] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)]
+			<!-- + [![IsEmpty(Container.FolderPath) | StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + [StringCompare(Container.FolderPath,addons://outdated/) | StringCompare(Container.FolderPath,addons://disabled/) | SubString(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://repos/) | SubString(Container.FolderPath,addons://all/) | Container.Content(addons) | Container.Content(files) + SubString(Container.FolderPath,plugin://plugin)]] | Window.IsActive(programs) + SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher/)]
+			-->
+			</visible>
 			<control type="image">
 				<width>532</width>
 				<height>256</height>
