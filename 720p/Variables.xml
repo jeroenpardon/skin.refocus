@@ -238,6 +238,9 @@
 		<value condition="Container.Content(addons) + SubString(Container.FolderPath,addons://sources/)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<value condition="Container.Content(addons) + [SubString(Container.FolderPath,addons://outdated/) | SubString(Container.FolderPath,//disabled/) | SubString(Container.FolderPath,//enabled/)]">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]$INFO[ListItem.Property(Addon.Status), • ]</value>
+		<!--aa-->
+		<value condition="Window.IsActive(programs) + Container.HasFiles">$INFO[ListItem.Writer]$INFO[ListItem.Genre, • ]$INFO[ListItem.Studio, • ]</value>
+		<!---->
 		<value condition="Window.IsActive(pictures) + !IsEmpty(ListItem.PictureLongDateTime)">$INFO[ListItem.PictureLongDateTime]</value>
 		<value condition="Window.IsActive(pictures) + !SubString(Container.FolderPath,addons://sources/)">$INFO[ListItem.Date]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.Title)">$VAR[video_Type,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] $INFO[ListItem.Size, • ]$INFO[ListItem.Date, • ]</value>
