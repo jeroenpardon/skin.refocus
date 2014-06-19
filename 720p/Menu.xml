@@ -530,7 +530,7 @@
 					<textwidth>250</textwidth>
 					<include>menu_Button</include>
 					<onclick>Container.SetViewMode(572)</onclick>
-					<visible>!IsEmpty(Container.FolderPath)</visible>
+					<visible>!IsEmpty(Container.FolderPath) + Container.HasFiles</visible>
 				</control>
 				<!--gallery-->
 				<control type="button" id="405">
