@@ -232,7 +232,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Container.Content(files) + !Container.HasFiles]</visible>
+			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Window.IsActive(programs) + Container.HasFiles] | [Container.Content(files) + !Container.HasFiles] | [Window.IsActive(MusicFiles) + !Container.HasFiles]</visible>
 			<itemlayout width="188" height="188">
 				<include>view_IconSquare-ContainerCommons</include>
 			</itemlayout>											
