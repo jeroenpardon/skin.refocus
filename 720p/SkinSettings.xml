@@ -107,95 +107,37 @@
 					<itemgap>2</itemgap>
 					<pagecontrol>70</pagecontrol>
 					<visible>Skin.String(SkinSettings,Home)</visible>
+					<!--menu layout-->
+					<control type="button" id="101">homemenu.layout
+						<label>$LOCALIZE[31206]</label>
+						<label2>$VAR[home_MenuType]</label2>
+						<onclick condition="IsEmpty(Skin.String(homemenu.type))">Skin.SetString(homemenu.type,vertical)</onclick>
+						<onclick condition="StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onclick>
+						<onclick condition="StringCompare(Skin.String(homemenu.type),vertical)">Skin.SetString(homemenu.type,horizontal)</onclick>
+						<include>settings_Listbutton</include>
+					</control>
 					<!--home menu configuration-->
-					<control type="button" id="101">
+					<control type="button" id="102">
 						<label>$LOCALIZE[31210]</label>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--compact menu-->
-					<control type="radiobutton" id="102">
+					<control type="radiobutton" id="103">
 						<label>$LOCALIZE[31209]</label>
 						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
 						<selected>Skin.HasSetting(homemenu.compact)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>!Skin.HasSetting(shelf.enabled)</enable>
+						<enable>StringCompare(Skin.String(homemenu.type),vertical)</enable>
 					</control>
-					<!--shelf-->
+
+					<!--widgets-->
 					<control type="radiobutton" id="110">
 						<label>$LOCALIZE[31211]</label>
-						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
 						<onclick>ClearProperty(Fanartgrabber,skinsettings)</onclick>
-						<onclick>Skin.ToggleSetting(shelf.enabled)</onclick>
-						<selected>Skin.HasSetting(shelf.enabled)</selected>
+						<onclick>Skin.ToggleSetting(widgets.disable)</onclick>
+						<selected>Skin.HasSetting(widgets.disable)</selected>
 						<include>settings_Radiobutton</include>
-					</control>
-					<!--shelf widget 1-->
-					<control type="button" id="111">
-						<label>$LOCALIZE[31035]</label>
-						<label2>$VAR[shelf_Widget1Select]</label2>
-						<onclick condition="!StringCompare(Skin.String(shelf.1),playlist) + !StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,recent)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.1),playlist)">Skin.SetString(shelf.1,inprogress)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.1),inprogress)">Skin.SetString(shelf.1,recommended)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.1),recent)">Skin.SetString(shelf.1,playlist)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>Skin.HasSetting(shelf.enabled)</visible>
-						<enable>Skin.HasSetting(shelf.enabled)</enable>
-					</control>
-					<control type="button" id="112">
-						<label>- $LOCALIZE[524]</label>
-						<label2>$INFO[Skin.String(shelf.1.playlist)]</label2>
-						<onclick>Skin.Reset(shelf.1.playlist)</onclick>
-						<onclick>Skin.Reset(shelf.1.playlistname)</onclick>
-						<onclick>Skin.SetFile(shelf.1.playlist,.xsp|.m3u,special://skin/playlists/episodes/)</onclick>
-						<onclick>Skin.SetString(shelf.1.playlistname)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>Skin.HasSetting(shelf.enabled)</visible>
-						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.1,playlist)</enable>
-					</control>
-					<!--shelf widget 2-->
-					<control type="button" id="113">
-						<label>$LOCALIZE[31036]</label>
-						<label2>$VAR[shelf_Widget2Select]</label2>
-						<onclick condition="!StringCompare(Skin.String(shelf.2),playlist) + !StringCompare(Skin.String(shelf.2),recent)">Skin.SetString(shelf.2,recent)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.2),playlist)">Skin.SetString(shelf.2,featured)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.2),recent)">Skin.SetString(shelf.2,playlist)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>Skin.HasSetting(shelf.enabled)</visible>
-						<enable>Skin.HasSetting(shelf.enabled)</enable>
-					</control>
-					<control type="button" id="114">
-						<label>- $LOCALIZE[524]</label>
-						<label2>$INFO[Skin.String(shelf.2.playlist)]</label2>
-						<onclick>Skin.Reset(shelf.2.playlist)</onclick>
-						<onclick>Skin.Reset(shelf.2.playlistname)</onclick>
-						<onclick>Skin.SetFile(shelf.2.playlist,.xsp|.m3u,special://skin/playlists/movies/)</onclick>
-						<onclick>Skin.SetString(shelf.2.playlistname)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>Skin.HasSetting(shelf.enabled)</visible>
-						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.2,playlist)</enable>
-					</control>
-					<!--shelf widget 3-->
-					<control type="button" id="115">
-						<label>$LOCALIZE[31037]</label>
-						<label2>$VAR[shelf_Widget3Select]</label2>
-						<onclick condition="!StringCompare(Skin.String(shelf.3),playlist) + !StringCompare(Skin.String(shelf.3),recent)">Skin.SetString(shelf.3,recent)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.3),playlist)">Skin.SetString(shelf.3,featured)</onclick>
-						<onclick condition="StringCompare(Skin.String(shelf.3),recent)">Skin.SetString(shelf.3,playlist)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>Skin.HasSetting(shelf.enabled)</visible>
-						<enable>Skin.HasSetting(shelf.enabled)</enable>
-					</control>
-					<control type="button" id="116">
-						<label>- $LOCALIZE[524]</label>
-						<label2>$INFO[Skin.String(shelf.3.playlist)]</label2>
-						<onclick>Skin.Reset(shelf.3.playlist)</onclick>
-						<onclick>Skin.Reset(shelf.3.playlistname)</onclick>
-						<onclick>Skin.SetFile(shelf.3.playlist,.xsp|.m3u,special://skin/playlists/albums/)</onclick>
-						<onclick>Skin.SetString(shelf.3.playlistname)</onclick>
-						<include>settings_Listbutton</include>
-						<visible>Skin.HasSetting(shelf.enabled)</visible>
-						<enable>Skin.HasSetting(shelf.enabled) + Skin.String(shelf.3,playlist)</enable>
 					</control>
 					
 					<!--single image-->
@@ -207,7 +149,6 @@
 						<onclick>Skin.SetString(HomeBackground,single)</onclick>
 						<onclick>Skin.SetImage(home.background.image)</onclick>
 						<include>settings_Listbutton</include>
-						<enable>!Skin.HasSetting(shelf.enabled)</enable>
 					</control>
 					<!--multi image-->
 					<control type="button" id="121">
@@ -218,14 +159,13 @@
 						<onclick>Skin.SetString(HomeBackground,multi)</onclick>
 						<onclick>Skin.SetPath(home.background.folder)</onclick>
 						<include>settings_Listbutton</include>
-						<enable>!Skin.HasSetting(shelf.enabled)</enable>
 					</control>
 					<!--fanart grabber-->
 					<control type="button" id="122">
 						<label>$LOCALIZE[31214]</label>
 						<onclick>ActivateWindow(65)</onclick>
 						<include>settings_Radiobutton</include>
-						<enable>System.HasAddon(script.grab.fanart) + !Skin.HasSetting(shelf.enabled)</enable>
+						<enable>System.HasAddon(script.grab.fanart)</enable>
 					</control>
 
 					<!--date & time-->

@@ -3,14 +3,14 @@
 	<defaultcontrol always="true">9110</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>CancelAlarm(StartupCheck,true)</onload>
-
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onload>
-	
+
 	<controls>
 		<control type="group">
 			<include>transition_Home</include>
 			<include>home_Background</include>
-			<include>home_Menu</include>
+			<include condition="StringCompare(Skin.String(homemenu.type),vertical) | !StringCompare(Skin.String(homemenu.type),horizontal) + !StringCompare(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
+			<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
 			<include>home_NowPlaying</include>
 
 		<!--clock-->
@@ -21,30 +21,56 @@
 
 		<!--RSS-->
 			<control type="group">
-				<left>340</left>
-				<top>690</top>
-				<include>toggle_RSS</include>
-				<visible>System.GetBool(lookandfeel.enablerssfeeds) + ![Control.HasFocus(9120) | Control.HasFocus(9130) | Control.HasFocus(9140) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
-				<control type="image">
-					<width>1280</width>
-					<height>30</height>
-					<texture>overlays/semitrans.png</texture>
-				</control>
-				<control type="rss">
-					<top>2</top>
-					<width>940</width>
-					<font>condensed-U</font>
-					<urlset>1</urlset>
-					<height>30</height>
-					<textcolor>Color1</textcolor>
-					<titlecolor>Color2</titlecolor>
-					<headlinecolor>Color1</headlinecolor>
-					<highlightcolor>Focused</highlightcolor>
-					<include>fadeinout</include>
+				<visible>System.GetBool(lookandfeel.enablerssfeeds)</visible>
+				<control type="group">
+					<left>340</left>
+					<top>690</top>
+					<include>toggle_RSS</include>
+					<visible>StringCompare(Skin.String(homemenu.type),$LOCALIZE[31207]) + ![Control.HasFocus(9210) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
+					<control type="image">
+						<width>1280</width>
+						<height>30</height>
+						<texture>overlays/semitrans.png</texture>
+					</control>
+					<control type="rss">
+						<top>2</top>
+						<width>940</width>
+						<font>condensed-U</font>
+						<urlset>1</urlset>
+						<height>30</height>
+						<textcolor>Color1</textcolor>
+						<titlecolor>Color2</titlecolor>
+						<headlinecolor>Color1</headlinecolor>
+						<highlightcolor>Focused</highlightcolor>
+						<include>fadeinout</include>
+					</control>
+				</control>			
+				<control type="group">
+					<top>690</top>
+					<include>toggle_RSS</include>
+					<visible>StringCompare(Skin.String(homemenu.type),$LOCALIZE[31208]) + ![Control.HasFocus(9210) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
+					<control type="image">
+						<include>screen_Width</include>
+						<height>30</height>
+						<texture>overlays/semitrans.png</texture>
+					</control>
+					<control type="rss">
+						<top>2</top>
+						<include>screen_Width</include>
+						<font>condensed-U</font>
+						<urlset>1</urlset>
+						<height>30</height>
+						<textcolor>Color1</textcolor>
+						<titlecolor>Color2</titlecolor>
+						<headlinecolor>Color1</headlinecolor>
+						<highlightcolor>Focused</highlightcolor>
+						<include>fadeinout</include>
+					</control>
 				</control>
 			</control>
 		</control>
 
+	<!--post startup-->
 		<control type="image">
 			<top>screen_Height</top>
 			<include>screen_Dimensions</include>
