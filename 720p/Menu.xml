@@ -463,7 +463,7 @@
 					<onclick condition="Control.IsVisible(574)">Container.SetViewMode(572)</onclick>
 					<onclick condition="Control.IsVisible(572)">Container.SetViewMode(574)</onclick>
 					<include>menu_Button</include>
-					<visible>[Control.IsVisible(572) | Control.IsVisible(574)] + !Window.IsActive(pictures)</visible>
+					<visible>[Control.IsVisible(572) | Control.IsVisible(574)] + !Window.IsActive(pictures) + !Window.IsActive(programs)</visible>
 				</control>
 			<!--options-->
 				<include>menu_Sorting</include>
@@ -545,7 +545,7 @@
 					<label>$LOCALIZE[31109]</label>
 					<include>menu_Button</include>
 					<onclick>Container.SetViewMode(58)</onclick>
-					<visible>[Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)]</visible>
+					<visible>[Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath) + Container.HasFiles]</visible>
 				</control>
 			</control>
 		</control>
