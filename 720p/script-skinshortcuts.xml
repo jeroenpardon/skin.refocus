@@ -50,46 +50,38 @@
 					<itemlayout width="400" height="40">
 						<control type="image">
 							<width>400</width>
-							<height>40</height>
-							<texture border="3">dialogs/select-nf.png</texture>
+							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<width>270</width>
-							<height>40</height>
-							<font>regular</font>
-							<textcolor>Color4</textcolor>
+							<width>260</width>
 							<label>$INFO[ListItem.Label]</label>
+							<include>dialog_CommonListItem</include>
 						</control>
 					</itemlayout>
 					<focusedlayout width="400" height="40">
 						<control type="image">
 							<width>281</width>
 							<height>40</height>
-							<texture border="3">dialogs/select-fo.png</texture>
+							<include>dialog_CommonListFocus</include>
 							<visible>Control.HasFocus(211)</visible>
 						</control>
 						<control type="image">
 							<width>400</width>
-							<height>40</height>
-							<texture border="3">dialogs/select-nf.png</texture>
+							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<width>270</width>
-							<height>40</height>
-							<font>regular</font>
-							<textcolor>Color1</textcolor>
+							<width>260</width>
 							<label>$INFO[ListItem.Label]</label>
+							<include>dialog_CommonListItemFocus</include>
 							<visible>Control.HasFocus(211)</visible>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<width>270</width>
-							<height>40</height>
-							<font>regular</font>
-							<textcolor>Selected</textcolor>
+							<width>260</width>
 							<label>$INFO[ListItem.Label]</label>
+							<textcolor>Selected</textcolor>
+							<include>dialog_CommonListItem</include>
 							<visible>!Control.HasFocus(211)</visible>
 						</control>
 					</focusedlayout>
@@ -176,34 +168,43 @@
 					<control type="button" id="401">
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32048]</label>
-						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
 					</control>
 					<!--change label-->
 					<control type="button" id="305">
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32025]</label>
 						<label2>$INFO[Container(211).ListItem.Label]</label2>
-						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
 					</control>			
 					<!--change action-->
 					<control type="button" id="307">
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32027]</label>
 						<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
-						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
 					</control>
 					<!--edit sub-menu-->
 					<control type="button" id="405">
 						<width>492</width>
-						<label>Edit submenu</label>
-						<include>dialog_Radio</include>
+						<label>$ADDON[script.skinshortcuts 32072]</label>
+						<include>dialog_ControlCommons</include>
+						<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
+					</control>
+					<!--set widget-->
+					<control type="button" id="309">
+						<width>492</width>
+						<label>$ADDON[script.skinshortcuts 32044]</label>
+						<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
+						<include>dialog_ControlCommons</include>
+						<enable>Skin.HasSetting(widgets.disable)</enable>
 						<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
 					</control>
 					<!--add item-->
 					<control type="button" id="301">
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32000]</label>
-						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
 					</control>
 				</control>
 			</control>
