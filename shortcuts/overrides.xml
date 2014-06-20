@@ -73,7 +73,7 @@
 		</node>
 	</groupings>
 
-	<!--CUSTOM SHORRTCUTS-->
+<!--CUSTOM SHORTCUTS-->
 	<!--in progress-->
 	<shortcut label="::LOCAL::575" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
 	<shortcut label="::LOCAL::575" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultInProgressShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,library://video/inprogressshows.xml,return)"</shortcut>
@@ -104,15 +104,14 @@
 		<action>ActivateWindow(musicplaylist)</action>
 	</override>
 
-
 	<!--settings removal warning-->
 	<warn heading="$LOCALIZE[19098]" message="$LOCALIZE[31018]">ActivateWindow(Settings)</warn>
 
-	<!--LABEL OVERRIDES-->
+<!--LABEL OVERRIDES-->
 	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)">::LOCAL::31705</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)">::LOCAL::31016</availableshortcutlabel>
 
-	<!--ICON OVERRIDES-->
+<!--ICON OVERRIDES-->
 	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
 	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
 	<icon labelID="music">DefaultMusicSongs.png</icon>
@@ -120,7 +119,7 @@
 	<icon labelID="settings">CommonSettings.png</icon>
 	<icon labelID="weather">DefaultAddonWeather.png</icon>
 	<icon labelID="1036">CommonFavourite.png</icon>
-	<icon labelID="10007">DefaultIconInfo.png</icon>
+	<icon labelID="10007">DefaultIconInfo.png</icon><!--system information-->
 	<icon labelID="10504">DefaultMusicTop100.png</icon>
 	<icon labelID="10505">DefaultMusicTop100.png</icon>
 	<icon labelID="livetv">LiveTV.png</icon><!--pvr grouping-->
@@ -133,20 +132,15 @@
 	<icon labelID="32067">LiveTV.png</icon><!--last radio channel-->
 	<icon labelID="32068">LiveTV.png</icon><!--last channel-->
 
-	<!--WIDGETS-->
+<!--WIDGETS-->
 	<widget label="31031">RecommendedEpisodes</widget>
 	<widget label="31030">RecommendedMovies</widget>
 	<widget label="20387">RecentEpisodes</widget>
 	<widget label="20386">RecentMovies</widget>
 	<widget label="31032">RecommendedAlbums</widget>
 	<widget label="359">RecentAlbums</widget>
-
-	<widget label="pvr">pvr</widget>
-	
 	<widgetdefault labelID="movies">RecommendedMovies</widgetdefault>
 	<widgetdefault labelID="tvshows">RecommendedEpisodes</widgetdefault>
 	<widgetdefault labelID="music">RecommendedAlbums</widgetdefault>
-
 	<widgetPlaylists>True</widgetPlaylists>
-
 </overrides>
