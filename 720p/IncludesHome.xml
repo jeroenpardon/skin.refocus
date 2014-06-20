@@ -72,31 +72,39 @@
 		<fadetime>fadetime_Slideshow</fadetime>
 	</include>
 
-	<include name="home_NowPlaying">
+	<include name="home_Playing">
 		<control type="group">
-			<left>380</left>
-			<top>540</top>
-			<visible>Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(widgets.disable)</visible>
+			<visible>Player.HasAudio + Skin.HasSetting(home.nowplaying)</visible>
+			<control type="image">
+				<width>74</width>
+				<height>74</height>
+				<texture>$INFO[MusicPlayer.Cover]</texture>
+				<bordertexture border="0">frames/frame-fo.png</bordertexture>
+				<bordersize>4</bordersize>
+				<aspectratio align="right" aligny="top">scale</aspectratio>
+			</control>
 			<control type="group">
-				<visible>Player.HasAudio</visible>
+				<left>90</left>
 				<control type="label">
-					<width>1150</width>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>bold_Bigger-U</font>
+					<width>790</width>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<font>bold_Title</font>
 					<textcolor>Color1</textcolor>
+					<selectedcolor>Color1</selectedcolor>
 				</control>
 				<control type="label">
-					<top>28</top>		
-					<width>1150</width>
-					<label>$INFO[MusicPlayer.Artist]</label>
+					<top>25</top>		
+					<width>790</width>
+					<label>$INFO[MusicPlayer.Title]$INFO[MusicPlayer.Album, • ]</label>
 					<font>semibold-U</font>
 					<textcolor>Color1</textcolor>
+					<selectedcolor>Color1</selectedcolor>
 				</control>
 				<control type="textbox">
-					<top>55</top>
-					<width>1150</width>
-					<height>80</height>
-					<label>$INFO[MusicPlayer.Album][CR]$INFO[MusicPlayer.Offset(1).Artist,[B]$LOCALIZE[209]: [/B]]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
+					<top>50</top>
+					<width>790</width>
+					<height>100</height>
+					<label>$INFO[MusicPlayer.Offset(1).Artist,[B]$LOCALIZE[209]: [/B]]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
 					<font>condensed-U</font>
 					<textcolor>Color3</textcolor>
 				</control>
@@ -145,38 +153,87 @@
 		<control type="group">
 			<left>50</left>
 			<top>520</top>
-			<control type="image">
-				<width>106</width>
-				<height>160</height>
-				<texture background="true">$VAR[thumb_Portrait]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="center" aligny="top">scale</aspectratio>
+			<control type="group">
+				<visible>!StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[31032]) + !StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
+				<control type="image">
+					<width>106</width>
+					<height>160</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<bordertexture border="0">frames/frame-fo.png</bordertexture>
+					<bordersize>4</bordersize>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+				</control>
+				<control type="group">
+					<left>130</left>
+					<control type="label">
+						<width>1060</width>
+						<label>$VAR[widget_ItemTitle]</label>
+						<font>bold_Title</font>
+						<textcolor>Color1</textcolor>
+						<selectedcolor>Color1</selectedcolor>
+					</control>
+					<control type="label">
+						<top>25</top>		
+						<width>1060</width>
+						<label>$VAR[widget_ItemInfo]</label>
+						<font>semibold-U</font>
+						<textcolor>Color1</textcolor>
+						<selectedcolor>Color1</selectedcolor>
+					</control>
+					<control type="textbox">
+						<top>55</top>
+						<width>1060</width>
+						<height>100</height>
+						<label>$VAR[widget_ItemDescription]</label>
+						<font>condensed-U</font>
+						<textcolor>Color3</textcolor>
+					</control>
+				</control>
 			</control>
 			<control type="group">
-				<left>130</left>
-				<control type="label">
-					<width>1060</width>
-					<label>$VAR[widget_ItemTitle]</label>
-					<font>bold_Title</font>
-					<textcolor>Color1</textcolor>
-					<selectedcolor>Color1</selectedcolor>
+				<visible>StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[31032]) | StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
+				<control type="image">
+					<width>106</width>
+					<height>106</height>
+					<texture fallback="thumbs/default_Square.png">$INFO[ListItem.Art(thumb)]</texture>
+					<bordertexture border="0">frames/frame-fo.png</bordertexture>
+					<bordersize>4</bordersize>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
 				</control>
-				<control type="label">
-					<top>25</top>		
-					<width>1060</width>
-					<label>$VAR[widget_ItemInfo]</label>
-					<font>semibold-U</font>
-					<textcolor>Color1</textcolor>
-					<selectedcolor>Color1</selectedcolor>
+				<control type="image">
+					<centerleft>53</centerleft>
+					<centertop>53</centertop>
+					<width>72</width>
+					<height>72</height>
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<visible>IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
-				<control type="textbox">
-					<top>55</top>
-					<width>1060</width>
-					<height>100</height>
-					<label>$VAR[widget_ItemDescription]</label>
-					<font>condensed-U</font>
-					<textcolor>Color3</textcolor>
+				<control type="group">
+					<left>130</left>
+					<control type="label">
+						<width>1060</width>
+						<label>$VAR[widget_ItemTitle]</label>
+						<font>bold_Title</font>
+						<textcolor>Color1</textcolor>
+						<selectedcolor>Color1</selectedcolor>
+					</control>
+					<control type="label">
+						<top>25</top>		
+						<width>1060</width>
+						<label>$VAR[widget_ItemInfo]</label>
+						<font>semibold-U</font>
+						<textcolor>Color1</textcolor>
+						<selectedcolor>Color1</selectedcolor>
+					</control>
+					<control type="textbox">
+						<top>55</top>
+						<width>1060</width>
+						<height>100</height>
+						<label>$VAR[widget_ItemDescription]</label>
+						<font>condensed-U</font>
+						<textcolor>Color3</textcolor>
+					</control>
 				</control>
 			</control>
 		</control>
