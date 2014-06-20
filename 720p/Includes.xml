@@ -91,7 +91,7 @@
 	</include>
 	<include name="clock">
 		<control type="group">
-			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog)]</visible>
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | Control.HasFocus(9210)]</visible>
 			<control type="label">
 				<label>$VAR[toast_Top]</label>
 				<shadowcolor>black</shadowcolor>
