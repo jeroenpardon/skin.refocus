@@ -67,6 +67,15 @@
 			<effect type="Fade" time="transition_Close" start="100" end="0" tween="Cubic" easing="Out" />
 		</animation>
 	</include>
+	<include name="transition_Home-horizontal">
+		<animation type="WindowOpen">
+			<effect type="zoom" time="500" start="50"  end="100" tween="Cubic" easing="Out" center="640,0" />
+			<effect type="Fade" time="500" start="0" end="100" tween="Cubic" easing="In" />
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="Fade" time="300" start="100" end="0" tween="Cubic" easing="Out" />
+		</animation>
+	</include>
 
 	<include name="transition_Background">
 		<animation type="WindowOpen">
@@ -217,4 +226,5 @@
 			<effect type="fade" start="100" end="0" time="250" tween="Quadratic" easing="Out" />
 		</animation>
 	</include>
+
 </includes>
