@@ -240,78 +240,70 @@
 							<align>center</align>
 							<textcolor>Color3</textcolor>
 						</control>
-					</control>
-				</focusedlayout>
-				<content>
-					 <include>skinshortcuts-mainmenu</include>
-				</content>
-			</control>
-			<!--SUB MENU-->
-			<control type="fixedlist" id="9111">
-				<top>70</top>
-				<width>1182</width>
-				<height>100</height>
-				<onback>9110</onback>
-				<onleft>9111</onleft>
-				<onright>9111</onright>
-				<onup>9110</onup>
-				<focusposition>2</focusposition>
-				<movement>3</movement>
-				<preloaditems>4</preloaditems>
-				<pagecontrol>80</pagecontrol>
-				<include>global_ListScroll</include>
-				<include>home_MenuPosition</include>
-				<orientation>horizontal</orientation>
-				<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9111).NumItems,2)">Conditional</animation>
-				<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9111).NumItems,4)">Conditional</animation>
-				<itemlayout width="236" height="50">
-					<control type="image">
-						<width>238</width>
-						<height>42</height>
-						<texture colordiffuse="base_2">white.png</texture>
-						<bordertexture colordiffuse="base_3">white.png</bordertexture>
-						<bordersize>2</bordersize>
-					</control>
-					<control type="image">
-						<left>2</left>
-						<top>2</top>
-						<width>38</width>
-						<height>38</height>
-						<texture colordiffuse="Color2">home/horizontal_DirectionOverlay.png</texture>
-						<visible>Container(9111).HasFocus(2)</visible>
-					</control>
-					<control type="label">
-						<left>118</left>
-						<width>230</width>
-						<height>40</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>condensed_HomeSub</font>
-						<align>center</align>
-						<textcolor>Color3</textcolor>
-					</control>
-				</itemlayout>
-				<focusedlayout width="236" height="50">
-					<control type="group">
-						<visible>Control.HasFocus(9111)</visible>
-						<control type="image">
-							<width>238</width>
-							<height>42</height>
-							<texture colordiffuse="Color1">white.png</texture>
-							<bordertexture colordiffuse="base_3">white.png</bordertexture>
-							<bordersize>2</bordersize>
+					</itemlayout>
+					<focusedlayout width="236" height="70">
+						<control type="group">
+							<visible>Control.HasFocus(9110)</visible>
+							<control type="image">
+								<width>238</width>
+								<height>65</height>
+								<texture colordiffuse="Color1">white.png</texture>
+								<bordertexture colordiffuse="base_3">white.png</bordertexture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="label">
+								<left>118</left>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_Home</font>
+								<align>center</align>
+								<textcolor>Color5</textcolor>
+							</control>
 						</control>
-						<control type="label">
-							<left>118</left>
-							<width>230</width>
-							<height>40</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>condensed_HomeSub</font>
-							<align>center</align>
-							<textcolor>Color5</textcolor>
+						<control type="group">
+							<visible>!Control.HasFocus(9110)</visible>
+							<control type="image">
+								<width>238</width>
+								<height>65</height>
+								<texture colordiffuse="base_2">white.png</texture>
+								<bordertexture colordiffuse="base_3">white.png</bordertexture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="label">
+								<left>118</left>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_Home</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							</control>
 						</control>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(9111)</visible>
+					</focusedlayout>
+					<content>
+						 <include>skinshortcuts-mainmenu</include>
+					</content>
+				</control>
+				<!--SUB MENU-->
+				<control type="fixedlist" id="9111">
+					<top>70</top>
+					<width>1182</width>
+					<height>100</height>
+					<onback>9110</onback>
+					<onleft>9111</onleft>
+					<onright>9111</onright>
+					<onup>9110</onup>
+					<focusposition>2</focusposition>
+					<movement>3</movement>
+					<preloaditems>4</preloaditems>
+					<pagecontrol>80</pagecontrol>
+					<include>global_ListScroll</include>
+					<include>home_MenuPosition</include>
+					<orientation>horizontal</orientation>
+					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9111).NumItems,2)">Conditional</animation>
+					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9111).NumItems,4)">Conditional</animation>
+					<itemlayout width="236" height="50">
 						<control type="image">
 							<width>238</width>
 							<height>42</height>
@@ -328,11 +320,56 @@
 							<align>center</align>
 							<textcolor>Color3</textcolor>
 						</control>
-					</control>
-				</focusedlayout>
-				<content>
-					 <include>skinshortcuts-submenu</include>
-				</content>
+					</itemlayout>
+					<focusedlayout width="236" height="50">
+						<control type="group">
+							<visible>Control.HasFocus(9111)</visible>
+							<control type="image">
+								<width>238</width>
+								<height>42</height>
+								<texture colordiffuse="Color1">white.png</texture>
+								<bordertexture colordiffuse="base_3">white.png</bordertexture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="label">
+								<left>118</left>
+								<width>230</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_HomeSub</font>
+								<align>center</align>
+								<textcolor>Color5</textcolor>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(9111)</visible>
+							<control type="image">
+								<width>238</width>
+								<height>42</height>
+								<texture colordiffuse="base_2">white.png</texture>
+								<bordertexture colordiffuse="base_3">white.png</bordertexture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="label">
+								<left>118</left>
+								<width>230</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_HomeSub</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						 <include>skinshortcuts-submenu</include>
+					</content>
+				</control>
+			</control>
+			<!--now playing widget-->
+			<control type="group">
+				<top>200</top>
+				<include>home_Playing</include>
 			</control>
 		</control>
 	</include>
