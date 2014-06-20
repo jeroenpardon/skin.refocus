@@ -100,11 +100,12 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>285</left>
-							<width>280</width>
+							<right>5</right>
+							<width>20</width>
 							<height>43</height>
-							<font>light_Home</font>
 							<label>›</label>
+							<font>light_Home</font>
+							<align>right</align>
 							<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
 							<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
 						</control>
@@ -140,12 +141,13 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>	
 						<control type="label">
-							<left>285</left>
+							<right>5</right>
+							<width>20</width>
 							<height>43</height>
-							<width>280</width>
-							<font>light_Home</font>
-							<textcolor>Focused</textcolor>
 							<label>›</label>
+							<font>light_Home</font>
+							<align>right</align>
+							<textcolor>Focused</textcolor>
 							<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
 							<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
 						</control>
