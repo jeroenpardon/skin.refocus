@@ -57,9 +57,10 @@
 		<value>$INFO[ListItem.Genre,, • ]$INFO[ListItem.Director,, • ]$INFO[ListItem.Studio,, • ]$INFO[ListItem.Year]</value>
 	</variable>
 	<variable name="widget_ItemDescription">
-		<value condition="StringCompare(Container(9110).ListItem.Property(Widget),RecommendedAlbums) | StringCompare(Container(9110).ListItem.Property(Widget),RecentAlbums)">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="[StringCompare(Container(9110).ListItem.Property(Widget),RecommendedAlbums) | StringCompare(Container(9110).ListItem.Property(Widget),RecentAlbums)] + !IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="StringCompare(Container(9110).ListItem.Property(Widget),RecommendedEpisodes) + !IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
-		<value>$INFO[ListItem.Plot]</value>
+		<value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<value>$LOCALIZE[31151]</value>
 	</variable>
 
 	<variable name="widget_FocusIcon">
