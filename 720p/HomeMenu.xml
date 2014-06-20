@@ -199,74 +199,31 @@
 				<visible>Control.HasFocus(9210)</visible>
 			</control>
 		</control>
+
 		<!--MAIN MENU-->
 		<control type="group">
 			<left>50</left>
 			<top>410</top>
-			<animation type="WindowOpen">
-				<effect type="zoom" time="500" start="50"  end="100" tween="Cubic" easing="Out" center="640,445" />
-				<effect type="Fade" time="500" start="0" end="100" tween="Cubic" easing="In" />
-			</animation>			
-			<animation type="WindowClose">
-				<effect type="Fade" time="300" start="100" end="0" tween="Cubic" easing="Out" />
-			</animation>
 			<animation type="Conditional" condition="Control.HasFocus(9210)">
-				<effect type="Slide" time="300" center="auto" start="0,0" end="0,310" easing="In" tween="Quadratic"/>
+				<effect type="Slide" time="300" center="auto" start="0,0" end="0,310" easing="In" tween="Quadratic" reversible="false"/>
 			</animation>
-			<control type="fixedlist" id="9110">
-				<width>1182</width>
-				<height>70</height>
-				<onleft>9110</onleft>
-				<onright>9110</onright>
-				<onup condition="Skin.HasSetting(widgets.disable) + !IsEmpty(Container(9110).ListItem.Property(Widget))">9210</onup>
-				<ondown>9111</ondown>
-				<focusposition>2</focusposition>
-				<movement>2</movement>
-				<orientation>horizontal</orientation>
-				<pagecontrol>80</pagecontrol>
-				<include>global_ListScroll</include>
-				<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9110).NumItems,2)">Conditional</animation>
-				<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9110).NumItems,4)">Conditional</animation>
-				<itemlayout width="236" height="70">
-					<control type="image">
-						<width>238</width>
-						<height>65</height>
-						<texture colordiffuse="base_2">white.png</texture>
-						<bordertexture colordiffuse="base_3">white.png</bordertexture>
-						<bordersize>2</bordersize>
-					</control>
-					<control type="label">
-						<left>118</left>
-						<width>236</width>
-						<height>60</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>condensed_Home</font>
-						<align>center</align>
-						<textcolor>Color3</textcolor>
-					</control>
-				</itemlayout>
-				<focusedlayout width="236" height="70">
-					<control type="group">
-						<visible>Control.HasFocus(9110)</visible>
-						<control type="image">
-							<width>238</width>
-							<height>65</height>
-							<texture colordiffuse="Color1">white.png</texture>
-							<bordertexture colordiffuse="base_3">white.png</bordertexture>
-							<bordersize>2</bordersize>
-						</control>
-						<control type="label">
-							<left>118</left>
-							<width>236</width>
-							<height>60</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>condensed_Home</font>
-							<align>center</align>
-							<textcolor>Color5</textcolor>
-						</control>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(9110)</visible>
+			<control type="group">
+				<include>transition_Home-horizontal</include>
+				<control type="fixedlist" id="9110">
+					<width>1182</width>
+					<height>70</height>
+					<onleft>9110</onleft>
+					<onright>9110</onright>
+					<onup condition="Skin.HasSetting(widgets.disable) + !IsEmpty(Container(9110).ListItem.Property(Widget))">9210</onup>
+					<ondown>9111</ondown>
+					<focusposition>2</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<pagecontrol>80</pagecontrol>
+					<include>global_ListScroll</include>
+					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9110).NumItems,2)">Conditional</animation>
+					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9110).NumItems,4)">Conditional</animation>
+					<itemlayout width="236" height="70">
 						<control type="image">
 							<width>238</width>
 							<height>65</height>
