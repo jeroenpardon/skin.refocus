@@ -71,6 +71,9 @@
 		<node label="::SCRIPT::32054">
 			<content>commands</content>
 		</node>
+		<node label="::LOCAL::10004">
+ +			<content>settings</content>
+ +		</node>
 	</groupings>
 
 <!--CUSTOM SHORTCUTS-->
@@ -94,6 +97,8 @@
 	<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" grouping="common" icon="CommonSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
 	<!--exit (shutdown menu)-->
 	<shortcut label="::LOCAL::13012" type="::SCRIPT::32054" grouping="commands">ActivateWindow(shutdownmenu)</shortcut>
+	<!--skin settings-->
+	<shortcut label="::LOCAL::20077" type="::LOCAL::10004" grouping="settings" icon="reFocus.png">ActivateWindow(SkinSettings)</shortcut>
 	<!--now playing-->
 	<shortcut label="::LOCAL::31034" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
 	<override action="fullscreen">
@@ -108,11 +113,19 @@
 	<warn heading="$LOCALIZE[19098]" message="$LOCALIZE[31018]">ActivateWindow(Settings)</warn>
 
 <!--LABEL OVERRIDES-->
-	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)">::LOCAL::31705</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)">::LOCAL::31016</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,RecentlyAddedMovies,return)" type="::SCRIPT::32015">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,RecentlyAddedEpisodes,return)" type="::SCRIPT::32016">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,RecentlyAddedMusicVideos,return)" type="::SCRIPT::32018">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)" type="::SCRIPT::32019">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)" type="::SCRIPT::32019">::LOCAL::31016</availableshortcutlabel>
+	
+	<availableshortcutlabel action="ActivateWindow(MusicLibrary,Addons,return)">::LOCAL::24001</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,Addons,return)">::LOCAL::24001</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Pictures,Addons,return)">::LOCAL::24001</availableshortcutlabel>
 
 <!--ICON OVERRIDES-->
 	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
+	<icon image="DefaultShortcut.png" grouping="settings">CommonSettings.png</icon>
 	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
 	<icon labelID="music">DefaultMusicSongs.png</icon>
 	<icon labelID="programs">DefaultProgram.png</icon>
