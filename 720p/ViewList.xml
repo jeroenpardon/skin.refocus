@@ -201,8 +201,7 @@
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
-			<visible>Control.IsVisible(50) + [SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin)] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)]
-			</visible>
+			<visible>Control.IsVisible(50) + [SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin)] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(episodes)]</visible>
 			<control type="image">
 				<width>532</width>
 				<height>256</height>
@@ -212,18 +211,15 @@
 				<aspectratio align="left" aligny="top">keep</aspectratio>
 				<fadetime>fadetime_Thumb</fadetime>
 			</control>
-			<control type="grouplist" id="1000">
+			<control type="textbox" id="1003">
 				<left>7</left>
-				<top>268</top>
-				<itemgap>0</itemgap>
+				<top>315</top>
+				<width>532</width>
+				<height>330</height>
+				<label>$VAR[global_Plot]</label>
+				<autoscroll>!Window.IsActive(addoninformation)</autoscroll>
+				<include>detail_Text</include>
 				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
-				<control type="textbox" id="1003">
-					<width>532</width>
-					<height>330</height>
-					<label>$VAR[global_Plot]</label>
-					<autoscroll>!Window.IsActive(addoninformation)</autoscroll>
-					<include>detail_Text</include>
-				</control>
 			</control>
 		</control>
 	</include>
