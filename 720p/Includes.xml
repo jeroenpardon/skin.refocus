@@ -592,6 +592,11 @@
 		<font>bold_Title</font>
 		<textcolor>Color1</textcolor>
 	</include>
+	<include name="osd_Sub">
+		<font>semibold-U</font>
+		<textcolor>Color1</textcolor>
+		<selectedcolor>Color1</selectedcolor>
+	</include>
 	<include name="osd_Text">
 		<font>regular_Small</font>
 		<textcolor>Color3</textcolor>
@@ -696,17 +701,18 @@
 						<include>osd_Title</include>
 					</control>
 					<control type="label">
-						<top>28</top>
+						<top>25</top>
 						<width>1025</width>
 						<label>$INFO[MusicPlayer.Artist]</label>
 						<textcolor>Color3</textcolor>
-						<include>detail_Sub</include>
+						<include>osd_Sub</include>
 					</control>
 					<control type="label">
 						<top>50</top>
 						<width>1025</width>
 						<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year, • ]</label>
-						<include>detail_Sub</include>
+						<textcolor>Color2</textcolor>
+						<include>osd_Sub</include>
 					</control>
 					<control type="label">
 						<top>82</top>
@@ -761,7 +767,7 @@
 					<left>7</left>
 					<top>7</top>
 					<width>178</width>
-						<height>100</height>
+					<height>100</height>
 					<control type="image">
 						<width>178</width>
 						<height>100</height>
@@ -794,10 +800,11 @@
 						<include>osd_Title</include>
 					</control>
 					<control type="label">
-						<top>28</top>
+						<top>25</top>
 						<width>1050</width>
 						<label>$VAR[osd_Info]</label>
-						<include>detail_Sub</include>
+						<textcolor>Color2</textcolor>
+						<include>osd_Sub</include>
 						<visible>Player.HasVideo</visible>
 					</control>
 					<control type="textbox">

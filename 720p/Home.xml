@@ -11,11 +11,10 @@
 			<include>home_Background</include>
 			<include condition="StringCompare(Skin.String(homemenu.type),vertical) | !StringCompare(Skin.String(homemenu.type),horizontal) + !StringCompare(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
 			<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
-			<include>home_NowPlaying</include>
 
 		<!--clock-->
 			<control type="group">
-				<visible>[Skin.HasSetting(home.time) + ![Control.HasFocus(9130) | Control.HasFocus(9140) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]] | [Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer]</visible>
+				<visible>[Skin.HasSetting(home.time) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]] | [Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer]</visible>
 				<include>clock</include>
 			</control>
 
@@ -50,13 +49,13 @@
 					<include>toggle_RSS</include>
 					<visible>StringCompare(Skin.String(homemenu.type),$LOCALIZE[31208]) + ![Control.HasFocus(9210) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
 					<control type="image">
-						<include>screen_Width</include>
+						<width>screen_Width</width>
 						<height>30</height>
 						<texture>overlays/semitrans.png</texture>
 					</control>
 					<control type="rss">
 						<top>2</top>
-						<include>screen_Width</include>
+						<width>screen_Width</width>
 						<font>condensed-U</font>
 						<urlset>1</urlset>
 						<height>30</height>

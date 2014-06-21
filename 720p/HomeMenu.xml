@@ -20,7 +20,6 @@
 				</itemlayout>
 				<focusedlayout width="screen_Width" height="screen_Height">
 					<include>widget_ContainerCommons</include>
-					<include>widget_ContainerCommons-fo</include>
 				</focusedlayout>
 				<content target="url">$VAR[widget_Content]</content>
 			</control>
@@ -204,8 +203,8 @@
 		<control type="group">
 			<left>50</left>
 			<top>410</top>
-			<animation type="Conditional" condition="Control.HasFocus(9210)">
-				<effect type="Slide" time="300" center="auto" start="0,0" end="0,310" easing="In" tween="Quadratic" reversible="false"/>
+			<animation type="Conditional" condition="Control.HasFocus(9210)" reversible="false">
+				<effect type="Slide" time="300" center="auto" start="0,0" end="0,310" easing="In" tween="Quadratic"/>
 			</animation>
 			<control type="group">
 				<include>transition_Home-horizontal</include>
@@ -299,7 +298,6 @@
 					<preloaditems>4</preloaditems>
 					<pagecontrol>80</pagecontrol>
 					<include>global_ListScroll</include>
-					<include>home_MenuPosition</include>
 					<orientation>horizontal</orientation>
 					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9111).NumItems,2)">Conditional</animation>
 					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9111).NumItems,4)">Conditional</animation>
