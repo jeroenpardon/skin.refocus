@@ -186,7 +186,7 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Date]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$VAR[video_Type, • ]</value>
 		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$VAR[video_Type,, • ]$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
-		<value condition="Container.Content(files) + ![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Genre) + IsEmpty(ListItem.Date) + IsEmpty(ListItem.Studio)]">$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, • ]$INFO[ListItem.Date, • ]$INFO[ListItem.Studio, • ]</value>
+		<value condition="Container.Content(files) + ![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Genre) + IsEmpty(ListItem.Date) + IsEmpty(ListItem.Studio)]">$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, • ]$INFO[ListItem.Date, • ]$INFO[ListItem.Studio]</value>
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Genre))">$INFO[ListItem.Property(Artist_Genre)]</value>
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Artist)">$LOCALIZE[31145]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]$INFO[ListItem.Year, • ]</value>
