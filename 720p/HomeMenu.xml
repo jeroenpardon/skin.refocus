@@ -204,7 +204,13 @@
 			<left>50</left>
 			<top>410</top>
 			<animation type="Conditional" condition="Control.HasFocus(9210)" reversible="false">
-				<effect type="Slide" time="300" center="auto" start="0,0" end="0,310" easing="In" tween="Quadratic"/>
+				<effect type="Slide" time="250" center="auto" start="0,0" end="0,310" easing="In" tween="Cubic"/>
+				<effect type="Fade" time="250" start="100" end="0" easing="In" tween="Quadratic"/>
+			</animation>
+			<animation type="Conditional" condition="!Control.HasFocus(9210)" reversible="false">
+				<effect type="Slide" time="150" center="auto" start="0,310" end="0,0" easing="In" tween="Cubic"/>
+				<effect type="Fade" time="150" start="0" end="100" easing="In" tween="Quadratic"/>
+
 			</animation>
 			<control type="group">
 				<include>transition_Home-horizontal</include>
