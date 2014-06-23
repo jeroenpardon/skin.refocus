@@ -8,7 +8,7 @@
 	<controls>
 		<control type="group">
 			<include>transition_Info</include>
-			<visible>Player.HasAudio + Skin.HasSetting(overlay.enable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614) | Window.IsActive(busydialog)] + IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
+			<visible>Player.HasAudio + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614) | Window.IsActive(busydialog)] + IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
 			<control type="label" id="200">
 				<right>70</right>
 				<label>$INFO[MusicPlayer.Title]</label>
