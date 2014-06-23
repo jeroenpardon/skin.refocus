@@ -86,23 +86,23 @@
 			<control type="group">
 				<left>90</left>
 				<control type="label">
-					<width>790</width>
-					<label>$INFO[MusicPlayer.Artist]</label>
+					<width>900</width>
+					<label>$INFO[MusicPlayer.Title]</label>
 					<font>bold_Title</font>
 					<textcolor>Color1</textcolor>
 					<selectedcolor>Color1</selectedcolor>
 				</control>
 				<control type="label">
 					<top>25</top>		
-					<width>790</width>
-					<label>$INFO[MusicPlayer.Title]$INFO[MusicPlayer.Album, • ]</label>
+					<width>900</width>
+					<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]$INFO[MusicPlayer.Year, • ]</label>
 					<font>semibold-U</font>
 					<textcolor>Color1</textcolor>
 					<selectedcolor>Color1</selectedcolor>
 				</control>
 				<control type="textbox">
 					<top>50</top>
-					<width>790</width>
+					<width>900</width>
 					<height>100</height>
 					<label>$INFO[MusicPlayer.Offset(1).Artist,[B]$LOCALIZE[209]: [/B]]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
 					<font>condensed-U</font>
@@ -142,7 +142,7 @@
 	<include name="widget_Vertical">
 		<orientation>vertical</orientation>
 	</include>
-	
+
 	<include name="widget_Container">
 		<control type="group">
 			<control type="list" id="9210">
