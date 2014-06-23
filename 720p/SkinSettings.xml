@@ -329,8 +329,15 @@
 						<selected>Skin.HasSetting(autoscroll.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<!--media overlays-->
+					<!--movie ratings-->
 					<control type="radiobutton" id="705">
+						<label>$LOCALIZE[31250]</label>
+						<onclick>Skin.ToggleSetting(ratings.enable)</onclick>
+						<selected>Skin.HasSetting(ratings.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--media overlays-->
+					<control type="radiobutton" id="706">
 						<label>$LOCALIZE[31253]</label>
 						<onclick>Skin.ToggleSetting(mediaoverlay.disable)</onclick>
 						<selected>Skin.HasSetting(mediaoverlay.disable)</selected>
