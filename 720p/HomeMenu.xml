@@ -2,35 +2,7 @@
 <includes>	
 	<include name="home_Menu-vertical">
 		<!--WIDGETS-->
-		<control type="group">
-			<control type="list" id="9210">
-				<include>screen_Dimensions</include>
-				<onback>9110</onback>
-				<onleft>9110</onleft>
-				<ondown>9210</ondown>
-				<onup>9210</onup>
-				<orientation>vertical</orientation>
-				<preloaditems>2</preloaditems>
-				<pagecontrol>70</pagecontrol>
-				<include>global_Scrolltime</include>
-				<include>transition_OSD</include>
-				<visible allowhiddenfocus="true">!IsEmpty(Container(9110).ListItem.Property(Widget)) + Control.HasFocus(9210)</visible>
-				<itemlayout width="screen_Width" height="screen_Height">
-					<include>widget_ContainerCommons</include>
-				</itemlayout>
-				<focusedlayout width="screen_Width" height="screen_Height">
-					<include>widget_ContainerCommons</include>
-				</focusedlayout>
-				<content target="url">$VAR[widget_Content]</content>
-			</control>
-			<include>widget_Info</include>
-			<control type="scrollbar" id="70">
-				<left>1272</left>
-				<orientation>vertical</orientation>
-				<texturesliderbar border="0">views/pagecontrol/grip-fo.png</texturesliderbar>
-				<visible>Control.HasFocus(9210)</visible>
-			</control>
-		</control>
+		<include>widget_Container</include>
 		<!--MAIN MENU-->
 		<control type="group" id="9109">
 			<width>340</width>
@@ -87,7 +59,7 @@
 							<height>49</height>
 							<texture colordiffuse="accent_2">white.png</texture>
 							<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
-						</control>
+						</control>ᾔ
 					</control>
 					<control type="group">
 						<left>25</left>
@@ -168,37 +140,7 @@
 
 	<include name="home_Menu-horizontal">
 		<!--WIDGETS-->
-		<control type="group">
-			<control type="list" id="9210">
-				<include>screen_Dimensions</include>
-				<onback>9110</onback>
-				<onleft>9210</onleft>
-				<onright>9210</onright>
-				<ondown>9110</ondown>
-				<orientation>horizontal</orientation>
-				<preloaditems>2</preloaditems>
-				<pagecontrol>71</pagecontrol>
-				<include>global_Scrolltime</include>
-				<include>transition_OSD</include>
-				<visible allowhiddenfocus="true">!IsEmpty(Container(9110).ListItem.Property(Widget)) + Control.HasFocus(9210)</visible>
-				<itemlayout width="screen_Width" height="screen_Height">
-					<include>widget_ContainerCommons</include>
-				</itemlayout>
-				<focusedlayout width="screen_Width" height="screen_Height">
-					<include>widget_ContainerCommons</include>
-				</focusedlayout>
-				<content target="url">$VAR[widget_Content]</content>
-			</control>
-			<include>widget_Info</include>
-			<control type="scrollbar" id="71">
-				<top>712</top>
-				<width>1280</width>
-				<orientation>horizontal</orientation>
-				<texturesliderbar border="0">views/pagecontrol/grip-fo.png</texturesliderbar>
-				<visible>Control.HasFocus(9210)</visible>
-			</control>
-		</control>
-
+		<include>widget_Container</include>
 		<!--MAIN MENU-->
 		<control type="group">
 			<left>50</left>
@@ -210,7 +152,6 @@
 			<animation type="Conditional" condition="!Control.HasFocus(9210)" reversible="false">
 				<effect type="Slide" time="150" center="auto" start="0,310" end="0,0" easing="In" tween="Cubic"/>
 				<effect type="Fade" time="150" start="0" end="100" easing="In" tween="Quadratic"/>
-
 			</animation>
 			<control type="group">
 				<include>transition_Home-horizontal</include>

@@ -136,6 +136,61 @@
 		</control>
 	</include>
 
+	<include name="widget_Horizontal">
+		<orientation>horizontal</orientation>
+	</include>
+	<include name="widget_Vertical">
+		<orientation>vertical</orientation>
+	</include>
+	
+	<include name="widget_Container">
+		<control type="group">
+			<control type="list" id="9210">
+				<include>screen_Dimensions</include>
+				<onback>9110</onback>	
+				<onleft condition="StringCompare(Skin.String(homemenu.type),horizontal)">9210</onleft>
+				<onright condition="StringCompare(Skin.String(homemenu.type),horizontal)">9210</onright>
+				<onup condition="StringCompare(Skin.String(homemenu.type),horizontal)">-</onup>
+				<ondown condition="StringCompare(Skin.String(homemenu.type),horizontal)">9110</ondown>
+				<onleft condition="StringCompare(Skin.String(homemenu.type),vertical)">9110</onleft>
+				<onright condition="StringCompare(Skin.String(homemenu.type),vertical)">-</onright>
+				<onup condition="StringCompare(Skin.String(homemenu.type),vertical)">9210</onup>
+				<ondown condition="StringCompare(Skin.String(homemenu.type),vertical)">9210</ondown>
+				<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">widget_Horizontal</include>
+				<include condition="StringCompare(Skin.String(homemenu.type),vertical)">widget_Vertical</include>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>70</pagecontrol>
+				<include>global_Scrolltime</include>
+				<include>transition_OSD</include>
+				<visible allowhiddenfocus="true">!IsEmpty(Container(9110).ListItem.Property(Widget)) + Control.HasFocus(9210)</visible>
+				<itemlayout width="screen_Width" height="screen_Height">
+					<include>widget_ContainerCommons</include>
+				</itemlayout>
+				<focusedlayout width="screen_Width" height="screen_Height">
+					<include>widget_ContainerCommons</include>
+				</focusedlayout>
+				<content target="url">$VAR[widget_Content]</content>
+			</control>
+			<include>widget_Info</include>
+			<control type="group">
+				<visible>Control.HasFocus(9210)</visible>
+				<control type="scrollbar" id="70">
+					<left>1272</left>
+					<orientation>vertical</orientation>
+					<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
+					<visible>StringCompare(Skin.String(homemenu.type),vertical)</visible>
+				</control>
+				<control type="scrollbar" id="70">
+					<top>712</top>
+					<width>1280</width>
+					<orientation>horizontal</orientation>
+					<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
+					<visible>StringCompare(Skin.String(homemenu.type),horizontal)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+
 	<include name="widget_ContainerCommons">
 		<control type="image">
 			<texture background="true">$VAR[global_Fanart]</texture>
