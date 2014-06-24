@@ -80,8 +80,14 @@
 	</variable>
 
 	<variable name="playing_Title">
-		<value condition="!Player.HasMedia">$LOCALIZE[13350]</value>
-		<value condition="Player.HasMedia">$LOCALIZE[31125]</value>
+		<value condition="Player.HasVideo">$LOCALIZE[31125]</value>
+		<value condition="Player.HasAudio | !Player.HasMedia">$LOCALIZE[13350]</value>
+	</variable>
+
+	<variable name="menu_Controls">
+		<value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
+		<value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
+		<value>$LOCALIZE[36502]</value>
 	</variable>
 
 

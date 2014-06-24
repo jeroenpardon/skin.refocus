@@ -309,17 +309,20 @@
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--fullscreen button-->
-					<control type="radiobutton" id="702">
+					<control type="button" id="702">
 						<label>$LOCALIZE[31252]</label>
-						<onclick>Skin.ToggleSetting(menu.nowplaying)</onclick>
-						<selected>Skin.HasSetting(menu.nowplaying)</selected>
-						<include>settings_Radiobutton</include>
+						<label2>$VAR[menu_Controls]</label2>
+						<onclick condition="IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
+						<onclick condition="StringCompare(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
+						<onclick condition="StringCompare(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
+						<onclick condition="StringCompare(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
+						<include>settings_Listbutton</include>
 					</control>
 					<control type="radiobutton" id="703">
 						<label>- $LOCALIZE[31283]</label>
 						<onclick>Skin.ToggleSetting(menu.playlist)</onclick>
 						<selected>Skin.HasSetting(menu.playlist)</selected>
-						<enable>Skin.HasSetting(menu.nowplaying)</enable>
+						<enable>StringCompare(Skin.String(menu.controls),fullscreen)</enable>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--autoscroll descriptions-->

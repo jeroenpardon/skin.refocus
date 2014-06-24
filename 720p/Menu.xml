@@ -188,19 +188,99 @@
 			<include>menu_Button</include>
 		</control>
 	</include>
+
+	<include name="menu_ControlsButton">
+		<width>40</width>
+		<height>40</height>
+	</include>
 	<include name="menu_Playing">
 		<control type="label" id="218">
 			<label>$LOCALIZE[31034]</label>
 			<include>menu_Header</include>
-			<visible>[Skin.HasSetting(menu.nowplaying) + Player.HasMedia] | [Skin.HasSetting(menu.nowplaying) + Skin.HasSetting(menu.playlist) + !Player.HasMedia + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0) | [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)]]] + ![Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist)]</visible>
+			<visible>Control.IsVisible(219) | Control.IsVisible(230)</visible>
 		</control>
 		<!--playing media / current playlist-->
 		<control type="button" id="219">
 			<label>$VAR[playing_Title]</label>
-			<onclick condition="Player.HasMedia">fullscreen</onclick>
-			<onclick condition="!Player.HasMedia">$VAR[playlist_Type]</onclick>
+			<onclick condition="Player.HasVideo">fullscreen</onclick>
+			<onclick condition="Player.HasAudio | !Player.HasMedia">$VAR[playlist_Type]</onclick>
 			<include>menu_Button</include>
-			<visible>[Skin.HasSetting(menu.nowplaying) + Player.HasMedia] | [Skin.HasSetting(menu.nowplaying) + Skin.HasSetting(menu.playlist) + !Player.HasMedia + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0) | [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)]]] + ![Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist)]</visible>
+			<visible>StringCompare(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !StringCompare(Playlist.Length(music),0)]]]</visible>
+		</control>
+		<!--player controls-->
+		<control type="group" id="230">
+			<onright>50</onright>
+			<visible>Player.HasMedia + StringCompare(Skin.String(menu.controls),player)</visible>
+			<control type="image">
+				<texture colordiffuse="column2">white.png</texture>
+				<width>270</width>
+				<height>48</height>
+				<aspectratio>stretch</aspectratio>
+				<visible>ControlGroup(230).HasFocus()</visible>
+			</control>
+			<control type="grouplist" id="231">
+				<left>15</left>
+				<top>4</top>
+				<width>250</width>
+				<onback>50</onback>
+				<onleft>231</onleft>
+				<onright>50</onright>
+				<onup>217</onup>
+				<ondown>102</ondown>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<!--previous-->
+				<control type="button" id="232">
+					<texturefocus colordiffuse="Color1">player/sidebar/prev-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/prev-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Previous)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--pause-->
+				<control type="togglebutton" id="233">
+					<texturenofocus colordiffuse="Color3">player/sidebar/pause-nf.png</texturenofocus>
+					<texturefocus colordiffuse="Color1">player/sidebar/pause-fo.png</texturefocus>
+					<alttexturenofocus colordiffuse="Color3">player/sidebar/play-nf.png</alttexturenofocus>
+					<alttexturefocus colordiffuse="Color1">player/sidebar/play-fo.png</alttexturefocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Play)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<enable>Player.PauseEnabled</enable>
+				</control>
+				<!--stop-->
+				<control type="button" id="234">
+					<texturefocus colordiffuse="Color1">player/sidebar/stop-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/stop-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Stop)</onclick>
+				</control>
+				<!--next-->
+				<control type="button" id="235">
+					<texturefocus colordiffuse="Color1">player/sidebar/next-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/next-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Next)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--fullscreen-->
+				<control type="button" id="240">
+					<texturefocus colordiffuse="Color1">player/sidebar/fullscreen-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/fullscreen-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>fullscreen</onclick>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<!--playlist-->
+				<control type="button" id="241">
+					<texturefocus colordiffuse="Color1">player/sidebar/playlist-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/playlist-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+					<visible>Player.HasAudio</visible>
+				</control>
+			</control>
 		</control>
 	</include>
 
@@ -275,6 +355,7 @@
 				<include>menu_Update</include>
 				<include>menu_Search</include>
 				<include>menu_Playing</include>
+				<include condition="!IsEmpty(Skin.String(menu.controls))">menu_PlayerControls</include>
 			</control>
 		<!--viewtypes-->
 			<control type="group">	
