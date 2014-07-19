@@ -21,7 +21,7 @@
 				<control type="group">
 					<control type="label">
 						<width>960</width>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<include>detail_Title</include>
 					</control>
 					<control type="group">
@@ -29,7 +29,7 @@
 						<visible>!SubString(ListItem.Icon,default)</visible>
 						<control type="label">
 							<width>960</width>
-							<label>$VAR[global_Info]</label>
+							<label>$VAR[media:Info]</label>
 							<include>detail_Sub</include>
 							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
 						</control>
@@ -44,7 +44,7 @@
 						<top>60</top>
 						<width>960</width>
 						<height>110</height>
-						<label>$VAR[global_Plot]</label>
+						<label>$VAR[media:Plot]</label>
 						<include>detail_Text</include>
 					</control>
 				</control>
@@ -136,7 +136,7 @@
 				<control type="image">
 					<width>183</width>
 					<height>280</height>
-					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<texture background="true">$VAR[art:Portrait]</texture>
 					<aspectratio align="center" aligny="top">scale</aspectratio>
 				</control>
 				<control type="group">
@@ -205,7 +205,7 @@
 				<control type="image">
 					<width>425</width>
 					<height>239</height>
-					<texture background="true">$VAR[thumb_Landscape]</texture>
+					<texture background="true">$VAR[art:Landscape]</texture>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="image">
@@ -213,7 +213,7 @@
 					<top>155</top>
 					<width>165</width>
 					<height>64</height>
-					<include>art_ClearLogo</include>
+					<include>art_Logo</include>
 				</control>
 				<control type="group">
 					<left>399</left>
@@ -280,7 +280,7 @@
 				<control type="image">
 					<width>260</width>
 					<height>260</height>
-					<texture background="true">$VAR[thumb_Square]</texture>
+					<texture background="true">$VAR[art:Square]</texture>
 					<aspectratio align="center">stretch</aspectratio>
 				</control>
 			</control>

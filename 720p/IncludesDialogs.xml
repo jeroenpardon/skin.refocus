@@ -6,17 +6,17 @@
 
 	<include name="dialog_Separator">
 		<height>1</height>
-		<texture>dialogs/separator/horizontal.png</texture>
+		<texture border="0,0,0,1">dialogs/separator.png</texture>
 	</include>
 
 	<include name="dialog_SectionSeparator">
 		<height>2</height>
-		<texture>dialogs/separator/section.png</texture>
+		<texture border="0,0,0,1">dialogs/separator.png</texture>
 	</include>
 
 	<include name="dialog_Separator-y">
 		<width>1</width>
-		<texture>dialogs/separator/vertical.png</texture>
+		<texture border="0,0,0,1">dialogs/separator.png</texture>
 	</include>
 
 	<include name="dialog_Menu">
@@ -36,10 +36,10 @@
 	</include>
 	<include name="dialog_WindowButton">	
 		<width>120</width>
-		<height>41</height>
-		<font>regular</font>
+		<height>40</height>
+		<font>regular_Small-U-B</font>
 		<align>center</align>
-		<textoffsety>5</textoffsety>
+		<textoffsety>6</textoffsety>
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<texturenofocus>dialogs/button-nf.png</texturenofocus>
@@ -51,21 +51,21 @@
 		<height>40</height>
 		<font>regular</font>
 		<textoffsetx>15</textoffsetx>
-		<textoffsety>5</textoffsety>
+		<textoffsety>4</textoffsety>
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<selectedcolor>Selected</selectedcolor>
-		<texturefocus border="3">dialogs/select-fo.png</texturefocus>
-		<texturenofocus border="3">dialogs/select-nf.png</texturenofocus>
-		<alttexturefocus border="3">dialogs/select-fo.png</alttexturefocus>
-		<alttexturenofocus border="3">dialogs/select-nf.png</alttexturenofocus>
+		<texturefocus border="0,0,0,1">dialogs/select-fo.png</texturefocus>
+		<texturenofocus border="0,0,0,1">dialogs/select-nf.png</texturenofocus>
+		<alttexturefocus border="0,0,0,1">dialogs/select-fo.png</alttexturefocus>
+		<alttexturenofocus border="0,0,0,1">dialogs/select-nf.png</alttexturenofocus>
 	</include>
 
 	<include name="dialog_MenuButton">
 		<height>40</height>
 		<font>regular</font>
 		<textoffsetx>15</textoffsetx>
-		<textoffsety>5</textoffsety>
+		<textoffsety>3</textoffsety>
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<selectedcolor>Selected</selectedcolor>
@@ -85,11 +85,11 @@
 		<font>regular</font>
 		<textoffsetx>15</textoffsetx>
 		<textoffsety>5</textoffsety>
-		<textcolor>Color5</textcolor>
+		<textcolor>Color4</textcolor>
 	</include>
 
 	<include name="dialog_Header">
-		<font>regular-U</font>
+		<font>regular-B</font>
 	</include>
 
 	<include name="dialog_Title">
@@ -105,8 +105,8 @@
 
 	<include name="dialog_KeyboardButton">
 		<font>regular</font>
-		<texturenofocus border="0">dialogs/button-nf.png</texturenofocus>
-		<texturefocus border="0">dialogs/button-fo.png</texturefocus>
+		<texturenofocus>dialogs/key-nf.png</texturenofocus>
+		<texturefocus>dialogs/button-fo.png</texturefocus>
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<width>48</width>
@@ -122,11 +122,11 @@
 		<textoffsety>5</textoffsety>
 		<radiowidth>48</radiowidth>
 		<radioheight>24</radioheight>
-		<textureradioonnofocus colordiffuse="Color4">dialogs/radio/on-nf.png</textureradioonnofocus>
-		<textureradiooffnofocus colordiffuse="Color4">dialogs/radio/off-nf.png</textureradiooffnofocus>
-		<textureradioonfocus colordiffuse="Color1">dialogs/radio/on-fo.png</textureradioonfocus>
-		<textureradioofffocus colordiffuse="Color1">dialogs/radio/off-fo.png</textureradioofffocus>
-		<texturefocus border="3">dialogs/select-fo.png</texturefocus>
+		<textureradioonnofocus colordiffuse="glyph_nf">dialogs/radio/on-nf.png</textureradioonnofocus>
+		<textureradiooffnofocus colordiffuse="glyph_nf">dialogs/radio/off-nf.png</textureradiooffnofocus>
+		<textureradioonfocus colordiffuse="glyph_fo">dialogs/radio/on-fo.png</textureradioonfocus>
+		<textureradioofffocus colordiffuse="glyph_fo">dialogs/radio/off-fo.png</textureradioofffocus>
+		<texturefocus colordiffuse="Color4" border="3">dialogs/select-fo.png</texturefocus>
 		<texturenofocus border="3">dialogs/select-nf.png</texturenofocus>
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
@@ -139,12 +139,12 @@
 		<aligny>center</aligny>
 		<spinwidth>26</spinwidth>
 		<spinheight>26</spinheight>
-		<texturefocus border="3">dialogs/select-fo.png</texturefocus>
-		<texturenofocus border="3">dialogs/select-nf.png</texturenofocus>
 		<textureup>dialogs/spin/up-nf.png</textureup>
 		<texturedown>dialogs/spin/down-nf.png</texturedown>
 		<textureupfocus>dialogs/spin/up-fo.png</textureupfocus>
 		<texturedownfocus>dialogs/spin/down-fo.png</texturedownfocus>
+		<texturefocus colordiffuse="Color4" border="3">dialogs/select-fo.png</texturefocus>
+		<texturenofocus border="3">dialogs/select-nf.png</texturenofocus>
 	</include>
 
 	<include name="dialog_Slider">
@@ -154,14 +154,20 @@
 		<textureslidernib>dialogs/slider/nib-nf.png</textureslidernib>
 		<textureslidernibfocus>dialogs/slider/nib-fo.png</textureslidernibfocus>
 	</include>
-
+	<!--not used atm
 	<include name="dialog_Scrollbar">
 		<texturesliderbackground>-</texturesliderbackground>
 		<texturesliderbar colordiffuse="Color4">dialogs/pagecontrol/grip-nf.png</texturesliderbar>
 		<texturesliderbarfocus colordiffuse="Color5">dialogs/pagecontrol/grip-fo.png</texturesliderbarfocus>
 	</include>
+	-->
 
 <!--list controls-->
+	<include name="dialog_CommonList">
+		<height>40</height>
+		<texture border="3">dialogs/select-nf.png</texture>
+	</include>
+
 	<include name="dialog_CommonListItem">
 		<left>15</left>
 		<height>38</height>
@@ -171,63 +177,58 @@
 		<selectedcolor>Selected</selectedcolor>
 	</include>
 
-	<include name="dialog_CommonList">
+	<include name="dialog_CommonListFocus">
 		<height>40</height>
-		<texture border="3">dialogs/select-nf.png</texture>
+		<texture colordiffuse="Color4" border="3">dialogs/select-fo.png</texture>
 	</include>
 
 	<include name="dialog_CommonListItemFocus">
 		<left>15</left>
-		<height>40</height>
+		<height>38</height>
 		<font>regular</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
 		<selectedcolor>Selected</selectedcolor>
 		<include>autoscroll_Line</include>
 	</include>
-	
-	<include name="dialog_CommonListFocus">
-		<height>40</height>
-		<texture border="3">dialogs/select-fo.png</texture>
-	</include>
 
-<!--filebrowser-->
+<!--inline buttons-->
 	<include name="dialog_Inline-remove">
 		<width>40</width>
 		<height>40</height>
-		<texturenofocus colordiffuse="Color4">dialogs/inline/remove-nf.png</texturenofocus>
-		<texturefocus colordiffuse="Color5">dialogs/inline/remove-fo.png</texturefocus>
+		<texturenofocus colordiffuse="glyph_nf">dialogs/inline/remove-nf.png</texturenofocus>
+		<texturefocus colordiffuse="Color4">dialogs/inline/remove-fo.png</texturefocus>
 	</include>
 	<include name="dialog_Inline-add">
 		<width>40</width>
 		<height>40</height>
-		<texturenofocus colordiffuse="Color4">dialogs/inline/add-nf.png</texturenofocus>
-		<texturefocus colordiffuse="Color5">dialogs/inline/add-fo.png</texturefocus>
+		<texturenofocus colordiffuse="glyph_nf">dialogs/inline/add-nf.png</texturenofocus>
+		<texturefocus colordiffuse="Color4">dialogs/inline/add-fo.png</texturefocus>
 	</include>
 	<include name="dialog_Inline-edit">
 		<width>40</width>
 		<height>40</height>
-		<texturenofocus colordiffuse="Color4">dialogs/inline/edit-nf.png</texturenofocus>
-		<texturefocus colordiffuse="Color5">dialogs/inline/edit-fo.png</texturefocus>
+		<texturenofocus colordiffuse="glyph_nf">dialogs/inline/edit-nf.png</texturenofocus>
+		<texturefocus colordiffuse="Color4">dialogs/inline/edit-fo.png</texturefocus>
 	</include>
 	<include name="dialog_Inline-up">
 		<width>40</width>
 		<height>40</height>
-		<texturenofocus colordiffuse="Color4">dialogs/inline/up-nf.png</texturenofocus>
-		<texturefocus colordiffuse="Color5">dialogs/inline/up-fo.png</texturefocus>
+		<texturenofocus colordiffuse="glyph_nf">dialogs/inline/up-nf.png</texturenofocus>
+		<texturefocus colordiffuse="Color4">dialogs/inline/up-fo.png</texturefocus>
 	</include>
 	<include name="dialog_Inline-down">
 		<width>40</width>
 		<height>40</height>
-		<texturenofocus colordiffuse="Color4">dialogs/inline/down-nf.png</texturenofocus>
-		<texturefocus colordiffuse="Color5">dialogs/inline/down-fo.png</texturefocus>
+		<texturenofocus colordiffuse="glyph_nf">dialogs/inline/down-nf.png</texturenofocus>
+		<texturefocus colordiffuse="Color4">dialogs/inline/down-fo.png</texturefocus>
 	</include>
 
 <!--pvr-->
 	<include name="dialog_PVRstatus">
 		<width>22</width>
 		<height>22</height>
-		<colordiffuse>Color4</colordiffuse>
+		<colordiffuse>glyph_nf</colordiffuse>
 	</include>
 	<include name="dialog_PVRstatus-focus">
 		<width>22</width>

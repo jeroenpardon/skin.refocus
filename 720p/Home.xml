@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">9110</defaultcontrol>
+	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>CancelAlarm(StartupCheck,true)</onload>
-	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onload>
-
+	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000)</onload>
+	<onload condition="!StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
 	<controls>
 		<control type="group">
 			<include>transition_Home</include>
+
+		<!--load bckgrounds-->
 			<include>home_Background</include>
-			<include condition="StringCompare(Skin.String(homemenu.type),vertical) | !StringCompare(Skin.String(homemenu.type),horizontal) + !StringCompare(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
-			<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
 
 		<!--clock-->
 			<control type="group">
@@ -22,18 +22,17 @@
 			<control type="group">
 				<visible>System.GetBool(lookandfeel.enablerssfeeds)</visible>
 				<control type="group">
-					<left>340</left>
+					<left>320</left>
 					<top>690</top>
 					<include>toggle_RSS</include>
-					<visible>StringCompare(Skin.String(homemenu.type),$LOCALIZE[31207]) + ![Control.HasFocus(9210) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
+					<visible>StringCompare(Skin.String(homemenu.type),vertical) + Control.HasFocus(9000) + !Skin.HasSetting(homemenu.compact)</visible>
 					<control type="image">
-						<width>1280</width>
+						<width>screen_Width</width>
 						<height>30</height>
-						<texture>overlays/semitrans.png</texture>
+						<texture colordiffuse="Color4">colorize/40.png</texture>
 					</control>
 					<control type="rss">
-						<top>2</top>
-						<width>940</width>
+						<width>screen_Width</width>
 						<font>condensed-U</font>
 						<urlset>1</urlset>
 						<height>30</height>
@@ -47,14 +46,13 @@
 				<control type="group">
 					<top>690</top>
 					<include>toggle_RSS</include>
-					<visible>StringCompare(Skin.String(homemenu.type),$LOCALIZE[31208]) + ![Control.HasFocus(9210) | [Player.HasVideo + Skin.HasSetting(home.nowplaying)]]</visible>
+					<visible>[StringCompare(Skin.String(homemenu.type),horizontal) + [Control.HasFocus(9000) | Control.HasFocus(9100)]] | [StringCompare(Skin.String(homemenu.type),vertical) + Skin.HasSetting(homemenu.compact)]</visible>
 					<control type="image">
 						<width>screen_Width</width>
 						<height>30</height>
-						<texture>overlays/semitrans.png</texture>
+						<texture colordiffuse="Color4">colorize/40.png</texture>
 					</control>
 					<control type="rss">
-						<top>2</top>
 						<width>screen_Width</width>
 						<font>condensed-U</font>
 						<urlset>1</urlset>
@@ -69,6 +67,59 @@
 			</control>
 		</control>
 
+		<!--call home menu-->
+		<include condition="StringCompare(Skin.String(homemenu.type),vertical) | !StringCompare(Skin.String(homemenu.type),horizontal) + !StringCompare(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
+		<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
+
+		<!--now playing (widgets disabled)-->
+		<control type="group">
+			<left>25</left>
+			<top>15</top>
+			<animation effect="slide" start="0" end="320" time="0" condition="StringCompare(Skin.String(homemenu.type),vertical)">Conditional</animation>
+			<include>fadeinout</include>
+			<visible>Skin.HasSetting(widgets.disable) + Player.HasAudio + Skin.HasSetting(home.nowplaying)</visible>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>DefaultIconPlay.png</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+			</control>
+			<control type="group">
+				<left>55</left>
+				<control type="label">
+					<width>550</width>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<font>semibold-U</font>
+					<textcolor>Color1</textcolor>
+				</control>
+				<control type="label">
+					<top>21</top>
+					<width>550</width>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<font>regular_Small-U</font>
+					<textcolor>Color1</textcolor>
+					<include>fadeinout</include>
+				</control>
+			</control>
+		</control>
+
+	<!--widgets pagecontrol-->
+		<control type="scrollbar" id="70">
+			<left>1272</left>
+			<height>screen_Height</height>
+			<onleft>50</onleft>
+			<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
+			<visible allowhiddenfocus="true">StringCompare(Skin.String(homemenu.type),vertical) + ControlGroup(9200).HasFocus()</visible>
+		</control>
+		<control type="scrollbar" id="71">
+			<top>712</top>
+			<width>screen_Width</width>
+			<orientation>horizontal</orientation>
+			<onup>50</onup>
+			<texturesliderbar border="0">views/pagecontrol/grip-fo.png</texturesliderbar>
+			<visible allowhiddenfocus="true">StringCompare(Skin.String(homemenu.type),horizontal) + ControlGroup(9200).HasFocus()</visible>
+		</control>
+
 	<!--post startup-->
 		<control type="image">
 			<top>screen_Height</top>
@@ -78,6 +129,6 @@
 				<effect type="slide" time="500" start="0,-720" end="0,0" tween="Cubic" easing="InOut" center="screen_Center" delay="0"/>
 			</animation>
 			<visible>Window.Previous(startup)</visible>
-		</control>
+		</control>			
 	</controls>
 </window>

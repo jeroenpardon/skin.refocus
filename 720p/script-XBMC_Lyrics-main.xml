@@ -17,17 +17,15 @@
 			<control type="image">
 				<width>screen_Width</width>
 				<height>745</height>
-				<texture>white.png</texture>
+				<texture>colorize/100.png</texture>
 				<colordiffuse>bb0c2c40</colordiffuse>
 			</control>
-
-			
 			<control type="group">
 				<left>20</left>
 				<top>20</top>
 				<control type="label">
 					<width>1260</width>
-					<label>$VAR[osd_Title]</label>
+					<label>$VAR[player:Title]</label>
 					<align>center</align>
 					<include>osd_Title</include>
 				</control>
@@ -106,13 +104,12 @@
 				<itemlayout height="40">
 					<control type="label">
 						<left>10</left>
-						<top>0</top>
 						<width>530</width>
 						<height>40</height>
 						<font>regular</font>
 						<aligny>center</aligny>
 						<selectedcolor>selected</selectedcolor>
-						<info>ListItem.Label</info>
+						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40">
@@ -120,14 +117,14 @@
 						<width>550</width>
 						<height>41</height>
 						<visible>Control.HasFocus(120)</visible>
-						<texture border="5">MenuItemFO.png</texture>
+						<texture>views/focus.png</texture>
 					</control>
 					<control type="label">
 						<width>530</width>
 						<height>40</height>
 						<font>regular</font>
 						<selectedcolor>selected</selectedcolor>
-						<info>ListItem.Label</info>
+						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</focusedlayout>
 			</control>

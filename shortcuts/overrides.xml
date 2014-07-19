@@ -84,8 +84,8 @@
 	<shortcut label="::LOCAL::31705" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultRecentlyAddedMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,RecentlyAddedMovies,return)</shortcut>
 	<shortcut label="::LOCAL::31705" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultRecentlyAddedEpisodes.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,RecentlyAddedEpisodes,return)</shortcut>
 	<!--watchlist-->
-	<shortcut label="::LOCAL::31013" type="::SCRIPT::32015" grouping="customvideonode" icon="VideoWatchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
-	<shortcut label="::LOCAL::31013" type="::SCRIPT::32016" grouping="customvideonode" icon="VideoWatchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+	<shortcut label="::LOCAL::31013" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultIconWatchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+	<shortcut label="::LOCAL::31013" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultIconWatchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
 	<!--unwatched-->
 	<shortcut label="::LOCAL::16101" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
 	<shortcut label="::LOCAL::16101" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultTVShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return))</shortcut>
@@ -94,13 +94,15 @@
 	<!--TV Guide-->
 	<shortcut label="::LOCAL::31606" type="::SCRIPT::32009" grouping="tvshow" icon="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
 	<!--customize menu-->
-	<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" grouping="common" icon="CommonSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
+	<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
 	<!--system main menu-->
-	<shortcut label="::LOCAL::13000" type="::SCRIPT::32034" grouping="common" icon="CommonSettings.png">ActivateWindow(Settings)</shortcut>
+	<shortcut label="::LOCAL::13000" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSettings.png">ActivateWindow(Settings)</shortcut>
 	<!--exit (shutdown menu)-->
 	<shortcut label="::LOCAL::13009" type="::SCRIPT::32054" grouping="commands">ActivateWindow(shutdownmenu)</shortcut>
+	<!--search-->
+	<shortcut label="137" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSearch.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
 	<!--now playing-->
-	<shortcut label="::LOCAL::31034" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
+	<shortcut label="::LOCAL::31035" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
 	<override action="fullscreen">
 		<condition>Player.HasVideo</condition>
 	</override>
@@ -123,14 +125,14 @@
 	<availableshortcutlabel action="ActivateWindow(Pictures,Addons,return)">::LOCAL::24001</availableshortcutlabel>
 
 <!--ICON OVERRIDES-->
-	<icon image="DefaultShortcut.png" grouping="commands">CommandXBMC.png</icon>
-	<icon image="DefaultShortcut.png" grouping="settings">CommonSettings.png</icon>
+	<icon image="DefaultShortcut.png" grouping="commands">DefaultIconXBMC.png</icon>
+	<icon image="DefaultShortcut.png" grouping="settings">DefaultIconSettings.png</icon>
 	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
 	<icon labelID="music">DefaultMusicSongs.png</icon>
 	<icon labelID="programs">DefaultProgram.png</icon>
-	<icon labelID="settings">CommonSettings.png</icon>
+	<icon labelID="settings">DefaultIconSettings.png</icon>
 	<icon labelID="weather">DefaultAddonWeather.png</icon>
-	<icon labelID="1036">CommonFavourite.png</icon>
+	<icon labelID="1036">DefaultIconFavourite.png</icon>
 	<icon labelID="10007">DefaultIconInfo.png</icon><!--system information-->
 	<icon labelID="10504">DefaultMusicTop100.png</icon>
 	<icon labelID="10505">DefaultMusicTop100.png</icon>
@@ -145,14 +147,20 @@
 	<icon labelID="32068">LiveTV.png</icon><!--last channel-->
 
 <!--WIDGETS-->
-	<widget label="31031">RecommendedEpisodes</widget>
-	<widget label="31030">RecommendedMovies</widget>
-	<widget label="20387">RecentEpisodes</widget>
-	<widget label="20386">RecentMovies</widget>
-	<widget label="31032">RecommendedAlbums</widget>
-	<widget label="359">RecentAlbums</widget>
-	<widgetdefault labelID="movies">RecommendedMovies</widgetdefault>
-	<widgetdefault labelID="tvshows">RecommendedEpisodes</widgetdefault>
-	<widgetdefault labelID="music">RecommendedAlbums</widgetdefault>
-	<widgetPlaylists>True</widgetPlaylists>
+	<widget label="31029" type="movies">WatchlistMovies</widget>
+	<widget label="31030" type="episodes">WatchlistEpisodes</widget>
+	<widget label="31031" type="mixed">RecentVideos</widget>
+	<widget label="20386" type="movies">RecentMovies</widget>
+	<widget label="20387" type="episodes">RecentEpisodes</widget>
+	<widget label="31036" type="movies">UnwatchedMovies</widget>
+	<widget label="359" type="music">RecentAlbums</widget>
+	<widget label="31032" type="music">RecommendedAlbums</widget>
+	<widget label="31035" type="info">NowPlaying</widget>
+	<widget label="8" type="info">Weather</widget>
+	<widgetdefault labelID="movies" type="movies">RecentMovies</widgetdefault>
+	<widgetdefault labelID="tvshows" type="episodes">WatchlistEpisodes</widgetdefault>
+	<widgetdefault labelID="music" type="music">RecentAlbums</widgetdefault>
+	<widgetdefault labelID="videos" type="mixed">RecentVideos</widgetdefault>
+	<widgetdefault labelID="weather" type="info">Weather</widgetdefault>
+	<widgetPlaylists type="playlist">True</widgetPlaylists>
 </overrides>

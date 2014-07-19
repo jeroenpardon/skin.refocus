@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<default type="multiimage">
+		<include>screen_Dimensions</include>
+		<aspectratio align="center">scale</aspectratio>
+		<randomize>true</randomize>
+		<loop>yes</loop>
+		<!--<timeperimage>slideshow_Timer</timeperimage>-->
+		<fadetime>fadetime_Slideshow</fadetime>
+	</default>
+
 	<default type="scrollbar">
 		<width>8</width>
 		<showonepage>false</showonepage>
@@ -28,8 +37,8 @@
 	<default type="button">
 		<width>110</width>
 		<height>40</height>
-		<texturefocus border="2">list-focus.png</texturefocus>
-		<texturenofocus border="2">list-nofocus.png</texturenofocus>
+		<texturefocus>views/focus.png</texturefocus>
+		<texturenofocus>views/nofocus.png</texturenofocus>
 		<font>regular</font>
 		<textcolor>Color1</textcolor>
 		<focusedcolor>Focused</focusedcolor>
@@ -112,13 +121,13 @@
 	
 	<default type="sliderex">
 		<height>40</height>
-		<texturefocus border="3">list-focus.png</texturefocus>
-		<texturenofocus border="3">list-nofocus.png</texturenofocus>
+		<texturefocus border="3">views/focus.png</texturefocus>
+		<texturenofocus border="3">views/nofocus.png</texturenofocus>
 		<sliderwidth>100</sliderwidth>
 		<sliderheight>20</sliderheight>
-		<texturesliderbar>sliderBackground.png</texturesliderbar>
-		<textureslidernib>-</textureslidernib>
-		<textureslidernibfocus>-</textureslidernibfocus>
+		<texturesliderbar>dialogs/slider/bar.png</texturesliderbar>
+		<textureslidernib>dialogs/slider/nib-nf.png</textureslidernib>
+		<textureslidernibfocus>dialogs/slider/nib-fo.png</textureslidernibfocus>
 		<pulseonselect>false</pulseonselect>
 	</default>
 
@@ -144,8 +153,8 @@
 	<default type="spincontrolex">
 		<font>regular</font>
 		<height>40</height>
-		<texturefocus border="2">list-focus.png</texturefocus>
-		<texturenofocus border="2">list-nofocus.png</texturenofocus>
+		<texturefocus border="2">views/focus.png</texturefocus>
+		<texturenofocus border="2">views/nofocus.png</texturenofocus>
 		<textureup colordiffuse="Color3">settings/spin/up-nf.png</textureup>
 		<textureupfocus colordiffuse="Color5">settings/spin/up-fo.png</textureupfocus>
 		<texturedown colordiffuse="Color3">settings/spin/down-nf.png</texturedown>

@@ -9,10 +9,10 @@
 			<!--images-->
 			<control type="group">
 				<width>486</width>
-				<height>720</height>
+				<height>screen_Height</height>
 				<control type="image">
 					<width>486</width>
-					<height>720</height>
+					<height>screen_Height</height>
 					<texture>thumbs/default_Portrait.png</texture>
 					<aspectratio>scale</aspectratio>
 				</control>
@@ -20,8 +20,8 @@
 					<visible>!Control.HasFocus(50)</visible>
 					<control type="image">
 						<width>486</width>
-						<height>720</height>
-						<texture background="true">$VAR[thumb_Portrait]</texture>
+						<height>screen_Height</height>
+						<texture background="true">$VAR[art:Portrait]</texture>
 						<aspectratio>scale</aspectratio>
 						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
@@ -38,7 +38,7 @@
 					<visible>Control.HasFocus(50)</visible>
 					<control type="image">
 						<width>486</width>
-						<height>720</height>
+						<height>screen_Height</height>
 						<texture fallback="thumbs/default_Actor.png" background="true">$INFO[Container(50).Listitem.Art(thumb)]</texture>
 						<aspectratio>scale</aspectratio>
 						<fadetime>fadetime_Thumb</fadetime>
@@ -46,8 +46,8 @@
 					</control>
 					<control type="image">
 						<width>486</width>
-						<height>720</height>
-						<texture background="true" fallback="thumbs/music_landscape.jpg">$INFO[ListItem.Art(thumb)]</texture>
+						<height>screen_Height</height>
+						<texture background="true" fallback="thumbs/default_Landscape.png">$INFO[ListItem.Art(thumb)]</texture>
 						<aspectratio>scale</aspectratio>
 						<visible>Container.Content(musicvideos)</visible>
 					</control>
@@ -67,7 +67,7 @@
 					<include>detail_Header</include>
 				</control>
 				<control type="label">
-					<label>$VAR[videoinformation_Header]</label>
+					<label>$VAR[information:Header]</label>
 					<width>720</width>
 					<height>50</height>
 					<include>detail_Sub</include>
@@ -364,7 +364,7 @@
 					<control type="group">
 						<width>125</width>
 						<control type="button" id="8004">
-							<label>$VAR[videoinformation_Cast]</label>
+							<label>$VAR[information:Cast]</label>
 							<onclick>SendClick(2003,5)</onclick>
 							<ondown>50</ondown>
 							<onleft>8003</onleft>

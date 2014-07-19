@@ -621,7 +621,7 @@
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
@@ -661,7 +661,7 @@
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 						<colordiffuse>Color4</colordiffuse>
 					</control>
 				</focusedlayout>
@@ -731,7 +731,7 @@
 					<width>220</width>
 					<height>46</height>
 					<bordersize>1</bordersize>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="label" id="1">
@@ -747,7 +747,7 @@
 					<width>220</width>
 					<height>46</height>
 					<bordersize>1</bordersize>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="label" id="1">
@@ -890,7 +890,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_none.png</texture>
+						<texture>pvr/status/none-nf.png</texture>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
 					<control type="image">
@@ -898,7 +898,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_recording.png</texture>
+						<texture>pvr/status/recording.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
 					<control type="image">
@@ -906,7 +906,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_enabled.png</texture>
+						<texture>pvr/status/enabled.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 					</control>
 				</itemlayout>
@@ -941,7 +941,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_none.png</texture>
+						<texture>pvr/status/none-fo.png</texture>
 						<colordiffuse>column2</colordiffuse>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
@@ -950,7 +950,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_recording.png</texture>
+						<texture>pvr/status/recording.png</texture>
 						<colordiffuse>column2</colordiffuse>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
@@ -959,7 +959,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_enabled.png</texture>
+						<texture>pvr/status/enabled.png</texture>
 						<colordiffuse>column2</colordiffuse>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 					</control>
@@ -1077,7 +1077,7 @@
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 						<visible>!IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 				</itemlayout>
@@ -1119,7 +1119,7 @@
 						<top>11</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 						<colordiffuse>Color4</colordiffuse>
 						<visible>!IsEmpty(ListItem.ChannelName)</visible>
 					</control>

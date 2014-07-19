@@ -217,14 +217,8 @@
 	<include name="toggle_RSS">
 		<animation effect="slide" start="0,32" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 		<animation effect="slide" start="0,0" end="0,32" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
-		<animation type="Visible">
-			<effect type="slide" start="-340,0" end="0,0" time="300" tween="Cubic" easing="Out" />
-			<effect type="fade" start="0" end="100" time="300" tween="Quadratic" easing="Out" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="slide" start="0,0" end="-340,0" time="400" tween="Cubic" easing="Out" />
-			<effect type="fade" start="100" end="0" time="250" tween="Quadratic" easing="Out" />
-		</animation>
+		<animation effect="slide" start="0,32" end="0,0" time="250" tween="Quadratic" easing="Out">Visible</animation>
+		<animation effect="slide" start="0,0" end="0,32" time="250" tween="Quadratic" easing="Out">Hidden</animation>
 	</include>
 
 </includes>

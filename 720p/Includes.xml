@@ -34,9 +34,9 @@
 	<constant name="transition_DialogOpen">200</constant>
 	<constant name="transition_DialogClose">200</constant>
 	<constant name="slideshow_Timer">20000</constant>
-	<constant name="autoscroll_Delay">3000</constant>
-	<constant name="autoscroll_Time">1000</constant>
-	<constant name="autoscroll_Repeat">1000</constant>
+	<constant name="autoscroll_Delay">12000</constant>
+	<constant name="autoscroll_Time">3000</constant>
+	<constant name="autoscroll_Repeat">10000</constant>
 	<constant name="autoscroll_Speed">40</constant>
 
 <!--GLOBAL-->	
@@ -73,32 +73,32 @@
 			<include>toggle_Menu</include>
 			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !IsEmpty(Window(10025).Property(TvTunesIsAlive))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
 			<control type="label">
-				<label>$VAR[toast_Top]</label>
+				<label>$VAR[toast:Top]</label>
 				<include>toast_Top</include>
 			</control>
 			<control type="label">
-				<label>$VAR[toast_Bottom]</label>
+				<label>$VAR[toast:Bottom]</label>
 				<textcolor>Color2</textcolor>
 				<include>toast_Bottom</include>
 			</control>
 			<control type="image">
-				<top>18</top>
+				<top>15</top>
 				<include>toast_Icon</include>
-				<texture>$VAR[toast_Icon]</texture>
+				<texture>$VAR[toast:Icon]</texture>
 				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</include>
 	<include name="clock">
 		<control type="group">
-			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | Control.HasFocus(9210)]</visible>
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | ControlGroup(9200).HasFocus()]</visible>
 			<control type="label">
-				<label>$VAR[toast_Top]</label>
+				<label>$VAR[toast:Top]</label>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Top</include>
 			</control>
 			<control type="label">
-				<label>$VAR[toast_Bottom]</label>
+				<label>$VAR[toast:Bottom]</label>
 				<textcolor>Color1</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<include>toast_Bottom</include>
@@ -106,15 +106,15 @@
 			<control type="group">
 				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 				<control type="image">
-					<top>19</top>
+					<top>16</top>
 					<colordiffuse>black</colordiffuse>
 					<include>toast_Icon</include>
 					<texture>$VAR[toast_Icon]</texture>
 				</control>
 				<control type="image">
-					<top>18</top>
+					<top>15</top>
 					<include>toast_Icon</include>
-					<texture>$VAR[toast_Icon]</texture>
+					<texture>$VAR[toast:Icon]</texture>
 				</control>
 			</control>
 		</control>
@@ -140,7 +140,7 @@
 			<left>35</left>
 			<top>53</top>
 			<width>500</width>
-			<label>$VAR[global_Itemcount]</label>
+			<label>$VAR[window:NumItems]</label>
 			<font>regular_Small-U</font>
 			<textcolor>Color3</textcolor>
 			<include>transition_WindowTitle</include>
@@ -229,7 +229,7 @@
 		<font>regular_Small-U</font>
 		<aligny>center</aligny>
 		<textcolor>Color2</textcolor>
-		<selectedcolor>Selected</selectedcolor>
+		<selectedcolor>Color5</selectedcolor>
 		<scroll>false</scroll>
 	</include>
 	<include name="container_Sub-focus">
@@ -237,7 +237,7 @@
 		<font>regular_Small-U</font>
 		<aligny>center</aligny>
 		<textcolor>Focused</textcolor>
-		<selectedcolor>Focused</selectedcolor>
+		<selectedcolor>Color5</selectedcolor>
 	</include>
 	<include name="container_Text">
 		<font>regular</font>
@@ -287,7 +287,7 @@
 	<include name="column_CommonList">
 		<width>98</width>
 		<height>44</height>
-		<texture colordiffuse="column2">white.png</texture>
+		<texture colordiffuse="column2">colorize/100.png</texture>
 	</include>
 	<include name="column_CommonListItem">
 		<height>40</height>
@@ -314,12 +314,12 @@
 		<textcolor>Color3</textcolor>
 		<focusedcolor>Color5</focusedcolor>
 		<selectedcolor>Color5</selectedcolor>
-		<texturenofocus colordiffuse="column2">white.png</texturenofocus>
-		<texturefocus colordiffuse="Color1">white.png</texturefocus>
+		<texturenofocus colordiffuse="column2">colorize/100.png</texturenofocus>
+		<texturefocus colordiffuse="Color1">colorize/100.png</texturefocus>
 	</include>
 	<include name="column_ListButton">
 		<height>42</height>
-		<texture colordiffuse="column2">white.png</texture>
+		<texture colordiffuse="column2">colorize/100.png</texture>
 	</include>
 	<include name="column_ListButtonLabel">
 		<font>regular</font>
@@ -331,7 +331,7 @@
 	</include>
 	<include name="column_ListButtonFocus">
 		<height>42</height>
-		<texture colordiffuse="Color1">white.png</texture>
+		<texture colordiffuse="Color1">colorize/100.png</texture>
 	</include>
 
 <!--SETTINGS-->
@@ -340,7 +340,7 @@
 		<height>44</height>
 		<font>light_Settings</font>
 		<align>left</align>
-		<textoffsety>4</textoffsety>
+		<textoffsety>3</textoffsety>
 		<textoffsetx>15</textoffsetx>
 		<textcolor>Color1</textcolor>
 		<texturenofocus colordiffuse="column2">views/focus.png</texturenofocus>
@@ -353,7 +353,7 @@
 		<height>44</height>
 		<font>regular</font>
 		<textoffsetx>15</textoffsetx>
-		<textoffsety>7</textoffsety>
+		<textoffsety>6</textoffsety>
 		<textcolor>Color1</textcolor>
 		<focusedcolor>Focused</focusedcolor>
 		<texturenofocus colordiffuse="column2">views/focus.png</texturenofocus>p
@@ -366,7 +366,7 @@
 		<height>44</height>
 		<font>regular</font>
 		<textoffsetx>15</textoffsetx>
-		<textoffsety>7</textoffsety>
+		<textoffsety>6</textoffsety>
 		<textcolor>Color1</textcolor>
 		<focusedcolor>Focused</focusedcolor>
 		<texturenofocus colordiffuse="column2">views/focus.png</texturenofocus>
@@ -405,8 +405,8 @@
 	</include>	
 
 <!--ART-->
-	<include name="art_ClearLogo">
-		<texture>$VAR[art_ClearLogo]</texture>
+	<include name="art_Logo">
+		<texture>$VAR[art:Logo]</texture>
 		<aspectratio align="center" aligny="bottom">keep</aspectratio>
 	</include>
 	<include name="art_DefaultIcon">
@@ -442,35 +442,32 @@
 	<include name="pvr_Status">
 		<width>22</width>
 		<height>22</height>
-		<texture>$VAR[pvr_Status]</texture>
+		<texture>$VAR[pvr:Status]</texture>
 		<colordiffuse>Color3</colordiffuse>	
 	</include>
 	<include name="pvr_Status-fo">
 		<width>22</width>
 		<height>22</height>
-		<texture>$VAR[pvr_Status]</texture>
+		<texture>$VAR[pvr:Status]</texture>
 		<colordiffuse>Color4</colordiffuse>	
 	</include>
 
 <!--NOTIFICATIONS-->
 	<include name="toast_Top">
 		<right>70</right>
-		<top>3</top>
 		<width>400</width>
 		<height>40</height>
 		<font>regular_Small-U</font>
 		<align>right</align>
-		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
 		<include>transition_Toast</include>
 	</include>
 	<include name="toast_Bottom">
 		<right>70</right>
-		<top>29</top>
+		<top>26</top>
 		<width>400</width>
 		<align>right</align>
 		<font>regular_Small</font>
-		<aligny>center</aligny>
 		<textcolor>Color3</textcolor>
 		<scroll>false</scroll>
 		<pauseatend>2000</pauseatend>
@@ -478,7 +475,7 @@
 	</include>
 	<include name="toast_Icon">
 		<right>26</right>
-		<top>19</top>
+		<top>16</top>
 		<width>32</width>
 		<height>32</height>
 		<aspectratio>keep</aspectratio>
@@ -589,11 +586,11 @@
 
 <!--OSD / SLIDESHOW-->
 	<include name="osd_Title">
-		<font>bold_Title</font>
+		<font>black_Title</font>
 		<textcolor>Color1</textcolor>
 	</include>
 	<include name="osd_Sub">
-		<font>semibold-U</font>
+		<font>semibold_Small-U</font>
 		<textcolor>Color1</textcolor>
 		<selectedcolor>Color1</selectedcolor>
 	</include>
@@ -609,7 +606,7 @@
 			<control type="image">
 				<width>screen_Width</width>
 				<height>40</height>
-				<texture>white.png</texture>
+				<texture>colorize/100.png</texture>
 				<colordiffuse>accent_1</colordiffuse>
 			</control>
 			<control type="group">
@@ -643,14 +640,14 @@
 				<control type="label">
 					<left>0</left>
 					<width>200</width>
-					<label>$VAR[player_Time]</label>
+					<label>$VAR[player:Time]</label>
 					<textcolor>Color3</textcolor>
 					<include>detail_Sub</include>
 				</control>
 				<control type="label">
 					<right>20</right>
 					<width>200</width>
-					<label>$VAR[player_Duration]</label>
+					<label>$VAR[player:Duration]</label>
 					<align>right</align>
 					<textcolor>Color3</textcolor>
 					<include>detail_Sub</include>
@@ -665,7 +662,7 @@
 			<control type="image">
 				<width>screen_Width</width>
 				<height>135</height>
-				<texture border="29">white.png</texture>
+				<texture border="29">colorize/100.png</texture>
 				<colordiffuse>base_2</colordiffuse>
 			</control>
 			<control type="group">
@@ -688,7 +685,7 @@
 					<control type="image">
 						<width>100</width>
 						<height>100</height>
-						<texture>$VAR[osd_Art]</texture>
+						<texture>$VAR[player:Art]</texture>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 					</control>
 				</control>
@@ -697,7 +694,7 @@
 					<top>3</top>
 					<control type="label">
 						<width>980</width>
-						<label>$VAR[osd_Title]</label>
+						<label>$VAR[player:Title]</label>
 						<include>osd_Title</include>
 					</control>
 					<control type="label">
@@ -745,7 +742,7 @@
 			<control type="image">
 				<width>screen_Width</width>
 				<height>135</height>
-				<texture border="29">white.png</texture>
+				<texture border="29">colorize/100.png</texture>
 				<colordiffuse>base_2</colordiffuse>
 			</control>
 			<control type="group">
@@ -771,14 +768,14 @@
 					<control type="image">
 						<width>178</width>
 						<height>100</height>
-						<texture>$VAR[osd_Art]</texture>
+						<texture>$VAR[player:Art]</texture>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="image">
 						<width>100</width>
 						<height>100</height>
-						<texture>$VAR[osd_Art]</texture>
+						<texture>$VAR[player:Art]</texture>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
@@ -786,7 +783,7 @@
 						<centerleft>50%</centerleft>
 						<width>128</width>
 						<height>96</height>
-						<texture>$VAR[osd_ClearLogo]</texture>
+						<texture>$VAR[player:Logo]</texture>
 						<aspectratio align="center" aligny="bottom">keep</aspectratio>
 					</control>
 				</control>
@@ -796,13 +793,13 @@
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 					<control type="label">
 						<width>1050</width>
-						<label>$VAR[osd_Title]</label>
+						<label>$VAR[player:Title]</label>
 						<include>osd_Title</include>
 					</control>
 					<control type="label">
 						<top>25</top>
 						<width>1050</width>
-						<label>$VAR[osd_Info]</label>
+						<label>$VAR[player:Info]</label>
 						<textcolor>Color2</textcolor>
 						<include>osd_Sub</include>
 						<visible>Player.HasVideo</visible>
@@ -811,7 +808,7 @@
 						<top>55</top>
 						<width>1050</width>
 						<height>55</height>
-						<label>$VAR[player_Plot]</label>
+						<label>$VAR[player:Description]</label>
 						<include>osd_Text</include>
 						<visible>Player.HasVideo</visible>
 					</control>
@@ -822,13 +819,13 @@
 					<visible>VideoPlayer.Content(LiveTV)</visible>
 					<control type="label">
 						<width>1128</width>
-						<label>$VAR[osd_Title]</label>
+						<label>$VAR[player:Title]</label>
 						<include>osd_Title</include>
 					</control>
 					<control type="label">
 						<top>28</top>
 						<width>1128</width>
-						<label>$VAR[osd_Info]</label>
+						<label>$VAR[player:Info]</label>
 						<include>detail_Sub</include>
 						<visible>Player.HasVideo</visible>
 					</control>
@@ -836,7 +833,7 @@
 						<top>55</top>
 						<width>1128</width>
 						<height>55</height>
-						<label>$VAR[player_Plot]</label>
+						<label>$VAR[player:Description]</label>
 						<include>osd_Text</include>
 						<visible>Player.HasVideo</visible>
 					</control>
@@ -855,62 +852,61 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] +
- !Control.IsVisible(9900)</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
 	</include>
 	<include name="windowTitle_Video">
 		<control type="label">
-			<label>$VAR[window_Title.Video]</label>
+			<label>$VAR[window:Title.Video]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>		
 	<include name="windowTitle_Music">
 		<control type="label">
-			<label>$VAR[window_Title.Music]</label>
+			<label>$VAR[window:Title.Music]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Pictures">
 		<control type="label">
-			<label>$VAR[window_Title.Pictures]</label>
+			<label>$VAR[window:Title.Pictures]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Programs">
 		<control type="label">
-			<label>$VAR[window_Title.Programs]</label>
+			<label>$VAR[window:Title.Programs]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_System">
 		<control type="label">
-			<label>$VAR[window_Title.System]</label>
+			<label>$VAR[window:Title.System]</label>
 			<include>windowTitle</include>
 			<animation effect="slide" end="-27" time="0" condition="Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(filemanager)">Conditional</animation>
 		</control>
 	</include>
 	<include name="windowTitle_Addons">
 		<control type="label">
-			<label>$VAR[window_Title.Addons]</label>
+			<label>$VAR[window:Title.Addons]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_PVR">
 		<control type="label">
-			<label>$VAR[window_Title.PVR]</label>
+			<label>$VAR[window:Title.PVR]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Playlists">
 		<control type="label">
-			<label>$VAR[window_Title.Playlists]</label>
+			<label>$VAR[window:Title.Playlists]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Weather">
 		<control type="label">
-			<label>$VAR[window_Title.Weather]</label>
+			<label>$VAR[window:Title.Weather]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>

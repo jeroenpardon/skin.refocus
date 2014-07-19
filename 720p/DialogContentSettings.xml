@@ -5,12 +5,12 @@
 	<coordinates>
 		<system>1</system>
 		<left>328</left>
-		<top>68</top>
+		<top>40</top>
 	</coordinates>
 	<controls>
 		<control type="image">
 			<width>625</width>
-			<height>585</height>
+			<height>640</height>
 			<include>dialog_Window</include>
 		</control>
 		<control type="label" id="1">
@@ -29,9 +29,9 @@
 					<include>dialog_ControlCommons</include>
 				</control>
 				<control type="image">
-					<top>38</top>
+					<top>39</top>
 					<width>617</width>
-					<include>dialog_SectionSeparator</include>
+					<include>dialog_Separator</include>
 				</control>
 				<control type="group">
 					<top>40</top>
@@ -65,7 +65,7 @@
 			</control>
 			<!--scrapers-->
 			<control type="group" id="9004">
-				<top>80</top>
+				<top>100</top>
 				<visible>!SubString(Control.GetLabel(3),$LOCALIZE[231])</visible>
 				<control type="label">
 					<width>613</width>
@@ -74,9 +74,9 @@
 					<include>dialog_ControlCommons</include>
 				</control>
 				<control type="image">
-					<top>38</top>
+					<top>39</top>
 					<width>617</width>
-					<include>dialog_SectionSeparator</include>
+					<include>dialog_Separator</include>
 				</control>
 				<control type="list" id="4">
 					<top>40</top>
@@ -126,8 +126,8 @@
 			</control>
 			<!--options-->
 			<control type="group" id="9005">
-				<top>240</top>
-				<animation effect="slide" start="0,0" end="0,-135"  time="0" condition="SubString(Control.GetLabel(3),$LOCALIZE[231])">Conditional</animation>
+				<top>280</top>
+				<animation effect="slide" start="0,0" end="0,-180"  time="0" condition="SubString(Control.GetLabel(3),$LOCALIZE[231])">Conditional</animation>
 				<control type="label">
 					<width>617</width>
 					<label>$LOCALIZE[33063]</label>
@@ -136,9 +136,9 @@
 					<include>dialog_ControlCommons</include>
 				</control>
 				<control type="image">
-					<top>38</top>
+					<top>39</top>
 					<width>617</width>
-					<include>dialog_SectionSeparator</include>
+					<include>dialog_Separator</include>
 				</control>
 				<!--controls area-->
 				<control type="grouplist" id="5">
@@ -165,7 +165,7 @@
 		<!--dialog buttons-->
 		<control type="group" id="9001">
 			<left>19</left>
-			<top>520</top>
+			<top>575</top>
 			<!--settings-->
 			<control type="button" id="6">
 				<label>$LOCALIZE[5]</label>

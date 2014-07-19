@@ -53,7 +53,7 @@
 						</control>
 						<control type="label">
 							<top>47</top>
-							<label>$VAR[nextaired_Info]</label>
+							<label>$VAR[media:NextAired.Info]</label>
 							<width>750</width>
 							<include>detail_Sub</include>
 						</control>
@@ -139,7 +139,7 @@
 						<control type="image">
 							<width>750</width>
 							<height>422</height>
-							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<texture background="true">$VAR[art:Landscape]</texture>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
 						</control>
 						<control type="image">
@@ -147,7 +147,7 @@
 							<top>300</top>
 							<width>289</width>
 							<height>112</height>
-							<include>art_ClearLogo</include>
+							<include>art_Logo</include>
 						</control>
 						<control type="group">
 							<left>724</left>
@@ -183,7 +183,7 @@
 						<control type="image">
 							<width>750</width>
 							<height>422</height>
-							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<texture background="true">$VAR[art:Landscape]</texture>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
 							<animation effect="zoom" start="100" end="173" time="200" center="352,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 						</control>
@@ -192,7 +192,7 @@
 							<top>300</top>
 							<width>289</width>
 							<height>112</height>
-							<include>art_ClearLogo</include>
+							<include>art_Logo</include>
 							<animation effect="zoom" start="100" end="173" time="200" center="352,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 						</control>
 						<control type="group">
@@ -230,12 +230,12 @@
 		</control>
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<texture background="true">$VAR[art:Landscape]</texture>
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 		</control>
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture>overlays/vignette2.png</texture>
+			<texture>overlays/vignette_bottom.png</texture>
 			<aspectratio>stretch</aspectratio>
 		</control>
 		<control type="image">
@@ -244,7 +244,7 @@
 			<width>256</width>
 			<height>99</height>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
-			<include>art_ClearLogo</include>
+			<include>art_Logo</include>
 		</control>
 		<control type="image">
 			<centerleft>640</centerleft>
@@ -283,7 +283,7 @@
 			<include>transition_Info</include>
 			<visible>[[Control.IsVisible(53) + Control.HasFocus(8000)] | Control.IsVisible(531)] + !Window.IsActive(Pictures) + !IsEmpty(ListItem.Title)</visible>
 			<control type="image">
-				<texture>overlays/vignette2.png</texture>
+				<texture>overlays/vignette_bottom.png</texture>
 				<include>screen_Dimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<include>fadeinout</include>
@@ -296,13 +296,13 @@
 				<animation effect="slide" start="0,0" end="0,495" easing="Out" tween="Quadratic" time="350">Hidden</animation>
 				<control type="label">
 					<width>1150</width>
-					<label>$VAR[global_Title]</label>
+					<label>$VAR[media:Title]</label>
 					<include>osd_Title</include>
 				</control>
 				<control type="label">
 					<top>25</top>		
 					<width>1150</width>
-					<label>$VAR[global_Info]</label>
+					<label>$VAR[media:Title]</label>
 					<include>osd_Sub</include>
 				</control>
 				<control type="image">
@@ -318,7 +318,7 @@
 					<top>55</top>
 					<width>1200</width>
 					<height>80</height>
-					<label>$VAR[global_Plot]</label>
+					<label>$VAR[media:Plot]</label>
 					<font>condensed-U</font>
 					<textcolor>Color3</textcolor>
 					<visible>!SubString(ListItem.Icon,default)</visible>

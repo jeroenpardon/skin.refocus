@@ -16,13 +16,7 @@
 
 	<!--weather images-->
 		<control type="multiimage">
-			<include>screen_Dimensions</include>
-			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
-			<timeperimage>10000</timeperimage>
-			<fadetime>850</fadetime>
-			<randomize>true</randomize>
-			<loop>yes</loop>
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<visible>Skin.HasSetting(fanart.weather) + !IsEmpty(Skin.String(fanart.weather.path))</visible>
@@ -39,7 +33,6 @@
 			<top>330</top>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-
 			<!--current-->
 			<control type="group" id="5000">
 				<onleft>6000</onleft>
@@ -49,7 +42,7 @@
 				<control type="image">
 					<width>230</width>
 					<height>345</height>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="group">
@@ -115,7 +108,6 @@
 					</control>
 				</control>
 			</control>
-
 			<!--today-->
 			<control type="group">
 				<left>235</left>
@@ -125,7 +117,7 @@
 				<control type="image">
 					<width>230</width>
 					<height>345</height>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="group">
@@ -162,7 +154,6 @@
 					</control>
 				</control>
 			</control>
-
 			<!--day 1-->
 			<control type="group">
 				<left>470</left>
@@ -172,7 +163,7 @@
 				<control type="image">
 					<width>230</width>
 					<height>345</height>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="group">
@@ -209,7 +200,6 @@
 					</control>
 				</control>
 			</control>
-
 			<!--day 2-->
 			<control type="group">
 				<left>705</left>
@@ -219,7 +209,7 @@
 				<control type="image">
 					<width>230</width>
 					<height>345</height>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="group">
@@ -256,7 +246,6 @@
 					</control>
 				</control>
 			</control>
-
 			<!--day 3-->
 			<control type="group">
 				<left>940</left>
@@ -266,7 +255,7 @@
 				<control type="image">
 					<width>230</width>
 					<height>345</height>
-					<texture>white.png</texture>
+					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="group">
@@ -304,7 +293,6 @@
 				</control>
 			</control>
 		</control>	
-
 		<!--menu-->
 		<include>menu_Weather</include>
 	</controls>

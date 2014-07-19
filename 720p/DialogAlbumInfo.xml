@@ -162,7 +162,7 @@
 						<visible>![IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Died)) + IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Disbanded))]</visible>
 						<control type="label">
 							<width>720</width>
-							<label>$VAR[artist_OriginPrefix] [COLOR=Color1]$VAR[artist_Origin][/COLOR]</label>
+							<label>$VAR[information:Origin.Prefix] [COLOR=Color1]$VAR[information:Origin][/COLOR]</label>
 							<include>detail_Sub</include>
 						</control>
 					</control>
@@ -277,7 +277,7 @@
 				<control type="textbox" id="400">
 					<width>720</width>
 					<height>325</height>
-					<label>$VAR[global_Plot]</label>
+					<label>$VAR[media:Plot]</label>
 					<include>detail_Text</include>
 					<visible allowhiddenfocus="true">![Control.HasFocus(8002) | Control.HasFocus(50)]</visible>
 				</control>

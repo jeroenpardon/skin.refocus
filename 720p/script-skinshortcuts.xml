@@ -197,8 +197,8 @@
 						<label>$ADDON[script.skinshortcuts 32044]</label>
 						<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
 						<include>dialog_ControlCommons</include>
-						<enable>Skin.HasSetting(widgets.disable)</enable>
 						<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
+						<enable>!Skin.HasSetting(widgets.disable)</enable>
 					</control>
 					<!--add item-->
 					<control type="button" id="301">
@@ -229,8 +229,8 @@
 				<onleft>308</onleft>
 				<onright>-</onright>
 				<ondown>401</ondown>
-				<onback>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onback>
-				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9110)</onclick>
+				<onback>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000)</onback>
+				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000)</onclick>
 				<onclick>Close</onclick>
 				<include>dialog_WindowButton</include>
 				<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>

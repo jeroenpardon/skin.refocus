@@ -15,7 +15,7 @@
 		</control>
 		<control type="label" id="1">
 			<width>542</width>
-			<label>$VAR[confirm_Windowtitle]</label>
+			<label>$VAR[confirm:Header]</label>
 			<include>dialog_Windowtitle</include>
 		</control>
 		<!--textbox-->
@@ -24,7 +24,7 @@
 			<top>60</top>
 			<width>520</width>
 			<height max="90">auto</height>
-			<label>$VAR[confirm_Textbox]</label>
+			<label>$VAR[confirm:Message]</label>
 			<align>center</align>
 			<aligny>top</aligny>
 			<include>dialog_Text</include>
@@ -43,8 +43,8 @@
 				<onclick>Dialog.Close(all,true)</onclick>
 				<!--skin reload-->
 				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">SetProperty(Confirmed,true)</onclick>
-				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">Skin.Reset(HomeBackground)</onclick>
-				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">Skin.SetString(HomeBackground,fanart)</onclick>
+				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">Skin.Reset(homebackground)</onclick>
+				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">Skin.SetString(homebackground,fanart)</onclick>
 				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ReloadSkin)">AlarmClock(SkinInit,ReplaceWindow(startup),00:01,silent)</onclick>
 				<!--reset skin settings-->
 				<onclick condition="StringCompare(Window(200).Property(ConfirmDialog),ResetSettings)">Skin.ResetSettings</onclick>

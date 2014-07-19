@@ -63,7 +63,7 @@
 					<!--subtitles toggle-->
 					<control type="togglebutton" id="606">
 						<width>322</width>
-						<label>$VAR[player_SubtitleToggle]</label>
+						<label>$VAR[player:Subtitles]</label>
 						<altlabel>$LOCALIZE[13397]</altlabel>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ShowSubtitles</onclick>
@@ -118,7 +118,6 @@
 						<label>$LOCALIZE[33061]</label>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>PlayerControl(ShowVideoMenu)</onclick>
-						<texturenofocus border="3">-</texturenofocus>
 						<include>dialog_MenuButton</include>
 						<visible>VideoPlayer.HasMenu</visible>
 					</control>

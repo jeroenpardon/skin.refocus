@@ -55,14 +55,15 @@
 					<top>6</top>
 					<width>550</width>
 					<height>27</height>
-					<label>$VAR[global_Title]</label>
+					<label>$VAR[media:Title]</label>
 					<include>container_Title</include>
 				</control>
 				<control type="label">
 					<left>15</left>
 					<top>28</top>
 					<width>550</width>
-					<label>$VAR[global_Info]</label>
+					<label>$VAR[media:Info]</label>
+					<selectedcolor>Color2</selectedcolor>
 					<include>container_Sub</include>
 				</control>
 				<control type="image">
@@ -83,14 +84,14 @@
 						<top>6</top>
 						<width>550</width>
 						<height>27</height>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<include>container_Title-focus</include>
 					</control>
 					<control type="label">
 						<left>15</left>
 						<top>28</top>
 						<width>550</width>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
 						<include>container_Sub-focus</include>
 					</control>
 					<control type="image">
@@ -105,14 +106,15 @@
 						<top>6</top>
 						<width>550</width>
 						<height>27</height>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<include>container_Title</include>
 					</control>
 					<control type="label">
 						<left>15</left>
 						<top>28</top>
 						<width>550</width>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
+						<selectedcolor>Color2</selectedcolor>
 						<include>container_Sub</include>
 					</control>
 					<control type="image">
@@ -162,7 +164,7 @@
 						<control type="image">
 							<width>532</width>
 							<height>295</height>
-							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<texture background="true">$VAR[art:Landscape]</texture>
 							<aspectratio>scale</aspectratio>
 							<fadetime>fadetime_Thumb</fadetime>
 						</control>
@@ -170,7 +172,7 @@
 							<top>315</top>
 							<width>532</width>
 							<height max="280">auto</height>
-							<label>$VAR[global_Plot]</label>
+							<label>$VAR[media:Plot]</label>
 							<include>detail_Text</include>
 						</control>
 					</control>
@@ -213,10 +215,10 @@
 			</control>
 			<control type="textbox" id="1003">
 				<left>7</left>
-				<top>315</top>
+				<top>270</top>
 				<width>532</width>
 				<height>330</height>
-				<label>$VAR[global_Plot]</label>
+				<label>$VAR[media:Plot]</label>
 				<autoscroll>!Window.IsActive(addoninformation)</autoscroll>
 				<include>detail_Text</include>
 				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
@@ -256,7 +258,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
-			<!--landscape layout-->
+				<!--landscape layout-->
 				<itemlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
 					<include>view_BigList-LandscapeCommons</include>
 					<control type="group">
@@ -264,28 +266,20 @@
 						<top>4</top>
 						<control type="label">
 							<width>920</width>
-							<label>$VAR[global_Title]</label>
+							<label>$VAR[media:Title]</label>
 							<include>container_Title</include>
 						</control>
 						<control type="label">
 							<top>28</top>
 							<width>920</width>
-							<label>$VAR[global_Info]</label>
+							<label>$VAR[media:Info]</label>
 							<include>container_Sub</include>
-							<visible>!SubString(Container.FolderPath,plugin)</visible>
-						</control>
-						<control type="label">
-							<top>28</top>
-							<width>920</width>
-							<label>$VAR[global_Info.Addon]</label>
-							<include>container_Sub</include>
-							<visible>SubString(Container.FolderPath,plugin)</visible>
 						</control>
 						<control type="textbox" id="4">
 							<top>66</top>
 							<width>920</width>
 							<height>59</height>
-							<label>$VAR[global_Plot]</label>
+							<label>$VAR[media:Plot]</label>
 							<include>container_Text</include>
 						</control>
 						<control type="image">
@@ -308,20 +302,20 @@
 							<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 							<control type="label">
 								<width>920</width>
-								<label>$VAR[global_Title]</label>
+								<label>$VAR[media:Title]</label>
 								<include>container_Title-focus</include>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>920</width>
-								<label>$VAR[global_Info]</label>
+								<label>$VAR[media:Info]</label>
 								<include>container_Sub-focus</include>
 							</control>
 							<control type="textbox" id="4">
 								<top>66</top>
 								<width>920</width>
 								<height>59</height>
-								<label>$VAR[global_Plot]</label>
+								<label>$VAR[media:Plot]</label>
 								<include>container_Text-focus</include>
 							</control>
 							<control type="image">
@@ -338,20 +332,20 @@
 							<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 							<control type="label">
 								<width>920</width>
-								<label>$VAR[global_Title]</label>
+								<label>$VAR[media:Title]</label>
 								<include>container_Title</include>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>920</width>
-								<label>$VAR[global_Info]</label>
+								<label>$VAR[media:Info]</label>
 								<include>container_Sub</include>
 							</control>
 							<control type="textbox" id="4">
 								<top>66</top>
 								<width>920</width>
 								<height>59</height>
-								<label>$VAR[global_Plot]</label>
+								<label>$VAR[media:Plot]</label>
 								<include>container_Text</include>
 							</control>
 							<control type="image">
@@ -366,7 +360,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-			<!--portrait layout-->
+				<!--portrait layout-->
 				<itemlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
 					<include>view_BigList-PortraitCommons</include>
 					<control type="group">
@@ -374,20 +368,20 @@
 						<top>4</top>
 						<control type="label">	
 							<width>775</width>
-							<label>$VAR[global_Title]</label>
+							<label>$VAR[media:Title]</label>
 							<include>container_Title</include>
 						</control>
 						<control type="label">
 							<top>28</top>
 							<width>775</width>
-							<label>$VAR[global_Info]</label>
+							<label>$VAR[media:Info]</label>
 							<include>container_Sub</include>
 							<visible>!SubString(Container.FolderPath,plugin)</visible>
 						</control>
 						<control type="label">
 							<top>28</top>
 							<width>775</width>
-							<label>$VAR[global_Info.Addon]</label>
+							<label>$VAR[media:Info.Addon]</label>
 							<include>container_Sub</include>
 							<visible>SubString(Container.FolderPath,plugin)</visible>
 						</control>
@@ -395,7 +389,7 @@
 							<top>66</top>
 							<width>1075</width>
 							<height>60</height>
-							<label>$VAR[global_Plot]</label>
+							<label>$VAR[media:Plot]</label>
 							<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
 							<include>container_Text</include>
 						</control>
@@ -419,20 +413,20 @@
 							<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 							<control type="label">
 								<width>775</width>
-								<label>$VAR[global_Title]</label>
+								<label>$VAR[media:Title]</label>
 								<include>container_Title-focus</include>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>775</width>
-								<label>$VAR[global_Info]</label>
+								<label>$VAR[media:Info]</label>
 								<include>container_Sub-focus</include>
 								<visible>!SubString(Container.FolderPath,plugin)</visible>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>775</width>
-								<label>$VAR[global_Info.Addon]</label>
+								<label>$VAR[media:Info.Addon]</label>
 								<include>container_Sub-focus</include>
 								<visible>SubString(Container.FolderPath,plugin)</visible>
 							</control>
@@ -440,7 +434,7 @@
 								<top>66</top>
 								<width>1075</width>
 								<height>60</height>
-								<label>$VAR[global_Plot]</label>
+								<label>$VAR[media:Plot]</label>
 								<include>container_Text-focus</include>
 							</control>
 							<control type="image">
@@ -458,20 +452,20 @@
 							<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 							<control type="label">
 								<width>775</width>
-								<label>$VAR[global_Title]</label>
+								<label>$VAR[media:Title]</label>
 								<include>container_Title</include>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>775</width>
-								<label>$VAR[global_Info]</label>
+								<label>$VAR[media:Info]</label>
 								<include>container_Sub</include>
 								<visible>!SubString(Container.FolderPath,plugin)</visible>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>775</width>
-								<label>$VAR[global_Info.Addon]</label>
+								<label>$VAR[media:Info.Addon]</label>
 								<include>container_Sub</include>
 								<visible>SubString(Container.FolderPath,plugin)</visible>
 							</control>
@@ -479,7 +473,7 @@
 								<top>66</top>
 								<width>1075</width>
 								<height>60</height>
-								<label>$VAR[global_Plot]</label>
+								<label>$VAR[media:Plot]</label>
 								<include>container_Text</include>
 							</control>
 							<control type="image">
@@ -523,7 +517,7 @@
 			<control type="image">
 				<width>231</width>
 				<height>130</height>
-				<texture background="true">$VAR[thumb_Landscape]</texture>
+				<texture background="true">$VAR[art:Landscape]</texture>
 				<aspectratio>scale</aspectratio>
 			</control>
 			<control type="image">
@@ -532,7 +526,7 @@
 				<width>168</width>
 				<height>65</height>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
-				<include>art_ClearLogo</include>
+				<include>art_Logo</include>
 			</control>
 			<control type="group">
 				<left>205</left>
@@ -567,7 +561,7 @@
 			<control type="image">
 				<width>90</width>
 				<height>130</height>
-				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<texture background="true">$VAR[art:Portrait]</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">

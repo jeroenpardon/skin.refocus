@@ -26,7 +26,7 @@
 			<control type="image">
 				<width>170</width>
 				<height>252</height>
-				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<texture background="true">$VAR[art:Portrait]</texture>
 				<aspectratio align="center" aligny="top">scale</aspectratio>
 			</control>
 			<control type="group">
@@ -97,7 +97,7 @@
 			<control type="image">
 				<width>115</width>
 				<height>170</height>
-				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<texture background="true">$VAR[art:Portrait]</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
@@ -175,7 +175,7 @@
 			<control type="image">
 				<width>164</width>
 				<height>164</height>
-				<texture background="true">$VAR[thumb_Square]</texture>
+				<texture background="true">$VAR[art:Square]</texture>
 				<aspectratio>scale</aspectratio>
 			</control>
 		</control>
@@ -189,13 +189,13 @@
 			<include>transition_Info</include>
 			<visible>Control.IsVisible(572)</visible>
 			<control type="label">
-				<label>$VAR[global_Title]</label>
+				<label>$VAR[media:Title]</label>
 				<width>1000</width>
 				<include>detail_Title</include>
 			</control>
 			<control type="label">
 				<top>25</top>
-				<label>$VAR[global_Info]</label>
+				<label>$VAR[media:Info]</label>
 				<width>1100</width>
 				<include>detail_Sub</include>
 			</control>
@@ -330,7 +330,7 @@
 						<control type="image">
 							<width>160</width>
 							<height>160</height>
-							<texture background="true">$VAR[thumb_Square]</texture>
+							<texture background="true">$VAR[art:Square]</texture>
 							<aspectratio>scale</aspectratio>
 						</control>
 					</control>
@@ -364,7 +364,7 @@
 						<control type="image">
 							<width>160</width>
 							<height>160</height>
-							<texture background="true">$VAR[thumb_Square]</texture>
+							<texture background="true">$VAR[art:Square]</texture>
 							<aspectratio>scale</aspectratio>
 						</control>
 					</control>
@@ -399,7 +399,7 @@
 			<control type="image">
 				<width>380</width>
 				<height>205</height>
-				<texture background="true">$VAR[thumb_Landscape]</texture>
+				<texture background="true">$VAR[art:Landscape]</texture>
 				<aspectratio>scale</aspectratio>
 			</control>
 			<control type="group">
@@ -413,7 +413,7 @@
 			<top>142</top>
 			<width>340</width>
 			<height>64</height>
-			<include>art_ClearLogo</include>
+			<include>art_Logo</include>
 		</control>
 	</include>
 	<include name="view_IconWide">
@@ -441,13 +441,13 @@
 					<top>225</top>
 					<control type="label" id="110">
 						<width>380</width>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<include>detail_Title</include>
 					</control>
 					<control type="label" id="110">
 						<top>22</top>
 						<width>380</width>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
 						<include>detail_Sub</include>
 					</control>
 				</control>
@@ -464,14 +464,14 @@
 					<top>225</top>
 					<control type="label" id="110">
 						<width>380</width>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<selectedcolor>Color1</selectedcolor>
 						<include>detail_Title</include>
 					</control>
 					<control type="label" id="110">
 						<top>22</top>
 						<width>380</width>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
 						<selectedcolor>Color2</selectedcolor>
 						<include>detail_Sub</include>
 					</control>
@@ -509,20 +509,20 @@
 					<left>60</left>
 					<top>645</top>
 					<control type="label">
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<width>1100</width>
 						<include>detail_Title</include>
 					</control>
 					<control type="label">
 						<top>25</top>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
 						<width>750</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 					</control>
 					<control type="label">
 						<top>25</top>
-						<label>$VAR[global_Info.Addon]</label>
+						<label>$VAR[media:Info.Addon]</label>
 						<width>750</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
@@ -561,7 +561,7 @@
 					</control>
 					<control type="label">
 						<width>460</width>
-						<label>$VAR[nextaired_Info]</label>
+						<label>$VAR[media:NextAired.Info]</label>
 						<include>detail_Sub</include>
 						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>
@@ -574,7 +574,7 @@
 					<control type="textbox" id="4">
 						<width>460</width>
 						<height>355</height>
-						<label>$VAR[global_Plot]</label>
+						<label>$VAR[media:Plot]</label>
 						<include>detail_Text</include>
 						<visible>!SubString(ListItem.Icon,default)</visible>
 					</control>
@@ -615,7 +615,7 @@
 			<control type="image">
 				<width>64</width>
 				<height>64</height>
-				<texture background="true">$VAR[thumb_Square]</texture>
+				<texture background="true">$VAR[art:Square]</texture>
 				<aspectratio align="left" aligny="top">scale</aspectratio>
 			</control>
 		</control>
@@ -646,13 +646,13 @@
 					<top>10</top>
 					<control type="label" id="110">
 						<width>395</width>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<include>detail_Title</include>
 					</control>
 					<control type="label" id="110">
 						<top>27</top>
 						<width>395</width>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
 						<textcolor>Color2</textcolor>
 						<include>detail_Sub</include>
 					</control>
@@ -670,14 +670,14 @@
 					<top>10</top>
 					<control type="label" id="110">
 						<width>395</width>
-						<label>$VAR[global_Title]</label>
+						<label>$VAR[media:Title]</label>
 						<textcolor>Color5</textcolor>
 						<include>detail_Title</include>
 					</control>
 					<control type="label" id="110">
 						<top>27</top>
 						<width>395</width>
-						<label>$VAR[global_Info]</label>
+						<label>$VAR[media:Info]</label>
 						<textcolor>Color5</textcolor>
 						<include>detail_Sub</include>
 					</control>

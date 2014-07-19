@@ -5,7 +5,7 @@
 		<control type="image" id="1">
 			<width>270</width>
 			<height>screen_Height</height>
-			<texture background="true">white.png</texture>
+			<texture background="true">colorize/100.png</texture>
 			<animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
 			<colordiffuse>base_2</colordiffuse>
 		</control>
@@ -58,8 +58,8 @@
 		<textoffsety>3</textoffsety>
 		<textoffsetx>15</textoffsetx>
 		<texturenofocus>-</texturenofocus>
-		<texturefocus colordiffuse="column2">white.png</texturefocus>
-		<alttexturefocus colordiffuse="column2">white.png</alttexturefocus>
+		<texturefocus colordiffuse="column2">colorize/100.png</texturefocus>
+		<alttexturefocus colordiffuse="column2">colorize/100.png</alttexturefocus>
 		<alttexturenofocus>-</alttexturenofocus>
 		<onback condition="ControlGroup(6000).HasFocus()">50</onback>
 		<onback condition="ControlGroup(4000).HasFocus()">6000</onback>
@@ -201,9 +201,10 @@
 		</control>
 		<!--playing media / current playlist-->
 		<control type="button" id="219">
-			<label>$VAR[playing_Title]</label>
+			<label>$VAR[menu:Playing]</label>
 			<onclick condition="Player.HasVideo">fullscreen</onclick>
-			<onclick condition="Player.HasAudio | !Player.HasMedia">$VAR[playlist_Type]</onclick>
+			<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
+			<onclick condition="!Player.HasMedia">$VAR[playlist_Type]</onclick>
 			<include>menu_Button</include>
 			<visible>StringCompare(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !StringCompare(Playlist.Length(music),0)]]]</visible>
 		</control>
@@ -212,7 +213,7 @@
 			<onright>50</onright>
 			<visible>Player.HasMedia + StringCompare(Skin.String(menu.controls),player)</visible>
 			<control type="image">
-				<texture colordiffuse="column2">white.png</texture>
+				<texture colordiffuse="column2">colorize/100.png</texture>
 				<width>270</width>
 				<height>48</height>
 				<aspectratio>stretch</aspectratio>
@@ -229,8 +230,24 @@
 				<ondown>102</ondown>
 				<itemgap>10</itemgap>
 				<orientation>horizontal</orientation>
-				<!--previous-->
+				<!--channel down-->
 				<control type="button" id="232">
+					<texturefocus colordiffuse="Color1">player/sidebar/down-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/down-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ChannelDown</onclick>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--channel up-->
+				<control type="button" id="233">
+					<texturefocus colordiffuse="Color1">player/sidebar/up-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/up-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ChannelUp</onclick>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--previous-->
+				<control type="button" id="234">
 					<texturefocus colordiffuse="Color1">player/sidebar/prev-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/prev-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
@@ -238,7 +255,7 @@
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<!--pause-->
-				<control type="togglebutton" id="233">
+				<control type="togglebutton" id="235">
 					<texturenofocus colordiffuse="Color3">player/sidebar/pause-nf.png</texturenofocus>
 					<texturefocus colordiffuse="Color1">player/sidebar/pause-fo.png</texturefocus>
 					<alttexturenofocus colordiffuse="Color3">player/sidebar/play-nf.png</alttexturenofocus>
@@ -250,22 +267,35 @@
 					<enable>Player.PauseEnabled</enable>
 				</control>
 				<!--stop-->
-				<control type="button" id="234">
+				<control type="button" id="236">
 					<texturefocus colordiffuse="Color1">player/sidebar/stop-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/stop-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
 					<onclick>PlayerControl(Stop)</onclick>
 				</control>
 				<!--next-->
-				<control type="button" id="235">
+				<control type="button" id="237">
 					<texturefocus colordiffuse="Color1">player/sidebar/next-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/next-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
 					<onclick>PlayerControl(Next)</onclick>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
+				<!--record-->
+				<control type="togglebutton" id="238">
+					<texturefocus colordiffuse="Color1">player/sidebar/rec-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/rec-nf.png</texturenofocus>
+					<usealttexture>Player.Recording</usealttexture>
+					<alttexturefocus colordiffuse="Color1">player/sidebar/rec-fo.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="Color3">player/sidebar/rec-fo.png</alttexturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Record)</onclick>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<enable>Player.CanRecord</enable>
+					<animation effect="fade" start="100" end="50" time="0" condition="!Player.CanRecord">Conditional</animation>
+				</control>
 				<!--fullscreen-->
-				<control type="button" id="240">
+				<control type="button" id="239">
 					<texturefocus colordiffuse="Color1">player/sidebar/fullscreen-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/fullscreen-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
@@ -273,7 +303,7 @@
 					<visible>Player.HasVideo</visible>
 				</control>
 				<!--playlist-->
-				<control type="button" id="241">
+				<control type="button" id="240">
 					<texturefocus colordiffuse="Color1">player/sidebar/playlist-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/playlist-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
@@ -313,7 +343,7 @@
 				</control>
 				<!--slide: poster or fanart-->
 				<control type="button" id="112">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<onclick condition="Control.IsVisible(521)">Container.SetViewMode(52)</onclick>
 					<onclick condition="Control.IsVisible(52)">Container.SetViewMode(521)</onclick>
 					<include>menu_Button</include>
@@ -321,7 +351,7 @@
 				</control>
 				<!--gallery: fullscreen or strip-->
 				<control type="button" id="113">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<onclick condition="Control.IsVisible(531)">Container.SetViewMode(53)</onclick>
 					<onclick condition="Control.IsVisible(53)">Container.SetViewMode(531)</onclick>
 					<include>menu_Button</include>
@@ -329,7 +359,7 @@
 				</control>
 				<!--thumbnails: small or large grid-->
 				<control type="button" id="114">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<onclick condition="Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]">Container.SetViewMode(57)</onclick>
 					<onclick condition="Control.IsVisible(57) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]">Container.SetViewMode(571)</onclick>
 					<onclick condition="Control.IsVisible(574) + Container.Content(addons)">Container.SetViewMode(572)</onclick>
@@ -339,7 +369,7 @@
 				</control>
 				<!--banners: small or large grid-->
 				<control type="button" id="115">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<onclick condition="Control.IsVisible(541)">Container.SetViewMode(54)</onclick>
 					<onclick condition="Control.IsVisible(54)">Container.SetViewMode(541)</onclick>
 					<include>menu_Button</include>
@@ -355,7 +385,6 @@
 				<include>menu_Update</include>
 				<include>menu_Search</include>
 				<include>menu_Playing</include>
-				<include condition="!IsEmpty(Skin.String(menu.controls))">menu_PlayerControls</include>
 			</control>
 		<!--viewtypes-->
 			<control type="group">	
@@ -465,7 +494,7 @@
 				</control>
 				<!--slide: landscape or portrait-->
 				<control type="button" id="111">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<textwidth>250</textwidth>
 					<onclick condition="Control.IsVisible(522)">Container.SetViewMode(521)</onclick>
 					<onclick condition="Control.IsVisible(521)">Container.SetViewMode(522)</onclick>
@@ -540,7 +569,7 @@
 			<!--viewtype options-->
 				<!--thumbnails: small or large grid (add-ons)-->
 				<control type="button" id="110">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<onclick condition="Control.IsVisible(574)">Container.SetViewMode(572)</onclick>
 					<onclick condition="Control.IsVisible(572)">Container.SetViewMode(574)</onclick>
 					<include>menu_Button</include>
@@ -642,7 +671,7 @@
 			<!--viewtype options-->
 				<!--thumbnails: small or large grid (add-ons)-->
 				<control type="button" id="110">
-					<label>$VAR[view_Layout]</label>
+					<label>$VAR[menu:LayoutSwitch]</label>
 					<onclick condition="Control.IsVisible(574)">Container.SetViewMode(572)</onclick>
 					<onclick condition="Control.IsVisible(572)">Container.SetViewMode(574)</onclick>
 					<include>menu_Button</include>
@@ -774,13 +803,13 @@
 				<!--tv channels-->
 				<control type="button" id="32">
 					<onback>PreviousMenu</onback>
-					<label>$VAR[pvr_TVChannelGroup]</label>
+					<label>$VAR[pvr:TVChannelGroup]</label>
 					<include>menu_Button</include>
 				</control>
 				<!--radio channels-->
 				<control type="button" id="33">
 					<onback>PreviousMenu</onback>
-					<label>$VAR[pvr_RadioChannelGroup]</label>
+					<label>$VAR[pvr:RadioChannelGroup]</label>
 					<include>menu_Button</include>
 				</control>
 				<!--guide-->
