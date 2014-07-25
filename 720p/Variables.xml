@@ -526,7 +526,7 @@
 	<variable name="toast:Icon">
 		<value condition="IntegerGreaterThan(Player.Volume,0) + [Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">toast/alarm.png</value>
 		<value condition="IntegerGreaterThan(Player.Volume,0) + [Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$INFO[PVR.NowRecordingChannelIcon]</value>
-		<value condition="IntegerGreaterThan(Player.Volume,0) + Weather.IsFetched">$INFO[Window(weather).Property(Day0.FanartCode),weather/small/,.png]</value>
+		<value condition="IntegerGreaterThan(Player.Volume,0) + Weather.IsFetched">$INFO[Window(weather).Property(Current.FanartCode),weather/small/,.png]</value>
 		<value>weather/small/na.png</value>
 	</variable>
 
