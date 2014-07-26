@@ -152,7 +152,7 @@
 					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos)</visible>	
 				</control>
 				<control type="list" id="9221">
-					<content target="video">videodb://recentlyaddedmovies/</content>
+					<content target="video">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window(10000).Property(recentmovies)]</content>
 					<include>widget_ContainerCommons</include>
 					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies)</visible>
 				</control>
