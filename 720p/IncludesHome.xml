@@ -10,6 +10,7 @@
 				<visible>[Skin.String(homebackground,single) | Skin.String(homebackground,fanart) | IsEmpty(Skin.String(homebackground))] + ![Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
 			</control>
 			<control type="multiimage">
+				<timeperimage>slideshow_Timer</timeperimage>
 				<imagepath fallback="special://skin/backgrounds/">$VAR[home:Background]</imagepath>
 				<visible>Skin.String(homebackground,multi) | [Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
 			</control>
@@ -181,8 +182,12 @@
 					<include>widget_ContainerCommons</include>
 					<visible>StringCompare(Container(9000).ListItem.Property(widgetType),playlist)</visible>
 				</control>
-				<control type="group" id="9250">	
-
+				<control type="group" id="9250">
+					<control type="multiimage">
+						<timeperimage>8000</timeperimage>
+						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+						<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable)</visible>
+					</control>
 					<control type="list" id="9251">
 						<include>widget_ContainerCommons</include>
 						<content>
@@ -195,15 +200,7 @@
 							</item>
 						</content>
 						<visible>Player.HasAudio + StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)</visible>
-					</control>
-
-					<control type="multiimage">
-						<top>200</top>
-						<timeperimage>8000</timeperimage>
-						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-						<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable)</visible>
-					</control>
-
+					</control>			
 				</control>
 				<control type="group" id="9260">
 					<control type="multiimage">
