@@ -564,8 +564,6 @@
 
 	<variable name="window:Title.Video">
 		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
-
-
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[157]</value>
 		<value condition="StringCompare(Container.FolderPath,sources://video/)">$LOCALIZE[744]</value>
 		<value condition="StringCompare(Container.FolderPath,addons://sources/video/)">$LOCALIZE[1037]</value>
@@ -596,6 +594,7 @@
 	</variable>
 
 	<variable name="window:Title.Music">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[2]</value>
 		<value condition="StringCompare(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
@@ -605,6 +604,7 @@
 	</variable>
 
 	<variable name="window:Title.System">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="Window.IsActive(settings)">xbmc [COLOR=Color2]$LOCALIZE[10004][/COLOR]</value>
 		<value condition="Window.IsActive(systeminfo)">$LOCALIZE[13000] [COLOR=Color2]$LOCALIZE[19033][/COLOR]</value>
 		<value condition="Window.IsActive(profiles)">$LOCALIZE[13200] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
@@ -622,6 +622,7 @@
 	</variable>
 
 	<variable name="window:Title.Addons">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="SubString(Container.FolderPath,addons://enabled/)">$LOCALIZE[24062]</value>
 		<value condition="SubString(Container.FolderPath,addons://disabled/)">$LOCALIZE[24039]</value>
 		<value condition="SubString(Container.FolderPath,addons://downloading/)">$LOCALIZE[24067]</value>
@@ -635,6 +636,7 @@
 	</variable>
 
 	<variable name="window:Title.PVR">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="SubString(Container.FolderPath,pvr://channels/tv/)">$LOCALIZE[19020] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,pvr://channels/radio/)">$LOCALIZE[19021] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,pvr://recordings/) | SubString(Container.FolderPath,pvr://timers/)">$INFO[Container.FolderName]</value>
@@ -645,21 +647,25 @@
 	</variable>
 
 	<variable name="window:Title.Pictures">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="!SubString(Container.FolderPath,plugin)">$LOCALIZE[1]</value>
 		<value>$INFO[Container.FolderName]</value>
 	</variable>
 
 	<variable name="window:Title.Playlists">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="Window.IsVisible(videoplaylist) + !Window.IsActive(movieinformation)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 		<value condition="Window.IsVisible(musicplaylist) + !Window.IsActive(musicinformation)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 	</variable>
 
 	<variable name="window:Title.Weather">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="Window.IsVisible(Weather) + Weather.IsFetched">$INFO[Window.Property(WeatherProvider)]</value>
 		<value>$LOCALIZE[12600]</value>
 	</variable>
 
 	<variable name="window:Title.Programs">
+		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="Window.IsVisible(Programs)">$LOCALIZE[0] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value>$LOCALIZE[12600]</value>
 	</variable>
