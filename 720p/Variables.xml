@@ -165,18 +165,18 @@
 	</variable>
 
 	<variable name="media:Info">
-		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.enable)">$VAR[video_Type,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Rating, • ]$INFO[ListItem.Genre, • ]</value>
-		<value condition="Container.Content(movies)">$VAR[video_Type,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Genre, • ]</value>
+		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.enable)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Rating, • ]$INFO[ListItem.Genre, • ]</value>
+		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]$VAR[media:NextAired.Info, • ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]</value>	
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]</value>
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Genre]</value>
-		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
-		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
+		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[flag:Type.Video, • ]</value>
+		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]$VAR[flag:Type.Video, • ]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Date]$INFO[ListItem.Genre, • ]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$VAR[video_Type, • ]</value>
-		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$VAR[video_Type,, • ]$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$VAR[flag:Type.Video, • ]</value>
+		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
 		<value condition="Container.Content(files) + ![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Genre) + IsEmpty(ListItem.Date) + IsEmpty(ListItem.Studio)]">$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, • ]$INFO[ListItem.Date, • ]$INFO[ListItem.Studio]</value>
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Genre))">$INFO[ListItem.Property(Artist_Genre)]</value>
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Artist)">$LOCALIZE[31145]</value>
@@ -190,9 +190,9 @@
 		<!---->
 		<value condition="Window.IsActive(pictures) + !IsEmpty(ListItem.PictureLongDateTime)">$INFO[ListItem.PictureLongDateTime]</value>
 		<value condition="Window.IsActive(pictures) + !SubString(Container.FolderPath,addons://sources/)">$INFO[ListItem.Date]</value>
-		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.Title)">$VAR[video_Type,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] $INFO[ListItem.Size, • ]$INFO[ListItem.Date, • ]</value>
+		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.Title)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] $INFO[ListItem.Size, • ]$INFO[ListItem.Date, • ]</value>
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] , -] $INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
-		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)">$VAR[video_Type,, • ]$INFO[ListItem.Genre]</value>
+		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Genre]</value>
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist) + IsEmpty(Listitem.Genre)">$INFO[ListItem.Path]</value>
 		<value condition="!SubString(ListItem.Icon,Default) + Container.HasFiles">$LOCALIZE[31151]</value>
@@ -454,41 +454,40 @@
 
 
 <!--RATINGS-->
-	<variable name="global_Rating">
+	<variable name="rating:Global">
 		<value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.StarRating,rating/nf-,]</value>
 		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons)">$INFO[ListItem.Property(Addon.StarRating),rating/nf-,]</value>
 	</variable>
 
-	<variable name="global_Rating-fo">
+	<variable name="rating:Global.Focused">
 		<value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.StarRating,rating/fo-,]</value>
 		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons)">$INFO[ListItem.Property(Addon.StarRating),rating/fo-,]</value>
 	</variable>
 
 
 <!--FLAGS-->
-	<variable name="flag_Studio">
+	<variable name="flag:Studio">
 		<value condition="Container.Content(movies)">$INFO[Listitem.Studio,flags/studios/,.png]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.Studio,flags/networks/,.png]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[Listitem.Studio,flags/labels/,.png]</value>
 		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
 
-	<variable name="status_List">
+	<variable name="flag:Status.List">
 		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable)">views/status/list/OverlayWatching.png</value>
 		<value condition="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]">$INFO[ListItem.Overlay,views/status/list/]</value>
 	</variable>
 
-	<variable name="status_Info">
+	<variable name="flag:Status.Info">
 		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable)">views/status/info/OverlayWatching.png</value>
 		<value condition="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]">$INFO[ListItem.Overlay,views/status/info/]</value>
 	</variable>
 
-	<variable name="video_Type">
+	<variable name="flag:Type.Video">
 		<value condition="ListItem.IsStereoscopic">3D</value>
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,540)">HD</value>
 		<value condition="StringCompare(ListItem.VideoResolution,4K)">4K</value>
 	</variable>
-
 
 <!--PVR-->	
 	<variable name="pvr:Status">
