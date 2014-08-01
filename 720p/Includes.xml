@@ -853,6 +853,7 @@
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 	</include>
 	<include name="windowTitle_Video">
 		<control type="label">
