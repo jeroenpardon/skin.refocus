@@ -11,7 +11,7 @@
 		<control type="group">
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
 			<control type="image">
-				<width>830</width>
+				<width>956</width>
 				<height>580</height>
 				<include>dialog_Window</include>
 			</control>
@@ -21,13 +21,13 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<left>625</left>
+				<left>751</left>
 				<top>61</top>
 				<height>199</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="group">
-				<left>626</left>
+				<left>752</left>
 				<top>60</top>
 				<control type="image">
 					<width>200</width>
@@ -70,31 +70,31 @@
 					<ondown>100</ondown>
 					<include>global_ListScroll</include>
 					<control type="button" id="101">
-						<width>621</width>
+						<width>747</width>
 						<label>$LOCALIZE[467]</label>
 						<label2>$INFO[ListItem.Property(Addon.Type)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="102">
-						<width>621</width>
+						<width>747</width>
 						<label>$LOCALIZE[21863]</label>
 						<label2>$INFO[ListItem.Property(Addon.Creator)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="103">
-						<width>621</width>
+						<width>747</width>
 						<label>$LOCALIZE[24051]</label>
 						<label2>$INFO[ListItem.Property(Addon.Version)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="104">
-						<width>621</width>
+						<width>747</width>
 						<label>$LOCALIZE[563]</label>
 						<label2>$INFO[ListItem.Property(Addon.Rating)]</label2>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="button" id="105">
-						<width>621</width>
+						<width>747</width>
 						<label>$LOCALIZE[24052]</label>
 						<label2>$INFO[ListItem.Property(Addon.Disclaimer)]</label2>
 						<include>dialog_ControlCommons</include>
@@ -105,14 +105,14 @@
 					<left>15</left>	
 					<top>200</top>
 					<control type="textbox" id="400">
-						<width>795</width>
+						<width>921</width>
 						<height>235</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
 						<include>dialog_Text</include>
 						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="textbox" id="400">
-						<width>660</width>
+						<width>921</width>
 						<height>145</height>
 						<label>$INFO[ListItem.Property(Addon.Description)]</label>
 						<include>dialog_Text</include>
@@ -172,6 +172,12 @@
 				<control type="button" id="8">
 					<left>399</left>
 					<label>$LOCALIZE[24069]</label>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--launch-->
+				<control type="button" id="12">
+					<left>399</left>
+					<label>$LOCALIZE[518]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--uninstall-->
