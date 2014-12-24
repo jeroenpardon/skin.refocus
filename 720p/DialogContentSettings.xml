@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">3</defaultcontrol>
+	<defaultcontrol always="true">20</defaultcontrol>
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
@@ -45,28 +45,28 @@
 						<font>-</font>
 						<onleft>-</onleft>
 						<onup>9001</onup>
-						<ondown>4</ondown>
+						<ondown>21</ondown>
 						<include>dialog_Spin</include>
 					</control>
 					<control type="label">
 						<width>556</width>
-						<label>$INFO[Control.GetLabel(3)]</label>
+						<label>$INFO[Control.GetLabel(20)]</label>
 						<include>dialog_ControlCommons</include>
-						<visible>!Control.HasFocus(3)</visible>
+						<visible>!Control.HasFocus(20)</visible>
 					</control>
 					<control type="label">
 						<width>556</width>
-						<label>$INFO[Control.GetLabel(3)]</label>
+						<label>$INFO[Control.GetLabel(20)]</label>
 						<textcolor>Color1</textcolor>
 						<include>dialog_ControlCommons</include>
-						<visible>Control.HasFocus(3)</visible>
+						<visible>Control.HasFocus(20)</visible>
 					</control>
 				</control>
 			</control>
 			<!--scrapers-->
 			<control type="group" id="9004">
 				<top>100</top>
-				<visible>!SubString(Control.GetLabel(3),$LOCALIZE[231])</visible>
+				<visible>!SubString(Control.GetLabel(20),$LOCALIZE[231])</visible>
 				<control type="label">
 					<width>613</width>
 					<label>$LOCALIZE[20195]</label>
@@ -84,7 +84,7 @@
 					<height>120</height>
 					<onleft>-</onleft>
 					<onright>-</onright>
-					<onup>3</onup>
+					<onup>20</onup>
 					<ondown>5</ondown>
 					<include>global_ListScroll</include>
 					<itemlayout height="40">
@@ -148,7 +148,7 @@
 					<itemgap>0</itemgap>
 					<onleft>-</onleft>
 					<onright>-</onright>
-					<onup>4</onup>
+					<onup>21</onup>
 					<ondown>9001</ondown>
 				</control>
 			</control>
