@@ -795,7 +795,7 @@
 	</include>
 
 <!--PVR MENU-->
-	<include name="menu_PVR">
+	<include name="menu_TV">
 		<control type="group">
 			<include>menu_Commons</include>
 			<control type="grouplist" id="6000">
@@ -807,18 +807,18 @@
 				</control>
 				<!--tv channels-->
 				<control type="button" id="100">
-					<onback>PreviousMenu</onback>
-					<label>$VAR[pvr:TVChannelGroup]</label>
+					<label>$LOCALIZE[19180]$INFO[Container(50).FolderName,: ]</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<onclick condition="Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)">NextChannelGroup</onclick>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
 				</control>
 				<!--guide-->
 				<control type="button" id="101">
-					<onback>PreviousMenu</onback>
 					<label>$LOCALIZE[19222]: $LOCALIZE[19030]</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
@@ -828,22 +828,23 @@
 					<onback>PreviousMenu</onback>
 					<label>$LOCALIZE[19163]</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 				</control>
 				<!--timers-->
 				<control type="button" id="103">
-					<onback>PreviousMenu</onback>
 					<label>$LOCALIZE[19040]</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
 				</control>
 				<!--search-->
 				<control type="button" id="104">
-					<onback>PreviousMenu</onback>
 					<label>$LOCALIZE[137]</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
@@ -854,22 +855,22 @@
 				</control>
 				<!--channel groups-->
 				<control type="button" id="28">
-					<onback>PreviousMenu</onback>
 					<label>-</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
 				<!--filter-->
 				<include>menu_Filter</include>
 				<!--hidden channels-->
 				<control type="button" id="6">
-					<onback>PreviousMenu</onback>
 					<label>$LOCALIZE[19051]</label>
 					<include>menu_Button</include>
+					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
 				<!--sorting-->
-				<include>menu_Sorting</include>				
+				<include>menu_Sorting</include>	
 				<include>menu_Playing</include>
 			</control>
 		</control>
