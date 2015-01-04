@@ -641,13 +641,16 @@
 
 	<variable name="window:Title.PVR">
 		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
-		<value condition="SubString(Container.FolderPath,pvr://channels/tv/)">$LOCALIZE[19020] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="SubString(Container.FolderPath,pvr://channels/radio/)">$LOCALIZE[19021] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="SubString(Container.FolderPath,pvr://recordings/) | SubString(Container.FolderPath,pvr://timers/)">$INFO[Container.FolderName]</value>
-		<value condition="Control.IsVisible(10)">$LOCALIZE[19069] [COLOR=Color2]$LOCALIZE[19032][/COLOR]</value>
-		<value condition="Control.IsVisible(13)">$LOCALIZE[19163]</value>
-		<value condition="Control.IsVisible(15)">$LOCALIZE[19069] [COLOR=Color2]$LOCALIZE[19019][/COLOR]</value>
-		<value condition="Control.IsVisible(17)">$LOCALIZE[137]</value>
+		<value condition="Window.IsActive(tvguide)">$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[22020][/COLOR]</value>
+		<value condition="Window.IsActive(tvchannels)">$LOCALIZE[19020] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="Window.IsActive(tvrecordings)">$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[19017][/COLOR]</value>
+		<value condition="Window.IsActive(tvtimers)">$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[19040][/COLOR]</value>
+		<value condition="Window.IsActive(tvsearch)">$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[137][/COLOR]</value>
+		<value condition="Window.IsActive(radioguide)">$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[22020][/COLOR]</value>
+		<value condition="Window.IsActive(radiochannels)">$LOCALIZE[19021] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="Window.IsActive(radiorecordings)">$LOCALIZE[19021] [COLOR=Color2]$LOCALIZE[19017][/COLOR]</value>
+		<value condition="Window.IsActive(radiotimers)">$LOCALIZE[19021] [COLOR=Color2]$LOCALIZE[19040][/COLOR]</value>
+		<value condition="Window.IsActive(radiosearch)">$LOCALIZE[19021] [COLOR=Color2]$LOCALIZE[137][/COLOR]</value>
 	</variable>
 
 	<variable name="window:Title.Pictures">
