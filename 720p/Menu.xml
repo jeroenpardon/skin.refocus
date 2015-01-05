@@ -840,7 +840,7 @@
 				</control>
 				<!--guide-->
 				<control type="button" id="101">
-					<label>$LOCALIZE[19222]</label>
+					<label>$LOCALIZE[22020]</label>
 					<include>menu_Button</include>
 					<onback>PreviousMenu</onback>
 					<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
@@ -872,8 +872,6 @@
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
-			
-
 
 				<!--channel groups-->
 				<control type="button" id="28">
@@ -891,7 +889,7 @@
 					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
-
+				<!--commons-->
 				<include>menu_Playing</include>
 			</control>
 		</control>
