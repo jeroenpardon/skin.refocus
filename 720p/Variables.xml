@@ -162,6 +162,9 @@
 		<value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="[SubString(Container.FolderPath,musicdb://singles/) | SubString(Container.FolderPath,musicdb://top100/songs/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
+
+		<value condition="Window.IsActive(tvchannels)">$INFO[ListItem.ChannelNumber,, - ]$INFO[ListItem.ChannelName]</value>
+		
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 
@@ -197,6 +200,10 @@
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist) + IsEmpty(Listitem.Genre)">$INFO[ListItem.Path]</value>
 		<value condition="Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)">$INFO[ListItem.StartDate,, - ]$INFO[ListItem.StartTime]$INFO[ListItem.ChannelName, • ]</value>
+
+		<value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Genre]</value>
+
+
 		<value condition="!SubString(ListItem.Icon,Default) + Container.HasFiles">$LOCALIZE[31151]</value>
 	</variable>
 

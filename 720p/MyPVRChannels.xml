@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>50</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
+	<allowoverlay>yes</allowoverlay>
 	<views>50</views>
 	<controls>
 
@@ -13,6 +13,11 @@
 		<include>windowTitle_PVR</include>
 		<include>PageControls</include>
 
+		<!--view includes-->
+		<include>view_List</include><!--50-->
+
+
+		<!--
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
 			<top>10</top>			
@@ -77,6 +82,13 @@
 								<include>container_Sub</include>
 							</control>
 						</control>
+
+						<control type="image">
+							<right>10</right>
+							<top>10</top>
+							<include>pvr_Status</include>
+						</control>
+						
 						<control type="progress">
 							<left>0</left>
 							<top>86</top>
@@ -136,6 +148,14 @@
 								<include>container_Sub-focus</include>
 							</control>
 						</control>
+
+
+						<control type="image">
+							<right>10</right>
+							<top>10</top>
+							<include>pvr_Status-fo</include>
+						</control>
+
 						<control type="progress">
 							<left>0</left>
 							<top>86</top>
@@ -195,6 +215,10 @@
 								<include>container_Sub</include>
 							</control>
 						</control>
+
+						
+
+
 						<control type="progress">
 							<left>0</left>
 							<top>86</top>
@@ -211,6 +235,17 @@
 				</focusedlayout>
 			</control>
 		</control>
+
+	-->
+
+
 		<include>menu_TV</include>
+
+
+	<!--player mini window-->
+		<include>player_Preview</include>
+
+
+
 	</controls>
 </window>
