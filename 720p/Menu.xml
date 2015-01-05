@@ -803,14 +803,23 @@
 
 			<!--view options-->
 				<control type="label" id="199">
-					<label>$LOCALIZE[33063]</label>
+					<label>$LOCALIZE[582]</label>
 					<include>menu_Header</include>
+					<visible>Window.IsActive(TVRecordings) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
 				</control>
 				<control type="button" id="2">
 					<label>-</label>
 					<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
 					<onback>PreviousMenu</onback>
 					<include>menu_Button</include>
+				</control>
+				<!--group recordings-->
+				<control type="radiobutton" id="5">
+					<label>$LOCALIZE[19270]</label>
+					<onback>PreviousMenu</onback>
+					<include>menu_RadioButton</include>
+					<include>menu_Button</include>
+					<visible>Window.IsActive(TVRecordings)</visible>
 				</control>
 				<!--sorting-->
 				<include>menu_Sorting</include>
@@ -882,7 +891,7 @@
 					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
-				
+
 				<include>menu_Playing</include>
 			</control>
 		</control>
