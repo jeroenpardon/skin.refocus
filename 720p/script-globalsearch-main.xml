@@ -241,59 +241,65 @@
 				</focusedlayout>
 				<content>
 					<item id="1">
-						<label>$LOCALIZE[20342]</label>
-						<label2>$INFO[Control.GetLabel(110)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(119)</visible>
-					</item>
-					<item id="2">
-						<label>$LOCALIZE[20343]</label>
-						<label2>$INFO[Control.GetLabel(120)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(129)</visible>
-					</item>
-					<item id="3">
-						<label>$LOCALIZE[33054]</label>
-						<label2>$INFO[Control.GetLabel(130)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(139)</visible>
-					</item>
-					<item id="4">
-						<label>$LOCALIZE[20360]</label>
-						<label2>$INFO[Control.GetLabel(140)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(149)</visible>
-					</item>
+                        <label>$LOCALIZE[20342]</label>
+                        <label2>$INFO[Control.GetLabel(110)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(119)</visible>
+                    </item>
+                    <item id="2">
+                        <label>$LOCALIZE[20343]</label>
+                        <label2>$INFO[Control.GetLabel(120)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(129)</visible>
+                    </item>
+                    <item id="3">
+                        <label>$LOCALIZE[33054]</label>
+                        <label2>$INFO[Control.GetLabel(130)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(139)</visible>
+                    </item>
+                    <item id="4">
+                        <label>$LOCALIZE[20360]</label>
+                        <label2>$INFO[Control.GetLabel(140)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(149)</visible>
+                    </item>
 					<item id="5">
-						<label>$LOCALIZE[20389]</label>
-						<label2>$INFO[Control.GetLabel(150)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(159)</visible>
-					</item>
-					<item id="6">
-						<label>$LOCALIZE[133]</label>
-						<label2>$INFO[Control.GetLabel(160)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(169)</visible>
-					</item>
-					<item id="7">
-						<label>$LOCALIZE[132]</label>
-						<label2>$INFO[Control.GetLabel(170)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(179)</visible>
-					</item>
-					<item id="8">
-						<label>$LOCALIZE[134]</label>
-						<label2>$INFO[Control.GetLabel(180)]</label2>
-						<onclick>noop</onclick>
-						<visible>Control.IsVisible(189)</visible>
-					</item>
-					<item id="9">
-						<label>[B]$LOCALIZE[31604][/B]</label>
-						<onclick>Control.SetFocus(9000,0)</onclick>
-						<onclick>SendClick(198)</onclick>
-						<visible>Control.IsVisible(198)</visible>
-					</item>
+                        <label>$LOCALIZE[344]</label>
+                        <label2>$INFO[Control.GetLabel(210)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(219)</visible>
+                    </item>
+                    <item id="6">
+                        <label>$LOCALIZE[20389]</label>
+                        <label2>$INFO[Control.GetLabel(150)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(159)</visible>
+                    </item>
+                    <item id="7">
+                        <label>$LOCALIZE[133]</label>
+                        <label2>$INFO[Control.GetLabel(160)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(169)</visible>
+                    </item>
+                    <item id="8">
+                        <label>$LOCALIZE[132]</label>
+                        <label2>$INFO[Control.GetLabel(170)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(179)</visible>
+                    </item>
+                    <item id="9">
+                        <label>$LOCALIZE[134]</label>
+                        <label2>$INFO[Control.GetLabel(180)]</label2>
+                        <onclick>noop</onclick>
+                        <visible>Control.IsVisible(189)</visible>
+                    </item>
+                    <item id="10">
+                        <label>[B]$LOCALIZE[31604][/B]</label>
+                        <onclick>Control.SetFocus(9000,0)</onclick>
+                        <onclick>SendClick(198)</onclick>
+                        <visible>Control.IsVisible(198)</visible>
+                    </item>
 				</content>
 			</control>
 
@@ -1143,6 +1149,172 @@
 						<height>screen_Height</height>
 						<onleft>141</onleft>
 						<visible>Container(9000).HasFocus(4)</visible>
+					</control>
+				</control>
+
+			<!--actor results-->
+				<control type="group" id="219">
+					<control type="label" id="210">
+						<!--hide control, use list to trigger to-->
+						<label>-</label>
+						<font>-</font>
+						<visible allowhiddenfocus="true">false</visible>
+					</control>
+					<control type="list" id="211">
+						<top>80</top>
+						<width>920</width>
+						<height>600</height>
+						<onup>131</onup>
+						<ondown>131</ondown>
+						<onleft>9000</onleft>
+						<onright>73</onright>
+						<pagecontrol>73</pagecontrol>
+						<orientation>vertical</orientation>
+						<include>global_Scrolltime</include>
+						<include>fadeinout</include>
+						<visible>Container(9000).HasFocus(5)</visible>		
+						<itemlayout width="880" height="150">
+							<control type="image">
+								<width>104</width>
+								<height>144</height>
+								<include>art_Frame-nf</include>
+							</control>
+							<control type="group">
+								<left>7</left>
+								<top>7</top>
+								<control type="image">
+									<width>90</width>
+									<height>130</height>
+									<texture>thumbs/default_Portrait.png</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+								<control type="image">
+									<width>90</width>
+									<height>130</height>
+									<texture>$INFO[ListItem.Art(thumb)]</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+								<control type="image">
+									<centerleft>45</centerleft>
+									<centertop>65</centertop>
+									<width>64</width>
+									<height>64</height>
+									<texture>DefaultActor.png</texture>
+									<visible>IsEmpty(ListItem.Art(thumb))</visible>
+								</control>
+							</control>
+							<control type="group">
+								<left>126</left>
+								<top>4</top>
+								<control type="label">	
+									<width>735</width>
+									<label>$VAR[media:Title]</label>
+									<include>container_Title</include>
+								</control>
+								<control type="label">
+									<top>28</top>
+									<width>735</width>
+									<label>$VAR[media:Tagline]</label>
+									<include>container_Sub</include>
+								</control>
+								<control type="label">
+									<top>62</top>
+									<width>735</width>
+									<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+									<include>container_Text</include>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="880" height="150">
+							<control type="group">
+								<visible>Control.HasFocus(211) | Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+								<control type="image">
+									<width>880</width>
+									<height>144</height>
+									<include>art_Frame-fo</include>
+								</control>
+								<control type="group">
+									<left>126</left>
+									<top>4</top>
+									<control type="label">	
+										<width>735</width>
+										<label>$VAR[media:Title]</label>
+										<include>container_Title-focus</include>
+									</control>
+									<control type="label">
+										<top>28</top>
+										<width>735</width>
+										<label>$VAR[media:Tagline]</label>
+										<include>container_Sub-focus</include>
+									</control>
+									<control type="label">
+										<top>62</top>
+										<width>735</width>
+										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+										<include>container_Text-focus</include>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<visible>!Control.HasFocus(211) + !Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+								<control type="image">
+									<width>104</width>
+									<height>144</height>
+									<include>art_Frame-nf</include>
+								</control>
+								<control type="group">
+									<left>126</left>
+									<top>4</top>
+									<control type="label">	
+										<width>735</width>
+										<label>$VAR[media:Title]</label>
+										<include>container_Title</include>
+									</control>
+									<control type="label">
+										<top>28</top>
+										<width>735</width>
+										<label>$VAR[media:Tagline]</label>
+										<include>container_Sub</include>
+									</control>
+									<control type="label">
+										<top>62</top>
+										<width>735</width>
+										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+										<include>container_Text</include>
+									</control>
+								</control>
+							</control>
+							<control type="group">
+								<left>7</left>
+								<top>7</top>
+								<control type="image">
+									<width>90</width>
+									<height>130</height>
+									<texture>thumbs/default_Portrait.png</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+								<control type="image">
+									<width>90</width>
+									<height>130</height>
+									<texture>$INFO[ListItem.Art(thumb)]</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+								<control type="image">
+									<centerleft>45</centerleft>
+									<centertop>65</centertop>
+									<width>64</width>
+									<height>64</height>
+									<texture>DefaultActor.png</texture>
+									<visible>IsEmpty(ListItem.Art(thumb))</visible>
+								</control>
+							</control>
+						</focusedlayout>
+					</control>
+					<control type="scrollbar" id="73">
+						<left>912</left>
+						<height>screen_Height</height>
+						<onleft>131</onleft>
+						<visible>Container(9000).HasFocus(5)</visible>
 					</control>
 				</control>
 
