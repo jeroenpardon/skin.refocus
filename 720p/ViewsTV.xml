@@ -2,13 +2,13 @@
 <includes>
 
 <!--PVR INFO-->
-	<include name="detail_TV">
+	<include name="detail_PVR">
 		<control type="group">
 			<left>90</left>
 			<top>530</top>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-			<visible>[Control.IsVisible(10) | Control.IsVisible(11) |  Control.IsVisible(12) | Control.IsVisible(13)] + !IsEmpty(ListItem.Title)</visible>
+			
 			<control type="image">
 				<width>142</width>
 				<height>142</height>
@@ -65,9 +65,8 @@
 	</include>
 
 
-
 <!--GUIDE TIMELINE-->
-	<include name="view_EPG-timeline-Commons">
+	<include name="view_Guide-timeline-Commons">
 		<control type="label" id="1">
 			<left>8</left>
 			<width>84</width>
@@ -96,7 +95,7 @@
 			<visible>ListItem.HasTimer</visible>
 		</control>
 	</include>
-	<include name="view_EPG-timeline">
+	<include name="view_Guide-timeline">
 	<!--epg grid-->
 		<control type="epggrid" id="10">
 			<viewtype label="19032">timeline</viewtype> 	
@@ -174,7 +173,7 @@
 					<aspectratio>stretch</aspectratio>
 					<texture>pvr/genres/$INFO[ListItem.Property(GenreType)].png</texture>
 				</control>
-				<include>view_EPG-timeline-Commons</include>
+				<include>view_Guide-timeline-Commons</include>
 			</itemlayout>
 			<focusedlayout width="100" height="46">
 				<control type="image" id="14">
@@ -198,15 +197,14 @@
 					<aspectratio>stretch</aspectratio>
 					<texture>pvr/genres/$INFO[ListItem.Property(GenreType)].png</texture>
 				</control>
-				<include>view_EPG-timeline-Commons</include>
+				<include>view_Guide-timeline-Commons</include>
 			</focusedlayout>
 		</control>
 	</include>
 
 
-
-
-	<include name="view_EPG-now">
+<!--GUIDE NOW-->
+	<include name="view_Guide-now">
 		<control type="group">
 			<left>39</left>
 			<include>transition_Content</include>
@@ -365,9 +363,8 @@
 	</include>
 
 
-
-<!--GUIDE NEXT VIEW-->
-	<include name="view_EPG-next">
+<!--GUIDE NEXT-->
+	<include name="view_Guide-next">
 		<control type="group">
 			<left>39</left>
 			<include>transition_Content</include>
@@ -526,13 +523,8 @@
 	</include>
 
 
-
-
-
-
-
-<!--GUIDE CHANNELS VIEW-->
-	<include name="view_EPG-channels">
+<!--GUIDE CHANNELS-->
+	<include name="view_Guide-channels">
 		<control type="group">
 			<left>39</left>
 			<include>transition_Content</include>
@@ -667,9 +659,327 @@
 		</control>
 	</include>
 
+	<include name="view_PVR-search">
+		<control type="group">
+			<left>35</left>
+			<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<control type="group">
+				<top>100</top>
+				<visible>Control.IsVisible(50)</visible>
+				<!--time-->
+				<control type="label">
+					<left>15</left>
+					<width>200</width>
+					<label>19148</label>
+					<include>column_Header</include>
+				</control>
+				<!--title-->
+				<control type="label">
+					<left>237</left>
+					<width>250</width>
+					<label>369</label>
+					<include>column_Header</include>
+				</control>
+				<!--date-->
+				<control type="label">
+					<left>829</left>
+					<width>550</width>
+					<label>552</label>
+					<include>column_Header</include>
+				</control>
+				<!--time-->
+				<control type="label">
+					<left>1080</left>
+					<width>140</width>
+					<label>555</label>
+					<include>column_Header</include>
+				</control>
+			</control>
+			<control type="list" id="50">
+				<top>135</top>
+				<width>1200</width>
+				<height>352</height>
+				<onup>17</onup>
+				<ondown>17</ondown>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<pagecontrol>70</pagecontrol>
+				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
+				<itemlayout height="44" width="1200">
+					<control type="group">
+						<control type="image">
+							<width>220</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+						<control type="image">
+							<left>222</left>
+							<width>593</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+						<control type="image">
+							<left>817</left>
+							<width>246</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+						<control type="image">
+							<left>1065</left>
+							<width>135</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+					</control>
+					<control type="group">
+						<left>15</left>
+						<control type="label" id="1">
+							<width>190</width>
+							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
+							<include>column_CommonListItem</include>
+						</control>
+						<control type="label" id="1">
+							<left>222</left>
+							<width>563</width>
+							<label>$INFO[ListItem.Label]</label>
+							<include>column_CommonListItem</include>
+						</control>
+						<control type="label" id="1">
+							<left>817</left>
+							<width>216</width>
+							<label>$INFO[ListItem.StartDate]</label>
+							<include>column_CommonListItem</include>
+						</control>
+						<control type="label" id="1">
+							<left>1065</left>
+							<width>105</width>
+							<label>$INFO[ListItem.StartTime]</label>
+							<include>column_CommonListItem</include>
+						</control>
+					</control>
+					<control type="image">
+						<left>781</left>
+						<top>10</top>
+						<width>22</width>
+						<height>22</height>
+						<texture>$VAR[pvr:Status]</texture>
+						<visible>!IsEmpty(ListItem.ChannelName)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="44" width="1200">
+					<control type="image">
+						<width>1200</width>
+						<height>42</height>
+						<texture>views/column-fo.png</texture>
+						<colordiffuse>column1</colordiffuse>
+					</control>
+					<control type="group">
+						<left>15</left>
+						<control type="label" id="1">
+							<width>190</width>
+							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+						<control type="label" id="1">
+							<left>222</left>
+							<width>563</width>
+							<label>$INFO[ListItem.Label]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+						<control type="label" id="1">
+							<left>817</left>
+							<width>216</width>
+							<label>$INFO[ListItem.StartDate]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+						<control type="label" id="1">
+							<left>1065</left>
+							<width>105</width>
+							<label>$INFO[ListItem.StartTime]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+					</control>
+					<control type="image">
+						<left>781</left>
+						<top>11</top>
+						<width>22</width>
+						<height>22</height>
+						<texture>$VAR[pvr:Status]</texture>
+						<colordiffuse>Color4</colordiffuse>
+						<visible>!IsEmpty(ListItem.ChannelName)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
 
-
-
-
-
+	<include name="view_PVR-timers">
+		<control type="group">
+			<left>35</left>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<control type="group">
+				<top>100</top>
+				<visible>Control.IsVisible(50)</visible>
+				<!--time-->
+				<control type="label">
+					<left>15</left>
+					<width>200</width>
+					<label>$LOCALIZE[555]</label>
+					<include>column_Header</include>
+				</control>
+				<!--title-->
+				<control type="label">
+					<left>137</left>
+					<width>250</width>
+					<label>$LOCALIZE[369]</label>
+					<include>column_Header</include>
+				</control>
+				<!--date-->
+				<control type="label">
+					<left>954</left>
+					<width>690</width>
+					<label>$LOCALIZE[552]</label>
+					<include>column_Header</include>
+				</control>
+			</control>
+			<control type="list" id="50">
+				<top>135</top>
+				<width>screen_Width</width>
+				<height>440</height>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
+				<itemlayout height="44">
+					<control type="group">
+						<control type="image">
+							<width>135</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+						<control type="image">
+							<left>137</left>
+							<width>817</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+						<control type="image">
+							<left>954</left>
+							<width>246</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+					</control>
+					<control type="group">
+						<posx>15</posx>
+						<control type="label" id="1">
+							<width>135</width>
+							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+							<include>column_CommonListItem</include>
+						</control>
+						<control type="label">
+							<left>137</left>
+							<width>637</width>
+							<label>$INFO[ListItem.Label]</label>
+							<include>column_CommonListItem</include>
+						</control>
+						<control type="label">
+							<left>954</left>
+							<width>553</width>
+							<label>$INFO[ListItem.StartDate]</label>
+							<include>column_CommonListItem</include>
+						</control>
+					</control>
+					<control type="image">
+						<left>920</left>
+						<top>10</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>pvr/status/none-nf.png</texture>
+						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					</control>
+					<control type="image">
+						<left>920</left>
+						<top>10</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>pvr/status/recording.png</texture>
+						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					</control>
+					<control type="image">
+						<left>920</left>
+						<top>10</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>pvr/status/enabled.png</texture>
+						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="44">
+					<control type="image">
+						<width>1200</width>
+						<height>42</height>
+						<include>column_CommonListFocus</include>
+					</control>
+					<control type="group">
+						<posx>15</posx>
+						<control type="label" id="1">
+							<width>135</width>
+							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+						<control type="label">
+							<left>137</left>
+							<width>637</width>
+							<label>$INFO[ListItem.Label]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+						<control type="label">
+							<left>954</left>
+							<width>553</width>
+							<label>$INFO[ListItem.StartDate]</label>
+							<include>column_CommonListItem-focus</include>
+						</control>
+					</control>
+					<control type="image">
+						<left>920</left>
+						<top>10</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>pvr/status/none-fo.png</texture>
+						<colordiffuse>column2</colordiffuse>
+						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					</control>
+					<control type="image">
+						<left>920</left>
+						<top>10</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>pvr/status/recording.png</texture>
+						<colordiffuse>column2</colordiffuse>
+						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					</control>
+					<control type="image">
+						<left>920</left>
+						<top>10</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>pvr/status/enabled.png</texture>
+						<colordiffuse>column2</colordiffuse>
+						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
 </includes>
