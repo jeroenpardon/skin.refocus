@@ -863,7 +863,6 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			
 			<control type="grouplist">
 				<itemgap>0</itemgap>
 				<control type="group">
@@ -913,66 +912,8 @@
 					<include>detail_Text</include>
 				</control>
 			</control>
-			
-
-
-
-<!--
-			<control type="grouplist">
-				<top>315</top>
-				<itemgap>0</itemgap>
-				<visible>!VideoPlayer.Content(livetv)</visible>
-				<control type="label" id="1">
-					<width>532</width>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<include>detail_Title</include>
-				</control>
-				<control type="label" id="1">
-					<width>532</width>
-					<label>$INFO[VideoPlayer.Label]</label>
-					<include>detail_Title</include>
-					<visible>IsEmpty(VideoPlayer.Title)</visible>
-				</control>
-				<control type="label" id="1">
-					<width>532</width>
-					<label>$INFO[VideoPlayer.Time(hh:mm:ss),, / ]$INFO[VideoPlayer.Duration(hh:mm:ss),, • ]$INFO[Player.FinishTime,$LOCALIZE[31323] ]</label>
-					<include>detail_Sub</include>
-				</control>
-				<control type="textbox" id="4">
-					<width>532</width>
-					<height>220</height>
-					<aligny>top</aligny>
-					<label>$INFO[VideoPlayer.Plot]</label>
-					<include>detail_Text</include>
-				</control>
-			</control>
-			<control type="grouplist">
-				<top>315</top>
-				<itemgap>0</itemgap>
-				<visible>Window.IsActive(tvchannels)</visible>
-				<control type="label" id="1">
-					<width>532</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>detail_Title</include>
-				</control>
-				<control type="label" id="1">
-					<width>532</width>
-					<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime,, • ]$LOCALIZE[209]$INFO[ListItem.NextTitle,: ]</label>
-					<include>detail_Sub</include>
-				</control>
-				<control type="textbox" id="4">
-					<width>532</width>
-					<height>220</height>
-					<aligny>top</aligny>
-					<label>$INFO[ListItem.Plot]</label>
-					<include>detail_Text</include>
-				</control>
-			</control>
--->
-	
 		</control>
 	</include>
-
 
 
 <!--WINDOW TITLES-->
