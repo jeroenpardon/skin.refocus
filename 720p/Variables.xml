@@ -509,15 +509,15 @@
 	</variable>
 
 	<variable name="toast:Bottom">
-		<value condition="[Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$LOCALIZE[19157]$INFO[Pvr.NextRecordingTitle,: ]</value>
-		<value condition="[Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$LOCALIZE[19043]$INFO[Pvr.NowRecordingTitle,: ]</value>
+		<value condition="[Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$LOCALIZE[19157]$INFO[Pvr.NextRecordingTitle,: ]</value>
+		<value condition="[Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$LOCALIZE[19043]$INFO[Pvr.NowRecordingTitle,: ]</value>
 		<value condition="!Window.IsActive(fullscreenvideo)">$INFO[System.Date(DDD)] $INFO[System.Date(d)] $INFO[System.Date(MMM)]</value>
 		<value condition="Window.IsActive(fullscreenvideo)">$LOCALIZE[31323] $INFO[Player.FinishTime]</value>
 	</variable>
 
 	<variable name="toast:Icon">
-		<value condition="IntegerGreaterThan(Player.Volume,0) + [Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$INFO[Pvr.NextRecordingChannelIcon]</value>
-		<value condition="IntegerGreaterThan(Player.Volume,0) + [Window.IsActive(PVR) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$INFO[Pvr.NowRecordingChannelIcon]</value>
+		<value condition="IntegerGreaterThan(Player.Volume,0) + [Window.IsActive(tvchannels) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer">$INFO[Pvr.NextRecordingChannelIcon]</value>
+		<value condition="IntegerGreaterThan(Player.Volume,0) + [Window.IsActive(tvchannels) | Window.IsActive(Home)] + Skin.HasSetting(overlay.pvr) + PVR.IsRecording">$INFO[Pvr.NowRecordingChannelIcon]</value>
 		<value condition="IntegerGreaterThan(Player.Volume,0) + Weather.IsFetched">$INFO[Window(weather).Property(Current.FanartCode),weather/small/,.png]</value>
 		<value>weather/small/na.png</value>
 	</variable>
