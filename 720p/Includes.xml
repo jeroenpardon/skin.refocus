@@ -854,7 +854,12 @@
 		<righttexture border="0" colordiffuse="Color1">colorize/100.png</righttexture>
 	</include>
 
-
+	<include name="container_Unfocus">
+		<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
+	</include>
+	<include name="container_Focus">
+		<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
+	</include>
 
 	<include name="player_Preview">
 		<control type="group">
