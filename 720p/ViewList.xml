@@ -81,7 +81,6 @@
 					<include>status_List</include>
 				</control>
 			</itemlayout>
-
 			<itemlayout condition="Window.IsActive(tvchannels)" width="620" height="68">
 				<control type="group">
 					<left>5</left>
@@ -132,63 +131,6 @@
 				</control>
 			</itemlayout>
 
-			<focusedlayout condition="Window.IsActive(tvchannels)" width="620" height="68">
-				<control type="image">
-					<width>620</width>
-					<height>69</height>
-					<texture>views/focus.png</texture>
-				</control>
-				<control type="group">
-					<left>5</left>
-					<top>5</top>
-					<control type="image">	
-						<width>54</width>
-						<height>54</height>
-						<texture>thumbs/default_Square.png</texture>
-					</control>
-					<control type="image">
-						<width>54</width>
-						<height>54</height>
-						<texture fallback="LiveTV.png">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-					<control type="progress">
-						<top>56</top>
-						<width>54</width>
-						<height>3</height>
-						<reveal>true</reveal>
-						<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
-						<lefttexture colordiffuse="Color2">-</lefttexture>
-						<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-						<righttexture colordiffuse="Color2">-</righttexture>
-						<info>ListItem.Progress</info>
-					</control>
-				</control>
-				<control type="group">
-					<left>80</left>
-					<top>6</top>
-					<control type="label">
-						<width>515</width>
-						<height>27</height>
-						<label>$VAR[media:Title]</label>
-						<include>container_Title-focus</include>
-					</control>
-					<control type="label">
-						<top>22</top>
-						<width>515</width>
-						<label>$VAR[media:Info]</label>
-						<include>container_Sub-focus</include>
-					</control>
-				</control>
-				<control type="image">
-					<right>10</right>
-					<top>23</top>
-					<include>pvr_Status-fo</include>
-				</control>
-			</focusedlayout>
-
-
-
-
 			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + !Container.HasFolders]" width="620" height="67">
 				<control type="group">
 					<include>container_Focus</include>
@@ -238,6 +180,111 @@
 					<control type="image">
 						<texture colordiffuse="Color3">$VAR[flag:Status.List]</texture>
 						<include>status_List</include>
+					</control>
+				</control>
+			</focusedlayout>
+			<focusedlayout condition="Window.IsActive(tvchannels)" width="620" height="68">
+				<control type="group">
+					<include>container_Focus</include>
+					<control type="image">
+						<width>620</width>
+						<height>69</height>
+						<texture>views/focus.png</texture>
+					</control>
+					<control type="group">
+						<left>5</left>
+						<top>5</top>
+						<control type="image">	
+							<width>54</width>
+							<height>54</height>
+							<texture>thumbs/default_Square.png</texture>
+						</control>
+						<control type="image">
+							<width>54</width>
+							<height>54</height>
+							<texture fallback="LiveTV.png">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="progress">
+							<top>56</top>
+							<width>54</width>
+							<height>3</height>
+							<reveal>true</reveal>
+							<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
+							<lefttexture colordiffuse="Color2">-</lefttexture>
+							<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
+							<righttexture colordiffuse="Color2">-</righttexture>
+							<info>ListItem.Progress</info>
+						</control>
+					</control>
+					<control type="group">
+						<left>80</left>
+						<top>6</top>
+						<control type="label">
+							<width>515</width>
+							<height>27</height>
+							<label>$VAR[media:Title]</label>
+							<include>container_Title-focus</include>
+						</control>
+						<control type="label">
+							<top>22</top>
+							<width>515</width>
+							<label>$VAR[media:Info]</label>
+							<include>container_Sub-focus</include>
+						</control>
+					</control>
+					<control type="image">
+						<right>10</right>
+						<top>23</top>
+						<include>pvr_Status-fo</include>
+					</control>
+				</control>
+				<control type="group">
+					<include>container_Unfocus</include>
+					<control type="group">
+						<left>5</left>
+						<top>5</top>
+						<control type="image">	
+							<width>54</width>
+							<height>54</height>
+							<texture>thumbs/default_Square.png</texture>
+						</control>
+						<control type="image">
+							<width>54</width>
+							<height>54</height>
+							<texture fallback="LiveTV.png">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="progress">
+							<top>56</top>
+							<width>54</width>
+							<height>3</height>
+							<reveal>true</reveal>
+							<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
+							<lefttexture colordiffuse="Color2">-</lefttexture>
+							<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
+							<righttexture colordiffuse="Color2">-</righttexture>
+							<info>ListItem.Progress</info>
+						</control>
+					</control>
+					<control type="group">
+						<left>80</left>
+						<top>6</top>
+						<control type="label">
+							<width>515</width>
+							<height>27</height>
+							<label>$VAR[media:Title]</label>
+							<include>container_Title</include>
+						</control>
+						<control type="label">
+							<top>22</top>
+							<width>515</width>
+							<label>$VAR[media:Info]</label>
+							<include>container_Sub</include>
+						</control>
+					</control>
+					<control type="image">
+						<right>10</right>
+						<top>23</top>
+						<include>pvr_Status</include>
 					</control>
 				</control>
 			</focusedlayout>
