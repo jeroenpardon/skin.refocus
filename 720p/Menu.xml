@@ -800,33 +800,9 @@
 			<include>menu_Commons</include>
 			<control type="grouplist" id="6000">
 				<include>menu_ContainerCommons</include>
-
-			<!--view options-->
-				<control type="label" id="199">
-					<label>$LOCALIZE[582]</label>
-					<include>menu_Header</include>
-					<visible>Window.IsActive(TVRecordings) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
-				</control>
-				<control type="button" id="2">
-					<label>-</label>
-					<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
-					<onback>PreviousMenu</onback>
-					<include>menu_Button</include>
-				</control>
-				<!--group recordings-->
-				<control type="radiobutton" id="5">
-					<label>$LOCALIZE[19270]</label>
-					<onback>PreviousMenu</onback>
-					<include>menu_RadioButton</include>
-					<include>menu_Button</include>
-					<visible>Window.IsActive(TVRecordings)</visible>
-				</control>
-				<!--sorting-->
-				<include>menu_Sorting</include>
-
-			<!--options-->
+			<!--actions-->
 				<control type="label" id="203">
-					<label>$LOCALIZE[33063]</label>
+					<label>$LOCALIZE[31406]</label>
 					<include>menu_Header</include>
 				</control>
 				<!--tv channels-->
@@ -872,7 +848,33 @@
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
-
+			<!--view options-->
+				<control type="label" id="198">
+					<label>$LOCALIZE[582]</label>
+					<include>menu_Header</include>
+					<visible>Window.IsActive(TVRecordings) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
+				</control>
+				<control type="button" id="2">
+					<label>-</label>
+					<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
+					<onback>PreviousMenu</onback>
+					<include>menu_Button</include>
+				</control>
+				<!--group recordings-->
+				<control type="radiobutton" id="5">
+					<label>$LOCALIZE[19270]</label>
+					<onback>PreviousMenu</onback>
+					<include>menu_RadioButton</include>
+					<include>menu_Button</include>
+					<visible>Window.IsActive(TVRecordings)</visible>
+				</control>
+			<!--sorting-->
+				<include>menu_Sorting</include>
+			<!--options-->
+				<control type="label" id="199">
+					<label>$LOCALIZE[33063]</label>
+					<include>menu_Header</include>
+				</control>
 				<!--channel groups-->
 				<control type="button" id="28">
 					<label>-</label>
@@ -880,8 +882,6 @@
 					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
-				<!--filter-->
-				<include>menu_Filter</include>
 				<!--hidden channels-->
 				<control type="button" id="6">
 					<label>$LOCALIZE[19051]</label>
@@ -889,11 +889,14 @@
 					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
-				<!--commons-->
+				<!--filter-->
+				<include>menu_Filter</include>
+			<!--commons-->
 				<include>menu_Playing</include>
 			</control>
 		</control>
 	</include>
+
 
 <!--SETTINGS MENU-->
 	<include name="menu_Settings">
