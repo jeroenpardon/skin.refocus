@@ -10,8 +10,18 @@
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<onleft>6000</onleft>
-			<onright condition="!Window.IsActive(videoplaylist) | [Window.IsActive(videoplaylist) + !Player.HasVideo]">70</onright>
+			
+			
 			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
+			<onright condition="Window.IsActive(videoplaylist) + !Player.HasVideo">70</onright>
+
+			
+			<onright condition="Window.IsActive(tvchannels) + Player.HasVideo">99</onright>
+			<onright condition="Window.IsActive(tvchannels) + !Player.HasVideo">70</onright>
+
+			<onright>70</onright>
+			
+
 			<pagecontrol>70</pagecontrol>
 			<preloaditems>2</preloaditems>
 			<include>toggle_Menu</include>
