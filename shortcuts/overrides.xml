@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>	
+	<groupings>
+		<node label="::SCRIPT::32029">
+			<content>common</content>
+		</node>
+		<node label="::SCRIPT::32030">
+			<!--
+			<content>video</content>
+			-->
+			<content>movie</content>
+			<content>tvshow</content>
+			<content>musicvideo</content>
+			<node label="::SCRIPT::32040">
+				<shortcut label="::LOCAL::136" type="::SCRIPT::32014" icon="DefaultVideoPlaylists.png">ActivateWindow(Videos,Playlists,return)</shortcut>
+				<content>playlist-video</content>
+			</node>
+			<node label="::SCRIPT::32075">
+				<content>videosources</content>
+				<content>upnp-video</content>
+			</node>
+			<shortcut label="::LOCAL::1214" type="::SCRIPT::32014" icon="DefaultVideo.png">ActivateWindow(Videos,Files,return)</shortcut>
+			<content>customvideonode</content>
+		</node>
+		<node label="::SCRIPT::32031">
+			<content>music</content>
+			<node label="::SCRIPT::32040">
+				<content>playlist-audio</content>
+			</node>
+			<!--
+			<node label="::SCRIPT::32011">
+				<shortcut label="::LOCAL::1038" type="::SCRIPT::32019" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+				<content>addon-audio</content>
+			</node>
+			-->
+			<node label="::SCRIPT::32075">
+				<content>musicsources</content>
+				<content>upnp-music</content>
+			</node>
+		</node>
+		<node label="::SCRIPT::32017" condition="System.GetBool(pvrmanager.enabled)">
+			<node label="::LOCAL::19023">
+				<content>pvr-tv</content>
+			</node>
+			<node label="::LOCAL::19024">
+				<content>pvr-radio</content>
+			</node>
+			<content>pvr</content>
+		</node>
+		<node label="::SCRIPT::32007">
+			<node label="::SCRIPT::32009">
+				<shortcut label="::LOCAL::10001" type="::SCRIPT::32021" icon="DefaultAddonProgram.png">ActivateWindow(Programs,Addons,return)</shortcut>
+				<content>addon-program</content>
+			</node>
+			<node label="::SCRIPT::32010">
+				<shortcut label="::LOCAL::1037" type="::SCRIPT::32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+				<content>addon-video</content>
+			</node>
+			<node label="::SCRIPT::32011">
+				<shortcut label="::LOCAL::1038" type="::SCRIPT::32019" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+				<content>addon-audio</content>
+			</node>
+			<node label="::SCRIPT::32012">
+				<shortcut label="::LOCAL::1039" type="::SCRIPT::32020" icon="DefaultAddonPicture.png">ActivateWindow(Pictures,Addons,return)</shortcut>
+				<content>addon-image</content>
+			</node>
+		</node>
+		<node label="::SCRIPT::32006">
+			<content>favourite</content>
+		</node>
+		<node label="::SCRIPT::32054">
+			<content>commands</content>
+		</node>
+		<node label="::LOCAL::10004">
+ 			<content>settings</content>
+ 		</node>
+	</groupings>
+
+<!--CUSTOM SHORTCUTS-->
+	<!--in progress-->
+	<shortcut label="::LOCAL::575" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
+	<shortcut label="::LOCAL::575" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultInProgressShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,library://video/inprogressshows.xml,return)"</shortcut>
+	<!--recent-->
+	<shortcut label="::LOCAL::31705" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultRecentlyAddedMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,RecentlyAddedMovies,return)</shortcut>
+	<shortcut label="::LOCAL::31705" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultRecentlyAddedEpisodes.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,RecentlyAddedEpisodes,return)</shortcut>
+	<!--watchlist-->
+	<shortcut label="::LOCAL::31013" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultIconWatchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+	<shortcut label="::LOCAL::31013" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultIconWatchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+	<!--unwatched-->
+	<shortcut label="::LOCAL::16101" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
+	<shortcut label="::LOCAL::16101" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultTVShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return))</shortcut>
+	<!--trailers-->
+	<shortcut label="::LOCAL::31015" type="::SCRIPT::32015" grouping="movie" icon="DefaultMovies.png" condition="System.HasAddon(plugin.video.the.trailers)">ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</shortcut>
+	<!--TV Guide-->
+	<shortcut label="::LOCAL::31606" type="::SCRIPT::32009" grouping="tvshow" icon="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
+	<!--customize menu-->
+	<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
+	<!--system main menu-->
+	<shortcut label="::LOCAL::13000" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSettings.png">ActivateWindow(Settings)</shortcut>
+	<!--exit (shutdown menu)-->
+	<shortcut label="::LOCAL::13009" type="::SCRIPT::32054" grouping="commands">ActivateWindow(shutdownmenu)</shortcut>
+	<!--search-->
+	<shortcut label="137" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSearch.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
+	<!--now playing-->
+	<shortcut label="::LOCAL::31035" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
+	<override action="fullscreen">
+		<condition>Player.HasVideo</condition>
+	</override>
+	<override action="fullscreen">
+		<condition>Player.HasAudio</condition>
+		<action>ActivateWindow(musicplaylist)</action>
+	</override>
+
+	<!--settings removal warning-->
+	<warn heading="::LOCAL::19098" message="::LOCAL::31018">ActivateWindow(Settings)</warn>
+
+<!--LABEL OVERRIDES-->
+	<availableshortcutlabel action="ActivateWindow(Videos,RecentlyAddedMovies,return)" type="::SCRIPT::32015">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,RecentlyAddedEpisodes,return)" type="::SCRIPT::32016">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,RecentlyAddedMusicVideos,return)" type="::SCRIPT::32018">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)" type="::SCRIPT::32019">::LOCAL::31705</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)" type="::SCRIPT::32019">::LOCAL::31016</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(MusicLibrary,Addons,return)">::LOCAL::24001</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Videos,Addons,return)">::LOCAL::24001</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(Pictures,Addons,return)">::LOCAL::24001</availableshortcutlabel>
+
+<!--ICON OVERRIDES-->
+	<icon image="DefaultShortcut.png" grouping="commands">DefaultIconXBMC.png</icon>
+	<icon image="DefaultShortcut.png" grouping="settings">DefaultIconSettings.png</icon>
+	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
+	<icon labelID="music">DefaultMusicSongs.png</icon>
+	<icon labelID="programs">DefaultProgram.png</icon>
+	<icon labelID="settings">DefaultIconSettings.png</icon>
+	<icon labelID="weather">DefaultAddonWeather.png</icon>
+	<icon labelID="1036">DefaultIconFavourite.png</icon>
+	<icon labelID="10007">DefaultIconInfo.png</icon><!--system information-->
+	<icon labelID="10504">DefaultMusicTop100.png</icon>
+	<icon labelID="10505">DefaultMusicTop100.png</icon>
+	<icon labelID="livetv">LiveTV.png</icon><!--pvr grouping-->
+	<icon labelID="19023">LiveTV.png</icon><!--tv channels-->
+	<icon labelID="19024">LiveTV.png</icon><!--radio channels-->
+	<icon labelID="19069">LiveTV.png</icon><!--epg-->
+	<icon labelID="19163">LiveTV.png</icon><!--recordings-->
+	<icon labelID="32023">LiveTV.png</icon><!--timers-->
+	<icon labelID="32066">LiveTV.png</icon><!--last tv channel-->
+	<icon labelID="32067">LiveTV.png</icon><!--last radio channel-->
+	<icon labelID="32068">LiveTV.png</icon><!--last channel-->
+
+<!--WIDGETS-->
+	<widget label="31029" type="movies">WatchlistMovies</widget>
+	<widget label="31030" type="episodes">WatchlistEpisodes</widget>
+	<widget label="31031" type="mixed">RecentVideos</widget>
+	<widget label="20386" type="movies">RecentMovies</widget>
+	<widget label="20387" type="episodes">RecentEpisodes</widget>
+	<widget label="31036" type="movies">UnwatchedMovies</widget>
+	<widget label="359" type="music">RecentAlbums</widget>
+	<widget label="31032" type="music">RecommendedAlbums</widget>
+	<widget label="31035" type="info">NowPlaying</widget>
+	<widget label="8" type="info">Weather</widget>
+	<widgetdefault labelID="movies" type="movies">RecentMovies</widgetdefault>
+	<widgetdefault labelID="tvshows" type="episodes">WatchlistEpisodes</widgetdefault>
+	<widgetdefault labelID="music" type="music">RecentAlbums</widgetdefault>
+	<widgetdefault labelID="videos" type="mixed">RecentVideos</widgetdefault>
+	<widgetdefault labelID="weather" type="info">Weather</widgetdefault>
+	<widgetPlaylists type="playlist">True</widgetPlaylists>
+</overrides>
