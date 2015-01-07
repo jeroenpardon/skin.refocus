@@ -10,18 +10,11 @@
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<onleft>6000</onleft>
-			
-			
 			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
 			<onright condition="Window.IsActive(videoplaylist) + !Player.HasVideo">70</onright>
-
-			
 			<onright condition="Window.IsActive(tvchannels) + Player.HasVideo">99</onright>
 			<onright condition="Window.IsActive(tvchannels) + !Player.HasVideo">70</onright>
-
 			<onright>70</onright>
-			
-
 			<pagecontrol>70</pagecontrol>
 			<preloaditems>2</preloaditems>
 			<include>toggle_Menu</include>
@@ -125,13 +118,12 @@
 					</control>
 				</control>
 				<control type="image">
-					<right>10</right>
-					<top>23</top>
 					<include>pvr_Status</include>
+					<include>status_List</include>
 				</control>
 			</itemlayout>
 
-			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + !Container.HasFolders]" width="620" height="67">
+			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + !Container.HasFolders]" width="620" height="67">
 				<control type="group">
 					<include>container_Focus</include>
 					<control type="image">
@@ -233,10 +225,9 @@
 						</control>
 					</control>
 					<control type="image">
-						<right>10</right>
-						<top>23</top>
-						<include>pvr_Status-fo</include>
-					</control>
+					<include>pvr_Status-fo</include>
+					<include>status_List</include>
+				</control>
 				</control>
 				<control type="group">
 					<include>container_Unfocus</include>
@@ -282,9 +273,8 @@
 						</control>
 					</control>
 					<control type="image">
-						<right>10</right>
-						<top>23</top>
 						<include>pvr_Status</include>
+						<include>status_List</include>
 					</control>
 				</control>
 			</focusedlayout>
