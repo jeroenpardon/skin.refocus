@@ -389,12 +389,8 @@
 			<onleft condition="Window.IsActive(SettingsCategory.xml)">5</onleft>
 			<onleft condition="[Window.IsActive(videoplaylist) | Window.IsActive(tvchannels)] + Player.HasVideo">99</onleft>
 			<onleft condition="[Window.IsActive(videoplaylist) | Window.IsActive(tvchannels)] + !Player.HasVideo">50</onleft>
-
-
-			
 			<onleft>50</onleft>
-			
-			<visible>![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<visible>![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + ![Window.IsActive(tvguide) + Control.IsVisible(10)]</visible>
 		</control>
 		<!--horizontal-->
 		<control type="scrollbar" id="71">
