@@ -198,6 +198,38 @@
 								<label>$INFO[ListItem.Label2]</label>
 								<include>dialog_CommonListItemFocus</include>
 							</control>
+							<control type="group">
+								<left>670</left>
+								<top>8</top>
+								<control type="image">
+									<width>24</width>
+									<height>24</height>
+									<texture colordiffuse="glyph_fo">flags/subtitles/icon_cc.png</texture>
+									<visible>ListItem.property(hearing_imp)</visible>
+								</control>
+								<control type="image">
+									<left>50</left>
+									<width>24</width>
+									<height>24</height>
+									<texture colordiffuse="glyph_fo">flags/subtitles/icon_sync.png</texture>
+									<visible>ListItem.property(sync)</visible>
+								</control>
+								<control type="image">
+									<left>88</left>
+									<width>128</width>
+									<height>22</height>
+									<texture colordiffuse="glyph_fo">rating/rating0.png</texture>
+									<aspectratio>keep</aspectratio>
+									<visible>IsEmpty(ListItem.ActualIcon.png)</visible>
+								</control>
+								<control type="image">
+									<left>88</left>
+									<width>128</width>
+									<height>22</height>
+									<aspectratio>keep</aspectratio>
+									<texture colordiffuse="glyph_fo">rating/rating$INFO[ListItem.ActualIcon].png</texture>
+								</control>
+							</control>
 						</control>
 						<control type="image">
 							<left>8</left>
@@ -205,39 +237,6 @@
 							<width>32</width>
 							<height>32</height>
 							<texture>flags/subtitles/flags/$INFO[ListItem.Thumb].png</texture>
-						</control>
-						<control type="group">
-							<left>670</left>
-							<top>8</top>
-							<visible>Control.HasFocus(120)</visible>
-							<control type="image">
-								<width>24</width>
-								<height>24</height>
-								<texture colordiffuse="glyph_fo">flags/subtitles/icon_cc.png</texture>
-								<visible>ListItem.property(hearing_imp)</visible>
-							</control>
-							<control type="image">
-								<left>50</left>
-								<width>24</width>
-								<height>24</height>
-								<texture colordiffuse="glyph_fo">flags/subtitles/icon_sync.png</texture>
-								<visible>ListItem.property(sync)</visible>
-							</control>
-							<control type="image">
-								<left>88</left>
-								<width>128</width>
-								<height>22</height>
-								<texture colordiffuse="glyph_fo">rating/rating0.png</texture>
-								<aspectratio>keep</aspectratio>
-								<visible>IsEmpty(ListItem.ActualIcon.png)</visible>
-							</control>
-							<control type="image">
-								<left>88</left>
-								<width>128</width>
-								<height>22</height>
-								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="glyph_fo">rating/rating$INFO[ListItem.ActualIcon].png</texture>
-							</control>
 						</control>
 						<control type="group">
 							<left>670</left>
