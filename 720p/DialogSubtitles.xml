@@ -9,19 +9,19 @@
 		<control type="group" id="250">
 			<include>transition_Dialog</include>
 			<control type="image">
-				<width>1100</width>
+				<width>1150</width>
 				<height>630</height>
 				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="140">
-				<width>1092</width>
+				<width>1192</width>
 				<label>$LOCALIZE[287]</label>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
 				<left>4</left>
 				<top>55</top>
-				<width>1092</width>
+				<width>1142</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image" id="110">
@@ -33,7 +33,7 @@
 				<top>55</top>
 				<control type="image">
 					<top>38</top>
-					<width>1092</width>
+					<width>1142</width>
 					<include>dialog_SectionSeparator</include>
 				</control>
 				<control type="image">
@@ -109,7 +109,7 @@
 				<control type="list" id="120">
 					<left>250</left>
 					<top>40</top>
-					<width>1092</width>
+					<width>892</width>
 					<height>520</height>
 					<onleft>150</onleft>
 					<onright>-</onright>
@@ -124,7 +124,7 @@
 						</control>
 						<control type="label">
 							<left>48</left>
-							<width>560</width>
+							<width>590</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
@@ -136,7 +136,7 @@
 							<texture>flags/subtitles/flags/$INFO[ListItem.Thumb].png</texture>
 						</control>
 						<control type="group">
-							<left>640</left>
+							<left>670</left>
 							<top>8</top>
 							<control type="image">
 								<width>24</width>
@@ -145,14 +145,14 @@
 								<visible>ListItem.property(hearing_imp)</visible>
 							</control>
 							<control type="image">
-								<left>44</left>
+								<left>50</left>
 								<width>24</width>
 								<height>24</height>
 								<texture colordiffuse="glyph_nf">flags/subtitles/icon_sync.png</texture>
 								<visible>ListItem.property(sync)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<left>88</left>
 								<width>128</width>
 								<height>22</height>
 								<texture colordiffuse="glyph_nf">rating/rating0.png</texture>
@@ -160,9 +160,10 @@
 								<visible>IsEmpty(ListItem.ActualIcon.png)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<left>88</left>
 								<width>128</width>
 								<height>22</height>
+								<aspectratio>keep</aspectratio>
 								<texture colordiffuse="glyph_nf">rating/rating$INFO[ListItem.ActualIcon].png</texture>
 							</control>
 						</control>
@@ -171,14 +172,14 @@
 						<control type="group">
 							<visible>!Control.HasFocus(120)</visible>
 							<control type="image">
-								<width>842</width>
+								<width>892</width>
 								<height>40</height>
 								<include>dialog_CommonList</include>
 								<visible>!Control.HasFocus(120)</visible>
 							</control>
 							<control type="label">
 								<left>48</left>
-								<width>560</width>
+								<width>590</width>
 								<label>$INFO[ListItem.Label2]</label>
 								<include>dialog_CommonListItem</include>
 								<visible>!Control.HasFocus(120)</visible>
@@ -187,13 +188,13 @@
 						<control type="group">
 							<visible>Control.HasFocus(120)</visible>
 							<control type="image">
-								<width>842</width>
+								<width>892</width>
 								<height>40</height>
 								<include>dialog_CommonListFocus</include>
 							</control>
 							<control type="label">
 								<left>48</left>
-								<width>560</width>
+								<width>590</width>
 								<label>$INFO[ListItem.Label2]</label>
 								<include>dialog_CommonListItemFocus</include>
 							</control>
@@ -206,39 +207,7 @@
 							<texture>flags/subtitles/flags/$INFO[ListItem.Thumb].png</texture>
 						</control>
 						<control type="group">
-							<left>640</left>
-							<top>8</top>
-							<visible>!Control.HasFocus(120)</visible>
-							<control type="image">
-								<width>24</width>
-								<height>24</height>
-								<texture colordiffuse="glyph_nf">flags/subtitles/icon_cc.png</texture>
-								<visible>ListItem.property(hearing_imp)</visible>
-							</control>
-							<control type="image">
-								<left>44</left>
-								<width>24</width>
-								<height>24</height>
-								<texture colordiffuse="glyph_nf">flags/subtitles/icon_sync.png</texture>
-								<visible>ListItem.property(sync)</visible>
-							</control>
-							<control type="image">
-								<left>74</left>
-								<width>128</width>
-								<height>22</height>
-								<texture colordiffuse="glyph_nf">rating/rating0.png</texture>
-								<aspectratio>keep</aspectratio>
-								<visible>IsEmpty(ListItem.ActualIcon.png)</visible>
-							</control>
-							<control type="image">
-								<left>74</left>
-								<width>128</width>
-								<height>22</height>
-								<texture colordiffuse="glyph_nf">rating/rating$INFO[ListItem.ActualIcon].png</texture>
-							</control>
-						</control>
-						<control type="group">
-							<left>640</left>
+							<left>670</left>
 							<top>8</top>
 							<visible>Control.HasFocus(120)</visible>
 							<control type="image">
@@ -248,14 +217,14 @@
 								<visible>ListItem.property(hearing_imp)</visible>
 							</control>
 							<control type="image">
-								<left>44</left>
+								<left>50</left>
 								<width>24</width>
 								<height>24</height>
 								<texture colordiffuse="glyph_fo">flags/subtitles/icon_sync.png</texture>
 								<visible>ListItem.property(sync)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<left>88</left>
 								<width>128</width>
 								<height>22</height>
 								<texture colordiffuse="glyph_fo">rating/rating0.png</texture>
@@ -263,13 +232,46 @@
 								<visible>IsEmpty(ListItem.ActualIcon.png)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<left>88</left>
 								<width>128</width>
 								<height>22</height>
+								<aspectratio>keep</aspectratio>
 								<texture colordiffuse="glyph_fo">rating/rating$INFO[ListItem.ActualIcon].png</texture>
 							</control>
 						</control>
-					
+						<control type="group">
+							<left>670</left>
+							<top>8</top>
+							<visible>!Control.HasFocus(120)</visible>
+							<control type="image">
+								<width>24</width>
+								<height>24</height>
+								<texture colordiffuse="glyph_nf">flags/subtitles/icon_cc.png</texture>
+								<visible>ListItem.property(hearing_imp)</visible>
+							</control>
+							<control type="image">
+								<left>50</left>
+								<width>24</width>
+								<height>24</height>
+								<texture colordiffuse="glyph_nf">flags/subtitles/icon_sync.png</texture>
+								<visible>ListItem.property(sync)</visible>
+							</control>
+							<control type="image">
+								<left>88</left>
+								<width>128</width>
+								<height>22</height>
+								<texture colordiffuse="glyph_nf">rating/rating0.png</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>IsEmpty(ListItem.ActualIcon.png)</visible>
+							</control>
+							<control type="image">
+								<left>88</left>
+								<width>128</width>
+								<height>22</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="glyph_nf">rating/rating$INFO[ListItem.ActualIcon].png</texture>
+							</control>
+						</control>
 					</focusedlayout>
 				</control>
 			</control>
