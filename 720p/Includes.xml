@@ -919,6 +919,7 @@
 
 <!--WINDOW TITLES-->
 	<include name="windowTitle">
+		<left>32</left>
 		<top>15</top>
 		<width>950</width>
 		<aligny>center</aligny>
@@ -926,68 +927,59 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk) + ![Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(filemanager)]">Conditional</animation>
+		<animation effect="slide" end="27" time="0" condition="[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(videofiles) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | Window.IsActive(weather) | Window.IsActive(programs) | Window.IsActive(addonbrowser) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(servicesettings) | Window.IsActive(appearancesettings) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radioguide) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)] + !Skin.HasSetting(global.kiosk)">Conditional</animation>
 		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 	</include>
 	<include name="windowTitle_Video">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Video]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>		
 	<include name="windowTitle_Music">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Music]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Pictures">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Pictures]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Programs">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Programs]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_System">
 		<control type="label">
-			<left>32</left>
 			<label>$VAR[window:Title.System]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Addons">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Addons]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_PVR">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.PVR]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Playlists">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Playlists]</label>
 			<include>windowTitle</include>
 		</control>
 	</include>
 	<include name="windowTitle_Weather">
 		<control type="label">
-			<left>59</left>
 			<label>$VAR[window:Title.Weather]</label>
 			<include>windowTitle</include>
 		</control>
