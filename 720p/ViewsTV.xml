@@ -73,16 +73,16 @@
 			<align>left</align>
 			<label>$INFO[ListItem.Label]</label>
 			<include>column_CommonListItem</include>
-			<visible>!ListItem.HasTimer</visible>
+			<visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
 		</control>
 		<control type="label" id="1">
-			<left>8</left>
+			<left>40</left>
 			<width>84</width>
 			<height>44</height>
 			<align>left</align>
 			<label>$INFO[ListItem.Label]</label>
 			<include>column_CommonListItem</include>
-			<visible>ListItem.HasTimer</visible>
+			<visible>ListItem.HasTimer | ListItem.IsRecording</visible>
 		</control>
 		<control type="image">
 			<left>10</left>
@@ -92,6 +92,15 @@
 			<texture>pvr/status/timer.png</texture>
 			<colordiffuse>Color1</colordiffuse>
 			<visible>ListItem.HasTimer</visible>
+		</control>
+		<control type="image">
+			<left>10</left>
+			<top>12</top>
+			<width>22</width>
+			<height>22</height>
+			<texture>pvr/status/recording.png</texture>
+			<colordiffuse>Color1</colordiffuse>
+			<visible>ListItem.IsRecording</visible>
 		</control>
 	</include>
 	<include name="view_Guide-timeline">
