@@ -433,7 +433,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]] + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
+			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]] | [Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
 			<itemlayout width="404" height="286">
 				<include>view_ThumbEpisode-ContainerCommons</include>
 				<control type="group">
@@ -638,7 +638,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)]</visible>
+			<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)] | [Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)]</visible>
 			<itemlayout width="520" height="85">
 				<include>view_Tiles-ContainerCommons</include>
 				<control type="group">
