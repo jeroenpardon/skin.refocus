@@ -904,6 +904,13 @@
 					<width>532</width>
 					<label>$VAR[media:Info]</label>
 					<include>detail_Sub</include>
+					<visible>![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)]</visible>
+				</control>
+				<control type="label">
+					<width>532</width>
+					<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Genre, • ]</label>
+					<include>detail_Sub</include>
+					<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
 				</control>
 				<control type="textbox">
 					<width>532</width>
