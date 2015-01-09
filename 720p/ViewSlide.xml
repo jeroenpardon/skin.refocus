@@ -168,7 +168,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)] | Window.IsActive(tvrecordings)</visible>
 			<itemlayout width="445" height="259">
 				<include>view_SlideLandscape-ContainerCommons</include>
 			</itemlayout>
