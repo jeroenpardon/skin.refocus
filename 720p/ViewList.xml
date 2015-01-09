@@ -9,11 +9,10 @@
 			<visible>Control.IsVisible(50)</visible>
 			<!--landscape-->
 			<control type="group">
-				<visible>Control.IsVisible(50)</visible>
 				<control type="group">
 					<left>680</left>
 					<top>90</top>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | [Container.Content(episodes) | Container.Content(artists)] | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
+					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(artists) | [[Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + Container.HasFiles]</visible>
 					<control type="image">
 						<width>546</width>
 						<height>309</height>
@@ -22,7 +21,7 @@
 					<control type="group">
 						<left>7</left>
 						<top>7</top>
-						<control type="image">	
+						<control type="image">
 							<width>532</width>
 							<height>295</height>
 							<texture background="true">thumbs/default_Landscape.png</texture>
@@ -66,7 +65,6 @@
 			<control type="group">
 				<left>750</left>
 				<top>80</top>
-				<visible>Control.IsVisible(50)</visible>
 				<control type="group">
 					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
 					<control type="image">
