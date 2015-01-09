@@ -854,11 +854,11 @@
 					<include>menu_Header</include>
 					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 				</control>
-				<control type="button" id="2">
-					<label>-</label>
-					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
-					<onback>PreviousMenu</onback>
+				<control type="button" id="4">
+					<label>$LOCALIZE[31114]$INFO[Container.ViewMode,: ]</label>
 					<include>menu_Button</include>
+					<onclick>SetFocus(4000)</onclick>
+					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 				</control>
 				<!--group recordings-->
 				<control type="radiobutton" id="5">
@@ -893,6 +893,83 @@
 				<include>menu_Filter</include>
 			<!--commons-->
 				<include>menu_Playing</include>
+			</control>
+
+			<!--viewtypes-->
+			<control type="group">	
+				<control type="grouplist" id="4000">
+					<include>menu_SubContainerCommons</include>
+					<control type="label" id="401">
+						<label>$LOCALIZE[31100]</label>
+						<include>menu_Header</include>
+					</control>
+					<!--guide timeline-->
+					<control type="button" id="402">
+						<label>$LOCALIZE[19032]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(10)</onclick>
+						<onclick>SetFocus(10)</onclick>
+						<onclick>Container.Refresh</onclick>
+						<visible>Window.IsActive(tvguide)</visible>
+					</control>
+					<!--guide now-->
+					<control type="button" id="403">
+						<label>$LOCALIZE[19030]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(11)</onclick>
+						<visible>Window.IsActive(tvguide)</visible>
+					</control>
+					<!--guide now-->
+					<control type="button" id="404">
+						<label>$LOCALIZE[19031]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(12)</onclick>
+						<visible>Window.IsActive(tvguide)</visible>
+					</control>
+					<!--guide channels-->
+					<control type="button" id="405">
+						<label>$LOCALIZE[19029]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(13)</onclick>
+						<visible>Window.IsActive(tvguide)</visible>
+					</control>
+					<!--recordings list-->
+					<control type="button" id="410">
+						<label>$LOCALIZE[535]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(50)</onclick>
+						<visible>Window.IsActive(tvrecordings)</visible>
+					</control>
+					<!--recordings slide-->
+					<control type="button" id="411">
+						<label>$LOCALIZE[31112]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(521)</onclick>
+						<visible>Window.IsActive(tvrecordings)</visible>
+					</control>
+					<!--recordings thumbnails-->
+					<control type="button" id="412">
+						<label>$LOCALIZE[31113]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(575)</onclick>
+						<visible>Window.IsActive(tvrecordings)</visible>
+					</control>
+					<!--recordings tiles-->
+					<control type="button" id="413">
+						<label>$LOCALIZE[31109]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(58)</onclick>
+						<visible>Window.IsActive(tvrecordings)</visible>
+					</control>
+				</control>
 			</control>
 		</control>
 	</include>
