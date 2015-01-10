@@ -80,6 +80,7 @@
 			<include>fadeinout</include>
 			<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + ![Skin.HasSetting(widgetheader.disable) + Control.HasFocus(9000)]</visible>
 			<visible>![!Player.HasAudio + StringCompare(Container(9000).ListItem.Property(widget),NowPlaying)]</visible>
+			<visible>!Window.IsActive(busydialog)</visible>
 			<control type="image">
 				<width>48</width>
 				<height>48</height>

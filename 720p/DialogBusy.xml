@@ -8,6 +8,12 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+			<!--move busy label to the right when vertical home menu is active to prevent overlapping-->
+			<animation effect="slide" time="0" end="290" condition="Window.IsActive(home) + StringCompare(Skin.String(homemenu.type),vertical)">Conditional</animation>
+			<!---->
+			<!--move busy label to the left when horizontal home menu is active (to align with player status label in fullscreenvideo)-->
+			<animation effect="slide" time="0,0" end="-20,10" condition="Window.IsActive(home) + StringCompare(Skin.String(homemenu.type),horizontal)">Conditional</animation>
+			<!---->
 			<width>950</width>
 			<visible>!Window.IsActive(startup)</visible>
 			<include>transition_WindowTitle</include>
