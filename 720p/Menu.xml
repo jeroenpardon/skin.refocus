@@ -805,9 +805,9 @@
 					<label>$LOCALIZE[31406]</label>
 					<include>menu_Header</include>
 				</control>
-				<!--tv channels-->
+				<!--channels-->
 				<control type="button" id="100">
-					<label>$LOCALIZE[19180]$INFO[Container(50).FolderName,: ]</label>
+					<label>$VAR[menu:ChannelSwitch]</label>
 					<include>menu_Button</include>
 					<onback>PreviousMenu</onback>
 					<onclick condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)">NextChannelGroup</onclick>
@@ -972,7 +972,6 @@
 			</control>
 		</control>
 	</include>
-
 
 <!--SETTINGS MENU-->
 	<include name="menu_Settings">
