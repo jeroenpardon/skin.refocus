@@ -12,7 +12,7 @@
 				<control type="group">
 					<left>680</left>
 					<top>90</top>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(artists) | [[Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + Container.HasFiles]</visible>
+					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | Container.Content(artists)</visible>
 					<control type="image">
 						<width>546</width>
 						<height>309</height>
@@ -102,7 +102,7 @@
 			</control>
 			<!--files-->
 			<control type="group">
-				<visible>Container.Content(musicvideos) | Container.Content(files)</visible>
+				<visible>[Container.Content(musicvideos) | Container.Content(files) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + Container.HasFiles</visible>
 				<control type="group">
 					<left>680</left>
 					<top>80</top>
@@ -112,7 +112,7 @@
 						<texture fallback="thumbs/default_Landscape.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<bordertexture border="7">frames/frame-nf.png</bordertexture>
 						<bordersize>7</bordersize>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
+						<aspectratio align="left" aligny="top">keep</aspectratio>
 						<fadetime>fadetime_Thumb</fadetime>
 						<visible>!IsEmpty(ListItem.Thumb) + !SubString(Container.FolderPath,plugin://) + !IsEmpty(Container.FolderPath)</visible>
 					</control>
