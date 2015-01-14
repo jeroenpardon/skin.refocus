@@ -508,9 +508,8 @@
 
 <!--PVR-->	
 	<variable name="pvr:Status">
-		<value condition="![ListItem.HasTimer + ListItem.IsRecording]">pvr/status/none-nf.png</value>
-		<value condition="ListItem.HasTimer + !ListItem.IsRecording">pvr/status/timer.png</value>
 		<value condition="ListItem.IsRecording">pvr/status/recording.png</value>
+		<value condition="ListItem.HasTimer + !ListItem.IsRecording">pvr/status/timer.png</value>
 		<value>pvr/status/none-nf.png</value>
 	</variable>
 
