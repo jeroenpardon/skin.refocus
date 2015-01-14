@@ -909,7 +909,7 @@
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(10)</onclick>
 						<onclick>Container.Refresh</onclick>
-						<visible>Window.IsActive(tvguide)</visible>
+						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
 					<!--guide now-->
 					<control type="button" id="403">
@@ -917,7 +917,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(11)</onclick>
-						<visible>Window.IsActive(tvguide)</visible>
+						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
 					<!--guide now-->
 					<control type="button" id="404">
@@ -925,7 +925,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(12)</onclick>
-						<visible>Window.IsActive(tvguide)</visible>
+						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
 					<!--guide channels-->
 					<control type="button" id="405">
@@ -933,7 +933,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(13)</onclick>
-						<visible>Window.IsActive(tvguide)</visible>
+						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
 					<!--recordings list-->
 					<control type="button" id="410">
@@ -941,7 +941,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<visible>Window.IsActive(tvrecordings)</visible>
+						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 					<!--recordings slide-->
 					<control type="button" id="411">
@@ -949,7 +949,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(521)</onclick>
-						<visible>Window.IsActive(tvrecordings)</visible>
+						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 					<!--recordings thumbnails-->
 					<control type="button" id="412">
@@ -957,7 +957,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(575)</onclick>
-						<visible>Window.IsActive(tvrecordings)</visible>
+						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 					<!--recordings tiles-->
 					<control type="button" id="413">
@@ -965,7 +965,7 @@
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(58)</onclick>
-						<visible>Window.IsActive(tvrecordings)</visible>
+						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 				</control>
 			</control>
