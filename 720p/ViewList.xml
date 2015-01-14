@@ -195,7 +195,7 @@
 					<include>status_List</include>
 				</control>
 			</itemlayout>
-			<itemlayout condition="Window.IsActive(tvchannels)" width="620" height="68">
+			<itemlayout condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)" width="620" height="68">
 				<control type="group">
 					<left>5</left>
 					<top>5</top>
@@ -296,7 +296,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<focusedlayout condition="Window.IsActive(tvchannels)" width="620" height="68">
+			<focusedlayout condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)" width="620" height="68">
 				<control type="group">
 					<include>container_Focus</include>
 					<control type="image">

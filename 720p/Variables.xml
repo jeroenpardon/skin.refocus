@@ -211,7 +211,7 @@
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle) + IsEmpty(ListItem.Artist) + IsEmpty(Listitem.Genre)">$INFO[ListItem.Path]</value>
 		<value condition="Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)">$INFO[ListItem.StartDate,, - ]$INFO[ListItem.StartTime]$INFO[ListItem.ChannelName, • ]</value>
-		<value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Title,, • ]$INFO[ListItem.NextTitle,$LOCALIZE[209]: ]</value>
+		<value condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)">$INFO[ListItem.Title,, • ]$INFO[ListItem.NextTitle,$LOCALIZE[209]: ]</value>
 		<value condition="!SubString(ListItem.Icon,Default) + Container.HasFiles">$LOCALIZE[31151]</value>
 	</variable>
 	
