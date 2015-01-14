@@ -38,14 +38,17 @@
 				<content>upnp-music</content>
 			</node>
 		</node>
-		<node label="::SCRIPT::32017" condition="System.GetBool(pvrmanager.enabled)">
+		<node label="::LOCAL::19020" condition="System.GetBool(pvrmanager.enabled)">
 			<node label="::LOCAL::19023">
-				<content>pvr-tv</content>
+				<content>pvr-tv</content><!--channels-->
 			</node>
+			<content>pvr</content><!--nodes-->
+		</node>
+		<node label="::LOCAL::19021" condition="System.GetBool(pvrmanager.enabled)">
 			<node label="::LOCAL::19024">
-				<content>pvr-radio</content>
+				<content>pvr-radio</content><!--channels-->
 			</node>
-			<content>pvr</content>
+			<content>radio</content><!--nodes-->
 		</node>
 		<node label="::SCRIPT::32007">
 			<node label="::SCRIPT::32009">
