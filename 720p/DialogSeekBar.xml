@@ -10,7 +10,7 @@
 			<visible>Player.Paused</visible>
 		</control>
 		<control type="group">
-			<!--player status-->
+			<!--player status
 			<control type="label">
 				<left>40</left>
 				<top>30</top>
@@ -19,18 +19,20 @@
 				<textcolor>Color1</textcolor>
 				<font>light_Header</font>
 				<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + !Window.IsActive(pvrosdchannels)</visible>
-			</control>
+			</control>-->
 			<!--media info-->
 			<control type="group">
 				<include>osd_Video</include>
-				<visible>[Player.ShowInfo | Window.IsVisible(fullscreeninfo)]</visible>
+				<!--<visible>[Player.ShowInfo | Window.IsVisible(fullscreeninfo)]</visible>-->
 				<include>transition_OSD</include>
 			</control>
+			<!--
 			<control type="group">
 				<include>osd_Seekbar</include>
 				<visible>[Player.ShowInfo | Window.IsVisible(fullscreeninfo)] | [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching]</visible>
 				<include>transition_OSD</include>
 			</control>
+			-->
 		</control>
 	</controls>
 </window>
