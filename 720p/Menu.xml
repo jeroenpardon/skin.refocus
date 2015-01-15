@@ -849,19 +849,18 @@
 					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
 			<!--view options-->
-				<control type="label" id="198">
+				<control type="label" id="150">
 					<label>$LOCALIZE[582]</label>
 					<include>menu_Header</include>
 					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 				</control>
-				<control type="button" id="4">
+				<control type="button" id="151">
 					<label>$LOCALIZE[31114]$INFO[Container.ViewMode,: ]</label>
 					<include>menu_Button</include>
 					<onclick>SetFocus(4000)</onclick>
-					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 				</control>
 				<!--group recordings-->
-				<control type="radiobutton" id="5">
+				<control type="radiobutton" id="152">
 					<label>$LOCALIZE[19270]</label>
 					<onback>PreviousMenu</onback>
 					<include>menu_RadioButton</include>
@@ -871,7 +870,7 @@
 			<!--sorting-->
 				<include>menu_Sorting</include>
 			<!--options-->
-				<control type="label" id="199">
+				<control type="label" id="210">
 					<label>$LOCALIZE[33063]</label>
 					<include>menu_Header</include>
 				</control>
@@ -918,7 +917,7 @@
 						<onclick>Container.SetViewMode(11)</onclick>
 						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
-					<!--guide now-->
+					<!--guide next-->
 					<control type="button" id="404">
 						<label>$LOCALIZE[19031]</label>
 						<textwidth>250</textwidth>
@@ -935,7 +934,7 @@
 						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
 					<!--recordings list-->
-					<control type="button" id="410">
+					<control type="button" id="406">
 						<label>$LOCALIZE[535]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
@@ -943,7 +942,7 @@
 						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 					<!--recordings slide-->
-					<control type="button" id="411">
+					<control type="button" id="407">
 						<label>$LOCALIZE[31112]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
@@ -951,7 +950,7 @@
 						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 					<!--recordings thumbnails-->
-					<control type="button" id="412">
+					<control type="button" id="408">
 						<label>$LOCALIZE[31113]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
@@ -959,7 +958,7 @@
 						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 					</control>
 					<!--recordings tiles-->
-					<control type="button" id="413">
+					<control type="button" id="409">
 						<label>$LOCALIZE[31109]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
