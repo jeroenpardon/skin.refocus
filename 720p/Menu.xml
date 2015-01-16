@@ -858,6 +858,7 @@
 					<label>$LOCALIZE[31114]$INFO[Container.ViewMode,: ]</label>
 					<include>menu_Button</include>
 					<onclick>SetFocus(4000)</onclick>
+					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 				</control>
 				<!--group recordings-->
 				<control type="radiobutton" id="152">
