@@ -150,8 +150,9 @@
 	</variable>
 
 	<variable name="menu:ChannelSwitch">
-		<value condition="IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19180]$INFO[Container(50).FolderName,: ]</value>
-		<value>$LOCALIZE[19019]$INFO[Container(50).FolderName,: ]</value>
+		<value condition="Window.IsActive(tvchannels)">$LOCALIZE[19020]$INFO[Container(50).FolderName,: ]</value>
+		<value condition="Window.IsActive(radiochannels)">$LOCALIZE[19021]$INFO[Container(50).FolderName,: ]</value>
+		<value>$LOCALIZE[19019]</value>
 	</variable>
 
 <!--CONFIRM DIALOG-->
