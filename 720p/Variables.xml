@@ -15,11 +15,9 @@
 
 <!--HOME-->
 	<variable name="home:Background">
-		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</value>
+		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</value>
 		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio + Skin.HasSetting(home.nowplaying) + !IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
-		
 		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio + Skin.HasSetting(home.nowplaying) + !IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
-
 		<value condition="Skin.String(homebackground,multi) + !IsEmpty(Skin.String(home.background.folder))">$INFO[Skin.String(home.background.folder)]</value>
 		<value condition="Skin.String(homebackground,multi)">special://skin/backgrounds/</value>
 		<value condition="Skin.String(homebackground,single) + !IsEmpty(Skin.String(home.background.image))">$INFO[Skin.String(home.background.image)]</value>
