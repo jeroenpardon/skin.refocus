@@ -861,12 +861,12 @@
 					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 				</control>
 				<!--group recordings-->
-				<control type="radiobutton" id="152">
+				<control type="radiobutton" id="5">
 					<label>$LOCALIZE[19270]</label>
 					<onback>PreviousMenu</onback>
 					<include>menu_RadioButton</include>
 					<include>menu_Button</include>
-					<visible>Window.IsActive(tvrecordings)</visible>
+					<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
 				</control>
 			<!--sorting-->
 				<include>menu_Sorting</include>
@@ -882,8 +882,8 @@
 					<onback>PreviousMenu</onback>
 					<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
 				</control>
-				<!--hidden channels-->
-				<control type="button" id="6">
+				<!--toggle hidden channels-->
+				<control type="radiobutton" id="6">
 					<label>$LOCALIZE[19051]</label>
 					<include>menu_Button</include>
 					<onback>PreviousMenu</onback>
