@@ -187,7 +187,18 @@
 					<control type="multiimage">
 						<timeperimage>8000</timeperimage>
 						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-						<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable)</visible>
+						<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))</visible>
+					</control>
+					<control type="group">
+						<visible>Control.HasFocus(9251) + Pvr.IsPlayingRadio</visible>
+						<control type="image">
+							<include>screen_Dimensions</include>
+							<texture>black.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="visualisation">
+							<include>screen_Dimensions</include>
+						</control>
 					</control>
 					<control type="list" id="9251">
 						<include>widget_ContainerCommons</include>
