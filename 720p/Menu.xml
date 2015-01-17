@@ -62,7 +62,7 @@
 		<alttexturenofocus>-</alttexturenofocus>
 		<onback condition="ControlGroup(6000).HasFocus()">50</onback>
 		<onback condition="ControlGroup(4000).HasFocus()">6000</onback>
-		<onclick condition="ControlGroup(4000).HasFocus()">back</onclick>
+		<onclick condition="ControlGroup(4000).HasFocus() + !SubString(Container.FolderPath,pvr://recordings) + !Window.IsActive(tvguide)">back</onclick>
 	</include>
 	<include name="menu_RadioButton">
 		<textureradioonnofocus colordiffuse="Color3">settings/radio/on.png</textureradioonnofocus>
