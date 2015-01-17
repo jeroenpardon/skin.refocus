@@ -192,6 +192,7 @@
 		<width>40</width>
 		<height>40</height>
 	</include>
+
 	<include name="menu_Playing">
 		<control type="label" id="218">
 			<label>$LOCALIZE[31034]</label>
@@ -858,7 +859,7 @@
 					<label>$LOCALIZE[31114]$INFO[Container.ViewMode,: ]</label>
 					<include>menu_Button</include>
 					<onclick>SetFocus(4000)</onclick>
-					<visible>Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
+					<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide) | SubString(Container.FolderPath,pvr://recordings/)</visible>
 				</control>
 				<!--group recordings-->
 				<control type="radiobutton" id="5">
@@ -866,7 +867,7 @@
 					<onback>PreviousMenu</onback>
 					<include>menu_RadioButton</include>
 					<include>menu_Button</include>
-					<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
+					<visible>SubString(Container.FolderPath,pvr://recordings/)</visible>
 				</control>
 			<!--sorting-->
 				<include>menu_Sorting</include>
@@ -939,36 +940,36 @@
 						<visible>Window.IsActive(tvguide) | Window.IsActive(radioguide)</visible>
 					</control>
 					<!--recordings list-->
-					<control type="button" id="406">
+					<control type="button" id="410">
 						<label>$LOCALIZE[535]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
+						<visible>SubString(Container.FolderPath,pvr://recordings/)</visible>
 					</control>
 					<!--recordings slide-->
-					<control type="button" id="407">
+					<control type="button" id="411">
 						<label>$LOCALIZE[31112]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(521)</onclick>
-						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
+						<visible>SubString(Container.FolderPath,pvr://recordings/)</visible>
 					</control>
 					<!--recordings thumbnails-->
-					<control type="button" id="408">
+					<control type="button" id="412">
 						<label>$LOCALIZE[31113]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(575)</onclick>
-						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
+						<visible>SubString(Container.FolderPath,pvr://recordings/)</visible>
 					</control>
 					<!--recordings tiles-->
-					<control type="button" id="409">
+					<control type="button" id="413">
 						<label>$LOCALIZE[31109]</label>
 						<textwidth>250</textwidth>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(58)</onclick>
-						<visible>Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)</visible>
+						<visible>SubString(Container.FolderPath,pvr://recordings/)</visible>
 					</control>
 				</control>
 			</control>
