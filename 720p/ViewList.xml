@@ -102,7 +102,7 @@
 			</control>
 			<!--files-->
 			<control type="group">
-				<visible>[Container.Content(musicvideos) | Container.Content(files) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + Container.HasFiles</visible>
+				<visible>[Container.Content(musicvideos) | Container.Content(files) | SubString(Container.FolderPath,pvr://recordings)] + Container.HasFiles</visible>
 				<control type="group">
 					<left>680</left>
 					<top>80</top>
@@ -173,7 +173,7 @@
 					<include>container_Unfocus</include>
 				</control>
 			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + !Container.HasFolders]" width="620" height="67">
+			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + !Container.HasFolders] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
 				<control type="label">
 					<left>15</left>
 					<top>6</top>
@@ -195,7 +195,7 @@
 					<include>status_List</include>
 				</control>
 			</itemlayout>
-			<itemlayout condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)" width="620" height="68">
+			<itemlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="68">
 				<control type="group">
 					<left>5</left>
 					<top>5</top>
@@ -244,7 +244,7 @@
 				</control>
 			</itemlayout>
 
-			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + !Container.HasFolders]" width="620" height="67">
+			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + !Container.HasFolders] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
 				<control type="group">
 					<include>container_Focus</include>
 					<control type="image">
@@ -296,7 +296,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<focusedlayout condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)" width="620" height="68">
+			<focusedlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="68">
 				<control type="group">
 					<include>container_Focus</include>
 					<control type="image">
