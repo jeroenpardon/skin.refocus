@@ -291,7 +291,7 @@
 					<ondown>50</ondown>
 					<scrolltime tween="Cubic" easing="Out">200</scrolltime>
 					<visible allowhiddenfocus="true">Control.HasFocus(8002) | Control.HasFocus(50)</visible>
-					<itemlayout height="44">
+					<itemlayout width="645" height="44">
 						<control type="image">
 							<width>645</width>
 							<include>column_ListButton</include>
@@ -303,14 +303,15 @@
 							<include>column_ListButtonLabel</include>
 						</control>
 						<control type="label">
-							<left>630</left>
-							<width>615</width>
+							<right>15</right>
+							<width>100</width>
 							<label>$INFO[ListItem.Duration]</label>
 							<align>right</align>
+							<textcolor>Color3</textcolor>
 							<include>column_ListButtonLabel</include>
 						</control>
 					</itemlayout>
-					<focusedlayout height="44">
+					<focusedlayout width="645" height="44">
 						<control type="group">
 							<visible>Control.HasFocus(8002)</visible>
 							<control type="image">
@@ -324,10 +325,11 @@
 								<include>column_ListButtonLabel</include>
 							</control>
 							<control type="label">
-								<left>630</left>
-								<width>615</width>
+								<right>15</right>
+								<width>100</width>
 								<label>$INFO[ListItem.Duration]</label>
 								<align>right</align>
+								<textcolor>Color3</textcolor>
 								<include>column_ListButtonLabel</include>
 							</control>
 						</control>
@@ -345,8 +347,8 @@
 								<include>column_ListButtonLabel</include>
 							</control>
 							<control type="label">
-								<left>630</left>
-								<width>615</width>
+								<right>15</right>
+								<width>100</width>
 								<label>$INFO[ListItem.Duration]</label>
 								<align>right</align>
 								<textcolor>Color5</textcolor>
