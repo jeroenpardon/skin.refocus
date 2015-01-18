@@ -58,15 +58,15 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies)">9210</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes)">9211</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos)">9220</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies)">9221</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes)">9222</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies)">9223</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums)">9230</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)">9231</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">9240</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + !Container(9210).IsUpdating">9210</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + !Container(9211).IsUpdating">9211</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + !Container(9220).IsUpdating">9220</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies) + !Container(9221).IsUpdating">9221</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes) + !Container(9222).IsUpdating">9222</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies) + !Container(9223).IsUpdating">9223</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums) + !Container(9230).IsUpdating">9230</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums) + !Container(9231).IsUpdating">9231</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + !Container(9240).IsUpdating">9240</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
