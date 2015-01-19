@@ -9,70 +9,89 @@
 	</coordinates>
 	<controls>
 	<!--background-->
+		<!--movies-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(111).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/video.jpg">$INFO[Container(111).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
 			<visible>Control.HasFocus(111) | Container(9000).HasFocus(1)</visible>
 		</control>
+		<!--tv shows-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(121).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/video.jpg">$INFO[Container(121).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
 			<visible>Control.HasFocus(121) | Container(9000).HasFocus(2)</visible>
 		</control>
+		<!--seasons-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(131).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/video.jpg">$INFO[Container(131).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
 			<visible>Control.HasFocus(131) | Container(9000).HasFocus(3)</visible>
 		</control>
+		<!--episodes-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(141).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/video.jpg">$INFO[Container(141).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
-			<fadetime>fadetime_Fanart</fadetime>
+			<fadetime>fadetime_Fanart</fadetime>=
 			<visible>Control.HasFocus(141) | Container(9000).HasFocus(4)</visible>
 		</control>
+		<!--actors-->
 		<control type="image">
+			<left>500</left>
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(151).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/video.jpg">$INFO[Container(211).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Control.HasFocus(151) | Container(9000).HasFocus(5)</visible>
+			<visible>Control.HasFocus(211) | Container(9000).HasFocus(5)</visible>
 		</control>
+		<!--music videos-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(161).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/music.jpg">$INFO[Container(151).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Control.HasFocus(161) | Container(9000).HasFocus(6)</visible>
+			<visible>Control.HasFocus(151) | Container(9000).HasFocus(6)</visible>
 		</control>
+		<!--artists-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(171).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/music.jpg">$INFO[Container(161).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Control.HasFocus(171) | Container(9000).HasFocus(7)</visible>
+			<visible>Control.HasFocus(161) | Container(9000).HasFocus(7)</visible>
 		</control>
+		<!--albums-->
 		<control type="image">
 			<include>screen_Dimensions</include>
-			<texture background="true">$INFO[Container(181).ListItem.Property(Fanart)]</texture>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/music.jpg">$INFO[Container(171).ListItem.Property(Fanart)]</texture>
 			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
 			<include>transition_Background</include>
 			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Control.HasFocus(181) | Container(9000).HasFocus(8)</visible>
+			<visible>Control.HasFocus(171) | Container(9000).HasFocus(8)</visible>
 		</control>
+		<!--songs-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/defaults/music.jpg">$INFO[Container(181).ListItem.Property(Fanart)]</texture>
+			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+			<include>transition_Background</include>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(181) | Container(9000).HasFocus(9)</visible>
+		</control>
+
 		<include>global_Background</include>
 		
 	<!--window titles-->
@@ -226,7 +245,7 @@
 							<height>42</height>
 							<font>light_Menu</font>
 							<textoffsetx>15</textoffsetx>
-							<textcolor>Color5</textcolor>
+							<textcolor>Color4</textcolor>
 						</control>
 						<control type="label">
 							<left>285</left>
@@ -240,66 +259,76 @@
 					</control>
 				</focusedlayout>
 				<content>
+					<!--movies-->
 					<item id="1">
-                        <label>$LOCALIZE[20342]</label>
-                        <label2>$INFO[Control.GetLabel(110)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(119)</visible>
-                    </item>
-                    <item id="2">
-                        <label>$LOCALIZE[20343]</label>
-                        <label2>$INFO[Control.GetLabel(120)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(129)</visible>
-                    </item>
-                    <item id="3">
-                        <label>$LOCALIZE[33054]</label>
-                        <label2>$INFO[Control.GetLabel(130)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(139)</visible>
-                    </item>
-                    <item id="4">
-                        <label>$LOCALIZE[20360]</label>
-                        <label2>$INFO[Control.GetLabel(140)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(149)</visible>
-                    </item>
+						<label>$LOCALIZE[20342]</label>
+						<label2>$INFO[Control.GetLabel(110)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(119)</visible>
+					</item>
+					<!--tv shows-->
+					<item id="2">
+						<label>$LOCALIZE[20343]</label>
+						<label2>$INFO[Control.GetLabel(120)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(129)</visible>
+					</item>
+					<!--seasons-->
+					<item id="3">
+						<label>$LOCALIZE[33054]</label>
+						<label2>$INFO[Control.GetLabel(130)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(139)</visible>
+					</item>
+					<!--episodes-->
+					<item id="4">
+						<label>$LOCALIZE[20360]</label>
+						<label2>$INFO[Control.GetLabel(140)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(149)</visible>
+					</item>
+					<!--actors-->
 					<item id="5">
-                        <label>$LOCALIZE[344]</label>
-                        <label2>$INFO[Control.GetLabel(210)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(219)</visible>
-                    </item>
-                    <item id="6">
-                        <label>$LOCALIZE[20389]</label>
-                        <label2>$INFO[Control.GetLabel(150)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(159)</visible>
-                    </item>
-                    <item id="7">
-                        <label>$LOCALIZE[133]</label>
-                        <label2>$INFO[Control.GetLabel(160)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(169)</visible>
-                    </item>
-                    <item id="8">
-                        <label>$LOCALIZE[132]</label>
-                        <label2>$INFO[Control.GetLabel(170)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(179)</visible>
-                    </item>
-                    <item id="9">
-                        <label>$LOCALIZE[134]</label>
-                        <label2>$INFO[Control.GetLabel(180)]</label2>
-                        <onclick>noop</onclick>
-                        <visible>Control.IsVisible(189)</visible>
-                    </item>
-                    <item id="10">
-                        <label>[B]$LOCALIZE[31604][/B]</label>
-                        <onclick>Control.SetFocus(9000,0)</onclick>
-                        <onclick>SendClick(198)</onclick>
-                        <visible>Control.IsVisible(198)</visible>
-                    </item>
+						<label>$LOCALIZE[344]</label>
+						<label2>$INFO[Control.GetLabel(210)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(219)</visible>
+					</item>
+					<!--music videos-->
+					<item id="6">
+						<label>$LOCALIZE[20389]</label>
+						<label2>$INFO[Control.GetLabel(150)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(159)</visible>
+					</item>
+					<!--artists-->
+					<item id="7">
+						<label>$LOCALIZE[133]</label>
+						<label2>$INFO[Control.GetLabel(160)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(169)</visible>
+					</item>
+					<!--albums-->
+					<item id="8">
+						<label>$LOCALIZE[132]</label>
+						<label2>$INFO[Control.GetLabel(170)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(179)</visible>
+					</item>
+					<!--songs-->
+					<item id="9">
+						<label>$LOCALIZE[134]</label>
+						<label2>$INFO[Control.GetLabel(180)]</label2>
+						<onclick>noop</onclick>
+						<visible>Control.IsVisible(189)</visible>
+					</item>
+					<!--new search-->
+					<item id="10">
+						<label>[B]$LOCALIZE[31604][/B]</label>
+						<onclick>Control.SetFocus(9000,0)</onclick>
+						<onclick>SendClick(198)</onclick>
+						<visible>Control.IsVisible(198)</visible>
+					</item>
 				</content>
 			</control>
 
@@ -1338,7 +1367,7 @@
 						<orientation>vertical</orientation>
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
-						<visible>Container(9000).HasFocus(5)</visible>
+						<visible>Container(9000).HasFocus(6)</visible>
 						<itemlayout width="880" height="150">
 							<control type="image">
 								<width>226</width>
@@ -1522,7 +1551,7 @@
 						<orientation>vertical</orientation>
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
-						<visible>Container(9000).HasFocus(6)</visible>
+						<visible>Container(9000).HasFocus(7)</visible>
 						<itemlayout width="880" height="120">
 							<control type="image">
 								<width>114</width>
@@ -1702,7 +1731,7 @@
 						<orientation>vertical</orientation>
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
-						<visible>Container(9000).HasFocus(7)</visible>
+						<visible>Container(9000).HasFocus(8)</visible>
 						<itemlayout width="880" height="120">
 							<control type="image">
 								<width>114</width>
@@ -1870,7 +1899,7 @@
 						<orientation>vertical</orientation>
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
-						<visible>Container(9000).HasFocus(8)</visible>
+						<visible>Container(9000).HasFocus(9)</visible>
 						<itemlayout width="880" height="120">
 							<control type="image">
 								<width>114</width>
