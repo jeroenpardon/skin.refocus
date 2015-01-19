@@ -217,13 +217,15 @@
 						<height>70</height>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies)">9210</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes)">9211</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos)">9220</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies)">9221</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes)">9222</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums)">9230</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)">9231</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + !Container(9210).IsUpdating">9210</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + !Container(9211).IsUpdating">9211</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + !Container(9220).IsUpdating">9220</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies) + !Container(9221).IsUpdating">9221</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes) + !Container(9222).IsUpdating">9222</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies) + !Container(9223).IsUpdating">9223</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums) + !Container(9230).IsUpdating">9230</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums) + !Container(9231).IsUpdating">9231</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + !Container(9240).IsUpdating">9240</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">9240</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onup>
