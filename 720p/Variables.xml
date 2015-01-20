@@ -298,7 +298,7 @@
 	</variable>
 
 	<variable name="art:Square">
-		<value condition="Container.Content(albums) | Container.Content(songs) | Window.IsActive(2)">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="Container.Content(albums) | Container.Content(songs) | Window.IsActive(pictures)">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
