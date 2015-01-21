@@ -168,7 +168,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)] | SubString(Container.FolderPath,pvr://recordings/)</visible>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)] | Window.IsActive(tvrecordings)</visible>
 			<itemlayout width="445" height="259">
 				<include>view_SlideLandscape-ContainerCommons</include>
 			</itemlayout>
@@ -243,7 +243,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles) | Container.Content(artists) | Container.Content(addons)</visible>
+			<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles) | Container.Content(artists) | Container.Content(addons) | Window.IsActive(radiorecordings)</visible>
 			<itemlayout height="280" width="280">
 				<include>view_SlideSquare-ContainerCommons</include>
 			</itemlayout>
