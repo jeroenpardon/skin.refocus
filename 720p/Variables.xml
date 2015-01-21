@@ -273,7 +273,8 @@
 
 	<variable name="art:Landscape">
 		<value condition="Window.IsActive(pictures)">$INFO[ListItem.FilenameAndPath]</value>
-		<value condition="Container.Content(artists) | [Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)]]">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="[Container.Content(artists) | [Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)]] | SubString(Container.FolderPath,pvr://recordings/)] + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="[Container.Content(artists) | [Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)]] | SubString(Container.FolderPath,pvr://recordings/)] + IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="Container.Content(episodes) | Container.Content(files) | SubString(Container.FolderPath,plugin://plugin.)">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(ListItem.Art(landscape))]">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(landscapethumb.enable)">$INFO[ListItem.Art(landscape)]</value>
