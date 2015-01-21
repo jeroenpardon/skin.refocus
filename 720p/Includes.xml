@@ -608,7 +608,7 @@
 			<label>$VAR[player:Status]</label>
 			<textcolor>Color1</textcolor>
 			<font>light_Header</font>
-			<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(pvrosdchannels) | Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-cu-lrclyrics-main.xml)]</visible>
+			<!--<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(pvrosdchannels) | Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-cu-lrclyrics-main.xml)]</visible>-->
 		</control>
 	</include>
 	<include name="osd_Seekbar">
@@ -669,10 +669,14 @@
 
 	<include name="osd_Music">
 		<control type="group">
+			<include>clock</include>
 			<include>osd_Status</include>
+			<include>transition_OSD</include>
+			<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-cu-lrclyrics-main.xml)]</visible>
 		</control>
 		<control type="group">			
 			<top>545</top>
+			<visible>Player.ShowInfo</visible>
 			<control type="image">
 				<width>screen_Width</width>
 				<height>135</height>
@@ -682,6 +686,7 @@
 			<control type="group">
 				<left>10</left>
 				<top>10</top>
+				<include>transition_OSD</include>
 				<control type="image">
 					<width>114</width>
 					<height>114</height>
@@ -745,15 +750,22 @@
 			</control>
 		</control>
 		<control type="group">
+			<include>transition_OSD</include>
+			<visible>Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
 			<include>osd_Seekbar</include>
 		</control>
 	</include>
 
 	<include name="osd_Video">
+		<visible>!Window.IsVisible(videoosd)</visible>
 		<control type="group">
+			<include>clock</include>
 			<include>osd_Status</include>
+			<include>transition_OSD</include>
+			<visible>[Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
 		</control>
-		<control type="group">		
+		<control type="group">
+			<include>transition_OSD</include>
 			<top>545</top>
 			<visible>Player.ShowInfo | Player.Paused | Window.IsVisible(fullscreeninfo)</visible>
 			<control type="image">
@@ -858,6 +870,8 @@
 			</control>
 		</control>
 		<control type="group">
+			<include>transition_OSD</include>
+			<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
 			<include>osd_Seekbar</include>
 		</control>
 	</include>
