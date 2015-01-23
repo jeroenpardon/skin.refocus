@@ -179,13 +179,13 @@
 		<value condition="Window.IsActive(tvchannels)">$INFO[ListItem.ChannelNumber]$INFO[ListItem.Label,. ]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
-	
+
 	<variable name="media:Info">
 		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.enable)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Rating, • ]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]$VAR[media:NextAired.Info, • ]</value>
-		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]</value>	
+		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:EpisodeCount]</value>
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[flag:Type.Video, • ]</value>
@@ -215,7 +215,7 @@
 		<value condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)">$INFO[ListItem.Title,, • ]$INFO[ListItem.NextTitle,$LOCALIZE[209]: ]</value>
 		<value condition="!SubString(ListItem.Icon,Default) + Container.HasFiles">$LOCALIZE[31151]</value>
 	</variable>
-	
+
 	<variable name="media:Info.Addon">
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31701]]$INFO[ListItem.Genre, • ]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
@@ -246,7 +246,7 @@
 
 	<variable name="media:NextAired.Info">
 		<value condition="StringCompare(Window(Home).Property(NextAired.Status),cancelled/ended)">$INFO[Window(Home).Property(NextAired.Status)]</value>
-		<value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), • $LOCALIZE[31502] ]</value>	
+		<value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), • $LOCALIZE[31502] ]</value>
 		<value condition="IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.LatestDate), • $LOCALIZE[31501] ]</value>
 	</variable>
 
@@ -322,7 +322,7 @@
 		<value condition="VideoPlayer.Content(episodes)">[COLOR=Color3]$INFO[VideoPlayer.TVShowTitle,,: ][/COLOR]$INFO[VideoPlayer.Title]</value>
 		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
 	</variable>
-	
+
 	<variable name="player:Info">
 		<value condition="VideoPlayer.Content(files)">$INFO[Player.FolderPath]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre]$INFO[VideoPlayer.Director, • ]$INFO[VideoPlayer.Studio, • ]$INFO[VideoPlayer.Year, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
@@ -443,7 +443,7 @@
 <!--INFORMATION-->
 	<variable name="information:Header">
 		<value condition="!IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
-		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>		
+		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)] ($INFO[Window(Home).Property(NextAired.AirTime)])</value>
 		<value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]</value>
@@ -463,7 +463,7 @@
 		<value condition="!IsEmpty(ListItem.Property(Artist_Died))">$INFO[ListItem.Property(Artist_Died)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Artist_Disbanded))">$INFO[ListItem.Property(Artist_Disbanded)]</value>
 	</variable>
-	
+
 	<variable name="information:Origin.Prefix">
 		<value condition="!IsEmpty(ListItem.Property(Artist_Born))">$LOCALIZE[21893]</value>
 		<value condition="!IsEmpty(ListItem.Property(Artist_Formed))">$LOCALIZE[21894]</value>
@@ -508,7 +508,7 @@
 		<value condition="StringCompare(ListItem.VideoResolution,4K)">4K</value>
 	</variable>
 
-<!--PVR-->	
+<!--PVR-->
 	<variable name="pvr:Status">
 		<value condition="ListItem.IsRecording">pvr/status/recording.png</value>
 		<value condition="ListItem.HasTimer + !ListItem.IsRecording">pvr/status/timer.png</value>
