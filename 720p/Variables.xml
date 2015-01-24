@@ -236,7 +236,7 @@
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Title) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[Container.ShowPlot]</value>
-		<value condition="[Container.Content(addons) | Container.Content(programs)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Property(Addon.Description)]</value>
+		<value condition="[Container.Content(addons) | Window.IsActive(programs)] + !SubString(ListItem.Icon,default)">$INFO[ListItem.Property(Addon.Description)]</value>
 		<value condition="Control.IsVisible(50) + Container.Content(movies) + !IsEmpty(ListItem.Plotoutline)">[UPPERCASE][B]$INFO[ListItem.Tagline,,[CR]][/B][/UPPERCASE]$INFO[ListItem.Plotoutline]</value>
 		<value condition="Control.IsVisible(50) + Container.Content(movies) + IsEmpty(ListItem.Plotoutline)">[UPPERCASE][B]$INFO[ListItem.Tagline,,[CR]][/B][/UPPERCASE]$INFO[ListItem.Plot]</value>
 		<value condition="Control.IsVisible(50) + Container.Content(tvshows) + !IsEmpty(ListItem.Plot)">[UPPERCASE][B]$VAR[media:NextAired.Info,,[CR]][/B][/UPPERCASE]$INFO[ListItem.Plot]</value>
