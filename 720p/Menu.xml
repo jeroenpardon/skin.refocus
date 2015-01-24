@@ -84,6 +84,9 @@
 			<include>menu_Button</include>
 			<onclick>SetFocus(4000)</onclick>
 		</control>
+		<control type="button" id="2">
+			<visible>false</visible>
+		</control>
 	</include>
 	<include name="menu_Sorting">
 		<control type="label" id="200">
@@ -91,17 +94,16 @@
 			<label>$LOCALIZE[31140]</label>
 			<include>menu_Header</include>
 		</control>
-		<control type="button" id="201">
+		<control type="button" id="3">
 			<label>$LOCALIZE[31149]$INFO[Container.SortMethod,: ]</label>
-			<onclick>SendClick(3)</onclick>
 			<include>menu_Button</include>
 		</control>
 		<control type="togglebutton" id="202">
 			<label>$LOCALIZE[31141]: $LOCALIZE[584]</label>
 			<altlabel>$LOCALIZE[31141]: $LOCALIZE[585]</altlabel>
 			<include>menu_Button</include>
-			<onclick>SendClick(4)</onclick>
-			<enable>Control.IsEnabled(4)</enable>
+			<onclick>Container.SortDirection</onclick>
+			<enable>Control.IsEnabled(3)</enable>
 		</control>
 	</include>
 	<include name="menu_LibraryHeader">
