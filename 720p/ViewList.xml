@@ -102,7 +102,7 @@
 			</control>
 			<!--files-->
 			<control type="group">
-				<visible>[Container.Content(musicvideos) | Container.Content(files) | SubString(Container.FolderPath,pvr://recordings)] + Container.HasFiles</visible>
+				<visible>[Container.Content(musicvideos) | Container.Content(files)] + Container.HasFiles</visible>
 				<control type="group">
 					<left>680</left>
 					<top>80</top>
@@ -173,7 +173,7 @@
 					<include>container_Unfocus</include>
 				</control>
 			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + !Container.HasFolders] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
+			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + Container.HasFiles] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
 				<control type="label">
 					<left>15</left>
 					<top>6</top>
@@ -243,8 +243,7 @@
 					<include>status_List</include>
 				</control>
 			</itemlayout>
-
-			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + !Container.HasFolders] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
+			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + Container.HasFiles] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
 				<control type="group">
 					<include>container_Focus</include>
 					<control type="image">
@@ -472,14 +471,14 @@
 		</control>
 	</include>
 
-	<include name="detail_ListAddons">
+	<include name="detail_ListFiles">
 		<control type="group">
 			<left>680</left>
 			<top>90</top>
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
-			<visible>Control.IsVisible(50) + [SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin)] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
+			<visible>Control.IsVisible(50) + [[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin)] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]] | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]</visible>
 			<control type="image">
 				<width>532</width>
 				<height>256</height>
@@ -495,9 +494,9 @@
 				<width>532</width>
 				<height>330</height>
 				<label>$VAR[media:Plot]</label>
-				<autoscroll>!Window.IsActive(addoninformation)</autoscroll>
+				<autoscroll>![Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo)]</autoscroll>
 				<include>detail_Text</include>
-				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://)]</visible>
+				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,pvr://recordings)]</visible>
 			</control>
 		</control>
 	</include>
