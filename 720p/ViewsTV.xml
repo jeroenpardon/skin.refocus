@@ -669,7 +669,7 @@
 
 
 <!--SEARCH-->
-	<include name="view_PVR-search-LandscapeCommons">
+	<include name="view_PVR-search-Commons">
 		<control type="group">
 			<control type="image">
 				<width>220</width>
@@ -782,7 +782,7 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
 				<itemlayout height="44" width="1200">
-					<include>view_PVR-search-LandscapeCommons</include>
+					<include>view_PVR-search-Commons</include>
 				</itemlayout>
 				<focusedlayout height="44" width="1200">
 					<control type="group">
@@ -831,7 +831,7 @@
 					</control>
 					<control type="group">
 						<include>container_Unfocus</include>
-						<include>view_PVR-search-LandscapeCommons</include>
+						<include>view_PVR-search-Commons</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -840,24 +840,24 @@
 
 
 <!--TIMERS-->
-	<include name="view_PVR-timers-LandscapeCommons">
+	<include name="view_PVR-timers-Commons">
 		<control type="group">
 			<control type="image">
-				<width>208</width>
+				<width>200</width>
+				<height>42</height>
+				<texture>views/column-nf.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>202</left>
+				<width>776</width>
 				<height>42</height>
 				<texture>views/column-fo.png</texture>
 				<colordiffuse>column2</colordiffuse>
 			</control>
 			<control type="image">
-				<left>210</left>
-				<width>742</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>954</left>
-				<width>246</width>
+				<left>980</left>
+				<width>220</width>
 				<height>42</height>
 				<texture>views/column-fo.png</texture>
 				<colordiffuse>column2</colordiffuse>
@@ -865,26 +865,26 @@
 		</control>
 		<control type="group">
 			<posx>15</posx>
-			<control type="label" id="1">
-				<width>178</width>
-				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+			<control type="label">
+				<width>180</width>
+				<label>$INFO[ListItem.StartDate]</label>
 				<include>column_CommonListItem</include>
 			</control>
 			<control type="label">
-				<left>210</left>
-				<width>712</width>
+				<left>202</left>
+				<width>746</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>column_CommonListItem</include>
 			</control>
 			<control type="label">
-				<left>954</left>
-				<width>216</width>
-				<label>$INFO[ListItem.StartDate]</label>
+				<left>980</left>
+				<width>210</width>
+				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 				<include>column_CommonListItem</include>
 			</control>
 		</control>
 		<control type="group">
-			<left>920</left>
+			<left>943</left>
 			<top>9</top>
 			<visible>!IsEmpty(ListItem.StartTime)</visible>
 			<control type="image">
@@ -913,33 +913,33 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<control type="group">
+				<left>15</left>
 				<top>125</top>
 				<visible>Control.IsVisible(50)</visible>
 				<!--time-->
 				<control type="label">
-					<left>15</left>
-					<width>163</width>
-					<label>$LOCALIZE[555]</label>
+					<width>180</width>
+					<label>$LOCALIZE[552]</label>
 					<include>column_Header</include>
 				</control>
 				<!--title-->
 				<control type="label">
-					<left>225</left>
-					<width>697</width>
+					<left>202</left>
+					<width>746</width>
 					<label>$LOCALIZE[369]</label>
 					<include>column_Header</include>
 				</control>
 				<!--date-->
 				<control type="label">
-					<left>969</left>
-					<width>201</width>
-					<label>$LOCALIZE[552]</label>
+					<left>980</left>
+					<width>210</width>
+					<label>$LOCALIZE[555]</label>
 					<include>column_Header</include>
 				</control>
 			</control>
 			<control type="list" id="50">
 				<top>155</top>
-				<width>screen_Width</width>
+				<width>1200</width>
 				<height>528</height>
 				<onup>50</onup>
 				<ondown>50</ondown>
@@ -948,7 +948,7 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<itemlayout height="44">
-					<include>view_PVR-timers-LandscapeCommons</include>
+					<include>view_PVR-timers-Commons</include>
 				</itemlayout>
 				<focusedlayout height="44">
 					<control type="group">
@@ -960,32 +960,32 @@
 						</control>
 						<control type="group">
 							<posx>15</posx>
-							<control type="label" id="1">
-								<width>178</width>
-								<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+							<control type="label">
+								<width>180</width>
+								<label>$INFO[ListItem.StartDate]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 							<control type="label">
-								<left>210</left>
-								<width>712</width>
+								<left>202</left>
+								<width>746</width>
 								<label>$INFO[ListItem.Label]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 							<control type="label">
-								<left>954</left>
-								<width>216</width>
-								<label>$INFO[ListItem.StartDate]</label>
+								<left>980</left>
+								<width>210</width>
+								<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 						</control>
 						<control type="group">
-							<left>920</left>
+							<left>943</left>
 							<top>9</top>
 							<visible>!IsEmpty(ListItem.StartTime)</visible>
 							<control type="image">
 								<width>24</width>
 								<height>24</height>
-								<texture>pvr/status/none-fo.png</texture>
+								<texture>pvr/status/none-nf.png</texture>
 								<colordiffuse>column2</colordiffuse>
 								<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 							</control>
@@ -1007,7 +1007,7 @@
 					</control>
 					<control type="group">
 						<include>container_Unfocus</include>
-						<include>view_PVR-timers-LandscapeCommons</include>
+						<include>view_PVR-timers-Commons</include>
 					</control>
 				</focusedlayout>
 			</control>
