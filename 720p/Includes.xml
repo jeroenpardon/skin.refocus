@@ -939,6 +939,13 @@
 					<width>532</width>
 					<label>$VAR[media:Title]</label>
 					<include>detail_Title</include>
+					<visible>!SubString(Container.FolderPath,pvr://channels/)</visible>
+				</control>
+				<control type="label">
+					<width>532</width>
+					<label>$INFO[ListItem.ChannelNumber]$INFO[ListItem.Title,. ]</label>
+					<include>detail_Title</include>
+					<visible>SubString(Container.FolderPath,pvr://channels/)</visible>
 				</control>
 				<control type="label">
 					<width>532</width>
