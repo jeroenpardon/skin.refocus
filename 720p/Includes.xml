@@ -957,7 +957,6 @@
 								</control>
 							</control>
 						</control>
-
 					</control>
 				</control>
 				<control type="label">
@@ -968,7 +967,7 @@
 				</control>
 				<control type="label">
 					<width>532</width>
-					<label>$INFO[ListItem.ChannelNumber]$INFO[ListItem.Title,. ]</label>
+					<label>$VAR[pvr:Title]</label>
 					<include>detail_Title</include>
 					<visible>SubString(Container.FolderPath,pvr://channels/)</visible>
 				</control>
