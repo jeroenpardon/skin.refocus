@@ -507,7 +507,6 @@
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,540)">HD</value>
 		<value condition="StringCompare(ListItem.VideoResolution,4K)">4K</value>
 	</variable>
-
 	
 
 <!--PVR-->
@@ -523,6 +522,7 @@
 	</variable>
 
 	<variable name="pvr:Progress">
+		<value condition="IntegerGreaterThan(ListItem.Progress,0)">views/status/progress/00.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Progress,10)">views/status/progress/10.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Progress,20)">views/status/progress/20.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Progress,30)">views/status/progress/30.png</value>
@@ -532,7 +532,7 @@
 		<value condition="IntegerGreaterThan(ListItem.Progress,70)">views/status/progress/70.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Progress,80)">views/status/progress/80.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Progress,90)">views/status/progress/90.png</value>
-		<value>views/status/progress/00.png</value>
+		<value>views/status/progress/none.png</value>
 	</variable>
 
 <!--TOAST-->
