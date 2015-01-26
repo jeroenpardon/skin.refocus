@@ -90,16 +90,16 @@
 			<height>28</height>
 			<texture>pvr/status/timer.png</texture>
 			<colordiffuse>Color1</colordiffuse>
-			<visible>ListItem.HasTimer</visible>
+			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 		</control>
 		<control type="image">
-			<left>10</left>
-			<top>12</top>
-			<width>22</width>
-			<height>22</height>
+			<left>6</left>
+			<top>9</top>
+			<width>28</width>
+			<height>28</height>
 			<texture>pvr/status/recording.png</texture>
-			<colordiffuse>Color1</colordiffuse>
-			<visible>ListItem.IsRecording</visible>
+			<colordiffuse>rec1</colordiffuse>
+			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 		</control>
 	</include>
 	<include name="view_Guide-timeline">
