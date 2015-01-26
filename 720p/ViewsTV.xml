@@ -63,7 +63,6 @@
 		</control>
 	</include>
 
-
 <!--GUIDE TIMELINE-->
 	<include name="view_Guide-timeline-Commons">
 		<control type="label" id="1">
@@ -85,10 +84,10 @@
 			<visible>ListItem.HasTimer | ListItem.IsRecording</visible>
 		</control>
 		<control type="image">
-			<left>10</left>
-			<top>12</top>
-			<width>22</width>
-			<height>22</height>
+			<left>6</left>
+			<top>9</top>
+			<width>28</width>
+			<height>28</height>
 			<texture>pvr/status/timer.png</texture>
 			<colordiffuse>Color1</colordiffuse>
 			<visible>ListItem.HasTimer</visible>
@@ -317,12 +316,26 @@
 							<include>column_CommonListItem</include>
 						</control>
 					</control>
+					<!--
 					<control type="image">
 						<left>889</left>
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr:Status]</texture>
+						<texture>$VAR[pvr:Progress]</texture>
+					</control>
+					-->
+					<control type="group">
+						<left>890</left>
+						<top>6</top>
+						<control type="image">
+							<include>pvr_Progress</include>
+							<visible>!ListItem.IsRecording</visible>
+						</control>
+						<control type="image">
+							<include>pvr_Recording</include>
+							<visible>ListItem.IsRecording</visible>
+						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
@@ -357,6 +370,19 @@
 							<include>column_CommonListItem-focus</include>
 						</control>
 					</control>
+					<control type="group">
+						<left>890</left>
+						<top>6</top>
+						<control type="image">
+							<include>pvr_Progress-fo</include>
+							<visible>!ListItem.IsRecording</visible>
+						</control>
+						<control type="image">
+							<include>pvr_Recording-fo</include>
+							<visible>ListItem.IsRecording</visible>
+						</control>
+					</control>
+					<!--
 					<control type="image">
 						<left>889</left>
 						<top>10</top>
@@ -365,6 +391,7 @@
 						<texture>$VAR[pvr:Status]</texture>
 						<colordiffuse>Color4</colordiffuse>
 					</control>
+					-->
 				</focusedlayout>
 			</control>
 		</control>
@@ -476,13 +503,10 @@
 							<label>$INFO[ListItem.Duration]</label>
 							<include>column_CommonListItem</include>
 						</control>
-					</control>
-					<control type="image">
-						<left>889</left>
-						<top>10</top>
-						<width>22</width>
-						<height>22</height>
-						<texture>$VAR[pvr:Status]</texture>
+						<control type="group">
+							<left>878</left>
+							<include>view_GuideStatus</include>
+						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
@@ -516,14 +540,10 @@
 							<label>$INFO[ListItem.Duration]</label>
 							<include>column_CommonListItem-focus</include>
 						</control>
-					</control>
-					<control type="image">
-						<left>889</left>
-						<top>10</top>
-						<width>22</width>
-						<height>22</height>
-						<texture>$VAR[pvr:Status]</texture>
-						<colordiffuse>Color4</colordiffuse>
+						<control type="group">
+							<left>878</left>
+							<include>view_GuideStatus-fo</include>
+						</control>
 					</control>
 				</focusedlayout>
 			</control>
@@ -619,10 +639,9 @@
 							<include>column_CommonListItem</include>
 						</control>
 					</control>
-					<control type="image">
+					<control type="group">
 						<left>915</left>
-						<top>10</top>
-						<include>pvr_Status</include>
+						<include>view_GuideStatus</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="44">
@@ -657,10 +676,9 @@
 							<include>column_CommonListItem-focus</include>
 						</control>
 					</control>
-					<control type="image">
+					<control type="group">
 						<left>915</left>
-						<top>10</top>
-						<include>pvr_Status-fo</include>
+						<include>view_GuideStatus-fo</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -725,12 +743,9 @@
 				<include>column_CommonListItem</include>
 			</control>
 		</control>
-		<control type="image">
-			<left>781</left>
-			<top>10</top>
-			<width>22</width>
-			<height>22</height>
-			<texture>$VAR[pvr:Status]</texture>
+		<control type="group">
+			<left>778</left>
+			<include>view_GuideStatus</include>
 			<visible>!IsEmpty(ListItem.ChannelName)</visible>
 		</control>
 	</include>
@@ -819,13 +834,9 @@
 								<include>column_CommonListItem-focus</include>
 							</control>
 						</control>
-						<control type="image">
-							<left>781</left>
-							<top>11</top>
-							<width>22</width>
-							<height>22</height>
-							<texture>$VAR[pvr:Status]</texture>
-							<colordiffuse>Color4</colordiffuse>
+						<control type="group">
+							<left>778</left>
+							<include>view_GuideStatus-fo</include>
 							<visible>!IsEmpty(ListItem.ChannelName)</visible>
 						</control>
 					</control>
@@ -885,24 +896,28 @@
 		</control>
 		<control type="group">
 			<left>943</left>
-			<top>9</top>
+			<top>7</top>
 			<visible>!IsEmpty(ListItem.StartTime)</visible>
 			<control type="image">
-				<width>24</width>
-				<height>24</height>
+				<width>28</width>
+				<height>28</height>
 				<texture>pvr/status/none-nf.png</texture>
+				<!--!enabled +!recording active-->
 				<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 			</control>
 			<control type="image">
-				<width>24</width>
-				<height>24</height>
-				<texture>pvr/status/recording.png</texture>
+				<width>28</width>
+				<height>28</height>
+				<texture>pvr/status/enabled.png</texture>
+				<colordiffuse>rec1</colordiffuse>
+				<!--recording active-->
 				<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 			</control>
 			<control type="image">
-				<width>24</width>
-				<height>24</height>
+				<width>28</width>
+				<height>28</height>
 				<texture>pvr/status/enabled.png</texture>
+				<!--enabled-->
 				<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 			</control>
 		</control>
@@ -980,27 +995,30 @@
 						</control>
 						<control type="group">
 							<left>943</left>
-							<top>9</top>
+							<top>7</top>
 							<visible>!IsEmpty(ListItem.StartTime)</visible>
 							<control type="image">
-								<width>24</width>
-								<height>24</height>
+								<width>28</width>
+								<height>28</height>
 								<texture>pvr/status/none-nf.png</texture>
-								<colordiffuse>column2</colordiffuse>
+								<colordiffuse>Color4</colordiffuse>
+								<!--!enabled +!recording active-->
 								<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 							</control>
 							<control type="image">
-								<width>24</width>
-								<height>24</height>
-								<texture>pvr/status/recording.png</texture>
-								<colordiffuse>column2</colordiffuse>
+								<width>28</width>
+								<height>28</height>
+								<texture>pvr/status/enabled.png</texture>
+								<colordiffuse>rec2</colordiffuse>
+								<!--recording active-->
 								<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 							</control>
 							<control type="image">
-								<width>24</width>
-								<height>24</height>
+								<width>28</width>
+								<height>28</height>
 								<texture>pvr/status/enabled.png</texture>
-								<colordiffuse>column2</colordiffuse>
+								<colordiffuse>Color4</colordiffuse>
+								<!--enabled-->
 								<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 							</control>
 						</control>

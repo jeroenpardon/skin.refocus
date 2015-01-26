@@ -5,13 +5,13 @@
 	<coordinates>
 		<system>1</system>
 		<left>290</left>
-		<top>65</top>
+		<top>85</top>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<control type="image">
 				<width>700</width>
-				<height>590</height>
+				<height>550</height>
 				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
@@ -39,146 +39,135 @@
 				<left>4</left>
 				<top>95</top>
 				<width>692</width>
-				<height>480</height>
+				<height>432</height>
 				<onleft>PreviousChannelGroup</onleft>
 				<onright>NextChannelGroup</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
 				<include>global_ListScroll</include>
-				<itemlayout width="663" height="80">
+				<itemlayout width="692" height="72">
 					<control type="image">
 						<width>692</width>
-						<height>80</height>
+						<height>72</height>
 						<include>dialog_CommonList</include>
 					</control>
 					<control type="group">
 						<left>4</left>
 						<top>4</top>
 						<control type="image">	
-							<width>72</width>
-							<height>72</height>
+							<width>64</width>
+							<height>64</height>
 							<texture>thumbs/default_Square.png</texture>
 							<visible>IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<left>12</left>
-							<top>12</top>
+							<left>8</left>
+							<top>8</top>
 							<width>48</width>
 							<height>48</height>
 							<texture colordiffuse="Color1">DefaultIconTV.png</texture>
 							<visible>IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<width>72</width>
-							<height>72</height>
+							<width>64</width>
+							<height>64</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 					</control>
 					<control type="group">
-						<left>75</left>
-						<top>7</top>
+						<left>70</left>
 						<control type="label">
-							<width>540</width>
-							<label>[B]$INFO[ListItem.Title][/B]</label>
-							<aligny>top</aligny>
+							<width>550</width>
+							<label>[B]$VAR[pvr:Title][/B]</label>
 							<include>dialog_CommonListItem</include>
 						</control>	
-						<control type="progress">
-							<left>15</left>
-							<top>33</top>
-							<width>540</width>
-							<height>2</height>
-							<reveal>true</reveal>
-							<texturebg colordiffuse="Color4">pvr/progress.png</texturebg>
-							<lefttexture colordiffuse="Color2">-</lefttexture>
-							<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-							<righttexture colordiffuse="Color2">-</righttexture>
-							<info>ListItem.Progress</info>
-						</control>
 						<control type="label">
-							<top>37</top>
-							<width>540</width>
-							<label>$INFO[ListItem.StartTime,,- ]$INFO[ListItem.EndTime,, • ]$LOCALIZE[209]$INFO[ListItem.NextTitle ,: ]</label>
-							<aligny>top</aligny>
+							<top>30</top>
+							<width>550</width>
+							<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.NextTitle, • $LOCALIZE[209]: ]</label>
+							<selectedcolor>Color4</selectedcolor>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</control>
-					<control type="image">
-						<left>655</left>
-						<top>29</top>
-						<texture>$VAR[pvr:Status]</texture>
-						<include>dialog_PVRstatus</include>
+					<control type="group">
+						<left>645</left>
+						<top>22</top>
+						<width>28</width>
+						<control type="image">
+							<colordiffuse>Color4</colordiffuse>
+							<include>pvr_Progress</include>
+							<visible>!ListItem.IsRecording</visible>
+						</control>
+						<control type="image">
+							<colordiffuse>rec2</colordiffuse>
+							<include>pvr_Recording</include>
+							<visible>ListItem.IsRecording</visible>
+						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="663" height="80">
+				<focusedlayout width="692" height="72">
 					<control type="image">
 						<width>692</width>
-						<height>80</height>
+						<height>72</height>
 						<include>dialog_CommonList</include>
 					</control>
 					<control type="image">
 						<width>692</width>
-						<height>80</height>
+						<height>72</height>
 						<include>dialog_CommonListFocus</include>
 					</control>
 					<control type="group">
 						<left>4</left>
 						<top>4</top>
 						<control type="image">	
-							<width>72</width>
-							<height>72</height>
+							<width>64</width>
+							<height>64</height>
 							<texture>thumbs/default_Square.png</texture>
 							<visible>IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<left>12</left>
-							<top>12</top>
+							<left>8</left>
+							<top>8</top>
 							<width>48</width>
 							<height>48</height>
 							<texture colordiffuse="Color1">DefaultIconTV.png</texture>
 							<visible>IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<width>72</width>
-							<height>72</height>
+							<width>64</width>
+							<height>64</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 					</control>
 					<control type="group">
-						<left>75</left>
-						<top>7</top>
+						<left>70</left>
 						<control type="label">
-							<width>540</width>
-							<label>[B]$INFO[ListItem.Title][/B]</label>
-							<aligny>top</aligny>
+							<width>550</width>
+							<label>[B]$VAR[pvr:Title][/B]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>	
-						<control type="progress">
-							<left>15</left>
-							<top>33</top>
-							<width>540</width>
-							<height>2</height>
-							<reveal>true</reveal>
-							<texturebg colordiffuse="Color4">pvr/progress.png</texturebg>
-							<lefttexture colordiffuse="Color2">-</lefttexture>
-							<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-							<righttexture colordiffuse="Color2">-</righttexture>
-							<info>ListItem.Progress</info>
-						</control>
 						<control type="label">
-							<top>37</top>
-							<width>540</width>
-							<label>$INFO[ListItem.StartTime,,- ]$INFO[ListItem.EndTime,, • ]$LOCALIZE[209]$INFO[ListItem.NextTitle ,: ]</label>
-							<aligny>top</aligny>
+							<top>30</top>
+							<width>550</width>
+							<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.NextTitle, • $LOCALIZE[209]: ]</label>
+							<selectedcolor>Color1</selectedcolor>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 					</control>
-					<control type="image">
-						<left>655</left>
-						<top>28</top>
-						<texture>$VAR[pvr:Status]</texture>
-						<colordiffuse>Color1</colordiffuse>
-						<include>dialog_PVRstatus</include>
+					<control type="group">
+						<left>645</left>
+						<top>22</top>
+						<width>28</width>
+						<control type="image">
+							<colordiffuse>Color1</colordiffuse>
+							<include>pvr_Progress</include>
+							<visible>!ListItem.IsRecording</visible>
+						</control>
+						<control type="image">
+							<colordiffuse>rec1</colordiffuse>
+							<include>pvr_Recording</include>
+							<visible>ListItem.IsRecording</visible>
+						</control>
 					</control>
 				</focusedlayout>
 			</control>

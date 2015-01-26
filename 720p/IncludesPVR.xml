@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="pvr_Progress">
+		<width>30</width>
+		<height>30</height>
+		<texture>$VAR[pvr:Progress]</texture>
+		<colordiffuse>Color3</colordiffuse>
+	</include>
+	<include name="pvr_Progress-fo">
+		<width>30</width>
+		<height>30</height>
+		<texture>$VAR[pvr:Progress]</texture>
+		<colordiffuse>Color4</colordiffuse>
+	</include>
+	<include name="pvr_Recording">
+		<width>30</width>
+		<height>30</height>
+		<texture>$VAR[pvr:Progress]</texture>
+		<colordiffuse>rec1</colordiffuse>
+	</include>
+	<include name="pvr_Recording-fo">
+		<width>30</width>
+		<height>30</height>
+		<texture>$VAR[pvr:Progress]</texture>
+		<colordiffuse>rec2</colordiffuse>
+	</include>
+	
+	<include name="view_GuideStatus">
+		<top>7</top>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/none-nf.png</texture>
+			<visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
+		</control>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/enabled.png</texture>
+			<colordiffuse>rec1</colordiffuse>
+			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+		</control>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/enabled.png</texture>
+			<colordiffuse>Color3</colordiffuse>
+			<visible>ListItem.HasTimer</visible>
+		</control>
+	</include>
+	<include name="view_GuideStatus-fo">
+		<top>7</top>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/none-fo.png</texture>
+			<colordiffuse>Color4</colordiffuse>
+			<visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
+		</control>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/enabled.png</texture>
+			<colordiffuse>rec2</colordiffuse>
+			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+		</control>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/enabled.png</texture>
+			<colordiffuse>Color4</colordiffuse>
+			<visible>ListItem.HasTimer</visible>
+		</control>
+	</include>
+</includes>

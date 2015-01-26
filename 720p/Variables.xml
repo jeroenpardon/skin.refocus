@@ -508,11 +508,31 @@
 		<value condition="StringCompare(ListItem.VideoResolution,4K)">4K</value>
 	</variable>
 
+	
+
 <!--PVR-->
+	<variable name="pvr:Title">
+		<value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+
 	<variable name="pvr:Status">
 		<value condition="ListItem.IsRecording">pvr/status/recording.png</value>
 		<value condition="ListItem.HasTimer + !ListItem.IsRecording">pvr/status/timer.png</value>
 		<value>pvr/status/none-nf.png</value>
+	</variable>
+
+	<variable name="pvr:Progress">
+		<value condition="IntegerGreaterThan(ListItem.Progress,10)">views/status/progress/10.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,20)">views/status/progress/20.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,30)">views/status/progress/30.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,40)">views/status/progress/40.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,50)">views/status/progress/50.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,60)">views/status/progress/60.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,70)">views/status/progress/70.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,80)">views/status/progress/80.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,90)">views/status/progress/90.png</value>
+		<value>views/status/progress/00.png</value>
 	</variable>
 
 <!--TOAST-->
