@@ -30,22 +30,23 @@
 		<control type="image">
 			<width>28</width>
 			<height>28</height>
-			<texture>pvr/status/none-nf.png</texture>
-			<visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
-		</control>
-		<control type="image">
-			<width>28</width>
-			<height>28</height>
-			<texture>pvr/status/enabled.png</texture>
-			<colordiffuse>rec1</colordiffuse>
+			<texture>pvr/status/timer.png</texture>
+			<colordiffuse>Color3</colordiffuse>
 			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 		</control>
 		<control type="image">
 			<width>28</width>
 			<height>28</height>
-			<texture>pvr/status/enabled.png</texture>
-			<colordiffuse>Color3</colordiffuse>
-			<visible>ListItem.HasTimer</visible>
+			<texture>pvr/status/timer.png</texture>
+			<colordiffuse>rec1</colordiffuse>
+			<visible>ListItem.HasTimer + ListItem.IsRecording</visible>
+		</control>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/recording.png</texture>
+			<colordiffuse>rec1</colordiffuse>
+			<visible>ListItem.IsRecording</visible>
 		</control>
 	</include>
 	<include name="view_GuideStatus-fo">
@@ -53,23 +54,23 @@
 		<control type="image">
 			<width>28</width>
 			<height>28</height>
-			<texture>pvr/status/none-fo.png</texture>
+			<texture>pvr/status/timer.png</texture>
 			<colordiffuse>Color4</colordiffuse>
-			<visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
-		</control>
-		<control type="image">
-			<width>28</width>
-			<height>28</height>
-			<texture>pvr/status/enabled.png</texture>
-			<colordiffuse>rec2</colordiffuse>
 			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 		</control>
 		<control type="image">
 			<width>28</width>
 			<height>28</height>
-			<texture>pvr/status/enabled.png</texture>
-			<colordiffuse>Color4</colordiffuse>
-			<visible>ListItem.HasTimer</visible>
+			<texture>pvr/status/timer.png</texture>
+			<colordiffuse>rec2</colordiffuse>
+			<visible>ListItem.HasTimer + ListItem.IsRecording</visible>
+		</control>
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<texture>pvr/status/recording.png</texture>
+			<colordiffuse>rec2</colordiffuse>
+			<visible>ListItem.IsRecording</visible>
 		</control>
 	</include>
 </includes>
