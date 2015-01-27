@@ -905,10 +905,27 @@
 					<control type="group">
 						<left>7</left>
 						<top>7</top>
+						<width>532</width>
+						<height>293</height>
 						<control type="image">
 							<width>532</width>
 							<height>293</height>
 							<texture>black.png</texture>
+							<visible>!Pvr.IsPlayingTv</visible>
+						</control>
+						<control type="image">
+							<width>532</width>
+							<height>293</height>
+							<texture>thumbs/default_Landscape.png</texture>
+							<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
+						</control>
+						<control type="image">
+							<centerleft>50%</centerleft>
+							<centertop>50%</centertop>
+							<width>96</width>
+							<height>96</height>
+							<texture>$VAR[pvr:DefaultIcon]</texture>
+							<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
 						</control>
 						<control type="videowindow">
 							<width>532</width>

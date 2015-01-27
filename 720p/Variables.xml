@@ -535,6 +535,12 @@
 		<value>views/status/progress/none.png</value>
 	</variable>
 
+	<variable name="pvr:DefaultIcon">
+		<value condition="Window.IsActive(tvchannels)">DefaultIconTV.png</value>
+		<value>DefaultIconRadio.png</value>
+	</variable>
+
+
 <!--TOAST-->
 	<variable name="toast:Top">
 		<value condition="SubString(System.Time,AM,right)">[B]$INFO[System.Time(h),,:]$INFO[System.Time(mm)][/B]AM</value>
