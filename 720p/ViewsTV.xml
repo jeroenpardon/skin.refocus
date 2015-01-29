@@ -83,23 +83,30 @@
 			<include>column_CommonListItem</include>
 			<visible>ListItem.HasTimer | ListItem.IsRecording</visible>
 		</control>
-		<control type="image">
+		<control type="group">
 			<left>6</left>
 			<top>9</top>
-			<width>28</width>
-			<height>28</height>
-			<texture>pvr/status/timer.png</texture>
-			<colordiffuse>Color1</colordiffuse>
-			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
-		</control>
-		<control type="image">
-			<left>6</left>
-			<top>9</top>
-			<width>28</width>
-			<height>28</height>
-			<texture>pvr/status/recording.png</texture>
-			<colordiffuse>rec1</colordiffuse>
-			<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<texture>pvr/status/timer.png</texture>
+				<colordiffuse>Color1</colordiffuse>
+				<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+			</control>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<texture>pvr/status/timer.png</texture>
+				<colordiffuse>rec1</colordiffuse>
+				<visible>ListItem.HasTimer + ListItem.IsRecording</visible>
+			</control>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<texture>pvr/status/recording.png</texture>
+				<colordiffuse>rec1</colordiffuse>
+				<visible>!ListItem.HasTimer + ListItem.IsRecording</visible>
+			</control>
 		</control>
 	</include>
 	<include name="view_Guide-timeline">

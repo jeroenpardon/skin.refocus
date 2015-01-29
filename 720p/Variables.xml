@@ -492,20 +492,38 @@
 		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
 
-	<variable name="flag:Status.List">
-		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable)">views/status/list/OverlayWatching.png</value>
-		<value condition="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]">$INFO[ListItem.Overlay,views/status/list/]</value>
-	</variable>
-
-	<variable name="flag:Status.Info">
-		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable)">views/status/info/OverlayWatching.png</value>
-		<value condition="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]">$INFO[ListItem.Overlay,views/status/info/]</value>
-	</variable>
-
 	<variable name="flag:Type.Video">
 		<value condition="ListItem.IsStereoscopic">3D</value>
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,540)">HD</value>
 		<value condition="StringCompare(ListItem.VideoResolution,4K)">4K</value>
+	</variable>
+
+
+<!--STATUS-->
+	<variable name="status:List">
+		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable)">status/list/OverlayWatching.png</value>
+		<value condition="StringCompare(ListItem.Overlay,OverlayUnwatched.png)">status/list/OverlayUnwatched.png</value>
+		<value condition="StringCompare(ListItem.Overlay,OverlayWatched.png)">status/list/OverlayWatched.png</value>
+	</variable>
+	
+	<variable name="status:Info">
+		<value condition="ListItem.IsResumable + !Skin.HasSetting(overlay.resumable.disable">status/info/OverlayWatching.png</value>
+		<value condition="StringCompare(ListItem.Overlay,OverlayUnwatched.png)">status/info/OverlayUnwatched.png</value>
+		<value condition="StringCompare(ListItem.Overlay,OverlayWatched.png)">status/info/OverlayWatched.png</value>
+	</variable>
+
+	<variable name="status:Progress">
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,90)">status/progress/100.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,80)">status/progress/90.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,70)">status/progress/80.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,60)">status/progress/60.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,50)">status/progress/50.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,40)">status/progress/40.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,30)">status/progress/30.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,20)">status/progress/20.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,10)">status/progress/10.png</value>
+		<value condition="IntegerGreaterThan(ListItem.PercentPlayed,0)">status/progress/00.png</value>
+		<value condition="!SubString(ListItem.Icon,Default)">status/progress/00.png</value>
 	</variable>
 	
 
@@ -515,6 +533,11 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 
+	<variable name="pvr:DefaultIcon">
+		<value condition="Window.IsActive(tvchannels)">DefaultIconTV.png</value>
+		<value>DefaultIconRadio.png</value>
+	</variable>
+
 	<variable name="pvr:Status">
 		<value condition="ListItem.IsRecording">pvr/status/recording.png</value>
 		<value condition="ListItem.HasTimer + !ListItem.IsRecording">pvr/status/timer.png</value>
@@ -522,22 +545,17 @@
 	</variable>
 
 	<variable name="pvr:Progress">
-		<value condition="IntegerGreaterThan(ListItem.Progress,0) + !IntegerGreaterThan(ListItem.Progress,10)">views/status/progress/00.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,10) + !IntegerGreaterThan(ListItem.Progress,20)">views/status/progress/10.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,20) + !IntegerGreaterThan(ListItem.Progress,30)">views/status/progress/20.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,30) + !IntegerGreaterThan(ListItem.Progress,40)">views/status/progress/30.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,40) + !IntegerGreaterThan(ListItem.Progress,50)">views/status/progress/40.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,50) + !IntegerGreaterThan(ListItem.Progress,60)">views/status/progress/50.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,60) + !IntegerGreaterThan(ListItem.Progress,70)">views/status/progress/60.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,70) + !IntegerGreaterThan(ListItem.Progress,80)">views/status/progress/70.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,80) + !IntegerGreaterThan(ListItem.Progress,90)">views/status/progress/80.png</value>
-		<value condition="IntegerGreaterThan(ListItem.Progress,90) + !IntegerGreaterThan(ListItem.Progress,100)">views/status/progress/90.png</value>
-		<value>views/status/progress/none.png</value>
-	</variable>
-
-	<variable name="pvr:DefaultIcon">
-		<value condition="Window.IsActive(tvchannels)">DefaultIconTV.png</value>
-		<value>DefaultIconRadio.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,90)">status/progress/90.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,80)">status/progress/80.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,70)">status/progress/70.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,60)">status/progress/60.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,50)">status/progress/50.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,40)">status/progress/40.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,30)">status/progress/30.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,20)">status/progress/20.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,10)">status/progress/10.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Progress,0)">status/progress/00.png</value>
+		<value>status/progress/none.png</value>
 	</variable>
 
 
@@ -592,6 +610,10 @@
 		<value condition="Window.IsActive(Weather)">[B]$INFO[Window(Weather).Property(Location)][/B] $INFO[Window(Weather).Property(Updated)]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(20)">[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(21)">[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]</value>
+		
+
+		<value condition="Window.IsActive(tvrecordings)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]$INFO[Pvr.BackendDiskspace, • ]</value>
+
 		<value condition="SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
 	</variable>
 

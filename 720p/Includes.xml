@@ -425,22 +425,78 @@
 		<aspectratio>stretch</aspectratio>
 	</include>
 
+
 <!--STATUS INDICATORS-->
-	<include name="status_List">
-		<right>15</right>
-		<top>18.5</top>
-		<width>30</width>
-		<height>30</height>
-		<colordiffuse>Color3</colordiffuse>
-	</include>
-	<include name="status_Info">
-		<control type="image">
-			<width>26</width>
-			<height>26</height>
-			<aspectratio>keep</aspectratio>
-			<texture>$VAR[flag:Status.Info]</texture>
+
+	<include name="media_Progress">
+		<control type="group">
+			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+			<control type="group">
+				<control type="image">
+					<width>28</width>
+					<height>28</height>
+					<colordiffuse>Color4</colordiffuse>
+					<texture>views/status/progress/bg.png</texture>
+					<visible>!Control.IsVisible(50)</visible>
+				</control>
+				<control type="image">
+					<width>28</width>
+					<height>28</height>
+					<texture>$VAR[media:Progress]</texture>
+				</control>
+			</control>
 		</control>
 	</include>
+	<include name="media_Progress-fo">
+		<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+		<control type="group">
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<colordiffuse>Color4</colordiffuse>
+				<texture>views/status/progress/bg.png</texture>
+				<visible>!Control.IsVisible(50)</visible>
+			</control>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<colordiffuse>Color4</colordiffuse>
+				<texture>$VAR[media:Progress]</texture>
+			</control>
+		</control>
+	</include>
+
+
+	<include name="status_List">
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<colordiffuse>Color1</colordiffuse>
+			<texture>$VAR[status:List]</texture>
+			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+		</control>
+	</include>
+	<include name="status_List-fo">
+		<control type="image">
+			<width>28</width>
+			<height>28</height>
+			<colordiffuse>Color4</colordiffuse>
+			<texture>$VAR[status:List]</texture>
+			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+		</control>
+	</include>
+
+	<include name="status_Info">
+		<control type="group">
+			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(Files) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+			<control type="image">
+				<width>42</width>
+				<height>42</height>
+				<texture>$VAR[status:Info]</texture>
+			</control>
+		</control>
+	</include>
+
 
 <!--NOTIFICATIONS-->
 	<include name="toast_Top">
@@ -910,14 +966,14 @@
 						<control type="image">
 							<width>532</width>
 							<height>293</height>
-							<texture>black.png</texture>
-							<visible>!Pvr.IsPlayingTv</visible>
+							<texture>thumbs/default_Landscape.png</texture>
+							<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
 						</control>
 						<control type="image">
 							<width>532</width>
 							<height>293</height>
-							<texture>thumbs/default_Landscape.png</texture>
-							<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
+							<texture>black.png</texture>
+							<visible>Player.HasVideo</visible>
 						</control>
 						<control type="image">
 							<centerleft>50%</centerleft>

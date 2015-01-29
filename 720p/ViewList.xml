@@ -190,8 +190,11 @@
 					<selectedcolor>Color2</selectedcolor>
 					<include>container_Sub</include>
 				</control>
-				<control type="image">
-					<texture colordiffuse="Color3">$VAR[flag:Status.List]</texture>
+				<control type="group">
+					<right>10</right>
+					<top>18.5</top>
+					<width>28</width>
+					<height>28</height>
 					<include>status_List</include>
 				</control>
 			</itemlayout>
@@ -228,17 +231,11 @@
 					</control>
 				</control>
 				<control type="group">
-					<right>15</right>
+					<right>10</right>
 					<top>18.5</top>
 					<width>28</width>
-					<control type="image">
-						<include>pvr_Progress</include>
-						<visible>!ListItem.IsRecording</visible>
-					</control>
-					<control type="image">
-						<include>pvr_Recording</include>
-						<visible>ListItem.IsRecording</visible>
-					</control>
+					<height>28</height>
+					<include>progress_PVR</include>
 				</control>
 			</itemlayout>
 			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + Container.HasFiles] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
@@ -264,9 +261,12 @@
 						<label>$VAR[media:Info]</label>
 						<include>container_Sub-focus</include>
 					</control>
-					<control type="image">
-						<texture colordiffuse="Color4">$VAR[flag:Status.List]</texture>
-						<include>status_List</include>
+					<control type="group">
+						<right>10</right>
+						<top>18.5</top>
+						<width>28</width>
+						<height>28</height>
+						<include>status_List-fo</include>
 					</control>
 				</control>
 				<control type="group">
@@ -287,8 +287,11 @@
 						<selectedcolor>Color2</selectedcolor>
 						<include>container_Sub</include>
 					</control>
-					<control type="image">
-						<texture colordiffuse="Color3">$VAR[flag:Status.List]</texture>
+					<control type="group">
+						<right>10</right>
+						<top>18.5</top>
+						<width>28</width>
+						<height>28</height>
 						<include>status_List</include>
 					</control>
 				</control>
@@ -332,17 +335,11 @@
 						</control>
 					</control>
 					<control type="group">
-						<right>15</right>
+						<right>10</right>
 						<top>18.5</top>
 						<width>28</width>
-						<control type="image">
-							<include>pvr_Progress-fo</include>
-							<visible>!ListItem.IsRecording</visible>
-						</control>
-						<control type="image">
-							<include>pvr_Recording-fo</include>
-							<visible>ListItem.IsRecording</visible>
-						</control>
+						<height>28</height>
+						<include>progress_PVR-fo</include>
 					</control>
 				</control>
 				<control type="group">
@@ -379,17 +376,11 @@
 						</control>
 					</control>
 					<control type="group">
-						<right>15</right>
+						<right>10</right>
 						<top>18.5</top>
 						<width>28</width>
-						<control type="image">
-							<include>pvr_Progress</include>
-							<visible>!ListItem.IsRecording</visible>
-						</control>
-						<control type="image">
-							<include>pvr_Recording</include>
-							<visible>ListItem.IsRecording</visible>
-						</control>
+						<height>28</height>
+						<include>progress_PVR</include>
 					</control>
 				</control>
 			</focusedlayout>
@@ -801,8 +792,10 @@
 				<include>art_Logo</include>
 			</control>
 			<control type="group">
-				<left>205</left>
-				<top>104</top>
+				<left>189</left>
+				<bottom>17</bottom>
+				<width>42</width>
+				<height>42</height>
 				<include>status_Info</include>
 			</control>
 		</control>	
@@ -837,8 +830,10 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<left>64</left>
-				<top>104</top>
+				<left>48</left>
+				<bottom>17</bottom>
+				<width>42</width>
+				<height>42</height>
 				<include>status_Info</include>
 			</control>
 		</control>

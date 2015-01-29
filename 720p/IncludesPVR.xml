@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="pvr_Progress">
-		<width>30</width>
-		<height>30</height>
-		<texture>$VAR[pvr:Progress]</texture>
-		<colordiffuse>Color3</colordiffuse>
+	<include name="progress_PVR">
+		<control type="group">
+			<visible>!SubString(ListItem.Icon,default)</visible>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<colordiffuse>Color1</colordiffuse>
+				<texture>$VAR[pvr:Progress]</texture>
+				<visible>!ListItem.IsRecording</visible>
+			</control>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<colordiffuse>rec1</colordiffuse>
+				<texture>$VAR[pvr:Progress]</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+		</control>
 	</include>
-	<include name="pvr_Progress-fo">
-		<width>30</width>
-		<height>30</height>
-		<texture>$VAR[pvr:Progress]</texture>
-		<colordiffuse>Color4</colordiffuse>
-	</include>
-	<include name="pvr_Recording">
-		<width>30</width>
-		<height>30</height>
-		<texture>$VAR[pvr:Progress]</texture>
-		<colordiffuse>rec1</colordiffuse>
-	</include>
-	<include name="pvr_Recording-fo">
-		<width>30</width>
-		<height>30</height>
-		<texture>$VAR[pvr:Progress]</texture>
-		<colordiffuse>rec2</colordiffuse>
+	<include name="progress_PVR-fo">
+		<control type="group">
+			<visible>!SubString(ListItem.Icon,default)</visible>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<colordiffuse>Color4</colordiffuse>
+				<texture>$VAR[pvr:Progress]</texture>
+				<visible>!ListItem.IsRecording</visible>
+			</control>
+			<control type="image">
+				<width>28</width>
+				<height>28</height>
+				<colordiffuse>rec2</colordiffuse>
+				<texture>$VAR[pvr:Progress]</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+		</control>
 	</include>
 
 	<include name="view_GuideStatus">
