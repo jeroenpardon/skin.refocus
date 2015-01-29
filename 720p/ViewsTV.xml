@@ -39,17 +39,17 @@
 			<control type="grouplist">
 				<left>168</left>
 				<itemgap>0</itemgap>
-				<control type="label">
+				<control type="label" id="1">
 					<width>950</width>
 					<label>$INFO[ListItem.Title]</label>
 					<include>detail_Title</include>
 				</control>
-				<control type="label">
+				<control type="label" id="1">
 					<width>950</width>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, • ]</label>
 					<include>detail_Sub</include>
 				</control>
-				<control type="label">
+				<control type="label" id="1">
 					<label>-</label>
 					<height>5</height>
 				</control>
@@ -65,7 +65,7 @@
 
 <!--GUIDE TIMELINE-->
 	<include name="view_Guide-timeline-Commons">
-		<control type="label">
+		<control type="label" id="1">
 			<left>8</left>
 			<width>84</width>
 			<height>44</height>
@@ -74,7 +74,7 @@
 			<include>column_CommonListItem</include>
 			<visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
 		</control>
-		<control type="label">
+		<control type="label" id="1">
 			<left>40</left>
 			<width>52</width>
 			<height>44</height>
@@ -89,26 +89,20 @@
 			<control type="image">
 				<width>28</width>
 				<height>28</height>
-				<texture>pvr/status/timer.png</texture>
+				<texture>$VAR[pvr:Status]</texture>
 				<colordiffuse>Color1</colordiffuse>
-				<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+				<visible>!ListItem.IsRecording</visible>
 			</control>
 			<control type="image">
 				<width>28</width>
 				<height>28</height>
-				<texture>pvr/status/timer.png</texture>
+				<texture>$VAR[pvr:Status]</texture>
 				<colordiffuse>rec1</colordiffuse>
-				<visible>ListItem.HasTimer + ListItem.IsRecording</visible>
-			</control>
-			<control type="image">
-				<width>28</width>
-				<height>28</height>
-				<texture>pvr/status/recording.png</texture>
-				<colordiffuse>rec1</colordiffuse>
-				<visible>!ListItem.HasTimer + ListItem.IsRecording</visible>
+			
 			</control>
 		</control>
 	</include>
+
 	<include name="view_Guide-timeline">
 	<!--epg grid-->
 		<control type="epggrid" id="10">
@@ -147,7 +141,7 @@
 					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
-				<control type="label">
+				<control type="label" id="1">
 					<left>15</left>
 					<width>205</width>
 					<height>44</height>
@@ -163,7 +157,7 @@
 					<texture>colorize/100.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
-				<control type="label">
+				<control type="label" id="1">
 					<left>15</left>
 					<width>205</width>
 					<height>44</height>
@@ -299,7 +293,7 @@
 					</control>
 					<control type="group">
 						<posx>15</posx>
-						<control type="label">
+						<control type="label" id="1">
 							<width>205</width>
 							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
 							<include>column_CommonListItem</include>
@@ -344,7 +338,7 @@
 					</control>
 					<control type="group">
 						<posx>15</posx>
-						<control type="label">
+						<control type="label" id="1">
 							<width>205</width>
 							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
 							<include>column_CommonListItem-focus</include>
@@ -468,7 +462,7 @@
 					</control>
 					<control type="group">
 						<posx>15</posx>
-						<control type="label">
+						<control type="label" id="1">
 							<width>205</width>
 							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
 							<include>column_CommonListItem</include>
@@ -505,7 +499,7 @@
 					</control>
 					<control type="group">
 						<posx>15</posx>
-						<control type="label">
+						<control type="label" id="1">
 							<width>205</width>
 							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
 							<include>column_CommonListItem-focus</include>
@@ -609,7 +603,7 @@
 					</control>
 					<control type="group">
 						<posx>15</posx>
-						<control type="label">
+						<control type="label" id="1">
 							<width>135</width>
 							<label>$INFO[ListItem.StartTime]</label>
 							<include>column_CommonListItem</include>
@@ -646,7 +640,7 @@
 					</control>
 					<control type="group">
 						<posx>15</posx>
-						<control type="label">
+						<control type="label" id="1">
 							<width>135</width>
 							<label>$INFO[ListItem.StartTime]</label>
 							<include>column_CommonListItem-focus</include>
@@ -707,24 +701,24 @@
 		</control>
 		<control type="group">
 			<left>15</left>
-			<control type="label">
+			<control type="label" id="1">
 				<width>190</width>
 				<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
 				<include>column_CommonListItem</include>
 			</control>
-			<control type="label">
+			<control type="label" id="1">
 				<left>222</left>
 				<width>563</width>
 				<label>$INFO[ListItem.Label]</label>
 				<include>column_CommonListItem</include>
 			</control>
-			<control type="label">
+			<control type="label" id="1">
 				<left>817</left>
 				<width>216</width>
 				<label>$INFO[ListItem.StartDate]</label>
 				<include>column_CommonListItem</include>
 			</control>
-			<control type="label">
+			<control type="label" id="1">
 				<left>1065</left>
 				<width>105</width>
 				<label>$INFO[ListItem.StartTime]</label>
@@ -798,24 +792,24 @@
 						</control>
 						<control type="group">
 							<left>15</left>
-							<control type="label">
+							<control type="label" id="1">
 								<width>190</width>
 								<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
-							<control type="label">
+							<control type="label" id="1">
 								<left>222</left>
 								<width>563</width>
 								<label>$INFO[ListItem.Label]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
-							<control type="label">
+							<control type="label" id="1">
 								<left>817</left>
 								<width>216</width>
 								<label>$INFO[ListItem.StartDate]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
-							<control type="label">
+							<control type="label" id="1">
 								<left>1065</left>
 								<width>105</width>
 								<label>$INFO[ListItem.StartTime]</label>
