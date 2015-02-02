@@ -26,14 +26,16 @@
 				<left>15</left>
 				<width>862</width>
 				<height>40</height>
-				<texture border="142,0,3,0">dialogs/keyboard/edit_alt-nf.png</texture>
+				<texture border="142,6,6,6">dialogs/keyboard/edit_alt.png</texture>
+				<colordiffuse>Color3</colordiffuse>
 				<visible>!Control.HasFocus(9)</visible>
 			</control>
 			<control type="image" id="1">
 				<left>15</left>
 				<width>862</width>
 				<height>40</height>
-				<texture border="142,0,3,0">dialogs/keyboard/edit_alt-fo.png</texture>
+				<texture border="142,6,6,6">dialogs/keyboard/edit_alt.png</texture>
+				<colordiffuse>Color5</colordiffuse>
 				<visible>Control.HasFocus(9)</visible>
 			</control>
 			<!--search label-->
@@ -43,10 +45,21 @@
 				<label>$LOCALIZE[137]</label>
 				<align>left</align>
 				<include>dialog_ControlCommons</include>
+				<visible>!Control.HasFocus(9)</visible>
+			</control>
+			<control type="label">
+				<left>28</left>
+				<width>200</width>
+				<label>$LOCALIZE[137]</label>
+				<align>left</align>
+				<textcolor>Color1</textcolor>
+				<include>dialog_ControlCommons</include>
+				<visible>Control.HasFocus(9)</visible>
 			</control>
 			<!--search field-->
 			<control type="edit" id="9">
 				<left>145</left>
+				<top>-2</top>
 				<width>737</width>
 				<onleft>9</onleft>
 				<onright>9</onright>
@@ -83,6 +96,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19134]</label>
 						<onright>12</onright>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 					<!--case sensitive-->
@@ -90,6 +104,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19135]</label>
 						<onright>13</onright>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 					<!--start date-->
@@ -119,6 +134,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19132]</label>
 						<onright>21</onright>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 					<!--free to air only-->
@@ -126,6 +142,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19123]</label>
 						<onright>23</onright>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 					<!--ignore timers-->
@@ -133,6 +150,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19124]</label>
 						<onright>27</onright>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 				</control>
@@ -185,6 +203,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19121]</label>
 						<onleft>18</onleft>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 					<!--groups-->
@@ -208,6 +227,7 @@
 						<width>446</width>
 						<label>$LOCALIZE[19125]</label>
 						<onleft>24</onleft>
+						<include>dialog_ControlCommons</include>
 						<include>dialog_Radio</include>
 					</control>
 				</control>
