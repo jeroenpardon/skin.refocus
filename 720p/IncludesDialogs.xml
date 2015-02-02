@@ -55,6 +55,7 @@
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<selectedcolor>Selected</selectedcolor>
+		<disabledcolor>Disabled</disabledcolor>
 		<texturefocus border="0,0,0,1">dialogs/select-fo.png</texturefocus>
 		<texturenofocus border="0,0,0,1">dialogs/select-nf.png</texturenofocus>
 		<alttexturefocus border="0,0,0,1">dialogs/select-fo.png</alttexturefocus>
@@ -128,22 +129,27 @@
 	</include>
 
 	<include name="dialog_Radio">
+		<!--
 		<height>40</height>
 		<font>regular</font>
 		<textoffsetx>15</textoffsetx>
 		<textoffsety>5</textoffsety>
+		-->
 		<radiowidth>48</radiowidth>
 		<radioheight>24</radioheight>
 		<textureradioonnofocus colordiffuse="glyph_nf">dialogs/radio/on-nf.png</textureradioonnofocus>
 		<textureradiooffnofocus colordiffuse="glyph_nf">dialogs/radio/off-nf.png</textureradiooffnofocus>
 		<textureradioonfocus colordiffuse="glyph_fo">dialogs/radio/on-fo.png</textureradioonfocus>
 		<textureradioofffocus colordiffuse="glyph_fo">dialogs/radio/off-fo.png</textureradioofffocus>
+		<!--
 		<texturefocus colordiffuse="Color4" border="3">dialogs/select-fo.png</texturefocus>
 		<texturenofocus border="3">dialogs/select-nf.png</texturenofocus>
+		<!--
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<disabledcolor>Disabled</disabledcolor>
 		<selectedcolor>Selected</selectedcolor>
+		-->
 	</include>
 
 	<include name="dialog_Spin">
@@ -166,13 +172,13 @@
 		<textureslidernib>dialogs/slider/nib-nf.png</textureslidernib>
 		<textureslidernibfocus>dialogs/slider/nib-fo.png</textureslidernibfocus>
 	</include>
-	<!--not used atm
+
 	<include name="dialog_Scrollbar">
 		<texturesliderbackground>-</texturesliderbackground>
 		<texturesliderbar colordiffuse="Color4">dialogs/pagecontrol/grip-nf.png</texturesliderbar>
 		<texturesliderbarfocus colordiffuse="Color5">dialogs/pagecontrol/grip-fo.png</texturesliderbarfocus>
 	</include>
-	-->
+	
 
 <!--list controls-->
 	<include name="dialog_CommonList">
@@ -234,17 +240,5 @@
 		<height>40</height>
 		<texturenofocus colordiffuse="glyph_nf">dialogs/inline/down-nf.png</texturenofocus>
 		<texturefocus colordiffuse="Color4">dialogs/inline/down-fo.png</texturefocus>
-	</include>
-
-<!--pvr-->
-	<include name="dialog_PVRstatus">
-		<width>22</width>
-		<height>22</height>
-		<colordiffuse>glyph_nf</colordiffuse>
-	</include>
-	<include name="dialog_PVRstatus-focus">
-		<width>22</width>
-		<height>22</height>
-		<colordiffuse>Color1</colordiffuse>
 	</include>
 </includes>

@@ -1,44 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>	
 	<groupings>
+
+		<!--COMMON-->
 		<node label="::SCRIPT::32029">
 			<content>common</content>
 		</node>
 
-		<node label="::SCRIPT::32030">
-			<content>video</content>
-			<!--
-			<content>movie</content>
-			<content>tvshow</content>
-			<content>musicvideo</content>
-			-->
-			<node label="::SCRIPT::32040">
+		<!--VIDEO-->
+		<node label="::SCRIPT::157">
+			<!--files-->
+			<shortcut label="::LOCAL::1214" type="::SCRIPT::31706" icon="DefaultVideo.png">ActivateWindow(Videos,Files,return)</shortcut>
+
+			<!--movies-->
+			<node label="::SCRIPT::32015">
+				<shortcut label="::LOCAL::31013" type="::LOCAL::31706" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+				<shortcut label="::LOCAL::31705" type="::LOCAL::31706" icon="DefaultRecentlyAddedMovies.png">ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</shortcut>
+				<shortcut label="::LOCAL::16101" type="::LOCAL::31706" icon="DefaultMovies.png">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return)</shortcut>
+				<shortcut label="::LOCAL::575" type="::LOCAL::31706" icon="DefaultMovies.png">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
+				<shortcut label="::LOCAL::135" type="::LOCAL::31706" icon="DefaultMovies.png">ActivateWindow(Videos,videodb://movies/genre/,return)</shortcut>
+				<shortcut label="::LOCAL::562" type="::LOCAL::31706" icon="DefaultYear.png">ActivateWindow(Videos,videodb://movies/years/,return)</shortcut>
+				<shortcut label="::LOCAL::344" type="::LOCAL::31706" icon="DefaultActor.png">ActivateWindow(Videos,videodb://movies/actors/,return)</shortcut>
+				<shortcut label="::LOCAL::20348" type="::LOCAL::31706" icon="DefaultDirector.png">ActivateWindow(Videos,videodb://movies/directors/,return)</shortcut>
+				<shortcut label="::LOCAL::20388" type="::LOCAL::31706" icon="DefaultStudios.png">ActivateWindow(Videos,videodb://movies/studios/,return)</shortcut>
+				<shortcut label="::LOCAL::20434" type="::LOCAL::31706" icon="DefaultSets.png">ActivateWindow(Videos,videodb://movies/sets/,return)</shortcut>
+				<shortcut label="::LOCAL::20451" type="::LOCAL::31706" icon="DefaultCountry.png">ActivateWindow(Videos,videodb://movies/countries/,return)</shortcut>
+				<shortcut label="::LOCAL::20459" type="::LOCAL::31706" icon="DefaultTags.png">ActivateWindow(Videos,videodb://movies/tags/,return)</shortcut>
+			</node>
+			
+			<!--tv shows-->
+			<node label="::SCRIPT::32016">
+				<shortcut label="::LOCAL::31013" type="::LOCAL::31706" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+				<shortcut label="::LOCAL::31705" type="::LOCAL::31706" icon="DefaultRecentlyAddedEpisodes.png">ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</shortcut>
+				<shortcut label="::LOCAL::16101" type="::LOCAL::31706" icon="DefaultTVShows.png">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return)</shortcut>
+				<shortcut label="::LOCAL::575" type="::LOCAL::31706" icon="DefaultInProgressShows.png">ActivateWindow(Videos,library://video/inprogressshows.xml,return)"</shortcut>
+				<shortcut label="::LOCAL::31606" type="::LOCAL::31706" icon="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
+				<shortcut label="::LOCAL::135" type="::LOCAL::31706" icon="DefaultTVShows.png">ActivateWindow(Videos,videodb://tvshows/genre/,return)</shortcut>
+				<shortcut label="::LOCAL::562" type="::LOCAL::31706" icon="DefaultYear.png">ActivateWindow(Videos,videodb://tvshows/years/,return)</shortcut>
+				<shortcut label="::LOCAL::344" type="::LOCAL::31706" icon="DefaultActor.png">ActivateWindow(Videos,videodb://tvshows/actors/,return)</shortcut>
+				<shortcut label="::LOCAL::20348" type="::LOCAL::31706" icon="DefaultDirector.png">ActivateWindow(Videos,videodb://tvshows/directors/,return)</shortcut>
+				<shortcut label="::LOCAL::20388" type="::LOCAL::31706" icon="DefaultStudios.png">ActivateWindow(Videos,videodb://tvshows/studios/,return)</shortcut>
+				<shortcut label="::LOCAL::20459" type="::LOCAL::31706" icon="DefaultTags.png">ActivateWindow(Videos,videodb://tvshows/tags/,return)</shortcut>
+			</node>
+
+			<!--playlists-->
+			<node label="::LOCAL::136">
 				<shortcut label="::LOCAL::136" type="::SCRIPT::32014" icon="DefaultVideoPlaylists.png">ActivateWindow(Videos,Playlists,return)</shortcut>
 				<content>playlist-video</content>
 			</node>
+
+			<!--add-ons-->
+			<node label="::LOCAL::24001">
+				<shortcut label="::LOCAL::1037" type="::SCRIPT::32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+				<content>addon-video</content>
+			</node>
+
+			<!--sources-->
 			<node label="::SCRIPT::32075">
 				<content>videosources</content>
 				<content>upnp-video</content>
 			</node>
-			<shortcut label="::LOCAL::1214" type="::SCRIPT::32014" icon="DefaultVideo.png">ActivateWindow(Videos,Files,return)</shortcut>
-			<content>customvideonode</content>
 		</node>
-		<node label="::SCRIPT::32031">
-			<content>music</content>
+
+		<!--MUSIC-->
+		<node label="::LOCAL::2">
+			<node label="::SCRIPT::32031">
+				<shortcut label="::LOCAL::135" type="::LOCAL::31706" icon="DefaultMusicGenres.png">ActivateWindow(Music,musicdb://genres/,return)</shortcut>
+				<shortcut label="::LOCAL::133" type="::LOCAL::31706" icon="DefaultMusicArtists.png">ActivateWindow(Music,musicdb://artists/,return)</shortcut>
+				<shortcut label="::LOCAL::132" type="::LOCAL::31706" icon="DefaultMusicAlbums.png">ActivateWindow(Music,musicdb://albums/,return)</shortcut>
+				<shortcut label="::LOCAL::134" type="::LOCAL::31706" icon="DefaultMusicSongs.png">ActivateWindow(Music,musicdb://songs/,return)</shortcut>
+				<shortcut label="::LOCAL::652" type="::LOCAL::31706" icon="DefaultMusicYears.png">ActivateWindow(Music,musicdb://years/,return)</shortcut>
+				<shortcut label="::LOCAL::10505" type="::LOCAL::31706" icon="DefaultMusicTop100.png">ActivateWindow(Music,musicdb://top100/albums/,return)</shortcut>
+				<shortcut label="::LOCAL::10504" type="::LOCAL::31706" icon="DefaultMusicTop100.png">ActivateWindow(Music,musicdb://top100/songs/,return)</shortcut>
+				<shortcut label="::LOCAL::31705" type="::LOCAL::31706" icon="DefaultMusicRecentlyAdded.png">ActivateWindow(Music,musicdb://recentlyaddedalbums/,return)</shortcut>
+				<shortcut label="::LOCAL::31016" type="::LOCAL::31706" icon="DefaultMusicRecentlyPlayed.png">ActivateWindow(Music,musicdb://recentlyplayedalbums/,return)</shortcut>
+				<shortcut label="::LOCAL::521" type="::LOCAL::31706" icon="DefaultMusicCompilations.png">ActivateWindow(Music,musicdb://compilations/,return)</shortcut>
+				<shortcut label="::LOCAL::136" type="::LOCAL::31706" icon="DefaultMusicPlaylists.png">ActivateWindow(Music,special://musicplaylists/,return)</shortcut>
+			</node>
+			<node label="::SCRIPT::20389">
+				<shortcut label="::LOCAL::135" type="::LOCAL::31706" icon="DefaultMusicGenres.png">ActivateWindow(Music,videodb://musicvideos/genres/,return)</shortcut>
+				<shortcut label="::LOCAL::134" type="::LOCAL::31706" icon="DefaultMusicSongs.png">ActivateWindow(Music,videodb://musicvideos/titles/,return)</shortcut>
+				<shortcut label="::LOCAL::652" type="::LOCAL::31706" icon="DefaultMusicYears.png">ActivateWindow(Music,videodb://musicvideos/years/,return)</shortcut>
+				<shortcut label="::LOCAL::133" type="::LOCAL::31706" icon="DefaultMusicArtists.png">ActivateWindow(Music,videodb://musicvideos/artists/,return)</shortcut>
+				<shortcut label="::LOCAL::132" type="::LOCAL::31706" icon="DefaultMusicAlbums.png">ActivateWindow(Music,videodb://musicvideos/albums/,return)</shortcut>
+				<shortcut label="::LOCAL::20348" type="::LOCAL::31706" icon="DefaultDirector.png">ActivateWindow(Music,videodb://musicvideos/directors/,return)</shortcut>
+				<shortcut label="::LOCAL::20388" type="::LOCAL::31706" icon="DefaultStudios.png">ActivateWindow(Music,videodb://musicvideos/studios/,return)</shortcut>
+				<shortcut label="::LOCAL::20459" type="::LOCAL::31706" icon="DefaultStudios.png">ActivateWindow(Music,videodb://musicvideos/tags/,return)</shortcut>
+			</node>
 			<node label="::SCRIPT::32040">
 				<content>playlist-audio</content>
 			</node>
-			<!--
-			<node label="::SCRIPT::32011">
-				<shortcut label="::LOCAL::1038" type="::SCRIPT::32019" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+			<node label="::LOCAL::24001">
+				<shortcut label="::LOCAL::1037" type="::SCRIPT::32014" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
 				<content>addon-audio</content>
 			</node>
-			-->
 			<node label="::SCRIPT::32075">
 				<content>musicsources</content>
 				<content>upnp-music</content>
 			</node>
+			<shortcut label="::LOCAL::2" type="::LOCAL::29800" icon="DefaultMusicSongs.png">ActivateWindow(Music,musicdb://,return)</shortcut>
+			<shortcut label="::LOCAL::2" type="::LOCAL::744" icon="DefaultMusicSongs.png">ActivateWindow(Music,files)</shortcut>
 		</node>
+
+		<!--PVR-->
 		<node label="::LOCAL::19020" condition="System.GetBool(pvrmanager.enabled)">
 			<node label="::LOCAL::19023">
 				<content>pvr-tv</content><!--channels-->
@@ -51,62 +115,64 @@
 			</node>
 			<content>radio</content><!--nodes-->
 		</node>
-		<node label="::SCRIPT::32007">
-			<node label="::SCRIPT::32009">
-				<shortcut label="::LOCAL::10001" type="::SCRIPT::32021" icon="DefaultAddonProgram.png">ActivateWindow(Programs,Addons,return)</shortcut>
-				<content>addon-program</content>
-			</node>
-			<node label="::SCRIPT::32010">
-				<shortcut label="::LOCAL::1037" type="::SCRIPT::32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+
+		<!--PICTURES-->
+		<node label="::LOCAL::1">
+			<content>picturesources</content>
+			<content>addon-image</content>
+			<shortcut label="::LOCAL::1" type="::LOCAL::31706" icon="DefaultPicture.png">ActivateWindow(Pictures)</shortcut>
+		</node>
+
+		<!--ADD-ONS-->
+		<node label="::LOCAL::24001">
+			<node label="::LOCAL::1037">
+				<shortcut label="::LOCAL::1037" type="::SCRIPT::31706" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
 				<content>addon-video</content>
 			</node>
-			<node label="::SCRIPT::32011">
-				<shortcut label="::LOCAL::1038" type="::SCRIPT::32019" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
+			<node label="::LOCAL::1038">
+				<shortcut label="::LOCAL::1038" type="::SCRIPT::31706" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
 				<content>addon-audio</content>
 			</node>
-			<node label="::SCRIPT::32012">
-				<shortcut label="::LOCAL::1039" type="::SCRIPT::32020" icon="DefaultAddonPicture.png">ActivateWindow(Pictures,Addons,return)</shortcut>
+			<node label="::LOCAL::1039">
+				<shortcut label="::LOCAL::1039" type="::SCRIPT::31706" icon="DefaultAddonPicture.png">ActivateWindow(Pictures,Addons,return)</shortcut>
 				<content>addon-image</content>
 			</node>
-		<!--get addons-->
-			<shortcut label="::LOCAL::24033" type="::LOCAL::10040" icon="DefaultIconDownload.png">ActivateWindow(Addonbrowser,addons://repos/,return)</shortcut>
+			<node label="::LOCAL::1043">
+				<shortcut label="::LOCAL::1043" type="::SCRIPT::31706" icon="DefaultAddonProgram.png">ActivateWindow(Programs,return)</shortcut>
+				<content>addon-program</content>
+			</node>
+			<shortcut label="::LOCAL::10040" type="::LOCAL::31706" icon="DefaultIconDownload.png">ActivateWindow(Addonbrowser,addons://repos/,return)</shortcut>
 		</node>
+
+		<!--FAVOURITES-->
 		<node label="::SCRIPT::32006">
 			<content>favourite</content>
 		</node>
-		<node label="::SCRIPT::32054">
-			<content>commands</content>
-		</node>
+
+		<!--SETTINGS-->
 		<node label="::LOCAL::10004">
  			<content>settings</content>
  		</node>
+
+		<!--COMMANDS-->
+		<node label="::SCRIPT::32054">
+			<content>commands</content>
+		</node>
+
 	</groupings>
 
+
 <!--CUSTOM SHORTCUTS-->
-	<!--in progress-->
-	<shortcut label="::LOCAL::575" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-in progress.xsp,return)</shortcut>
-	<shortcut label="::LOCAL::575" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultInProgressShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,library://video/inprogressshows.xml,return)"</shortcut>
-	<!--recent-->
-	<shortcut label="::LOCAL::31705" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultRecentlyAddedMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,RecentlyAddedMovies,return)</shortcut>
-	<shortcut label="::LOCAL::31705" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultRecentlyAddedEpisodes.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,RecentlyAddedEpisodes,return)</shortcut>
-	<!--watchlist-->
-	<shortcut label="::LOCAL::31013" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultIconWatchlist.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
-	<shortcut label="::LOCAL::31013" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultIconWatchlist.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
-	<!--unwatched-->
-	<shortcut label="::LOCAL::16101" type="::SCRIPT::32015" grouping="customvideonode" icon="DefaultMovies.png" condition="Library.HasContent(movies)">ActivateWindow(Videos,special://skin/playlists/video/movies-unwatched.xsp,return))</shortcut>
-	<shortcut label="::LOCAL::16101" type="::SCRIPT::32016" grouping="customvideonode" icon="DefaultTVShows.png" condition="Library.HasContent(tvshows)">ActivateWindow(Videos,special://skin/playlists/video/episodes-unwatched.xsp,return))</shortcut>
-	<!--trailers-->
-	<shortcut label="::LOCAL::31015" type="::SCRIPT::32015" grouping="movie" icon="DefaultMovies.png" condition="System.HasAddon(plugin.video.the.trailers)">ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</shortcut>
-	<!--TV Guide-->
-	<shortcut label="::LOCAL::31606" type="::SCRIPT::32009" grouping="tvshow" icon="DefaultTVShows.png" condition="!Skin.HasSetting(nextaired.disable)">RunAddon(script.tv.show.next.aired)</shortcut>
+
 	<!--customize menu-->
-	<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
+	<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" grouping="commands" icon="DefaultIconSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
 	<!--system main menu-->
 	<shortcut label="::LOCAL::13000" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSettings.png">ActivateWindow(Settings)</shortcut>
 	<!--exit (shutdown menu)-->
 	<shortcut label="::LOCAL::13009" type="::SCRIPT::32054" grouping="commands">ActivateWindow(shutdownmenu)</shortcut>
 	<!--search-->
 	<shortcut label="137" type="::SCRIPT::32034" grouping="common" icon="DefaultIconSearch.png" condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
+	
 	<!--now playing-->
 	<shortcut label="::LOCAL::31035" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
 	<override action="fullscreen">
@@ -117,7 +183,7 @@
 		<action>ActivateWindow(musicplaylist)</action>
 	</override>
 
-	<!--settings removal warning-->
+<!--settings removal warning-->
 	<warn heading="::LOCAL::19098" message="::LOCAL::31018">ActivateWindow(Settings)</warn>
 
 <!--LABEL OVERRIDES-->
@@ -171,9 +237,5 @@
 	<widgetdefault labelID="videos" type="mixed">RecentVideos</widgetdefault>
 	<widgetdefault labelID="weather" type="info">Weather</widgetdefault>
 	<widgetPlaylists type="playlist">True</widgetPlaylists>
-
-<!--testing zone
-	<shortcut label="test1" type="test2" grouping="common" icon="DefaultIconDownload.png">SetProperty(Dialog.1.Label,$LOCALIZE[31429])</shortcut>
--->
 
 </overrides>

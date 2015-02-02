@@ -127,7 +127,7 @@
 			<left>30</left>
 			<top>90</top>
 			<width>620</width>
-			<height>612</height>
+			<height>603</height>
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<onleft>6000</onleft>
@@ -190,57 +190,52 @@
 					<selectedcolor>Color2</selectedcolor>
 					<include>container_Sub</include>
 				</control>
-				<control type="image">
-					<texture colordiffuse="Color3">$VAR[flag:Status.List]</texture>
+				<control type="group">
+					<right>10</right>
+					<top>18.5</top>
+					<width>28</width>
+					<height>28</height>
 					<include>status_List</include>
 				</control>
 			</itemlayout>
-			<itemlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="68">
+			<itemlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="67">
 				<control type="group">
 					<left>5</left>
 					<top>5</top>
 					<control type="image">	
-						<width>54</width>
-						<height>54</height>
+						<width>57</width>
+						<height>57</height>
 						<texture>thumbs/default_Square.png</texture>
 					</control>
 					<control type="image">
-						<width>54</width>
-						<height>54</height>
+						<width>57</width>
+						<height>57</height>
 						<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-					<control type="progress">
-						<top>56</top>
-						<width>54</width>
-						<height>3</height>
-						<reveal>true</reveal>
-						<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
-						<lefttexture colordiffuse="Color2">-</lefttexture>
-						<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-						<righttexture colordiffuse="Color2">-</righttexture>
-						<info>ListItem.Progress</info>
 					</control>
 				</control>
 				<control type="group">
 					<left>80</left>
 					<top>6</top>
 					<control type="label">
-						<width>515</width>
+						<width>490</width>
 						<height>27</height>
 						<label>$VAR[media:Title]</label>
 						<include>container_Title</include>
 					</control>
 					<control type="label">
 						<top>22</top>
-						<width>515</width>
+						<width>490</width>
 						<label>$VAR[media:Info]</label>
 						<selectedcolor>Color2</selectedcolor>
 						<include>container_Sub</include>
 					</control>
 				</control>
-				<control type="image">
-					<include>pvr_Status</include>
-					<include>status_List</include>
+				<control type="group">
+					<right>10</right>
+					<top>18.5</top>
+					<width>28</width>
+					<height>28</height>
+					<include>progress_PVR</include>
 				</control>
 			</itemlayout>
 			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + Container.HasFiles] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
@@ -248,7 +243,7 @@
 					<include>container_Focus</include>
 					<control type="image">
 						<width>620</width>
-						<height>70</height>
+						<height>67</height>
 						<texture>views/focus.png</texture>
 					</control>
 					<control type="label">
@@ -266,9 +261,12 @@
 						<label>$VAR[media:Info]</label>
 						<include>container_Sub-focus</include>
 					</control>
-					<control type="image">
-						<texture colordiffuse="Color4">$VAR[flag:Status.List]</texture>
-						<include>status_List</include>
+					<control type="group">
+						<right>10</right>
+						<top>18.5</top>
+						<width>28</width>
+						<height>28</height>
+						<include>status_List-fo</include>
 					</control>
 				</control>
 				<control type="group">
@@ -289,65 +287,60 @@
 						<selectedcolor>Color2</selectedcolor>
 						<include>container_Sub</include>
 					</control>
-					<control type="image">
-						<texture colordiffuse="Color3">$VAR[flag:Status.List]</texture>
+					<control type="group">
+						<right>10</right>
+						<top>18.5</top>
+						<width>28</width>
+						<height>28</height>
 						<include>status_List</include>
 					</control>
 				</control>
 			</focusedlayout>
-			<focusedlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="68">
+			<focusedlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="67">
 				<control type="group">
 					<include>container_Focus</include>
 					<control type="image">
 						<width>620</width>
-						<height>69</height>
+						<height>67</height>
 						<texture>views/focus.png</texture>
 					</control>
 					<control type="group">
 						<left>5</left>
 						<top>5</top>
 						<control type="image">	
-							<width>54</width>
-							<height>54</height>
+							<width>57</width>
+							<height>57</height>
 							<texture>thumbs/default_Square.png</texture>
 						</control>
 						<control type="image">
-							<width>54</width>
-							<height>54</height>
+							<width>57</width>
+							<height>57</height>
 							<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-						<control type="progress">
-							<top>56</top>
-							<width>54</width>
-							<height>3</height>
-							<reveal>true</reveal>
-							<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
-							<lefttexture colordiffuse="Color2">-</lefttexture>
-							<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-							<righttexture colordiffuse="Color2">-</righttexture>
-							<info>ListItem.Progress</info>
 						</control>
 					</control>
 					<control type="group">
 						<left>80</left>
 						<top>6</top>
 						<control type="label">
-							<width>515</width>
+							<width>490</width>
 							<height>27</height>
 							<label>$VAR[media:Title]</label>
 							<include>container_Title-focus</include>
 						</control>
 						<control type="label">
 							<top>22</top>
-							<width>515</width>
+							<width>490</width>
 							<label>$VAR[media:Info]</label>
 							<include>container_Sub-focus</include>
 						</control>
 					</control>
-					<control type="image">
-					<include>pvr_Status-fo</include>
-					<include>status_List</include>
-				</control>
+					<control type="group">
+						<right>10</right>
+						<top>18.5</top>
+						<width>28</width>
+						<height>28</height>
+						<include>progress_PVR-fo</include>
+					</control>
 				</control>
 				<control type="group">
 					<include>container_Unfocus</include>
@@ -364,37 +357,30 @@
 							<height>54</height>
 							<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
-						<control type="progress">
-							<top>56</top>
-							<width>54</width>
-							<height>3</height>
-							<reveal>true</reveal>
-							<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
-							<lefttexture colordiffuse="Color2">-</lefttexture>
-							<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-							<righttexture colordiffuse="Color2">-</righttexture>
-							<info>ListItem.Progress</info>
-						</control>
 					</control>
 					<control type="group">
 						<left>80</left>
 						<top>6</top>
 						<control type="label">
-							<width>515</width>
+							<width>490</width>
 							<height>27</height>
 							<label>$VAR[media:Title]</label>
 							<include>container_Title</include>
 						</control>
 						<control type="label">
 							<top>22</top>
-							<width>515</width>
+							<width>490</width>
 							<label>$VAR[media:Info]</label>
+							<selectedcolor>Color2</selectedcolor>
 							<include>container_Sub</include>
 						</control>
 					</control>
-					<control type="image">
-						<include>pvr_Status</include>
-						<include>status_List</include>
+					<control type="group">
+						<right>10</right>
+						<top>18.5</top>
+						<width>28</width>
+						<height>28</height>
+						<include>progress_PVR</include>
 					</control>
 				</control>
 			</focusedlayout>
@@ -478,7 +464,7 @@
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
-			<visible>Control.IsVisible(50) + [[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin)] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]] | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]</visible>
+			<visible>Control.IsVisible(50) + [[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin) | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
 			<control type="image">
 				<width>532</width>
 				<height>256</height>
@@ -806,8 +792,10 @@
 				<include>art_Logo</include>
 			</control>
 			<control type="group">
-				<left>205</left>
-				<top>104</top>
+				<left>189</left>
+				<bottom>17</bottom>
+				<width>42</width>
+				<height>42</height>
 				<include>status_Info</include>
 			</control>
 		</control>	
@@ -842,8 +830,10 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<left>64</left>
-				<top>104</top>
+				<left>48</left>
+				<bottom>17</bottom>
+				<width>42</width>
+				<height>42</height>
 				<include>status_Info</include>
 			</control>
 		</control>

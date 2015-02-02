@@ -5,13 +5,13 @@
 	<coordinates>
 		<system>1</system>
 		<left>240</left>
-		<top>68</top>
+		<top>70</top>
 	</coordinates>
 	<controls>
 		<control type="group">
 			<control type="image">
 				<width>800</width>
-				<height>584</height>
+				<height>580</height>
 				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="411">
@@ -52,7 +52,7 @@
 					<top>100</top>
 					<width>792</width>
 					<height>400</height>
-					<onleft>-</onleft>
+					<onleft>415</onleft>
 					<onright>9001</onright>
 					<onup>450</onup>
 					<ondown>450</ondown>
@@ -101,12 +101,11 @@
 				<control type="panel" id="451">
 					<left>4</left>
 					<top>102</top>
-					<width>800</width>
+					<width>792</width>
 					<height>400</height>
-					<onleft>-</onleft>
-					<onright>-</onright>
 					<onup>9001</onup>
 					<ondown>9001</ondown>
+					<orientation>horizontal</orientation>
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>4</preloaditems>
 					<include>global_ListScroll</include>
@@ -140,8 +139,7 @@
 						<control type="image">
 							<width>264</width>
 							<height>199</height>
-							<texture>frames/frame-fo.png</texture>
-							<colordiffuse>Color5</colordiffuse>
+							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
 							<centerleft>132</centerleft>
@@ -170,39 +168,54 @@
 						</control>
 					</focusedlayout>
 				</control>
+				<control type="scrollbar" id="60">
+					<top>500</top>
+					<width>796</width>
+					<height>4</height>
+					<include>dialog_Scrollbar</include>
+					<orientation>horizontal</orientation>
+					<visible>Control.IsVisible(451)</visible>
+				</control>
 			</control>
-			<control type="group" id="9001">
-				<left>20</left>
-				<top>520</top>
-				<!--new folder-->
-				<control type="button" id="415">
-					<label>$LOCALIZE[119]</label>
-					<onleft>414</onleft>
-					<onright>413</onright>
-					<onup>9002</onup>
-					<ondown>9002</ondown>
-					<width>160</width>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--ok-->
-				<control type="button" id="413">
-					<left>506</left>
-					<label>$LOCALIZE[186]</label>
-					<onleft>415</onleft>
-					<onright>414</onright>
-					<onup>9002</onup>
-					<ondown>9002</ondown>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--cancel-->
-				<control type="button" id="414">
-					<left>636</left>
-					<label>$LOCALIZE[222]</label>
-					<onleft>413</onleft>
-					<onright>415</onright>
-					<onup>9002</onup>
-					<ondown>9002</ondown>
-					<include>dialog_WindowButton</include>
+		<!--dialog buttons--> 
+			<control type="group">
+				<width>800</width>
+				<height>580</height>
+				<control type="group" id="9001">
+					<bottom>20</bottom>
+					<height>40</height>
+					<!--new folder-->
+					<control type="button" id="415">
+						<left>20</left>
+						<label>$LOCALIZE[119]</label>
+						<onup>9002</onup>
+						<ondown>9002</ondown>
+						<onleft>414</onleft>
+						<onright>414</onright>
+						<include>dialog_WindowButton</include>
+					</control>
+					<control type="grouplist">
+						<right>20</right>
+						<width>254</width>
+						<onleft>50</onleft>
+						<onright>50</onright>
+						<onup>9002</onup>
+						<ondown>9002</ondown>
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<!--ok-->
+						<control type="button" id="413">
+							<left>363</left>
+							<label>$LOCALIZE[186]</label>
+							<include>dialog_WindowButton</include>
+						</control>
+						<!--cancel-->
+						<control type="button" id="414">
+							<left>493</left>
+							<label>$LOCALIZE[222]</label>
+							<include>dialog_WindowButton</include>
+						</control>
+					</control>
 				</control>
 			</control>
 		</control>

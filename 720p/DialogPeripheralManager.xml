@@ -9,6 +9,8 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+			<width>650</width>
+			<height>500</height>
 			<visible>!Window.IsVisible(PeripheralSettings)</visible>
 			<control type="image">
 				<width>650</width>
@@ -90,18 +92,14 @@
 					</focusedlayout>
 				</control>
 			</control>
-		<!--dialog buttons-->
-			<control type="group" id="9001">
-				<left>19</left>
-				<top>439</top>
-				<!--settings-->
-				<control type="button" id="10">
-					<left>493</left>
-					<label>$LOCALIZE[186]</label>
-					<onup>20</onup>
-					<ondown>20</ondown>
-					<include>dialog_WindowButton</include>
-				</control>
+		<!--ok-->
+			<control type="button" id="10">
+				<right>20</right>
+				<bottom>20</bottom>
+				<label>$LOCALIZE[186]</label>
+				<onup>20</onup>
+				<ondown>20</ondown>
+				<include>dialog_WindowButton</include>
 			</control>
 		</control>
 	</controls>
