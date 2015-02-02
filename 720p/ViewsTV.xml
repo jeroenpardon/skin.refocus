@@ -92,14 +92,14 @@
 				<height>28</height>
 				<texture>$VAR[pvr:Status]</texture>
 				<colordiffuse>Color1</colordiffuse>
-				<visible>!ListItem.IsRecording</visible>
+				<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 			</control>
 			<control type="image">
 				<width>28</width>
 				<height>28</height>
 				<texture>$VAR[pvr:Status]</texture>
 				<colordiffuse>rec1</colordiffuse>
-				<visible>ListItem.IsRecording</visible>
+				<visible>ListItem.HasTimer + ListItem.IsRecording</visible>
 			</control>
 		</control>
 	</include>
