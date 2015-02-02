@@ -13,7 +13,7 @@
 			<visible>!Window.IsVisible(numericinput)</visible>
 			<control type="image" id="1">
 				<include>dialog_Window</include>
-				<width>735</width>
+				<width>740</width>
 				<height>385</height>
 				<visible>!Skin.HasSetting(keyboard.enable)</visible>
 			</control>
@@ -27,35 +27,20 @@
 				<width>761</width>
 				<include>dialog_Windowtitle</include>
 			</control>
-			<control type="image" id="1">
-				<left>19</left>
-				<top>60</top>
-				<width>700</width>
-				<height>40</height>
-				<texture border="142,0,3,0">dialogs/keyboard/edit-fo.png</texture>
-				<visible>!ControlGroup(9000).HasFocus()</visible>
-			</control>
-			<control type="image" id="1">
-				<left>19</left>
-				<top>60</top>
-				<width>700</width>
-				<height>40</height>
-				<texture border="142,0,3,0">dialogs/keyboard/edit-nf.png</texture>
-				<visible>ControlGroup(9000).HasFocus()</visible>
-			</control>
 			<control type="edit" id="312">
-				<left>19</left>
+				<left>20</left>
 				<top>59</top>
-				<width>726</width>
+				<width>700</width>
 				<align>center</align>
+				<texturenofocus border="3">dialogs/keyboard/edit-nf.png</texturenofocus>
+				<texturefocus border="3">dialogs/keyboard/edit-fo.png</texturefocus>
 				<include>dialog_Edit</include>
 			</control>
-
-			<control type="group">
-				<left>19</left>
+			<control type="group" id="1000">
+				<left>20</left>
 				<top>120</top>
 				<!-- row 1 -->
-				<control type="grouplist">
+				<control type="grouplist" id="1100">
 					<itemgap>2</itemgap>
 					<orientation>horizontal</orientation>
 					<!--layout-->
