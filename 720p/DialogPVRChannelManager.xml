@@ -42,7 +42,7 @@
 					<altlabel>$LOCALIZE[19024]</altlabel>
 					<onleft>30</onleft>
 					<onright>6</onright>
-					<onup>9000</onup>
+					<onup>-</onup>
 					<ondown>20</ondown>
 					<usealttexture>IsEmpty(Window.Property(IsRadio))</usealttexture>
 					<include>dialog_ControlCommons</include>
@@ -62,7 +62,7 @@
 						<onup>34</onup>
 						<ondown>20</ondown>
 						<onleft>30</onleft>
-						<onright>7000</onright>
+						<onright>8000</onright>
 						<pagecontrol>60</pagecontrol>
 						<include>global_ListScroll</include>
 						<itemlayout height="40" width="446">
@@ -115,7 +115,7 @@
 								<include>dialog_CommonList</include>
 							</control>
 							<control type="image">
-								<width>326</width>
+								<width>446</width>
 								<include>dialog_CommonListFocus</include>
 								<visible>Control.HasFocus(20)</visible>
 							</control>
@@ -197,63 +197,6 @@
 							</control>
 						</focusedlayout>
 					</control>
-					<!--browse controls-->
-					<control type="group" id="7000">
-						<left>326</left>
-						<animation effect="slide" end="0,40" time="0" condition="Container(20).Row(1)">Conditional</animation>
-						<animation effect="slide" end="0,80" time="0" condition="Container(20).Row(2)">Conditional</animation>
-						<animation effect="slide" end="0,120" time="0" condition="Container(20).Row(3)">Conditional</animation>
-						<animation effect="slide" end="0,160" time="0" condition="Container(20).Row(4)">Conditional</animation>
-						<animation effect="slide" end="0,200" time="0" condition="Container(20).Row(5)">Conditional</animation>
-						<animation effect="slide" end="0,240" time="0" condition="Container(20).Row(6)">Conditional</animation>
-						<animation effect="slide" end="0,280" time="0" condition="Container(20).Row(7)">Conditional</animation>
-						<animation effect="slide" end="0,320" time="0" condition="Container(20).Row(8)">Conditional</animation>
-						<animation effect="slide" end="0,360" time="0" condition="Container(20).Row(9)">Conditional</animation>
-						<visible>!Container(20).Scrolling</visible>
-						<control type="image">
-							<height>39</height>
-							<include>dialog_Separator-y</include>
-						</control>
-						<control type="image">
-							<left>40</left>
-							<height>39</height>
-							<include>dialog_Separator-y</include>
-						</control>
-						<control type="image">
-							<left>80</left>
-							<height>39</height>
-							<include>dialog_Separator-y</include>
-						</control>
-						<!--browse-->
-						<control type="button" id="31">
-							<label>-</label>
-							<onup>20</onup>
-							<onleft>20</onleft>
-							<onright>32</onright>
-							<ondown>20</ondown>
-							<include>dialog_Inline-edit</include>
-						</control>
-						<!--remove path-->
-						<control type="button" id="32">
-							<left>40</left>
-							<label>-</label>
-							<onup>20</onup>
-							<onleft>31</onleft>
-							<onright>33</onright>
-							<ondown>20</ondown>
-							<include>dialog_Inline-remove</include>
-						</control>
-						<!--add path-->
-						<control type="button" id="33">
-							<left>80</left>
-							<label>-</label>
-							<onup>20</onup>
-							<onleft>32</onleft>
-							<onright>8000</onright>
-							<ondown>20</ondown>
-							<include>dialog_Inline-add</include>
-						</control>
-					</control>
 				</control>
 			<!--right pane-->
 				<control type="group">
@@ -263,7 +206,7 @@
 						<width>446</width>
 						<height>600</height>
 						<onleft>6000</onleft>
-						<onright>-</onright>
+						<onright>9001</onright>
 						<onup>34</onup>
 						<ondown>5</ondown>
 						<itemgap>0</itemgap>
@@ -271,6 +214,7 @@
 						<control type="radiobutton" id ="7">
 							<label>$LOCALIZE[19074]</label>
 							<width>446</width>
+							<include>dialog_ControlCommons</include>
 							<include>dialog_Radio</include>
 						</control>
 						<!--channel name-->
@@ -290,6 +234,7 @@
 						<control type="radiobutton" id ="12">
 							<label>$LOCALIZE[19206]</label>
 							<width>446</width>
+							<include>dialog_ControlCommons</include>
 							<include>dialog_Radio</include>
 						</control>
 						<!--epg source-->
@@ -303,6 +248,7 @@
 						<control type="radiobutton" id ="14">
 							<label>$LOCALIZE[19267]</label>
 							<width>446</width>
+							<include>dialog_ControlCommons</include>
 							<include>dialog_Radio</include>
 						</control>
 						<!--channel icon label-->
@@ -332,51 +278,53 @@
 					</control>
 				</control>
 			</control>
-		<!--window controls-->
-			<control type="group" id="9000">
-				<left>19</left>
-				<top>520</top>
-				<!--group manager-->
-				<control type="button" id ="30">
-					<width>200</width>
-					<label>$LOCALIZE[19205]</label>
-					<onleft>6</onleft>
-					<onright>5</onright>
-					<onup>6000</onup>
-					<ondown>34</ondown>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--apply-->
-				<control type="button" id="5">
-					<left>477</left>
-					<label>$LOCALIZE[31405]</label>
-					<onup>8000</onup>
-					<onleft>30</onleft>
-					<onright>4</onright>
-					<ondown>34</ondown>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--ok-->
-				<control type="button" id="4">
-					<left>607</left>
-					<label>$LOCALIZE[186]</label>
-					<onup>8000</onup>
-					<onleft>5</onleft>
-					<onright>6</onright>
-					<ondown>34</ondown>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--cancel-->
-				<control type="button" id="6">
-					<left>737</left>
-					<label>$LOCALIZE[222]</label>
-					<onup>8000</onup>
-					<onleft>4</onleft>
-					<onright>30</onright>
-					<ondown>34</ondown>
-					<include>dialog_WindowButton</include>
+		
+		<!--dialog buttons--> 
+			<control type="group">
+				<width>900</width>
+				<height>585</height>
+				<control type="group" id="9000">
+					<bottom>20</bottom>
+					<height>40</height>
+					<!--group manager-->
+					<control type="button" id ="30">
+						<left>20</left>
+						<width>200</width>
+						<label>$LOCALIZE[19205]</label>
+						<onleft>6</onleft>
+						<onright>5</onright>
+						<onup>6000</onup>
+						<ondown>-</ondown>
+						<include>dialog_WindowButton</include>
+					</control>
+					<control type="grouplist" id="9001">
+						<right>20</right>
+						<width>384</width>
+						<onleft>30</onleft>
+						<onright>30</onright>
+						<onup>10</onup>
+						<ondown>-</ondown>
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<!--apply-->
+						<control type="button" id="5">
+							<label>$LOCALIZE[31405]</label>
+							<include>dialog_WindowButton</include>
+						</control>
+						<!--ok-->
+						<control type="button" id="4">
+							<label>$LOCALIZE[186]</label>
+							<include>dialog_WindowButton</include>
+						</control>
+						<!--cancel-->
+						<control type="button" id="6">
+							<label>$LOCALIZE[222]</label>
+							<include>dialog_WindowButton</include>
+						</control>
+					</control>
 				</control>
 			</control>
+
 		</control>
 	</controls>
 </window>
