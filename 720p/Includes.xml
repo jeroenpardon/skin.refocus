@@ -548,32 +548,32 @@
 			<orientation>horizontal</orientation>
 			<!--channel down-->
 			<control type="button" id="701">
-				<texturefocus>player/down-fo.png</texturefocus>
 				<texturenofocus>player/down-nf.png</texturenofocus>
+				<texturefocus>player/down-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>ChannelDown</onclick>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<!--channel up-->
 			<control type="button" id="702">
-				<texturefocus>player/up-fo.png</texturefocus>
 				<texturenofocus>player/up-nf.png</texturenofocus>
+				<texturefocus>player/up-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>ChannelUp</onclick>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<!--previous-->
 			<control type="button" id="703">
-				<texturefocus>player/prev-fo.png</texturefocus>
 				<texturenofocus>player/prev-nf.png</texturenofocus>
+				<texturefocus>player/prev-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Previous)</onclick>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<!--rewind-->
 			<control type="button" id="704">
-				<texturefocus>player/rwd-fo.png</texturefocus>
 				<texturenofocus>player/rwd-nf.png</texturenofocus>
+				<texturefocus>player/rwd-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Rewind)</onclick>
 				<enable>Player.SeekEnabled</enable>
@@ -593,15 +593,15 @@
 			</control>
 			<!--stop-->
 			<control type="button" id="706">
-				<texturefocus>player/stop-fo.png</texturefocus>
 				<texturenofocus>player/stop-nf.png</texturenofocus>
+				<texturefocus>player/stop-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Stop)</onclick>
 			</control>
 			<!--forward-->
 			<control type="button" id="707">
-				<texturefocus>player/fwd-fo.png</texturefocus>
 				<texturenofocus>player/fwd-nf.png</texturenofocus>
+				<texturefocus>player/fwd-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Forward)</onclick>
 				<enable>Player.SeekEnabled</enable>
@@ -609,19 +609,19 @@
 			</control>
 			<!--next-->
 			<control type="button" id="708">
-				<texturefocus>player/next-fo.png</texturefocus>
 				<texturenofocus>player/next-nf.png</texturenofocus>
+				<texturefocus>player/next-fo.png</texturefocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Next)</onclick>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<!--record-->
 			<control type="togglebutton" id="709">
-				<texturefocus>player/rec-fo.png</texturefocus>
 				<texturenofocus>player/rec-nf.png</texturenofocus>
+				<texturefocus>player/rec-fo.png</texturefocus>
+				<alttexturenofocus>player/rec-ac-nf.png</alttexturenofocus>
+				<alttexturefocus>player/rec-ac-fo.png</alttexturefocus>
 				<usealttexture>Player.Recording</usealttexture>
-				<alttexturefocus>player/rec-fo.png</alttexturefocus>
-				<alttexturenofocus>player/rec-fo.png</alttexturenofocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Record)</onclick>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
