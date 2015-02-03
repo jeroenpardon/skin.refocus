@@ -10,6 +10,8 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+			<width>500</width>
+			<height>264</height>
 			<control type="image">
 				<width>500</width>
 				<height>264</height>
@@ -81,26 +83,24 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="9000">
-				<left>226</left>
-				<top>200</top>
+			<!--dialog buttons-->
+			<control type="grouplist" id="9000">
+				<right>20</right>
+				<bottom>20</bottom>
+				<width>254</width>
+				<height>40</height>
+				<onup>20</onup>
+				<ondown>15</ondown>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<!--ok-->
 				<control type="button" id="18">
-					<!--ok-->
 					<label>$LOCALIZE[186]</label>
-					<onup>20</onup>
-					<onleft>19</onleft>
-					<onright>19</onright>
-					<ondown>15</ondown>
 					<include>dialog_WindowButton</include>
 				</control>
+				<!--cancel-->
 				<control type="button" id="19">
-					<!--cancel-->
-					<left>130</left>
 					<label>$LOCALIZE[222]</label>
-					<onup>20</onup>
-					<onleft>18</onleft>
-					<onright>18</onright>
-					<ondown>15</ondown>
 					<include>dialog_WindowButton</include>
 				</control>
 			</control>

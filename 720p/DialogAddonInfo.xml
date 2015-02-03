@@ -4,11 +4,13 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>225</left>
+		<left>162</left>
 		<top>70</top>
 	</coordinates>
 	<controls>
 		<control type="group">
+			<width>956</width>
+			<height>580</height>
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
 			<control type="image">
 				<width>956</width>
@@ -57,15 +59,13 @@
 				</control>
 				<control type="image">
 					<top>435</top>
-					<width>822</width>
+					<width>948</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="grouplist" id="100">
 					<width>800</width>
 					<height>480</height>
 					<itemgap>0</itemgap>
-					<onleft>-</onleft>
-					<onright>-</onright>
 					<onup>100</onup>
 					<ondown>100</ondown>
 					<include>global_ListScroll</include>
@@ -154,29 +154,24 @@
 			</control>
 			<!--dialog buttons-->
 			<control type="grouplist" id="10000">
-				<left>20</left>
-				<top>515</top>
-				<onleft>10000</onleft>
-				<onright>10000</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<centerleft>50%</centerleft>
+				<bottom>20</bottom>
+				<width>915</width>
+				<height>40</height>
 				<itemgap>10</itemgap>
 				<orientation>horizontal</orientation>
 				<!--configure-->
 				<control type="button" id="9">
-					<left>266</left>
 					<label>$LOCALIZE[24020]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--update-->
 				<control type="button" id="8">
-					<left>399</left>
 					<label>$LOCALIZE[24069]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--launch-->
 				<control type="button" id="12">
-					<left>399</left>
 					<label>$LOCALIZE[518]</label>
 					<include>dialog_WindowButton</include>
 				</control>
@@ -187,19 +182,16 @@
 				</control>
 				<!--disable-->
 				<control type="button" id="7">
-					<left>133</left>
 					<label>$LOCALIZE[24021]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--rollback-->
 				<control type="button" id="11">
-					<left>133</left>
 					<label>$LOCALIZE[24048]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--changelog-->
 				<control type="button" id="10">
-					<left>532</left>
 					<label>$LOCALIZE[24036]</label>
 					<width>135</width>
 					<include>dialog_WindowButton</include>
