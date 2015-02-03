@@ -8,6 +8,8 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+			<width>740</width>
+			<height>385</height>
 			<include>transition_Dialog</include>
 			<animation effect="slide" start="0,0" end="0,200" time="0" condition="Skin.HasSetting(keyboard.enable)">Conditional</animation>
 			<visible>!Window.IsVisible(numericinput)</visible>
@@ -19,7 +21,7 @@
 			</control>
 			<control type="image" id="1">
 				<include>dialog_Window</include>
-				<width>735</width>
+				<width>740</width>
 				<height>125</height>
 				<visible>Skin.HasSetting(keyboard.enable)</visible>
 			</control>
@@ -28,7 +30,7 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="edit" id="312">
-				<left>20</left>
+				<centerleft>50%</centerleft>
 				<top>59</top>
 				<width>700</width>
 				<align>center</align>
@@ -39,6 +41,7 @@
 			<control type="group" id="1000">
 				<left>20</left>
 				<top>120</top>
+				<visible>!Skin.HasSetting(keyboard.enable)</visible>
 				<!-- row 1 -->
 				<control type="grouplist" id="1100">
 					<itemgap>2</itemgap>
