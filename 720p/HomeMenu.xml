@@ -126,7 +126,7 @@
 								<font>regular</font>
 								<align>right</align>
 								<textcolor>Color3</textcolor>
-								<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
+								<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
 								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
 							</control>
 						</control>
@@ -178,7 +178,7 @@
 								<font>regular</font>
 								<align>right</align>
 								<textcolor>Focused</textcolor>
-								<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
+								<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
 								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
 							</control>
 						</control>
