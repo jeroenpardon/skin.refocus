@@ -9,6 +9,8 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+			<width>800</width>
+			<height>580</height>
 			<control type="image">
 				<width>800</width>
 				<height>580</height>
@@ -177,44 +179,43 @@
 					<visible>Control.IsVisible(451)</visible>
 				</control>
 			</control>
+
 		<!--dialog buttons--> 
-			<control type="group">
+			<control type="group" id="9001">
+				<bottom>20</bottom>
 				<width>800</width>
-				<height>580</height>
-				<control type="group" id="9001">
-					<bottom>20</bottom>
-					<height>40</height>
-					<!--new folder-->
-					<control type="button" id="415">
-						<left>20</left>
-						<label>$LOCALIZE[119]</label>
-						<onup>9002</onup>
-						<ondown>9002</ondown>
-						<onleft>414</onleft>
-						<onright>414</onright>
+				<height>40</height>
+				<!--new folder-->
+				<control type="button" id="415">
+					<left>20</left>
+					<label>$LOCALIZE[119]</label>
+					<onup>9002</onup>
+					<ondown>9002</ondown>
+					<onleft>414</onleft>
+					<onright>414</onright>
+					<width>160</width>
+					<include>dialog_WindowButton</include>
+				</control>
+				<control type="grouplist">
+					<right>20</right>
+					<width>254</width>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>9002</onup>
+					<ondown>9002</ondown>
+					<orientation>horizontal</orientation>
+					<itemgap>10</itemgap>
+					<!--ok-->
+					<control type="button" id="413">
+						<left>363</left>
+						<label>$LOCALIZE[186]</label>
 						<include>dialog_WindowButton</include>
 					</control>
-					<control type="grouplist">
-						<right>20</right>
-						<width>254</width>
-						<onleft>50</onleft>
-						<onright>50</onright>
-						<onup>9002</onup>
-						<ondown>9002</ondown>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<!--ok-->
-						<control type="button" id="413">
-							<left>363</left>
-							<label>$LOCALIZE[186]</label>
-							<include>dialog_WindowButton</include>
-						</control>
-						<!--cancel-->
-						<control type="button" id="414">
-							<left>493</left>
-							<label>$LOCALIZE[222]</label>
-							<include>dialog_WindowButton</include>
-						</control>
+					<!--cancel-->
+					<control type="button" id="414">
+						<left>493</left>
+						<label>$LOCALIZE[222]</label>
+						<include>dialog_WindowButton</include>
 					</control>
 				</control>
 			</control>
