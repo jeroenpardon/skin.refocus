@@ -69,6 +69,7 @@
 					<onright condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + !Container(9240).IsUpdating">9240</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + !Container(9270).IsUpdating">9270</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -127,7 +128,7 @@
 								<align>right</align>
 								<textcolor>Color3</textcolor>
 								<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
-								<visible>!StringCompare(ListItem.Property(submenuVisibility),Window(10000).Property(submenuVisibility) )</visible>
+								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 							</control>
 						</control>
 					</itemlayout>
@@ -179,7 +180,7 @@
 								<align>right</align>
 								<textcolor>Focused</textcolor>
 								<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
-								<visible>!StringCompare(ListItem.Property(submenuVisibility),Window(10000).Property(submenuVisibility) )</visible>
+								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 							</control>
 						</control>
 					</focusedlayout>

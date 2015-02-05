@@ -57,6 +57,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)">$LOCALIZE[31033] [B]$INFO[Container(9231).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9231).NumItems][/B]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$LOCALIZE[31033] [B]$INFO[Container(9240).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9240).NumItems][/B]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">$INFO[Container(9261).ListItem(0).Property(ExtendedInfo1)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)">$LOCALIZE[31033] [B]$INFO[Container(9270).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9270).NumItems][/B]</value>
 	</variable>
 
 	<variable name="widget:Header.Info">
@@ -80,6 +81,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[Container(9240).ListItem(0).Title]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">$INFO[MusicPlayer.Title]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">$INFO[Container(9261).ListItem(0).Label]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)">Trakt.tv</value>
 	</variable>
 
 	<variable name="widget:Item.Title">
@@ -90,6 +92,8 @@
 	</variable>
 
 	<variable name="widget:Item.Info">
+		<value>$INFO[ListItem.Property(Trailer)]</value>
+
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">$INFO[ListItem.Genre]$INFO[ListItem.Year, • ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, • ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$INFO[ListItem.Genre]$INFO[ListItem.Director, • ]$INFO[ListItem.Studio, • ]$INFO[ListItem.Year, • ]$INFO[ListItem.RatingandVotes, • ]</value>
@@ -104,7 +108,7 @@
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value condition="!IsEmpty(ListItem.Property(Description))">$INFO[ListItem.Property(Description)]</value>
-		<value>$LOCALIZE[31152]</value>
+		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 
 	<variable name="widget:Icon">
@@ -611,10 +615,7 @@
 		<value condition="Window.IsActive(Weather)">[B]$INFO[Window(Weather).Property(Location)][/B] $INFO[Window(Weather).Property(Updated)]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(20)">[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(21)">[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]</value>
-		
-
 		<value condition="Window.IsActive(tvrecordings)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]$INFO[Pvr.BackendDiskspace, • ]</value>
-
 		<value condition="SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
 	</variable>
 
