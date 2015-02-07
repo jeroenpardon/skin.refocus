@@ -1080,7 +1080,7 @@
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
 		<animation effect="slide" end="27" time="0" condition="[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(videofiles) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | Window.IsActive(weather) | Window.IsActive(programs) | Window.IsActive(addonbrowser) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(servicesettings) | Window.IsActive(appearancesettings) | Window.IsActive(tvsettings) | Window.IsActive(tvchannels) | SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Skin.HasSetting(global.kiosk)">Conditional</animation>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Control.IsVisible(9900)]</visible>
 	</include>
 	<include name="windowTitle_Video">
 		<control type="label">
