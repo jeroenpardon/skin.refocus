@@ -8,7 +8,7 @@
 			<texture background="true">colorize/100.png</texture>
 			<colordiffuse>base_2</colordiffuse>
 		</control>
-		<animation type="Conditional" reversible="true" condition="ControlGroup(6000).HasFocus() | ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
+		<animation type="Conditional" reversible="true" condition="ControlGroup(6000).HasFocus() | ControlGroup(4000).HasFocus()">
 			<effect type="slide" time="350" start="0" end="262" tween="Quadratic" easing="Out" />
 		</animation>
 		<include>transition_Content</include>
@@ -25,7 +25,7 @@
 		<ondown>6000</ondown>
 		<onback>50</onback>
 		<itemgap>0</itemgap>
-		<animation type="Conditional" reversible="true" condition="ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
+		<animation type="Conditional" reversible="true" condition="ControlGroup(4000).HasFocus()">
 			<effect type="fade" time="0" start="100" end="0" tween="Quadratic" easing="Out" />
 		</animation>
 	</include>
