@@ -92,8 +92,6 @@
 	</variable>
 
 	<variable name="widget:Item.Info">
-		<value>$INFO[ListItem.Property(Trailer)]</value>
-
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">$INFO[ListItem.Genre]$INFO[ListItem.Year, • ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, • ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$INFO[ListItem.Genre]$INFO[ListItem.Director, • ]$INFO[ListItem.Studio, • ]$INFO[ListItem.Year, • ]$INFO[ListItem.RatingandVotes, • ]</value>
