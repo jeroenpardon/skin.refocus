@@ -5,10 +5,6 @@
 	<onload>CancelAlarm(StartupCheck,true)</onload>
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000)</onload>
 	<onload condition="!StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
-
-	<onload>RunScript(script.extendedinfo,info=popularmovies)</onload>
-
-
 	<controls>
 		<control type="group">
 			<include>transition_Home</include>
@@ -134,16 +130,5 @@
 			</animation>
 			<visible>Window.Previous(startup)</visible>
 		</control>
-
-
-		<control type="label">
-				<width>1060</width>
-				<label>111$INFO[Container(9271).ListItem(1).Label]</label>
-				<font>regular_Small-U</font>
-				<textcolor>Color1</textcolor>
-				<include>fadeinout</include>
-			</control>
-
-
 	</controls>
 </window>
