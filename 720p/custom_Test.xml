@@ -1,348 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window id="1150">
-	<defaultcontrol always="true">500</defaultcontrol>
-	<allowoverlay>yes</allowoverlay>
-
-
-	
-
+<window type="dialog" id="1110">
+	<defaultcontrol always="true">10</defaultcontrol>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<left>365</left>
+		<top>228</top>
+	</coordinates>
 	<controls>
-
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true" fallback="special://skin/backgrounds/defaults/video.jpg">$INFO[Container(1000).ListItem.Art(fanart)]</texture>
-			<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
-			<include>transition_Background</include>
-			<fadetime>fadetime_Fanart</fadetime>
-			<visible>Container(500).HasFocus(1) | Control.HasFocus(1000)</visible>
-		</control>
-
-		<!--global includes-->
-		<include>global_Background</include>
-		<include>global_Includes</include>
-		
 		<control type="group">
-			<include>transition_WindowTitle</include>
-			<!--
+			<width>600</width>
+			<height>265</height>
 			<control type="image">
-				<left>32</left>
-				<top>15</top>
-				<width>142</width>
-				<height>48</height>
-				<texture>logos/trakt.png</texture>
-				<aspectratio>keep</aspectratio>
+				<width>600</width>
+				<height>265</height>
+				<include>dialog_Window</include>
 			</control>
-			-->
-
-			<control type="label">
-				<left>34</left>
-				<label>Movie Trailers</label>
-				<include>windowTitle</include>
+			<!--delete timer-->
+			<control type="label" id="2">
+				<width>592</width>
+				<label>$ADDON[pvr.wmc 30120]</label>
+				<include>dialog_Windowtitle</include>
 			</control>
-
-
-
-			<control type="list" id="500">
-				<left>40</left>
-				<top>80</top>
-				<width>220</width>
-				<height>600</height>
-				<onright condition="Container(500).HasFocus(1)">1000</onright>
-				<onright condition="Container(500).HasFocus(2)">2000</onright>
-				<onright condition="Container(500).HasFocus(3)">3000</onright>
-				<onright condition="Container(500).HasFocus(4)">4000</onright>
-
-				<onright condition="Container(500).HasFocus(5)">5000</onright>
-				<onright condition="Container(500).HasFocus(6)">6000</onright>
-				<onright condition="Container(500).HasFocus(7)">7000</onright>
-				<onright condition="Container(500).HasFocus(8)">8000</onright>
-
-
-				<onup>500</onup>
-				<ondown>500</ondown>
-				<include>global_Scrolltime</include>
-				<itemlayout width="220" height="46">
-					<control type="image">
-						<width>220</width>
-						<height>44</height>
-						<texture>views/focus.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<colordiffuse>column2</colordiffuse>
-					</control>
-					<control type="label">
-						<label>$INFO[ListItem.Label]</label>
-						<width>190</width>
-						<height>42</height>
-						<font>light_Menu</font>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>Color1</textcolor>
-					</control>
-					<control type="label">
-						<right>15</right>
-						<label>$INFO[ListItem.Label2]</label>
-						<width>50</width>
-						<height>42</height>
-						<font>light_Menu</font>
-						<align>right</align>
-						<textcolor>Color2</textcolor>
-					</control>
-				</itemlayout>
-				<focusedlayout width="220" height="46">
-					<control type="group">
-						<visible>!Control.HasFocus(500)</visible>
-						<control type="image">
-							<width>220</width>
-							<height>44</height>
-							<texture>views/focus.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Label]</label>
-							<width>190</width>
-							<height>42</height>
-							<font>light_Menu</font>
-							<textoffsetx>15</textoffsetx>
-							<textcolor>Color1</textcolor>
-						</control>
-						<control type="label">
-							<right>15</right>
-							<label>$INFO[ListItem.Label2]</label>
-							<width>50</width>
-							<height>42</height>
-							<font>light_Menu</font>
-							<align>right</align>
-							<textcolor>Color1</textcolor>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Control.HasFocus(500)</visible>
-						<control type="image">
-							<width>220</width>
-							<height>44</height>
-							<texture>views/focus.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<colordiffuse>column1</colordiffuse>
-							<visible>Control.HasFocus(500)</visible>
-						</control>
-						<control type="label">
-							<label>$INFO[ListItem.Label]</label>
-							<width>190</width>
-							<height>42</height>
-							<font>light_Menu</font>
-							<textoffsetx>15</textoffsetx>
-							<textcolor>Color4</textcolor>
-						</control>
-						<control type="label">
-							<right>15</right>
-							<label>$INFO[ListItem.Label2]</label>
-							<width>50</width>
-							<height>42</height>
-							<font>light_Menu</font>
-							<align>right</align>
-							<textcolor>Color5</textcolor>
-						</control>
-					</control>
-				</focusedlayout>
-				<content>
-					<item id="1">
-						<label>In Cinemas</label>
-						<label2>$INFO[Container(1000).NumItems]</label2>
-						<onclick>noop</onclick>
-					</item>
-					<item id="2">
-						<label>Upcoming</label>
-						<label2>$INFO[Container(2000).NumItems]</label2>
-						<onclick>noop</onclick>
-					</item>
-					<item id="3">
-						<label>Popular</label>
-						<label2>$INFO[Container(3000).NumItems]</label2>
-						<onclick>noop</onclick>
-					</item>
-					<item id="4">
-						<label>Top Rated</label>
-						<label2>$INFO[Container(4000).NumItems]</label2>
-						<onclick>noop</onclick>
-					</item>
-					<item id="5">
-						<label>Trending</label>
-						<label2>$INFO[Container(5000).NumItems]</label2>
-						<onclick>noop</onclick>
-					</item>
-				</content>
-			</control>
-
-
-
-			<control type="group" id="500">
-				<left>280</left>
-				<control type="panel" id="1000">
-					
-
-					<onup>1000</onup>
-					<ondown>1000</ondown>
-					
-					<include>trailers-ContainerCommons</include>
-
-					<visible>Container(500).HasFocus(1) | Control.HasFocus(1000)</visible>
-					<itemlayout width="194" height="310">
-						<include>viewIconPortrait-LayoutCommons</include>
-					</itemlayout>											
-					<focusedlayout width="194" height="310">
-						<control type="image">
-							<width>184</width>
-							<height>266</height>
-							<include>art_Frame-fo</include>
-						</control>
-						<include>viewIconPortrait-LayoutCommons</include>
-					</focusedlayout>
-					<content>plugin://script.extendedinfo?info=incinemas</content>
-				</control>
-			</control>
-
-
-
 			<control type="group">
-				<left>280</left>
-				<control type="panel" id="2000">
-					<top>80</top>
-					<width>970</width>
-					<height>720</height>
-					<onleft>500</onleft>
-					<onright>70</onright>
-					<onup>57</onup>
-					<ondown>57</ondown>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
+				<left>4</left>
+				<top>60</top>
+				<!--program title-->
+				<control type="label" id="20">
+					<width>592</width>
+					<!--<label>filled in by code</label>-->
+					<align>center</align>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+				</control>
+				<control type="image">
+					<top>39</top>
+					<width>592</width>
+					<include>dialog_Separator</include>
+				</control>
+				<control type="grouplist" id="9001">
+					<top>40</top>
+					<onleft>1</onleft>
+					<onright>2</onright>
+					<onup>2</onup>
+					<ondown>9000</ondown>
+					<itemgap>0</itemgap>
 					<orientation>vertical</orientation>
-					<include>global_ListScroll</include>
-					<include>transition_Content</include>
-					<include>fadeinout</include>
-					<visible>Container(500).HasFocus(2) | Control.HasFocus(2000)</visible>
-					<itemlayout width="194" height="277">
-						<include>viewIconPortrait-LayoutCommons</include>
-					</itemlayout>											
-					<focusedlayout width="194" height="277">
-						<control type="image">
-							<width>184</width>
-							<height>266</height>
-							<include>art_Frame-fo</include>
-						</control>
-						<include>viewIconPortrait-LayoutCommons</include>
-					</focusedlayout>
-					<content>plugin://script.extendedinfo?info=upcoming</content>
+					<!--delete this episode timer only-->
+					<control type="radiobutton" id="10">
+						<width>592</width>
+						<label>$ADDON[pvr.wmc 30121]</label>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<!--delete the entire series-->
+					<control type="radiobutton" id="11">
+						<top>40</top>
+						<width>592</width>
+						<label>$ADDON[pvr.wmc 30122]</label>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+					</control>
 				</control>
 			</control>
-
-
-
-			<control type="group">
-				<left>280</left>
-				<control type="panel" id="3000">
-					<top>80</top>
-					<width>970</width>
-					<height>720</height>
-					<onleft>500</onleft>
-					<onright>70</onright>
-					<onup>57</onup>
-					<ondown>57</ondown>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<orientation>vertical</orientation>
-					<include>global_ListScroll</include>
-					<include>transition_Content</include>
-					<include>fadeinout</include>
-					<visible>Container(500).HasFocus(3) | Control.HasFocus(3000)</visible>
-					<itemlayout width="194" height="277">
-						<include>viewIconPortrait-LayoutCommons</include>
-					</itemlayout>											
-					<focusedlayout width="194" height="277">
-						<control type="image">
-							<width>184</width>
-							<height>266</height>
-							<include>art_Frame-fo</include>
-						</control>
-						<include>viewIconPortrait-LayoutCommons</include>
-					</focusedlayout>
-					<content>plugin://script.extendedinfo?info=popularmovies</content>
+			<!--dialog buttons-->
+			<control type="grouplist" id="9000">
+				<right>20</right>
+				<bottom>20</bottom>
+				<width>254</width>
+				<height>40</height>
+				<onup>11</onup>
+				<ondown>10</ondown>
+				<orientation>horizontal</orientation>
+				<itemgap>10</itemgap>
+				<!--ok-->
+				<control type="button" id="1">
+					<label>$LOCALIZE[186]</label>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--cancel-->
+				<control type="button" id="2">
+					<left>130</left>
+					<label>$LOCALIZE[222]</label>
+					<include>dialog_WindowButton</include>
 				</control>
 			</control>
-
-
-
-			<control type="group">
-				<left>280</left>
-				<control type="panel" id="4000">
-					<top>80</top>
-					<width>970</width>
-					<height>720</height>
-					<onleft>500</onleft>
-					<onright>70</onright>
-					<onup>57</onup>
-					<ondown>57</ondown>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<orientation>vertical</orientation>
-					<include>global_ListScroll</include>
-					<include>transition_Content</include>
-					<include>fadeinout</include>
-					<visible>Container(500).HasFocus(4) | Control.HasFocus(4000)</visible>
-					<itemlayout width="194" height="277">
-						<include>viewIconPortrait-LayoutCommons</include>
-					</itemlayout>											
-					<focusedlayout width="194" height="277">
-						<control type="image">
-							<width>184</width>
-							<height>266</height>
-							<include>art_Frame-fo</include>
-						</control>
-						<include>viewIconPortrait-LayoutCommons</include>
-					</focusedlayout>
-					<content>plugin://script.extendedinfo?info=topratedmovies</content>
-				</control>
-			</control>
-
-
-			<control type="group">
-				<left>280</left>
-				<control type="panel" id="5000">
-					<top>80</top>
-					<width>970</width>
-					<height>720</height>
-					<onleft>500</onleft>
-					<onright>70</onright>
-					<onup>57</onup>
-					<ondown>57</ondown>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<orientation>vertical</orientation>
-					<include>global_ListScroll</include>
-					<include>transition_Content</include>
-					<include>fadeinout</include>
-					<visible>Container(500).HasFocus(5) | Control.HasFocus(5000)</visible>
-					<itemlayout width="194" height="277">
-						<include>viewIconPortrait-LayoutCommons</include>
-					</itemlayout>											
-					<focusedlayout width="194" height="277">
-						<control type="image">
-							<width>184</width>
-							<height>266</height>
-							<include>art_Frame-fo</include>
-						</control>
-						<include>viewIconPortrait-LayoutCommons</include>
-					</focusedlayout>
-					<content>plugin://script.extendedinfo?info=trendingmovies</content>
-				</control>
-			</control>
-
-
-
-
 		</control>
-
-
-
-
 	</controls>
 </window>

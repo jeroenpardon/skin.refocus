@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<overrides> 
+<overrides>	
 	<groupings>
 
 		<!--COMMON-->
@@ -151,8 +151,8 @@
 
 		<!--SETTINGS-->
 		<node label="::LOCAL::10004">
-			<content>settings</content>
-		</node>
+ 			<content>settings</content>
+ 		</node>
 
 		<!--COMMANDS-->
 		<node label="::SCRIPT::32054">
@@ -231,10 +231,9 @@
 	<widget label="31032" type="music">RecommendedAlbums</widget>
 	<widget label="31035" type="info">NowPlaying</widget>
 	<widget label="8" type="info">Weather</widget>
-	<widget label="Trakt: Trending Movies" type="mixed" condition="System.HasAddon(script.extendedinfo)">TraktTrendingMovies</widget>
-	<!--
-	<widget label="Trakt: Trending TV Shows" type="mixed" condition="System.HasAddon(script.extendedinfo)">TraktTrendingShows</widget>
-	-->
+
+	<widget label="Trending Movies" type="mixed">TraktTrendingMovies</widget>
+
 	<widgetdefault labelID="movies" type="movies">RecentMovies</widgetdefault>
 	<widgetdefault labelID="tvshows" type="episodes">WatchlistEpisodes</widgetdefault>
 	<widgetdefault labelID="music" type="music">RecentAlbums</widgetdefault>

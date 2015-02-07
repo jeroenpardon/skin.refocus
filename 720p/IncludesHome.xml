@@ -235,18 +235,15 @@
 						<visible>StringCompare(Container(9000).ListItem.Property(Widget),Weather)</visible>
 					</control>
 				</control>
+
 				<control type="list" id="9270">
 					<content>plugin://script.extendedinfo?info=trendingmovies</content>
+					<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
 					<include>widget_ContainerCommons</include>
 					<visible>StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)</visible>
 				</control>
-				<!--
-				<control type="list" id="9271">
-					<content>plugin://script.extendedinfo?info=trendingshows</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows)</visible>
-				</control>
-				-->
+
+
 			</control>
 		</control>
 	</include>
