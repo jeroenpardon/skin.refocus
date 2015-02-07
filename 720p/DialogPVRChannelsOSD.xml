@@ -77,30 +77,35 @@
 					<control type="group">
 						<left>70</left>
 						<control type="label">
-							<width>550</width>
+							<width>540</width>
 							<label>[B]$VAR[pvr:Title][/B]</label>
 							<include>dialog_CommonListItem</include>
 						</control>	
 						<control type="label">
 							<top>30</top>
-							<width>550</width>
+							<width>540</width>
 							<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.NextTitle, • $LOCALIZE[209]: ]</label>
 							<selectedcolor>Color4</selectedcolor>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</control>
 					<control type="group">
-						<left>645</left>
+						<right>20</right>
 						<top>22</top>
 						<width>28</width>
+						<height>28</height>
 						<control type="image">
+							<width>28</width>
+							<height>28</height>
 							<colordiffuse>Color4</colordiffuse>
-							<include>pvr_Progress</include>
+							<texture>$VAR[pvr:Progress]</texture>
 							<visible>!ListItem.IsRecording</visible>
 						</control>
 						<control type="image">
-							<colordiffuse>rec2</colordiffuse>
-							<include>pvr_Recording</include>
+							<width>28</width>
+							<height>28</height>
+							<colordiffuse>rec1</colordiffuse>
+							<texture>$VAR[pvr:Progress]</texture>
 							<visible>ListItem.IsRecording</visible>
 						</control>
 					</control>
@@ -142,30 +147,35 @@
 					<control type="group">
 						<left>70</left>
 						<control type="label">
-							<width>550</width>
+							<width>540</width>
 							<label>[B]$VAR[pvr:Title][/B]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>	
 						<control type="label">
 							<top>30</top>
-							<width>550</width>
+							<width>540</width>
 							<label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.NextTitle, • $LOCALIZE[209]: ]</label>
 							<selectedcolor>Color1</selectedcolor>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 					</control>
 					<control type="group">
-						<left>645</left>
+						<right>20</right>
 						<top>22</top>
 						<width>28</width>
+						<height>28</height>
 						<control type="image">
+							<width>28</width>
+							<height>28</height>
 							<colordiffuse>Color1</colordiffuse>
-							<include>pvr_Progress</include>
+							<texture>$VAR[pvr:Progress]</texture>
 							<visible>!ListItem.IsRecording</visible>
 						</control>
 						<control type="image">
-							<colordiffuse>rec1</colordiffuse>
-							<include>pvr_Recording</include>
+							<width>28</width>
+							<height>28</height>
+							<colordiffuse>rec2</colordiffuse>
+							<texture>$VAR[pvr:Progress]</texture>
 							<visible>ListItem.IsRecording</visible>
 						</control>
 					</control>
