@@ -320,15 +320,10 @@
 					</control>
 					<control type="group">
 						<left>890</left>
-						<top>6</top>
-						<control type="image">
-							<include>pvr_Progress</include>
-							<visible>!ListItem.IsRecording</visible>
-						</control>
-						<control type="image">
-							<include>pvr_Recording</include>
-							<visible>ListItem.IsRecording</visible>
-						</control>
+						<top>7</top>
+						<width>28</width>
+						<height>28</height>
+						<include>progress_PVR</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
@@ -365,15 +360,10 @@
 					</control>
 					<control type="group">
 						<left>890</left>
-						<top>6</top>
-						<control type="image">
-							<include>pvr_Progress-fo</include>
-							<visible>!ListItem.IsRecording</visible>
-						</control>
-						<control type="image">
-							<include>pvr_Recording-fo</include>
-							<visible>ListItem.IsRecording</visible>
-						</control>
+						<top>7</top>
+						<width>28</width>
+						<height>28</height>
+						<include>progress_PVR-fo</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -488,7 +478,7 @@
 						</control>
 						<control type="group">
 							<left>878</left>
-							<include>view_GuideStatus</include>
+							<include>status_PVR</include>
 						</control>
 					</control>
 				</itemlayout>
@@ -525,7 +515,7 @@
 						</control>
 						<control type="group">
 							<left>878</left>
-							<include>view_GuideStatus-fo</include>
+							<include>status_PVR-fo</include>
 						</control>
 					</control>
 				</focusedlayout>
@@ -624,7 +614,7 @@
 					</control>
 					<control type="group">
 						<left>915</left>
-						<include>view_GuideStatus</include>
+						<include>status_PVR</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="44">
@@ -661,7 +651,7 @@
 					</control>
 					<control type="group">
 						<left>915</left>
-						<include>view_GuideStatus-fo</include>
+						<include>status_PVR-fo</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -728,7 +718,7 @@
 		</control>
 		<control type="group">
 			<left>778</left>
-			<include>view_GuideStatus</include>
+			<include>status_PVR</include>
 			<visible>!IsEmpty(ListItem.ChannelName)</visible>
 		</control>
 	</include>
@@ -819,7 +809,7 @@
 						</control>
 						<control type="group">
 							<left>778</left>
-							<include>view_GuideStatus-fo</include>
+							<include>status_PVR-fo</include>
 							<visible>!IsEmpty(ListItem.ChannelName)</visible>
 						</control>
 					</control>
