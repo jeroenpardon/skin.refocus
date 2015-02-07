@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="106" type="dialog">
+	<defaultcontrol always="true">111</defaultcontrol>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<left>485</left>
+		<top>200</top>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<width>310</width>
+			<height>320</height>
+			<include>dialog_Menu</include>
+		</control>
+		<control type="group">
+			<left>4</left>
+			<top>20</top>
+			<control type="image">
+				<width>592</width>
+				<include>dialog_Separator</include>
+			</control>
+			<control type="list" id="111">
+				<width>302</width>
+				<height>280</height>
+				<onup>111</onup>
+				<ondown>111</ondown>
+				<onback>Dialog.Close(106)</onback>
+				<include>global_ListScroll</include>
+				<itemlayout width="302" height="40">
+					<control type="image">
+						<width>302</width>
+						<include>dialog_CommonList</include>
+					</control>
+					<control type="label">
+						<width>272</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItem</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="302" height="40">
+					<control type="image">
+						<width>302</width>
+						<height>40</height>
+						<include>dialog_CommonListFocus</include>
+					</control>
+					<control type="label">
+						<width>272</width>
+						<info>ListItem.Label</info>
+						<include>dialog_CommonListItemFocus</include>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</controls>
+</window>

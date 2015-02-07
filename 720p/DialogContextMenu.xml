@@ -26,6 +26,7 @@
             <width>302</width>
             <height min="40" max="500">auto</height>
             <itemgap>0</itemgap>
+            <!--trailer-->
             <control type="button" id="997">
                 <width>302</width>
                 <label>$LOCALIZE[20410]</label>
@@ -33,18 +34,33 @@
                 <include>dialog_ControlCommons</include>
                 <visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
             </control>
-            <control type="button" id="998">
+            <!--default button-->
+            <control type="button" id="1000">
+                <width>302</width>
+                <include>dialog_ControlCommons</include>
+            </control>
+            <!--extended info
+            <control type="button" id="1100">
+                <include>dialog_ControlCommons</include>
+                <label>ExtendedInfo</label>
+                <onclick>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+            </control>
+            <control type="button" id="1000">
+                <width>302</width>
+                <label>extinfo</label>
+                <onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
+                <include>dialog_ControlCommons</include>
+            </control>
+            -->
+            <!--Trakt
+            <control type="button" id="1033">
                 <width>302</width>
                 <label>Trakt.tv</label>
                 <onclick>RunScript(script.trakt,action=contextmenu)</onclick>
                 <include>dialog_ControlCommons</include>
                 <visible>System.HasAddon(script.trakt)</visible>
             </control>
-        </control>
-        <!--default button-->
-        <control type="button" id="1000">
-            <width>302</width>
-            <include>dialog_ControlCommons</include>
+            -->
         </control>
     </controls>
 </window>
