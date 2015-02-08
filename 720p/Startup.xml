@@ -5,7 +5,8 @@
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,silent=True)</onload>
 	<onload condition="System.HasAddon(script.artistslideshow) + IsEmpty(Window(Visualisation).Property(ArtistSlideshowRunning)) + !Skin.HasSetting(artistslideshow.disable)">RunScript(script.artistslideshow, daemon=True)</onload>
 	<onload condition="System.HasAddon(script.grab.fanart)">RunScript(script.grab.fanart,mode=random,refresh=20)</onload>
-	
+	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
+
 	<!--set alarm to prevent startup loop if fanart grabber is version 0.12.6 or lower-->
 	<onload>AlarmClock(StartupCheck,ReplaceWindow($INFO[System.StartupWindow]),00:10,silent)</onload>
 	

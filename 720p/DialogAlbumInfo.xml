@@ -151,7 +151,7 @@
 						<visible>Container.Content(artists)</visible>
 						<control type="label">
 							<width>720</width>
-							<label>$LOCALIZE[132] [COLOR=Color1]$INFO[Container(50).NumItems][/COLOR]</label>
+							<label>$LOCALIZE[132] [COLOR=Color1]$INFO[Container(50).NumItems] $VAR[info:AlbumCount][/COLOR]</label>
 							<include>detail_Sub</include>
 						</control>
 					</control>
@@ -209,6 +209,28 @@
 							<include>detail_Sub</include>
 						</control>
 					</control>
+					<!--duration-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>System.HasAddon(script.skin.info.service) + !IsEmpty(Window(Home).Property(Album.Songs.Duration))</visible>
+						<control type="label">
+							<width>720</width>
+							<label>$LOCALIZE[180] [COLOR=Color1]$INFO[Window(Home).Property(Album.Songs.Duration)][/COLOR]</label>
+							<include>detail_Sub</include>
+						</control>
+					</control>
+					<!--totals-->
+					<control type="group">
+						<width>720</width>
+						<height>22</height>
+						<visible>System.HasAddon(script.skin.info.service) + !IsEmpty(Window(Home).Property(Album.Songs.Count))</visible>
+						<control type="label">
+							<width>720</width>
+							<label>$LOCALIZE[20161] [COLOR=Color1]$INFO[Window(Home).Property(Album.Songs.Count)] $VAR[info:SongCount] ($INFO[Window(Home).Property(Album.Songs.Discs)] $VAR[info:DiscCount])[/COLOR]</label>
+							<include>detail_Sub</include>
+						</control>
+					</control>
 					<!--path-->
 					<control type="group">
 						<width>720</width>
@@ -223,7 +245,7 @@
 				</control>
 				<!--button area-->
 				<control type="grouplist" id="8000">
-					<height>45</height>
+					<height>50</height>
 					<width>720</width>
 					<itemgap>5</itemgap>
 					<orientation>horizontal</orientation>
