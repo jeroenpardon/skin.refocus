@@ -257,11 +257,6 @@
 		<value condition="StringCompare(ListItem.Property(UnWatchedEpisodes),1)">$LOCALIZE[31147]</value>
 	</variable>
 
-	<variable name="media:MovieSetCount">
-		<value condition="IntegerGreaterThan(Window(Home).Property(Set.Movies.Count),1) | StringCompare(Window(Home).Property(Set.Movies.Count),0)">$LOCALIZE[20342] • </value>
-		<value condition="StringCompare(Window(Home).Property(Set.Movies.Count),1)">$LOCALIZE[20338] • </value>
-	</variable>
-
 	<variable name="info:AlbumCount">
 		<value condition="IntegerGreaterThan(Container(50).NumItems,1) | StringCompare(Container(50).NumItems,0)">$LOCALIZE[132]</value>
 		<value condition="StringCompare(Container(50).NumItems,1)">$LOCALIZE[558]</value>
