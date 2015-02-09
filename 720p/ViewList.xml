@@ -842,33 +842,38 @@
 <!--MUSIC PLAYLIST VIEW-->
 	<include name="view_Playlist-Commons">
 		<control type="group">
+			<!--title-->
 			<control type="image">
-				<width>380</width>
+				<width>350</width>
 				<height>42</height>
 				<texture>views/column-fo.png</texture>
 				<colordiffuse>column2</colordiffuse>
 			</control>
+			<!--artist-->
 			<control type="image">
-				<left>383</left>
+				<left>353</left>
 				<width>300</width>
 				<height>42</height>
 				<texture>views/column-fo.png</texture>
 				<colordiffuse>column2</colordiffuse>
 			</control>
+			<!--album-->
 			<control type="image">
-				<left>686</left>
+				<left>655</left>
 				<width>300</width>
 				<height>42</height>
 				<texture>views/column-fo.png</texture>
 				<colordiffuse>column2</colordiffuse>
 			</control>
+			<!--duration-->
 			<control type="image">
-				<left>988</left>
-				<width>85</width>
+				<left>957</left>
+				<width>116</width>
 				<height>42</height>
 				<texture>views/column-fo.png</texture>
 				<colordiffuse>column2</colordiffuse>
 			</control>
+			<!--rating-->
 			<control type="image">
 				<left>1075</left>
 				<width>125</width>
@@ -880,7 +885,7 @@
 	</include>
 	<include name="view_Playlist">
 		<control type="group">
-			<left>35</left>
+			<left>40</left>
 			<top>110</top>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
@@ -893,13 +898,13 @@
 					<include>column_Header</include>
 				</control>
 				<control type="label">
-					<left>383</left>
+					<left>353</left>
 					<label>$LOCALIZE[557]</label>
 					<width>595</width>
 					<include>column_Header</include>
 				</control>
 				<control type="label">
-					<left>686</left>
+					<left>655</left>
 					<label>$LOCALIZE[558]</label>
 					<width>595</width>
 					<include>column_Header</include>
@@ -923,27 +928,27 @@
 					<control type="group">
 						<left>15</left>
 						<control type="label">
-							<width>350</width>
+							<width>335</width>
 							<label>$INFO[ListItem.Title]</label>
 							<include>column_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>383</left>
-							<width>270</width>
+							<left>353</left>
+							<width>275</width>
 							<label>$INFO[ListItem.Artist]</label>
 							<textcolor>Color2</textcolor>
 							<include>column_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>686</left>
-							<width>270</width>
+							<left>655</left>
+							<width>275</width>
 							<label>$INFO[ListItem.Album]</label>
 							<textcolor>Color3</textcolor>
 							<include>column_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>988</left>
-							<width>55</width>
+							<left>957</left>
+							<width>101</width>
 							<label>$INFO[ListItem.Duration]</label>
 							<textcolor>Color3</textcolor>
 							<include>column_CommonListItem</include>
@@ -951,7 +956,7 @@
 						<control type="image">
 							<left>1067</left>
 							<top>9</top>
-							<width>128</width>
+							<width>130</width>
 							<height>22</height>
 							<texture>$VAR[rating:Global]</texture>
 							<aspectratio align="left">keep</aspectratio>
@@ -972,32 +977,32 @@
 						<control type="group">
 							<left>15</left>
 							<control type="label">
-								<width>350</width>
+								<width>335</width>
 								<label>$INFO[ListItem.Title]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 							<control type="label">
-								<left>383</left>
-								<width>270</width>
+								<left>353</left>
+								<width>275</width>
 								<label>$INFO[ListItem.Artist]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 							<control type="label">
-								<left>686</left>
-								<width>270</width>
+								<left>655</left>
+								<width>275</width>
 								<label>$INFO[ListItem.Album]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 							<control type="label">
-								<left>988</left>
-								<width>55</width>
+								<left>957</left>
+								<width>101</width>
 								<label>$INFO[ListItem.Duration]</label>
 								<include>column_CommonListItem-focus</include>
 							</control>
 							<control type="image">
 								<left>1067</left>
 								<top>9</top>
-								<width>128</width>
+								<width>130</width>
 								<height>22</height>
 								<texture>$VAR[rating:Global.Focused]</texture>
 								<colordiffuse>Color4</colordiffuse>
@@ -1012,27 +1017,27 @@
 						<control type="group">
 							<left>15</left>
 							<control type="label">
-								<width>350</width>
+								<width>335</width>
 								<label>$INFO[ListItem.Title]</label>
 								<include>column_CommonListItem</include>
 							</control>
 							<control type="label">
-								<left>383</left>
-								<width>270</width>
+								<left>353</left>
+								<width>275</width>
 								<label>$INFO[ListItem.Artist]</label>
 								<textcolor>Color2</textcolor>
 								<include>column_CommonListItem</include>
 							</control>
 							<control type="label">
-								<left>686</left>
-								<width>270</width>
+								<left>655</left>
+								<width>275</width>
 								<label>$INFO[ListItem.Album]</label>
 								<textcolor>Color3</textcolor>
 								<include>column_CommonListItem</include>
 							</control>
 							<control type="label">
-								<left>988</left>
-								<width>55</width>
+								<left>957</left>
+								<width>101</width>
 								<label>$INFO[ListItem.Duration]</label>
 								<textcolor>Color3</textcolor>
 								<include>column_CommonListItem</include>
@@ -1040,7 +1045,7 @@
 							<control type="image">
 								<left>1067</left>
 								<top>9</top>
-								<width>128</width>
+								<width>130</width>
 								<height>22</height>
 								<texture>$VAR[rating:Global]</texture>
 								<aspectratio align="left">keep</aspectratio>
