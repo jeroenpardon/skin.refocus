@@ -128,7 +128,7 @@
 						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
 						<selected>Skin.HasSetting(homemenu.compact)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>Skin.HasSetting(widgets.disable) + StringCompare(Skin.String(homemenu.type),vertical)</enable>
+						<enable>!Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),vertical)</enable>
 					</control>
 					<!--widgets-->
 					<control type="radiobutton" id="110">
@@ -141,6 +141,7 @@
 					<control type="radiobutton" id="111">
 						<label>$LOCALIZE[31224]</label>
 						<onclick>Skin.ToggleSetting(widgets.push)</onclick>
+						<onclick>Skin.Reset(homemenu.compact)</onclick>
 						<selected>Skin.HasSetting(widgets.push)</selected>
 						<include>settings_Radiobutton</include>
 						<enable>!Skin.HasSetting(widgets.disable)</enable>
