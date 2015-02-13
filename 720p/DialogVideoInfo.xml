@@ -411,7 +411,7 @@
 					<ondown>50</ondown>
 					<include>global_ListScroll</include>
 					<visible allowhiddenfocus="true">Control.HasFocus(8004) | Control.HasFocus(50)</visible>
-					<itemlayout height="44">
+					<itemlayout width="645" height="44">
 						<control type="image">
 							<width>645</width>
 							<include>column_ListButton</include>
@@ -419,11 +419,12 @@
 						<control type="label">
 							<left>15</left>
 							<width>615</width>
-							<label>$INFO[ListItem.Label]</label>
+							<label>$INFO[ListItem.Label][COLOR=Color3]$INFO[ListItem.Label2, $LOCALIZE[20347] ][/COLOR]</label>
+							<textcolor>Color1</textcolor>
 							<include>column_ListButtonLabel</include>
 						</control>
 					</itemlayout>
-					<focusedlayout height="44">
+					<focusedlayout width="645" height="44">
 						<control type="group">
 							<visible>Control.HasFocus(8004)</visible>
 							<control type="image">
@@ -432,7 +433,8 @@
 							</control>
 							<control type="label">
 								<width>645</width>
-								<label>$INFO[ListItem.Label]</label>
+								<label>$INFO[ListItem.Label][COLOR=Color3]$INFO[ListItem.Label2, $LOCALIZE[20347] ][/COLOR]</label>
+								<textcolor>Color1</textcolor>
 								<textoffsetx>15</textoffsetx>
 								<include>column_ListButtonLabel</include>
 							</control>
@@ -445,9 +447,9 @@
 							</control>
 							<control type="label">
 								<width>645</width>
-								<label>$INFO[ListItem.Label]</label>
+								<label>$INFO[ListItem.Label][COLOR=Color5]$INFO[ListItem.Label2, $LOCALIZE[20347] ][/COLOR]</label>
 								<textoffsetx>15</textoffsetx>
-								<textcolor>Color5</textcolor>
+								<textcolor>Color4</textcolor>
 								<include>column_ListButtonLabel</include>
 							</control>
 						</control>
