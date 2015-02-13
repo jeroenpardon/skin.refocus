@@ -490,6 +490,15 @@
 
 
 <!--RATINGS-->
+	<variable name="rating:Song">
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,5)">&#8226; &#9733;&#9733;&#9733;&#9733;&#9733;</value>
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,4)">&#8226; &#9733;&#9733;&#9733;&#9733;&#9734;</value>
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,3)">&#8226; &#9733;&#9733;&#9733;&#9734;&#9734;</value>-->
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,2)">&#8226; &#9733;&#9733;&#9734;&#9734;&#9734;</value>
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,1)">&#8226; &#9733;&#9734;&#9734;&#9734;&#9734;</value>
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating)">&#8226; &#9734;&#9734;&#9734;&#9734;&#9734;</value>
+	</variable>
+
 	<variable name="rating:Global">
 		<value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.StarRating,rating/nf-,]</value>
 		<value condition="Container.Content(addons) | SubString(Container.FolderPath,addons)">$INFO[ListItem.Property(Addon.StarRating),rating/nf-,]</value>
