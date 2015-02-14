@@ -235,15 +235,12 @@
 						<visible>StringCompare(Container(9000).ListItem.Property(Widget),Weather)</visible>
 					</control>
 				</control>
-
 				<control type="list" id="9270">
 					<content>plugin://script.extendedinfo?info=trendingmovies</content>
 					<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
 					<include>widget_ContainerCommons</include>
 					<visible>StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)</visible>
 				</control>
-
-
 			</control>
 		</control>
 	</include>
@@ -260,6 +257,7 @@
 		<onup condition="StringCompare(Skin.String(homemenu.type),horizontal)">-</onup>
 		<preloaditems>2</preloaditems>
 		<pagecontrol>70</pagecontrol>
+		<autoscroll time="autoscroll_Widget">Control.HasFocus(9000) + Skin.HasSetting(widgets.autoscroll)</autoscroll>
 		<include>global_Scrolltime</include>
 		<include condition="Skin.HasSetting(widgets.push)">fadeinout</include>
 		<itemlayout width="screen_Width" height="screen_Height">
