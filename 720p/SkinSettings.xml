@@ -364,12 +364,19 @@
 					<!--movie ratings-->
 					<control type="radiobutton" id="705">
 						<label>$LOCALIZE[31250]</label>
-						<onclick>Skin.ToggleSetting(ratings.enable)</onclick>
-						<selected>Skin.HasSetting(ratings.enable)</selected>
+						<onclick>Skin.ToggleSetting(ratings.movies.enable)</onclick>
+						<selected>Skin.HasSetting(ratings.movies.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--tv show ratings-->
+					<control type="radiobutton" id="706">
+						<label>$LOCALIZE[31249]</label>
+						<onclick>Skin.ToggleSetting(ratings.tvshows.enable)</onclick>
+						<selected>Skin.HasSetting(ratings.tvshows.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--media overlays-->
-					<control type="radiobutton" id="706">
+					<control type="radiobutton" id="707">
 						<label>$LOCALIZE[31253]</label>
 						<onclick>Skin.ToggleSetting(mediaoverlay.disable)</onclick>
 						<selected>Skin.HasSetting(mediaoverlay.disable)</selected>
