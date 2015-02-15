@@ -549,39 +549,16 @@
 						<label>$INFO[ListItem.Label]</label>
 						<include>detail_Title</include>
 					</control>
-					<control type="label">
+					<control type="textbox">
 						<width>460</width>
-						<label>$INFO[ListItem.Genre]</label>
+						<height min="25" max="50">auto</height>
+						<label>$VAR[media:Info]</label>
+						<aligny>top</aligny>
 						<include>detail_Sub</include>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="label">
-						<width>460</width>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-						<include>detail_Sub</include>
-						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-					</control>
-					<control type="label">
-						<width>460</width>
-						<label>$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]</label>
-						<include>detail_Sub</include>
-						<visible>Container.Content(movies)</visible>
-					</control>
-					<control type="label">
-						<width>460</width>
-						<label>$VAR[media:NextAired.Info]</label>
-						<include>detail_Sub</include>
-						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-					</control>
-					<control type="image">
-						<width>112</width>
-						<height>40</height>
-						<include>detail_StarRating</include>
-						<aspectratio align="left" aligny="center">keep</aspectratio>
 					</control>
 					<control type="textbox" id="4">
 						<width>460</width>
-						<height>355</height>
+						<height>455</height>
 						<label>$VAR[media:Plot]</label>
 						<include>detail_Text</include>
 						<visible>!SubString(ListItem.Icon,default)</visible>
