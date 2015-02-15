@@ -393,9 +393,11 @@
 
 	<variable name="player:Status">
 		<value condition="VideoPlayer.Content(LiveTV) + [Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]]">$LOCALIZE[19020]$INFO[VideoPlayer.ChannelGroup, - ]</value>
+		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekStepSize]</value>
 		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekOffset]</value>
-		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
-		<value condition="[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[112]</value>
+		<value condition="!Player.DisplayAfterSeek + Player.Seeking">$LOCALIZE[773]</value>
+		<value condition="Player.Paused + Player.Caching + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
+		<value condition="Player.Paused + !Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[112]</value>
 		<value condition="Player.Forwarding2x">$LOCALIZE[31300]</value>
 		<value condition="Player.Forwarding4x">$LOCALIZE[31301]</value>
 		<value condition="Player.Forwarding8x">$LOCALIZE[31302]</value>

@@ -613,7 +613,6 @@
 			<label>$VAR[player:Status]</label>
 			<textcolor>Color1</textcolor>
 			<font>light_Header</font>
-			<!--<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching] + ![Window.IsActive(pvrosdchannels) | Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-cu-lrclyrics-main.xml)]</visible>-->
 		</control>
 	</include>
 	<include name="osd_Seekbar">
@@ -638,7 +637,7 @@
 					<midtexture colordiffuse="Color2">player/progress_Background.png</midtexture>
 					<righttexture>-</righttexture>
 				</control>
-				<control type="slider">
+				<control type="slider" id="401">
 					<width>1080</width>
 					<height>32</height>
 					<sliderwidth>125</sliderwidth>
@@ -646,8 +645,6 @@
 					<texturesliderbar>player/progress_Opaque.png</texturesliderbar>
 					<textureslidernib colordiffuse="Color3">player/progress_Slider.png</textureslidernib>
 					<textureslidernibfocus colordiffuse="Color1">player/progress_Slider.png</textureslidernibfocus>
-					<info>Player.Progress</info>
-					<action>seek</action>
 				</control>
 			</control>
 			<control type="group">
@@ -770,6 +767,10 @@
 			<include>transition_OSD</include>
 			<visible>[Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching]</visible>
 		</control>
+
+		
+
+
 		<control type="group">
 			<include>transition_OSD</include>
 			<top>545</top>
