@@ -20,51 +20,30 @@
 			<!--strip bottom-->
 			<control type="group">
 				<left>265</left>
-				<top>585</top>
+				<top>595</top>
 				<control type="group">
 					<control type="label">
 						<label>$VAR[gallery_Header]</label>
 						<width>940</width>
 						<textcolor>Color1</textcolor>
+						<font>regular-U</font>
 						<include>detail_Title</include>
 					</control>
 					<control type="group">
-						<visible>Container.Content(movies) + ![ListItem.IsFolder + SubString(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)]</visible>
-						<control type="label">
-							<top>24</top>
-							<label>$INFO[ListItem.Genre]</label>
+						<top>24</top>
+						<control type="textbox">
 							<width>750</width>
+							<height min="25" max="50">auto</height>
+							<label>$VAR[media:Info]</label>
+							<aligny>top</aligny>
 							<include>detail_Sub</include>
+							<visible>[Container.Content(movies) | Container.Content(tvshows)] + !SubString(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="label">
-							<top>47</top>
-							<label>$INFO[ListItem.Year,, &#8226; ]$INFO[ListItem.Duration,, $LOCALIZE[31701]]</label>
-							<width>750</width>
-							<include>detail_Sub</include>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
-						<control type="label">
-							<top>24</top>
-							<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-							<width>750</width>
-							<include>detail_Sub</include>
-						</control>
-						<control type="label">
-							<top>47</top>
-							<label>$VAR[media:NextAired.Info]</label>
-							<width>750</width>
-							<include>detail_Sub</include>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Window.IsActive(Pictures)</visible>
-						<control type="label">
-							<top>24</top>
 							<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
 							<width>750</width>
 							<include>detail_Sub</include>
+							<visible>Window.IsActive(Pictures)</visible>
 						</control>
 					</control>
 				</control>
