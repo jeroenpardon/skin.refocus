@@ -503,6 +503,14 @@
 					<include>menu_Button</include>
 					<visible>[Control.IsVisible(521) | Control.IsVisible(522)] + Container.Content(artists)</visible>
 				</control>
+				<!--thumbnails: small or large grid (add-ons)-->
+				<control type="button" id="112">
+					<label>$VAR[menu:LayoutSwitch]</label>
+					<onclick condition="Control.IsVisible(574)">Container.SetViewMode(572)</onclick>
+					<onclick condition="Control.IsVisible(572)">Container.SetViewMode(574)</onclick>
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(572) | Control.IsVisible(574)] + !Window.IsActive(artists)</visible>
+				</control>
 			<!--options-->
 				<include>menu_Sorting</include>
 				<include>menu_LibraryHeader</include>
