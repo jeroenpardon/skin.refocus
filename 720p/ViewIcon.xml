@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <!--POSTER--> 
-	<include name="viewIconPortrait-ContainerCommons">
+	<include name="viewIconPortrait-LayoutCommons">
 		<control type="image">
 			<width>184</width>
 			<height>266</height>
@@ -58,7 +58,7 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)</visible>
 			<itemlayout width="194" height="277">
-				<include>viewIconPortrait-ContainerCommons</include>
+				<include>viewIconPortrait-LayoutCommons</include>
 			</itemlayout>											
 			<focusedlayout width="194" height="277">
 				<control type="image">
@@ -66,13 +66,13 @@
 					<height>266</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>viewIconPortrait-ContainerCommons</include>
+				<include>viewIconPortrait-LayoutCommons</include>
 			</focusedlayout>
 		</control>
 	</include>
 	
 <!--POSTERSMALL-->
-	<include name="view_IconPortraitSmall-ContainerCommons">
+	<include name="view_IconPortraitSmall-LayoutCommons">
 		<control type="image">
 			<width>129</width>
 			<height>184</height>
@@ -131,7 +131,7 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 			<itemlayout width="139" height="194">
-				<include>view_IconPortraitSmall-ContainerCommons</include>
+				<include>view_IconPortraitSmall-LayoutCommons</include>
 			</itemlayout>											
 			<focusedlayout width="139" height="194">
 				<control type="image">
@@ -139,13 +139,13 @@
 					<height>184</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_IconPortraitSmall-ContainerCommons</include>
+				<include>view_IconPortraitSmall-LayoutCommons</include>
 			</focusedlayout>
 		</control>
 	</include>
 
 <!--SQUARE-->
-	<include name="view_IconSquare-ContainerCommons">
+	<include name="view_IconSquare-LayoutCommons">
 		<control type="image">
 			<width>178</width>
 			<height>178</height>
@@ -238,7 +238,7 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Window.IsActive(programs) + Container.HasFiles] | [Container.Content(files) + !Container.HasFiles] | [Window.IsActive(MusicFiles) + !Container.HasFiles] | Window.IsActive(radiorecordings)</visible>
 			<itemlayout width="188" height="188">
-				<include>view_IconSquare-ContainerCommons</include>
+				<include>view_IconSquare-LayoutCommons</include>
 			</itemlayout>											
 			<focusedlayout height="188" width="188">
 				<control type="image">
@@ -246,12 +246,39 @@
 					<height>178</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_IconSquare-ContainerCommons</include>
+				<include>view_IconSquare-LayoutCommons</include>
 			</focusedlayout>
 		</control>
 	</include>
 
 <!--SQUARE SMALL-->
+	<include name="view_IconSquareSmall-LayoutCommons">
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">
+				<width>160</width>
+				<height>160</height>
+				<texture>thumbs/default_Square.png</texture>
+			</control>
+			<control type="image">
+				<centerleft>80</centerleft>
+				<centertop>80</centertop>
+				<width>96</width>
+				<height>96</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<width>160</width>
+				<height>160</height>
+				<texture background="true">$VAR[art:Square]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+		</control>
+	</include>
+
+
+
 	<include name="view_IconSquareSmall">
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -316,28 +343,7 @@
 						<height>174</height>
 						<include>art_Frame-nf</include>
 					</control>
-					<control type="group">
-						<left>7</left>
-						<top>7</top>
-						<control type="image">
-							<width>160</width>
-							<height>160</height>
-							<texture>thumbs/default_Square.png</texture>
-						</control>
-						<control type="image">
-							<centerleft>80</centerleft>
-							<centertop>80</centertop>
-							<width>96</width>
-							<height>96</height>
-							<include>art_DefaultIcon</include>
-						</control>
-						<control type="image">
-							<width>160</width>
-							<height>160</height>
-							<texture background="true">$VAR[art:Square]</texture>
-							<aspectratio>scale</aspectratio>
-						</control>
-					</control>
+					<include>view_IconSquareSmall-LayoutCommons</include>
 				</itemlayout>											
 				<focusedlayout height="184" width="184">
 					<control type="image">
@@ -350,35 +356,14 @@
 						<height>174</height>
 						<include>art_Frame-fo</include>
 					</control>
-					<control type="group">
-						<left>7</left>
-						<top>7</top>
-						<control type="image">
-							<width>160</width>
-							<height>160</height>
-							<texture>thumbs/default_Square.png</texture>
-						</control>
-						<control type="image">
-							<centerleft>80</centerleft>
-							<centertop>80</centertop>
-							<width>96</width>
-							<height>96</height>
-							<include>art_DefaultIcon</include>
-						</control>
-						<control type="image">
-							<width>160</width>
-							<height>160</height>
-							<texture background="true">$VAR[art:Square]</texture>
-							<aspectratio>scale</aspectratio>
-						</control>
-					</control>
+					<include>view_IconSquareSmall-LayoutCommons</include>
 				</focusedlayout>
 			</control>
 		</control>
 	</include>
 
 <!--BIGWIDE-->
-	<include name="view_ThumbEpisode-ContainerCommons">
+	<include name="view_ThumbEpisode-LayoutCommons">
 		<control type="image">
 			<width>394</width>
 			<height>219</height>
@@ -443,7 +428,7 @@
 			<include>transition_Info</include>
 			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]] | Window.IsActive(tvrecordings) + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
 			<itemlayout width="404" height="286">
-				<include>view_ThumbEpisode-ContainerCommons</include>
+				<include>view_ThumbEpisode-LayoutCommons</include>
 				<control type="group">
 					<left>7</left>
 					<top>225</top>
@@ -466,7 +451,7 @@
 					<height>219</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_ThumbEpisode-ContainerCommons</include>
+				<include>view_ThumbEpisode-LayoutCommons</include>
 				<control type="group">
 					<left>7</left>
 					<top>225</top>
@@ -576,7 +561,7 @@
 	</include>
 
 <!--TILES-->
-	<include name="view_Tiles-ContainerCommons">
+	<include name="view_Tiles-LayoutCommons">
 		<control type="image">
 			<width>78</width>
 			<height>78</height>
@@ -625,7 +610,7 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)] | Window.IsActive(radiorecordings)</visible>
 			<itemlayout width="520" height="85">
-				<include>view_Tiles-ContainerCommons</include>
+				<include>view_Tiles-LayoutCommons</include>
 				<control type="group">
 					<left>95</left>
 					<top>10</top>
@@ -649,7 +634,7 @@
 					<height>78</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_Tiles-ContainerCommons</include>
+				<include>view_Tiles-LayoutCommons</include>
 				<control type="group">
 					<left>95</left>
 					<top>10</top>

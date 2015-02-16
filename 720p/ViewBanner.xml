@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <!--BANNERS SMALL GRID-->
-	<include name="view_Banner-ContainerCommons">
+	<include name="view_Banner-LayoutCommons">
 		<control type="image">
 			<width>572</width>
 			<height>117</height>
@@ -58,7 +58,7 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
 			<itemlayout width="572" height="123">
-				<include>view_Banner-ContainerCommons</include>
+				<include>view_Banner-LayoutCommons</include>
 			</itemlayout>
 			<focusedlayout width="572" height="123">
 				<control type="image">
@@ -66,7 +66,7 @@
 					<height>117</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_Banner-ContainerCommons</include>
+				<include>view_Banner-LayoutCommons</include>
 			</focusedlayout>
 		</control>
 		<!--container info-->
@@ -127,7 +127,7 @@
 	</include>
 
 <!--BANNERS BIG GRID-->
-	<include name="view_BigBanner-ContainerCommons">
+	<include name="view_BigBanner-LayoutCommons">
 		<control type="image">
 			<width>604</width>
 			<height>123</height>
@@ -230,7 +230,7 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
 			<itemlayout width="620" height="190">
-				<include>view_BigBanner-ContainerCommons</include>
+				<include>view_BigBanner-LayoutCommons</include>
 			</itemlayout>
 			<focusedlayout width="620" height="190">
 				<control type="image">
@@ -238,7 +238,7 @@
 					<height>123</height>
 					<include>art_Frame-fo</include>
 				</control>
-				<include>view_BigBanner-ContainerCommons</include>
+				<include>view_BigBanner-LayoutCommons</include>
 			</focusedlayout>
 		</control>
 	</include>
