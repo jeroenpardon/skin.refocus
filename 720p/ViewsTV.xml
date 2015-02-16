@@ -65,7 +65,7 @@
 
 
 <!--GUIDE TIMELINE-->
-	<include name="view_Guide-timeline-Commons">
+	<include name="view_GuideTimeline-LayoutCommons">
 		<control type="label" id="1">
 			<left>8</left>
 			<width>84</width>
@@ -103,8 +103,7 @@
 			</control>
 		</control>
 	</include>
-
-	<include name="view_Guide-timeline">
+	<include name="view_GuideTimeline">
 	<!--epg grid-->
 		<control type="epggrid" id="10">
 			<viewtype label="19032">timeline</viewtype>
@@ -182,7 +181,7 @@
 					<aspectratio>stretch</aspectratio>
 					<texture>pvr/genres/$INFO[ListItem.Property(GenreType)].png</texture>
 				</control>
-				<include>view_Guide-timeline-Commons</include>
+				<include>view_GuideTimeline-LayoutCommons</include>
 			</itemlayout>
 			<focusedlayout width="100" height="46">
 				<control type="image" id="14">
@@ -206,14 +205,71 @@
 					<aspectratio>stretch</aspectratio>
 					<texture>pvr/genres/$INFO[ListItem.Property(GenreType)].png</texture>
 				</control>
-				<include>view_Guide-timeline-Commons</include>
+				<include>view_GuideTimeline-LayoutCommons</include>
 			</focusedlayout>
 		</control>
 	</include>
 
 
 <!--GUIDE NOW-->
-	<include name="view_Guide-now">
+	<include name="view_GuideNow-LayoutCommons">
+		<control type="group">
+			<control type="image">
+				<width>220</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>222</left>
+				<width>704</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>928</left>
+				<width>135</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>1065</left>
+				<width>135</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+		</control>
+		<control type="group">
+			<posx>15</posx>
+			<control type="label" id="1">
+				<width>205</width>
+				<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>222</left>
+				<width>637</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>928</left>
+				<width>553</width>
+				<label>$INFO[ListItem.StartTime]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>1065</left>
+				<width>400</width>
+				<label>$INFO[ListItem.Duration]</label>
+				<include>column_CommonListItem</include>
+			</control>
+		</control>
+	</include>
+	<include name="view_GuideNow">
 		<control type="group">
 			<left>39</left>
 			<include>transition_Content</include>
@@ -262,62 +318,8 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<include>transition_Content</include>
-				<itemlayout width="1200" height="44">
-					<control type="group">
-						<control type="image">
-							<width>220</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>222</left>
-							<width>704</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>928</left>
-							<width>135</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>1065</left>
-							<width>135</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-					</control>
-					<control type="group">
-						<posx>15</posx>
-						<control type="label" id="1">
-							<width>205</width>
-							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>222</left>
-							<width>637</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>928</left>
-							<width>553</width>
-							<label>$INFO[ListItem.StartTime]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>1065</left>
-							<width>400</width>
-							<label>$INFO[ListItem.Duration]</label>
-							<include>column_CommonListItem</include>
-						</control>
-					</control>
+				<itemlayout width="1200" height="44">	
+					<include>view_GuideNow-LayoutCommons</include>
 					<control type="group">
 						<left>890</left>
 						<top>7</top>
@@ -327,43 +329,61 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<control type="image">
+					<control type="group">
 						<width>1200</width>
-						<height>42</height>
-						<include>column_CommonListFocus</include>
+						<height>44</height>
+						<include>container_Focus</include>
+						<control type="image">
+							<width>1200</width>
+							<height>42</height>
+							<include>column_CommonListFocus</include>
+						</control>
+						<control type="group">
+							<posx>15</posx>
+							<control type="label" id="1">
+								<width>205</width>
+								<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>222</left>
+								<width>637</width>
+								<label>$INFO[ListItem.Label]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>928</left>
+								<width>553</width>
+								<label>$INFO[ListItem.StartTime]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>1065</left>
+								<width>400</width>
+								<label>$INFO[ListItem.Duration]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+						</control>
+						<control type="group">
+							<left>890</left>
+							<top>7</top>
+							<width>28</width>
+							<height>28</height>
+							<include>progress_PVR-fo</include>
+						</control>
 					</control>
 					<control type="group">
-						<posx>15</posx>
-						<control type="label" id="1">
-							<width>205</width>
-							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-							<include>column_CommonListItem-focus</include>
+						<width>1200</width>
+						<height>44</height>
+						<include>container_Unfocus</include>
+						<include>view_GuideNow-LayoutCommons</include>
+						<control type="group">
+							<left>890</left>
+							<top>7</top>
+							<width>28</width>
+							<height>28</height>
+							<include>progress_PVR</include>
 						</control>
-						<control type="label">
-							<left>222</left>
-							<width>637</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>928</left>
-							<width>553</width>
-							<label>$INFO[ListItem.StartTime]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>1065</left>
-							<width>400</width>
-							<label>$INFO[ListItem.Duration]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-					</control>
-					<control type="group">
-						<left>890</left>
-						<top>7</top>
-						<width>28</width>
-						<height>28</height>
-						<include>progress_PVR-fo</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -372,7 +392,68 @@
 
 
 <!--GUIDE NEXT-->
-	<include name="view_Guide-next">
+	<include name="view_GuideNext-LayoutCommons">
+		<control type="group">
+			<control type="image">
+				<width>220</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>222</left>
+				<width>704</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>928</left>
+				<width>135</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>1065</left>
+				<width>135</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+		</control>
+		<control type="group">
+			<posx>15</posx>
+			<control type="label" id="1">
+				<width>205</width>
+				<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>222</left>
+				<width>637</width>
+				<label>$INFO[ListItem.Label]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>928</left>
+				<width>553</width>
+				<label>$INFO[ListItem.StartTime]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>1065</left>
+				<width>400</width>
+				<label>$INFO[ListItem.Duration]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="group">
+				<left>878</left>
+				<include>status_PVR</include>
+			</control>
+		</control>
+	</include>
+	<include name="view_GuideNext">
 		<control type="group">
 			<left>39</left>
 			<include>transition_Content</include>
@@ -422,101 +503,54 @@
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<include>transition_Content</include>
 				<itemlayout width="1200" height="44">
-					<control type="group">
-						<control type="image">
-							<width>220</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>222</left>
-							<width>704</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>928</left>
-							<width>135</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>1065</left>
-							<width>135</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-					</control>
-					<control type="group">
-						<posx>15</posx>
-						<control type="label" id="1">
-							<width>205</width>
-							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>222</left>
-							<width>637</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>928</left>
-							<width>553</width>
-							<label>$INFO[ListItem.StartTime]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>1065</left>
-							<width>400</width>
-							<label>$INFO[ListItem.Duration]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="group">
-							<left>878</left>
-							<include>status_PVR</include>
-						</control>
-					</control>
+					<include>view_GuideNext-LayoutCommons</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<control type="image">
-						<width>1200</width>
-						<height>42</height>
-						<include>column_CommonListFocus</include>
-					</control>
 					<control type="group">
-						<posx>15</posx>
-						<control type="label" id="1">
-							<width>205</width>
-							<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>222</left>
-							<width>637</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>928</left>
-							<width>553</width>
-							<label>$INFO[ListItem.StartTime]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>1065</left>
-							<width>400</width>
-							<label>$INFO[ListItem.Duration]</label>
-							<include>column_CommonListItem-focus</include>
+						<width>1200</width>
+						<height>44</height>
+						<include>container_Focus</include>
+						<control type="image">
+							<width>1200</width>
+							<height>42</height>
+							<include>column_CommonListFocus</include>
 						</control>
 						<control type="group">
-							<left>878</left>
-							<include>status_PVR-fo</include>
+							<posx>15</posx>
+							<control type="label" id="1">
+								<width>205</width>
+								<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>222</left>
+								<width>637</width>
+								<label>$INFO[ListItem.Label]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>928</left>
+								<width>553</width>
+								<label>$INFO[ListItem.StartTime]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>1065</left>
+								<width>400</width>
+								<label>$INFO[ListItem.Duration]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="group">
+								<left>878</left>
+								<include>status_PVR-fo</include>
+							</control>
 						</control>
+					</control>
+					<control type="group">
+						<width>1200</width>
+						<height>44</height>
+						<include>container_Unfocus</include>
+						<include>view_GuideNext-LayoutCommons</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -525,7 +559,51 @@
 
 
 <!--GUIDE CHANNELS-->
-	<include name="view_Guide-channels">
+	<include name="view_GuideChannels-LayoutCommons">
+		<control type="group">
+			<control type="image">
+				<width>135</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>137</left>
+				<width>815</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+			<control type="image">
+				<left>954</left>
+				<width>246</width>
+				<height>42</height>
+				<texture>views/column-fo.png</texture>
+				<colordiffuse>column2</colordiffuse>
+			</control>
+		</control>
+		<control type="group">
+			<posx>15</posx>
+			<control type="label" id="1">
+				<width>135</width>
+				<label>$INFO[ListItem.StartTime]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>137</left>
+				<width>637</width>
+				<label>$INFO[ListItem.Title]</label>
+				<include>column_CommonListItem</include>
+			</control>
+			<control type="label">
+				<left>954</left>
+				<width>553</width>
+				<label>$INFO[ListItem.StartDate]</label>
+				<include>column_CommonListItem</include>
+			</control>
+		</control>
+	</include>
+	<include name="view_GuideChannels">
 		<control type="group">
 			<left>39</left>
 			<include>transition_Content</include>
@@ -569,89 +647,59 @@
 				<onright>70</onright>
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-				<itemlayout height="44">
-					<control type="group">
-						<control type="image">
-							<width>135</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>137</left>
-							<width>815</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<left>954</left>
-							<width>246</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-					</control>
-					<control type="group">
-						<posx>15</posx>
-						<control type="label" id="1">
-							<width>135</width>
-							<label>$INFO[ListItem.StartTime]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>137</left>
-							<width>637</width>
-							<label>$INFO[ListItem.Title]</label>
-							<include>column_CommonListItem</include>
-						</control>
-						<control type="label">
-							<left>954</left>
-							<width>553</width>
-							<label>$INFO[ListItem.StartDate]</label>
-							<include>column_CommonListItem</include>
-						</control>
-					</control>
+				<itemlayout width="1200" height="44">
+					<include>view_GuideChannels-LayoutCommons</include>
 					<control type="group">
 						<left>915</left>
 						<include>status_PVR</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="44">
-					<control type="image">
+				<focusedlayout width="1200" height="44">
+					<control type="group">
 						<width>1200</width>
-						<height>42</height>
-						<texture>views/column-fo.png</texture>
-						<colordiffuse>column2</colordiffuse>
-					</control>
-					<control type="image">
-						<width>1200</width>
-						<height>42</height>
-						<include>column_CommonListFocus</include>
+						<height>44</height>
+						<include>container_Focus</include>
+						<control type="image">
+							<width>1200</width>
+							<height>42</height>
+							<texture>views/column-fo.png</texture>
+							<colordiffuse>column2</colordiffuse>
+						</control>
+						<control type="image">
+							<width>1200</width>
+							<height>42</height>
+							<include>column_CommonListFocus</include>
+						</control>
+						<control type="group">
+							<posx>15</posx>
+							<control type="label" id="1">
+								<width>135</width>
+								<label>$INFO[ListItem.StartTime]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>137</left>
+								<width>637</width>
+								<label>$INFO[ListItem.Title]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+							<control type="label">
+								<left>954</left>
+								<width>553</width>
+								<label>$INFO[ListItem.StartDate]</label>
+								<include>column_CommonListItem-focus</include>
+							</control>
+						</control>
+						<control type="group">
+							<left>915</left>
+							<include>status_PVR-fo</include>
+						</control>
 					</control>
 					<control type="group">
-						<posx>15</posx>
-						<control type="label" id="1">
-							<width>135</width>
-							<label>$INFO[ListItem.StartTime]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>137</left>
-							<width>637</width>
-							<label>$INFO[ListItem.Title]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-						<control type="label">
-							<left>954</left>
-							<width>553</width>
-							<label>$INFO[ListItem.StartDate]</label>
-							<include>column_CommonListItem-focus</include>
-						</control>
-					</control>
-					<control type="group">
-						<left>915</left>
-						<include>status_PVR-fo</include>
+						<width>1200</width>
+						<height>44</height>
+						<include>container_Unfocus</include>
+						<include>view_GuideChannels-LayoutCommons</include>
 					</control>
 				</focusedlayout>
 			</control>
