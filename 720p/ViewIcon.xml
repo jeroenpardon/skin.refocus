@@ -276,9 +276,6 @@
 			</control>
 		</control>
 	</include>
-
-
-
 	<include name="view_IconSquareSmall">
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -297,29 +294,15 @@
 				</control>
 				<control type="label">
 					<width>440</width>
-					<label>$LOCALIZE[19114]: $INFO[ListItem.Property(Addon.Version)]</label>
+					<label>$VAR[media:Info]</label>
 					<include>detail_Sub</include>
-					<visible>!IsEmpty(ListItem.Property(Addon.Version))</visible>
-				</control>
-				<control type="image">
-					<aspectratio align="left" aligny="center">keep</aspectratio>
-					<include>detail_StarRating</include>
 				</control>
 				<control type="textbox" id="4">
 					<width>440</width>
-					<height>413</height>
-					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<height>405</height>
+					<label>$VAR[media:Plot]</label>
 					<textcolor>Color1</textcolor>
 					<include>detail_Text</include>
-					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
-				</control>
-				<control type="textbox" id="4">
-					<width>440</width>
-					<height>413</height>
-					<label>$INFO[ListItem.Plot]</label>
-					<textcolor>Color4</textcolor>
-					<include>detail_Text</include>
-					<visible>!IsEmpty(ListItem.Plot)</visible>
 				</control>
 			</control>
 			<!--container-->
@@ -336,7 +319,7 @@
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<include>global_ListScroll</include>
-				<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures)</visible>
+				<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(pictures)</visible>
 				<itemlayout height="184" width="184">
 					<control type="image">
 						<width>174</width>
