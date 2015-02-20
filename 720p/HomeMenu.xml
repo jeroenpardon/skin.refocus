@@ -70,6 +70,7 @@
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + !Container(9270).IsUpdating">9270</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows) + !Container(9271).IsUpdating">9271</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -231,6 +232,7 @@
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + !Container(9270).IsUpdating">9270</onup>
+						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows) + !Container(9271).IsUpdating">9271</onup>
 						<ondown>9100</ondown>
 						<focusposition>2</focusposition>
 						<movement>2</movement>

@@ -231,7 +231,8 @@
 	<widget label="31032" type="music">RecommendedAlbums</widget>
 	<widget label="31035" type="info">NowPlaying</widget>
 	<widget label="8" type="info">Weather</widget>
-	<widget label="Trending Movies" type="mixed">TraktTrendingMovies</widget>
+	<widget label="Trending Movies" type="mixed" condition="System.HasAddon(script.extendedinfo)">TraktTrendingMovies</widget>
+	<widget label="Trending TV Shows" type="mixed" condition="System.HasAddon(script.extendedinfo)">TraktTrendingShows</widget>
 	<widgetdefault labelID="movies" type="movies">RecentMovies</widgetdefault>
 	<widgetdefault labelID="tvshows" type="episodes">WatchlistEpisodes</widgetdefault>
 	<widgetdefault labelID="music" type="music">RecentAlbums</widgetdefault>
