@@ -209,6 +209,68 @@
 		<visible>!SubString(Container.FolderPath,pvr://recordings/)</visible>
 	</include>
 
+	<include name="detail_Flags">
+		<control type="grouplist">
+			<width>900</width>
+			<height>30</height>
+			<itemgap>10</itemgap>
+			<orientation>horizontal</orientation>
+			<visible>!SubString(ListItem.Icon,Default) + !ListItem.IsFolder</visible>
+			<control type="image">
+				<width>30</width>
+				<height>30</height> 
+				<texture>DefaultMovies.png</texture>
+				<colordiffuse>Color1</colordiffuse>
+				<aspectratio align="center">keep</aspectratio>
+			</control>
+			<control type="label">
+				<width min="50" max="200">auto</width>
+				<height>30</height>
+				<label>$INFO[ListItem.VideoCodec,, &#8226; ]$INFO[ListItem.VideoResolution,,P]</label>
+				<textcolor>Color1</textcolor>
+				<include>detail_Sub</include>
+			</control>
+			<control type="image">
+				<width>30</width>
+				<height>30</height> 
+				<texture>DefaultAudio.png</texture>
+				<colordiffuse>Color1</colordiffuse>
+				<aspectratio align="center">keep</aspectratio>
+			</control>
+			<control type="label">
+				<width min="50" max="200">auto</width>
+				<height>30</height>
+				<label>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</label>
+				<textcolor>Color1</textcolor>
+				<include>detail_Sub</include>
+			</control>
+			<control type="image">
+				<width>30</width>
+				<height>30</height> 
+				<texture>DefaultIconSubtitles.png</texture>
+				<colordiffuse>Color1</colordiffuse>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+			</control>
+			<control type="label">
+				<width min="50" max="200">auto</width>
+				<height>30</height>
+				<label>$INFO[ListItem.SubtitleLanguage]</label>
+				<textcolor>Color1</textcolor>
+				<include>detail_Sub</include>
+				<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+			</control>
+		</control>
+	</include>
+
+	<include name="flag_Studio">
+		<width>96</width>
+		<height>48</height>
+		<aspectratio align="right">keep</aspectratio>
+		<colordiffuse>flag_1</colordiffuse>
+		<texture>$VAR[flag:Studio]</texture>
+	</include>
+
 <!--CONTAINER-->
 	<include name="container_Title">
 		<height>40</height>
@@ -767,10 +829,6 @@
 			<include>transition_OSD</include>
 			<visible>[Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching]</visible>
 		</control>
-
-		
-
-
 		<control type="group">
 			<include>transition_OSD</include>
 			<top>545</top>
