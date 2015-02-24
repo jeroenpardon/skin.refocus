@@ -10,12 +10,9 @@
 			<include>transition_Content</include>
 			<!--flags-->
 			<control type="image">
-				<left>105</left>
-				<top>590</top>
-				<width>128</width>
-				<height>64</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[flag:Studio]</texture>
+				<left>140</left>
+				<bottom>74</bottom>
+				<include>flag_Studio</include>
 			</control>
 			<!--strip bottom-->
 			<control type="group">
@@ -24,7 +21,7 @@
 				<control type="group">
 					<control type="label">
 						<label>$VAR[gallery_Header]</label>
-						<width>940</width>
+						<width>975</width>
 						<textcolor>Color1</textcolor>
 						<font>regular-U</font>
 						<include>detail_Title</include>
@@ -32,7 +29,7 @@
 					<control type="group">
 						<top>24</top>
 						<control type="textbox">
-							<width>750</width>
+							<width>975</width>
 							<height min="25" max="50">auto</height>
 							<label>$VAR[media:Info]</label>
 							<aligny>top</aligny>
@@ -41,7 +38,7 @@
 						</control>
 						<control type="label">
 							<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
-							<width>750</width>
+							<width>975</width>
 							<include>detail_Sub</include>
 							<visible>Window.IsActive(Pictures)</visible>
 						</control>

@@ -464,42 +464,31 @@
 			<!--large grid-->
 			<control type="group">
 				<visible>Control.IsVisible(57)</visible>
-				<!--flags-->
 				<control type="image">
-					<right>77</right>
-					<top>640</top>
-					<include>detail_StarRating</include>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
-				</control>
-				<control type="image">
-					<right>72</right>
-					<top>640</top>
-					<width>128</width>
-					<height>64</height>
-					<texture>$VAR[flag:Studio]</texture>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<visible>SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+					<right>80</right>
+					<bottom>23</bottom>
+					<include>flag_Studio</include>
 				</control>
 				<control type="group">
 					<left>60</left>
-					<top>645</top>
+					<bottom>20</bottom>
+					<height>53</height>
 					<control type="label">
 						<label>$VAR[media:Title]</label>
-						<width>1100</width>
+						<width>1028</width>
 						<include>detail_Title</include>
 					</control>
 					<control type="label">
 						<top>25</top>
 						<label>$VAR[media:Info]</label>
-						<width>750</width>
+						<width>1028</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 					</control>
 					<control type="label">
 						<top>25</top>
 						<label>$VAR[media:Info.Addon]</label>
-						<width>750</width>
+						<width>1028</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 					</control>
@@ -526,18 +515,16 @@
 					</control>
 					<control type="textbox" id="4">
 						<width>460</width>
-						<height>455</height>
+						<height>430</height>
 						<label>$VAR[media:Plot]</label>
 						<include>detail_Text</include>
 						<visible>!SubString(ListItem.Icon,default)</visible>
 					</control>
 				</control>
 				<control type="image">
-					<bottom>40</bottom>
-					<width>128</width>
-					<height>48</height>
+					<bottom>60</bottom>
 					<aspectratio align="left">keep</aspectratio>
-					<texture>$VAR[flag:Studio]</texture>
+					<include>flag_Studio</include>
 				</control>
 			</control>
 		</control>

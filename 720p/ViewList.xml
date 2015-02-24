@@ -554,6 +554,14 @@
 							<label>$VAR[media:Plot]</label>
 							<include>container_Text</include>
 						</control>
+						<control type="group">
+							<right>20</right>
+							<top>15</top>
+							<width>28</width>
+							<height>28</height>
+							<include>status_List</include>
+						</control>
+						<!--
 						<control type="image">
 							<left>800</left>
 							<top>11</top>
@@ -563,6 +571,7 @@
 							<aspectratio align="right">keep</aspectratio>
 							<visible>!IsEmpty(ListItem.Title)</visible>
 						</control>
+						-->
 					</control>
 				</itemlayout>
 				<focusedlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
@@ -590,6 +599,14 @@
 								<label>$VAR[media:Plot]</label>
 								<include>container_Text-focus</include>
 							</control>
+							<control type="group">
+								<right>20</right>
+								<top>15</top>
+								<width>28</width>
+								<height>28</height>
+								<include>status_List-fo</include>
+							</control>
+							<!--
 							<control type="image">
 								<left>800</left>
 								<top>11</top>
@@ -599,6 +616,7 @@
 								<aspectratio align="right">keep</aspectratio>
 								<visible>!IsEmpty(ListItem.Title)</visible>
 							</control>
+							-->
 						</control>
 						<control type="group">
 							<include>container_Unfocus</include>
@@ -621,6 +639,14 @@
 								<label>$VAR[media:Plot]</label>
 								<include>container_Text</include>
 							</control>
+							<control type="group">
+								<right>20</right>
+								<top>15</top>
+								<width>28</width>
+								<height>28</height>
+								<include>status_List</include>
+							</control>
+							<!--
 							<control type="image">
 								<left>800</left>
 								<top>11</top>
@@ -630,6 +656,7 @@
 								<aspectratio align="right">keep</aspectratio>
 								<visible>!IsEmpty(ListItem.Title)</visible>
 							</control>
+							-->
 						</control>
 					</control>
 				</focusedlayout>
@@ -660,12 +687,20 @@
 						</control>
 						<control type="textbox" id="4">
 							<top>66</top>
-							<width>1075</width>
+							<width>1050</width>
 							<height>60</height>
 							<label>$VAR[media:Plot]</label>
 							<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
 							<include>container_Text</include>
 						</control>
+						<control type="group">
+							<right>20</right>
+							<top>15</top>
+							<width>28</width>
+							<height>28</height>
+							<include>status_List</include>
+						</control>
+						<!--
 						<control type="image">
 							<left>934</left>
 							<top>11</top>
@@ -675,7 +710,8 @@
 							<aspectratio align="right">keep</aspectratio>
 							<visible>!IsEmpty(ListItem.Title)</visible>
 						</control>
-					</control>			
+						-->
+					</control>
 				</itemlayout>
 				<focusedlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
 					<include>view_BigList-PortraitCommons</include>
@@ -705,11 +741,19 @@
 							</control>
 							<control type="textbox" id="4">
 								<top>66</top>
-								<width>1075</width>
+								<width>1050</width>
 								<height>60</height>
 								<label>$VAR[media:Plot]</label>
 								<include>container_Text-focus</include>
 							</control>
+							<control type="group">
+								<right>20</right>
+								<top>15</top>
+								<width>28</width>
+								<height>28</height>
+								<include>status_List-fo</include>
+							</control>
+							<!--
 							<control type="image">
 								<left>934</left>
 								<top>11</top>
@@ -720,6 +764,7 @@
 								<aspectratio align="right">keep</aspectratio>
 								<visible>!IsEmpty(ListItem.Title)</visible>
 							</control>
+							-->
 						</control>
 						<control type="group">
 							<include>container_Unfocus</include>
@@ -744,11 +789,19 @@
 							</control>
 							<control type="textbox" id="4">
 								<top>66</top>
-								<width>1075</width>
+								<width>1050</width>
 								<height>60</height>
 								<label>$VAR[media:Plot]</label>
 								<include>container_Text</include>
 							</control>
+							<control type="group">
+								<right>20</right>
+								<top>15</top>
+								<width>28</width>
+								<height>28</height>
+								<include>status_List</include>
+							</control>
+							<!--
 							<control type="image">
 								<left>934</left>
 								<top>11</top>
@@ -758,6 +811,7 @@
 								<aspectratio align="right">keep</aspectratio>
 								<visible>!IsEmpty(ListItem.Title)</visible>
 							</control>
+							-->
 						</control>
 					</control>
 				</focusedlayout>
@@ -801,6 +855,7 @@
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<include>art_Logo</include>
 			</control>
+			<!--
 			<control type="group">
 				<left>189</left>
 				<bottom>17</bottom>
@@ -808,6 +863,7 @@
 				<height>42</height>
 				<include>status_Info</include>
 			</control>
+			-->
 		</control>	
 	</include>
 	<!--portrait layout commons-->
@@ -839,6 +895,7 @@
 				<texture background="true">$VAR[art:Portrait]</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
+			<!--
 			<control type="group">
 				<left>48</left>
 				<bottom>17</bottom>
@@ -846,6 +903,7 @@
 				<height>42</height>
 				<include>status_Info</include>
 			</control>
+			-->
 		</control>
 	</include>
 

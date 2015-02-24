@@ -7,12 +7,9 @@
 			<include>transition_Content</include>
 			<visible>Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522)</visible>
 			<control type="image">
-				<left>80</left>
+				<left>75</left>
 				<top>480</top>
-				<width>92</width>
-				<height>48</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[flag:Studio]</texture>
+				<include>flag_Studio</include>
 			</control>
 			<control type="group">
 				<left>192</left>
@@ -48,34 +45,13 @@
 						<include>detail_Text</include>
 					</control>
 				</control>
-				<control type="grouplist">
-					<top>180</top>
-					<width>900</width>
-					<height>64</height>
-					<itemgap>10</itemgap>
-					<orientation>horizontal</orientation>
-					<control type="image">
-						<width>128</width>
-						<height>32</height> 
-						<texture>$VAR[rating:Global]</texture>
-						<aspectratio align="center">keep</aspectratio>
-						<visible>!Container.Content(files)</visible>
-					</control>
-					<control type="image">
-						<width>96</width>
-						<height>34</height>
-						<aspectratio align="center">keep</aspectratio>
-						<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-						<visible>!IsEmpty(Listitem.VideoResolution)</visible>
-					</control>
-					<control type="image">
-						<width>53</width>
-						<height>34</height>
-						<aspectratio align="center">keep</aspectratio>
-						<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
-						<visible>!IsEmpty(Listitem.AudioChannels)</visible>
-					</control>
-				</control>
+			</control>
+			<!--media flags-->
+			<control type="group">
+				<left>192</left>
+				<height>40</height>
+				<bottom>20</bottom>
+				<include>detail_Flags</include>
 			</control>
 		</control>
 	</include>
