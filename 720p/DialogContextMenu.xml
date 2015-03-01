@@ -27,17 +27,18 @@
 			<height min="40" max="500">auto</height>
 			<itemgap>0</itemgap>
 			<!--YouTube-->
-			<control type="button" id="2007">
+			<control type="button" id="997">
 				<width>302</width>
 				<label>YouTube</label>
 				<include>dialog_ControlCommons</include>
+				<visible>System.HasAddon(script.extendedinfo)</visible>
 				<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(actors) | Container.Content(directors) | Container.Content(movies) | Container.Content(tvshows)</visible>
 				<onclick condition="Container.Content(albums) | Container.Content(songs)">SetProperty(YouTubeQuery,$INFO[ListItem.Artist] $INFO[ListItem.Label],Home)</onclick>
 				<onclick condition="Container.Content(artists) | Container.Content(actors) | Container.Content(directors) | Container.Content(movies) | Container.Content(tvshows)">SetProperty(YouTubeQuery,$INFO[ListItem.Label],Home)</onclick>
 				<onclick>ActivateWindow(1130)</onclick>
 			</control>
 			<!--trailer-->
-			<control type="button" id="997">
+			<control type="button" id="998">
 				<width>302</width>
 				<label>$LOCALIZE[20410]</label>
 				<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
