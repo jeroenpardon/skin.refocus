@@ -58,6 +58,7 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
+					<onright>SetProperty(WidgetState,open,Home)</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + !Container(9210).IsUpdating">9210</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + !Container(9211).IsUpdating">9211</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + !Container(9220).IsUpdating">9220</onright>
@@ -71,6 +72,7 @@
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + !Container(9270).IsUpdating">9270</onright>
 					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows) + !Container(9271).IsUpdating">9271</onright>
+					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),InTheaters) + !Container(9272).IsUpdating">9272</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -219,6 +221,7 @@
 						<height>70</height>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
+						<onup>SetProperty(WidgetState,open,Home)</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + !Container(9210).IsUpdating">9210</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + !Container(9211).IsUpdating">9211</onup>
 						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + !Container(9220).IsUpdating">9220</onup>

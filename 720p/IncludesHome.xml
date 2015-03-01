@@ -291,58 +291,47 @@
 
 	<include name="widget_InfoCommons">
 		<control type="group">
-			<left>50</left>
+			<left>60</left>
 			<top>550</top>
-			<visible>[StringCompare(Skin.String(homemenu.type),vertical) + !ControlGroup(9200).HasFocus]</visible>
+			<animation type="Conditional" condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">
+				<effect type="Fade" time="200" start="100" end="0" easing="In" delay="100"/>
+			</animation>
 			<control type="label">
-				<width>860</width>
+				<width>850</width>
 				<label>$VAR[widget:Item.Title]</label>
 				<selectedcolor>Color1</selectedcolor>
 				<include>osd_Title</include>
 			</control>
 			<control type="label">
-				<top>25</top>
-				<width>860</width>
+				<top>28</top>
+				<width>1170</width>
 				<label>$VAR[widget:Item.Info]</label>
+				<font>regular_Small-U</font>
 				<include>osd_Sub</include>
 			</control>
 			<control type="textbox">
-				<top>55</top>
-				<width>860</width>
-				<height>80</height>
+				<top>60</top>
+				<width>850</width>
+				<height>85</height>
 				<label>$VAR[widget:Item.Description]</label>
-				<font>condensed-U</font>
+				<include>detail_Text</include>
 				<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
-			</control>
-		</control>
-		<control type="group">
-			<left>50</left>
-			<top>550</top>
-			<visible>[StringCompare(Skin.String(homemenu.type),vertical) + ControlGroup(9200).HasFocus] | StringCompare(Skin.String(homemenu.type),horizontal)</visible>
-			<control type="label">
-				<width>1180</width>
-				<label>$VAR[widget:Item.Title]</label>
-				<selectedcolor>Color1</selectedcolor>
-				<include>osd_Title</include>
-			</control>
-			<control type="label">
-				<top>25</top>
-				<width>1180</width>
-				<label>$VAR[widget:Item.Info]</label>
-				<include>osd_Sub</include>
+				<visible>StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Window(Home).Property(WidgetState),open)</visible>
 			</control>
 			<control type="textbox">
-				<top>55</top>
-				<width>1180</width>
-				<height>80</height>
+				<top>60</top>
+				<width>1170</width>
+				<height>85</height>
 				<label>$VAR[widget:Item.Description]</label>
-				<font>condensed-U</font>
+				<include>detail_Text</include>
 				<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
+				<visible>[StringCompare(Skin.String(homemenu.type),vertical) + StringCompare(Window(Home).Property(WidgetState),open)] | StringCompare(Skin.String(homemenu.type),horizontal)</visible>
 			</control>
 		</control>
 	</include>
 
 	<include name="widget_Vertical">
+		<onleft>ClearProperty(WidgetState)</onleft>
 		<orientation>vertical</orientation>
 		<pagecontrol>70</pagecontrol>
 	</include>
