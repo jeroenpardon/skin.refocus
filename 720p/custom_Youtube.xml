@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window id="1130">
+	<defaultcontrol always="true">50</defaultcontrol>
+	<controls>
+
+	<!--global includes-->
+		<include>global_Background</include>
+		<include>global_Includes</include>
+
+	<!--window title-->
+		<control type="label">
+			<label>YouTube</label>
+			<include>windowTitle</include>
+		</control>
+
+	<!--results-->
+		<control type="group">
+			<include>transition_Content.Delay</include>
+			<visible>!Window.IsActive(busydialog)</visible>
+			<control type="panel" id="50">
+				<left>35</left>
+				<top>105</top>
+				<width>1224</width>
+				<height>572</height>
+				<onleft>noop</onleft>
+				<onright>70</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<include>global_ListScroll</include>	
+				<itemlayout width="404" height="286">
+					<include>view_ThumbEpisode-LayoutCommons</include>
+					<control type="group">
+						<left>7</left>
+						<top>225</top>
+						<control type="textbox">
+							<width>380</width>
+							<height min="25" max="50">auto</height>
+							<label>$INFO[ListItem.Label]</label>
+							<aligny>top</aligny>
+							<wrapmultiline>true</wrapmultiline>
+							<font>condensed</font>
+							<textcolor>Color1</textcolor>
+						</control>
+					</control>
+				</itemlayout>											
+				<focusedlayout width="404" height="286">
+					<control type="image">
+						<width>394</width>
+						<height>219</height>
+						<include>art_Frame-fo</include>
+					</control>
+					<include>view_ThumbEpisode-LayoutCommons</include>
+					<control type="group">
+						<left>7</left>
+						<top>225</top>
+						<control type="textbox">
+							<width>380</width>
+							<height min="25" max="50">auto</height>
+							<label>$INFO[ListItem.Label]</label>
+							<aligny>top</aligny>
+							<wrapmultiline>true</wrapmultiline>
+							<font>condensed</font>
+							<textcolor>Color1</textcolor>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[Window(Home).Property(YouTubeQuery)]</content>
+			</control>
+		</control>
+
+	<!--pagecontrol-->
+		<include>PageControls</include>
+
+	</controls>
+</window>
