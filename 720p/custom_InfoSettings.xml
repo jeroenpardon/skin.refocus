@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1121">
+	<defaultcontrol always="true">100</defaultcontrol>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<system>1</system>
+		<left>390</left>
+		<top>208</top>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<width>500</width>
+			<height>305</height>
+			<control type="image">
+				<width>500</width>
+				<height>305</height>
+				<include>dialog_Window</include>
+			</control>
+			<control type="label" id="1">
+				<width>492</width>
+				<label>Customize this screen</label>
+				<include>dialog_Windowtitle</include>
+			</control>
+			<control type="group">
+				<left>4</left>
+				<top>45</top>
+				<control type="label">
+					<width>492</width>
+					<label>Please select the sections to display when available</label>
+					<align>center</align>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+				</control>
+				<control type="image">
+					<top>40</top>
+					<width>492</width>
+					<include>dialog_Separator</include>
+				</control>
+				<control type="grouplist" id="100">
+					<top>40</top>
+					<width>492</width>
+					<height>200</height>
+					<itemgap>0</itemgap>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<include>global_ListScroll</include>
+					<!--cast-->
+					<control type="radiobutton" id="110">
+						<width>492</width>
+						<label>$LOCALIZE[206]</label>
+						<onclick>Skin.ToggleSetting(info.cast.disable)</onclick>
+						<selected>!Skin.HasSetting(info.cast.disable)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<!--similar-->
+					<control type="radiobutton" id="111">
+						<width>492</width>
+						<label>$LOCALIZE[31154]</label>
+						<onclick>Skin.ToggleSetting(info.similar.disable)</onclick>
+						<selected>!Skin.HasSetting(info.similar.disable)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+					</control>
+					<!--sets-->
+					<control type="radiobutton" id="112">
+						<width>492</width>
+						<label>$LOCALIZE[20434]</label>
+						<onclick>Skin.ToggleSetting(info.sets.disable)</onclick>
+						<selected>!Skin.HasSetting(info.sets.disable)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+					</control>
+					<!--seasons-->
+					<control type="radiobutton" id="113">
+						<width>492</width>
+						<label>$LOCALIZE[33054]</label>
+						<onclick>Skin.ToggleSetting(info.seasons.disable)</onclick>
+						<selected>!Skin.HasSetting(info.seasons.disable)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+					</control>
+					<!--youtube-->
+					<control type="radiobutton" id="114">
+						<width>492</width>
+						<label>$ADDON[script.extendedinfo 32118]</label>
+						<onclick>Skin.ToggleSetting(info.youtube.disable)</onclick>
+						<selected>!Skin.HasSetting(info.youtube.disable)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

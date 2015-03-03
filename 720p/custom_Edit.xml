@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="62">
+<window type="dialog" id="1120">
 	<defaultcontrol always="true">500</defaultcontrol>
 	<coordinates>
 		<system>1</system>
@@ -69,8 +69,16 @@
 				<include>dialog_MenuButton</include>
 				<visible>Window.IsActive(movieinformation) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)] + System.HasAddon(script.artwork.downloader)</visible>
 			</control>
-			<!--tvtunes-->
+			<!--(extended) info-->
 			<control type="button" id="506">
+				<width>352</width>
+				<label>Customize this screen</label>
+				<onclick>Close</onclick>
+				<onclick>ActivateWindow(1121)</onclick>
+				<include>dialog_MenuButton</include>
+			</control>
+			<!--tvtunes-->
+			<control type="button" id="507">
 				<width>352</width>
 				<label>$LOCALIZE[31521]</label>
 				<onclick>Close</onclick>
