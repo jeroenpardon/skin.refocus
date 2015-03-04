@@ -130,6 +130,14 @@
 						<include>settings_Radiobutton</include>
 						<enable>!Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),vertical)</enable>
 					</control>
+					<!--automatically collapse submenus-->
+					<control type="radiobutton" id="104">
+						<label>$LOCALIZE[31226]</label>
+						<onclick>Skin.ToggleSetting(homemenu.collapse)</onclick>
+						<selected>!Skin.HasSetting(homemenu.collapse)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>StringCompare(Skin.String(homemenu.type),vertical)</enable>
+					</control>
 					<!--widgets-->
 					<control type="radiobutton" id="110">
 						<label>$LOCALIZE[31223]</label>
