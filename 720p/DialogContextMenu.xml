@@ -27,7 +27,7 @@
 			<height min="40" max="500">auto</height>
 			<itemgap>0</itemgap>
 			<!--YouTube-->
-			<control type="button" id="997">
+			<control type="button" id="2000">
 				<width>302</width>
 				<label>$LOCALIZE[31609]</label>
 				<include>dialog_ControlCommons</include>
@@ -38,16 +38,16 @@
 				<onclick>ActivateWindow(1130)</onclick>
 			</control>
 			<!--extended info-->
-			<control type="button" id="998">
+			<control type="button" id="2001">
 				<width>302</width>
-				<label>$VAR[menu:Type]</label>
+				<label>$LOCALIZE[19033]</label>
 				<include>dialog_ControlCommons</include>
 				<onclick condition="Container.Content(actors) | Container.Content(directors) | Container.Content(artists)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
 				<onclick condition="Container.Content(movies) | Container.Content(tvshows)">SetProperty(Previous,ContextMenu,Home)</onclick>
-				<visible>System.HasAddon(script.extendedinfo) + ![Container.Content(actors) | Container.Content(directors) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows)]</visible>
+				<visible>System.HasAddon(script.extendedinfo) + [Container.Content(actors) | Container.Content(directors) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows)]</visible>
 			</control>
 			<!--trailer-->
-			<control type="button" id="999">
+			<control type="button" id="2002">
 				<width>302</width>
 				<label>$LOCALIZE[20410]</label>
 				<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
