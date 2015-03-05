@@ -31,6 +31,9 @@
 	<include name="nav_IndicatorUp">
 		<animation effect="rotate" center="auto" start="0" end="-90" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
 	</include>
+	<include name="window_TitleMove">
+		<animation effect="slide" end="27" time="0" condition="[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(videofiles) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | Window.IsActive(weather) | Window.IsActive(programs) | Window.IsActive(addonbrowser) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(servicesettings) | Window.IsActive(appearancesettings) | Window.IsActive(tvsettings) | Window.IsActive(tvchannels) | SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Skin.HasSetting(global.kiosk)">Conditional</animation>
+	</include>
 
 <!--viewtypes-->
 	<include name="focus_SlidePoster">
