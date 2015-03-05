@@ -275,8 +275,18 @@
 	</variable>
 
 	<variable name="media:EpisodeCount">
+		<value condition="IntegerGreaterThan(ListItem.Episode,1) | StringCompare(ListItem.Episode,0)">$LOCALIZE[20360]</value>
+		<value condition="StringCompare(ListItem.Episode,1)">$LOCALIZE[20359]</value>
+	</variable>
+
+	<variable name="media:UnwatchedCount">
 		<value condition="IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),1) | StringCompare(ListItem.Property(UnWatchedEpisodes),0)">$LOCALIZE[31148]</value>
 		<value condition="StringCompare(ListItem.Property(UnWatchedEpisodes),1)">$LOCALIZE[31147]</value>
+	</variable>
+
+	<variable name="info:MovieCount">
+		<value condition="IntegerGreaterThan(Window.Property(actor.DBMovies),1) | StringCompare(Window.Property(actor.DBMovies),0)">$LOCALIZE[36901]</value>
+		<value condition="StringCompare(Window.Property(actor.DBMovies),1)">$LOCALIZE[36900]</value>
 	</variable>
 
 	<variable name="info:AlbumCount">
