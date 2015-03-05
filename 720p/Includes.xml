@@ -573,6 +573,114 @@
 		<include>transition_Toast</include>
 	</include>
 
+
+<!--INFO DIALOGS-->
+	<include name="infodialog_ContainerCommons">
+		<top>40</top>
+		<left>60</left>
+		<width>1164</width>
+		<height>350</height>
+		<include>global_Scrolltime</include>
+	</include>
+	<include name="infodialog_SectionHeader">
+		<left>60</left>
+		<font>regular-U</font>
+		<height>40</height>
+	</include>
+	<include name="infodialog_Portrait-LayoutCommons">
+		<control type="image">
+			<width>184</width>
+			<height>266</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<width>170</width>
+			<height>252</height>
+			<control type="image">	
+				<width>170</width>
+				<height>252</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>72</width>
+				<height>72</height>
+				<texture background="true">DefaultMovies.png</texture>
+				<visible>IsEmpty(ListItem.Art(poster))</visible>
+			</control>
+			<control type="image">
+				<width>170</width>
+				<height>252</height>
+				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<width>170</width>
+				<height>252</height>
+				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+		</control>
+	</include>
+	<include name="infodialog_Portrait-Label">
+		<left>7</left>
+		<top>270</top>
+		<width>170</width>
+		<height min="25" max="48">auto</height>
+		<font>condensed_Small</font>
+		<align>center</align>
+		<aligny>bottom</aligny>
+		<textcolor>Color1</textcolor>
+	</include>
+	<include name="infodialog_Landscape-LayoutCommons">
+		<control type="image">
+			<width>281</width>
+			<height>164</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<width>267</width>
+			<height>150</height>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>72</width>
+				<height>72</height>
+				<texture background="true">DefaultMovies.png</texture>
+				<visible>IsEmpty(ListItem.Art(thumb))</visible>
+			</control>
+			<control type="image">	
+				<width>267</width>
+				<height>150</height>
+				<texture background="true">thumbs/default_Landscape.png</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="image">
+				<width>267</width>
+				<height>150</height>
+				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<aspectratio align="center">scale</aspectratio>
+			</control>
+		</control>
+	</include>
+	<include name="infodialog_Landscape-Label">
+		<left>7</left>
+		<top>168</top>
+		<width>267</width>
+		<height min="25" max="48">auto</height>
+		<font>condensed_Small</font>
+		<align>center</align>
+		<aligny>bottom</aligny>
+		<textcolor>Color1</textcolor>
+	</include>
+
+
 <!--PLAYER CONTROLS-->
 	<include name="player_Button">
 		<width>48</width>
@@ -1121,8 +1229,8 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<animation effect="slide" end="27" time="0" condition="[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(videofiles) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | Window.IsActive(weather) | Window.IsActive(programs) | Window.IsActive(addonbrowser) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(servicesettings) | Window.IsActive(appearancesettings) | Window.IsActive(tvsettings) | Window.IsActive(tvchannels) | SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Skin.HasSetting(global.kiosk)">Conditional</animation>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Control.IsVisible(9900)]</visible>
+		<include>window_TitleMove</include>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(9900)]</visible>
 	</include>
 	<include name="windowTitle_Video">
 		<control type="label">
