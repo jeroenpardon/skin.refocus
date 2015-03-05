@@ -498,6 +498,11 @@
 
 <!--INFORMATION-->
 	<variable name="information:Header">
+		<value condition="Container.Content(movies)">$INFO[ListItem.Genre]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]</value>
+		<value condition="Container.Content(tvshows) + Skin.HasSetting(nextaired.disable)">$INFO[ListItem.Studio]</value>
+		<value condition="Container.Content(tvshows)">$INFO[Window(Home).Property(NextAired.Status)]$INFO[ListItem.Studio, &#8226; ]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle]</value>
+		<!--
 		<value condition="!IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
 		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.Genre]</value>
@@ -506,6 +511,14 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle] &#8226; $INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(musicvideos) + !Window.IsActive(videofiles)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(movies) + ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
+		-->
+	</variable>
+
+	<variable name="information:Sub">
+		<value condition="Container.Content(movies)">$INFO[ListItem.Studio]</value>
+		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[media:EpisodeCount,, &#8226; $LOCALIZE[31153]: ]$INFO[Window(Home).Property(NextAired.NextDate)]</value>
+		<value condition="Container.Content(tvshows) + [IsEmpty(Window(Home).Property(NextAired.NextDate)) | Skin.HasSetting(nextaired.disable)]">$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[media:EpisodeCount]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, &#8226; ]</value>
 	</variable>
 
 	<variable name="information:Cast">
