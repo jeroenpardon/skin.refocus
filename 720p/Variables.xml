@@ -105,9 +105,14 @@
 	</variable>
 
 	<variable name="widget:Item.Info">
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">$INFO[ListItem.Genre]$INFO[ListItem.Year, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">$INFO[ListItem.Genre]$INFO[ListItem.Year, &#8226; ]</value>	
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),shows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),shows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
+
+
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
+
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, &#8226; ]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),mixed)">$INFO[ListItem.TVShowTitle,, &#8226; ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
 		<value>$INFO[ListItem.Label2]</value>
@@ -665,6 +670,7 @@
 
 <!--WINDOW-->
 	<variable name="window:Background">
+		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/defaults/youtube.jpg</value>
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/defaults/video.jpg</value>
 		<value condition="[SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)]">special://skin/backgrounds/defaults/livetv.jpg</value>
 		<value condition="[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
