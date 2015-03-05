@@ -169,4 +169,71 @@
 			</control>
 		</focusedlayout>
 	</include>
+
+
+<!--EXTENDED INFO-->
+	<include name="view_ExtendedInfo-LayoutCommons">
+		<control type="image">
+			<width>184</width>
+			<height>266</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">	
+				<width>170</width>
+				<height>252</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<left>37</left>
+				<top>78</top>
+				<width>96</width>
+				<height>96</height>
+				<texture background="true">DefaultMovies.png</texture>
+				<visible>IsEmpty(ListItem.Art(poster))</visible>
+			</control>
+			<control type="image">
+				<width>170</width>
+				<height>252</height>
+				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+		</control>
+	</include>
+	
+	<include name="extinfo_Text-LayoutCommons">
+		<itemlayout width="291" height="50">
+			<control type="image">
+				<width>281</width>
+				<height>40</height>
+				<texture border="2">dialogs/button-nf.png</texture>
+			</control>
+			<control type="textbox">
+				<top>3</top>
+				<height>40</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>regular</font>
+				<align>center</align>
+				<textcolor>Color5</textcolor>
+			</control>
+		</itemlayout>
+		<focusedlayout width="291" height="50">
+			<control type="image">
+				<width>281</width>
+				<height>40</height>
+				<texturefocus>dialogs/button-fo.png</texturefocus>
+			</control>
+			<control type="textbox">
+				<top>3</top>
+				<height>40</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>regular</font>
+				<align>center</align>
+				<textcolor>Color5</textcolor>
+			</control>
+		</focusedlayout>
+	</include>
 </includes>
