@@ -319,6 +319,11 @@
 		<value condition="Container.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [StringCompare(Container.FolderPath,videodb://recentlyaddedepisodes/) | StringCompare(Container.FolderPath,special://skin/playlists/video/episodes-unwatched.xsp) | SubString(Container.FolderPath,plugin://service.library.data.provider/)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 	</variable>
 
+	<variable name="art:Container">
+		<value condition="!IsEmpty(ListItem.Art(fanart)">$INFO[ListItem.Art(fanart)]</value>
+		<value>backgrounds/defaults/video.jpg</value>
+	</variable>
+
 	<variable name="art:Landscape">
 		<value condition="Window.IsActive(pictures)">$INFO[ListItem.FilenameAndPath]</value>
 		<value condition="[Container.Content(artists) | [Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows)]] | SubString(Container.FolderPath,pvr://recordings/)] + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -493,7 +498,7 @@
 <!--INFORMATION-->
 	<variable name="information:Header">
 		<value condition="Container.Content(movies)">$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
-		<value condition="Container.Content(tvshows) + !Skin.HasSetting(nextaired.disable)">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), &#8226; $LOCALIZE[31153]: ]</value>
+		<value condition="Container.Content(tvshows) + !Skin.HasSetting(nextaired.disable)">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), &#8226; $LOCALIZE[31153]: ]$INFO[ListItem.Studio, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + Skin.HasSetting(nextaired.disable)">$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[media:EpisodeCount,, &#8226; $LOCALIZE[31153]: ]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle]</value>
 	</variable>
