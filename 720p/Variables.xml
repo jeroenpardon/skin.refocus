@@ -712,8 +712,8 @@
 		<value condition="StringCompare(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20360] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,episodes-unwatched.xsp,Right)">$LOCALIZE[20360] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,plugin://plugin)">$LOCALIZE[24001] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="Container.Content(episodes) + IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[Container().ListItem(1).TVShowTitle]</value>
-		<value condition="Container.Content(episodes)">$INFO[Container().ListItem().TVShowTitle]</value>
+		<value condition="Container.Content(episodes) + IsEmpty(Container().ListItem(0).TVShowTitle) + SubString(Container.FolderPath,videodb://)">$INFO[Container().ListItem(1).TVShowTitle]</value>
+		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb://)">$INFO[Container().ListItem().TVShowTitle]</value>
 		<value condition="StringCompare(Container.FolderName,$LOCALIZE[626])">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
 		<value condition="StringCompare(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]</value>
 		<value condition="SubString(Container.FolderPath,videodb://tvshows/,Left)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
