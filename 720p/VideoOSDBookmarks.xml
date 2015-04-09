@@ -58,7 +58,7 @@
 							<top>145</top>
 							<width>265</width>
 							<align>center</align>
-							<label>$INFO[ListItem.Label]</label>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
 							<include>dialog_ControlCommons</include>
 						</control>
 					</itemlayout>
@@ -66,8 +66,7 @@
 						<control type="image">
 							<width>265</width>
 							<height>185</height>
-							<texture>views/focus.png</texture>
-							<colordiffuse>Color5</colordiffuse>
+							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
 							<left>85</left>
@@ -88,7 +87,7 @@
 						<control type="label">
 							<top>145</top>
 							<width>265</width>
-							<label>$INFO[ListItem.Label]</label>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
 							<textcolor>Color1</textcolor>
 							<align>center</align>
 							<include>dialog_ControlCommons</include>
