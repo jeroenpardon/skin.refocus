@@ -108,10 +108,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">$INFO[ListItem.Genre]$INFO[ListItem.Year, &#8226; ]</value>	
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),shows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),shows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
-
-
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
-
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),mixed)">$INFO[ListItem.TVShowTitle,, &#8226; ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
@@ -164,10 +161,10 @@
 	</variable>
 
 	<variable name="menu:Controls">
-		<value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
-		<value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
-		<value>$LOCALIZE[36502]</value>
-	</variable>
+        <value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
+        <value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
+        <value>$LOCALIZE[36502]</value>
+    </variable>
 
 	<variable name="menu:ChannelSwitch">
 		<value condition="Window.IsActive(tvchannels)">$LOCALIZE[19020]$INFO[Container(50).FolderName,: ]</value>
@@ -204,9 +201,7 @@
 		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.movies.enable)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.RatingAndVotes, &#8226; ]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
-		
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label)) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$INFO[ListItem.RatingAndVotes, &#8226; ]$VAR[media:NextAired.Info, &#8226; ]</value>
-
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
