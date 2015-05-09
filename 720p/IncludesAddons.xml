@@ -174,32 +174,41 @@
 <!--EXTENDED INFO-->
 	<include name="view_ExtendedInfo-LayoutCommons">
 		<control type="image">
-			<width>184</width>
-			<height>266</height>
+			<width>173</width>
+			<height>244</height>
 			<include>art_Frame-nf</include>
 		</control>
 		<control type="group">
 			<left>7</left>
 			<top>7</top>
+			<width>159</width>
+			<height>230</height>
 			<control type="image">	
-				<width>170</width>
-				<height>252</height>
+				<width>159</width>
+				<height>230</height>
 				<texture background="true">thumbs/default_Portrait.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
-				<left>37</left>
-				<top>78</top>
-				<width>96</width>
-				<height>96</height>
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>72</width>
+				<height>72</height>
 				<texture background="true">DefaultMovies.png</texture>
 				<visible>IsEmpty(ListItem.Art(poster))</visible>
 			</control>
 			<control type="image">
-				<width>170</width>
-				<height>252</height>
+				<width>159</width>
+				<height>230</height>
 				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
 				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="textbox">
+				<top>240</top>
+				<width>159</width>
+				<height>25</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>condensed</font>
 			</control>
 		</control>
 	</include>
