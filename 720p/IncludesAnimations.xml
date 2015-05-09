@@ -97,25 +97,15 @@
 
 	<include name="transition_Content">
 		<animation type="WindowOpen">
-			<effect type="zoom" time="transition_Open" start="110"  end="100" tween="Sine" easing="Out" center="screen_Center" />
-			<effect type="Fade" time="transition_Open" start="0" end="100" />
+			<effect type="zoom" time="transition_Open" start="110"  end="100" tween="Cubic" easing="Out" center="screen_Center" />
+			<effect type="Fade" time="100" start="0" end="100" />
 		</animation>			
 		<animation type="WindowClose">
-			<effect type="zoom" time="transition_Close" start="100" end="110" tween="Sine" easing="Out" center="screen_Center" />
-			<effect type="Fade" time="transition_Close" start="100" end="0" />
+			<effect type="zoom" time="transition_Close" start="100" end="110" tween="Cubic" easing="Out" center="screen_Center" />
+			<effect type="Fade" time="100" start="100" end="0" />
 		</animation>
 	</include>
 
-	<include name="transition_Content.Delay">
-		<animation type="WindowOpen">
-			<effect type="zoom" time="transition_Open" start="110"  end="100" tween="Sine" easing="Out" center="screen_Center" delay="500"/>
-			<effect type="Fade" time="transition_Open" start="0" end="100" delay="500"/>
-		</animation>			
-		<animation type="WindowClose">
-			<effect type="zoom" time="transition_Close" start="100" end="110" tween="Sine" easing="Out" center="screen_Center" />
-			<effect type="Fade" time="transition_Close" start="100" end="0" />
-		</animation>
-	</include>
 
 	<include name="transition_Info">
 		<animation type="Conditional" condition="[Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml)]">
