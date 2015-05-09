@@ -111,7 +111,6 @@
 			<top>91</top>
 			<width>1247</width>
 			<height>412</height>
-			<include>global_Scrolltime</include>
 			<timeblocks>40</timeblocks>
 			<rulerunit>6</rulerunit>
 			<progresstexture border="2,58,20,18">pvr/epg_progress.png</progresstexture>
@@ -121,6 +120,10 @@
 			<onleft>6000</onleft>
 			<onright>31</onright>
 			<pagecontrol>10</pagecontrol>
+			<include condition="Skin.String(epg.scrolltime,normal)">global_Scrolltime</include>
+			<include condition="Skin.String(epg.scrolltime,instant)">epgscroll_Instant</include>
+			<include condition="Skin.String(epg.scrolltime,fast)">epgscroll_Fast</include>
+			<!--<include>global_Scrolltime</include>-->
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<rulerlayout height="44" width="40">

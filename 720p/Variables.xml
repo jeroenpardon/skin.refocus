@@ -887,4 +887,13 @@
 		<value condition="Window.IsVisible(VideoOverlay.xml)">VideoOverlay.xml</value>
 		<value condition="Window.IsVisible(VisualisationPresetList.xml)">VisualisationPresetList.xml</value>
 	</variable>
+
+
+	<variable name="epg:Scrolltime">
+		<value condition="StringCompare(Skin.String(epg.scrolltime),instant)">$LOCALIZE[31229]</value>
+		<value condition="StringCompare(Skin.String(epg.scrolltime),fast)">$LOCALIZE[31228]</value>
+		<value>$LOCALIZE[31227]</value>
+	</variable>
+
+
 </includes>

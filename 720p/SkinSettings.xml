@@ -543,6 +543,17 @@
 						<onclick>ActivateWindow(1100)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
+
+					 <control type="button" id="911">
+                        <label>EPG Timeline scrolling speed</label>
+                        <label2>$VAR[epg:Scrolltime]</label2>
+                        <onclick condition="IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
+                        <onclick condition="StringCompare(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
+                        <onclick condition="StringCompare(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
+                        <onclick condition="StringCompare(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
+                        <include>settings_Listbutton</include>
+                    </control>
+
 				</control>
 
 			<!--SKIN CREDITS-->			
