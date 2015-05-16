@@ -225,7 +225,7 @@
 					<!--cast-->
 					<control type="group">
 						<height>390</height>
-						<visible>!Skin.HasSetting(info.cast.disable) + [Container.Content(movies) | Container.Content(tvshows)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
+						<visible>!Skin.HasSetting(info.cast.disable) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
 						<control type="label">
 							<label>$LOCALIZE[206]$INFO[Container(50).NumItems, (,)]</label>
 							<include>infodialog_SectionHeader</include>
