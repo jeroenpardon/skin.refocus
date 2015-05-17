@@ -84,14 +84,35 @@
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
 					</control>
 					<!--youtube-->
-					<control type="radiobutton" id="114">
+					<control type="radiobutton" id="120">
 						<width>492</width>
 						<label>$ADDON[script.extendedinfo 32118]</label>
-						<onclick>Skin.ToggleSetting(info.youtube.disable)</onclick>
-						<selected>!Skin.HasSetting(info.youtube.disable)</selected>
+						<onclick>Skin.ToggleSetting(info.youtube.movies)</onclick>
+						<selected>!Skin.HasSetting(info.youtube.movies)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+						<visible>Container.Content(movies)</visible>
+					</control>
+					<control type="radiobutton" id="121">
+						<width>492</width>
+						<label>$ADDON[script.extendedinfo 32118]</label>
+						<onclick>Skin.ToggleSetting(info.youtube.tvshows)</onclick>
+						<selected>!Skin.HasSetting(info.youtube.tvshows)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="radiobutton" id="122">
+						<width>492</width>
+						<label>$ADDON[script.extendedinfo 32118]</label>
+						<onclick>Skin.ToggleSetting(info.youtube.episodes)</onclick>
+						<selected>!Skin.HasSetting(info.youtube.episodes)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+						<visible>Container.Content(episodes)</visible>
 					</control>
 				</control>
 			</control>

@@ -502,7 +502,7 @@
 					<!--youtube-->
 					<control type="group">
 						<height>274</height>
-						<visible>!Skin.HasSetting(info.youtube.disable)</visible>
+						<visible>IntegerGreaterThan(Container(5070).NumItems,0) + [Container.Content(movies) + !Skin.HasSetting(info.youtube.movies)] | [Container.Content(tvshows) + !Skin.HasSetting(info.youtube.tvshows)] | [Container.Content(episodes) + !Skin.HasSetting(info.youtube.episodes)]</visible>
 						<control type="label">
 							<label>YouTube$INFO[Container(5071).NumItems, (,)]</label>
 							<include>infodialog_SectionHeader</include>
