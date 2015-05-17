@@ -54,17 +54,28 @@
 						<include>dialog_ControlCommons</include>
 					</control>
 					<!--similar-->
-					<control type="radiobutton" id="111">
+					<control type="radiobutton" id="120">
 						<width>492</width>
 						<label>$LOCALIZE[31154]</label>
-						<onclick>Skin.ToggleSetting(info.similar.disable)</onclick>
-						<selected>!Skin.HasSetting(info.similar.disable)</selected>
+						<onclick>Skin.ToggleSetting(info.similar.movies)</onclick>
+						<selected>!Skin.HasSetting(info.similar.movies)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+						<visible>Container.Content(movies)</visible>
+					</control>
+					<control type="radiobutton" id="121">
+						<width>492</width>
+						<label>$LOCALIZE[31154]</label>
+						<onclick>Skin.ToggleSetting(info.similar.tvshows)</onclick>
+						<selected>!Skin.HasSetting(info.similar.tvshows)</selected>
+						<include>dialog_Radio</include>
+						<include>dialog_ControlCommons</include>
+						<enable>!Skin.HasSetting(extinfo.disable)</enable>
+						<visible>Container.Content(tvshows)</visible>
 					</control>
 					<!--sets-->
-					<control type="radiobutton" id="112">
+					<control type="radiobutton" id="130">
 						<width>492</width>
 						<label>$LOCALIZE[20434]</label>
 						<onclick>Skin.ToggleSetting(info.sets.disable)</onclick>
@@ -74,7 +85,7 @@
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
 					</control>
 					<!--seasons-->
-					<control type="radiobutton" id="113">
+					<control type="radiobutton" id="140">
 						<width>492</width>
 						<label>$LOCALIZE[33054]</label>
 						<onclick>Skin.ToggleSetting(info.seasons.disable)</onclick>
@@ -84,7 +95,7 @@
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
 					</control>
 					<!--youtube-->
-					<control type="radiobutton" id="120">
+					<control type="radiobutton" id="150">
 						<width>492</width>
 						<label>$ADDON[script.extendedinfo 32118]</label>
 						<onclick>Skin.ToggleSetting(info.youtube.movies)</onclick>
@@ -94,7 +105,7 @@
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
 						<visible>Container.Content(movies)</visible>
 					</control>
-					<control type="radiobutton" id="121">
+					<control type="radiobutton" id="151">
 						<width>492</width>
 						<label>$ADDON[script.extendedinfo 32118]</label>
 						<onclick>Skin.ToggleSetting(info.youtube.tvshows)</onclick>
@@ -104,7 +115,7 @@
 						<enable>!Skin.HasSetting(extinfo.disable)</enable>
 						<visible>Container.Content(tvshows)</visible>
 					</control>
-					<control type="radiobutton" id="122">
+					<control type="radiobutton" id="152">
 						<width>492</width>
 						<label>$ADDON[script.extendedinfo 32118]</label>
 						<onclick>Skin.ToggleSetting(info.youtube.episodes)</onclick>

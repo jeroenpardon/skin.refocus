@@ -270,7 +270,7 @@
 					<!--similar movies-->
 					<control type="group">
 						<height>390</height>
-						<visible>!Skin.HasSetting(info.similar.disable) + Container.Content(movies) + IntegerGreaterThan(Container(5010).NumItems,0) + !Container.IsUpdating(5011)</visible>
+						<visible>!Skin.HasSetting(info.similar.movies) + Container.Content(movies) + IntegerGreaterThan(Container(5010).NumItems,0) + !Container.IsUpdating(5011)</visible>
 						<control type="label">
 							<label>$LOCALIZE[31154]$INFO[Container(5011).NumItems, (,)]</label>
 							<include>infodialog_SectionHeader</include>
@@ -362,7 +362,7 @@
 					<!--similar shows-->
 					<control type="group">
 						<height>390</height>
-						<visible>!Skin.HasSetting(info.similar.disable) + IntegerGreaterThan(Container(5030).NumItems,0) + Container.Content(tvshows)</visible>
+						<visible>!Skin.HasSetting(info.similar.tvshows) + IntegerGreaterThan(Container(5030).NumItems,0) + Container.Content(tvshows)</visible>
 						<control type="label">
 							<label>$LOCALIZE[31154]$INFO[Container(5031).NumItems, (,)]</label>
 							<include>infodialog_SectionHeader</include>
