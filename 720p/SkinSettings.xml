@@ -320,7 +320,7 @@
 					</control>
 				</control>
 
-			<!--VIEW SETTINGS-->					
+			<!--VIEW SETTINGS-->                    
 				<control type="grouplist" id="700">
 					<width>850</width>
 					<height>598</height>
@@ -535,6 +535,16 @@
 						<selected>Skin.HasSetting(cleanlibrary.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
+					<!--epg timeline scrolling speed-->
+					<control type="button" id="904">
+						<label>$LOCALIZE[31407]</label>
+						<label2>$VAR[epg:Scrolltime]</label2>
+						<onclick condition="IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
+						<onclick condition="StringCompare(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
+						<onclick condition="StringCompare(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
+						<onclick condition="StringCompare(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
+						<include>settings_Listbutton</include>
+					</control>
 					<!--reset skin settings-->
 					<control type="button" id="910">
 						<label>[COLOR=Warning]$LOCALIZE[31713][/COLOR]</label>
@@ -543,20 +553,9 @@
 						<onclick>ActivateWindow(1100)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
-
-					 <control type="button" id="911">
-                        <label>EPG Timeline scrolling speed</label>
-                        <label2>$VAR[epg:Scrolltime]</label2>
-                        <onclick condition="IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
-                        <onclick condition="StringCompare(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
-                        <onclick condition="StringCompare(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
-                        <onclick condition="StringCompare(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
-                        <include>settings_Listbutton</include>
-                    </control>
-
 				</control>
 
-			<!--SKIN CREDITS-->			
+			<!--SKIN CREDITS-->         
 				<control type="grouplist" id="1000">
 					<width>850</width>
 					<height>598</height>
