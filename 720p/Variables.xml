@@ -668,6 +668,9 @@
 <!--WINDOW-->
 	<variable name="window:Background">
 		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/defaults/youtube.jpg</value>
+		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/defaults/video.jpg</value>
+
+
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/defaults/video.jpg</value>
 		<value condition="[SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)]">special://skin/backgrounds/defaults/livetv.jpg</value>
 		<value condition="[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
@@ -679,14 +682,33 @@
 	</variable>
 
 	<variable name="window:NumItems">
-		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
+		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
 		<value condition="Window.IsActive(Weather)">[B]$INFO[Window(Weather).Property(Location)][/B] $INFO[Window(Weather).Property(Updated)]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(20)">[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(21)">[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(tvrecordings)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]$INFO[Pvr.BackendDiskspace, &#8226; ]</value>
 		<value condition="SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
 		<value condition="Window.IsActive(custom_Youtube.xml)">$INFO[Container(50).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(YouTubeQuery), "[B],[/B]"]</value>
+		<value condition="Window.IsActive(custom_Browser.xml)">$INFO[Container(50).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extTitle), "[B],[/B]"]</value>
 	</variable>
+
+
+
+
+
+	<variable name="extcontent:Movies">
+		<value condition="StringCompare(Window(Home).Property(extContent),similarmovies)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(Home).Property(extDBID)]</value>
+
+		<value condition="StringCompare(Window(Home).Property(extContent),directormovies)">plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(Home).Property(extDirector)]</value>
+
+		<value condition="StringCompare(Window(Home).Property(extContent),writermovies)">plugin://script.extendedinfo?info=writermovies&amp;&amp;writer=$INFO[Window(Home).Property(extWriter)]</value>
+
+        <value condition="StringCompare(Window(Home).Property(extContent),topratedmovies)">plugin://script.extendedinfo?info=topratedmovies</value>
+        <value condition="StringCompare(Window(Home).Property(extContent),popularmovies)">plugin://script.extendedinfo?info=popularmovies</value>
+        <value condition="StringCompare(Window(Home).Property(extContent),upcoming)">plugin://script.extendedinfo?info=upcoming</value>
+        <value condition="StringCompare(Window(Home).Property(extContent),incinemas)">plugin://script.extendedinfo?info=incinemas</value>
+    </variable>
+
 
 	<variable name="window:Title.Video">
 		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
@@ -745,6 +767,7 @@
 		<value condition="Window.IsActive(tvsettings)">$LOCALIZE[19020] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
 		<value condition="Window.IsActive(filemanager)">$LOCALIZE[7]</value>
 		<value condition="Window.IsActive(skinsettings)">$LOCALIZE[5] [COLOR=Color2]$LOCALIZE[166][/COLOR]</value>
+		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]</value>
 	</variable>
 
 	<variable name="window:Title.Addons">
@@ -889,6 +912,14 @@
 		<value condition="StringCompare(Skin.String(epg.scrolltime),fast)">$LOCALIZE[31228]</value>
 		<value>$LOCALIZE[31227]</value>
 	</variable>
+
+
+
+	
+
+
+
+
 
 
 </includes>

@@ -1022,6 +1022,53 @@
 		</control>
 	</include>
 
+<!--OTHER MENU-->
+	<include name="menu_Other">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<!--sorting-->
+				<control type="label" id="200">
+					<height>50</height>
+					<label>$LOCALIZE[31140]</label>
+					<include>menu_Header</include>
+				</control>
+				<control type="togglebutton" id="4">
+					<label>$LOCALIZE[31141]: $LOCALIZE[584]</label>
+					<altlabel>$LOCALIZE[31141]: $LOCALIZE[585]</altlabel>
+					<include>menu_Button</include>
+					<usealttexture>Container.SortDirection(Ascending)</usealttexture>
+				</control>
+				<!--options-->
+				<control type="label" id="201">
+					<height>50</height>
+					<label>33063</label>
+					<include>menu_Header</include>
+				</control>
+				<!--level-->
+				<control type="button" id="21">
+					<textwidth>235</textwidth>
+					<include>menu_Button</include>
+					<label>-</label>
+				</control>
+				<!--only current level-->
+				<control type="radiobutton" id="22">
+					<include>menu_RadioButton</include>
+					<include>menu_Button</include>
+					<label>-</label>
+				</control>
+				<!--clear-->
+				<control type="button" id="20">
+					<include>menu_Button</include>
+					<label>$LOCALIZE[192]</label>
+				</control>
+				<!--now playing-->
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	</include>
+
 <!--WEATHER-->
 	<include name="menu_Weather">
 		<control type="group">
