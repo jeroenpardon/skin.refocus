@@ -4,7 +4,7 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>162</left>
+		<left>228</left>
 		<top>70</top>
 	</coordinates>
 	<controls>
@@ -13,7 +13,7 @@
 			<height>580</height>
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
 			<control type="image">
-				<width>956</width>
+				<width>824</width>
 				<height>580</height>
 				<include>dialog_Window</include>
 			</control>
@@ -23,47 +23,47 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<left>751</left>
+				<left>659</left>
 				<top>61</top>
-				<height>199</height>
+				<height>159</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="group">
-				<left>752</left>
-				<top>60</top>
+				<left>660</left>
+				<top>61</top>
 				<control type="image">
-					<width>200</width>
-					<height>200</height>
+					<width>159</width>
+					<height>159</height>
 					<aspectratio>keep</aspectratio>
-					<texture>thumbs/default_Square.png</texture>
+					<texture>1thumbs/default_Square.png</texture>
 				</control>
 				<control type="image">
-					<width>200</width>
-					<height>200</height>
+					<width>159</width>
+					<height>159</height>
 					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture>1$INFO[ListItem.Icon]</texture>
 				</control>
 			</control>
 			<control type="group">
 				<left>4</left>
 				<top>60</top>
 				<control type="image">
-					<width>822</width>
+					<width>815</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<right>5</right>
-					<top>200</top>
-					<width>199</width>
+					<left>656</left>
+					<top>160</top>
+					<width>159</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<top>435</top>
-					<width>948</width>
+					<top>438</top>
+					<width>815</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="grouplist" id="100">
-					<width>800</width>
+					<width>708</width>
 					<height>480</height>
 					<itemgap>0</itemgap>
 					<onup>100</onup>
@@ -71,15 +71,15 @@
 					<include>global_ListScroll</include>
 					<!--type-->
 					<control type="group">
-						<width>747</width>
+						<width>655</width>
 						<height>40</height>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<label>$LOCALIZE[467]</label>
 							<include>dialog_ControlCommons</include>
 						</control>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<align>right</align>
 							<label>$INFO[ListItem.Property(Addon.Type)]</label>
 							<include>dialog_ControlCommons</include>
@@ -91,15 +91,15 @@
 					</control>
 					<!--creator-->
 					<control type="group">
-						<width>747</width>
+						<width>655</width>
 						<height>40</height>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<label>$LOCALIZE[21863]</label>
 							<include>dialog_ControlCommons</include>
 						</control>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<align>right</align>
 							<label>$INFO[ListItem.Property(Addon.Creator)]</label>
 							<include>dialog_ControlCommons</include>
@@ -111,15 +111,15 @@
 					</control>
 					<!--version-->
 					<control type="group">
-						<width>747</width>
+						<width>655</width>
 						<height>40</height>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<label>$LOCALIZE[19114]</label>
 							<include>dialog_ControlCommons</include>
 						</control>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<align>right</align>
 							<label>$INFO[ListItem.Property(Addon.Version)]</label>
 							<include>dialog_ControlCommons</include>
@@ -131,15 +131,15 @@
 					</control>
 					<!--ID-->
 					<control type="group">
-						<width>747</width>
+						<width>655</width>
 						<height>40</height>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<label>$LOCALIZE[560]</label>
 							<include>dialog_ControlCommons</include>
 						</control>
 						<control type="label">
-							<width>747</width>
+							<width>655</width>
 							<align>right</align>
 							<label>$INFO[ListItem.Property(Addon.ID)]</label>
 							<include>dialog_ControlCommons</include>
@@ -150,41 +150,22 @@
 						</control>
 					</control>
 					<!--disclaimer-->
-					<control type="group">
-						<width>747</width>
-						<height>40</height>
-						<control type="label">
-							<width>747</width>
-							<label>$LOCALIZE[24052]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="label">
-							<width>747</width>
-							<align>right</align>
-							<label>$INFO[ListItem.Property(Addon.Disclaimer)]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="image">
-							<top>40</top>
-							<include>dialog_Separator</include>
-						</control>
-					</control>
 				</control>
-				<!--description-->
+				<!--description & disclaimer-->
 				<control type="group">
 					<left>15</left>	
-					<top>210</top>
+					<top>170</top>
 					<control type="textbox" id="400">
-						<width>921</width>
-						<height>215</height>235
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<width>790</width>
+						<height>255</height>
+						<label>$INFO[ListItem.Property(Addon.Description)]$INFO[ListItem.Property(Addon.Disclaimer), &#8226; ]</label>
 						<include>dialog_Text</include>
 						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="textbox" id="400">
-						<width>921</width>
-						<height>125</height>
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<width>790</width>
+						<height>165</height>
+						<label>$INFO[ListItem.Property(Addon.Description)]$INFO[ListItem.Property(Addon.Disclaimer), &#8226; ]</label>
 						<include>dialog_Text</include>
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
