@@ -139,7 +139,21 @@
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>XBMC.ActivateWindow(124)</onclick>
 					</control>
-					<control type="image" id="614">
+					<!--random-->
+					<control type="button" id="614">
+						<width>322</width>
+						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
+						<include>dialog_MenuButton</include>
+						<onclick>XBMC.PlayerControl(Random)</onclick>
+					</control>
+					<!--repeat-->
+					<control type="button" id="615">
+						<width>322</width>
+						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
+						<include>dialog_MenuButton</include>
+						<onclick>XBMC.PlayerControl(Repeat)</onclick>
+					</control>
+					<control type="image" id="616">
 						<width>322</width>
 						<height>20</height>
 						<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
