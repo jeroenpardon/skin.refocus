@@ -97,11 +97,10 @@
 			<label>$LOCALIZE[31149]$INFO[Container.SortMethod,: ]</label>
 			<include>menu_Button</include>
 		</control>
-		<control type="togglebutton" id="202">
-			<label>$LOCALIZE[31141]: $LOCALIZE[584]</label>
-			<altlabel>$LOCALIZE[31141]: $LOCALIZE[585]</altlabel>
+		<control type="button" id="202">
+			<label>$LOCALIZE[31141]: $INFO[Container.SortOrder]</label>
 			<include>menu_Button</include>
-			<onclick>Container.SortDirection</onclick>
+			<onclick>SendClick(4)</onclick>
 			<enable>Control.IsEnabled(3)</enable>
 		</control>
 	</include>
