@@ -120,17 +120,6 @@
 			<visible>System.HasLocks</visible>
 		</control>
 	</include>
-	<include name="menu_SwitchMode">
-		<control type="togglebutton" id="210">
-			<label>$LOCALIZE[31150]</label>
-			<altlabel>$LOCALIZE[29800]</altlabel>
-			<onclick>ReplaceWindow(MusicFiles)</onclick>
-			<altclick>ReplaceWindow(MusicLibrary)</altclick>
-			<usealttexture>Window.IsVisible(MusicFiles)</usealttexture>
-			<include>menu_Button</include>
-			<visible>Window.IsActive(MusicLibrary) | Window.IsActive(MusicFiles)</visible>
-		</control>
-	</include>
 	<include name="menu_Watched">
 		<control type="radiobutton" id="14">
 			<label>$LOCALIZE[20367]</label>
@@ -512,7 +501,6 @@
 			<!--options-->
 				<include>menu_Sorting</include>
 				<include>menu_LibraryHeader</include>
-				<include>menu_SwitchMode</include>
 				<include>menu_Shares</include>
 				<include>menu_Filter</include>
 				<include>menu_PartyMode</include>
@@ -613,7 +601,6 @@
 					<visible>Window.IsActive(pictures)</visible>
 				</control>
 				<include>menu_LibraryHeader</include>
-				<include>menu_SwitchMode</include>
 				<include>menu_Filter</include>
 				<include>menu_Search</include>
 				<include>menu_Playing</include>
