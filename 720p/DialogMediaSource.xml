@@ -180,26 +180,28 @@
 				</control>
 			</control>
 			<!--dialog buttons-->
-			<control type="grouplist" id="9001">
-				<right>20</right>
-				<bottom>20</bottom>
-				<width>254</width>
-				<height>40</height>
-				<onup>12</onup>
-				<ondown>10</ondown>
-				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
-				<!--ok-->
-				<control type="button" id="18">
-					<label>$LOCALIZE[186]</label>
-					<include>dialog_WindowButton</include>
+
+				<control type="grouplist" id="9001">
+					<right>20</right>
+					<bottom>20</bottom>
+					<width min="100" max="700">auto</width>
+					<height>40</height>
+					<onup>12</onup>
+					<ondown>10</ondown>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<!--ok-->
+					<control type="button" id="18">
+						<label>$LOCALIZE[186]</label>
+						<include>dialog_WindowButton</include>
+					</control>
+					<!--cancel-->
+					<control type="button" id="19">
+						<label>$LOCALIZE[222]</label>
+						<include>dialog_WindowButton</include>
+					</control>
 				</control>
-				<!--cancel-->
-				<control type="button" id="19">
-					<label>$LOCALIZE[222]</label>
-					<include>dialog_WindowButton</include>
-				</control>
-			</control>
+
 		</control>
 	</controls>
 </window>
