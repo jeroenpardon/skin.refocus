@@ -448,7 +448,7 @@
 
 	<variable name="playlist_Type">
 		<value condition="Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
-		<value condition="[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
+		<value condition="Window.IsActive(music) + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
 	</variable>
 
 <!--MEDIA VIEWS-->
@@ -551,7 +551,7 @@
 		<value condition="Container.Content(movies)">$INFO[Listitem.Studio,flags/studios/,.png]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.Studio,flags/networks/,.png]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[Listitem.Studio,flags/labels/,.png]</value>
-		<value condition="Window.IsVisible(musiclibrary)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
+		<value condition="Window.IsVisible(music)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
 	</variable>
 
 	<variable name="flag:Type.Video">
@@ -673,7 +673,7 @@
 
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/defaults/video.jpg</value>
 		<value condition="[SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)]">special://skin/backgrounds/defaults/livetv.jpg</value>
-		<value condition="[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
+		<value condition="[Window.IsActive(music) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
 		<value condition="Window.IsActive(pictures) + !Control.IsVisible(531)">special://skin/backgrounds/defaults/pictures.jpg</value>
 		<value condition="Window.IsActive(programs)">special://skin/backgrounds/defaults/programs.jpg</value>
 		<value condition="Window.IsActive(weather) + !Skin.HasSetting(fanart.weather)">special://skin/backgrounds/defaults/weather.jpg</value>
@@ -682,7 +682,7 @@
 	</variable>
 
 	<variable name="window:NumItems">
-		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
+		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(music) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
 		<value condition="Window.IsActive(Weather)">[B]$INFO[Window(Weather).Property(Location)][/B] $INFO[Window(Weather).Property(Updated)]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(20)">[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(21)">[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]</value>
