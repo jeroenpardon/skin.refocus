@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">30</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,silent=True)</onload>
 	<onload condition="System.HasAddon(script.artistslideshow) + IsEmpty(Window(Visualisation).Property(ArtistSlideshowRunning)) + !Skin.HasSetting(artistslideshow.disable)">RunScript(script.artistslideshow, daemon=True)</onload>
 	<onload condition="System.HasAddon(script.grab.fanart)">RunScript(script.grab.fanart,mode=random,refresh=20)</onload>
