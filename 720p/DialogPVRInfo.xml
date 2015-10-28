@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<system>1</system>
+		<left>265</left>
+		<top>90</top>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<width>734</width>
+			<height>540</height>
+			<control type="image">
+				<width>735</width>
+				<height>540</height>
+				<include>dialog_Window</include>
+			</control>
+			<control type="label">
+				<width>734</width>
+				<label>$LOCALIZE[19047]</label>
+				<include>dialog_Windowtitle</include>
+			</control>
+			<control type="group">
+				<left>4</left>
+				<top>60</top>
+				<control type="image">
+					<width>734</width>
+					<include>dialog_Separator</include>
+				</control>
+				<control type="list" id="100">
+					<width>726</width>
+					<height>240</height>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<include>global_ListScroll</include>
+					<itemlayout height="40">
+						<control type="image">
+							<width>726</width>
+							<height>40</height>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>200</width>
+							<height>36</height>
+							<label>$INFO[ListItem.Label]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<right>20</right>
+							<width>706</width>
+							<height>36</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<width>726</width>
+							<include>dialog_CommonList</include>
+						</control>
+						<control type="label">
+							<width>572</width>
+							<height>36</height>
+							<label>$INFO[ListItem.Label]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+						<control type="label">
+							<right>120</right>
+							<width>726</width>
+							<height>36</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<include>dialog_CommonListItem</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[21442]</label>
+							<label2>$INFO[ListItem.EpisodeName]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.EpisodeName)</visible>
+						</item>
+						<item id="2">
+							<label>$LOCALIZE[20373]</label>
+							<label2>$INFO[ListItem.Season]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.Season)</visible>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[20359]</label>
+							<label2>$INFO[ListItem.Episode]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.Episode)</visible>
+						</item>
+						<item id="4">
+							<label>$LOCALIZE[19148]</label>
+							<label2>$INFO[ListItem.ChannelName]</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item id="5">
+							<label>$LOCALIZE[142]</label>
+							<label2>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item id="6">
+							<label>$LOCALIZE[180]</label>
+							<label2>$INFO[ListItem.Duration]</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item id="7">
+							<label>$LOCALIZE[515]</label>
+							<label2>$INFO[ListItem.Genre]</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item id="8">
+							<label>$LOCALIZE[20417]</label>
+							<label2>$INFO[ListItem.Writer]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.Writer)</visible>
+						</item>
+						<item id="9">
+							<label>$LOCALIZE[20339]</label>
+							<label2>$INFO[ListItem.Director]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.Director)</visible>
+						</item>
+						<item id="10">
+							<label>$LOCALIZE[206]</label>
+							<label2>$INFO[ListItem.Cast]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.Cast)</visible>
+						</item>
+					</content>
+				</control>
+				<!--description-->
+				<control type="textbox" id="400">
+					<left>15</left>
+					<top>240</top>
+					<width>702</width>
+					<height>154</height>
+					<label fallback="416">$INFO[ListItem.Plot]</label>
+					<include>dialog_Text</include>
+				</control>
+				<control type="image">
+					<top>394</top>
+					<width>734</width>
+					<include>dialog_Separator</include>
+				</control>
+			</control>
+
+			<!--dialog controls-->
+			<control type="grouplist" id="9000">
+				<left>20</left>
+				<bottom>20</bottom>
+				<width>690</width>
+				<height>40</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<!--find similar-->
+				<control type="button" id="4">
+					<label>$LOCALIZE[19003]</label>
+					<width>165</width>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--switch-->
+				<control type="button" id="5">
+					<label>$LOCALIZE[19165]</label>
+					<width>165</width>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--play recording-->
+				<control type="button" id="8">
+					<label>$LOCALIZE[19687]</label>
+					<width>165</width>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--record-->
+				<control type="button" id="6">
+					<label>-</label>
+					<width>165</width>
+					<include>dialog_WindowButton</include>
+				</control>
+				<!--ok-->
+				<control type="button" id="7">
+					<label>$LOCALIZE[186]</label>
+					<width>165</width>
+					<include>dialog_WindowButton</include>
+				</control>
+			</control>
+		</control>
+	
+
+		
+
+	</controls>
+</window>
