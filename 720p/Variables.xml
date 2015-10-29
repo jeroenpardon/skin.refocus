@@ -652,25 +652,26 @@
 		<value>weather/small/na.png</value>
 	</variable>
 
-	<variable name="toast:Video">
-		<value condition="VideoPlayer.Content(livetv)">$LOCALIZE[209]$INFO[VideoPlayer.NextTitle,: ]</value>
-		<value condition="VideoPlayer.Content(episodes) + !IsEmpty(VideoPlayer.TVShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
-		<value condition="VideoPlayer.Content(movies) + !IsEmpty(VideoPlayer.Director)">$INFO[VideoPlayer.Director]</value>
-		<value condition="VideoPlayer.Content(musicvideos) + !IsEmpty(VideoPlayer.Artist)">$INFO[VideoPlayer.Artist]</value>
-		<value>$INFO[VideoPlayer.Duration,, $LOCALIZE[31701]]</value>
+	<variable name="toast:PlayingTitle">
+		<value condition="Player.HasVideo">$INFO[VideoPlayer.Title]</value>
+		<value condition="Player.HasAudio + !Player.IsInternetStream">$INFO[MusicPlayer.Title]</value>
+		<value condition="Player.HasAudio">$INFO[MusicPlayer.Duration,, $LOCALIZE[31701]]</value>
 	</variable>
 
-	<variable name="toast:Music">
-		<value condition="!Player.IsInternetStream">$INFO[MusicPlayer.Artist]</value>
-		<value>$INFO[MusicPlayer.Duration,, $LOCALIZE[31701]]</value>
+	<variable name="toast:PlayingInfo">
+		<value condition="Player.HasVideo + VideoPlayer.Content(livetv)">$LOCALIZE[209]$INFO[VideoPlayer.NextTitle,: ]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(episodes) + !IsEmpty(VideoPlayer.TVShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(movies) + !IsEmpty(VideoPlayer.Director)">$INFO[VideoPlayer.Director]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(musicvideos) + !IsEmpty(VideoPlayer.Artist)">$INFO[VideoPlayer.Artist]</value>
+		<value condition="Player.HasVideo">$INFO[VideoPlayer.Duration,, $LOCALIZE[31701]]</value>
+		<value condition="Player.HasAudio + !Player.IsInternetStream">$INFO[MusicPlayer.Artist]</value>
+		<value condition="Player.HasAudio">$INFO[MusicPlayer.Duration,, $LOCALIZE[31701]]</value>
 	</variable>
 
 <!--WINDOW-->
 	<variable name="window:Background">
 		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/defaults/youtube.jpg</value>
 		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/defaults/video.jpg</value>
-
-
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/defaults/video.jpg</value>
 		<value condition="[SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)]">special://skin/backgrounds/defaults/livetv.jpg</value>
 		<value condition="[Window.IsActive(music) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
