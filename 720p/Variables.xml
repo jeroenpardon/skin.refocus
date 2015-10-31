@@ -539,8 +539,8 @@
 	<variable name="flag:Studio">
 		<value condition="Container.Content(movies)">resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.Studio,flags/networks/,.png]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[Listitem.Studio,flags/labels/,.png]</value>
-		<value condition="Window.IsVisible(music)">$INFO[Listitem.Property(Album_Label),flags/labels/,.png]</value>
+		<value condition="Container.Content(musicvideos)">resource://resource.images.recordlabels.white/$INFO[ListItem.Studio,,.png]</value>
+		<value condition="Window.IsVisible(music)">resource://resource.images.recordlabels.white/$INFO[Listitem.Property(Album_Label),,.png]</value>
 	</variable>
 
 	<variable name="flag:Type.Video">
