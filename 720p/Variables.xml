@@ -161,25 +161,15 @@
 	</variable>
 
 	<variable name="menu:Controls">
-        <value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
-        <value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
-        <value>$LOCALIZE[36502]</value>
-    </variable>
+		<value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
+		<value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
+		<value>$LOCALIZE[36502]</value>
+	</variable>
 
 	<variable name="menu:ChannelSwitch">
 		<value condition="Window.IsActive(tvchannels)">$LOCALIZE[19020]$INFO[Container(50).FolderName,: ]</value>
 		<value condition="Window.IsActive(radiochannels)">$LOCALIZE[19021]$INFO[Container(50).FolderName,: ]</value>
 		<value>$LOCALIZE[19019]</value>
-	</variable>
-
-<!--CONFIRM DIALOG-->
-	<variable name="confirm:Header">
-		<value condition="StringCompare(Window(1100).Property(ConfirmDialog),ReloadSkin)">$LOCALIZE[20183]</value>
-		<value condition="StringCompare(Window(1100).Property(ConfirmDialog),ResetSettings)">$LOCALIZE[10035]</value>
-	</variable>
-	<variable name="confirm:Message">
-		<value condition="StringCompare(Window(1100).Property(ConfirmDialog),ReloadSkin)">$LOCALIZE[31714][CR]$LOCALIZE[31715]</value>
-		<value condition="StringCompare(Window(1100).Property(ConfirmDialog),ResetSettings)">$LOCALIZE[31716][CR]$LOCALIZE[750]</value>
 	</variable>
 
 
@@ -523,7 +513,6 @@
 		<value condition="!IsEmpty(ListItem.Property(Artist_Died))">$LOCALIZE[21897]</value>
 		<value condition="!IsEmpty(ListItem.Property(Artist_Disbanded))">$LOCALIZE[21896]</value>
 	</variable>
-
 
 <!--RATINGS-->
 	<variable name="rating:Song">

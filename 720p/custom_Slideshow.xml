@@ -130,7 +130,7 @@
 					<left>322</left>
 					<top>340</top>
 					<!--cancel-->
-					<control type="button" id="10">
+					<control type="button" id="11">
 						<width>120</width>
 						<label>$LOCALIZE[222]</label>
 						<onup>124</onup>
@@ -148,8 +148,7 @@
 						<ondown>112</ondown>
 						<onleft>10</onleft>
 						<onright>10</onright>
-						<onclick>SetProperty(ConfirmDialog,ReloadSkin,1100)</onclick>
-						<onclick>ActivateWindow(1100)</onclick>
+						<onclick>RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[20183],text=$LOCALIZE[31714][CR]$LOCALIZE[31715],yesaction=ReloadSkin()||ActivateWindow(SkinSettings)||SetFocus(9001),noaction=close,yeslabel=Yes,nolabel=No)</onclick>
 						<include>dialog_WindowButton</include>
 					</control>
 				</control>
