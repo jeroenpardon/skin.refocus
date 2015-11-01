@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window id="1140">
+	<defaultcontrol always="true">50</defaultcontrol>
+	<menucontrol>6000</menucontrol>
+	<onunload>ClearProperty(extContent)</onunload>
+	<controls>
+
+	<!--global includes-->
+		<include>global_Background</include>
+		<include>global_Includes</include>
+
+	<!--window title-->
+		<control type="label">
+			<label>$INFO[Window(Home).Property(extContent)]</label>
+			<include>windowTitle</include>
+		</control>
+
+	<!--results-->
+		<control type="group">
+			<include>transition_Content</include>
+			<visible>!Window.IsActive(busydialog)</visible>
+			<control type="panel" id="50">
+				<viewtype label="31113">bigicon</viewtype>	
+				<left>55</left>
+				<top>90</top>
+				<width>1164</width>
+				<height>554</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<include>global_ListScroll</include>
+				<include>transition_Content</include>
+				<include>toggle_Menu</include>
+				<include>transition_Info</include>
+				<visible allowhiddenfocus="true">!Container(50).IsUpdating</visible>
+				<itemlayout width="194" height="277">
+					<include>viewIconPortrait-LayoutCommons</include>
+				</itemlayout>											
+				<focusedlayout width="194" height="277">
+					<control type="image">
+						<width>184</width>
+						<height>266</height>
+						<include>art_Frame-fo</include>
+					</control>
+					<include>viewIconPortrait-LayoutCommons</include>
+				</focusedlayout>
+				<content sortorder="ascending" sortby="label">$VAR[extContent:Video]</content>
+			</control>
+
+			<control type="group">
+				<visible>!Container(50).IsUpdating</visible>
+				<control type="image">
+					<right>80</right>
+					<bottom>23</bottom>
+					<include>flag_Studio</include>
+				</control>
+				<control type="group">
+					<left>60</left>
+					<bottom>20</bottom>
+					<height>53</height>
+					<control type="label">
+						<label>$INFO[Container(50).ListItem(0).Label]</label>
+						<width>1028</width>
+						<include>detail_Title</include>
+					</control>
+					<control type="label">
+						<top>25</top>
+						<label>$INFO[Container(50).ListItem(0).Property(Year)]$INFO[Container(50).ListItem.Rating, &#8226; ,]$INFO[Container(50).ListItem.Votes, (, $LOCALIZE[20350])]</label>
+						<width>1028</width>
+						<include>detail_Sub</include>
+					</control>
+				</control>
+			</control>
+		</control>
+
+	<!--pagecontrol-->
+		<include>PageControls</include>
+
+	<!--menu
+		<include>menu_Other</include>
+	-->
+
+	</controls>
+</window>
