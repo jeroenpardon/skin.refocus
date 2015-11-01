@@ -54,10 +54,10 @@
 					<!--upper-->
 					<control type="group">
 						<width>100%</width>
-						<height>305</height>
+						<height>250</height>
 						<control type="image">
 							<width>100%</width>
-							<height>275</height>
+							<height>200</height>
 							<texture aligny="bottom">overlays/vignette_bottom.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
@@ -84,7 +84,7 @@
 						</control>
 						<control type="group">
 							<left>60</left>
-							<top>185</top>
+							<top>110</top>
 							<control type="label">
 								<width min="0" max="1164">auto</width>
 								<label>$INFO[ListItem.Title]</label>
@@ -111,7 +111,7 @@
 							<width>100%</width>
 							<height>50</height>
 							<control type="image">
-								<top>275</top>	
+								<top>200</top>	
 								<width>100%</width>
 								<height>5000</height>	
 								<aspectratio>stretch</aspectratio>
@@ -120,22 +120,29 @@
 							</control>
 							<control type="grouplist" id="5000">
 								<left>60</left>
-								<top>295</top>
+								<top>220</top>
 								<width>100%</width>
 								<itemgap>10</itemgap>
 								<orientation>horizontal</orientation>
 								<defaultcontrol always="true">8</defaultcontrol>
-								<!--play-->
-								<control type="button" id="5001">
+								<!--play / browse-->
+								<control type="togglebutton" id="5001">
 									<label>$LOCALIZE[208]</label>
 									<ondown>399</ondown>
-									<onclick>Close</onclick>
-									<onclick>SendClick(2003,8)</onclick>
+									<onclick>SendClick(8)</onclick>
 									<include>global_Button</include>
-									<visible>!Container.Content(tvshows)</visible>
+									<altlabel>$LOCALIZE[1024]</altlabel>
+									<usealttexture>Container.Content(TVShows)</usealttexture>
+								</control>
+								<!--cast-->
+								<control type="button" id="5002">
+									<label>$LOCALIZE[206]</label>
+									<ondown>399</ondown>
+									<onclick>SendClick(5)</onclick>
+									<include>global_Button</include>
 								</control>
 								<!--cinema-->
-								<control type="button" id="5002">
+								<control type="button" id="5003">
 									<label>Cinema</label>
 									<ondown>399</ondown>
 									<onclick>Dialog.Close(movieinformation)</onclick>
@@ -144,32 +151,29 @@
 									<include>global_Button</include>
 									<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
 								</control>
-								<!--browse-->
-								<control type="button" id="5003">
-									<label>$LOCALIZE[1024]</label>
-									<ondown>399</ondown>
-									<onclick>SendClick(2003,8)</onclick>
-									<include>global_Button</include>
-									<visible>Container.Content(tvshows)</visible>
-								</control>
-								<!--trailer-->
-								<control type="button" id="5004">
-									<label>$LOCALIZE[20410]</label>
-									<onclick>SendClick(2003,11)</onclick>
-									<ondown>399</ondown>
-									<include>global_Button</include>
-									<visible>!IsEmpty(ListItem.Trailer)</visible>
-								</control>
 								<!--explore
-								<control type="button" id="5005">
-									<label>More...</label>
+
+								<control type="button" id="5003">
+									<label>Test</label>
+									<onclick>SetProperty(Dialog.1.BuiltIn,BUILTIN)</onclick>
+									<onclick>SetProperty(Dialog.2.Label,SOME TEXT)</onclick>
+									<onclick>SetProperty(Dialog.2.BuiltIn,BUILTIN)</onclick>
+									<onclick>SetProperty(Dialog.3.Label,SOME TEXT)</onclick>
+									<onclick>SetProperty(Dialog.3.BuiltIn,BUILTIN)</onclick>
+									<onclick>RunScript(script.toolbox,info=selectdialog,header=SOME_TEXT)</onclick>
+									<ondown>399</ondown>
+									<include>global_Button</include>
+								</control>
+-->
+
+								<control type="button" id="5004">
+									<label>Explore...</label>
 									<onclick>ActivateWindow(1160)</onclick>
 									<ondown>399</ondown>
 									<include>global_Button</include>
 								</control>
-								-->
 								<!--manage-->
-								<control type="button" id="5006">
+								<control type="button" id="5005">
 									<label>$LOCALIZE[16106]</label>
 									<onclick>ActivateWindow(1120)</onclick>
 									<ondown>399</ondown>
@@ -179,7 +183,7 @@
 							</control>
 						</control>
 					</control>
-					<!--plot-->
+					<!--
 					<control type="group">
 						<width>100%</width>
 						<height>50</height>
@@ -192,360 +196,42 @@
 							<include>TriggerButton</include>
 						</control>
 					</control>
+				-->
 
-					<control type="textbox" id="400">
-						<width>1164</width>
-						<height min="0" max="80">auto</height>
-						<label>$INFO[ListItem.Director,$LOCALIZE[20339] [B],[/B][CR]]$INFO[ListItem.Writer,$LOCALIZE[20417] [B],[/B]]</label>
-						<font>regular-U</font>
-						<include>detail_Text</include>
-						<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
-						<visible>Container.Content(movies) | Container.Content(episodes)</visible>
-					</control>
 
-					<control type="label">
-						<label></label>
-						<height>20</height>
-					</control>
+				
+				</control>
 
-					<control type="textbox" id="401">
-						<width>1164</width>
-						<height min="0" max="500">auto</height>
-						<label>$INFO[ListItem.Plot]</label>
-						<include>detail_Text</include>
-						<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
-					</control>
-					<control type="label">
-						<label></label>
-						<height>20</height>
-					</control>
+				<!--plot-->
+				<control type="group">
+					<top>285</top>
+					<visible>!Control.IsVisible(50)</visible>
 
-					<!--cast-->
-					<control type="group">
-						<height>390</height>
-						<visible>!Skin.HasSetting(info.cast.disable) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
-						<control type="label">
-							<label>$LOCALIZE[206]$INFO[Container(50).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
+					<control type="grouplist">
+						<itemgap>0</itemgap>
+						<orientation>vertical</orientation>
+						<control type="textbox" id="400">
+							<width>1164</width>
+							<height min="0" max="180">auto</height>
+							<label>$INFO[ListItem.Director,$LOCALIZE[20339] [B],[/B][CR]]$INFO[ListItem.Writer,$LOCALIZE[20417] [B],[/B][CR]]$INFO[ListItem.UserRating,$LOCALIZE[38018] [B],[/B]]</label>
+							<font>regular-U</font>
+							<include>detail_Text</include>
+							<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
+							<visible>Container.Content(movies) | Container.Content(episodes)</visible>
 						</control>
-						<control type="panel" id="50">
-							<onleft>50</onleft>
-							<onright>50</onright>
-							<onup>399</onup>
-							<ondown>5011</ondown>
-							<pagecontrol>501</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="194" height="350">
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="194" height="350">
-								<control type="image">
-									<width>184</width>
-									<height>266</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</focusedlayout>
-						</control>
-						<control type="scrollbar" id="501">
-							<left>60</left>
-							<top>370</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(50)</visible>
+						<control type="textbox" id="401">
+							<width>1164</width>
+							<height min="0" max="500">auto</height>
+							<label>[CR]$INFO[ListItem.Plot]</label>
+							<include>detail_Text</include>
+							<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
 						</control>
 					</control>
 
-					<!--similar movies-->
-					<control type="group">
-						<height>390</height>
-						<visible>!Skin.HasSetting(info.similar.movies) + Container.Content(movies) + IntegerGreaterThan(Container(5010).NumItems,0) + !Container.IsUpdating(5011)</visible>
-						<control type="label">
-							<label>$LOCALIZE[31154]$INFO[Container(5011).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
-						</control>
-						<control type="panel" id="5011">
-							<onleft>5011</onleft>
-							<onright>5011</onright>
-							<onup>50</onup>
-							<ondown>5021</ondown>
-							<pagecontrol>5012</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="194" height="350">
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="194" height="350">
-								<control type="image">
-									<width>184</width>
-									<height>266</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</focusedlayout>
-							<content>plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
-						</control>
-						<control type="scrollbar" id="5012">
-							<left>60</left>
-							<top>370</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(5011)</visible>
-						</control>
-					</control>
-
-					<!--sets-->
-					<control type="group">
-						<height>390</height>
-						<visible>!Skin.HasSetting(info.sets.disable) + IntegerGreaterThan(Container(5020).NumItems,0) + Container.Content(movies)</visible>
-						<control type="label">
-							<label>$LOCALIZE[20457]$INFO[Container(5021).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
-						</control>
-						<control type="panel" id="5021">
-							<onleft>5021</onleft>
-							<onright>5021</onright>
-							<onup>5011</onup>
-							<ondown>5031</ondown>
-							<pagecontrol>5022</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="194" height="350">
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="194" height="350">
-								<control type="image">
-									<width>184</width>
-									<height>266</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</focusedlayout>
-							<content>plugin://script.extendedinfo?info=set&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
-						</control>
-						<control type="scrollbar" id="5022">
-							<left>60</left>
-							<top>370</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(5021)</visible>
-						</control>
-					</control>
-
-					<!--similar shows-->
-					<control type="group">
-						<height>390</height>
-						<visible>!Skin.HasSetting(info.similar.tvshows) + IntegerGreaterThan(Container(5030).NumItems,0) + Container.Content(tvshows)</visible>
-						<control type="label">
-							<label>$LOCALIZE[31154]$INFO[Container(5031).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
-						</control>
-						<control type="panel" id="5031">
-							<onleft>5031</onleft>
-							<onright>5031</onright>
-							<onup>5021</onup>
-							<ondown>5071</ondown>
-							<pagecontrol>5032</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="194" height="350">
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="194" height="350">
-								<control type="image">
-									<width>184</width>
-									<height>266</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</focusedlayout>
-							<content>plugin://script.extendedinfo?info=similartvshows&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
-						</control>
-						<control type="scrollbar" id="5032">
-							<left>60</left>
-							<top>370</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(5031)</visible>
-						</control>
-					</control>
-
-					<!--director
-					<control type="group">
-						<height>390</height>
-						<visible>!Skin.HasSetting(info.director.disable) + IntegerGreaterThan(Container(5040).NumItems,0)</visible>
-						<control type="label">
-							<label>director $INFO[Container(5041).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
-						</control>
-						<control type="panel" id="5041">
-							<onleft>5041</onleft>
-							<onright>5041</onright>
-							<onup>5031</onup>
-							<ondown>5051</ondown>
-							<pagecontrol>5042</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="194" height="350">
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="194" height="350">
-								<control type="image">
-									<width>184</width>
-									<height>266</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</focusedlayout>
-							<content>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[ListItem.Director]</content>
-						</control>
-						<control type="scrollbar" id="5042">
-							<left>60</left>
-							<top>370</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(5041)</visible>
-						</control>
-					</control>
-					-->
-
-					<!--writer
-					<control type="group">
-						<height>390</height>
-						<visible>!Skin.HasSetting(info.writer.disable) + IntegerGreaterThan(Container(5050).NumItems,0)</visible>
-						<control type="label">
-							<label>writer $INFO[Container(5051).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
-						</control>
-						<control type="panel" id="5051">
-							<onleft>5051</onleft>
-							<onright>5051</onright>
-							<onup>5041</onup>
-							<ondown>5071</ondown>
-							<pagecontrol>5052</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="194" height="350">
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="194" height="350">
-								<control type="image">
-									<width>184</width>
-									<height>266</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Portrait-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Portrait-Label</include>
-								</control>
-							</focusedlayout>
-							<content>plugin://script.extendedinfo?info=writermovies&amp;&amp;writer=$INFO[ListItem.Writer]</content>
-						</control>
-						<control type="scrollbar" id="5052">
-							<left>60</left>
-							<top>370</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(5051)</visible>
-						</control>
-					</control>
-					-->
-
-					<!--youtube-->
-					<control type="group">
-						<height>274</height>
-						<visible>IntegerGreaterThan(Container(5070).NumItems,0) + [Container.Content(movies) + !Skin.HasSetting(info.youtube.movies)] | [Container.Content(tvshows) + !Skin.HasSetting(info.youtube.tvshows)] | [Container.Content(episodes) + !Skin.HasSetting(info.youtube.episodes)]</visible>
-						<control type="label">
-							<label>YouTube$INFO[Container(5071).NumItems, (,)]</label>
-							<include>infodialog_SectionHeader</include>
-						</control>
-						<control type="panel" id="5071">
-							<onleft>5071</onleft>
-							<onright>5071</onright>
-							<onup>5031</onup>
-							<ondown>noop</ondown>
-							<pagecontrol>5042</pagecontrol>
-							<orientation>horizontal</orientation>
-							<include>infodialog_ContainerCommons</include>
-							<itemlayout width="291" height="234">
-								<include>infodialog_Landscape-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Landscape-Label</include>
-								</control>
-							</itemlayout>
-							<focusedlayout width="291" height="234">
-								<control type="image">
-									<width>281</width>
-									<height>164</height>
-									<include>art_Frame-fo</include>
-								</control>
-								<include>infodialog_Landscape-LayoutCommons</include>
-								<control type="textbox">
-									<label>$INFO[ListItem.Label]</label>
-									<include>infodialog_Landscape-Label</include>
-								</control>
-							</focusedlayout>
-							<content>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[ListItem.Title]</content>
-						</control>
-						<control type="scrollbar" id="5072">
-							<left>60</left>
-							<top>270</top>
-							<width>1152</width>
-							<include>scrollbar_Horizontal</include>
-							<visible>Control.HasFocus(5071)</visible>
-						</control>
-					</control>
 
 					<!--media flags-->
 					<control type="group">
-						<height>125</height>
+						<height>90</height>
 						<bottom>20</bottom>
 						<control type="group">
 							<left>60</left>
@@ -560,9 +246,44 @@
 							</control>
 						</control>
 					</control>
+
+				</control>
+
+				<!--cast-->
+				<control type="group">
+					<top>265</top>
+					<height>390</height>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
+					<control type="panel" id="50">
+						<onleft>50</onleft>
+						<onright>50</onright>
+						<onup>399</onup>
+						<ondown>5011</ondown>
+						<pagecontrol>501</pagecontrol>
+						<orientation>horizontal</orientation>
+						<include>infodialog_ContainerCommons</include>
+						<itemlayout width="194" height="350">
+							<include>infodialog_Portrait-LayoutCommons</include>
+							<control type="textbox">
+								<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
+								<include>infodialog_Portrait-Label</include>
+							</control>
+						</itemlayout>
+						<focusedlayout width="194" height="350">
+							<control type="image">
+								<width>184</width>
+								<height>266</height>
+								<include>art_Frame-fo</include>
+							</control>
+							<include>infodialog_Portrait-LayoutCommons</include>
+							<control type="textbox">
+								<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
+								<include>infodialog_Portrait-Label</include>
+							</control>
+						</focusedlayout>
+					</control>
 				</control>
 			</control>
-
 			<!--pagecontrol-->
 			<control type="scrollbar" id="70">
 				<top>0</top>
@@ -573,6 +294,5 @@
 				<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
 			</control>
 		</control>
-
 	</controls>
 </window>

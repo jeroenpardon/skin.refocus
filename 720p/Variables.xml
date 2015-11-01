@@ -686,18 +686,19 @@
 
 
 
-	<variable name="extcontent:Movies">
-		<value condition="StringCompare(Window(Home).Property(extContent),similarmovies)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(Home).Property(extDBID)]</value>
+	<variable name="extContent:Video">
+		<value condition="StringCompare(Window(Home).Property(extContent),$LOCALIZE[31622])">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(Home).Property(extDBID)]</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),$LOCALIZE[31620])">plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(Home).Property(extDirector)]</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),$LOCALIZE[31621])">plugin://script.extendedinfo?info=writermovies&amp;&amp;writer=$INFO[Window(Home).Property(extWriter)]</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),topratedmovies)">plugin://script.extendedinfo?info=topratedmovies</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),popularmovies)">plugin://script.extendedinfo?info=popularmovies</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),upcoming)">plugin://script.extendedinfo?info=upcoming</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),incinemas)">plugin://script.extendedinfo?info=incinemas</value>
 
-		<value condition="StringCompare(Window(Home).Property(extContent),directormovies)">plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(Home).Property(extDirector)]</value>
 
-		<value condition="StringCompare(Window(Home).Property(extContent),writermovies)">plugin://script.extendedinfo?info=writermovies&amp;&amp;writer=$INFO[Window(Home).Property(extWriter)]</value>
 
-        <value condition="StringCompare(Window(Home).Property(extContent),topratedmovies)">plugin://script.extendedinfo?info=topratedmovies</value>
-        <value condition="StringCompare(Window(Home).Property(extContent),popularmovies)">plugin://script.extendedinfo?info=popularmovies</value>
-        <value condition="StringCompare(Window(Home).Property(extContent),upcoming)">plugin://script.extendedinfo?info=upcoming</value>
-        <value condition="StringCompare(Window(Home).Property(extContent),incinemas)">plugin://script.extendedinfo?info=incinemas</value>
-    </variable>
+
+	</variable>
 
 
 	<variable name="window:Title.Video">
