@@ -69,16 +69,8 @@
 				<include>dialog_MenuButton</include>
 				<visible>Window.IsActive(movieinformation) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)] + System.HasAddon(script.artwork.downloader)</visible>
 			</control>
-			<!--(extended) info-->
-			<control type="button" id="506">
-				<width>352</width>
-				<label>Customize this screen</label>
-				<onclick>Close</onclick>
-				<onclick>ActivateWindow(1121)</onclick>
-				<include>dialog_MenuButton</include>
-			</control>
 			<!--tvtunes-->
-			<control type="button" id="507">
+			<control type="button" id="506">
 				<width>352</width>
 				<label>$LOCALIZE[31521]</label>
 				<onclick>Close</onclick>
@@ -87,6 +79,23 @@
 				<visible>System.HasAddon(script.tvtunes) + [Container.Content(TVShows) | Container.Content(movies) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
 				<enable>Skin.HasSetting(tvtunes.enable)</enable>
 			</control>
+			<!--set rating-->
+			<control type="button" id="507">
+				<width>352</width>
+				<label>$LOCALIZE[38023]</label>
+				<onclick>Close</onclick>
+				<onclick>SendClick(7)</onclick>
+				<include>dialog_MenuButton</include>
+			</control>
+			<!--(extended) info
+			<control type="button" id="506">
+				<width>352</width>
+				<label>Customize this screen</label>
+				<onclick>Close</onclick>
+				<onclick>ActivateWindow(1121)</onclick>
+				<include>dialog_MenuButton</include>
+			</control>
+			-->
 			<control type="image" id="513">
 				<width>352</width>
 				<height>20</height>
