@@ -9,6 +9,8 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+			<width>600</width>
+			<height>460</height>
 			<visible>!Window.IsVisible(1100)</visible>
 			<control type="image">
 				<width>600</width>
@@ -126,29 +128,24 @@
 						<include>dialog_ControlCommons</include>
 					</control>
 				</control>
-				<control type="group" id="200">
-					<left>322</left>
-					<top>340</top>
+				<control type="grouplist" id="200">
+					<right>20</right>
+					<bottom>20</bottom>
+					<onup>124</onup>
+					<ondown>112</ondown>
+					<width>250</width>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
 					<!--cancel-->
 					<control type="button" id="11">
-						<width>120</width>
 						<label>$LOCALIZE[222]</label>
-						<onup>124</onup>
-						<ondown>112</ondown>
-						<onleft>11</onleft>
-						<onright>11</onright>
 						<include>dialog_WindowButton</include>
-						<onclick>Close</onclick>
 					</control>
 					<!--ask logout permission-->
-					<control type="button" id="11">
-						<left>130</left>
+					<control type="button" id="10">
 						<label>$LOCALIZE[31405]</label>
-						<onup>124</onup>
-						<ondown>112</ondown>
-						<onleft>10</onleft>
-						<onright>10</onright>
-						<onclick>RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[20183],text=$LOCALIZE[31714][CR]$LOCALIZE[31715],yesaction=ReloadSkin()||ActivateWindow(SkinSettings)||SetFocus(9001),noaction=close,yeslabel=Yes,nolabel=No)</onclick>
+						<onclick>RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[10035],text=$LOCALIZE[31716][CR]$LOCALIZE[750],yesaction=Dialog.Close(all,true)||ReplaceWindow(startup),noaction=Close,yeslabel=Yes,nolabel=No)</onclick>
 						<include>dialog_WindowButton</include>
 					</control>
 				</control>
