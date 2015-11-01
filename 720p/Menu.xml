@@ -1043,17 +1043,20 @@
 					<textwidth>235</textwidth>
 					<include>menu_Button</include>
 					<label>-</label>
+					<visible>Window.IsActive(eventlog)</visible>
 				</control>
 				<!--only current level-->
 				<control type="radiobutton" id="22">
 					<include>menu_RadioButton</include>
 					<include>menu_Button</include>
 					<label>-</label>
+					<visible>Window.IsActive(eventlog)</visible>
 				</control>
 				<!--clear-->
 				<control type="button" id="20">
 					<include>menu_Button</include>
 					<label>$LOCALIZE[192]</label>
+					<visible>Window.IsActive(eventlog)</visible>
 				</control>
 				<!--now playing-->
 				<include>menu_Playing</include>
