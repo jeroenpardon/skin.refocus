@@ -377,46 +377,54 @@
 						<selected>Skin.HasSetting(ratings.tvshows.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<!--media overlays-->
+					<!--use user rating-->
 					<control type="radiobutton" id="707">
+						<label>$LOCALIZE[31248]</label>
+						<onclick>Skin.ToggleSetting(ratings.user.enable)</onclick>
+						<selected>Skin.HasSetting(ratings.user.enable)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>Skin.HasSetting(ratings.movies.enable) | Skin.HasSetting(ratings.tvshows.enable)</enable>
+					</control>
+					<!--media overlays-->
+					<control type="radiobutton" id="708">
 						<label>$LOCALIZE[31253]</label>
 						<onclick>Skin.ToggleSetting(mediaoverlay.disable)</onclick>
 						<selected>Skin.HasSetting(mediaoverlay.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--unwatched status-->
-					<control type="radiobutton" id="710">
+					<control type="radiobutton" id="709">
 						<label>$LOCALIZE[31254]</label>
 						<onclick>Skin.ToggleSetting(overlay.movies.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.movies.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="711">
+					<control type="radiobutton" id="710">
 						<label>$LOCALIZE[31255]</label>
 						<onclick>Skin.ToggleSetting(overlay.tvshows.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.tvshows.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="712">
+					<control type="radiobutton" id="711">
 						<label>$LOCALIZE[31256]</label>
 						<onclick>Skin.ToggleSetting(overlay.episodes.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.episodes.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="713">
+					<control type="radiobutton" id="712">
 						<label>$LOCALIZE[31257]</label>
 						<onclick>Skin.ToggleSetting(overlay.files.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.files.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="714">
+					<control type="radiobutton" id="713">
 						<label>$LOCALIZE[31258]</label>
 						<onclick>Skin.ToggleSetting(overlay.resumable.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.resumable.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--background video-->
-					<control type="radiobutton" id="715">
+					<control type="radiobutton" id="714">
 						<label>$LOCALIZE[31215]</label>
 						<onclick>Skin.ToggleSetting(backgroundvideo.global)</onclick>
 						<selected>Skin.HasSetting(backgroundvideo.global)</selected>

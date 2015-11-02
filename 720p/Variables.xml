@@ -187,11 +187,16 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 
+	<variable name="media:Rating">
+		<value condition="Skin.HasSetting(ratings.user.enable)">$INFO[ListItem.UserRating,$LOCALIZE[563]: ]</value>
+		<value>$INFO[ListItem.RatingAndVotes]</value>
+	</variable>
+
 	<variable name="media:Info">
-		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.movies.enable)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.RatingAndVotes, &#8226; ]$INFO[ListItem.Genre, &#8226; ]</value>
+		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.movies.enable)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$VAR[media:Rating, &#8226; ]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
-		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label)) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$INFO[ListItem.RatingAndVotes, &#8226; ]$VAR[media:NextAired.Info, &#8226; ]</value>
+		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label)) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:Rating, &#8226; ]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
