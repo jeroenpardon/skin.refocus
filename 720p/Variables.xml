@@ -496,8 +496,9 @@
 	</variable>
 
 	<variable name="information:Cast">
-		<value condition="Container.Content(musicvideos)">$LOCALIZE[133]</value>
-		<value>$LOCALIZE[206]</value>
+		<value condition="!IsEmpty(Window(movieinformation).Property(Actor3))">$INFO[Window(movieinformation).Property(Actor1)], $INFO[Window(movieinformation).Property(Actor2)], $INFO[Window(movieinformation).Property(Actor3)]</value>
+		<value condition="!IsEmpty(Window(movieinformation).Property(Actor2))">$INFO[Window(movieinformation).Property(Actor1)], $INFO[Window(movieinformation).Property(Actor2)]</value>
+		<value condition="!IsEmpty(Window(movieinformation).Property(Actor1))">$INFO[Window(movieinformation).Property(Actor1)]</value>
 	</variable>
 
 	<variable name="information:Origin">

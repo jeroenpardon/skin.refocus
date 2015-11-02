@@ -126,15 +126,15 @@
 								<orientation>horizontal</orientation>
 								<defaultcontrol always="true">8</defaultcontrol>
 								<!--play / browse-->
-								<control type="togglebutton" id="5001">
+								<control type="togglebutton" id="8">
 									<label>$LOCALIZE[208]</label>
+									<altlabel>$LOCALIZE[1024]</altlabel>
 									<ondown>399</ondown>
 									<onclick>SendClick(8)</onclick>
 									<include>global_Button</include>
-									<altlabel>$LOCALIZE[1024]</altlabel>
-									<usealttexture>Container.Content(TVShows)</usealttexture>
+									<usealttexture>Container.Content(tvshows)</usealttexture>
 								</control>
-								<!--cast-->
+								<!--cast / plot-->
 								<control type="button" id="5">
 									<label>$LOCALIZE[206]</label>
 									<ondown>399</ondown>
@@ -151,7 +151,6 @@
 									<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
 								</control>
 								<!--explore
-
 								<control type="button" id="5003">
 									<label>Test</label>
 									<onclick>SetProperty(Dialog.1.BuiltIn,BUILTIN)</onclick>
@@ -163,8 +162,7 @@
 									<ondown>399</ondown>
 									<include>global_Button</include>
 								</control>
--->
-
+								-->
 								<control type="button" id="5004">
 									<label>Explore...</label>
 									<onclick>ActivateWindow(1160)</onclick>
@@ -212,7 +210,7 @@
 						<control type="textbox" id="400">
 							<width>1164</width>
 							<height min="0" max="180">auto</height>
-							<label>$INFO[ListItem.Director,$LOCALIZE[20339] [B],[/B][CR]]$INFO[ListItem.Writer,$LOCALIZE[20417] [B],[/B][CR]]$INFO[ListItem.UserRating,$LOCALIZE[38018] [B],[/B]]</label>
+							<label>$INFO[ListItem.Director,$LOCALIZE[20339] [B],[/B][CR]]$INFO[ListItem.Writer,$LOCALIZE[20417] [B],[/B][CR]]$INFO[ListItem.UserRating,$LOCALIZE[38018] [B],[/B][CR]]$VAR[information:Cast,$LOCALIZE[206] [B],[/B]]</label>
 							<font>regular-U</font>
 							<include>detail_Text</include>
 							<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
