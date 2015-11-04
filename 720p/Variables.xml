@@ -500,10 +500,9 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, &#8226; ]</value>
 	</variable>
 
-	<variable name="information:Cast">
-		<value condition="!IsEmpty(Window(movieinformation).Property(Actor3))">$INFO[Window(movieinformation).Property(Actor1)], $INFO[Window(movieinformation).Property(Actor2)], $INFO[Window(movieinformation).Property(Actor3)]</value>
-		<value condition="!IsEmpty(Window(movieinformation).Property(Actor2))">$INFO[Window(movieinformation).Property(Actor1)], $INFO[Window(movieinformation).Property(Actor2)]</value>
-		<value condition="!IsEmpty(Window(movieinformation).Property(Actor1))">$INFO[Window(movieinformation).Property(Actor1)]</value>
+	<variable name="information:Consensus">
+		<value condition="!StringCompare(Window(Home).Property(SkinHelper.RottenTomatoesConsensus),N/A)">$INFO[Window(Home).Property(SkinHelper.RottenTomatoesConsensus),","]</value>
+		<value></value>
 	</variable>
 
 	<variable name="information:Origin">

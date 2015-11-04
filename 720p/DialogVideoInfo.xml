@@ -82,8 +82,14 @@
 							<texture>$VAR[flag:Studio]</texture>
 							<visible>Container.Content(movies)</visible>
 						</control>
+
+
+
+						
+
+
 						<control type="group">
-							<left>60</left>
+							<left>300</left>
 							<top>110</top>
 							<control type="label">
 								<width min="0" max="1164">auto</width>
@@ -119,7 +125,7 @@
 								<colordiffuse>base_1</colordiffuse>
 							</control>
 							<control type="grouplist" id="5000">
-								<left>60</left>
+								<left>300</left>
 								<top>220</top>
 								<width>100%</width>
 								<itemgap>10</itemgap>
@@ -179,17 +185,56 @@
 								</control>
 							</control>
 						</control>
+
+						<control type="group">
+							<left>40</left>
+							<top>40</top>
+							<control type="image">
+								<width>207</width>
+								<height>300</height>
+								<include>art_Frame-nf</include>
+							</control>
+							<control type="group">
+								<left>7</left>
+								<top>7</top>
+								<control type="image">	
+									<width>193</width>
+									<height>286</height>
+									<texture background="true">thumbs/default_Portrait.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<width>193</width>
+									<height>286</height>
+									<texture background="true">$VAR[art:Portrait]</texture>
+									<aspectratio align="center" aligny="top">scale</aspectratio>
+								</control>
+							</control>
+
+							<control type="textbox" id="401">
+								<top>320</top>
+								<width>200</width>
+								<height min="0" max="300">auto</height>
+								<align>right</align>
+								<label>$INFO[ListItem.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[ListItem.Cast,[B]$LOCALIZE[206][/B][CR],[CR]]</label>
+								<include>detail_Text</include>
+							</control>
+						</control>
+
+
 					</control>		
 				</control>
 
 				<!--plot-->
 				<control type="group">
-					<top>285</top>
+					<left>300</left>
+					<top>300</top>
 					<visible>!Control.IsVisible(50)</visible>
 
 					<control type="grouplist">
 						<itemgap>0</itemgap>
 						<orientation>vertical</orientation>
+						<!--
 						<control type="textbox" id="400">
 							<width>1164</width>
 							<height min="0" max="180">auto</height>
@@ -198,13 +243,12 @@
 							<include>detail_Text</include>
 							<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
 							<visible>Container.Content(movies) | Container.Content(episodes)</visible>
-						</control>
+						</control>-->
 						<control type="textbox" id="401">
-							<width>1164</width>
+							<width>875</width>
 							<height min="0" max="500">auto</height>
-							<label>[CR]$INFO[ListItem.Plot]</label>
+							<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus]</label>
 							<include>detail_Text</include>
-							<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
 						</control>
 					</control>
 
@@ -213,7 +257,7 @@
 						<height>90</height>
 						<bottom>20</bottom>
 						<control type="group">
-							<left>60</left>
+							<left>0</left>
 							<top>40</top>
 							<include>detail_Flags</include>
 							<control type="label">
