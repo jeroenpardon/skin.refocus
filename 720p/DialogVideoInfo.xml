@@ -3,30 +3,7 @@
 	<defaultcontrol always="true">5000</defaultcontrol>
 	<controls>
 		<control type="group">
-			<!--check for available content first so conditions can be evaluated in time-->
-			<control type="list" id="5010">
-				<content>plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
-			</control>
-			<control type="list" id="5020">
-				<content>plugin://script.extendedinfo?info=set&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
-			</control>
-			<control type="list" id="5030">
-				<content>plugin://script.extendedinfo?info=similartvshows&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
-			</control>
-			<!--
-			<control type="list" id="5040">
-				<content>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[ListItem.Director]</content>
-			</control>
-			<control type="list" id="5050">
-				<content>plugin://script.extendedinfo?info=writermovies&amp;&amp;writer=$INFO[ListItem.Writer]</content>
-			</control>
-			-->
-			<control type="list" id="5070">
-				<content>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[ListItem.Title]</content>
-			</control>
-
 			<include>screen_Dimensions</include>	
-
 			<!--background-->
 			<control type="image">
 				<include>screen_Dimensions</include>
@@ -39,7 +16,6 @@
 					<effect type="Fade" time="transition_Close" start="100" end="0" />
 				</animation>
 			</control>
-
 			<control type="group">
 				<include>screen_Dimensions</include>
 				<include>transition_Content</include>
@@ -51,7 +27,7 @@
 					<include>global_Scrolltime</include>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
-					<!--upper-->
+					<!--banner window-->
 					<control type="group">
 						<width>100%</width>
 						<height>250</height>
@@ -61,10 +37,10 @@
 							<texture aligny="bottom">overlays/vignette_bottom.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
-						<!--studio logo-->
+						<!--studio / network logos-->
 						<control type="image">
-							<right>60</right>
-							<bottom>40</bottom>
+							<right>40</right>
+							<bottom>60</bottom>
 							<width>96</width>
 							<height>48</height>
 							<aspectratio align="right">keep</aspectratio>
@@ -82,12 +58,7 @@
 							<texture>$VAR[flag:Studio]</texture>
 							<visible>Container.Content(movies)</visible>
 						</control>
-
-
-
-						
-
-
+						<!--begin main column-->
 						<control type="group">
 							<left>300</left>
 							<top>110</top>
@@ -113,9 +84,10 @@
 								<include>osd_Sub</include>
 							</control>
 						</control>
+
 						<control type="group">
 							<width>100%</width>
-							<height>50</height>
+							<height>screen_Height</height>
 							<control type="image">
 								<top>200</top>	
 								<width>100%</width>
@@ -124,68 +96,82 @@
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
 							</control>
-							<control type="grouplist" id="5000">
+							<!--begin main content area-->
+							<control type="group">
 								<left>300</left>
 								<top>220</top>
-								<width>100%</width>
-								<itemgap>10</itemgap>
-								<orientation>horizontal</orientation>
-								<defaultcontrol always="true">8</defaultcontrol>
-								<!--play / browse-->
-								<control type="togglebutton" id="8">
-									<label>$LOCALIZE[208]</label>
-									<altlabel>$LOCALIZE[1024]</altlabel>
-									<ondown>399</ondown>
-									<onclick>SendClick(8)</onclick>
-									<include>global_Button</include>
-									<usealttexture>Container.Content(tvshows)</usealttexture>
+								<control type="grouplist" id="5000">
+									<width>100%</width>
+									<height>40</height>
+									<itemgap>10</itemgap>
+									<orientation>horizontal</orientation>
+									<defaultcontrol always="true">8</defaultcontrol>
+									<!--play / browse-->
+									<control type="togglebutton" id="8">
+										<label>$LOCALIZE[208]</label>
+										<altlabel>$LOCALIZE[1024]</altlabel>
+										<ondown>399</ondown>
+										<onclick>SendClick(8)</onclick>
+										<include>global_Button</include>
+										<usealttexture>Container.Content(tvshows)</usealttexture>
+									</control>
+									<!--cast / plot-->
+									<control type="button" id="5">
+										<label>$LOCALIZE[206]</label>
+										<ondown>399</ondown>
+										<include>global_Button</include>
+									</control>
+									<!--cinema-->
+									<control type="button" id="5003">
+										<label>Cinema</label>
+										<ondown>399</ondown>
+										<onclick>Dialog.Close(movieinformation)</onclick>
+										<onclick>Playlist.Clear</onclick>
+										<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+										<include>global_Button</include>
+										<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
+									</control>
+									<control type="button" id="5004">
+										<label>$LOCALIZE[31506]</label>
+										<onclick>ActivateWindow(1160)</onclick>
+										<ondown>399</ondown>
+										<include>global_Button</include>
+									</control>
+									<!--manage-->
+									<control type="button" id="5005">
+										<label>$LOCALIZE[16106]</label>
+										<onclick>ActivateWindow(1120)</onclick>
+										<ondown>399</ondown>
+										<include>global_Button</include>
+										<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
+									</control>
 								</control>
-								<!--cast / plot-->
-								<control type="button" id="5">
-									<label>$LOCALIZE[206]</label>
-									<ondown>399</ondown>
-									<include>global_Button</include>
+								<!--plot / descriptions-->
+								<control type="textbox" id="401">
+									<top>70</top>
+									<width>875</width>
+									<height min="0" max="325">auto</height>
+									<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus]</label>
+									<include>detail_Text</include>
 								</control>
-								<!--cinema-->
-								<control type="button" id="5003">
-									<label>Cinema</label>
-									<ondown>399</ondown>
-									<onclick>Dialog.Close(movieinformation)</onclick>
-									<onclick>Playlist.Clear</onclick>
-									<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-									<include>global_Button</include>
-									<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
-								</control>
-								<!--explore
-								<control type="button" id="5003">
-									<label>Test</label>
-									<onclick>SetProperty(Dialog.1.BuiltIn,BUILTIN)</onclick>
-									<onclick>SetProperty(Dialog.2.Label,SOME TEXT)</onclick>
-									<onclick>SetProperty(Dialog.2.BuiltIn,BUILTIN)</onclick>
-									<onclick>SetProperty(Dialog.3.Label,SOME TEXT)</onclick>
-									<onclick>SetProperty(Dialog.3.BuiltIn,BUILTIN)</onclick>
-									<onclick>RunScript(script.toolbox,info=selectdialog,header=SOME_TEXT)</onclick>
-									<ondown>399</ondown>
-									<include>global_Button</include>
-								</control>
-								-->
-								<control type="button" id="5004">
-									<label>Explore...</label>
-									<onclick>ActivateWindow(1160)</onclick>
-									<ondown>399</ondown>
-									<include>global_Button</include>
-								</control>
-								<!--manage-->
-								<control type="button" id="5005">
-									<label>$LOCALIZE[16106]</label>
-									<onclick>ActivateWindow(1120)</onclick>
-									<ondown>399</ondown>
-									<include>global_Button</include>
-									<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
+							</control>
+							<!--media flags-->
+							<control type="group">
+								<left>300</left>
+								<bottom>40</bottom>
+								<height>40</height>
+								<include>detail_Flags</include>
+								<control type="label">
+									<top>25</top>
+									<height>20</height>
+									<label>$INFO[ListItem.Path]</label>
+									<font>regular_Smaller-U</font>
+									<textcolor>Color3</textcolor>
 								</control>
 							</control>
 						</control>
 
+						<!--begin left column-->
 						<control type="group">
 							<left>40</left>
 							<top>40</top>
@@ -210,65 +196,17 @@
 									<aspectratio align="center" aligny="top">scale</aspectratio>
 								</control>
 							</control>
-
 							<control type="textbox" id="401">
 								<top>320</top>
 								<width>200</width>
 								<height min="0" max="300">auto</height>
 								<align>right</align>
-								<label>$INFO[ListItem.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[ListItem.Cast,[B]$LOCALIZE[206][/B][CR],[CR]]</label>
+								<label>$INFO[ListItem.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[ListItem.Cast,[B]$LOCALIZE[31505][/B][CR],[CR]]</label>
 								<include>detail_Text</include>
+								<visible>!Control.IsVisible(50)</visible>
 							</control>
 						</control>
-
-
 					</control>		
-				</control>
-
-				<!--plot-->
-				<control type="group">
-					<left>300</left>
-					<top>300</top>
-					<visible>!Control.IsVisible(50)</visible>
-
-					<control type="grouplist">
-						<itemgap>0</itemgap>
-						<orientation>vertical</orientation>
-						<!--
-						<control type="textbox" id="400">
-							<width>1164</width>
-							<height min="0" max="180">auto</height>
-							<label>$INFO[ListItem.Director,$LOCALIZE[20339] [B],[/B][CR]]$INFO[ListItem.Writer,$LOCALIZE[20417] [B],[/B][CR]]$INFO[ListItem.UserRating,$LOCALIZE[38018] [B],[/B][CR]]$VAR[information:Cast,$LOCALIZE[206] [B],[/B]]</label>
-							<font>regular-U</font>
-							<include>detail_Text</include>
-							<animation effect="slide" end="60" time="0" condition="true">Conditional</animation>
-							<visible>Container.Content(movies) | Container.Content(episodes)</visible>
-						</control>-->
-						<control type="textbox" id="401">
-							<width>875</width>
-							<height min="0" max="500">auto</height>
-							<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus]</label>
-							<include>detail_Text</include>
-						</control>
-					</control>
-
-					<!--media flags-->
-					<control type="group">
-						<height>90</height>
-						<bottom>20</bottom>
-						<control type="group">
-							<left>0</left>
-							<top>40</top>
-							<include>detail_Flags</include>
-							<control type="label">
-								<top>25</top>
-								<height>20</height>
-								<label>$INFO[ListItem.Path]</label>
-								<font>regular_Smaller-U</font>
-								<textcolor>Color3</textcolor>
-							</control>
-						</control>
-					</control>
 				</control>
 
 				<!--cast-->
@@ -306,6 +244,7 @@
 					</control>
 				</control>
 			</control>
+
 			<!--pagecontrol-->
 			<control type="scrollbar" id="70">
 				<top>0</top>
