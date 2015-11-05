@@ -210,7 +210,10 @@
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Genre))">$INFO[ListItem.Property(Artist_Genre)]</value>
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Artist)">$LOCALIZE[31145]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]$INFO[ListItem.Year, &#8226; ]</value>
+
+		<value condition="Container.Content(songs) + SubString(Container.FolderPath,addons://sources/)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Artist]$INFO[ListItem.FileExtension, &#8226; ]</value>
+		
 		<value condition="Container.Content(addons) + SubString(Container.FolderPath,addons://sources/)">$INFO[ListItem.Property(Addon.Summary)]</value>
 		<value condition="Container.Content(addons) + [SubString(Container.FolderPath,addons://outdated/) | SubString(Container.FolderPath,//disabled/) | SubString(Container.FolderPath,//enabled/)]">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Version),$LOCALIZE[24051] ]$INFO[ListItem.Property(Addon.Status), &#8226; ]</value>
@@ -535,11 +538,13 @@
 
 <!--RATINGS-->
 	<variable name="rating:Song">
+		
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,5)">&#8226; &#9733;&#9733;&#9733;&#9733;&#9733;</value>
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,4)">&#8226; &#9733;&#9733;&#9733;&#9733;&#9734;</value>
-		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,3)">&#8226; &#9733;&#9733;&#9733;&#9734;&#9734;</value>-->
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,3)">&#8226; &#9733;&#9733;&#9733;&#9734;&#9734;</value>
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,2)">&#8226; &#9733;&#9733;&#9734;&#9734;&#9734;</value>
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,1)">&#8226; &#9733;&#9734;&#9734;&#9734;&#9734;</value>
+		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating) + SubString(ListItem.Rating,0)">&#0020;</value>
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Rating)">&#8226; &#9734;&#9734;&#9734;&#9734;&#9734;</value>
 	</variable>
 
@@ -682,7 +687,7 @@
 		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/defaults/video.jpg</value>
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/defaults/video.jpg</value>
 		<value condition="[SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)]">special://skin/backgrounds/defaults/livetv.jpg</value>
-		<value condition="[Window.IsActive(music) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
+		<value condition="[Window.IsActive(musiclibrary) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/defaults/music.jpg</value>
 		<value condition="Window.IsActive(pictures) + !Control.IsVisible(531)">special://skin/backgrounds/defaults/pictures.jpg</value>
 		<value condition="Window.IsActive(programs)">special://skin/backgrounds/defaults/programs.jpg</value>
 		<value condition="Window.IsActive(weather) + !Skin.HasSetting(fanart.weather)">special://skin/backgrounds/defaults/weather.jpg</value>
