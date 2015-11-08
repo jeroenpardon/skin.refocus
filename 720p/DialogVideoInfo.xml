@@ -118,7 +118,7 @@
 									<!--cast / plot-->
 									<control type="button" id="5">
 										<label>$LOCALIZE[206]</label>
-										<ondown>399</ondown>
+										<ondown>50</ondown>
 										<include>global_Button</include>
 									</control>
 									<!--cinema-->
@@ -153,6 +153,7 @@
 									<height min="0" max="325">auto</height>
 									<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus]</label>
 									<include>detail_Text</include>
+									<visible>!Control.IsVisible(50)</visible>
 								</control>
 							</control>
 							<!--media flags-->
@@ -161,6 +162,7 @@
 								<bottom>40</bottom>
 								<height>40</height>
 								<include>detail_Flags</include>
+								<visible>!Control.IsVisible(50)</visible>
 								<control type="label">
 									<top>25</top>
 									<height>20</height>
@@ -203,45 +205,66 @@
 								<align>right</align>
 								<label>$INFO[ListItem.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[ListItem.Cast,[B]$LOCALIZE[31505][/B][CR],[CR]]</label>
 								<include>detail_Text</include>
-								<visible>!Control.IsVisible(50)</visible>
 							</control>
 						</control>
 					</control>		
 				</control>
 
 				<!--cast-->
-				<control type="group">
-					<top>265</top>
+				<control type="panel" id="50">
+					<left>300</left>
+					<top>300</top>
+					<width>980</width>
 					<height>390</height>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>5</onup>
+					<ondown>noop</ondown>
+					<pagecontrol>501</pagecontrol>
+					<orientation>horizontal</orientation>
 					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
-					<control type="panel" id="50">
-						<onleft>50</onleft>
-						<onright>50</onright>
-						<onup>399</onup>
-						<ondown>5011</ondown>
-						<pagecontrol>501</pagecontrol>
-						<orientation>horizontal</orientation>
-						<include>infodialog_ContainerCommons</include>
-						<itemlayout width="194" height="350">
-							<include>infodialog_Portrait-LayoutCommons</include>
-							<control type="textbox">
-								<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
-								<include>infodialog_Portrait-Label</include>
-							</control>
-						</itemlayout>
-						<focusedlayout width="194" height="350">
-							<control type="image">
-								<width>184</width>
-								<height>266</height>
-								<include>art_Frame-fo</include>
-							</control>
-							<include>infodialog_Portrait-LayoutCommons</include>
-							<control type="textbox">
-								<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
-								<include>infodialog_Portrait-Label</include>
-							</control>
-						</focusedlayout>
-					</control>
+					<itemlayout width="229" height="350">
+						<include name="IconLayoutCommons">
+							<param name="FrameState" value="frames/frame-nf.png" />
+							<param name="FrameWidth" value="209"/>
+							<param name="FrameHeight" value="310"/>
+							<param name="ArtWidth" value="195"/>
+							<param name="ArtHeight" value="296"/>
+							<param name="IconSize" value="72"/>
+						</include>
+						<control type="textbox">
+							<left>7</left>
+							<top>325</top>
+							<width>195</width>
+							<height min="25" max="48">auto</height>
+							<font>condensed_Small</font>
+							<align>center</align>
+							<aligny>bottom</aligny>
+							<textcolor>Color1</textcolor>
+							<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="194" height="350">
+						<include name="IconLayoutCommons">
+							<param name="FrameState" value="frames/frame-fo.png" />
+							<param name="FrameWidth" value="209"/>
+							<param name="FrameHeight" value="310"/>
+							<param name="ArtWidth" value="195"/>
+							<param name="ArtHeight" value="296"/>
+							<param name="IconSize" value="72"/>
+						</include>
+						<control type="textbox">
+							<left>7</left>
+							<top>325</top>
+							<width>195</width>
+							<height min="25" max="48">auto</height>
+							<font>condensed_Small</font>
+							<align>center</align>
+							<aligny>bottom</aligny>
+							<textcolor>Color1</textcolor>
+							<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
+						</control>
+					</focusedlayout>
 				</control>
 			</control>
 

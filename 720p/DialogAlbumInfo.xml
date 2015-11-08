@@ -16,9 +16,11 @@
 					<effect type="Fade" time="transition_Close" start="100" end="0" />
 				</animation>
 			</control>
+			
 			<control type="group">
 				<include>screen_Dimensions</include>
 				<include>transition_Content</include>
+
 				<!--main container-->
 				<control type="grouplist" id="4000">
 					<include>screen_Dimensions</include>
@@ -103,11 +105,11 @@
 										<width min="120" max="200">auto</width>
 										<include>global_Button</include>
 									</control>
-									<!--tracks-->
+									<!--discography / tracks-->
 									<control type="button" id="5">
 										<label>$LOCALIZE[182]</label>
 										<ondown>50</ondown>
-										<width min="120" max="200">auto</width>
+										<width min="130" max="200">auto</width>
 										<include>global_Button</include>
 									</control>
 									<!--explore-->
@@ -135,6 +137,7 @@
 									<height min="0" max="325">auto</height>
 									<label>$VAR[media:Plot]</label>
 									<include>detail_Text</include>
+									<visible>!Control.IsVisible(50)</visible>
 								</control>
 							</control>
 							<!--media flags-->
@@ -143,6 +146,7 @@
 								<bottom>40</bottom>
 								<height>40</height>
 								<include>detail_Flags</include>
+								<visible>!Control.IsVisible(50)</visible>
 								<control type="label">
 									<top>25</top>
 									<height>20</height>
@@ -203,35 +207,70 @@
 				<!--discography / tracks-->
 				<control type="group">
 					<left>300</left>
-					<top>290</top>
-					<height>390</height>
+					<top>300</top>
+					<height>600</height>
 					<visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
 					<control type="panel" id="50">
+						<width>900</width>
+						<height>360</height>
 						<onleft>50</onleft>
 						<onright>50</onright>
-						<onup>399</onup>
+						<onup>5</onup>
 						<ondown>5011</ondown>
 						<pagecontrol>501</pagecontrol>
-						<orientation>horizontal</orientation>
-						<itemlayout width="188" height="188">
+						<orientation>vertical</orientation>
+						<itemlayout width="450" height="90">
 							<include name="IconLayoutCommons">
 								<param name="FrameState" value="frames/frame-nf.png" />
-								<param name="FrameWidth" value="178"/>
-								<param name="FrameHeight" value="178"/>
-								<param name="ArtWidth" value="164"/>
-								<param name="ArtHeight" value="164"/>
-								<param name="IconSize" value="34"/>
+								<param name="FrameWidth" value="78"/>
+								<param name="FrameHeight" value="78"/>
+								<param name="ArtWidth" value="64"/>
+								<param name="ArtHeight" value="64"/>
+								<param name="IconSize" value="32"/>
 							</include>
+							<control type="group">
+								<left>95</left>
+								<top>10</top>
+								<control type="label" id="110">
+									<width>340</width>
+									<label>$INFO[ListItem.Label]</label>
+									<font>regular</font>
+								</control>
+								<control type="label" id="110">
+									<top>27</top>
+									<width>340</width>
+									<label>$INFO[ListItem.Label2]</label>
+									<textcolor>Color2</textcolor>
+									<font>regular</font>
+								</control>
+							</control>
 						</itemlayout>
-						<focusedlayout width="188" height="188">
+						<focusedlayout width="450" height="90">
 							<include name="IconLayoutCommons">
 								<param name="FrameState" value="frames/frame-fo.png" />
-								<param name="FrameWidth" value="178"/>
-								<param name="FrameHeight" value="178"/>
-								<param name="ArtWidth" value="164"/>
-								<param name="ArtHeight" value="164"/>
-								<param name="IconSize" value="34"/>
+								<param name="FrameWidth" value="440"/>
+								<param name="FrameHeight" value="78"/>
+								<param name="ArtWidth" value="64"/>
+								<param name="ArtHeight" value="64"/>
+								<param name="IconSize" value="32"/>
 							</include>
+							<control type="group">
+								<left>95</left>
+								<top>10</top>
+								<control type="label" id="110">
+									<width>340</width>
+									<label>$INFO[ListItem.Label]</label>
+									<font>regular</font>
+									<textcolor>Color4</textcolor>
+								</control>
+								<control type="label" id="110">
+									<top>27</top>
+									<width>340</width>
+									<label>$INFO[ListItem.Label2]</label>
+									<textcolor>Color5</textcolor>
+									<font>regular</font>
+								</control>
+							</control>
 						</focusedlayout>
 					</control>
 				</control>
