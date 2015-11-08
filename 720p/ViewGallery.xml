@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include name="GalleryLayoutCommons">
+		<control type="group">
+			<width>$PARAM[FrameWidth]</width>
+			<height>$PARAM[FrameHeight]</height>
+			<control type="image">
+				<width>$PARAM[FrameWidth]</width>
+				<height>$PARAM[FrameHeight]</height>
+				<texture>$PARAM[FrameState]</texture>
+				<visible>$PARAM[ShowFrame]</visible>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<left>$PARAM[ArtLeft]</left>
+				<top>$PARAM[ArtTop]</top>
+				<width>$PARAM[ArtWidth]</width>
+				<height>$PARAM[ArtHeight]</height>
+				<texture background="true">thumbs/default_Landscape.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<texture>$INFO[ListItem.ActualIcon]</texture>
+				<width>$PARAM[IconSize]</width>
+				<height>$PARAM[IconSize]</height>
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[ArtLeft]</left>
+				<top>$PARAM[ArtTop]</top>
+				<width>$PARAM[ArtWidth]</width>
+				<height>$PARAM[ArtHeight]</height>
+				<texture background="true">$VAR[art:Landscape]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="group">
+				<right>23</right>
+				<bottom>23</bottom>
+				<width>$PARAM[StatusSize]</width>
+				<height>$PARAM[StatusSize]</height>
+				<include>status_Info</include>
+				<visible>!Control.HasFocus(8000)</visible>
+			</control>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<bottom>10</bottom>
+				<width>50%</width>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<include>art_Logo</include>
+				<visible>$PARAM[ShowLogo]</visible>
+			</control>
+		</control>
+	</include>
+
+
 <!--STRIP LAYOUT-->	
 	<include name="view_Gallery">
 		<!--content detail-->
@@ -89,107 +144,40 @@
 				<orientation>horizontal</orientation>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)</visible>
 				<itemlayout width="770" height="442">
-					<control type="image">
-						<width>770</width>
-						<height>442</height>
-						<aspectratio align="center">stretch</aspectratio>
-						<texture>frames/frame_Landscape-nf.png</texture>
-					</control>
-					<control type="group">
-						<left>10</left>
-						<top>10</top>
-						<width>770</width>
-						<height>442</height>
-						<control type="image">
-							<width>750</width>
-							<height>422</height>
-							<texture background="true">thumbs/default_Landscape.png</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-						</control>
-						<control type="image">
-							<centerleft>375</centerleft>
-							<centertop>211</centertop>
-							<width>128</width>
-							<height>128</height>
-							<texture>$INFO[ListItem.ActualIcon]</texture>
-							<visible>StringCompare(ListItem.Icon,DefaultFolderBack.png) | Window.IsActive(pictures) + ListItem.IsFolder</visible>
-						</control>
-						<control type="image">
-							<width>750</width>
-							<height>422</height>
-							<texture background="true">$VAR[art:Landscape]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-						</control>
-						<control type="image">
-							<centerleft>375</centerleft>
-							<top>300</top>
-							<width>289</width>
-							<height>112</height>
-							<include>art_Logo</include>
-						</control>
-						<control type="group">
-							<right>20</right>
-							<bottom>20</bottom>
-							<width>42</width>
-							<height>42</height>
-							<include>status_Info</include>
-						</control>
-					</control>
+					<include name="GalleryLayoutCommons">
+						<param name="ShowFrame" value="true" />
+						<param name="FrameState" value="frames/frame-nf.png" />
+						<param name="FrameWidth" value="770"/>
+						<param name="FrameHeight" value="442"/>
+						<param name="ArtLeft" value="10"/>
+						<param name="ArtTop" value="10"/>
+						<param name="ArtWidth" value="750"/>
+						<param name="ArtHeight" value="422"/>
+						<param name="IconSize" value="96"/>
+						<param name="StatusSize" value="28" />
+						<param name="ShowLogo" value="false" />
+					</include>
 				</itemlayout>
-				<focusedlayout width="770" height="422">
-					<control type="image">
-						<width>770</width>
-						<height>442</height>
-						<aspectratio align="center">stretch</aspectratio>
-						<texture>frames/frame_Landscape-nf.png</texture>
-					</control>
+				<focusedlayout width="770" height="442">
 					<control type="group">
-						<left>10</left>
-						<top>10</top>
-						<width>770</width>
-						<height>442</height>
-						<control type="image">
-							<width>750</width>
-							<height>422</height>
-							<texture background="true">thumbs/default_Landscape.png</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-						</control>
-						<control type="image">
-							<centerleft>375</centerleft>
-							<centertop>211</centertop>
-							<width>128</width>
-							<height>128</height>
-							<texture>$INFO[ListItem.ActualIcon]</texture>
-							<visible>StringCompare(ListItem.Icon,DefaultFolderBack.png) | Window.IsActive(pictures) + ListItem.IsFolder</visible>
-						</control>
-						<control type="image">
-							<width>750</width>
-							<height>422</height>
-							<texture background="true">$VAR[art:Landscape]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
-						</control>
-						<control type="image">
-							<centerleft>375</centerleft>
-							<top>300</top>
-							<width>289</width>
-							<height>112</height>
-							<include>art_Logo</include>
-							<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
-						</control>
-						<control type="group">
-							<right>20</right>
-							<bottom>20</bottom>
-							<width>42</width>
-							<height>42</height>
-							<include>status_Info</include>
-							<visible>!Control.HasFocus(8000)</visible>
-							<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
-						</control>
+						<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+						<include name="GalleryLayoutCommons">
+							<param name="ShowFrame" value="false"/>
+							<param name="FrameState" value="frames/frame-nf.png"/>
+							<param name="FrameWidth" value="770"/>
+							<param name="FrameHeight" value="442"/>
+							<param name="ArtLeft" value="10"/>
+							<param name="ArtTop" value="10"/>
+							<param name="ArtWidth" value="750"/>
+							<param name="ArtHeight" value="422"/>
+							<param name="IconSize" value="96"/>
+							<param name="StatusSize" value="28" />
+							<param name="ShowLogo" value="false" />
+						</include>
 					</control>
 				</focusedlayout>
 			</control>
-			<!--frame-->																
+			<!--frame-->															
 			<control type="image">
 				<left>255</left>
 				<top>129</top>
@@ -206,38 +194,6 @@
 	</include>
 
 <!--fullscreen layout-->
-	<include name="view_GalleryFull-Commons">
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">thumbs/default_Landscape.png</texture>
-			<aspectratio align="center">scale</aspectratio>
-		</control>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture background="true">$VAR[art:Landscape]</texture>
-			<aspectratio align="center" aligny="top">scale</aspectratio>
-		</control>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture>overlays/vignette_bottom.png</texture>
-			<aspectratio>stretch</aspectratio>
-		</control>
-		<control type="image">
-			<left>40</left>
-			<top>20</top>
-			<width>256</width>
-			<height>99</height>
-			<aspectratio align="center" aligny="top">keep</aspectratio>
-			<include>art_Logo</include>
-		</control>
-		<control type="image">
-			<centerleft>640</centerleft>
-			<centertop>360</centertop>
-			<width>96</width>
-			<height>96</height>
-			<include>art_DefaultIcon</include>
-		</control>
-	</include>
 	<include name="view_GalleryFull">																													
 		<control type="wraplist" id="531">
 			<viewtype label="31111">biginfo</viewtype>
@@ -254,13 +210,26 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
-			<itemlayout height="screen_Height" width="screen_Width">
-				<include>view_GalleryFull-Commons</include>
+			<itemlayout width="screen_Width" height="screen_Height">
+				<include name="GalleryLayoutCommons">
+					<param name="ArtWidth" value="screen_Width"/>
+					<param name="ArtHeight" value="screen_Height"/>
+					<param name="IconSize" value="96"/>
+					<param name="StatusSize" value="28" />
+					<param name="ShowLogo" value="false" />
+				</include>
 			</itemlayout>
 			<focusedlayout height="screen_Height" width="screen_Width">
-				<include>view_GalleryFull-Commons</include>
+				<include name="GalleryLayoutCommons">
+					<param name="ArtWidth" value="screen_Width"/>
+					<param name="ArtHeight" value="screen_Height"/>
+					<param name="IconSize" value="96"/>
+					<param name="StatusSize" value="28" />
+					<param name="ShowLogo" value="false" />
+				</include>
 			</focusedlayout>
 		</control>
+
 		<control type="group">
 			<include>toggle_Menu</include>
 			<include>fadeinout</include>
@@ -271,7 +240,7 @@
 				<include>screen_Dimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<include>fadeinout</include>
-				<visible>Control.IsVisible(53) + Control.HasFocus(8000)</visible>
+				<!--<visible>Control.IsVisible(53) + Control.HasFocus(8000)</visible>-->
 			</control>
 			<control type="group">
 				<left>40</left>
