@@ -1,43 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-<!--POSTER--> 
-	<include name="viewIconPortrait-LayoutCommons">
-		<control type="image">
-			<width>184</width>
-			<height>266</height>
-			<include>art_Frame-nf</include>
-		</control>
+
+	<include name="IconLayoutCommons">
 		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">	
-				<width>170</width>
-				<height>252</height>
-				<texture background="true">thumbs/default_Portrait.png</texture>
+			<width>$PARAM[FrameWidth]</width><!--178-->
+			<height>$PARAM[FrameHeight]</height>
+			<control type="image">
+				<width>$PARAM[FrameWidth]</width><!--178-->
+				<height>$PARAM[FrameHeight]</height>
+				<texture>$PARAM[FrameState]</texture>
+				<texture>frames/frame-fo.png</texture>
+			</control>
+			<control type="image">
+				<left>7</left>
+				<top>7</top>
+				<width>$PARAM[ArtWidth]</width><!--164-->
+				<height>$PARAM[ArtHeight]</height>
+				<texture background="true">thumbs/default_Square.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
-				<left>37</left>
-				<top>78</top>
-				<width>96</width>
-				<height>96</height>
-				<include>art_DefaultIcon</include>
+				<texture>$INFO[ListItem.ActualIcon]</texture>
+				<width>$PARAM[IconSize]</width><!--96-->
+				<height>$PARAM[IconSize]</height>
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
 			</control>
 			<control type="image">
-				<width>170</width>
-				<height>252</height>
-				<texture background="true">$VAR[art:Portrait]</texture>
-				<aspectratio align="center" aligny="top">scale</aspectratio>
+				<left>7</left>
+				<top>7</top>
+				<width>$PARAM[ArtWidth]</width>
+				<height>$PARAM[ArtHeight]</height>
+				<texture background="true">$VAR[art:Square]</texture>
+				<aspectratio>scale</aspectratio>
 			</control>
 			<control type="group">
-				<right>17</right>
-				<bottom>18</bottom>
-				<width>42</width>
-				<height>42</height>
+				<right>21</right>
+				<bottom>21</bottom>
+				<width>$PARAM[StatusSize]</width><!--28-->
+				<height>$PARAM[StatusSize]</height>
 				<include>status_Info</include>
+			</control>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<bottom>10</bottom>
+				<width>50%</width>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<include>art_Logo</include>
+				<visible>$PARAM[ShowLogo]</visible>
 			</control>
 		</control>
 	</include>
+
+<!--POSTER--> 
 	<include name="view_IconPortrait">
 		<control type="panel" id="57">
 			<viewtype label="31113">bigicon</viewtype>	
@@ -58,59 +74,33 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)</visible>
 			<itemlayout width="194" height="277">
-				<include>viewIconPortrait-LayoutCommons</include>
-			</itemlayout>											
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-nf.png" />
+					<param name="FrameWidth" value="184"/>
+					<param name="FrameHeight" value="266"/>
+					<param name="ArtWidth" value="170"/>
+					<param name="ArtHeight" value="252"/>
+					<param name="IconSize" value="72"/>
+					<param name="StatusSize" value="28" />
+					<param name="ShowLogo" value="no" />
+				</include>
+			</itemlayout>
 			<focusedlayout width="194" height="277">
-				<control type="image">
-					<width>184</width>
-					<height>266</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>viewIconPortrait-LayoutCommons</include>
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-fo.png" />
+					<param name="FrameWidth" value="184"/>
+					<param name="FrameHeight" value="266"/>
+					<param name="ArtWidth" value="170"/>
+					<param name="ArtHeight" value="252"/>
+					<param name="IconSize" value="72"/>
+					<param name="StatusSize" value="28" />
+					<param name="ShowLogo" value="no" />
+				</include>
 			</focusedlayout>
 		</control>
 	</include>
 	
 <!--POSTERSMALL-->
-	<include name="view_IconPortraitSmall-LayoutCommons">
-		<control type="image">
-			<width>129</width>
-			<height>184</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">	
-				<width>115</width>
-				<height>170</height>
-				<texture background="true">thumbs/default_Portrait.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<left>25</left>
-				<top>53</top>
-				<width>64</width>
-				<height>64</height>
-				<texture>$INFO[ListItem.ActualIcon]</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>IsEmpty(ListItem.Art(thumb))</visible>
-			</control>
-			<control type="image">
-				<width>115</width>
-				<height>170</height>
-				<texture background="true">$VAR[art:Portrait]</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="group">
-				<right>17</right>
-				<bottom>17</bottom>
-				<width>42</width>
-				<height>42</height>
-				<include>status_Info</include>
-			</control>
-		</control>
-	</include>
 	<include name="view_IconPortraitSmall">
 		<control type="panel" id="571">
 			<viewtype label="31113">icon</viewtype>	
@@ -131,59 +121,33 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 			<itemlayout width="139" height="194">
-				<include>view_IconPortraitSmall-LayoutCommons</include>
-			</itemlayout>											
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-nf.png" />
+					<param name="FrameWidth" value="129"/>
+					<param name="FrameHeight" value="184"/>
+					<param name="ArtWidth" value="115"/>
+					<param name="ArtHeight" value="170"/>
+					<param name="IconSize" value="64"/>
+					<param name="StatusSize" value="28" />
+					<param name="ShowLogo" value="no" />
+				</include>
+			</itemlayout>
 			<focusedlayout width="139" height="194">
-				<control type="image">
-					<width>129</width>
-					<height>184</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>view_IconPortraitSmall-LayoutCommons</include>
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-fo.png" />
+					<param name="FrameWidth" value="129"/>
+					<param name="FrameHeight" value="184"/>
+					<param name="ArtWidth" value="115"/>
+					<param name="ArtHeight" value="170"/>
+					<param name="IconSize" value="64"/>
+					<param name="StatusSize" value="28" />
+					<param name="ShowLogo" value="no" />
+				</include>
 			</focusedlayout>
 		</control>
 	</include>
 
 <!--SQUARE-->
-	<include name="view_IconSquare-LayoutCommons">
-		<control type="image">
-			<width>178</width>
-			<height>178</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">	
-				<width>164</width>
-				<height>164</height>
-				<texture background="true">thumbs/default_Square.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<left>34</left>
-				<top>34</top>
-				<width>96</width>
-				<height>96</height>
-				<include>art_DefaultIcon</include>
-				<visible>StringCompare(Container.FolderName,$LOCALIZE[24032])</visible>
-			</control>
-			<control type="image">
-				<left>34</left>
-				<top>34</top>
-				<width>96</width>
-				<height>96</height>
-				<include>art_DefaultIcon</include>
-				<visible>!StringCompare(Container.FolderName,$LOCALIZE[24032])</visible>
-			</control>
-			<control type="image">
-				<width>164</width>
-				<height>164</height>
-				<texture background="true">$VAR[art:Square]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-		</control>
-	</include>
 	<include name="view_IconSquare">
 		<control type="group">
 			<left>87</left>
@@ -238,44 +202,29 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Window.IsActive(programs) + Container.HasFiles] | [Container.Content(files) + !Container.HasFiles] | [Window.IsActive(MusicFiles) + !Container.HasFiles] | Window.IsActive(radiorecordings)</visible>
 			<itemlayout width="188" height="188">
-				<include>view_IconSquare-LayoutCommons</include>
-			</itemlayout>											
-			<focusedlayout height="188" width="188">
-				<control type="image">
-					<width>178</width>
-					<height>178</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>view_IconSquare-LayoutCommons</include>
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-nf.png" />
+					<param name="FrameWidth" value="178"/>
+					<param name="FrameHeight" value="178"/>
+					<param name="ArtWidth" value="164"/>
+					<param name="ArtHeight" value="164"/>
+					<param name="IconSize" value="72"/>
+				</include>
+			</itemlayout>
+			<focusedlayout width="188" height="188">
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-fo.png" />
+					<param name="FrameWidth" value="178"/>
+					<param name="FrameHeight" value="178"/>
+					<param name="ArtWidth" value="164"/>
+					<param name="ArtHeight" value="164"/>
+					<param name="IconSize" value="72"/>
+				</include>
 			</focusedlayout>
 		</control>
 	</include>
 
 <!--SQUARE SMALL-->
-	<include name="view_IconSquareSmall-LayoutCommons">
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">
-				<width>160</width>
-				<height>160</height>
-				<texture>thumbs/default_Square.png</texture>
-			</control>
-			<control type="image">
-				<centerleft>80</centerleft>
-				<centertop>80</centertop>
-				<width>96</width>
-				<height>96</height>
-				<include>art_DefaultIcon</include>
-			</control>
-			<control type="image">
-				<width>160</width>
-				<height>160</height>
-				<texture background="true">$VAR[art:Square]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-		</control>
-	</include>
 	<include name="view_IconSquareSmall">
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -320,26 +269,25 @@
 				<preloaditems>2</preloaditems>
 				<include>global_ListScroll</include>
 				<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(pictures)</visible>
-				<itemlayout height="184" width="184">
-					<control type="image">
-						<width>174</width>
-						<height>174</height>
-						<include>art_Frame-nf</include>
-					</control>
-					<include>view_IconSquareSmall-LayoutCommons</include>
-				</itemlayout>											
-				<focusedlayout height="184" width="184">
-					<control type="image">
-						<width>174</width>
-						<height>174</height>
-						<include>art_Frame-nf</include>
-					</control>
-					<control type="image">
-						<width>174</width>
-						<height>174</height>
-						<include>art_Frame-fo</include>
-					</control>
-					<include>view_IconSquareSmall-LayoutCommons</include>
+				<itemlayout width="184" height="184">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-nf.png" />
+						<param name="FrameWidth" value="174"/>
+						<param name="FrameHeight" value="174"/>
+						<param name="ArtWidth" value="160"/>
+						<param name="ArtHeight" value="160"/>
+						<param name="IconSize" value="72"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="184" height="184">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-fo.png" />
+						<param name="FrameWidth" value="174"/>
+						<param name="FrameHeight" value="174"/>
+						<param name="ArtWidth" value="160"/>
+						<param name="ArtHeight" value="160"/>
+						<param name="IconSize" value="72"/>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>
@@ -411,7 +359,15 @@
 			<include>transition_Info</include>
 			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]] | Window.IsActive(tvrecordings) + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
 			<itemlayout width="404" height="286">
-				<include>view_ThumbEpisode-LayoutCommons</include>
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-nf.png" />
+					<param name="FrameWidth" value="394" />
+					<param name="FrameHeight" value="219" />
+					<param name="ArtWidth" value="380" />
+					<param name="ArtHeight" value="205" />
+					<param name="IconSize" value="96" />
+					<param name="StatusSize" value="28" />
+				</include>
 				<control type="group">
 					<left>7</left>
 					<top>225</top>
@@ -427,28 +383,29 @@
 						<include>detail_Sub</include>
 					</control>
 				</control>
-			</itemlayout>											
+			</itemlayout>
 			<focusedlayout width="404" height="286">
-				<control type="image">
-					<width>394</width>
-					<height>219</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>view_ThumbEpisode-LayoutCommons</include>
+				<include name="IconLayoutCommons">
+					<param name="FrameState" value="frames/frame-fo.png" />
+					<param name="FrameWidth" value="394" />
+					<param name="FrameHeight" value="219" />
+					<param name="ArtWidth" value="380" />
+					<param name="ArtHeight" value="205" />
+					<param name="IconSize" value="96" />
+					<param name="StatusSize" value="28" />
+				</include>
 				<control type="group">
 					<left>7</left>
 					<top>225</top>
 					<control type="label" id="110">
 						<width>380</width>
 						<label>$VAR[media:Title]</label>
-						<selectedcolor>Color1</selectedcolor>
 						<include>detail_Title</include>
 					</control>
 					<control type="label" id="110">
 						<top>22</top>
 						<width>380</width>
 						<label>$VAR[media:Info]</label>
-						<selectedcolor>Color2</selectedcolor>
 						<include>detail_Sub</include>
 					</control>
 				</control>
@@ -558,7 +515,6 @@
 				<texture background="true">$VAR[art:Square]</texture>
 				<aspectratio align="left" aligny="top">scale</aspectratio>
 			</control>
-
 			<control type="group">
 				<left>22</left>
 				<bottom>14</bottom>

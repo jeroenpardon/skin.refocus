@@ -24,6 +24,27 @@
 	</include>
 
 <!--window-->
+	<include name="dialog_WindowCommons">
+		<control type="image">
+			<width>$PARAM[DialogWidth]</width>
+			<height>$PARAM[DialogHeight]</height>
+			<texture border="10">dialogs/frame/window.png</texture>
+		</control>
+		<control type="label" id="$PARAM[DialogHeaderID]">
+			<width>$PARAM[DialogWidth]</width>
+			<label>$PARAM[DialogHeaderName]</label>
+			<include>dialog_Windowtitle</include>
+			<left>4</left>
+			<top>5</top>
+			<font>light_Dialog</font>
+			<align>center</align>
+			<aligny>center</aligny>
+			<height>50</height>
+			<textcolor>Color4</textcolor>
+			<scroll>false</scroll>
+		</control>
+	</include>
+
 	<include name="dialog_Windowtitle">
 		<left>4</left>
 		<top>5</top>
@@ -39,6 +60,7 @@
 		<height>40</height>
 		<font>regular_Small-U-B</font>
 		<align>center</align>
+		<textoffsetx>10</textoffsetx>
 		<textoffsety>6</textoffsety>
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>

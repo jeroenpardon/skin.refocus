@@ -9,19 +9,18 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>824</width>
-			<height>580</height>
+			<width>$PARAM[DialogWidth]</width>
+			<height>$PARAM[DialogHeight]</height>
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
-			<control type="image">
-				<width>824</width>
-				<height>580</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="1">
-				<width>822</width>
-				<label>$INFO[ListItem.Property(Addon.Name)]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
+			
+
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="824" />
+				<param name="DialogHeight" value="580" />
+				<param name="DialogHeaderName" value="$INFO[ListItem.Property(Addon.Name)]" />
+				<param name="DialogHeaderID" value="1" />
+			</include>
+
 			<control type="image">
 				<left>659</left>
 				<top>61</top>

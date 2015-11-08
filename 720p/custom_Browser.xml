@@ -56,6 +56,29 @@
 				<orientation>vertical</orientation>
 				<include>global_ListScroll</include>
 				<visible>StringCompare(Window(Home).Property(extType),poster)</visible>
+
+				<itemlayout width="194" height="277">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-nf.png" />
+						<param name="FrameWidth" value="178"/>
+						<param name="FrameHeight" value="178"/>
+						<param name="ArtWidth" value="164"/>
+						<param name="ArtHeight" value="164"/>
+						<param name="IconSize" value="72"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="194" height="277">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-fo.png" />
+						<param name="FrameWidth" value="178"/>
+						<param name="FrameHeight" value="178"/>
+						<param name="ArtWidth" value="164"/>
+						<param name="ArtHeight" value="164"/>
+						<param name="IconSize" value="72"/>
+					</include>
+				</focusedlayout>
+
+
 				<itemlayout width="194" height="277">
 					<include>viewIconPortrait-LayoutCommons</include>
 				</itemlayout>											
@@ -70,6 +93,7 @@
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Poster]</content>
 			</control>
 			<control type="group">
+				<visible>StringCompare(Window(Home).Property(extType),poster)</visible>
 				<control type="image">
 					<right>80</right>
 					<bottom>23</bottom>
@@ -109,15 +133,24 @@
 				<include>global_ListScroll</include>
 				<visible>StringCompare(Window(Home).Property(extType),square)</visible>
 				<itemlayout width="188" height="188">
-					<include>view_IconSquare-LayoutCommons</include>
-				</itemlayout>											
-				<focusedlayout height="188" width="188">
-					<control type="image">
-						<width>178</width>
-						<height>178</height>
-						<include>art_Frame-fo</include>
-					</control>
-					<include>view_IconSquare-LayoutCommons</include>
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-nf.png" />
+						<param name="FrameWidth" value="178"/>
+						<param name="FrameHeight" value="178"/>
+						<param name="ArtWidth" value="164"/>
+						<param name="ArtHeight" value="164"/>
+						<param name="IconSize" value="72"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="188" height="188">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-fo.png" />
+						<param name="FrameWidth" value="178"/>
+						<param name="FrameHeight" value="178"/>
+						<param name="ArtWidth" value="164"/>
+						<param name="ArtHeight" value="164"/>
+						<param name="IconSize" value="72"/>
+					</include>
 				</focusedlayout>
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Square]</content>
 			</control>
@@ -160,40 +193,47 @@
 				<include>global_ListScroll</include>
 				<visible>StringCompare(Window(Home).Property(extType),thumbnail)</visible>
 				<itemlayout width="404" height="286">
-					<include>view_ThumbEpisode-LayoutCommons</include>
-					<control type="group">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-nf.png" />
+						<param name="FrameWidth" value="394" />
+						<param name="FrameHeight" value="219" />
+						<param name="ArtWidth" value="380" />
+						<param name="ArtHeight" value="205" />
+						<param name="IconSize" value="96" />
+						<param name="StatusSize" value="28" />
+					</include>
+					<control type="textbox">
 						<left>7</left>
 						<top>225</top>
-						<control type="textbox">
-							<width>380</width>
-							<height min="25" max="50">auto</height>
-							<label>$INFO[ListItem.Label]</label>
-							<aligny>top</aligny>
-							<wrapmultiline>true</wrapmultiline>
-							<font>condensed</font>
-							<textcolor>Color1</textcolor>
-						</control>
+						<width>380</width>
+						<height min="25" max="50">auto</height>
+						<label>$INFO[ListItem.Label]</label>
+						<aligny>top</aligny>
+						<wrapmultiline>true</wrapmultiline>
+						<font>condensed</font>
+						<textcolor>Color1</textcolor>
 					</control>
-				</itemlayout>											
+				</itemlayout>
 				<focusedlayout width="404" height="286">
-					<control type="image">
-						<width>394</width>
-						<height>219</height>
-						<include>art_Frame-fo</include>
-					</control>
-					<include>view_ThumbEpisode-LayoutCommons</include>
-					<control type="group">
+					<include name="IconLayoutCommons">
+						<param name="FrameState" value="frames/frame-fo.png" />
+						<param name="FrameWidth" value="394" />
+						<param name="FrameHeight" value="219" />
+						<param name="ArtWidth" value="380" />
+						<param name="ArtHeight" value="205" />
+						<param name="IconSize" value="96" />
+						<param name="StatusSize" value="28" />
+					</include>
+					<control type="textbox">
 						<left>7</left>
 						<top>225</top>
-						<control type="textbox">
-							<width>380</width>
-							<height min="25" max="50">auto</height>
-							<label>$INFO[ListItem.Label]</label>
-							<aligny>top</aligny>
-							<wrapmultiline>true</wrapmultiline>
-							<font>condensed</font>
-							<textcolor>Color1</textcolor>
-						</control>
+						<width>380</width>
+						<height min="25" max="50">auto</height>
+						<label>$INFO[ListItem.Label]</label>
+						<aligny>top</aligny>
+						<wrapmultiline>true</wrapmultiline>
+						<font>condensed</font>
+						<textcolor>Color1</textcolor>
 					</control>
 				</focusedlayout>
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Thumbnail]</content>
