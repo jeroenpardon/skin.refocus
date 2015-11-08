@@ -9,18 +9,13 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>660</width>
-			<height>640</height>
-			<control type="image">
-				<width>660</width>
-				<height>640</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="1">
-				<width>652</width>
-				<label>$LOCALIZE[20333]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="660"/>
+				<param name="DialogHeight" value="640"/>
+				<param name="DialogHeaderName" value="$LOCALIZE[20333]"/>
+				<param name="DialogHeaderID" value="1"/>
+				<param name="DialogSeparator" value="false"/>
+			</include>
 			<control type="group" id="9002">
 				<left>4</left>
 				<top>60</top>
@@ -169,7 +164,7 @@
 
 		<!--dialog buttons--> 
 			<control type="group" id="9001">
-				<bottom>20</bottom>
+				<top>580</top>
 				<width>660</width>
 				<height>40</height>
 				<!--settings-->

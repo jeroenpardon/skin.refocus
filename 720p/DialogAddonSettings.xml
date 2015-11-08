@@ -9,17 +9,11 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>850</width>
-			<height>545</height>
-			<control type="image">
-				<width>850</width>
-				<height>545</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="20">
-				<width>842</width>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="850" />
+				<param name="DialogHeight" value="545" />
+				<param name="DialogHeaderID" value="20" />
+			</include>
 			<!--control-->
 			<control type="group">
 				<left>4</left>
@@ -97,8 +91,8 @@
 			</control>
 			<!--dialog buttons-->
 			<control type="grouplist" id="9001">
-				<right>20</right>
-				<bottom>20</bottom>
+				<right>450</right>
+				<top>484</top>
 				<width>384</width>
 				<height>40</height>
 				<onup>2</onup>
@@ -120,12 +114,6 @@
 					<label>222</label>
 					<include>dialog_WindowButton</include>
 				</control>
-			</control>
-			<control type="image" id="6">
-				<visible>false</visible>
-			</control>
-			<control type="scrollbar" id="30">
-				<visible>false</visible>
 			</control>
 		</control>
 	</controls>

@@ -33,7 +33,6 @@
 		<control type="label" id="$PARAM[DialogHeaderID]">
 			<width>$PARAM[DialogWidth]</width>
 			<label>$PARAM[DialogHeaderName]</label>
-			<include>dialog_Windowtitle</include>
 			<left>4</left>
 			<top>5</top>
 			<font>light_Dialog</font>
@@ -42,6 +41,12 @@
 			<height>50</height>
 			<textcolor>Color4</textcolor>
 			<scroll>false</scroll>
+		</control>
+		<control type="image">
+			<top>60</top>
+			<width>$PARAM[DialogWidth]</width>
+			<include>dialog_Separator</include>
+			<visible>$PARAM[DialogSeparator]</visible>
 		</control>
 	</include>
 

@@ -9,18 +9,13 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>$PARAM[DialogWidth]</width>
-			<height>$PARAM[DialogHeight]</height>
 			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
-			
-
 			<include name="dialog_WindowCommons">
 				<param name="DialogWidth" value="824" />
 				<param name="DialogHeight" value="580" />
 				<param name="DialogHeaderName" value="$INFO[ListItem.Property(Addon.Name)]" />
 				<param name="DialogHeaderID" value="1" />
 			</include>
-
 			<control type="image">
 				<left>659</left>
 				<top>61</top>
@@ -205,7 +200,7 @@
 			<!--dialog buttons-->
 			<control type="grouplist" id="10000">
 				<left>20</left>
-				<bottom>20</bottom>
+				<top>520</top>
 				<width>915</width>
 				<height>40</height>
 				<itemgap>10</itemgap>
