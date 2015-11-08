@@ -590,55 +590,8 @@
 		<font>regular-U</font>
 		<height>40</height>
 	</include>
-	<include name="infodialog_Portrait-LayoutCommons">
-		<control type="image">
-			<width>184</width>
-			<height>266</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<width>170</width>
-			<height>252</height>
-			<control type="image">	
-				<width>170</width>
-				<height>252</height>
-				<texture background="true">thumbs/default_Portrait.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<width>72</width>
-				<height>72</height>
-				<texture background="true">DefaultMovies.png</texture>
-				<visible>IsEmpty(ListItem.Art(poster))</visible>
-			</control>
-			<control type="image">
-				<width>170</width>
-				<height>252</height>
-				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-				<aspectratio align="center" aligny="top">scale</aspectratio>
-			</control>
-			<control type="image">
-				<width>170</width>
-				<height>252</height>
-				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-				<aspectratio align="center" aligny="top">scale</aspectratio>
-			</control>
-		</control>
-	</include>
-	<include name="infodialog_Portrait-Label">
-		<left>7</left>
-		<top>270</top>
-		<width>170</width>
-		<height min="25" max="48">auto</height>
-		<font>condensed_Small</font>
-		<align>center</align>
-		<aligny>bottom</aligny>
-		<textcolor>Color1</textcolor>
-	</include>
+	
+	
 	<include name="infodialog_Landscape-LayoutCommons">
 		<control type="image">
 			<width>281</width>
