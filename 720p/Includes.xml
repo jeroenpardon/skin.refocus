@@ -75,7 +75,7 @@
 	<include name="global_Clock">
 		<control type="group">
 			<include>toggle_Menu</include>
-			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !IsEmpty(Window(10025).Property(TvTunesIsAlive))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
+			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
 			<control type="label">
 				<label>$VAR[toast:Top]</label>
 				<include>toast_Top</include>
@@ -790,7 +790,7 @@
 	<include name="global_Playing">
 		<control type="group">
 			<include>transition_Info</include>
-			<visible>Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614) | Window.IsActive(busydialog)] + IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
+			<visible>Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(614) | Window.IsActive(busydialog)] + IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
 			<control type="label">
 				<right>70</right>
 				<label>$VAR[toast:PlayingTitle]</label>
