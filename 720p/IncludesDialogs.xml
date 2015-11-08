@@ -43,7 +43,7 @@
 			<scroll>false</scroll>
 		</control>
 		<control type="image">
-			<top>60</top>
+			<top>$PARAM[DialogSeparatorTop]</top>
 			<width>$PARAM[DialogWidth]</width>
 			<include>dialog_Separator</include>
 			<visible>$PARAM[DialogSeparator]</visible>
@@ -61,7 +61,7 @@
 		<scroll>false</scroll>
 	</include>
 	<include name="dialog_WindowButton">	
-		<width>120</width>
+		<width min="120" max="200">auto</width>
 		<height>40</height>
 		<font>regular_Small-U-B</font>
 		<align>center</align>

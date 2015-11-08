@@ -4,26 +4,22 @@
 	<coordinates>
 		<system>1</system>
 		<left>290</left>
-		<top>107</top>
+		<top>113</top>
 	</coordinates>
 	<include>transition_Dialog</include>
 	<controls>
 		<control type="group">
-			<width>700</width>
-			<height>507</height>
-			<control type="image">
-				<width>700</width>
-				<height>507</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="2">
-				<width>692</width>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="700"/>
+				<param name="DialogHeight" value="495"/>
+				<param name="DialogHeaderID" value="2"/>
+				<param name="DialogSeparator" value="true"/>
+				<param name="DialogSeparatorTop" value="100"/>
+			</include>
 			<!--sources-->
 			<control type="group">
 				<left>4</left>
-				<top>55</top>
+				<top>60</top>
 				<control type="label">
 					<width>692</width>
 					<label>$LOCALIZE[1021]</label>
@@ -31,7 +27,7 @@
 					<include>dialog_ControlCommons</include>
 				</control>
 				<control type="image">
-					<top>39</top>
+					<top>40</top>
 					<width>692</width>
 					<include>dialog_Separator</include>
 				</control>
@@ -180,28 +176,25 @@
 				</control>
 			</control>
 			<!--dialog buttons-->
-
-				<control type="grouplist" id="9001">
-					<right>20</right>
-					<bottom>20</bottom>
-					<width min="100" max="700">auto</width>
-					<height>40</height>
-					<onup>12</onup>
-					<ondown>10</ondown>
-					<itemgap>10</itemgap>
-					<orientation>horizontal</orientation>
-					<!--ok-->
-					<control type="button" id="18">
-						<label>$LOCALIZE[186]</label>
-						<include>dialog_WindowButton</include>
-					</control>
-					<!--cancel-->
-					<control type="button" id="19">
-						<label>$LOCALIZE[222]</label>
-						<include>dialog_WindowButton</include>
-					</control>
+			<control type="grouplist" id="9001">
+				<left>430</left>
+				<top>435</top>
+				<height>40</height>
+				<onup>12</onup>
+				<ondown>10</ondown>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<!--ok-->
+				<control type="button" id="18">
+					<label>$LOCALIZE[186]</label>
+					<include>dialog_WindowButton</include>
 				</control>
-
+				<!--cancel-->
+				<control type="button" id="19">
+					<label>$LOCALIZE[222]</label>
+					<include>dialog_WindowButton</include>
+				</control>
+			</control>
 		</control>
 	</controls>
 </window>
