@@ -1,5 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include name="view_Slide-Frame">
+		<param name="Width" default="202"/>
+		<param name="Height" default="299"/>
+		<definition>
+			<control type="image">
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture border="10">frames/frame-alt.png</texture>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Slide-Art">
+		<param name="Width" default="183"/>
+		<param name="Height" default="280"/>
+		<param name="Fallback" default="thumbs/default_Portrait.png"/>
+		<param name="Type" default="$VAR[art:Portrait]"/>
+		<param name="IconSize" default="72"/>
+		<param name="ShowLogo" default="false"/>
+		<definition>
+			<control type="group">
+				<left>9</left>
+				<top>9</top>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Fallback]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<width>$PARAM[IconSize]</width>
+					<height>$PARAM[IconSize]</height>
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Type]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<bottom>10</bottom>
+					<width>50%</width>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+					<include>art_Logo</include>
+					<visible>$PARAM[ShowLogo]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Slide-Status">
+		<param name="Right" default="8"/>
+		<param name="Bottom" default="11"/>
+		<param name="Size" default="42"/>
+		<definition>
+			<control type="group">
+				<width>$PARAM[Size]</width>
+				<height>$PARAM[Size]</height>
+				<right>$PARAM[Right]</right>
+				<bottom>$PARAM[Bottom]</bottom>
+				<include>status_Info</include>
+			</control>
+		</definition>
+	</include>
+
+
+<!--PORTRAIT-->
+	<include name="view_SlidePoster">
+		<control type="fixedlist" id="52">
+			<viewtype label="31112">wrap</viewtype>
+			<left>8</left>
+			<top>105</top>
+			<width>1272</width>
+			<height>425</height>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>52</onleft>
+			<onright>52</onright>
+			<focusposition>1</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			<itemlayout width="200" height="300">
+				<include>focus_SlidePoster</include>
+				<include>view_Slide-Frame</include>
+				<include>view_Slide-Art</include>
+				<include>view_Slide-Status</include>
+				<include>focus_SlidePoster</include>
+			</itemlayout>
+			<focusedlayout width="200" height="300">
+				<control type="group">
+					<include>focus_SlidePoster</include>
+					<include>view_Slide-Frame</include>
+					<include>view_Slide-Art</include>
+					<include>view_Slide-Status</include>
+					<include>focus_SlidePoster</include>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+
+<!--LANDSCAPE-->
+	<include name="view_SlideLandscape">
+		<control type="fixedlist" id="521">
+			<viewtype label="31112">bigwrap</viewtype>
+			<left>-177</left>
+			<top>150</top>
+			<width>1457</width>
+			<height>430</height>
+			<onleft>521</onleft>
+			<onright>521</onright>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<focusposition>1</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)] | Window.IsActive(tvrecordings)</visible>
+			<itemlayout width="445" height="259">
+				<include name="view_Slide-Frame">
+					<param name="Width" value="445"/>
+					<param name="Height" value="258"/>
+				</include>
+				<include name="view_Slide-Art">
+					<param name="Width" value="425"/>
+					<param name="Height" value="239"/>
+					<param name="Type" value="$VAR[art:Landscape]"/>
+					<param name="ShowLogo" default="true"/>
+				</include>
+				<include name="view_Slide-Status">
+					<param name="Right" value="11"/>
+					<param name="Bottom" value="11"/>
+				</include>
+			</itemlayout>
+			<focusedlayout width="445" height="259">
+				<control type="group">
+					<width>445</width>
+					<height>258</height>
+					<include>focus_SlideWide</include>
+					<include name="view_Slide-Frame">
+						<param name="Width" value="445"/>
+						<param name="Height" value="258"/>
+					</include>
+					<include name="view_Slide-Art">
+						<param name="Width" value="425"/>
+						<param name="Height" value="239"/>
+						<param name="Type" value="$VAR[art:Landscape]"/>
+						<param name="ShowLogo" default="true"/>
+					</include>
+					<include name="view_Slide-Status">
+						<param name="Right" value="11"/>
+						<param name="Bottom" value="10"/>
+					</include>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+
+<!--SQUARE-->
+	<include name="view_SlideSquare">
+		<control type="fixedlist" id="522">
+			<viewtype label="31112">wrap</viewtype>
+			<left>9</left>
+			<top>130</top>
+			<width>1271</width>
+			<height>560</height>
+			<onleft>522</onleft>
+			<onright>522</onright>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<pagecontrol>71</pagecontrol>
+			<focusposition>1</focusposition>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles) | Container.Content(artists) | Container.Content(addons) | Window.IsActive(radiorecordings)</visible>
+			<itemlayout height="280" width="280">
+				<include name="view_Slide-Frame">
+					<param name="Width" value="280"/>
+					<param name="Height" value="280"/>
+				</include>
+				<include name="view_Slide-Art">
+					<param name="Width" value="260"/>
+					<param name="Height" value="260"/>
+					<param name="Type" value="$VAR[art:Square]"/>
+					<param name="Fallback" value="thumbs/default_Square.png"/>
+				</include>
+			</itemlayout>
+			<focusedlayout height="280" width="280">
+				<control type="group">
+					<include>focus_SlideMusic</include>
+					<include name="view_Slide-Frame">
+						<param name="Width" value="280"/>
+						<param name="Height" value="280"/>
+					</include>
+					<include name="view_Slide-Art">
+						<param name="Width" value="260"/>
+						<param name="Height" value="260"/>
+						<param name="Type" value="$VAR[art:Square]"/>
+						<param name="Fallback" value="thumbs/default_Square.png"/>
+					</include>
+				</control>
+			</focusedlayout>
+		</control>
+	</include>
+
 	<include name="detail_Slide">
 		<control type="group">
 			<include>transition_Info</include>
@@ -52,218 +275,6 @@
 				<height>40</height>
 				<bottom>20</bottom>
 				<include>detail_Flags</include>
-			</control>
-		</control>
-	</include>
-
-<!--PORTRAIT-->
-	<include name="view_SlidePoster">
-		<control type="fixedlist" id="52">
-			<viewtype label="31112">wrap</viewtype>
-			<left>8</left>
-			<top>105</top>
-			<width>1272</width>
-			<height>425</height>
-			<onup>6000</onup>
-			<ondown>71</ondown>
-			<onleft>52</onleft>
-			<onright>52</onright>
-			<focusposition>1</focusposition>
-			<pagecontrol>71</pagecontrol>
-			<orientation>horizontal</orientation>
-			<include>global_Scrolltime</include>
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-			<itemlayout width="200" height="300">
-				<include>viewSlidePoster-LayoutCommons</include>
-			</itemlayout>
-			<focusedlayout width="200" height="300">
-				<include>viewSlidePoster-LayoutCommons</include>
-			</focusedlayout>
-		</control>
-	</include>
-
-	<include name="viewSlidePoster-LayoutCommons">
-		<control type="group">
-			<include>focus_SlidePoster</include>
-			<control type="image">
-				<width>203</width>
-				<height>300</height>
-				<texture border="10">frames/frame-alt.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="group">
-				<left>10</left>
-				<top>10</top>
-				<control type="image">
-					<width>183</width>
-					<height>280</height>
-					<texture background="true">thumbs/default_Portrait.png</texture>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
-				<control type="image">
-					<left>43.5</left>
-					<top>92</top>
-					<width>96</width>
-					<height>96</height>
-					<include>art_DefaultIcon</include>
-				</control>
-				<control type="image">
-					<width>183</width>
-					<height>280</height>
-					<texture background="true">$VAR[art:Portrait]</texture>
-					<aspectratio align="center" aligny="top">scale</aspectratio>
-				</control>
-			</control>
-			<control type="group">
-				<right>7</right>
-				<bottom>10</bottom>
-				<width>42</width>
-				<height>42</height>
-				<include>status_Info</include>
-			</control>
-		</control>
-	</include>
-
-<!--LANDSCAPE-->
-	<include name="view_SlideLandscape">
-		<control type="fixedlist" id="521">
-			<viewtype label="31112">bigwrap</viewtype>
-			<left>-177</left>
-			<top>150</top>
-			<width>1457</width>
-			<height>430</height>
-			<onleft>521</onleft>
-			<onright>521</onright>
-			<onup>6000</onup>
-			<ondown>71</ondown>
-			<focusposition>1</focusposition>
-			<pagecontrol>71</pagecontrol>
-			<preloaditems>2</preloaditems>
-			<orientation>horizontal</orientation>
-			<include>global_Scrolltime</include>
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)] | Window.IsActive(tvrecordings)</visible>
-			<itemlayout width="445" height="259">
-				<include>view_SlideLandscape-LayoutCommons</include>
-			</itemlayout>
-			<focusedlayout width="445" height="259">
-				<include>view_SlideLandscape-LayoutCommons</include>
-			</focusedlayout>
-		</control>
-	</include>
-	<include name="view_SlideLandscape-LayoutCommons">
-		<control type="group">
-			<include>focus_SlideWide</include>
-			<control type="image">
-				<width>446</width>
-				<height>259</height>
-				<texture border="10">frames/frame-alt.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="group">
-				<left>10</left>
-				<top>10</top>
-				<control type="image">		
-					<width>425</width>
-					<height>239</height>
-					<texture background="true">thumbs/default_Landscape.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="image">
-					<left>164.5</left>
-					<top>71.5</top>
-					<width>96</width>
-					<height>96</height>
-					<include>art_DefaultIcon</include>
-				</control>
-				<control type="image">
-					<width>425</width>
-					<height>239</height>
-					<texture background="true">$VAR[art:Landscape]</texture>
-					<aspectratio>scale</aspectratio>
-				</control>
-				<control type="image">
-					<left>130</left>
-					<top>155</top>
-					<width>165</width>
-					<height>64</height>
-					<include>art_Logo</include>
-				</control>
-				<control type="group">
-					<right>10</right>
-					<bottom>10</bottom>
-					<width>42</width>
-					<height>42</height>
-					<include>status_Info</include>
-				</control>
-			</control>
-		</control>
-	</include>
-
-<!--SQUARE-->
-	<include name="view_SlideSquare">
-		<control type="fixedlist" id="522">
-			<viewtype label="31112">wrap</viewtype>
-			<left>9</left>
-			<top>130</top>
-			<width>1271</width>
-			<height>560</height>
-			<onleft>522</onleft>
-			<onright>522</onright>
-			<onup>6000</onup>
-			<ondown>71</ondown>
-			<pagecontrol>71</pagecontrol>
-			<focusposition>1</focusposition>
-			<orientation>horizontal</orientation>
-			<include>global_Scrolltime</include>
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles) | Container.Content(artists) | Container.Content(addons) | Window.IsActive(radiorecordings)</visible>
-			<itemlayout height="280" width="280">
-				<include>view_SlideSquare-LayoutCommons</include>
-			</itemlayout>
-			<focusedlayout height="280" width="280">	
-				<include>view_SlideSquare-LayoutCommons</include>
-			</focusedlayout>
-		</control>
-	</include>
-	<include name="view_SlideSquare-LayoutCommons">
-		<control type="group">
-			<include>focus_SlideMusic</include>
-			<control type="image">
-				<width>280</width>
-				<height>280</height>
-				<texture border="10">frames/frame-alt.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="group">
-				<left>10</left>
-				<top>10</top>
-				<control type="image">
-					<width>260</width>
-					<height>260</height>
-					<texture background="true">thumbs/default_Square.png</texture>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
-				<control type="image">
-					<centerleft>130</centerleft>
-					<centertop>130</centertop>
-					<width>96</width>
-					<height>96</height>
-					<include>art_DefaultIcon</include>
-				</control>
-				<control type="image">
-					<width>260</width>
-					<height>260</height>
-					<texture background="true">$VAR[art:Square]</texture>
-					<aspectratio align="center">stretch</aspectratio>
-				</control>
 			</control>
 		</control>
 	</include>

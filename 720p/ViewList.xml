@@ -79,8 +79,8 @@
 		<param name="FrameHeight" default="144"/>
 		<param name="ArtWidth" default="231"/>
 		<param name="ArtHeight" default="130"/>
-		<param name="ArtFallback" default="thumbs/default_Landscape.png"/>
-		<param name="ArtType" default="$VAR[art:Landscape]"/>
+		<param name="Fallback" default="thumbs/default_Landscape.png"/>
+		<param name="Type" default="$VAR[art:Landscape]"/>
 		<param name="ShowLogo" default="true"/>
 		<definition>
 			<control type="image">
@@ -96,7 +96,7 @@
 				<control type="image">
 					<width>$PARAM[ArtWidth]</width>
 					<height>$PARAM[ArtHeight]</height>
-					<texture background="true">$PARAM[ArtFallback]</texture>
+					<texture background="true">$PARAM[Fallback]</texture>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="image">
@@ -109,7 +109,7 @@
 				<control type="image">
 					<width>$PARAM[ArtWidth]</width>
 					<height>$PARAM[ArtHeight]</height>
-					<texture background="true">$PARAM[ArtType]</texture>
+					<texture background="true">$PARAM[Type]</texture>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="image">
@@ -513,8 +513,8 @@
 					<include name="view_List-Art">
 						<param name="FrameWidth" value="104"/>
 						<param name="ArtWidth" value="90"/>
-						<param name="ArtFallback" value="thumbs/default_Portrait.png"/>
-						<param name="ArtType" value="$VAR[art:Portrait]"/>
+						<param name="Fallback" value="thumbs/default_Portrait.png"/>
+						<param name="Type" value="$VAR[art:Portrait]"/>
 						<param name="ShowLogo" value="false"/>
 					</include>
 					<include name="view_List-Data">
@@ -530,8 +530,8 @@
 					<include name="view_List-Art">
 						<param name="FrameWidth" value="104"/>
 						<param name="ArtWidth" value="90"/>
-						<param name="ArtFallback" value="thumbs/default_Portrait.png"/>
-						<param name="ArtType" value="$VAR[art:Portrait]"/>
+						<param name="Fallback" value="thumbs/default_Portrait.png"/>
+						<param name="Type" value="$VAR[art:Portrait]"/>
 						<param name="ShowLogo" value="false"/>
 					</include>
 					<include name="view_List-Data">
