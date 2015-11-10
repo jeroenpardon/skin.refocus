@@ -18,7 +18,7 @@
 		<param name="Width" default="558"/>
 		<param name="Height" default="103"/>
 		<param name="Fallback" default="thumbs/default_Banner.png"/>
-		<param name="IconSize" default="72"/>
+		<param name="Size" default="72"/>
 		<param name="ShowLogo" default="false"/>
 		<definition>
 			<control type="group">
@@ -34,8 +34,8 @@
 				</control>
 				<control type="image">
 					<texture>$INFO[ListItem.ActualIcon]</texture>
-					<width>$PARAM[IconSize]</width>
-					<height>$PARAM[IconSize]</height>
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
 					<centerleft>50%</centerleft>
 					<centertop>50%</centertop>
 					<visible>IsEmpty(ListItem.Thumb)</visible>
