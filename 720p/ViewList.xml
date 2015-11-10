@@ -125,7 +125,7 @@
 		</definition>
 	</include>
 
-	<include name="view_List-Select">
+	<include name="view_List-Focus">
 		<param name="Width" default="620"/>
 		<param name="Height" default="40"/>
 		<definition>
@@ -171,7 +171,7 @@
 				<include>view_List-Data.Single</include>
 			</itemlayout>
 			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">				
-				<include>view_List-Select</include>
+				<include>view_List-Focus</include>
 				<include name="view_List-Data.Single">
 					<param name="TextColor">$VAR[view:List.TextColor]</param>
 				</include>
@@ -188,7 +188,7 @@
 				</include>
 			</itemlayout>
 			<focusedlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">				
-				<include name="view_List-Select">
+				<include name="view_List-Focus">
 					<param name="Height" value="67"/>
 				</include>
 				<include>view_List-Icon</include>
@@ -204,15 +204,15 @@
 					<param name="StatusColor">$VAR[view:List.TextColor]</param>
 				</include>
 			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.HasFiles" width="620" height="67">
+			<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
 				<include>view_List-Data</include>
 				<include name="status_List">
 					<param name="StatusRight">10</param>
 					<param name="StatusTop">19</param>
 				</include>
 			</itemlayout>
-			<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.HasFiles" width="620" height="67">
-				<include name="view_List-Select">
+			<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
+				<include name="view_List-Focus">
 					<param name="Height" value="67"/>
 				</include>
 				<include name="view_List-Data">

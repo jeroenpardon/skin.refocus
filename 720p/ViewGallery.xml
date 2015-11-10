@@ -1,57 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="GalleryLayoutCommons">
-		<control type="group">
-			<width>$PARAM[FrameWidth]</width>
-			<height>$PARAM[FrameHeight]</height>
+
+	<include name="view_Gallery-Frame">
+		<param name="Width" default="184"/>
+		<param name="Height" default="266"/>
+		<param name="State" default="frames/frame-nf.png"/>
+		<definition>
 			<control type="image">
-				<width>$PARAM[FrameWidth]</width>
-				<height>$PARAM[FrameHeight]</height>
-				<texture>$PARAM[FrameState]</texture>
-				<visible>$PARAM[ShowFrame]</visible>
-				<aspectratio>stretch</aspectratio>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture>$PARAM[State]</texture>
 			</control>
-			<control type="image">
-				<left>$PARAM[ArtLeft]</left>
-				<top>$PARAM[ArtTop]</top>
-				<width>$PARAM[ArtWidth]</width>
-				<height>$PARAM[ArtHeight]</height>
-				<texture background="true">thumbs/default_Landscape.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<texture>$INFO[ListItem.ActualIcon]</texture>
-				<width>$PARAM[IconSize]</width>
-				<height>$PARAM[IconSize]</height>
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<visible>IsEmpty(ListItem.Thumb)</visible>
-			</control>
-			<control type="image">
-				<left>$PARAM[ArtLeft]</left>
-				<top>$PARAM[ArtTop]</top>
-				<width>$PARAM[ArtWidth]</width>
-				<height>$PARAM[ArtHeight]</height>
-				<texture background="true">$VAR[art:Landscape]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
+		</definition>
+	</include>
+
+	<include name="view_Gallery-Art">
+		<param name="Left" default="10"/>
+		<param name="Top" default="10"/>
+		<param name="Width" default="750"/>
+		<param name="Height" default="422"/>
+		<param name="Fallback" default="thumbs/default_Landscape.png"/>
+		<param name="IconSize" default="72"/>
+		<param name="ShowLogo" default="false"/>
+		<definition>
 			<control type="group">
-				<right>23</right>
-				<bottom>23</bottom>
-				<width>$PARAM[StatusSize]</width>
-				<height>$PARAM[StatusSize]</height>
+				<left>$PARAM[Left]</left>
+				<top>$PARAM[Top]</top>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Fallback]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<width>$PARAM[IconSize]</width>
+					<height>$PARAM[IconSize]</height>
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$VAR[art:Landscape]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<bottom>10</bottom>
+					<width>50%</width>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+					<include>art_Logo</include>
+					<visible>$PARAM[ShowLogo]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Gallery-Status">
+		<param name="Right" default="10"/>
+		<param name="Bottom" default="10"/>
+		<param name="Size" default="42"/>
+		<definition>
+			<control type="group">
+				<width>$PARAM[Size]</width>
+				<height>$PARAM[Size]</height>
+				<right>$PARAM[Right]</right>
+				<bottom>$PARAM[Bottom]</bottom>
 				<include>status_Info</include>
-				<visible>!Control.HasFocus(8000)</visible>
 			</control>
-			<control type="image">
-				<centerleft>50%</centerleft>
-				<bottom>10</bottom>
-				<width>50%</width>
-				<aspectratio align="center" aligny="bottom">keep</aspectratio>
-				<include>art_Logo</include>
-				<visible>$PARAM[ShowLogo]</visible>
-			</control>
-		</control>
+		</definition>
 	</include>
 
 
@@ -144,36 +165,27 @@
 				<orientation>horizontal</orientation>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)</visible>
 				<itemlayout width="770" height="442">
-					<include name="GalleryLayoutCommons">
-						<param name="ShowFrame" value="true" />
-						<param name="FrameState" value="frames/frame-nf.png" />
-						<param name="FrameWidth" value="770"/>
-						<param name="FrameHeight" value="442"/>
-						<param name="ArtLeft" value="10"/>
-						<param name="ArtTop" value="10"/>
-						<param name="ArtWidth" value="750"/>
-						<param name="ArtHeight" value="422"/>
-						<param name="IconSize" value="96"/>
-						<param name="StatusSize" value="28" />
-						<param name="ShowLogo" value="false" />
+					<include name="view_Gallery-Frame">
+						<param name="Width" value="770"/>
+						<param name="Height" value="442"/>
 					</include>
+					<include name="view_Gallery-Art">
+						<param name="Fallback" value="thumbs/default_Landscape.png"/>
+						<param name="ShowLogo" default="true"/>
+					</include>
+					<include>view_Gallery-Status</include>
 				</itemlayout>
 				<focusedlayout width="770" height="442">
+					<include name="view_Gallery-Frame">
+						<param name="Width" value="770"/>
+						<param name="Height" value="442"/>
+					</include>
 					<control type="group">
 						<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
-						<include name="GalleryLayoutCommons">
-							<param name="ShowFrame" value="false"/>
-							<param name="FrameState" value="frames/frame-nf.png"/>
-							<param name="FrameWidth" value="770"/>
-							<param name="FrameHeight" value="442"/>
-							<param name="ArtLeft" value="10"/>
-							<param name="ArtTop" value="10"/>
-							<param name="ArtWidth" value="750"/>
-							<param name="ArtHeight" value="422"/>
-							<param name="IconSize" value="96"/>
-							<param name="StatusSize" value="28" />
-							<param name="ShowLogo" value="false" />
+						<include name="view_Gallery-Art">
+							<param name="ShowLogo" default="true"/>
 						</include>
+						<include>view_Gallery-Status</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -211,21 +223,19 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			<itemlayout width="screen_Width" height="screen_Height">
-				<include name="GalleryLayoutCommons">
-					<param name="ArtWidth" value="screen_Width"/>
-					<param name="ArtHeight" value="screen_Height"/>
-					<param name="IconSize" value="96"/>
-					<param name="StatusSize" value="28" />
-					<param name="ShowLogo" value="false" />
+				<include name="view_Gallery-Art">
+					<param name="Left" value="0"/>
+					<param name="Top" value="0"/>
+					<param name="Width" value="screen_Width"/>
+					<param name="Height" value="screen_Height"/>
 				</include>
 			</itemlayout>
 			<focusedlayout height="screen_Height" width="screen_Width">
-				<include name="GalleryLayoutCommons">
-					<param name="ArtWidth" value="screen_Width"/>
-					<param name="ArtHeight" value="screen_Height"/>
-					<param name="IconSize" value="96"/>
-					<param name="StatusSize" value="28" />
-					<param name="ShowLogo" value="false" />
+				<include name="view_Gallery-Art">
+					<param name="Left" value="0"/>
+					<param name="Top" value="0"/>
+					<param name="Width" value="screen_Width"/>
+					<param name="Height" value="screen_Height"/>
 				</include>
 			</focusedlayout>
 		</control>
