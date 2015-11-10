@@ -182,6 +182,7 @@
 		<height>40</height>
 		<font>regular</font>
 		<align>center</align>
+		<textoffsetx>8</textoffsetx>
 		<textoffsety>4</textoffsety>
 		<textcolor>Color3</textcolor>
 		<focusedcolor>Color5</focusedcolor>
@@ -288,7 +289,7 @@
 		<texture>$VAR[flag:Studio]</texture>
 	</include>
 
-<!--CONTAINER-->
+<!--CONTAINER
 	<include name="container_Title">
 		<height>40</height>
 		<font>regular_Bigger</font>
@@ -357,6 +358,7 @@
 		<selectedcolor>Selected</selectedcolor>
 		<scroll>false</scroll>
 	</include>
+-->
 
 <!--COLUMN STYLES-->
 	<include name="column_Header">
@@ -503,37 +505,57 @@
 	<include name="art_DefaultIcon">
 		<texture>$INFO[ListItem.ActualIcon]</texture>
 		<aspectratio>keep</aspectratio>
-		<visible>IsEmpty(ListItem.Art(thumb)) + ![Container.Content(actors) + !SubString(ListItem.Icon,DefaultFolderBack)]</visible>
+		<visible>IsEmpty(ListItem.Art(thumb))</visible>
 	</include>
 	<include name="art_Frame-nf">
-		<texture border="0">frames/frame-nf.png</texture>
+		<texture>frames/frame-nf.png</texture>
 		<aspectratio>stretch</aspectratio>
 	</include>
 	<include name="art_Frame-fo">
-		<texture border="0">frames/frame-fo.png</texture>
+		<texture>frames/frame-fo.png</texture>
 		<aspectratio>stretch</aspectratio>
 	</include>
 
 
 <!--STATUS INDICATORS-->
 	<include name="status_List">
-		<control type="image">
-			<width>28</width>
-			<height>28</height>
-			<colordiffuse>Color1</colordiffuse>
-			<texture>$VAR[status:List]</texture>
-			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
-		</control>
+		<param name="StatusColor" default="Color1"/>
+		<param name="StatusWidth" default="28"/>
+		<param name="StatusHeight" default="28"/>
+		<definition>
+			<control type="image">
+				<top>$PARAM[StatusTop]</top>
+				<right>$PARAM[StatusRight]</right>
+				<width>$PARAM[StatusWidth]</width>
+				<height>$PARAM[StatusHeight]</height>
+				<colordiffuse>$PARAM[StatusColor]</colordiffuse>
+				<texture>$VAR[status:List]</texture>
+				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | SubString(Container.FolderPath,pvr://recordings/) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable) + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+			</control>
+			<control type="group">
+				<visible>SubString(Container.FolderPath,pvr://channels/) + !SubString(ListItem.Icon,default)</visible>
+				<control type="image">
+					<top>$PARAM[StatusTop]</top>
+					<right>$PARAM[StatusRight]</right>
+					<width>$PARAM[StatusWidth]</width>
+					<height>$PARAM[StatusHeight]</height>
+					<texture>$VAR[pvr:Progress]</texture>
+					<colordiffuse>$PARAM[StatusColor]</colordiffuse>
+					<visible>!ListItem.IsRecording</visible>
+				</control>
+				<control type="image">
+					<top>$PARAM[StatusTop]</top>
+					<right>$PARAM[StatusRight]</right>
+					<width>$PARAM[StatusWidth]</width>
+					<height>$PARAM[StatusHeight]</height>
+					<colordiffuse>rec1</colordiffuse>
+					<texture>$VAR[pvr:Progress]</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+			</control>
+		</definition>
 	</include>
-	<include name="status_List-fo">
-		<control type="image">
-			<width>28</width>
-			<height>28</height>
-			<colordiffuse>Color4</colordiffuse>
-			<texture>$VAR[status:List]</texture>
-			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
-		</control>
-	</include>
+
 	<include name="status_Info">
 		<control type="group">
 			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
@@ -574,66 +596,6 @@
 		<height>32</height>
 		<aspectratio>keep</aspectratio>
 		<include>transition_Toast</include>
-	</include>
-
-
-<!--INFO DIALOGS-->
-	<include name="infodialog_ContainerCommons">
-		<top>40</top>
-		<left>60</left>
-		<width>1164</width>
-		<height>350</height>
-		<include>global_Scrolltime</include>
-	</include>
-	<include name="infodialog_SectionHeader">
-		<left>60</left>
-		<font>regular-U</font>
-		<height>40</height>
-	</include>
-	
-	
-	<include name="infodialog_Landscape-LayoutCommons">
-		<control type="image">
-			<width>281</width>
-			<height>164</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<width>267</width>
-			<height>150</height>
-			<control type="image">
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<width>72</width>
-				<height>72</height>
-				<texture background="true">DefaultMovies.png</texture>
-				<visible>IsEmpty(ListItem.Art(thumb))</visible>
-			</control>
-			<control type="image">	
-				<width>267</width>
-				<height>150</height>
-				<texture background="true">thumbs/default_Landscape.png</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="image">
-				<width>267</width>
-				<height>150</height>
-				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-				<aspectratio align="center">scale</aspectratio>
-			</control>
-		</control>
-	</include>
-	<include name="infodialog_Landscape-Label">
-		<left>7</left>
-		<top>168</top>
-		<width>267</width>
-		<height min="25" max="48">auto</height>
-		<font>condensed_Small</font>
-		<align>center</align>
-		<aligny>bottom</aligny>
-		<textcolor>Color1</textcolor>
 	</include>
 
 

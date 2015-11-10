@@ -25,29 +25,31 @@
 
 <!--window-->
 	<include name="dialog_WindowCommons">
-		<control type="image">
-			<width>$PARAM[DialogWidth]</width>
-			<height>$PARAM[DialogHeight]</height>
-			<texture border="10">dialogs/frame/window.png</texture>
-		</control>
-		<control type="label" id="$PARAM[DialogHeaderID]">
-			<width>$PARAM[DialogWidth]</width>
-			<label>$PARAM[DialogHeaderName]</label>
-			<left>4</left>
-			<top>5</top>
-			<font>light_Dialog</font>
-			<align>center</align>
-			<aligny>center</aligny>
-			<height>50</height>
-			<textcolor>Color4</textcolor>
-			<scroll>false</scroll>
-		</control>
-		<control type="image">
-			<top>$PARAM[DialogSeparatorTop]</top>
-			<width>$PARAM[DialogWidth]</width>
-			<include>dialog_Separator</include>
-			<visible>$PARAM[DialogSeparator]</visible>
-		</control>
+		<definition>
+			<control type="image">
+				<width>$PARAM[DialogWidth]</width>
+				<height>$PARAM[DialogHeight]</height>
+				<texture border="10">dialogs/frame/window.png</texture>
+			</control>
+			<control type="label" id="$PARAM[DialogHeaderID]">
+				<width>$PARAM[DialogWidth]</width>
+				<label>$PARAM[DialogHeaderName]</label>
+				<left>4</left>
+				<top>5</top>
+				<font>light_Dialog</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<height>50</height>
+				<textcolor>Color4</textcolor>
+				<scroll>false</scroll>
+			</control>
+			<control type="image">
+				<top>$PARAM[DialogSeparatorTop]</top>
+				<width>$PARAM[DialogWidth]</width>
+				<include>dialog_Separator</include>
+				<visible>$PARAM[DialogSeparator]</visible>
+			</control>
+		</definition>
 	</include>
 
 	<include name="dialog_Windowtitle">

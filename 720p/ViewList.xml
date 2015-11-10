@@ -1,5 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
+	<include name="view_List-Data.Single">
+		<param name="TextColor" default="Color1"/>
+		<definition>
+			<control type="label">
+				<left>15</left>
+				<width>595</width>
+				<label>$INFO[ListItem.Label]</label>
+				<height>38</height>
+				<font>regular_Big</font>
+				<aligny>center</aligny>
+				<textcolor>$PARAM[TextColor]</textcolor>
+				<selectedcolor>Selected</selectedcolor>
+				<scroll>false</scroll>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_List-Data">
+		<param name="TextLeft" default="15"/>
+		<param name="TextColor" default="Color1"/>
+		<param name="TextColor2" default="Color2"/>
+		<param name="TextWidth" default="550"/>
+		<definition>
+			<control type="group">
+				<left>$PARAM[TextLeft]</left>
+				<control type="label">
+					<top>6</top>
+					<width>$PARAM[TextWidth]</width>
+					<label>$VAR[media:Title]</label>
+					<height>28</height>
+					<font>regular_Bigger</font>
+					<textcolor>$PARAM[TextColor]</textcolor>
+					<selectedcolor>$PARAM[TextColor]</selectedcolor>
+				</control>
+				<control type="label">
+					<top>28</top>
+					<width>$PARAM[TextWidth]</width>
+					<label>$VAR[media:Info] $VAR[rating:Song]</label>
+					<height>40</height>
+					<font>regular_Small-U</font>
+					<textcolor>$PARAM[TextColor2]</textcolor>
+					<selectedcolor>$PARAM[TextColor]</selectedcolor>
+				</control>
+				<control type="textbox">
+					<top>66</top>
+					<width>$PARAM[TextWidth]</width>
+					<height>59</height>
+					<label>$VAR[media:Plot]</label>
+					<textcolor>$PARAM[TextColor]</textcolor>
+					<selectedcolor>$PARAM[TextColor]</selectedcolor>
+					<visible>Control.IsVisible(51)</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_List-Icon">
+		<control type="group">
+			<left>5</left>
+			<top>5</top>
+			<control type="image">	
+				<width>57</width>
+				<height>57</height>
+				<texture>thumbs/default_Square.png</texture>
+			</control>
+			<control type="image">
+				<width>57</width>
+				<height>57</height>
+				<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
+			</control>
+		</control>
+	</include>
+
+	<include name="view_List-Art">
+		<param name="FrameWidth" default="245"/>
+		<param name="FrameHeight" default="144"/>
+		<param name="ArtWidth" default="231"/>
+		<param name="ArtHeight" default="130"/>
+		<param name="ArtFallback" default="thumbs/default_Landscape.png"/>
+		<param name="ArtType" default="$VAR[art:Landscape]"/>
+		<param name="ShowLogo" default="true"/>
+		<definition>
+			<control type="image">
+				<width>$PARAM[FrameWidth]</width>
+				<height>$PARAM[FrameHeight]</height>
+				<include>art_Frame-nf</include>
+			</control>
+			<control type="group">
+				<left>7</left>
+				<top>7</top>
+				<width>$PARAM[ArtWidth]</width>
+				<height>$PARAM[ArtHeight]</height>
+				<control type="image">
+					<width>$PARAM[ArtWidth]</width>
+					<height>$PARAM[ArtHeight]</height>
+					<texture background="true">$PARAM[ArtFallback]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>64</width>
+					<height>64</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>$PARAM[ArtWidth]</width>
+					<height>$PARAM[ArtHeight]</height>
+					<texture background="true">$PARAM[ArtType]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<bottom>10</bottom>
+					<width>75%</width>
+					<height>50%</height>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+					<visible>$PARAM[ShowLogo]</visible>
+					<include>art_Logo</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_List-Select">
+		<param name="Width" default="620"/>
+		<param name="Height" default="40"/>
+		<definition>
+			<control type="image">
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture>views/focus.png</texture>
+				<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
+			</control>
+		</definition>
+	</include>
+
+	 <variable name="view:List.TextColor">
+		<value condition="![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
+		<value>Color1</value>
+	</variable>
+	<variable name="view:List.TextColor2">
+		<value condition="![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
+		<value>Color2</value>
+	</variable>
+
+	<include name="view_List">
+		<control type="list" id="50">
+			<viewtype label="535">list</viewtype> 	
+			<left>30</left>
+			<top>90</top>
+			<width>620</width>
+			<height>603</height>
+			<onup>50</onup>
+			<ondown>50</ondown>
+			<onleft>6000</onleft>
+			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
+			<onright condition="Window.IsActive(videoplaylist) + !Player.HasVideo">70</onright>
+			<onright condition="Window.IsActive(tvchannels) + Player.HasVideo">99</onright>
+			<onright condition="Window.IsActive(tvchannels) + !Player.HasVideo">70</onright>
+			<onright>70</onright>
+			<pagecontrol>70</pagecontrol>
+			<include>toggle_Menu</include>
+			<include>global_ListScroll</include>
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+			<itemlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">		
+				<include>view_List-Data.Single</include>
+			</itemlayout>
+			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">				
+				<include>view_List-Select</include>
+				<include name="view_List-Data.Single">
+					<param name="TextColor">$VAR[view:List.TextColor]</param>
+				</include>
+			</focusedlayout>
+			<itemlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">		
+				<include>view_List-Icon</include>
+				<include name="view_List-Data">
+					<param name="TextLeft" value="80"/>
+					<param name="TextWidth" value="485"/>
+				</include>
+				<include name="status_List">
+					<param name="StatusRight">10</param>
+					<param name="StatusTop">19</param>
+				</include>
+			</itemlayout>
+			<focusedlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">				
+				<include name="view_List-Select">
+					<param name="Height" value="67"/>
+				</include>
+				<include>view_List-Icon</include>
+				<include name="view_List-Data">
+					<param name="TextLeft" value="80"/>
+					<param name="TextWidth" value="485"/>
+					<param name="TextColor">$VAR[view:List.TextColor]</param>
+					<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+				</include>
+				<include name="status_List">
+					<param name="StatusRight">10</param>
+					<param name="StatusTop">19</param>
+					<param name="StatusColor">$VAR[view:List.TextColor]</param>
+				</include>
+			</focusedlayout>
+			<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.HasFiles" width="620" height="67">
+				<include>view_List-Data</include>
+				<include name="status_List">
+					<param name="StatusRight">10</param>
+					<param name="StatusTop">19</param>
+				</include>
+			</itemlayout>
+			<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.HasFiles" width="620" height="67">
+				<include name="view_List-Select">
+					<param name="Height" value="67"/>
+				</include>
+				<include name="view_List-Data">
+					<param name="TextColor">$VAR[view:List.TextColor]</param>
+					<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+				</include>
+				<include name="status_List">
+					<param name="StatusRight">10</param>
+					<param name="StatusTop">19</param>
+					<param name="StatusColor">$VAR[view:List.TextColor]</param>
+				</include>
+			</focusedlayout>
+		</control>
+	</include>
+
 	<include name="detail_List">
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -121,282 +349,6 @@
 		</control>
 	</include>
 
-	<include name="view_List">
-		<control type="list" id="50">
-			<viewtype label="535">list</viewtype> 	
-			<left>30</left>
-			<top>90</top>
-			<width>620</width>
-			<height>603</height>
-			<onup>50</onup>
-			<ondown>50</ondown>
-			<onleft>6000</onleft>
-			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
-			<onright condition="Window.IsActive(videoplaylist) + !Player.HasVideo">70</onright>
-			<onright condition="Window.IsActive(tvchannels) + Player.HasVideo">99</onright>
-			<onright condition="Window.IsActive(tvchannels) + !Player.HasVideo">70</onright>
-			<onright>70</onright>
-			<pagecontrol>70</pagecontrol>
-			<preloaditems>2</preloaditems>
-			<include>toggle_Menu</include>
-			<include>global_ListScroll</include>
-			<include>transition_Info</include>
-			<include>transition_Content</include>
-			<itemlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">
-				<control type="label">
-					<left>15</left>
-					<width>595</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>container_Single</include>
-				</control>
-			</itemlayout>
-			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">
-				<control type="group">
-					<width>620</width>
-					<height>40</height>
-					<include>container_Focus</include>
-					<control type="image">
-						<width>650</width>
-						<height>40</height>
-						<texture>views/focus.png</texture>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<width>595</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>container_Single-focus</include>
-					</control>
-				</control>
-				<control type="label">
-					<left>15</left>
-					<width>595</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>container_Single</include>
-					<include>container_Unfocus</include>
-				</control>
-			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + Container.HasFiles] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
-				<control type="label">
-					<left>15</left>
-					<top>6</top>
-					<width>550</width>
-					<height>27</height>
-					<label>$VAR[media:Title]</label>
-					<include>container_Title</include>
-				</control>
-				<control type="label">
-					<left>15</left>
-					<top>28</top>
-					<width>550</width>
-					<label>$VAR[media:Info] $VAR[rating:Song]</label>
-					<selectedcolor>Color2</selectedcolor>
-					<include>container_Sub</include>
-				</control>
-				<control type="group">
-					<right>10</right>
-					<top>18.5</top>
-					<width>28</width>
-					<height>28</height>
-					<include>status_List</include>
-				</control>
-			</itemlayout>
-			<itemlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="67">
-				<control type="group">
-					<left>5</left>
-					<top>5</top>
-					<control type="image">	
-						<width>57</width>
-						<height>57</height>
-						<texture>thumbs/default_Square.png</texture>
-					</control>
-					<control type="image">
-						<width>57</width>
-						<height>57</height>
-						<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-				</control>
-				<control type="group">
-					<left>80</left>
-					<top>6</top>
-					<control type="label">
-						<width>490</width>
-						<height>27</height>
-						<label>$VAR[media:Title]</label>
-						<include>container_Title</include>
-					</control>
-					<control type="label">
-						<top>22</top>
-						<width>490</width>
-						<label>$VAR[media:Info]</label>
-						<selectedcolor>Color2</selectedcolor>
-						<include>container_Sub</include>
-					</control>
-				</control>
-				<control type="group">
-					<right>10</right>
-					<top>18.5</top>
-					<width>28</width>
-					<height>28</height>
-					<include>progress_PVR</include>
-				</control>
-			</itemlayout>
-			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,playlistvideo://) | [[Container.Content(files) | Container.Content(addons) | Window.IsActive(pictures) | Window.IsActive(programs)] + Container.HasFiles] | SubString(Container.FolderPath,pvr://recordings)" width="620" height="67">
-				<control type="group">
-					<width>620</width>
-					<height>67</height>
-					<include>container_Focus</include>
-					<control type="image">
-						<width>620</width>
-						<height>67</height>
-						<texture>views/focus.png</texture>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>6</top>
-						<width>550</width>
-						<height>27</height>
-						<label>$VAR[media:Title]</label>
-						<include>container_Title-focus</include>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>28</top>
-						<width>550</width>
-						<label>$VAR[media:Info] $VAR[rating:Song]</label>
-						<include>container_Sub-focus</include>
-					</control>
-					<control type="group">
-						<right>10</right>
-						<top>18.5</top>
-						<width>28</width>
-						<height>28</height>
-						<include>status_List-fo</include>
-					</control>
-				</control>
-				<control type="group">
-					<width>620</width>
-					<height>67</height>
-					<include>container_Unfocus</include>
-					<control type="label">
-						<left>15</left>
-						<top>6</top>
-						<width>550</width>
-						<height>27</height>
-						<label>$VAR[media:Title]</label>
-						<include>container_Title</include>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>28</top>
-						<width>550</width>
-						<label>$VAR[media:Info] $VAR[rating:Song]</label>
-						<selectedcolor>Color2</selectedcolor>
-						<include>container_Sub</include>
-					</control>
-					<control type="group">
-						<right>10</right>
-						<top>18.5</top>
-						<width>28</width>
-						<height>28</height>
-						<include>status_List</include>
-					</control>
-				</control>
-			</focusedlayout>
-			<focusedlayout condition="SubString(Container.FolderPath,pvr://channels/)" width="620" height="67">
-				<control type="group">
-					<width>620</width>
-					<height>67</height>
-					<include>container_Focus</include>
-					<control type="image">
-						<width>620</width>
-						<height>67</height>
-						<texture>views/focus.png</texture>
-					</control>
-					<control type="group">
-						<left>5</left>
-						<top>5</top>
-						<control type="image">	
-							<width>57</width>
-							<height>57</height>
-							<texture>thumbs/default_Square.png</texture>
-						</control>
-						<control type="image">
-							<width>57</width>
-							<height>57</height>
-							<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-					</control>
-					<control type="group">
-						<left>80</left>
-						<top>6</top>
-						<control type="label">
-							<width>490</width>
-							<height>27</height>
-							<label>$VAR[media:Title]</label>
-							<include>container_Title-focus</include>
-						</control>
-						<control type="label">
-							<top>22</top>
-							<width>490</width>
-							<label>$VAR[media:Info]</label>
-							<include>container_Sub-focus</include>
-						</control>
-					</control>
-					<control type="group">
-						<right>10</right>
-						<top>18.5</top>
-						<width>28</width>
-						<height>28</height>
-						<include>progress_PVR-fo</include>
-					</control>
-				</control>
-				<control type="group">
-					<width>620</width>
-					<height>67</height>
-					<include>container_Unfocus</include>
-					<control type="group">
-						<left>5</left>
-						<top>5</top>
-						<control type="image">	
-							<width>54</width>
-							<height>54</height>
-							<texture>thumbs/default_Square.png</texture>
-						</control>
-						<control type="image">
-							<width>54</width>
-							<height>54</height>
-							<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-					</control>
-					<control type="group">
-						<left>80</left>
-						<top>6</top>
-						<control type="label">
-							<width>490</width>
-							<height>27</height>
-							<label>$VAR[media:Title]</label>
-							<include>container_Title</include>
-						</control>
-						<control type="label">
-							<top>22</top>
-							<width>490</width>
-							<label>$VAR[media:Info]</label>
-							<selectedcolor>Color2</selectedcolor>
-							<include>container_Sub</include>
-						</control>
-					</control>
-					<control type="group">
-						<right>10</right>
-						<top>18.5</top>
-						<width>28</width>
-						<height>28</height>
-						<include>progress_PVR</include>
-					</control>
-				</control>
-			</focusedlayout>
-		</control>
-	</include>
-
 	<include name="detail_ListMusic">
 		<control type="group">
 			<left>680</left>
@@ -497,6 +449,7 @@
 		</control>
 	</include>
 
+
 <!--BIG LIST-->
 	<include name="view_BigList">
 		<control type="group">
@@ -532,380 +485,70 @@
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
 				<!--landscape layout-->
 				<itemlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
-					<include>view_BigList-LandscapeCommons</include>
-					<control type="group">
-						<left>260</left>
-						<top>4</top>
-						<control type="label">
-							<width>920</width>
-							<label>$VAR[media:Title]</label>
-							<include>container_Title</include>
-						</control>
-						<control type="label">
-							<top>28</top>
-							<width>920</width>
-							<label>$VAR[media:Info]</label>
-							<include>container_Sub</include>
-						</control>
-						<control type="textbox" id="4">
-							<top>66</top>
-							<width>920</width>
-							<height>59</height>
-							<label>$VAR[media:Plot]</label>
-							<include>container_Text</include>
-						</control>
-						<control type="group">
-							<right>20</right>
-							<top>15</top>
-							<width>28</width>
-							<height>28</height>
-							<include>status_List</include>
-						</control>
-						<!--
-						<control type="image">
-							<left>800</left>
-							<top>11</top>
-							<width>128</width>
-							<height>22</height>
-							<texture>$VAR[rating:Global]</texture>
-							<aspectratio align="right">keep</aspectratio>
-							<visible>!IsEmpty(ListItem.Title)</visible>
-						</control>
-						-->
-					</control>
+					<include>view_List-Art</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="260"/>
+						<param name="TextWidth" value="920"/>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">10</param>
+						<param name="StatusTop">19</param>
+					</include>
 				</itemlayout>
 				<focusedlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
-					<include>view_BigList-LandscapeCommons</include>
-					<control type="group">
-						<left>260</left>
-						<top>4</top>
-						<control type="group">
-							<include>container_Focus</include>
-							<control type="label">
-								<width>920</width>
-								<label>$VAR[media:Title]</label>
-								<include>container_Title-focus</include>
-							</control>
-							<control type="label">
-								<top>28</top>
-								<width>920</width>
-								<label>$VAR[media:Info]</label>
-								<include>container_Sub-focus</include>
-							</control>
-							<control type="textbox" id="4">
-								<top>66</top>
-								<width>920</width>
-								<height>59</height>
-								<label>$VAR[media:Plot]</label>
-								<include>container_Text-focus</include>
-							</control>
-							<control type="group">
-								<right>20</right>
-								<top>15</top>
-								<width>28</width>
-								<height>28</height>
-								<include>status_List-fo</include>
-							</control>
-							<!--
-							<control type="image">
-								<left>800</left>
-								<top>11</top>
-								<width>128</width>
-								<height>22</height>
-								<texture colordiffuse="Color4">$VAR[rating:Global.Focused]</texture>
-								<aspectratio align="right">keep</aspectratio>
-								<visible>!IsEmpty(ListItem.Title)</visible>
-							</control>
-							-->
-						</control>
-						<control type="group">
-							<include>container_Unfocus</include>
-							<control type="label">
-								<width>920</width>
-								<label>$VAR[media:Title]</label>
-								<include>container_Title</include>
-							</control>
-							<control type="label">
-								<top>28</top>
-								<width>920</width>
-								<label>$VAR[media:Info]</label>
-								<selectedcolor>Color2</selectedcolor>
-								<include>container_Sub</include>
-							</control>
-							<control type="textbox" id="4">
-								<top>66</top>
-								<width>920</width>
-								<height>59</height>
-								<label>$VAR[media:Plot]</label>
-								<include>container_Text</include>
-							</control>
-							<control type="group">
-								<right>20</right>
-								<top>15</top>
-								<width>28</width>
-								<height>28</height>
-								<include>status_List</include>
-							</control>
-							<!--
-							<control type="image">
-								<left>800</left>
-								<top>11</top>
-								<width>128</width>
-								<height>22</height>
-								<texture>$VAR[rating:Global]</texture>
-								<aspectratio align="right">keep</aspectratio>
-								<visible>!IsEmpty(ListItem.Title)</visible>
-							</control>
-							-->
-						</control>
-					</control>
+					<include>view_List-Art</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="260"/>
+						<param name="TextWidth" value="920"/>
+						<param name="TextColor">$VAR[view:List.TextColor]</param>
+						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">10</param>
+						<param name="StatusTop">19</param>
+					</include>
 				</focusedlayout>
 				<!--portrait layout-->
 				<itemlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
-					<include>view_BigList-PortraitCommons</include>
-					<control type="group">
-						<left>126</left>
-						<top>4</top>
-						<control type="label">	
-							<width>775</width>
-							<label>$VAR[media:Title]</label>
-							<include>container_Title</include>
-						</control>
-						<control type="label">
-							<top>28</top>
-							<width>775</width>
-							<label>$VAR[media:Info]</label>
-							<include>container_Sub</include>
-							<visible>!SubString(Container.FolderPath,plugin)</visible>
-						</control>
-						<control type="label">
-							<top>28</top>
-							<width>775</width>
-							<label>$VAR[media:Info.Addon]</label>
-							<include>container_Sub</include>
-							<visible>SubString(Container.FolderPath,plugin)</visible>
-						</control>
-						<control type="textbox" id="4">
-							<top>66</top>
-							<width>1050</width>
-							<height>60</height>
-							<label>$VAR[media:Plot]</label>
-							<autoscroll delay="300000" time="1000">!Control.HasFocus(13)</autoscroll>
-							<include>container_Text</include>
-						</control>
-						<control type="group">
-							<right>20</right>
-							<top>15</top>
-							<width>28</width>
-							<height>28</height>
-							<include>status_List</include>
-						</control>
-						<!--
-						<control type="image">
-							<left>934</left>
-							<top>11</top>
-							<width>128</width>
-							<height>22</height>
-							<texture>$VAR[rating:Global]</texture>
-							<aspectratio align="right">keep</aspectratio>
-							<visible>!IsEmpty(ListItem.Title)</visible>
-						</control>
-						-->
-					</control>
+					<include name="view_List-Art">
+						<param name="FrameWidth" value="104"/>
+						<param name="ArtWidth" value="90"/>
+						<param name="ArtFallback" value="thumbs/default_Portrait.png"/>
+						<param name="ArtType" value="$VAR[art:Portrait]"/>
+						<param name="ShowLogo" value="false"/>
+					</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="126"/>
+						<param name="TextWidth" value="1050"/>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">20</param>
+						<param name="StatusTop">15</param>
+					</include>
 				</itemlayout>
 				<focusedlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
-					<include>view_BigList-PortraitCommons</include>
-					<control type="group">
-						<left>126</left>
-						<top>4</top>
-						<control type="group">
-							<include>container_Focus</include>
-							<control type="label">
-								<width>775</width>
-								<label>$VAR[media:Title]</label>
-								<include>container_Title-focus</include>
-							</control>
-							<control type="label">
-								<top>28</top>
-								<width>775</width>
-								<label>$VAR[media:Info]</label>
-								<include>container_Sub-focus</include>
-								<visible>!SubString(Container.FolderPath,plugin)</visible>
-							</control>
-							<control type="label">
-								<top>28</top>
-								<width>775</width>
-								<label>$VAR[media:Info.Addon]</label>
-								<include>container_Sub-focus</include>
-								<visible>SubString(Container.FolderPath,plugin)</visible>
-							</control>
-							<control type="textbox" id="4">
-								<top>66</top>
-								<width>1050</width>
-								<height>60</height>
-								<label>$VAR[media:Plot]</label>
-								<include>container_Text-focus</include>
-							</control>
-							<control type="group">
-								<right>20</right>
-								<top>15</top>
-								<width>28</width>
-								<height>28</height>
-								<include>status_List-fo</include>
-							</control>
-							<!--
-							<control type="image">
-								<left>934</left>
-								<top>11</top>
-								<width>128</width>
-								<height>22</height>
-								<texture>$VAR[rating:Global.Focused]</texture>
-								<colordiffuse>Color4</colordiffuse>
-								<aspectratio align="right">keep</aspectratio>
-								<visible>!IsEmpty(ListItem.Title)</visible>
-							</control>
-							-->
-						</control>
-						<control type="group">
-							<include>container_Unfocus</include>
-							<control type="label">
-								<width>775</width>
-								<label>$VAR[media:Title]</label>
-								<include>container_Title</include>
-							</control>
-							<control type="label">
-								<top>28</top>
-								<width>775</width>
-								<label>$VAR[media:Info]</label>
-								<include>container_Sub</include>
-								<visible>!SubString(Container.FolderPath,plugin)</visible>
-							</control>
-							<control type="label">
-								<top>28</top>
-								<width>775</width>
-								<label>$VAR[media:Info.Addon]</label>
-								<include>container_Sub</include>
-								<visible>SubString(Container.FolderPath,plugin)</visible>
-							</control>
-							<control type="textbox" id="4">
-								<top>66</top>
-								<width>1050</width>
-								<height>60</height>
-								<label>$VAR[media:Plot]</label>
-								<include>container_Text</include>
-							</control>
-							<control type="group">
-								<right>20</right>
-								<top>15</top>
-								<width>28</width>
-								<height>28</height>
-								<include>status_List</include>
-							</control>
-							<!--
-							<control type="image">
-								<left>934</left>
-								<top>11</top>
-								<width>128</width>
-								<height>22</height>
-								<texture>$VAR[rating:Global]</texture>
-								<aspectratio align="right">keep</aspectratio>
-								<visible>!IsEmpty(ListItem.Title)</visible>
-							</control>
-							-->
-						</control>
-					</control>
+					<include name="view_List-Art">
+						<param name="FrameWidth" value="104"/>
+						<param name="ArtWidth" value="90"/>
+						<param name="ArtFallback" value="thumbs/default_Portrait.png"/>
+						<param name="ArtType" value="$VAR[art:Portrait]"/>
+						<param name="ShowLogo" value="false"/>
+					</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="126"/>
+						<param name="TextWidth" value="1050"/>
+						<param name="TextColor">$VAR[view:List.TextColor]</param>
+						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">20</param>
+						<param name="StatusTop">15</param>
+					</include>			
 				</focusedlayout>
 			</control>
 		</control>
 	</include>
-	<!--landscape layout commons-->
-	<include name="view_BigList-LandscapeCommons">
-		<control type="image">
-			<width>245</width>
-			<height>144</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">
-				<width>231</width>
-				<height>130</height>
-				<texture background="true">thumbs/default_Landscape.png</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="image">
-				<centerleft>115.5</centerleft>
-				<centertop>65</centertop>
-				<width>64</width>
-				<height>64</height>
-				<include>art_DefaultIcon</include>
-			</control>
-			<control type="image">
-				<width>231</width>
-				<height>130</height>
-				<texture background="true">$VAR[art:Landscape]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="image">
-				<centerleft>115.5</centerleft>
-				<top>60</top>
-				<width>168</width>
-				<height>65</height>
-				<aspectratio align="center" aligny="bottom">keep</aspectratio>
-				<include>art_Logo</include>
-			</control>
-			<!--
-			<control type="group">
-				<left>189</left>
-				<bottom>17</bottom>
-				<width>42</width>
-				<height>42</height>
-				<include>status_Info</include>
-			</control>
-			-->
-		</control>	
-	</include>
-	<!--portrait layout commons-->
-	<include name="view_BigList-PortraitCommons">
-		<control type="image">
-			<width>104</width>
-			<height>144</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">
-				<width>90</width>
-				<height>130</height>
-				<texture background="true">thumbs/default_Portrait.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<left>21</left>
-				<top>41</top>
-				<width>48</width>
-				<height>48</height>
-				<include>art_DefaultIcon</include>
-			</control>
-			<control type="image">
-				<width>90</width>
-				<height>130</height>
-				<texture background="true">$VAR[art:Portrait]</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<!--
-			<control type="group">
-				<left>48</left>
-				<bottom>17</bottom>
-				<width>42</width>
-				<height>42</height>
-				<include>status_Info</include>
-			</control>
-			-->
-		</control>
-	</include>
+	
 
 <!--MUSIC PLAYLIST VIEW-->
 	<include name="view_Playlist-Commons">
