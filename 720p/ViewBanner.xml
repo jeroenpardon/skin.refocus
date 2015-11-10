@@ -1,43 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-<!--BANNERS SMALL GRID-->
-	<include name="view_Banner-LayoutCommons">
-		<control type="image">
-			<width>572</width>
-			<height>117</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">	
-				<width>558</width>
-				<height>103</height>
-				<texture background="true">thumbs/default_Banner.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
+
+	<include name="view_Banner-Frame">
+		<param name="Width" default="572"/>
+		<param name="Height" default="117"/>
+		<param name="State" default="frames/frame-nf.png"/>
+		<definition>
 			<control type="image">
-				<centerleft>279</centerleft>
-				<centertop>51.5</centertop>
-				<width>72</width>
-				<height>72</height>
-				<include>art_DefaultIcon</include>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture>$PARAM[State]</texture>
 			</control>
-			<control type="image">
-				<centerleft>279</centerleft>
-				<centertop>51.5</centertop>
-				<texture background="true">$VAR[art:Banner]</texture>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-			</control>
+		</definition>
+	</include>
+
+	<include name="view_Banner-Art">
+		<param name="Width" default="558"/>
+		<param name="Height" default="103"/>
+		<param name="Fallback" default="thumbs/default_Banner.png"/>
+		<param name="IconSize" default="72"/>
+		<param name="ShowLogo" default="false"/>
+		<definition>
 			<control type="group">
-				<right>7</right>
-				<bottom>13</bottom>
-				<width>42</width>
-				<height>42</height>
+				<left>7</left>
+				<top>7</top>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Fallback]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<width>$PARAM[IconSize]</width>
+					<height>$PARAM[IconSize]</height>
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$VAR[art:Banner]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Banner-Data">
+		<param name="TextColor" default="Color1"/>
+		<param name="Width" default="590"/>
+		<param name="Height" default="190"/>
+		<definition>
+			<control type="group">
+				<left>7</left>
+				<top>130</top>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<control type="label">
+					<width>470</width>
+					<label>$VAR[media:Title]</label>
+					<textcolor>$PARAM[TextColor]</textcolor>
+					<font>semibold_Big-U</font>
+					<textcolor>Color1</textcolor>
+					<selectedcolor>Selected</selectedcolor>
+				</control>
+				<control type="group">
+					<top>22</top>
+					<visible>!StringCompare(ListItem.Label,..)</visible>
+					<control type="label">
+						<width>440</width>
+						<label>$VAR[media:Info]</label>
+						<font>semibold_Small-U</font>
+						<textcolor>Color2</textcolor>
+						<selectedcolor>Selected</selectedcolor>
+						<visible>!SubString(Container.FolderPath,plugin://)</visible>
+					</control>
+					<control type="label">
+						<width>440</width>
+						<label>$VAR[media:Info.Addon]</label>
+						<font>semibold_Small-U</font>
+						<textcolor>Color2</textcolor>
+						<selectedcolor>Selected</selectedcolor>
+						<visible>SubString(Container.FolderPath,plugin://)</visible>
+					</control>
+					<control type="label">
+						<right>0</right>
+						<width>150</width>
+						<label>$INFO[ListItem.Studio]</label>
+						<align>right</align>
+						<font>semibold_Small-U</font>
+						<textcolor>Color2</textcolor>
+						<selectedcolor>Selected</selectedcolor>
+						<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Banner-Status">
+		<param name="Right" default="7"/>
+		<param name="Bottom" default="13"/>
+		<param name="Size" default="42"/>
+		<definition>
+			<control type="group">
+				<width>$PARAM[Size]</width>
+				<height>$PARAM[Size]</height>
+				<right>$PARAM[Right]</right>
+				<bottom>$PARAM[Bottom]</bottom>
 				<include>status_Info</include>
 			</control>
+		</definition>
+	</include>
+
+	<include name="view_Banner-Rating">
+		<control type="image">
+			<right>13</right>
+			<top>133</top>
+			<height>22</height>
+			<include>detail_StarRating</include>
+			<aspectratio align="right">keep</aspectratio>
+			<visible>!SubString(ListItem.Icon,default)</visible>
 		</control>
 	</include>
+
+
+<!--BANNERS SMALL GRID-->
 	<include name="view_Banner">
 		<control type="panel" id="54">
 			<viewtype label="31110">wide</viewtype> 	
@@ -58,15 +150,16 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
 			<itemlayout width="572" height="123">
-				<include>view_Banner-LayoutCommons</include>
+				<include>view_Banner-Frame</include>
+				<include>view_Banner-Art</include>
+				<include>view_Banner-Status</include>
 			</itemlayout>
 			<focusedlayout width="572" height="123">
-				<control type="image">
-					<width>572</width>
-					<height>117</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>view_Banner-LayoutCommons</include>
+				<include name="view_Banner-Frame">
+					<param name="State" value="frames/frame-fo.png" />
+				</include>
+				<include>view_Banner-Art</include>
+				<include>view_Banner-Status</include>
 			</focusedlayout>
 		</control>
 		<!--container info-->
@@ -125,89 +218,6 @@
 	</include>
 
 <!--BANNERS BIG GRID-->
-	<include name="view_BigBanner-LayoutCommons">
-		<control type="image">
-			<width>604</width>
-			<height>123</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">	
-				<width>590</width>
-				<height>109</height>
-				<texture background="true">thumbs/default_Banner.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<left>259</left>
-				<top>18.5</top>
-				<width>72</width>
-				<height>72</height>
-				<include>art_DefaultIcon</include>
-			</control>
-			<control type="image">
-				<width>590</width>
-				<height>109</height>
-				<texture background="true">$VAR[art:Banner]</texture>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-			</control>
-			<control type="group">
-				<right>23</right>
-				<top>67</top>
-				<width>42</width>
-				<height>42</height>
-				<include>status_Info</include>
-			</control>
-		</control>
-		<control type="image">
-			<right>14</right>
-			<top>133</top>
-			<height>22</height>
-			<include>detail_StarRating</include>
-			<aspectratio align="right">keep</aspectratio>
-			<visible>!SubString(ListItem.Icon,default)</visible>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>130</top>
-			<control type="label">
-				<width>470</width>
-				<label>$VAR[media:Title]</label>
-				<include>detail_Title</include>
-			</control>
-			<control type="group">
-				<top>22</top>
-				<control type="label">
-					<width>440</width>
-					<label>$VAR[media:Info]</label>
-					<include>detail_Sub</include>
-					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
-				</control>
-				<control type="label">
-					<width>590</width>
-					<label>$VAR[media:Info]</label>
-					<include>detail_Sub</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<width>440</width>
-					<label>$VAR[media:Info.Addon]</label>
-					<include>detail_Title</include>
-					<visible>SubString(Container.FolderPath,plugin://)</visible>
-				</control>
-				<control type="label">
-					<right>25</right>
-					<width>150</width>
-					<label>$INFO[ListItem.Studio]</label>
-					<align>right</align>
-					<include>detail_Sub</include>
-					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
-				</control>
-			</control>
-		</control>
-	</include>
 	<include name="view_BigBanner">
 		<control type="panel" id="541">
 			<viewtype label="31110">bigwide</viewtype>
@@ -228,15 +238,43 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
 			<itemlayout width="620" height="190">
-				<include>view_BigBanner-LayoutCommons</include>
+				<include name="view_Banner-Frame">
+					<param name="Width" value="604"/>
+					<param name="Height" value="123"/>
+				</include>
+				<include name="view_Banner-Art">
+					<param name="Width" value="590"/>
+					<param name="Height" value="109"/>
+				</include>
+				<include name="view_Banner-Status">
+					<param name="Right" value="23"/>
+					<param name="Bottom" value="74"/>
+				</include>
+				<include name="view_Banner-Data">
+					<param name="Right" value="23"/>
+					<param name="Bottom" value="74"/>
+				</include>
+				<include>view_Banner-Rating</include>
 			</itemlayout>
 			<focusedlayout width="620" height="190">
-				<control type="image">
-					<width>604</width>
-					<height>123</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>view_BigBanner-LayoutCommons</include>
+				<include name="view_Banner-Frame">
+					<param name="Width" value="604"/>
+					<param name="Height" value="123"/>
+					<param name="State" value="frames/frame-fo.png" />
+				</include>
+				<include name="view_Banner-Art">
+					<param name="Width" value="590"/>
+					<param name="Height" value="109"/>
+				</include>
+				<include name="view_Banner-Data">
+					<param name="Right" value="23"/>
+					<param name="Bottom" value="74"/>
+				</include>
+				<include name="view_Banner-Status">
+					<param name="Right" value="23"/>
+					<param name="Bottom" value="74"/>
+				</include>
+				<include>view_Banner-Rating</include>
 			</focusedlayout>
 		</control>
 	</include>
