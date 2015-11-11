@@ -105,94 +105,52 @@
 
 <!--BANNERS SMALL GRID-->
 	<include name="view_Banner">
-		<control type="panel" id="54">
-			<viewtype label="31110">wide</viewtype> 	
-			<left>35</left>
-			<top>90</top>
-			<width>572</width>
-			<height>615</height>
-			<onleft>6000</onleft>
-			<onright>70</onright>
-			<onup>54</onup>
-			<ondown>54</ondown>
-			<pagecontrol>70</pagecontrol>
-			<preloaditems>2</preloaditems>
-			<orientation>vertical</orientation>
-			<include>global_Scrolltime</include>
+		<control type="group">
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
-			<itemlayout width="572" height="123">
-				<include>view_Banner-Frame</include>
-				<include>view_Banner-Art</include>
-				<include name="status_Info">
-					<param name="Left" value="523"/>
-					<param name="Bottom" value="13"/>
-				</include>
-			</itemlayout>
-			<focusedlayout width="572" height="123">
-				<include name="view_Banner-Frame">
-					<param name="State" value="frames/frame-fo.png" />
-				</include>
-				<include>view_Banner-Art</include>
-				<include name="status_Info">
-					<param name="Left" value="523"/>
-					<param name="Bottom" value="13"/>
-				</include>
-			</focusedlayout>
-		</control>
-		<!--container info-->
-		<control type="group">
-			<left>645</left>
-			<top>85</top>
-			<include>toggle_Menu</include>
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-			<visible>Control.IsVisible(54) + [Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
-			<control type="grouplist">	
-				<itemgap>0</itemgap>
-				<control type="label" id="1">
-					<width>550</width>
-					<label>$VAR[media:Title]</label>
-					<include>detail_Title</include>
-				</control>
-				<control type="label">
-					<width>550</width>
-					<label>$VAR[media:Info]</label>
-					<include>detail_Sub</include>
-					<visible>Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<width>550</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
-					<include>detail_Sub</include>
-					<visible>Container.Content(tvshows)</visible>
-				</control>
-				<control type="label">
-					<width>550</width>
-					<label>$VAR[media:NextAired.Info]</label>
-					<include>detail_Sub</include>
-					<visible>Container.Content(tvshows) + !SubString(ListItem.Icon,default)</visible>
-				</control>
-				<control type="image">
-					<width>112</width>
-					<height>40</height>
-					<include>detail_StarRating</include>
-					<aspectratio align="left" aligny="center">keep</aspectratio>
-				</control>
-				<control type="textbox" id="4">
-					<width>550</width>
-					<height>355</height>
-					<label>$VAR[media:Plot]</label>
-					<include>detail_Text</include>
-				</control>
+			<control type="panel" id="54">
+				<viewtype label="31110">wide</viewtype> 	
+				<left>35</left>
+				<top>90</top>
+				<width>572</width>
+				<height>615</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>54</onup>
+				<ondown>54</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<include>global_Scrolltime</include>
+				<itemlayout width="572" height="123">
+					<include>view_Banner-Frame</include>
+					<include>view_Banner-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="523"/>
+						<param name="Bottom" value="13"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="572" height="123">
+					<include name="view_Banner-Frame">
+						<param name="State" value="frames/frame-fo.png" />
+					</include>
+					<include>view_Banner-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="523"/>
+						<param name="Bottom" value="13"/>
+					</include>
+				</focusedlayout>
 			</control>
-			<control type="image">
-				<bottom>40</bottom>
-				<aspectratio align="left">keep</aspectratio>
-				<include>flag_Studio</include>
+			<control type="group">
 				<visible>Control.IsVisible(54)</visible>
+				<include name="detail_Info">
+					<param name="Left" value="640"/>
+					<param name="Top" value="90"/>
+					<param name="Width" value="590"/>
+					<param name="StudioBottom" value="25"/>
+				</include>
 			</control>
 		</control>
 	</include>

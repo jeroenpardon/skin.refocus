@@ -198,6 +198,8 @@
 		<height>32</height>
 		<font>light_Header</font>
 	</include>
+
+
 	<include name="detail_Title">
 		<height>28</height>
 		<aligny>center</aligny>
@@ -227,13 +229,129 @@
 		<visible>!SubString(Container.FolderPath,pvr://recordings/)</visible>
 	</include>
 
+	<include name="detail_Info">
+		<param name="Left" default="770"/>
+		<param name="Top" default="100"/>
+		<param name="Width"/>
+		<param name="ShowPlot" default="true"/>
+		<param name="PlotHeight" default="450"/>
+		<param name="ShowStudio" default="true"/>
+		<param name="StudioBottom" default="60"/>
+		<param name="ShowFlags" default="false"/>
+		<param name="FlagsBottom" default="30"/>
+		<definition>
+			<control type="group">
+				<left>$PARAM[Left]</left>
+				<top>$PARAM[Top]</top>
+				<control type="grouplist" id="1000">
+					<itemgap>0</itemgap>
+					<control type="label">
+						<width>$PARAM[Width]</width>
+						<height>24</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>semibold_Big-U</font>
+						<textcolor>Color1</textcolor>
+						<aligny>top</aligny>
+					</control>
+					<control type="textbox">
+						<width>$PARAM[Width]</width>
+						<height min="34">auto</height>
+						<label>$VAR[media:Info]</label>
+						<font>semibold_Small-U</font>
+						<textcolor>Color2</textcolor>
+						<aligny>top</aligny>
+						<visible>!SubString(Container.FolderPath,plugin) + !StringCompare(ListItem.Label,..)</visible>
+					</control>
+					<control type="textbox">
+						<width>$PARAM[Width]</width>
+						<height min="34">auto</height>
+						<label>$VAR[media:Info.Addon]</label>
+						<font>semibold_Small-U</font>
+						<textcolor>Color2</textcolor>
+						<visible>SubString(Container.FolderPath,plugin) + !StringCompare(ListItem.Label,..)</visible>
+					</control>
+					<control type="textbox" id="4">
+						<width>$PARAM[Width]</width>
+						<height>$PARAM[PlotHeight]</height>
+						<label>$VAR[media:Plot]</label>
+						<include>detail_Text</include>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<visible>$PARAM[ShowPlot]</visible>
+					</control>
+				</control>
+				<control type="image">
+					<bottom>$PARAM[StudioBottom]</bottom>
+					<aspectratio align="left">keep</aspectratio>
+					<include>flag_Studio</include>
+					<visible>$PARAM[ShowStudio]</visible>
+				</control>
+
+				<!--media flags-->
+				<control type="grouplist">
+					<bottom>$PARAM[FlagsBottom]</bottom>
+					<width>$PARAM[Width]</width>
+					<height>30</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<visible>$PARAM[ShowFlags]</visible>
+					<visible>!StringCompare(ListItem.Label,..) + !ListItem.IsFolder + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(files)]</visible>
+					<control type="image">
+						<width>30</width>
+						<height>30</height> 
+						<texture>DefaultMovies.png</texture>
+						<colordiffuse>Color1</colordiffuse>
+						<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<width min="50" max="200">auto</width>
+						<height>30</height>
+						<label>$INFO[ListItem.VideoCodec,, &#8226; ]$INFO[ListItem.VideoResolution,,P]</label>
+						<textcolor>Color1</textcolor>
+						<include>detail_Sub</include>
+					</control>
+					<control type="image">
+						<width>30</width>
+						<height>30</height> 
+						<texture>DefaultAudio.png</texture>
+						<colordiffuse>Color1</colordiffuse>
+						<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<width min="50" max="200">auto</width>
+						<height>30</height>
+						<label>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</label>
+						<textcolor>Color1</textcolor>
+						<include>detail_Sub</include>
+					</control>
+					<control type="image">
+						<width>30</width>
+						<height>30</height> 
+						<texture>DefaultIconSubtitles.png</texture>
+						<colordiffuse>Color1</colordiffuse>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+					</control>
+					<control type="label">
+						<width min="50" max="200">auto</width>
+						<height>30</height>
+						<label>$INFO[ListItem.SubtitleLanguage]</label>
+						<textcolor>Color1</textcolor>
+						<include>detail_Sub</include>
+						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!--
 	<include name="detail_Flags">
 		<control type="grouplist">
 			<width>900</width>
 			<height>30</height>
 			<itemgap>10</itemgap>
 			<orientation>horizontal</orientation>
-			<visible>!SubString(ListItem.Icon,Default) + !ListItem.IsFolder</visible>
+			<visible>!SubString(ListItem.Icon,Default) + !ListItem.IsFolder + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(files)]</visible>
 			<control type="image">
 				<width>30</width>
 				<height>30</height> 
@@ -280,6 +398,7 @@
 			</control>
 		</control>
 	</include>
+-->
 
 	<include name="flag_Studio">
 		<width>96</width>

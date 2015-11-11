@@ -93,14 +93,20 @@
 							<width>975</width>
 							<height min="25" max="50">auto</height>
 							<label>$VAR[media:Info]</label>
+							<font>semibold_Small-U</font>
+							<textcolor>Color2</textcolor>
+							<selectedcolor>Selected</selectedcolor>
 							<aligny>top</aligny>
-							<include>detail_Sub</include>
-							<visible>[Container.Content(movies) | Container.Content(tvshows)] + !SubString(ListItem.Icon,Default)</visible>
+							<visible>[Container.Content(movies) | Container.Content(tvshows)] + !StringCompare(ListItem.Label,..)</visible>
 						</control>
 						<control type="label">
 							<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
 							<width>975</width>
-							<include>detail_Sub</include>
+							<height>25</height>
+							<font>semibold_Small-U</font>
+							<textcolor>Color2</textcolor>
+							<selectedcolor>Selected</selectedcolor>
+							<aligny>top</aligny>
 							<visible>Window.IsActive(Pictures)</visible>
 						</control>
 					</control>
@@ -121,13 +127,21 @@
 					<control type="label">
 						<label>$INFO[ListItem.Label]</label>
 						<width>750</width>
-						<include>detail_Title</include>
+						<height>28</height>
+						<aligny>center</aligny>
+						<font>semibold_Big-U</font>
+						<textcolor>Color1</textcolor>
+						<selectedcolor>Selected</selectedcolor>
 					</control>
 					<control type="label">
 						<left>772</left>
 						<label>$INFO[Container(53).ListItem(1).Label]</label>
 						<width>750</width>
-						<include>detail_Title</include>
+						<height>28</height>
+						<aligny>center</aligny>
+						<font>semibold_Big-U</font>
+						<textcolor>Color1</textcolor>
+						<selectedcolor>Selected</selectedcolor>
 						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
 					</control>
 				</control>

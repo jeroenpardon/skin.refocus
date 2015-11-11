@@ -89,172 +89,169 @@
 
 <!--POSTER--> 
 	<include name="view_IconPortrait">
-		<control type="panel" id="57">
-			<viewtype label="31113">bigicon</viewtype>	
-			<left>55</left>
-			<top>90</top>
-			<width>1164</width>
-			<height>554</height>
-			<onleft>6000</onleft>
-			<onright>70</onright>
-			<onup>57</onup>
-			<ondown>57</ondown>
-			<pagecontrol>70</pagecontrol>
-			<preloaditems>2</preloaditems>
-			<orientation>vertical</orientation>
-			<include>global_ListScroll</include>
+		<control type="group">
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)</visible>
-			<itemlayout width="194" height="277">
-				<include>view_Icon-Frame</include>
-				<include>view_Icon-Art</include>
-				<include name="status_Info">
-					<param name="Left" value="135"/>
-					<param name="Bottom" value="18"/>
+			<control type="panel" id="57">
+				<viewtype label="31113">bigicon</viewtype>	
+				<left>55</left>
+				<top>90</top>
+				<width>1164</width>
+				<height>554</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>57</onup>
+				<ondown>57</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<include>global_ListScroll</include>
+				<itemlayout width="194" height="277">
+					<include>view_Icon-Frame</include>
+					<include>view_Icon-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="135"/>
+						<param name="Bottom" value="18"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="194" height="277">
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-fo.png" />
+					</include>
+					<include>view_Icon-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="135"/>
+						<param name="Bottom" value="18"/>
+					</include>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(57)</visible>
+				<include name="detail_Info">
+					<param name="Left" value="60"/>
+					<param name="Top" value="645"/>
+					<param name="Width" value="645"/>
+					<param name="ShowPlot" value="false"/>
+					<param name="ShowStudio" value="false"/>
 				</include>
-			</itemlayout>
-			<focusedlayout width="194" height="277">
-				<include name="view_Icon-Frame">
-					<param name="State" value="frames/frame-fo.png" />
-				</include>
-				<include>view_Icon-Art</include>
-				<include name="status_Info">
-					<param name="Left" value="135"/>
-					<param name="Bottom" value="18"/>
-				</include>
-			</focusedlayout>
+			</control>
 		</control>
 	</include>
 	
 <!--POSTERSMALL-->
 	<include name="view_IconPortraitSmall">
-		<control type="panel" id="571">
-			<viewtype label="31113">icon</viewtype>	
-			<left>55</left>
-			<top>100</top>
-			<width>695</width>
-			<height>582</height>
-			<onleft>6000</onleft>
-			<onright>70</onright>
-			<onup>571</onup>
-			<ondown>571</ondown>
-			<pagecontrol>70</pagecontrol>
-			<preloaditems>4</preloaditems>
-			<orientation>vertical</orientation>
-			<include>global_ListScroll</include>
+		<control type="group">
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-			<itemlayout width="139" height="194">
-				<include name="view_Icon-Frame">
-					<param name="Width" value="129"/>
-					<param name="Height" value="184"/>
+			<control type="panel" id="571">
+				<viewtype label="31113">icon</viewtype>	
+				<left>55</left>
+				<top>100</top>
+				<width>695</width>
+				<height>582</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>571</onup>
+				<ondown>571</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<orientation>vertical</orientation>
+				<include>global_ListScroll</include>
+				<itemlayout width="139" height="194">
+					<include name="view_Icon-Frame">
+						<param name="Width" value="129"/>
+						<param name="Height" value="184"/>
+					</include>
+					<include name="view_Icon-Art">
+						<param name="Width" value="115"/>
+						<param name="Height" value="170"/>
+					</include>
+					<include name="status_Info">
+						<param name="Left" value="80"/>
+						<param name="Bottom" value="17"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="139" height="194">
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-fo.png"/>
+						<param name="Width" value="129"/>
+						<param name="Height" value="184"/>
+					</include>
+					<include name="view_Icon-Art">
+						<param name="Width" value="115"/>
+						<param name="Height" value="170"/>
+					</include>
+					<include name="status_Info">
+						<param name="Left" value="80"/>
+						<param name="Bottom" value="17"/>
+					</include>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(571)</visible>
+				<include name="detail_Info">
+					<param  name="Width" value="470"/>
 				</include>
-				<include name="view_Icon-Art">
-					<param name="Width" value="115"/>
-					<param name="Height" value="170"/>
-				</include>
-				<include name="status_Info">
-					<param name="Left" value="80"/>
-					<param name="Bottom" value="17"/>
-				</include>
-			</itemlayout>
-			<focusedlayout width="139" height="194">
-				<include name="view_Icon-Frame">
-					<param name="State" value="frames/frame-fo.png"/>
-					<param name="Width" value="129"/>
-					<param name="Height" value="184"/>
-				</include>
-				<include name="view_Icon-Art">
-					<param name="Width" value="115"/>
-					<param name="Height" value="170"/>
-				</include>
-				<include name="status_Info">
-					<param name="Left" value="80"/>
-					<param name="Bottom" value="17"/>
-				</include>
-			</focusedlayout>
+			</control>
 		</control>
 	</include>
 
 <!--SQUARE-->
 	<include name="view_IconSquare">
 		<control type="group">
-			<left>87</left>
-			<top>652</top>
-			<include>toggle_Menu</include>
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-			<visible>Control.IsVisible(572)</visible>
-			<control type="label">
-				<label>$VAR[media:Title]</label>
-				<width>1000</width>
-				<include>detail_Title</include>
-			</control>
-			<control type="label">
-				<top>25</top>
-				<label>$VAR[media:Info]</label>
-				<width>1100</width>
-				<include>detail_Sub</include>
-			</control>
-			<control type="label">
-				<left>1085</left>
-				<top>25</top>
-				<width>300</width>
-				<label>$INFO[ListItem.Duration]</label>
-				<align>right</align>
-				<include>detail_Sub</include>
-			</control>
-			<control type="image">
-				<top>4</top>
-				<right>87</right>
-				<width>128</width>
-				<height>22</height>
-				<aspectratio align="right" aligny="top">keep</aspectratio>
-				<include>detail_StarRating</include>
-			</control>
-		</control>
-		<control type="panel" id="572">
-			<viewtype label="31113">icons</viewtype>
-			<left>80</left>
-			<top>90</top>
-			<width>1128</width>
-			<height>564</height>
-			<onleft>6000</onleft>
-			<onright>70</onright>
-			<onup>572</onup>
-			<ondown>572</ondown>
-			<pagecontrol>70</pagecontrol>
-			<preloaditems>2</preloaditems>
-			<include>global_ListScroll</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Window.IsActive(programs) + Container.HasFiles] | [Container.Content(files) + !Container.HasFiles] | [Window.IsActive(MusicFiles) + !Container.HasFiles] | Window.IsActive(radiorecordings)</visible>
-			<itemlayout width="188" height="188">
-				<include name="view_Icon-Frame">
-					<param name="Width" value="178"/>
-					<param name="Height" value="178"/>
+			<control type="panel" id="572">
+				<viewtype label="31113">icons</viewtype>
+				<left>80</left>
+				<top>90</top>
+				<width>1128</width>
+				<height>564</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>572</onup>
+				<ondown>572</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<include>global_ListScroll</include>
+				<itemlayout width="188" height="188">
+					<include name="view_Icon-Frame">
+						<param name="Width" value="178"/>
+						<param name="Height" value="178"/>
+					</include>
+					<include name="view_Icon-Art">
+						<param name="Width" value="164"/>
+						<param name="Height" value="164"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="188" height="188">
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-fo.png"/>
+						<param name="Width" value="178"/>
+						<param name="Height" value="178"/>
+					</include>
+					<include name="view_Icon-Art">
+						<param name="Width" value="164"/>
+						<param name="Height" value="164"/>
+					</include>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(572)</visible>
+				<include name="detail_Info">
+					<param name="Left" value="87"/>
+					<param name="Top" value="655"/>
+					<param name="Width" value="645"/>
+					<param name="ShowPlot" value="false"/>
+					<param name="ShowStudio" value="false"/>
 				</include>
-				<include name="view_Icon-Art">
-					<param name="Width" value="164"/>
-					<param name="Height" value="164"/>
-				</include>
-			</itemlayout>
-			<focusedlayout width="188" height="188">
-				<include name="view_Icon-Frame">
-					<param name="State" value="frames/frame-fo.png"/>
-					<param name="Width" value="178"/>
-					<param name="Height" value="178"/>
-				</include>
-				<include name="view_Icon-Art">
-					<param name="Width" value="164"/>
-					<param name="Height" value="164"/>
-				</include>
-			</focusedlayout>
+			</control>
 		</control>
 	</include>
 
@@ -264,30 +261,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			<visible>Control.IsVisible(574)</visible>
-			<!--info-->
-			<control type="grouplist" id="1000">
-				<left>790</left>
-				<top>103</top>
-				<itemgap>0</itemgap>
-				<control type="label" id="1">
-					<width>440</width>
-					<label>$INFO[ListItem.Label]</label>
-					<include>detail_Title</include>
-				</control>
-				<control type="label">
-					<width>440</width>
-					<label>$VAR[media:Info]</label>
-					<include>detail_Sub</include>
-				</control>
-				<control type="textbox" id="4">
-					<width>440</width>
-					<height>405</height>
-					<label>$VAR[media:Plot]</label>
-					<textcolor>Color1</textcolor>
-					<include>detail_Text</include>
-				</control>
-			</control>
+			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(pictures)</visible>
 			<!--container-->
 			<control type="panel" id="574">
 				<viewtype label="31113">bigicon</viewtype>
@@ -302,7 +276,6 @@
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<include>global_ListScroll</include>
-				<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(pictures)</visible>
 				<itemlayout width="184" height="184">
 					<include name="view_Icon-Frame">
 						<param name="Width" value="174"/>
@@ -324,6 +297,14 @@
 						<param name="Height" value="160"/>
 					</include>
 				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(574)</visible>
+				<include name="detail_Info">
+					<param name="Left" value="790"/>
+					<param name="Top" value="110"/>
+					<param name="Width" value="440"/>
+				</include>
 			</control>
 		</control>
 	</include>
@@ -382,80 +363,6 @@
 				</include>
 				<include>view_Icon-Data</include>
 			</focusedlayout>
-		</control>
-	</include>
-
-	<include name="detail_Thumbnails">
-		<control type="group">
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<!--large grid-->
-			<control type="group">
-				<visible>Control.IsVisible(57)</visible>
-				<control type="image">
-					<right>80</right>
-					<bottom>23</bottom>
-					<include>flag_Studio</include>
-				</control>
-				<control type="group">
-					<left>60</left>
-					<bottom>20</bottom>
-					<height>53</height>
-					<control type="label">
-						<label>$VAR[media:Title]</label>
-						<width>1028</width>
-						<include>detail_Title</include>
-					</control>
-					<control type="label">
-						<top>25</top>
-						<label>$VAR[media:Info]</label>
-						<width>1028</width>
-						<include>detail_Sub</include>
-						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
-					</control>
-					<control type="label">
-						<top>25</top>
-						<label>$VAR[media:Info.Addon]</label>
-						<width>1028</width>
-						<include>detail_Sub</include>
-						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
-					</control>
-				</control>
-			</control>
-			<!--small grid-->
-			<control type="group">
-				<left>770</left>
-				<top>93</top>
-				<visible>Control.IsVisible(571) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
-				<control type="grouplist" id="1000">
-					<itemgap>0</itemgap>
-					<control type="label">
-						<width>460</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>detail_Title</include>
-					</control>
-					<control type="textbox">
-						<width>460</width>
-						<height min="25" max="50">auto</height>
-						<label>$VAR[media:Info]</label>
-						<aligny>top</aligny>
-						<include>detail_Sub</include>
-					</control>
-					<control type="textbox" id="4">
-						<width>460</width>
-						<height>430</height>
-						<label>$VAR[media:Plot]</label>
-						<include>detail_Text</include>
-						<visible>!SubString(ListItem.Icon,default)</visible>
-					</control>
-				</control>
-				<control type="image">
-					<bottom>60</bottom>
-					<aspectratio align="left">keep</aspectratio>
-					<include>flag_Studio</include>
-				</control>
-			</control>
 		</control>
 	</include>
 

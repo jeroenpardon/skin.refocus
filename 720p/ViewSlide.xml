@@ -57,47 +57,56 @@
 		</definition>
 	</include>
 
-
 <!--PORTRAIT-->
 	<include name="view_SlidePoster">
-		<control type="fixedlist" id="52">
-			<viewtype label="31112">wrap</viewtype>
-			<left>8</left>
-			<top>105</top>
-			<width>1272</width>
-			<height>425</height>
-			<onup>6000</onup>
-			<ondown>71</ondown>
-			<onleft>52</onleft>
-			<onright>52</onright>
-			<focusposition>1</focusposition>
-			<pagecontrol>71</pagecontrol>
-			<orientation>horizontal</orientation>
-			<include>global_Scrolltime</include>
+		<control type="group">
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-			<itemlayout width="200" height="300">
-				<include>view_Slide-Frame</include>
-				<include>view_Slide-Art</include>
-				<include name="status_Info">
-					<param name="Right" value="8"/>
-					<param name="Bottom" value="11"/>
-				</include>
-				<include>focus_SlidePoster</include>
-			</itemlayout>
-			<focusedlayout width="200" height="300">
-				<control type="group">
+			<control type="fixedlist" id="52">
+				<viewtype label="31112">wrap</viewtype>
+				<left>8</left>
+				<top>105</top>
+				<width>1272</width>
+				<height>425</height>
+				<onup>6000</onup>
+				<ondown>71</ondown>
+				<onleft>52</onleft>
+				<onright>52</onright>
+				<focusposition>1</focusposition>
+				<pagecontrol>71</pagecontrol>
+				<orientation>horizontal</orientation>
+				<include>global_Scrolltime</include>
+				<itemlayout width="200" height="300">
 					<include>view_Slide-Frame</include>
 					<include>view_Slide-Art</include>
 					<include name="status_Info">
-						<param name="Right" value="8"/>
+						<param name="Left" value="150"/>
 						<param name="Bottom" value="11"/>
 					</include>
 					<include>focus_SlidePoster</include>
-				</control>
-			</focusedlayout>
+				</itemlayout>
+				<focusedlayout width="200" height="300">
+					<control type="group">
+						<include>view_Slide-Frame</include>
+						<include>view_Slide-Art</include>
+						<include name="status_Info">
+							<param name="Left" value="150"/>
+							<param name="Bottom" value="11"/>
+						</include>
+						<include>focus_SlidePoster</include>
+					</control>
+				</focusedlayout>
+			</control>
+			<include name="detail_Info">
+				<param name="Left" value="192"/>
+				<param name="Top" value="477"/>
+				<param name="Width" value="1050"/>
+				<param name="ShowStudio" value="false"/>
+				<param name="ShowFlags" value="true"/>
+				<param name="PlotHeight" value="110"/>
+			</include>
 		</control>
 	</include>
 
@@ -134,7 +143,7 @@
 					<param name="ShowLogo" default="true"/>
 				</include>
 				<include name="status_Info">
-					<param name="Right" value="11"/>
+					<param name="Left" value="392"/>
 					<param name="Bottom" value="11"/>
 				</include>
 			</itemlayout>
@@ -154,7 +163,7 @@
 						<param name="ShowLogo" default="true"/>
 					</include>
 					<include name="status_Info">
-						<param name="Right" value="11"/>
+						<param name="Left" value="392"/>
 						<param name="Bottom" value="10"/>
 					</include>
 				</control>
@@ -212,7 +221,7 @@
 		</control>
 	</include>
 
-	<include name="detail_Slide">
+	<include name="1detail_Slide">
 		<control type="group">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
