@@ -245,6 +245,7 @@
 			<control type="group">
 				<left>680</left>
 				<top>80</top>
+				<visible>Control.IsVisible(50)</visible>
 				<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | [Container.Content(artists) + Skin.HasSetting(view.list.artistfanart)]</visible>
 				<include name="view_List-Frame">
 					<param name="Width" value="546"/>
@@ -262,6 +263,7 @@
 			<control type="group">
 				<left>750</left>
 				<top>80</top>
+				<visible>Control.IsVisible(50)</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<include name="view_List-Frame">
 					<param name="Width" value="420"/>
@@ -275,6 +277,8 @@
 				<control type="group">
 					<left>700</left>
 					<top>80</top>
+					<visible>Control.IsVisible(50)</visible>
+					<visible>!SubString(Container.FolderPath,plugin://plugin)</visible>
 					<visible>[[Container.Content(musicvideos) | Container.Content(files)] + Container.HasFiles] | [Container.Content(artists) + !Skin.HasSetting(view.list.artistfanart)] | Container.Content(albums) | Container.Content(songs)</visible>
 					<include name="detail_ListInfo">
 						<param name="Width" value="510"/>
@@ -283,6 +287,25 @@
 						<param name="BorderTexture" value="frames/frame-nf.png"/>
 						<param name="Aspect" value="keep"/>
 						<param name="ShowFrame" value="false"/>
+					</include>
+				</control>
+			</control>
+			<!--info-->
+			<control type="group">
+				<control type="group">
+					<left>700</left>
+					<top>80</top>
+					<visible>Control.IsVisible(50)</visible>
+					<visible>[[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin) | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
+					<include name="detail_ListInfo">
+						<param name="Width" value="510"/>
+						<param name="Height" value="256"/>
+						<param name="BorderSize" value="7"/>
+						<param name="BorderTexture" value="frames/frame-nf.png"/>
+						<param name="Aspect" value="keep"/>
+						<param name="ShowFrame" value="false"/>
+						<param name="ShowPlot" value="true"/>
+						<param name="PlotTop" value="270"/>
 					</include>
 				</control>
 			</control>
@@ -302,6 +325,7 @@
 		<param name="BorderTexture"/>
 		<param name="Aspect" default="scale"/>
 		<param name="ShowFrame" default="true"/>
+		<param name="PlotTop" default="315"/>
 		<definition>
 			<control type="group">
 				<left>7</left>
@@ -346,7 +370,7 @@
 					<visible>$PARAM[ShowLogo]</visible>
 				</control>
 				<control type="textbox">
-					<top>315</top>
+					<top>$PARAM[PlotTop]</top>
 					<width>532</width>
 					<height max="275">auto</height>
 					<label>$VAR[media:Plot]</label>
