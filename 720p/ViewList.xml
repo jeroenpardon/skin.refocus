@@ -490,9 +490,9 @@
 						<param name="TextLeft" value="260"/>
 						<param name="TextWidth" value="920"/>
 					</include>
-					<include name="status_List">
-						<param name="StatusRight">10</param>
-						<param name="StatusTop">19</param>
+					<include name="status_Info">
+						<param name="Left" value="196"/>
+						<param name="Bottom" value="17"/>
 					</include>
 				</itemlayout>
 				<focusedlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
@@ -503,9 +503,9 @@
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
 					</include>
-					<include name="status_List">
-						<param name="StatusRight">10</param>
-						<param name="StatusTop">19</param>
+					<include name="status_Info">
+						<param name="Left" value="196"/>
+						<param name="Bottom" value="17"/>
 					</include>
 				</focusedlayout>
 				<!--portrait layout-->
@@ -521,9 +521,10 @@
 						<param name="TextLeft" value="126"/>
 						<param name="TextWidth" value="1050"/>
 					</include>
-					<include name="status_List">
-						<param name="StatusRight">20</param>
-						<param name="StatusTop">15</param>
+					<include name="status_Info">
+						<param name="Left" value="65"/>
+						<param name="Bottom" value="17"/>
+						<param name="Size" value="32"/>
 					</include>
 				</itemlayout>
 				<focusedlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
@@ -540,10 +541,11 @@
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
 					</include>
-					<include name="status_List">
-						<param name="StatusRight">20</param>
-						<param name="StatusTop">15</param>
-					</include>			
+					<include name="status_Info">
+						<param name="Left" value="65"/>
+						<param name="Bottom" value="17"/>
+						<param name="Size" value="32"/>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>

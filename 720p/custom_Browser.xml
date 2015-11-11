@@ -40,7 +40,6 @@
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<visible>!Window.IsActive(busydialog)</visible>
-
 			<control type="panel" id="50">
 				<viewtype label="31113">bigicon</viewtype>	
 				<left>55</left>
@@ -56,39 +55,15 @@
 				<orientation>vertical</orientation>
 				<include>global_ListScroll</include>
 				<visible>StringCompare(Window(Home).Property(extType),poster)</visible>
-
 				<itemlayout width="194" height="277">
-					<include name="IconLayoutCommons">
-						<param name="FrameState" value="frames/frame-nf.png" />
-						<param name="FrameWidth" value="178"/>
-						<param name="FrameHeight" value="178"/>
-						<param name="ArtWidth" value="164"/>
-						<param name="ArtHeight" value="164"/>
-						<param name="IconSize" value="72"/>
-					</include>
+					<include>view_Icon-Frame</include>
+					<include>view_Icon-Art</include>
 				</itemlayout>
 				<focusedlayout width="194" height="277">
-					<include name="IconLayoutCommons">
-						<param name="FrameState" value="frames/frame-fo.png" />
-						<param name="FrameWidth" value="178"/>
-						<param name="FrameHeight" value="178"/>
-						<param name="ArtWidth" value="164"/>
-						<param name="ArtHeight" value="164"/>
-						<param name="IconSize" value="72"/>
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-fo.png" />
 					</include>
-				</focusedlayout>
-
-
-				<itemlayout width="194" height="277">
-					<include>viewIconPortrait-LayoutCommons</include>
-				</itemlayout>											
-				<focusedlayout width="194" height="277">
-					<control type="image">
-						<width>184</width>
-						<height>266</height>
-						<include>art_Frame-fo</include>
-					</control>
-					<include>viewIconPortrait-LayoutCommons</include>
+					<include>view_Icon-Art</include>
 				</focusedlayout>
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Poster]</content>
 			</control>
@@ -133,23 +108,24 @@
 				<include>global_ListScroll</include>
 				<visible>StringCompare(Window(Home).Property(extType),square)</visible>
 				<itemlayout width="188" height="188">
-					<include name="IconLayoutCommons">
-						<param name="FrameState" value="frames/frame-nf.png" />
-						<param name="FrameWidth" value="178"/>
-						<param name="FrameHeight" value="178"/>
-						<param name="ArtWidth" value="164"/>
-						<param name="ArtHeight" value="164"/>
-						<param name="IconSize" value="72"/>
+					<include name="view_Icon-Frame">
+						<param name="Width" value="178"/>
+						<param name="Height" value="178"/>
+					</include>
+					<include name="view_Icon-Art">
+						<param name="Width" value="164"/>
+						<param name="Height" value="164"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="188" height="188">
-					<include name="IconLayoutCommons">
-						<param name="FrameState" value="frames/frame-fo.png" />
-						<param name="FrameWidth" value="178"/>
-						<param name="FrameHeight" value="178"/>
-						<param name="ArtWidth" value="164"/>
-						<param name="ArtHeight" value="164"/>
-						<param name="IconSize" value="72"/>
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-fo.png"/>
+						<param name="Width" value="178"/>
+						<param name="Height" value="178"/>
+					</include>
+					<include name="view_Icon-Art">
+						<param name="Width" value="164"/>
+						<param name="Height" value="164"/>
 					</include>
 				</focusedlayout>
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Square]</content>
@@ -193,48 +169,35 @@
 				<include>global_ListScroll</include>
 				<visible>StringCompare(Window(Home).Property(extType),thumbnail)</visible>
 				<itemlayout width="404" height="286">
-					<include name="IconLayoutCommons">
-						<param name="FrameState" value="frames/frame-nf.png" />
-						<param name="FrameWidth" value="394" />
-						<param name="FrameHeight" value="219" />
-						<param name="ArtWidth" value="380" />
-						<param name="ArtHeight" value="205" />
-						<param name="IconSize" value="96" />
-						<param name="StatusSize" value="28" />
+					<include name="view_Icon-Frame">
+						<param name="Width" value="394"/>
+						<param name="Height" value="219"/>
 					</include>
-					<control type="textbox">
-						<left>7</left>
-						<top>225</top>
-						<width>380</width>
-						<height min="25" max="50">auto</height>
-						<label>$INFO[ListItem.Label]</label>
-						<aligny>top</aligny>
-						<wrapmultiline>true</wrapmultiline>
-						<font>condensed</font>
-						<textcolor>Color1</textcolor>
-					</control>
+					<include name="view_Icon-Art">
+						<param name="Width" value="380"/>
+						<param name="Height" value="205"/>
+						<param name="Fallback" value="thumbs/default_Landscape.png"/>
+						<param name="ShowLogo" default="true"/>
+					</include>
+					<include name="view_Icon-Data">
+						<param name="Font" value="Condensed"/>
+					</include>
 				</itemlayout>
 				<focusedlayout width="404" height="286">
-					<include name="IconLayoutCommons">
-						<param name="FrameState" value="frames/frame-fo.png" />
-						<param name="FrameWidth" value="394" />
-						<param name="FrameHeight" value="219" />
-						<param name="ArtWidth" value="380" />
-						<param name="ArtHeight" value="205" />
-						<param name="IconSize" value="96" />
-						<param name="StatusSize" value="28" />
+					<include name="view_Icon-Frame">
+						<param name="Width" value="394"/>
+						<param name="Height" value="219"/>
+						<param name="State" value="frames/frame-fo.png"/>
 					</include>
-					<control type="textbox">
-						<left>7</left>
-						<top>225</top>
-						<width>380</width>
-						<height min="25" max="50">auto</height>
-						<label>$INFO[ListItem.Label]</label>
-						<aligny>top</aligny>
-						<wrapmultiline>true</wrapmultiline>
-						<font>condensed</font>
-						<textcolor>Color1</textcolor>
-					</control>
+					<include name="view_Icon-Art">
+						<param name="Width" value="380"/>
+						<param name="Height" value="205"/>
+						<param name="Fallback" value="thumbs/default_Landscape.png"/>
+						<param name="ShowLogo" default="true"/>
+					</include>
+					<include name="view_Icon-Data">
+						<param name="Font" value="Condensed"/>
+					</include>
 				</focusedlayout>
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Thumbnail]</content>
 			</control>

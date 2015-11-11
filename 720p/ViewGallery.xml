@@ -20,7 +20,7 @@
 		<param name="Width" default="750"/>
 		<param name="Height" default="422"/>
 		<param name="Fallback" default="thumbs/default_Landscape.png"/>
-		<param name="IconSize" default="72"/>
+		<param name="Size" default="72"/>
 		<param name="ShowLogo" default="false"/>
 		<definition>
 			<control type="group">
@@ -36,8 +36,8 @@
 				</control>
 				<control type="image">
 					<texture>$INFO[ListItem.ActualIcon]</texture>
-					<width>$PARAM[IconSize]</width>
-					<height>$PARAM[IconSize]</height>
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
 					<centerleft>50%</centerleft>
 					<centertop>50%</centertop>
 					<visible>IsEmpty(ListItem.Thumb)</visible>
@@ -56,21 +56,6 @@
 					<include>art_Logo</include>
 					<visible>$PARAM[ShowLogo]</visible>
 				</control>
-			</control>
-		</definition>
-	</include>
-
-	<include name="view_Gallery-Status">
-		<param name="Right" default="10"/>
-		<param name="Bottom" default="10"/>
-		<param name="Size" default="42"/>
-		<definition>
-			<control type="group">
-				<width>$PARAM[Size]</width>
-				<height>$PARAM[Size]</height>
-				<right>$PARAM[Right]</right>
-				<bottom>$PARAM[Bottom]</bottom>
-				<include>status_Info</include>
 			</control>
 		</definition>
 	</include>
@@ -173,7 +158,10 @@
 						<param name="Fallback" value="thumbs/default_Landscape.png"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
-					<include>view_Gallery-Status</include>
+					<include name="status_Info">
+							<param name="Left" value="718"/>
+							<param name="Bottom" value="10"/>
+						</include>
 				</itemlayout>
 				<focusedlayout width="770" height="442">
 					<include name="view_Gallery-Frame">
@@ -185,7 +173,10 @@
 						<include name="view_Gallery-Art">
 							<param name="ShowLogo" default="true"/>
 						</include>
-						<include>view_Gallery-Status</include>
+						<include name="status_Info">
+							<param name="Left" value="718"/>
+							<param name="Bottom" value="10"/>
+						</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -206,7 +197,7 @@
 	</include>
 
 <!--fullscreen layout-->
-	<include name="view_GalleryFull">																													
+	<include name="view_GalleryFull">
 		<control type="wraplist" id="531">
 			<viewtype label="31111">biginfo</viewtype>
 			<include>screen_Dimensions</include>

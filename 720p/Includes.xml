@@ -557,14 +557,25 @@
 	</include>
 
 	<include name="status_Info">
-		<control type="group">
-			<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
-			<control type="image">
-				<width>42</width>
-				<height>42</height>
-				<texture>$VAR[status:Info]</texture>
+		<param name="Left"/>
+		<param name="Right"/>
+		<param name="Bottom" default="11"/>
+		<param name="Size" default="42"/>
+		<definition>
+			<control type="group">
+				<left>$PARAM[Left]</left>
+				<right>$PARAM[Right]</right>
+				<width>$PARAM[Size]</width>
+				<height>$PARAM[Size]</height>
+				<bottom>$PARAM[Bottom]</bottom>
+				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+				<control type="image">
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
+					<texture>$VAR[status:Info]</texture>
+				</control>
 			</control>
-		</control>
+		</definition>
 	</include>
 
 

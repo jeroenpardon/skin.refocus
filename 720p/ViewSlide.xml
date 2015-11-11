@@ -57,21 +57,6 @@
 		</definition>
 	</include>
 
-	<include name="view_Slide-Status">
-		<param name="Right" default="8"/>
-		<param name="Bottom" default="11"/>
-		<param name="Size" default="42"/>
-		<definition>
-			<control type="group">
-				<width>$PARAM[Size]</width>
-				<height>$PARAM[Size]</height>
-				<right>$PARAM[Right]</right>
-				<bottom>$PARAM[Bottom]</bottom>
-				<include>status_Info</include>
-			</control>
-		</definition>
-	</include>
-
 
 <!--PORTRAIT-->
 	<include name="view_SlidePoster">
@@ -94,18 +79,22 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 			<itemlayout width="200" height="300">
-				<include>focus_SlidePoster</include>
 				<include>view_Slide-Frame</include>
 				<include>view_Slide-Art</include>
-				<include>view_Slide-Status</include>
+				<include name="status_Info">
+					<param name="Right" value="8"/>
+					<param name="Bottom" value="11"/>
+				</include>
 				<include>focus_SlidePoster</include>
 			</itemlayout>
 			<focusedlayout width="200" height="300">
 				<control type="group">
-					<include>focus_SlidePoster</include>
 					<include>view_Slide-Frame</include>
 					<include>view_Slide-Art</include>
-					<include>view_Slide-Status</include>
+					<include name="status_Info">
+						<param name="Right" value="8"/>
+						<param name="Bottom" value="11"/>
+					</include>
 					<include>focus_SlidePoster</include>
 				</control>
 			</focusedlayout>
@@ -144,7 +133,7 @@
 					<param name="Type" value="$VAR[art:Landscape]"/>
 					<param name="ShowLogo" default="true"/>
 				</include>
-				<include name="view_Slide-Status">
+				<include name="status_Info">
 					<param name="Right" value="11"/>
 					<param name="Bottom" value="11"/>
 				</include>
@@ -164,7 +153,7 @@
 						<param name="Type" value="$VAR[art:Landscape]"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
-					<include name="view_Slide-Status">
+					<include name="status_Info">
 						<param name="Right" value="11"/>
 						<param name="Bottom" value="10"/>
 					</include>

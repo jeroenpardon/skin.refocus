@@ -58,22 +58,8 @@
 		</definition>
 	</include>
 
-	<include name="view_Icon-Status">
-		<param name="Right" default="21"/>
-		<param name="Bottom" default="21"/>
-		<param name="Size" default="42"/>
-		<definition>
-			<control type="group">
-				<width>$PARAM[Size]</width>
-				<height>$PARAM[Size]</height>
-				<right>$PARAM[Right]</right>
-				<bottom>$PARAM[Bottom]</bottom>
-				<include>status_Info</include>
-			</control>
-		</definition>
-	</include>
-
 	<include name="view_Icon-Data">
+		<param name="Font" default="semibold_Big-U"/>
 		<definition>
 			<control type="group">
 				<left>7</left>
@@ -82,7 +68,7 @@
 					<width>380</width>
 					<height>28</height>
 					<label>$VAR[media:Title]</label>
-					<font>semibold_Big-U</font>
+					<font>$PARAM[Font]</font>
 					<textcolor>Color1</textcolor>
 					<selectedcolor>Selected</selectedcolor>
 				</control>
@@ -124,8 +110,8 @@
 			<itemlayout width="194" height="277">
 				<include>view_Icon-Frame</include>
 				<include>view_Icon-Art</include>
-				<include name="view_Icon-Status">
-					<param name="Right" value="17"/>
+				<include name="status_Info">
+					<param name="Left" value="135"/>
 					<param name="Bottom" value="18"/>
 				</include>
 			</itemlayout>
@@ -134,8 +120,8 @@
 					<param name="State" value="frames/frame-fo.png" />
 				</include>
 				<include>view_Icon-Art</include>
-				<include name="view_Icon-Status">
-					<param name="Right" value="17"/>
+				<include name="status_Info">
+					<param name="Left" value="135"/>
 					<param name="Bottom" value="18"/>
 				</include>
 			</focusedlayout>
@@ -171,8 +157,8 @@
 					<param name="Width" value="115"/>
 					<param name="Height" value="170"/>
 				</include>
-				<include name="view_Icon-Status">
-					<param name="Right" value="17"/>
+				<include name="status_Info">
+					<param name="Left" value="80"/>
 					<param name="Bottom" value="17"/>
 				</include>
 			</itemlayout>
@@ -186,8 +172,8 @@
 					<param name="Width" value="115"/>
 					<param name="Height" value="170"/>
 				</include>
-				<include name="view_Icon-Status">
-					<param name="Right" value="17"/>
+				<include name="status_Info">
+					<param name="Left" value="80"/>
 					<param name="Bottom" value="17"/>
 				</include>
 			</focusedlayout>
@@ -372,8 +358,8 @@
 					<param name="Fallback" value="thumbs/default_Landscape.png"/>
 					<param name="ShowLogo" default="true"/>
 				</include>
-				<include name="view_Icon-Status">
-					<param name="Right" value="17"/>
+				<include name="status_Info">
+					<param name="Left" value="345"/>
 					<param name="Bottom" value="74"/>
 				</include>
 				<include>view_Icon-Data</include>
@@ -390,8 +376,8 @@
 					<param name="Fallback" value="thumbs/default_Landscape.png"/>
 					<param name="ShowLogo" default="true"/>
 				</include>
-				<include name="view_Icon-Status">
-					<param name="Right" value="17"/>
+				<include name="status_Info">
+					<param name="Left" value="345"/>
 					<param name="Bottom" value="74"/>
 				</include>
 				<include>view_Icon-Data</include>
