@@ -723,7 +723,7 @@
 		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/)">$LOCALIZE[31013]</value>
 		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/?type=episodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
 		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/?type=movies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-		<value condition="StringCompare(Container.FolderPath,videodb://movies/)">$LOCALIZE[342]</value>
+		<value condition="StringCompare(Container.FolderPath,videodb://movies/) | StringCompare(Container.FolderPath,library://video/movies/)">$LOCALIZE[342]</value>
 		<value condition="SubString(Container.FolderPath,movies-unwatched.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,movies-inprogress.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,videodb://movies/,left)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
@@ -736,7 +736,7 @@
 		<value condition="Container.Content(episodes) + IsEmpty(Container().ListItem(0).TVShowTitle) + SubString(Container.FolderPath,videodb://)">$INFO[Container().ListItem(1).TVShowTitle]</value>
 		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,videodb://)">$INFO[Container().ListItem().TVShowTitle]</value>
 		<value condition="StringCompare(Container.FolderName,$LOCALIZE[626])">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
-		<value condition="StringCompare(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]</value>
+		<value condition="StringCompare(Container.FolderPath,videodb://tvshows/) | StringCompare(Container.FolderPath,library://video/tvshows/)">$LOCALIZE[20343]</value>
 		<value condition="SubString(Container.FolderPath,videodb://tvshows/,Left)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="StringCompare(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
 		<value condition="SubString(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
@@ -748,6 +748,7 @@
 	<variable name="window:Title.Music">
 		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[2]</value>
+		<value condition="StringCompare(Container.FolderPath,sources://music/)">$LOCALIZE[744]</value>
 		<value condition="StringCompare(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,recentlyaddedalbums,Right)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
