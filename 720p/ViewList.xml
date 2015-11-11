@@ -57,6 +57,20 @@
 		</definition>
 	</include>
 
+	<include name="view_List-Frame">
+		<param name="Width" default="184"/>
+		<param name="Height" default="266"/>
+		<param name="State" default="frames/frame-nf.png"/>
+		<definition>
+			<control type="image">
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture>$PARAM[State]</texture>
+				<visible>!StringCompare(LIstItem.Label,..)</visible>
+			</control>
+		</definition>
+	</include>
+
 	<include name="view_List-Icon">
 		<control type="group">
 			<left>5</left>
@@ -69,7 +83,7 @@
 			<control type="image">
 				<width>57</width>
 				<height>57</height>
-				<texture fallback="DefaultIconTV.png">$INFO[ListItem.Art(thumb)]</texture>
+				<texture>$INFO[ListItem.Art(thumb)]</texture>
 			</control>
 		</control>
 	</include>
@@ -148,307 +162,200 @@
 	</variable>
 
 	<include name="view_List">
-		<control type="list" id="50">
-			<viewtype label="535">list</viewtype> 	
-			<left>30</left>
-			<top>90</top>
-			<width>620</width>
-			<height>603</height>
-			<onup>50</onup>
-			<ondown>50</ondown>
-			<onleft>6000</onleft>
-			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
-			<onright condition="Window.IsActive(videoplaylist) + !Player.HasVideo">70</onright>
-			<onright condition="Window.IsActive(tvchannels) + Player.HasVideo">99</onright>
-			<onright condition="Window.IsActive(tvchannels) + !Player.HasVideo">70</onright>
-			<onright>70</onright>
-			<pagecontrol>70</pagecontrol>
-			<include>toggle_Menu</include>
-			<include>global_ListScroll</include>
-			<include>transition_Info</include>
-			<include>transition_Content</include>
-			<itemlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">		
-				<include>view_List-Data.Single</include>
-			</itemlayout>
-			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">				
-				<include>view_List-Focus</include>
-				<include name="view_List-Data.Single">
-					<param name="TextColor">$VAR[view:List.TextColor]</param>
-				</include>
-			</focusedlayout>
-			<itemlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">		
-				<include>view_List-Icon</include>
-				<include name="view_List-Data">
-					<param name="TextLeft" value="80"/>
-					<param name="TextWidth" value="485"/>
-				</include>
-				<include name="status_List">
-					<param name="StatusRight">10</param>
-					<param name="StatusTop">19</param>
-				</include>
-			</itemlayout>
-			<focusedlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">				
-				<include name="view_List-Focus">
-					<param name="Height" value="67"/>
-				</include>
-				<include>view_List-Icon</include>
-				<include name="view_List-Data">
-					<param name="TextLeft" value="80"/>
-					<param name="TextWidth" value="485"/>
-					<param name="TextColor">$VAR[view:List.TextColor]</param>
-					<param name="TextColor2">$VAR[view:List.TextColor2]</param>
-				</include>
-				<include name="status_List">
-					<param name="StatusRight">10</param>
-					<param name="StatusTop">19</param>
-					<param name="StatusColor">$VAR[view:List.TextColor]</param>
-				</include>
-			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
-				<include>view_List-Data</include>
-				<include name="status_List">
-					<param name="StatusRight">10</param>
-					<param name="StatusTop">19</param>
-				</include>
-			</itemlayout>
-			<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
-				<include name="view_List-Focus">
-					<param name="Height" value="67"/>
-				</include>
-				<include name="view_List-Data">
-					<param name="TextColor">$VAR[view:List.TextColor]</param>
-					<param name="TextColor2">$VAR[view:List.TextColor2]</param>
-				</include>
-				<include name="status_List">
-					<param name="StatusRight">10</param>
-					<param name="StatusTop">19</param>
-					<param name="StatusColor">$VAR[view:List.TextColor]</param>
-				</include>
-			</focusedlayout>
-		</control>
-	</include>
-
-	<include name="detail_List">
 		<control type="group">
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 			<include>transition_Content</include>
-			<include>fadeinout</include>
-			<visible>Control.IsVisible(50)</visible>
+			<control type="list" id="50">
+				<viewtype label="535">list</viewtype> 	
+				<left>30</left>
+				<top>90</top>
+				<width>620</width>
+				<height>603</height>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>6000</onleft>
+				<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
+				<onright condition="Window.IsActive(videoplaylist) + !Player.HasVideo">70</onright>
+				<onright condition="Window.IsActive(tvchannels) + Player.HasVideo">99</onright>
+				<onright condition="Window.IsActive(tvchannels) + !Player.HasVideo">70</onright>
+				<onright>70</onright>
+				<pagecontrol>70</pagecontrol>
+				<include>global_ListScroll</include>
+				<itemlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">		
+					<include>view_List-Data.Single</include>
+				</itemlayout>
+				<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">				
+					<include>view_List-Focus</include>
+					<include name="view_List-Data.Single">
+						<param name="TextColor">$VAR[view:List.TextColor]</param>
+					</include>
+				</focusedlayout>
+				<itemlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">		
+					<include>view_List-Icon</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="80"/>
+						<param name="TextWidth" value="485"/>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">10</param>
+						<param name="StatusTop">19</param>
+					</include>
+				</itemlayout>
+				<focusedlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">				
+					<include name="view_List-Focus">
+						<param name="Height" value="67"/>
+					</include>
+					<include>view_List-Icon</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="80"/>
+						<param name="TextWidth" value="485"/>
+						<param name="TextColor">$VAR[view:List.TextColor]</param>
+						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">10</param>
+						<param name="StatusTop">19</param>
+						<param name="StatusColor">$VAR[view:List.TextColor]</param>
+					</include>
+				</focusedlayout>
+				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
+					<include>view_List-Data</include>
+					<include name="status_List">
+						<param name="StatusRight">10</param>
+						<param name="StatusTop">19</param>
+					</include>
+				</itemlayout>
+				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
+					<include name="view_List-Focus">
+						<param name="Height" value="67"/>
+					</include>
+					<include name="view_List-Data">
+						<param name="TextColor">$VAR[view:List.TextColor]</param>
+						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+					</include>
+					<include name="status_List">
+						<param name="StatusRight">10</param>
+						<param name="StatusTop">19</param>
+						<param name="StatusColor">$VAR[view:List.TextColor]</param>
+					</include>
+				</focusedlayout>
+			</control>
 			<!--landscape-->
 			<control type="group">
-				<control type="group">
-					<left>680</left>
-					<top>90</top>
-					<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes)</visible>
-					<control type="image">
-						<width>546</width>
-						<height>309</height>
-						<include>art_Frame-nf</include>
-					</control>
-					<control type="group">
-						<left>7</left>
-						<top>7</top>
-						<control type="image">
-							<width>532</width>
-							<height>295</height>
-							<texture background="true">thumbs/default_Landscape.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-						<control type="image">
-							<left>202</left>
-							<top>83.5</top>
-							<width>128</width>
-							<height>128</height>
-							<include>art_DefaultIcon</include>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-						<control type="image">
-							<width>532</width>
-							<height>295</height>
-							<texture background="true">$VAR[art:Landscape]</texture>
-							<fadetime>fadetime_Thumb</fadetime>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-						</control>
-						<control type="image">
-							<centerleft>266</centerleft>
-							<top>189</top>
-							<width>532</width>
-							<height>96</height>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
-							<include>art_Logo</include>
-						</control>
-						<control type="textbox">
-							<top>315</top>
-							<width>532</width>
-							<height max="275">auto</height>
-							<label>$VAR[media:Plot]</label>
-							<include>detail_Text</include>
-						</control>
-					</control>
-				</control>
+				<left>680</left>
+				<top>80</top>
+				<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | [Container.Content(artists) + Skin.HasSetting(view.list.artistfanart)]</visible>
+				<include name="view_List-Frame">
+					<param name="Width" value="546"/>
+					<param name="Height" value="309"/>
+				</include>
+				<include name="detail_ListInfo">
+					<param name="Width" value="532"/>
+					<param name="Height" value="295"/>
+					<param name="Type" value="$VAR[art:Landscape]"/>
+					<param name="ShowLogo" value="true"/>
+					<param name="ShowPlot" value="true"/>
+				</include>
 			</control>
 			<!--portrait-->
 			<control type="group">
 				<left>750</left>
 				<top>80</top>
-				<control type="group">
-					<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
-					<control type="image">
-						<width>420</width>
-						<height>614</height>
-						<include>art_Frame-nf</include>
-					</control>
-					<control type="group">
-						<left>7</left>
-						<top>7</top>
-						<control type="image">	
-							<width>406</width>
-							<height>600</height>
-							<texture background="true">thumbs/default_Portrait.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-						<control type="image">
-							<left>139</left>
-							<top>236</top>
-							<width>128</width>
-							<height>128</height>
-							<include>art_DefaultIcon</include>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-						<control type="image">
-							<width>406</width>
-							<height>600</height>
-							<texture background="true">$VAR[art:Portrait]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-					</control>
-				</control>
-			</control>
-			<!--files-->
-			<control type="group">
-				<visible>[Container.Content(musicvideos) | Container.Content(files)] + Container.HasFiles</visible>
-				<control type="group">
-					<left>680</left>
-					<top>80</top>
-					<control type="image">
-						<width>532</width>
-						<height>614</height>
-						<texture fallback="thumbs/default_Landscape.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-						<bordertexture border="7">frames/frame-nf.png</bordertexture>
-						<bordersize>7</bordersize>
-						<aspectratio align="left" aligny="top">keep</aspectratio>
-						<fadetime>fadetime_Thumb</fadetime>
-						<visible>!IsEmpty(ListItem.Art(thumb)) + !SubString(Container.FolderPath,plugin://) + !IsEmpty(Container.FolderPath)</visible>
-					</control>
-				</control>
-			</control>
-		</control>
-	</include>
-
-	<include name="detail_ListMusic">
-		<control type="group">
-			<left>680</left>
-			<top>90</top>
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-			<include>transition_Content</include>
-			<include>fadeinout</include>
-			<visible>Control.IsVisible(50)</visible>
-			<!--landscape-->
-			<control type="group">
-				<visible>Container.Content(artists) + !SubString(Container.FolderPath,plugin://) + Skin.HasSetting(view.list.artistfanart)</visible>
-				<control type="group">
-					<control type="image">
-						<width>546</width>
-						<height>309</height>
-						<include>art_Frame-nf</include>
-					</control>
-					<control type="group">
-						<left>7</left>
-						<top>7</top>
-						<control type="image">	
-							<width>532</width>
-							<height>295</height>
-							<texture background="true">thumbs/default_Landscape.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-						<control type="image">
-							<centerleft>266</centerleft>
-							<centertop>147.5</centertop>
-							<width>128</width>
-							<height>128</height>
-							<include>art_DefaultIcon</include>
-						</control>
-						<control type="image">
-							<width>532</width>
-							<height>295</height>
-							<texture background="true">$VAR[art:Landscape]</texture>
-							<aspectratio>scale</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-						</control>
-						<control type="textbox">
-							<top>315</top>
-							<width>532</width>
-							<height max="280">auto</height>
-							<label>$VAR[media:Plot]</label>
-							<include>detail_Text</include>
-						</control>
-					</control>
-				</control>
+				<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
+				<include name="view_List-Frame">
+					<param name="Width" value="420"/>
+					<param name="Height" value="614"/>
+				</include>
+				<include name="detail_ListInfo">
+				</include>
 			</control>
 			<!--square-->
 			<control type="group">
-				<visible>[Container.Content(albums) | Container.Content(songs) | Window.IsActive(music)] | [Container.Content(artists) + !Skin.HasSetting(view.list.artistfanart)]</visible>
-				<control type="image">
-					<width>532</width>
-					<height>500</height>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<bordertexture border="7">frames/frame-nf.png</bordertexture>
-					<bordersize>7</bordersize>
-					<include>fadeinout</include>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<fadetime>fadetime_Thumb</fadetime>
-					<visible>!SubString(Container.FolderPath,plugin://) + !SubString(Container.FolderPath,addons://) + !IsEmpty(Container.FolderPath)</visible>
+				<control type="group">
+					<left>700</left>
+					<top>80</top>
+					<visible>[[Container.Content(musicvideos) | Container.Content(files)] + Container.HasFiles] | [Container.Content(artists) + !Skin.HasSetting(view.list.artistfanart)] | Container.Content(albums) | Container.Content(songs)</visible>
+					<include name="detail_ListInfo">
+						<param name="Width" value="510"/>
+						<param name="Height" value="580"/>
+						<param name="BorderSize" value="7"/>
+						<param name="BorderTexture" value="frames/frame-nf.png"/>
+						<param name="Aspect" value="keep"/>
+						<param name="ShowFrame" value="false"/>
+					</include>
 				</control>
 			</control>
 		</control>
 	</include>
 
-	<include name="detail_ListFiles">
-		<control type="group">
-			<left>680</left>
-			<top>90</top>
-			<include>transition_Content</include>
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-			<visible>Control.IsVisible(50) + [[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin) | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
-			<control type="image">
-				<width>532</width>
-				<height>256</height>
-				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-				<bordertexture border="7">frames/frame-nf.png</bordertexture>
-				<bordersize>7</bordersize>
-				<aspectratio align="left" aligny="top">keep</aspectratio>
-				<fadetime>fadetime_Thumb</fadetime>
-			</control>
-			<control type="textbox" id="1003">
+	<include name="detail_ListInfo">
+		<param name="Width" default="406"/>
+		<param name="Height" default="600"/>
+		<param name="State" default="frames/frame-nf.png"/>
+		<param name="Fallback" default="thumbs/default_Portrait.png"/>
+		<param name="IconSize" default="112"/>
+		<param name="ShowLogo" default="false"/>
+		<param name="ShowPlot" default="false"/>
+		<param name="Type" default="$VAR[art:Portrait]"/>
+		<param name="BorderSize"/>
+		<param name="BorderTexture"/>
+		<param name="Aspect" default="scale"/>
+		<param name="ShowFrame" default="true"/>
+		<definition>
+			<control type="group">
 				<left>7</left>
-				<top>270</top>
-				<width>532</width>
-				<height>330</height>
-				<label>$VAR[media:Plot]</label>
-				<autoscroll>![Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo)]</autoscroll>
-				<include>detail_Text</include>
-				<visible>Control.IsVisible(50) + [Container.Content(addons) | SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,pvr://recordings)]</visible>
+				<top>7</top>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Fallback]</texture>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>fadetime_Thumb</fadetime>
+					<visible>$PARAM[ShowFrame]</visible>
+					<visible>!StringCompare(ListItem.Label,..)</visible>
+				</control>
+				<control type="image">
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<width>$PARAM[IconSize]</width>
+					<height>$PARAM[IconSize]</height>
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<fadetime>fadetime_Thumb</fadetime>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Type]</texture>
+					<fadetime>fadetime_Thumb</fadetime>
+					<bordertexture border="$PARAM[BorderSize]">$PARAM[BorderTexture]</bordertexture>
+					<bordersize>$PARAM[BorderSize]</bordersize>
+					<aspectratio align="left" aligny="top">$PARAM[Aspect]</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<height>50%</height>
+					<width>50%</width>
+					<bottom>20</bottom>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+					<include>art_Logo</include>
+					<fadetime>fadetime_Thumb</fadetime>
+					<visible>$PARAM[ShowLogo]</visible>
+				</control>
+				<control type="textbox">
+					<top>315</top>
+					<width>532</width>
+					<height max="275">auto</height>
+					<label>$VAR[media:Plot]</label>
+					<include>detail_Text</include>
+					<visible>$PARAM[ShowPlot]</visible>
+				</control>
 			</control>
-		</control>
+		</definition>
 	</include>
-
 
 <!--BIG LIST-->
 	<include name="view_BigList">
