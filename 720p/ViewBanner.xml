@@ -102,32 +102,6 @@
 		</definition>
 	</include>
 
-	<include name="view_Banner-Status">
-		<param name="Right" default="7"/>
-		<param name="Bottom" default="13"/>
-		<param name="Size" default="42"/>
-		<definition>
-			<control type="group">
-				<width>$PARAM[Size]</width>
-				<height>$PARAM[Size]</height>
-				<right>$PARAM[Right]</right>
-				<bottom>$PARAM[Bottom]</bottom>
-				<include>status_Info</include>
-			</control>
-		</definition>
-	</include>
-
-	<include name="view_Banner-Rating">
-		<control type="image">
-			<right>13</right>
-			<top>133</top>
-			<height>22</height>
-			<include>detail_StarRating</include>
-			<aspectratio align="right">keep</aspectratio>
-			<visible>!SubString(ListItem.Icon,default)</visible>
-		</control>
-	</include>
-
 
 <!--BANNERS SMALL GRID-->
 	<include name="view_Banner">
@@ -152,14 +126,20 @@
 			<itemlayout width="572" height="123">
 				<include>view_Banner-Frame</include>
 				<include>view_Banner-Art</include>
-				<include>view_Banner-Status</include>
+				<include name="status_Info">
+					<param name="Left" value="523"/>
+					<param name="Bottom" value="13"/>
+				</include>
 			</itemlayout>
 			<focusedlayout width="572" height="123">
 				<include name="view_Banner-Frame">
 					<param name="State" value="frames/frame-fo.png" />
 				</include>
 				<include>view_Banner-Art</include>
-				<include>view_Banner-Status</include>
+				<include name="status_Info">
+					<param name="Left" value="523"/>
+					<param name="Bottom" value="13"/>
+				</include>
 			</focusedlayout>
 		</control>
 		<!--container info-->
@@ -246,15 +226,14 @@
 					<param name="Width" value="590"/>
 					<param name="Height" value="109"/>
 				</include>
-				<include name="view_Banner-Status">
-					<param name="Right" value="23"/>
-					<param name="Bottom" value="74"/>
-				</include>
 				<include name="view_Banner-Data">
 					<param name="Right" value="23"/>
 					<param name="Bottom" value="74"/>
 				</include>
-				<include>view_Banner-Rating</include>
+				<include name="status_Info">
+					<param name="Left" value="555"/>
+					<param name="Bottom" value="74"/>
+				</include>
 			</itemlayout>
 			<focusedlayout width="620" height="190">
 				<include name="view_Banner-Frame">
@@ -270,11 +249,10 @@
 					<param name="Right" value="23"/>
 					<param name="Bottom" value="74"/>
 				</include>
-				<include name="view_Banner-Status">
-					<param name="Right" value="23"/>
+				<include name="status_Info">
+					<param name="Left" value="555"/>
 					<param name="Bottom" value="74"/>
 				</include>
-				<include>view_Banner-Rating</include>
 			</focusedlayout>
 		</control>
 	</include>
