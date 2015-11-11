@@ -86,14 +86,12 @@
 		</definition>
 	</include>
 
-
 <!--POSTER--> 
 	<include name="view_IconPortrait">
 		<control type="group">
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)</visible>
 			<control type="panel" id="57">
 				<viewtype label="31113">bigicon</viewtype>	
 				<left>55</left>
@@ -108,6 +106,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
 				<include>global_ListScroll</include>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)</visible>
 				<itemlayout width="194" height="277">
 					<include>view_Icon-Frame</include>
 					<include>view_Icon-Art</include>
@@ -194,7 +193,10 @@
 			<control type="group">
 				<visible>Control.IsVisible(571)</visible>
 				<include name="detail_Info">
-					<param  name="Width" value="470"/>
+					<param name="Width" value="470"/>
+					<param name="ShowStudio" value="false"/>
+					<param name="ShowFlags" value="true"/>
+					<param name="FlagsBottom" value="50"/>
 				</include>
 			</control>
 		</control>
@@ -206,7 +208,6 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Window.IsActive(programs) + Container.HasFiles] | [Container.Content(files) + !Container.HasFiles] | [Window.IsActive(MusicFiles) + !Container.HasFiles] | Window.IsActive(radiorecordings)</visible>
 			<control type="panel" id="572">
 				<viewtype label="31113">icons</viewtype>
 				<left>80</left>
@@ -220,6 +221,7 @@
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<include>global_ListScroll</include>
+				<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Window.IsActive(pictures) | [Window.IsActive(programs) + Container.HasFiles] | [Container.Content(files) + !Container.HasFiles] | [Window.IsActive(MusicFiles) + !Container.HasFiles] | Window.IsActive(radiorecordings)</visible>
 				<itemlayout width="188" height="188">
 					<include name="view_Icon-Frame">
 						<param name="Width" value="178"/>
@@ -261,7 +263,6 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(pictures)</visible>
 			<!--container-->
 			<control type="panel" id="574">
 				<viewtype label="31113">bigicon</viewtype>
@@ -276,6 +277,7 @@
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<include>global_ListScroll</include>
+				<visible>Container.Content(addons) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(pictures)</visible>
 				<itemlayout width="184" height="184">
 					<include name="view_Icon-Frame">
 						<param name="Width" value="174"/>
