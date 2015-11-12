@@ -59,26 +59,31 @@
 	</include>
 
 	<include name="view_Icon-Data">
+		<param name="Left" default="7"/>
+		<param name="Top" default="225"/>
 		<param name="Font" default="semibold_Big-U"/>
+		<param name="Color1" default="Color1"/>
+		<param name="Color2" default="Color2"/>
+		<param name="Width" default="380"/>
 		<definition>
 			<control type="group">
-				<left>7</left>
-				<top>225</top>
+				<left>$PARAM[Left]</left>
+				<top>$PARAM[Top]</top>
 				<control type="label" id="110">
-					<width>380</width>
+					<width>$PARAM[Width]</width>
 					<height>28</height>
 					<label>$VAR[media:Title]</label>
 					<font>$PARAM[Font]</font>
-					<textcolor>Color1</textcolor>
+					<textcolor>$PARAM[Color1]</textcolor>
 					<selectedcolor>Selected</selectedcolor>
 				</control>
 				<control type="label" id="110">
 					<top>22</top>
 					<height>25</height>
-					<width>380</width>
+					<width>$PARAM[Width]</width>
 					<label>$VAR[media:Info]</label>
 					<font>semibold_Small-U</font>
-					<textcolor>Color2</textcolor>
+					<textcolor>$PARAM[Color2]</textcolor>
 					<selectedcolor>Selected</selectedcolor>
 					<visible>!StringCompare(ListItem.Label,..)</visible>
 				</control>
@@ -369,42 +374,6 @@
 	</include>
 
 <!--TILES-->
-	<include name="view_Tiles-LayoutCommons">
-		<control type="image">
-			<width>78</width>
-			<height>78</height>
-			<include>art_Frame-nf</include>
-		</control>
-		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">
-				<width>64</width>
-				<height>64</height>
-				<texture>thumbs/default_Square.png</texture>
-			</control>
-			<control type="image">
-				<left>8</left>
-				<top>8</top>
-				<width>48</width>
-				<height>48</height>
-				<include>art_DefaultIcon</include>
-			</control>
-			<control type="image">
-				<width>64</width>
-				<height>64</height>
-				<texture background="true">$VAR[art:Square]</texture>
-				<aspectratio align="left" aligny="top">scale</aspectratio>
-			</control>
-			<control type="group">
-				<left>22</left>
-				<bottom>14</bottom>
-				<width>42</width>
-				<height>42</height>
-				<include>status_Info</include>
-			</control>
-		</control>
-	</include>
 	<include name="view_Tiles">
 		<control type="panel" id="58">
 			<viewtype label="Tiles">bigicon</viewtype>
@@ -425,48 +394,51 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)] | Window.IsActive(radiorecordings)</visible>
 			<itemlayout width="520" height="85">
-				<include>view_Tiles-LayoutCommons</include>
-				<control type="group">
-					<left>95</left>
-					<top>10</top>
-					<control type="label" id="110">
-						<width>395</width>
-						<label>$VAR[media:Title]</label>
-						<include>detail_Title</include>
-					</control>
-					<control type="label" id="110">
-						<top>27</top>
-						<width>395</width>
-						<label>$VAR[media:Info]</label>
-						<textcolor>Color2</textcolor>
-						<include>detail_Sub</include>
-					</control>
-				</control>
+				<include name="view_Icon-Frame">
+					<param name="Width" value="78"/>
+					<param name="Height" value="78"/>
+				</include>
+				<include name="view_Icon-Art">
+					<param name="Width" value="64"/>
+					<param name="Height" value="64"/>
+					<param name="IconSize" value="48"/>
+					<param name="Fallback" value="thumbs/default_Square.png"/>
+				</include>
+				<include name="status_Info">
+					<param name="Left" value="35"/>
+					<param name="Bottom" value="14"/>
+					<param name="Size" value="36"/>
+				</include>
+				<include name="view_Icon-Data">
+					<param name="Left" value="95"/>
+					<param name="Top" value="15"/>
+					<param name="Width" value="400"/>
+				</include>
 			</itemlayout>											
 			<focusedlayout width="520" height="85">
-				<control type="image">
-					<width>500</width>
-					<height>78</height>
-					<include>art_Frame-fo</include>
-				</control>
-				<include>view_Tiles-LayoutCommons</include>
-				<control type="group">
-					<left>95</left>
-					<top>10</top>
-					<control type="label" id="110">
-						<width>395</width>
-						<label>$VAR[media:Title]</label>
-						<textcolor>Color5</textcolor>
-						<include>detail_Title</include>
-					</control>
-					<control type="label" id="110">
-						<top>27</top>
-						<width>395</width>
-						<label>$VAR[media:Info]</label>
-						<textcolor>Color5</textcolor>
-						<include>detail_Sub</include>
-					</control>
-				</control>
+				<include name="view_Icon-Frame">
+					<param name="Width" value="510"/>
+					<param name="Height" value="78"/>
+					<param name="State" value="frames/frame-fo.png" />
+				</include>
+				<include name="view_Icon-Art">
+					<param name="Width" value="64"/>
+					<param name="Height" value="64"/>
+					<param name="IconSize" value="48"/>
+					<param name="Fallback" value="thumbs/default_Square.png"/>
+				</include>
+				<include name="status_Info">
+					<param name="Left" value="35"/>
+					<param name="Bottom" value="14"/>
+					<param name="Size" value="36"/>
+				</include>
+				<include name="view_Icon-Data">
+					<param name="Left" value="95"/>
+					<param name="Top" value="15"/>
+					<param name="Width" value="400"/>
+					<param name="Color1" value="$VAR[view:List.TextColor]"/>
+					<param name="Color2" value="$VAR[view:List.TextColor2]"/>
+				</include>
 			</focusedlayout>
 		</control>
 	</include>

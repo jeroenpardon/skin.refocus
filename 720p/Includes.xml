@@ -639,13 +639,12 @@
 <!--STATUS INDICATORS-->
 	<include name="status_List">
 		<param name="StatusColor" default="Color1"/>
-		<param name="StatusWidth" default="28"/>
-		<param name="StatusHeight" default="28"/>
+		<param name="Size" default="28"/>
 		<definition>
 			<control type="image">
 				<top>$PARAM[StatusTop]</top>
-				<right>$PARAM[StatusRight]</right>
-				<width>$PARAM[StatusWidth]</width>
+				<right>$PARAM[Size]</right>
+				<width>$PARAM[Size]</width>
 				<height>$PARAM[StatusHeight]</height>
 				<colordiffuse>$PARAM[StatusColor]</colordiffuse>
 				<texture>$VAR[status:List]</texture>
@@ -655,8 +654,8 @@
 				<visible>SubString(Container.FolderPath,pvr://channels/) + !SubString(ListItem.Icon,default)</visible>
 				<control type="image">
 					<top>$PARAM[StatusTop]</top>
-					<right>$PARAM[StatusRight]</right>
-					<width>$PARAM[StatusWidth]</width>
+					<right>$PARAM[Size]</right>
+					<width>$PARAM[Size]</width>
 					<height>$PARAM[StatusHeight]</height>
 					<texture>$VAR[pvr:Progress]</texture>
 					<colordiffuse>$PARAM[StatusColor]</colordiffuse>
@@ -664,8 +663,8 @@
 				</control>
 				<control type="image">
 					<top>$PARAM[StatusTop]</top>
-					<right>$PARAM[StatusRight]</right>
-					<width>$PARAM[StatusWidth]</width>
+					<right>$PARAM[Size]</right>
+					<width>$PARAM[Size]</width>
 					<height>$PARAM[StatusHeight]</height>
 					<colordiffuse>rec1</colordiffuse>
 					<texture>$VAR[pvr:Progress]</texture>
@@ -1148,13 +1147,6 @@
 		<lefttexture border="0" colordiffuse="Color1">colorize/100.png</lefttexture>
 		<midtexture border="0" colordiffuse="Color1">colorize/100.png</midtexture>
 		<righttexture border="0" colordiffuse="Color1">colorize/100.png</righttexture>
-	</include>
-
-	<include name="container_Unfocus">
-		<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
-	</include>
-	<include name="container_Focus">
-		<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
 	</include>
 
 	<include name="player_Preview">
