@@ -439,14 +439,14 @@
 		<value>$INFO[Player.StartTime(hh:mm:22)]</value>
 	</variable>
 
-	<variable name="player:Duration">
+	<variable name="player:Duration">ß	
 		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.Duration(hh:mm:ss)]</value>
 		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
 	</variable>
 
 	<variable name="playlist_Type">
 		<value condition="Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
-		<value condition="Window.IsActive(music) + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
+		<value condition="Window.IsActive(musiclibrary) + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
 	</variable>
 
 <!--MEDIA VIEWS-->
@@ -539,6 +539,7 @@
 
 	<variable name="extContent:Square">
 		<value condition="StringCompare(Window(Home).Property(extContent),$LOCALIZE[21888])">plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[Window(Home).Property(extQuery)]</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),similarartists)">plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[Window(Home).Property(extQuery)]</value>
 	</variable>
 
 	<variable name="extContent:Thumbnail">
@@ -718,7 +719,8 @@
 		<value condition="Window.IsVisible(busydialog) + !Window.IsActive(virtualkeyboard)">&#160;</value>
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[157]</value>
 		<value condition="StringCompare(Container.FolderPath,sources://video/)">$LOCALIZE[744]</value>
-		<value condition="StringCompare(Container.FolderPath,addons://sources/video/)">$LOCALIZE[1037]</value>
+		<value condition="StringCompare(Container.FolderPath,addons://sources/video)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="SubString(Container.FolderPath,plugin://plugin,left)">$INFO[Container.FolderName]</value>
 		<value condition="StringCompare(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[20012]</value>
 		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/)">$LOCALIZE[31013]</value>
 		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/?type=episodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
