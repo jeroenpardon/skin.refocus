@@ -3,7 +3,8 @@
 	<defaultcontrol always="true">5000</defaultcontrol>
 	<controls>
 		<control type="group">
-			<include>screen_Dimensions</include>	
+			<include>screen_Dimensions</include>
+
 			<!--background-->
 			<control type="image">
 				<include>screen_Dimensions</include>
@@ -16,6 +17,7 @@
 					<effect type="Fade" time="transition_Close" start="100" end="0" />
 				</animation>
 			</control>
+
 			<control type="group">
 				<include>screen_Dimensions</include>
 				<include>transition_Content</include>
@@ -161,8 +163,14 @@
 								<left>300</left>
 								<bottom>40</bottom>
 								<height>40</height>
-								<include>detail_Flags</include>
-								<visible>!Control.IsVisible(50)</visible>
+								<control type="grouplist">
+									<width>875</width>
+									<height>40</height>
+									<itemgap>10</itemgap>
+									<orientation>horizontal</orientation>
+									<visible>!Control.IsVisible(50)</visible>
+									<include>media_Flags</include>
+								</control>
 								<control type="label">
 									<top>25</top>
 									<height>20</height>

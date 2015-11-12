@@ -295,53 +295,57 @@
 					<orientation>horizontal</orientation>
 					<visible>$PARAM[ShowFlags]</visible>
 					<visible>!StringCompare(ListItem.Label,..) + !ListItem.IsFolder + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(files)]</visible>
-					<control type="image">
-						<width>30</width>
-						<height>30</height> 
-						<texture>DefaultMovies.png</texture>
-						<colordiffuse>Color1</colordiffuse>
-						<aspectratio align="center">keep</aspectratio>
-					</control>
-					<control type="label">
-						<width min="50" max="200">auto</width>
-						<height>30</height>
-						<label>$INFO[ListItem.VideoCodec,, &#8226; ]$INFO[ListItem.VideoResolution,,P]</label>
-						<textcolor>Color1</textcolor>
-						<include>detail_Sub</include>
-					</control>
-					<control type="image">
-						<width>30</width>
-						<height>30</height> 
-						<texture>DefaultAudio.png</texture>
-						<colordiffuse>Color1</colordiffuse>
-						<aspectratio align="center">keep</aspectratio>
-					</control>
-					<control type="label">
-						<width min="50" max="200">auto</width>
-						<height>30</height>
-						<label>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</label>
-						<textcolor>Color1</textcolor>
-						<include>detail_Sub</include>
-					</control>
-					<control type="image">
-						<width>30</width>
-						<height>30</height> 
-						<texture>DefaultIconSubtitles.png</texture>
-						<colordiffuse>Color1</colordiffuse>
-						<aspectratio align="center">keep</aspectratio>
-						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
-					</control>
-					<control type="label">
-						<width min="50" max="200">auto</width>
-						<height>30</height>
-						<label>$INFO[ListItem.SubtitleLanguage]</label>
-						<textcolor>Color1</textcolor>
-						<include>detail_Sub</include>
-						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
-					</control>
+					<include>media_Flags</include>
 				</control>
 			</control>
 		</definition>
+	</include>
+
+	<include name="media_Flags">
+		<control type="image">
+			<width>30</width>
+			<height>30</height> 
+			<texture>DefaultMovies.png</texture>
+			<colordiffuse>Color1</colordiffuse>
+			<aspectratio align="center">keep</aspectratio>
+		</control>
+		<control type="label">
+			<width min="50" max="200">auto</width>
+			<height>30</height>
+			<label>$INFO[ListItem.VideoCodec,, &#8226; ]$INFO[ListItem.VideoResolution,,P]</label>
+			<textcolor>Color1</textcolor>
+			<include>detail_Sub</include>
+		</control>
+		<control type="image">
+			<width>30</width>
+			<height>30</height> 
+			<texture>DefaultAudio.png</texture>
+			<colordiffuse>Color1</colordiffuse>
+			<aspectratio align="center">keep</aspectratio>
+		</control>
+		<control type="label">
+			<width min="50" max="200">auto</width>
+			<height>30</height>
+			<label>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</label>
+			<textcolor>Color1</textcolor>
+			<include>detail_Sub</include>
+		</control>
+		<control type="image">
+			<width>30</width>
+			<height>30</height> 
+			<texture>DefaultIconSubtitles.png</texture>
+			<colordiffuse>Color1</colordiffuse>
+			<aspectratio align="center">keep</aspectratio>
+			<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+		</control>
+		<control type="label">
+			<width min="50" max="200">auto</width>
+			<height>30</height>
+			<label>$INFO[ListItem.SubtitleLanguage]</label>
+			<textcolor>Color1</textcolor>
+			<include>detail_Sub</include>
+			<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+		</control>
 	</include>
 
 	<!--
@@ -639,13 +643,15 @@
 <!--STATUS INDICATORS-->
 	<include name="status_List">
 		<param name="StatusColor" default="Color1"/>
-		<param name="Size" default="28"/>
+		<param name="Size" default="32"/>
+		<param name="Right" default="10"/>
+		<param name="Top" default="10"/>
 		<definition>
 			<control type="image">
-				<top>$PARAM[StatusTop]</top>
-				<right>$PARAM[Size]</right>
+				<top>$PARAM[Top]</top>
+				<right>$PARAM[Right]</right>
 				<width>$PARAM[Size]</width>
-				<height>$PARAM[StatusHeight]</height>
+				<height>$PARAM[Size]</height>
 				<colordiffuse>$PARAM[StatusColor]</colordiffuse>
 				<texture>$VAR[status:List]</texture>
 				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | SubString(Container.FolderPath,pvr://recordings/) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable) + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
@@ -653,19 +659,19 @@
 			<control type="group">
 				<visible>SubString(Container.FolderPath,pvr://channels/) + !SubString(ListItem.Icon,default)</visible>
 				<control type="image">
-					<top>$PARAM[StatusTop]</top>
-					<right>$PARAM[Size]</right>
+					<top>$PARAM[Top]</top>
+					<right>$PARAM[Right]</right>
 					<width>$PARAM[Size]</width>
-					<height>$PARAM[StatusHeight]</height>
+					<height>$PARAM[Size]</height>
 					<texture>$VAR[pvr:Progress]</texture>
 					<colordiffuse>$PARAM[StatusColor]</colordiffuse>
 					<visible>!ListItem.IsRecording</visible>
 				</control>
 				<control type="image">
-					<top>$PARAM[StatusTop]</top>
-					<right>$PARAM[Size]</right>
+					<top>$PARAM[Top]</top>
+					<right>$PARAM[Right]</right>
 					<width>$PARAM[Size]</width>
-					<height>$PARAM[StatusHeight]</height>
+					<height>$PARAM[Size]</height>
 					<colordiffuse>rec1</colordiffuse>
 					<texture>$VAR[pvr:Progress]</texture>
 					<visible>ListItem.IsRecording</visible>
