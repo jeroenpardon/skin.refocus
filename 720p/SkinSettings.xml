@@ -489,19 +489,12 @@
 						<enable>System.HasAddon(script.artistslideshow) + !Skin.HasSetting(artistslideshow.disable)</enable>
 					</control>
 					<!--tvtunes-->
-					<control type="radiobutton" id="840">
-						<label>$LOCALIZE[31282]</label>
-						<onclick>Skin.ToggleSetting(tvtunes.enable)</onclick>
-						<selected>Skin.HasSetting(tvtunes.enable)</selected>
-						<include>settings_Radiobutton</include>
-						<enable>System.HasAddon(script.tvtunes)</enable>
-					</control>
-					<control type="button" id="841">
-						<label>- $LOCALIZE[10140]</label>
+					<control type="button" id="840">
+						<label>TV Tunes $LOCALIZE[5]</label>
 						<onclick>Addon.OpenSettings(script.tvtunes)</onclick>
 						<selected>System.HasAddon(script.tvtunes)</selected>
 						<include>settings_Listbutton</include>
-						<enable>System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable)</enable>
+						<visible>System.HasAddon(script.tvtunes)</visible>
 					</control>
 					<!--set default lyrics add-on-->
 					<control type="button" id="850">
@@ -609,7 +602,7 @@
 						</control>
 						<control type="button" id="1005">
 							<width>425</width>
-							<label>$INFO[System.AddonVersion(skin.refocus)]</label>
+							<label>$INFO[Window(Home).Property(SkinHelper.skinVersion)]</label>
 							<onclick>noop</onclick>
 							<include>settings_Listbutton</include>
 						</control>
