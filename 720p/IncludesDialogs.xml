@@ -34,7 +34,6 @@
 			<control type="label" id="$PARAM[DialogHeaderID]">
 				<width>$PARAM[DialogWidth]</width>
 				<label>$PARAM[DialogHeaderName]</label>
-				<left>4</left>
 				<top>5</top>
 				<font>light_Dialog</font>
 				<align>center</align>
@@ -48,6 +47,99 @@
 				<width>$PARAM[DialogWidth]</width>
 				<include>dialog_Separator</include>
 				<visible>$PARAM[DialogSeparator]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="dialog_Common-List">
+		<param name="ID"/>
+		<param name="ContainerLeft" default="0"/>
+		<param name="ContainerTop"/>
+		<param name="ContainerWidth"/>
+		<param name="ContainerHeight"/>
+		<param name="Width"/>
+		<param name="Height" default="40"/>
+		<param name="OnLeft" default="noop"/>
+		<param name="OnRight" default="noop"/>
+		<param name="OnUp" default="$PARAM[ID]"/>
+		<param name="OnDown" default="$PARAM[ID]"/>
+		<param name="PageControl"/>
+		<param name="IconSize" default="40"/>
+		<param name="Left" default="15"/>
+		<param name="ShowIcon" default="false"/>
+		<definition>
+			<control type="list" id="$PARAM[ID]">
+				<left>$PARAM[ContainerLeft]</left>
+				<top>$PARAM[ContainerTop]</top>
+				<width>$PARAM[ContainerWidth]</width>
+				<height>$PARAM[ContainerHeight]</height>
+				<onleft>$PARAM[OnLeft]</onleft>
+				<onright>$PARAM[OnRight]</onright>
+				<onup>$PARAM[OnUp]</onup>
+				<ondown>$PARAM[OnDown]</ondown>
+				<pagecontrol>$PARAM[PageControl]</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<include>global_ListScroll</include>
+				<itemlayout width="$PARAM[ContainerWidth]" height="$PARAM[Height]">
+					<control type="image">
+						<width>$PARAM[ContainerWidth]</width>
+						<height>40</height>
+						<texture border="3">dialogs/select-nf.png</texture>
+					</control>
+					<control type="image">
+						<left>4</left>
+						<width>$PARAM[IconSize]</width>
+						<height>$PARAM[IconSize]</height>
+						<colordiffuse>Color4</colordiffuse>
+						<texture>$INFO[ListItem.ActualIcon]</texture>
+						<visible>$PARAM[ShowIcon]</visible>
+					</control>
+					<control type="label">
+						<left>$PARAM[Left]</left>
+						<width>$PARAM[Width]</width>
+						<height>38</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>regular</font>
+						<aligny>center</aligny>
+						<textcolor>Color4</textcolor>
+						<selectedcolor>Selected</selectedcolor>
+						<include>autoscroll_Line</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="$PARAM[ContainerWidth]" height="$PARAM[Height]">
+					<control type="image">
+						<width>$PARAM[ContainerWidth]</width>
+						<include>dialog_CommonList</include>
+						<visible>!Control.HasFocus($PARAM[ID])</visible>
+					</control>
+					<control type="image">
+						<width>$PARAM[ContainerWidth]</width>
+						<include>dialog_CommonListFocus</include>
+						<visible>Control.HasFocus($PARAM[ID])</visible>
+					</control>
+					<control type="image">
+						<left>4</left>
+						<width>$PARAM[IconSize]</width>
+						<height>$PARAM[IconSize]</height>
+						<colordiffuse>Color1</colordiffuse>
+						<texture>$INFO[ListItem.ActualIcon]</texture>
+						<visible>$PARAM[ShowIcon]</visible>
+					</control>
+					<control type="label">
+						<left>$PARAM[Left]</left>
+						<width>$PARAM[Width]</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>dialog_CommonListItem</include>
+						<visible>!Control.HasFocus($PARAM[ID])</visible>
+					</control>
+					<control type="label">
+						<left>$PARAM[Left]</left>
+						<width>$PARAM[Width]</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>dialog_CommonListItemFocus</include>
+						<visible>Control.HasFocus($PARAM[ID])</visible>
+					</control>
+				</focusedlayout>
 			</control>
 		</definition>
 	</include>

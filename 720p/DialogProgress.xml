@@ -11,15 +11,12 @@
 		<control type="group">
 			<width>600</width>
 			<height>250</height>
-			<control type="image">
-				<width>600</width>
-				<height>250</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="1">
-				<width>600</width>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="600"/>
+				<param name="DialogHeight" value="220"/>
+				<param name="DialogHeaderID" value="1"/>
+				<param name="DialogSeparator" value="false"/>
+			</include>
 			<!--textbox-->
 			<control type="textbox" id="9">
 				<centerleft>50%</centerleft>
@@ -38,13 +35,16 @@
 				<info>System.Progressbar</info>
 				<reveal>true</reveal>
 			</control>
-
-		<!--dialog controls-->
-			<control type="button" id="10">
-				<centerleft>50%</centerleft>
-				<bottom>20</bottom>
-				<label>$LOCALIZE[222]</label>
-				<include>dialog_WindowButton</include>
+		<<!--dialog controls-->
+			<control type="group">
+				<width>600</width>
+				<control type="button" id="10">
+					<centerleft>50%</centerleft>
+					<bottom>20</bottom>
+					<label>$LOCALIZE[222]</label>
+					<width>120</width>
+					<include>dialog_WindowButton</include>
+				</control>
 			</control>
 		</control>
 	</controls>

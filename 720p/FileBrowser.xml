@@ -49,57 +49,19 @@
 					<textcolor>Color4</textcolor>
 					<include>dialog_ControlCommons</include>
 				</control>
-				<control type="list" id="450">
-					<left>4</left>
-					<top>100</top>
-					<width>792</width>
-					<height>400</height>
-					<onleft>415</onleft>
-					<onright>9001</onright>
-					<onup>450</onup>
-					<ondown>450</ondown>
-					<pagecontrol>60</pagecontrol>
-					<preloaditems>4</preloaditems>
-					<include>global_ListScroll</include>
-					<itemlayout width="792" height="40">
-						<control type="image">
-							<width>792</width>
-							<include>dialog_CommonList</include>
-						</control>
-						<control type="image">
-							<left>4</left>
-							<width>40</width>
-							<height>40</height>
-							<colordiffuse>Color4</colordiffuse>
-							<texture>$INFO[ListItem.ActualIcon]</texture>
-						</control>
-						<control type="label">
-							<left>60</left>
-							<width>715</width>
-							<info>ListItem.Label</info>
-							<include>dialog_CommonListItem</include>
-						</control>
-					</itemlayout>
-					<focusedlayout width="792" height="40">
-						<control type="image">
-							<width>792</width>
-							<include>dialog_CommonListFocus</include>
-						</control>
-						<control type="image">
-							<left>4</left>
-							<width>40</width>
-							<height>40</height>
-							<colordiffuse>Color1</colordiffuse>
-							<texture>$INFO[ListItem.ActualIcon]</texture>
-						</control>
-						<control type="label">
-							<left>60</left>
-							<width>715</width>
-							<info>ListItem.Label</info>
-							<include>dialog_CommonListItemFocus</include>
-						</control>
-					</focusedlayout>
-				</control>
+				<!--text list-->
+				<include name="dialog_Common-List">
+					<param name="ID" value="450"/>
+					<param name="ContainerTop" value="100"/>
+					<param name="ContainerWidth" value="792"/>
+					<param name="ContainerHeight" value="400"/>
+					<param name="Width" value="715"/>
+					<param name="OnLeft" value="415"/>
+					<param name="OnRight" value="9001"/>
+					<param name="PageControl" value="60"/>
+					<param name="Left" value="60"/>
+				</include>
+				<!--thumbnail list-->
 				<control type="panel" id="451">
 					<left>4</left>
 					<top>102</top>

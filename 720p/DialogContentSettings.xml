@@ -77,51 +77,16 @@
 						<width>652</width>
 						<include>dialog_Separator</include>
 					</control>
-					<control type="list" id="21">
-						<top>40</top>
-						<width>652</width>
-						<height>120</height>
-						<onleft>noop</onleft>
-						<onright>noop</onright>
-						<onup>20</onup>
-						<ondown>5</ondown>
-						<include>global_ListScroll</include>
-						<itemlayout height="40">
-							<control type="image">
-								<width>652</width>
-								<include>dialog_CommonList</include>
-							</control>
-							<control type="label">
-								<width>652</width>
-								<info>ListItem.Label</info>
-								<include>dialog_CommonListItem</include>
-							</control>
-						</itemlayout>
-						<focusedlayout height="40">
-							<control type="image">
-								<width>652</width>
-								<include>dialog_CommonList</include>
-							</control>
-							<control type="label">
-								<width>652</width>
-								<info>ListItem.Label</info>
-								<include>dialog_CommonListItem</include>
-								<visible>!Control.HasFocus(21)</visible>
-							</control>
-							<control type="group">
-								<visible>Control.HasFocus(21)</visible>
-								<control type="image">
-									<width>652</width>
-									<include>dialog_CommonListFocus</include>
-								</control>
-								<control type="label">
-									<width>652</width>
-									<info>ListItem.Label</info>
-									<include>dialog_CommonListItemFocus</include>
-								</control>
-							</control>
-						</focusedlayout>
-					</control>
+					<!--scrapers list-->
+					<include name="dialog_Common-List">
+						<param name="ID" value="21"/>
+						<param name="ContainerTop" value="40"/>
+						<param name="ContainerWidth" value="652"/>
+						<param name="ContainerHeight" value="120"/>
+						<param name="Width" value="652"/>
+						<param name="OnUp" value="20"/>
+						<param name="OnDown" value="5"/>
+					</include>
 				</control>
 				<!--options-->
 				<control type="group" id="9005">
