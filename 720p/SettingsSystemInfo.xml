@@ -47,7 +47,7 @@
 					<include>settings_Menu</include>
 					<label>$LOCALIZE[19191]</label>
 				</control>
-				<!--xbmc-->
+				<!--kodi-->
 				<control type="button" id="195">
 					<include>settings_Menu</include>
 					<label>Kodi</label>
@@ -228,6 +228,18 @@
 						</control>
 						<control type="label" id="33">
 							<label>$INFO[System.KernelVersion]</label>
+							<include>settings_Listbutton</include>
+						</control>
+					</control>
+					<control type="group">
+						<height>44</height>
+						<control type="image">
+							<width>850</width>
+							<height>44</height>
+							<texture colordiffuse="column2">views/focus.png</texture>
+						</control>
+						<control type="label" id="33">
+							<label>$INFO[Window(Home).Property(SkinHelper.skinTitle)]</label>
 							<include>settings_Listbutton</include>
 						</control>
 					</control>
