@@ -93,10 +93,10 @@
 							<control type="image">
 								<top>200</top>	
 								<width>100%</width>
-								<height>5000</height>	
+								<height>520</height>	
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
-								<colordiffuse>base_1</colordiffuse>
+								<colordiffuse>column2</colordiffuse>
 							</control>
 							<!--begin main content area-->
 							<control type="group">
@@ -168,7 +168,7 @@
 									<height>40</height>
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
-									<visible>!Control.IsVisible(50)</visible>
+									<visible>!Control.IsVisible(50) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 									<include>media_Flags</include>
 								</control>
 								<control type="label">
