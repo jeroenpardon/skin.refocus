@@ -85,42 +85,18 @@
 						<include>dialog_Separator</include>
 					</control>
 					<!--rules list control-->
-					<control type="list" id="10">
-						<top>40</top>
-						<width>543</width>
-						<height>120</height>
-						<onleft>22</onleft>
-						<onright>9000</onright>
-						<onup>12</onup>
-						<ondown>16</ondown>
-						<itemlayout height="40">
-							<control type="label">
-								<width>543</width>
-								<info>ListItem.Label</info>
-								<include>dialog_CommonListItem</include>
-							</control>
-						</itemlayout>
-						<focusedlayout height="40">
-							<control type="image">
-								<width>522</width>
-								<include>dialog_CommonListFocus</include>
-								<visible>Control.HasFocus(10)</visible>
-							</control>
-							<control type="label">
-								<width>512</width>
-								<info>ListItem.Label</info>
-								<textcolor>Color4</textcolor>
-								<include>dialog_CommonListItemFocus</include>
-								<visible>!Control.HasFocus(10)</visible>
-							</control>
-							<control type="label">
-								<width>512</width>
-								<info>ListItem.Label</info>
-								<include>dialog_CommonListItemFocus</include>
-								<visible>Control.HasFocus(10)</visible>
-							</control>
-						</focusedlayout>
-					</control>
+					<include name="dialog_Common-List">
+						<param name="ID" value="10"/>
+						<param name="ContainerTop" value="40"/>
+						<param name="ContainerWidth" value="522"/>
+						<param name="ContainerHeight" value="120"/>
+						<param name="Width" value="522"/>
+						<param name="OnUp" value="12"/>
+						<param name="OnDown" value="16"/>
+						<param name="OnLeft" value="22"/>
+						<param name="OnRight" value="9000"/>
+					</include>
+				
 					<!--list controls-->
 					<control type="group" id="9000">
 						<left>522</left>

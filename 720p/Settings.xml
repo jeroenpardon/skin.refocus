@@ -5,7 +5,13 @@
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<control type="group">
-			<include>windowTitle_System</include>
+			
+			<!--window header-->
+			<include name="windowTitle">
+				<param name="Left" value="32"/>
+				<param name="Label" value="$VAR[window:Title.System]"/>
+			</include>
+
 			<control type="panel" id="50">
 				<left>90</left>
 				<top>80</top>

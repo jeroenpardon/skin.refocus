@@ -182,7 +182,7 @@
 				<onright>70</onright>
 				<pagecontrol>70</pagecontrol>
 				<include>global_ListScroll</include>
-				<itemlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">		
+				<itemlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">		
 					<include>view_List-Data.Single</include>
 				</itemlayout>
 				<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">				
@@ -191,7 +191,7 @@
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 					</include>
 				</focusedlayout>
-				<itemlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">		
+				<itemlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="67">		
 					<include>view_List-Icon</include>
 					<include name="view_List-Data">
 						<param name="TextLeft" value="80"/>
@@ -219,14 +219,14 @@
 						<param name="StatusColor">$VAR[view:List.TextColor]</param>
 					</include>
 				</focusedlayout>
-				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
+				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
 					<include>view_List-Data</include>
 					<include name="status_List">
 						<param name="Right">10</param>
 						<param name="Top">19</param>
 					</include>
 				</itemlayout>
-				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Contennt(songs) | Container.HasFiles" width="620" height="67">
+				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
 					<include name="view_List-Focus">
 						<param name="Height" value="67"/>
 					</include>
@@ -274,8 +274,6 @@
 				</include>
 			</control>
 			<!--square-->
-
-			
 			<control type="group">
 				<control type="group">
 					<left>700</left>

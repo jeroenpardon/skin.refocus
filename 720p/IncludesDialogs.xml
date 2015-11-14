@@ -66,7 +66,9 @@
 		<param name="PageControl"/>
 		<param name="IconSize" default="40"/>
 		<param name="Left" default="15"/>
+		<param name="Right" default="15"/>
 		<param name="ShowIcon" default="false"/>
+		<param name="ShowLabel2" default="false"/>
 		<definition>
 			<control type="list" id="$PARAM[ID]">
 				<left>$PARAM[ContainerLeft]</left>
@@ -105,6 +107,14 @@
 						<selectedcolor>Selected</selectedcolor>
 						<include>autoscroll_Line</include>
 					</control>
+					<control type="label">
+						<right>$PARAM[Right]</right>
+						<width>$PARAM[Width]</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<align>right</align>
+						<include>dialog_CommonListItem</include>
+						<visible>$PARAM[ShowLabel2]</visible>
+					</control>
 				</itemlayout>
 				<focusedlayout width="$PARAM[ContainerWidth]" height="$PARAM[Height]">
 					<control type="image">
@@ -137,6 +147,24 @@
 						<width>$PARAM[Width]</width>
 						<label>$INFO[ListItem.Label]</label>
 						<include>dialog_CommonListItemFocus</include>
+						<visible>Control.HasFocus($PARAM[ID])</visible>
+					</control>
+					<control type="label">
+						<right>$PARAM[Right]</right>
+						<width>$PARAM[Width]</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<align>right</align>
+						<include>dialog_CommonListItem</include>
+						<visible>$PARAM[ShowLabel2]</visible>
+						<visible>!Control.HasFocus($PARAM[ID])</visible>
+					</control>
+					<control type="label">
+						<right>$PARAM[Right]</right>
+						<width>$PARAM[Width]</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<align>right</align>
+						<include>dialog_CommonListItemFocus</include>
+						<visible>$PARAM[ShowLabel2]</visible>
 						<visible>Control.HasFocus($PARAM[ID])</visible>
 					</control>
 				</focusedlayout>

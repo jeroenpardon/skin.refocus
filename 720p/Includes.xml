@@ -1290,17 +1290,30 @@
 
 <!--WINDOW TITLES-->
 	<include name="windowTitle">
-		<left>32</left>
-		<top>15</top>
-		<width>950</width>
-		<aligny>center</aligny>
-		<font>light_Window</font>
-		<textcolor>Color1</textcolor>
-		<include>transition_WindowTitle</include>
-		<include>toggle_Menu</include>
-		<include>window_TitleMove</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(9900)]</visible>
+		<param name="Left" default="59"/>
+		<param name="Top" default="15"/>
+		<param name="Width" default="950"/>
+		<param name="Label" default="Fallback"/>
+		<definition>
+			<control type="Label">
+				<left>$PARAM[Left]</left>
+				<top>$PARAM[Top]</top>
+				<width>$PARAM[Width]</width>
+				<height>28</height>
+				<label>$PARAM[Label]</label>
+				<aligny>center</aligny>
+				<font>light_Window</font>
+				<textcolor>Color1</textcolor>
+				<include>transition_WindowTitle</include>
+				<include>toggle_Menu</include>
+			</control>
+		</definition>
 	</include>
+
+
+
+
+
 	<include name="windowTitle_Video">
 		<control type="label">
 			<label>$VAR[window:Title.Video]</label>
