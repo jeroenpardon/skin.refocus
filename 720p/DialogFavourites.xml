@@ -16,45 +16,16 @@
 				<param name="DialogHeaderID" value="1" />
 				<param name="DialogSeparator" value="true" />
 			</include>
-			<control type="list" id="450">
-				<left>4</left>
-				<top>60</top>
-				<width>592</width>
-				<height>440</height>
-				<onup>450</onup>
-				<ondown>450</ondown>
-				<onright>noop</onright>
-				<include>global_ListScroll</include>
-				<itemlayout height="40">
-					<control type="image">
-						<width>592</width>
-						<include>dialog_CommonList</include>
-					</control>
-					<control type="label">
-						<width>562</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>dialog_CommonListItem</include>
-					</control>
-				</itemlayout>
-				<focusedlayout height="40">
-					<control type="image">
-						<width>592</width>
-						<include>dialog_CommonList</include>
-						<visible>!Control.HasFocus(450)</visible>
-					</control>
-					<control type="image">
-						<width>592</width>
-						<height>40</height>
-						<include>dialog_CommonListFocus</include>
-						<visible>Control.HasFocus(450)</visible>
-					</control>
-					<control type="label">
-						<width>562</width>
-						<label>$INFO[ListItem.Label]</label>
-						<include>dialog_CommonListItemFocus</include>
-					</control>
-				</focusedlayout>
-			</control>
+
+			<include name="dialog_Common-List">
+				<param name="ID" value="450"/>
+				<param name="ContainerLeft" value="4"/>
+				<param name="ContainerTop" value="60"/>
+				<param name="ContainerWidth" value="592"/>
+				<param name="ContainerHeight" value="440"/>
+				<param name="Width" value="592"/>
+			</include>
+			
 			<control type="label">
 				<top>507</top>
 				<width>600</width>

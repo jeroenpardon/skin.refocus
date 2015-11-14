@@ -29,37 +29,16 @@
 					<width>592</width>
 					<include>dialog_Separator</include>
 				</control>
-				<control type="list" id="3">
-					<width>592</width>
-					<height>480</height>
-					<onleft>5</onleft>
-					<onright>5</onright>
-					<onup>3</onup>
-					<ondown>3</ondown>
-					<include>global_ListScroll</include>
-					<itemlayout height="40">
-						<control type="image">
-							<width>592</width>
-							<include>dialog_CommonList</include>
-						</control>
-						<control type="label">
-							<width>573</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="40">
-						<control type="image">
-							<width>592</width>
-							<include>dialog_CommonListFocus</include>
-						</control>
-						<control type="label">
-							<width>573</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItemFocus</include>
-						</control>
-					</focusedlayout>
-				</control>
+				<include name="dialog_Common-List">
+					<param name="ID" value="3"/>
+					<param name="ContainerWidth" value="592"/>
+					<param name="ContainerHeight" value="480"/>
+					<param name="Width" value="592"/>
+					<param name="OnUp" value="3"/>
+					<param name="OnDown" value="3"/>
+					<param name="OnLeft" value="5"/>
+					<param name="OnRight" value="5"/>
+				</include>
 				<control type="list" id="6">
 					<top>1</top>
 					<width>613</width>

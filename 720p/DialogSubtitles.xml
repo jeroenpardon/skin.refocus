@@ -58,53 +58,16 @@
 					<wrapmultiline>true</wrapmultiline>
 				</control>
 			<!--services-->
-				<control type="list" id="150">
-					<top>40</top>
-					<width>250</width>
-					<height>434</height>
-					<onleft>noop</onleft>
-					<onright>120</onright>
-					<onup>161</onup>
-					<ondown>160</ondown>
-					<include>global_ListScroll</include>
-					<itemlayout width="892" height="40">
-						<control type="image">
-							<width>892</width>
-							<height>40</height>
-							<include>dialog_CommonList</include>
-						</control>
-						<control type="label">
-							<width>692</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-					</itemlayout>
-					<focusedlayout width="892" height="40">
-						<control type="image">
-							<width>892</width>
-							<height>40</height>
-							<include>dialog_CommonList</include>
-						</control>
-						<control type="image">
-							<width>892</width>
-							<height>40</height>
-							<include>dialog_CommonListFocus</include>
-							<visible>Control.HasFocus(150)</visible>
-						</control>
-						<control type="label">
-							<width>692</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
-							<visible>!Control.HasFocus(150)</visible>
-						</control>
-						<control type="label">
-							<width>692</width>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItemFocus</include>
-							<visible>Control.HasFocus(150)</visible>
-						</control>
-					</focusedlayout>
-				</control>
+				<include name="dialog_Common-List">
+					<param name="ID" value="150"/>
+					<param name="ContainerTop" value="40"/>
+					<param name="ContainerWidth" value="250"/>
+					<param name="ContainerHeight" value="434"/>
+					<param name="Width" value="250"/>
+					<param name="OnRight" value="120"/>
+					<param name="OnUp" value="161"/>
+					<param name="OnDown" value="160"/>
+				</include>
 			<!--search results-->
 				<control type="list" id="120">
 					<left>250</left>
