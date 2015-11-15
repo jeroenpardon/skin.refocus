@@ -6,10 +6,11 @@
 		<left>215</left>
 		<top>70</top>
 	</coordinates>
-	<zorder>2</zorder>
 	<include>transition_Dialog</include>
 
 	<onunload>ClearProperty(Previous)</onunload>
+
+	<onload>Skin.SetString(Section,Plot)</onload>
 
 	<!--150:movie roles-->
 	<!--250:tv show roles-->
@@ -82,7 +83,7 @@
 					
 					<!--load when plot selected-->
 					<control type="group">
-						<visible>StringCompare(Window.Property(Section),Plot) | IsEmpty(Window.Property(Section))</visible>
+						<visible>Skin.String(Section,Plot)</visible>
 						<control type="image">
 							<width>291</width>
 							<height>430</height>
@@ -103,7 +104,7 @@
 
 					<!--load when cast selected-->
 					<control type="group">
-						<visible>StringCompare(Window.Property(Section),Cast)</visible>
+						<visible>Skin.String(Section,Cast)</visible>
 						<control type="panel" id="1000">
 							<width>843</width>
 							<height>436</height>
@@ -111,7 +112,7 @@
 							<onleft>1000</onleft>
 							<onright>1000</onright>
 							<onup>32</onup>
-							<ondown>32</ondown>
+							<ondown>31</ondown>
 							<pagecontrol>60</pagecontrol>
 							<orientation>horizontal</orientation>
 							<preloaditems>4</preloaditems>
@@ -171,17 +172,90 @@
 						</control>
 					</control>
 
+
+					<!--load when videos selected-->
+					<control type="group">
+						<visible>Skin.String(Section,Videos)</visible>
+						<control type="panel" id="1150">
+							<width>844</width>
+							<height>436</height>
+							<onback>32</onback>
+							<onleft>1150</onleft>
+							<onright>1150</onright>
+							<onup>-</onup>
+							<ondown>32</ondown>
+							<pagecontrol>60</pagecontrol>
+							<orientation>horizontal</orientation>
+							<preloaditems>4</preloaditems>
+							<include>global_ListScroll</include>
+							<itemlayout width="281" height="218">
+								<control type="image">
+									<left>7</left>
+									<top>7</top>
+									<width>266</width>
+									<height>150</height>
+									<texture>$INFO[ListItem.Art(thumb)]</texture>
+									<aspectratio align="center" aligny="center">scale</aspectratio>
+								</control>
+								<control type="textbox">
+									<left>7</left>
+									<top>160</top>
+									<width>266</width>
+									<height min="25" max="50">auto</height>
+									<label>$INFO[ListItem.Label]</label>
+									<font>condensed</font>
+									<textcolor>Color4</textcolor>
+									<align>left</align>
+								</control>
+							</itemlayout>
+							<focusedlayout width="281" height="218">
+								<control type="image">
+									<width>280</width>
+									<height>217</height>
+									<include>dialog_CommonListFocus</include>
+								</control>
+								<control type="image">
+									<left>7</left>
+									<top>7</top>
+									<width>266</width>
+									<height>150</height>
+									<texture>$INFO[ListItem.Art(thumb)]</texture>
+									<aspectratio align="center" aligny="center">scale</aspectratio>
+								</control>
+								<control type="textbox">
+									<left>7</left>
+									<top>160</top>
+									<width>266</width>
+									<height min="25" max="50">auto</height>
+									<label>$INFO[ListItem.Label]</label>
+									<font>condensed</font>
+									<textcolor>Color1</textcolor>
+									<align>left</align>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="scrollbar" id="60">
+							<top>436</top>
+							<width>796</width>
+							<height>4</height>
+							<include>dialog_Scrollbar</include>
+							<orientation>horizontal</orientation>
+						</control>
+					</control>
+
+
+
 					<!--load when youtube selected-->
 					<control type="group">
-						<visible>StringCompare(Window.Property(Section),YouTube)</visible>
+						<visible>Skin.String(Section,YouTube)</visible>
 						<control type="panel" id="350">
 							<width>844</width>
 							<height>436</height>
 							<onback>32</onback>
 							<onleft>350</onleft>
 							<onright>350</onright>
-							<onup>32</onup>
-							<ondown>32</ondown>
+							<onup>-</onup>
+							<ondown>33</ondown>
 							<pagecontrol>60</pagecontrol>
 							<orientation>horizontal</orientation>
 							<preloaditems>4</preloaditems>
@@ -242,14 +316,14 @@
 					</control>
 				</control>
 
-				<!--load when accessed from context menu or info dialog-->
+				<!--load when tags selected-->
 				<control type="grouplist" id="900">
 					<left>20</left>
 					<itemgap>0</itemgap>
 					<width>100%</width>
 					<height>490</height>
 					<orientation>vertical</orientation>
-					<visible>StringCompare(Window(Home).Property(Previous),ContextMenu) | StringCompare(Window(Home).Property(Previous),InfoDialog)</visible>
+					<visible>Skin.String(Section,Tags)</visible>
 
 					<!--keywords-->
 					<control type="group">		
@@ -267,8 +341,8 @@
 							<height>100</height>
 							<onleft>950</onleft>
 							<onright>950</onright>
-							<onup>550</onup>
-							<ondown>850</ondown>
+							<onup>-</onup>
+							<ondown>33</ondown>
 							<orientation>horizontal</orientation>
 							<itemlayout width="270" height="50">
 								<control type="image">
@@ -286,110 +360,6 @@
 								</control>
 							</itemlayout>
 							<focusedlayout width="270" height="	50">
-								<control type="image">
-									<width>260</width>
-									<height>40</height>
-									<texture>dialogs/button-fo.png</texture>
-								</control>
-								<control type="textbox">
-									<top>3</top>
-									<height>40</height>
-									<label>$INFO[ListItem.Label]</label>
-									<font>regular</font>
-									<align>center</align>
-									<textcolor>Color1</textcolor>
-								</control>
-							</focusedlayout>
-						</control>
-					</control>
-
-					<!--genres-->
-					<control type="group">
-						<visible>IntegerGreaterThan(Container(850).NumItems,0)</visible>
-						<height>150</height>
-						<control type="label">
-							<top>10</top>
-							<label>$LOCALIZE[21861]$INFO[Container(850).NumItems, (,)]</label>
-							<font>regular-U</font>
-							<textcolor>Color5</textcolor>
-						</control>
-						<control type="panel" id="850">
-							<top>45</top>
-							<width>820</width>
-							<height>100</height>
-							<onleft>850</onleft>
-							<onright>850</onright>
-							<onup>950</onup>
-							<ondown>550</ondown>
-							<orientation>horizontal</orientation>
-							<itemlayout width="270" height="50">
-								<control type="image">
-									<width>260</width>
-									<height>40</height>
-									<texture border="2">dialogs/button-nf.png</texture>
-								</control>
-								<control type="textbox">
-									<top>3</top>
-									<height>40</height>
-									<label>$INFO[ListItem.Label]</label>
-									<font>regular</font>
-									<align>center</align>
-									<textcolor>Color5</textcolor>
-								</control>
-							</itemlayout>
-							<focusedlayout width="270" height="50">
-								<control type="image">
-									<width>260</width>
-									<height>40</height>
-									<texture>dialogs/button-fo.png</texture>
-								</control>
-								<control type="textbox">
-									<top>3</top>
-									<height>40</height>
-									<label>$INFO[ListItem.Label]</label>
-									<font>regular</font>
-									<align>center</align>
-									<textcolor>Color1</textcolor>
-								</control>
-							</focusedlayout>
-						</control>
-					</control>
-
-					<!--studios-->
-					<control type="group">
-						<visible>IntegerGreaterThan(Container(550).NumItems,0)</visible>
-						<height>150</height>
-						<control type="label">
-							<top>10</top>
-							<label>$LOCALIZE[21861]$INFO[Container(550).NumItems, (,)]</label>
-							<font>regular-U</font>
-							<textcolor>Color5</textcolor>
-						</control>
-						<control type="panel" id="550">
-							<top>45</top>
-							<width>820</width>
-							<height>100</height>
-							<onleft>550</onleft>
-							<onright>550</onright>
-							<onup>850</onup>
-							<ondown>950</ondown>
-							<orientation>horizontal</orientation>
-							<itemlayout width="270" height="50">
-								<control type="image">
-									<width>260</width>
-									<height>40</height>
-									<texture border="2">dialogs/button-nf.png</texture>
-								</control>
-								<control type="textbox">
-									<top>3</top>
-									<height>40</height>
-									<label>$INFO[ListItem.Label]</label>
-									<font>regular</font>
-									<align>center</align>
-									<textcolor>Color5</textcolor>
-								</control>
-							</itemlayout>
-							<focusedlayout width="270" height="50">
 								<control type="image">
 									<width>260</width>
 									<height>40</height>
@@ -429,7 +399,7 @@
 						<width>125</width>
 						<control type="button" id="8">
 							<label>$LOCALIZE[208]</label>
-							<onleft>32</onleft>
+							<onleft>34</onleft>
 							<onright>30</onright>
 							<ondown>1000</ondown>
 							<onclick>PlayMedia($ESCINFO[Window.Property(movie.Trailer)])</onclick>
@@ -443,8 +413,7 @@
 							<label>$LOCALIZE[207]</label>
 							<onleft>8</onleft>
 							<onright>31</onright>
-							<onclick condition="IsEmpty(Window.Property(Section))">SetProperty(Section,Plot)</onclick>
-							<onclick condition="!IsEmpty(Window.Property(Section))">ClearProperty(Section)</onclick>
+							<onclick>Skin.SetString(Section,Plot)</onclick>
 							<include>dialog_WindowButton</include>
 						</control>
 					</control>
@@ -456,22 +425,50 @@
 							<onleft>30</onleft>
 							<onright>32</onright>
 							<onup>1000</onup>
-							<onclick condition="IsEmpty(Window.Property(Section))">SetProperty(Section,Cast)</onclick>
-							<onclick condition="!IsEmpty(Window.Property(Section))">ClearProperty(Section)</onclick>
+							<onclick>Skin.SetString(Section,Cast)</onclick>
 							<include>dialog_WindowButton</include>
+						</control>
+					</control>
+					<!--official videos-->
+					<control type="group">
+						<width>125</width>
+						<control type="button" id="32">
+							<label>$LOCALIZE[3]</label>
+							<onup>1150</onup>
+							<onleft>31</onleft>
+							<onright>33</onright>
+							<onclick>Skin.SetString(Section,Videos)</onclick>
+							<onclick>SetFocus(1150)</onclick>
+							<include>dialog_WindowButton</include>
+							<visible>IntegerGreaterThan(Container(1150).NumItems,0)</visible>
 						</control>
 					</control>
 					<!--youtube-->
 					<control type="group">
 						<width>125</width>
-						<control type="button" id="32">
+						<control type="button" id="33">
 							<label>youtube</label>
 							<onup>350</onup>
-							<onleft>31</onleft>
-							<onright>8</onright>
-							<onclick condition="IsEmpty(Window.Property(Section))">SetProperty(Section,YouTube)</onclick>
-							<onclick condition="!IsEmpty(Window.Property(Section))">ClearProperty(Section)</onclick>
+							<onleft>32</onleft>
+							<onright>34</onright>
+							<onclick>Skin.SetString(Section,YouTube)</onclick>
+							<onclick>SetFocus(350)</onclick>
 							<include>dialog_WindowButton</include>
+							<visible>IntegerGreaterThan(Container(350).NumItems,0)</visible>
+						</control>
+					</control>
+					<!--tags-->
+					<control type="group">
+						<width>125</width>
+						<control type="button" id="34">
+							<label>$LOCALIZE[20459]</label>
+							<onup>950</onup>
+							<onleft>33</onleft>
+							<onright>8</onright>
+							<onclick>Skin.SetString(Section,Tags)</onclick>
+							<onclick>SetFocus(950)</onclick>
+							<include>dialog_WindowButton</include>
+							<visible>IntegerGreaterThan(Container(950).NumItems,0)</visible>
 						</control>
 					</control>
 				</control>

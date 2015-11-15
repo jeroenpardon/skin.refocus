@@ -20,6 +20,7 @@
 		<param name="Fallback" default="thumbs/default_Portrait.png"/>
 		<param name="IconSize" default="72"/>
 		<param name="ShowLogo" default="false"/>
+		<param name="ActualIcon" default="$INFO[ListItem.ActualIcon]"/>
 		<definition>
 			<control type="group">
 				<left>7</left>
@@ -33,7 +34,7 @@
 					<aspectratio>stretch</aspectratio>
 				</control>
 				<control type="image">
-					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<texture>$PARAM[ActualIcon]</texture>
 					<width>$PARAM[IconSize]</width>
 					<height>$PARAM[IconSize]</height>
 					<centerleft>50%</centerleft>

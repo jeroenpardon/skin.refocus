@@ -98,10 +98,6 @@
 				<onclick>SetProperty(extQuery,$INFO[ListItem.Label],Home)</onclick>
 				<onclick>ActivateWindow(1140)</onclick>
 				<include>dialog_MenuButton</include>
-				<!--
-				<onclick condition="Container.Content(albums) | Container.Content(songs)">SetProperty(YouTubeQuery,$INFO[ListItem.Artist] $INFO[ListItem.Label],Home)</onclick>
-				<onclick condition="Container.Content(artists) | Container.Content(actors) | Container.Content(directors) | Container.Content(movies) | Container.Content(tvshows)">SetProperty(YouTubeQuery,$INFO[ListItem.Label],Home)</onclick>
-				-->
 				<visible>System.HasAddon(script.extendedinfo)</visible>
 			</control>
 			<control type="image" id="513">

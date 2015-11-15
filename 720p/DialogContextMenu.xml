@@ -47,15 +47,14 @@
 				<include>dialog_ControlCommons</include>
 				<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
 			</control>
-			<!--
+			<!--actor information-->
 			<control type="button" id="2009">
 				<width>302</width>
 				<include>dialog_ControlCommons</include>
-				<label>test</label>
+				<label>$ADDON[script.extendedinfo 32009]</label>
 				<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(actors) | Container.Content(directors)</visible>
 				<onclick condition="Container.Content(Actors) | Container.Content(Directors) | Container.Content(Artists)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
 			</control>
-			-->
 			<!--Kodi inserts buttons-->
 			<control type="button" id="1000">
 				<left>9</left>
