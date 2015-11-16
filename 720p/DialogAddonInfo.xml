@@ -1,241 +1,268 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window>
-	<defaultcontrol always="true">10000</defaultcontrol>
-	<include>transition_Dialog</include>
-	<coordinates>
-		<system>1</system>
-		<left>228</left>
-		<top>70</top>
-	</coordinates>
+	<defaultcontrol always="true">5000</defaultcontrol>
 	<controls>
 		<control type="group">
-			<visible>!Window.IsActive(yesnodialog) + !Window.IsActive(addonsettings)</visible>
-			<include name="dialog_WindowCommons">
-				<param name="DialogWidth" value="824" />
-				<param name="DialogHeight" value="580" />
-				<param name="DialogHeaderName" value="$INFO[ListItem.Property(Addon.Name)]" />
-				<param name="DialogHeaderID" value="1" />
-			</include>
+			<include>screen_Dimensions</include>
+
+			<!--background-->
 			<control type="image">
-				<left>659</left>
-				<top>61</top>
-				<height>159</height>
-				<include>dialog_Separator-y</include>
+				<include>screen_Dimensions</include>
+				<texture background="true">$VAR[art:Container]</texture>
+				<aspectratio>scale</aspectratio>
+				<animation type="WindowOpen">
+					<effect type="Fade" time="transition_Open" start="0" end="100" />
+				</animation>			
+				<animation type="WindowClose">
+					<effect type="Fade" time="transition_Close" start="100" end="0" />
+				</animation>
 			</control>
-			<control type="group">
-				<left>660</left>
-				<top>61</top>
-				<control type="image">
-					<width>159</width>
-					<height>159</height>
-					<aspectratio>keep</aspectratio>
-					<texture>thumbs/default_Square.png</texture>
-				</control>
-				<control type="image">
-					<width>159</width>
-					<height>159</height>
-					<aspectratio>keep</aspectratio>
-					<texture>1$INFO[ListItem.Icon]</texture>
-				</control>
+
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture background="true">overlays/base_color.png</texture>
+				<colordiffuse>base_1</colordiffuse>
+				<visible>IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
+
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
-				<control type="image">
-					<width>815</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<left>656</left>
-					<top>160</top>
-					<width>159</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<top>438</top>
-					<width>815</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="grouplist" id="100">
-					<width>708</width>
-					<height>480</height>
+				<include>screen_Dimensions</include>
+				<include>transition_Content</include>
+				<!--main container-->
+				<control type="grouplist" id="4000">
+					<include>screen_Dimensions</include>
+					<onright>70</onright>
+					<pagecontrol>70</pagecontrol>
+					<include>global_Scrolltime</include>
+					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
-					<onup>100</onup>
-					<ondown>100</ondown>
-					<include>global_ListScroll</include>
-					<!--type-->
+					<!--banner window-->
 					<control type="group">
-						<width>655</width>
-						<height>40</height>
-						<control type="label">
-							<width>655</width>
-							<label>$LOCALIZE[467]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="label">
-							<width>655</width>
-							<align>right</align>
-							<label>$INFO[ListItem.Property(Addon.Type)]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
+						<width>100%</width>
+						<height>250</height>
 						<control type="image">
+							<width>100%</width>
+							<height>200</height>
+							<texture aligny="bottom">overlays/vignette_bottom.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+						</control>
+						<!--begin main column-->
+						<control type="group">
+							<left>300</left>
+							<top>110</top>
+							<control type="label">
+								<width min="0" max="1164">auto</width>
+								<label>$INFO[ListItem.Property(Addon.Name)]</label>
+								<selectedcolor>Color1</selectedcolor>
+								<include>osd_Title</include>
+							</control>
+							<control type="label">
+								<top>28</top>
+								<width>1164</width>
+								<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+								<font>regular_Small-U</font>
+								<include>osd_Sub</include>
+							</control>
+							<control type="label">
+								<top>50</top>
+								<width min="0" max="1164">auto</width>
+								<label>$INFO[ListItem.Property(Addon.Creator)]</label>
+								<font>regular_Smaller-U</font>
+								<textcolor>Color3</textcolor>
+								<include>osd_Sub</include>
+							</control>
+						</control>
+
+						<control type="group">
+							<width>100%</width>
+							<height>screen_Height</height>
+							<control type="image">
+								<top>200</top>	
+								<width>100%</width>
+								<height>520</height>	
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">overlays/base_color.png</texture>
+								<colordiffuse>base_1</colordiffuse>
+								<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+							</control>
+							<!--begin main content area-->
+							<control type="group">
+								<left>300</left>
+								<top>220</top>
+								<control type="grouplist" id="5000">
+									<width>100%</width>
+									<height>40</height>
+									<itemgap>10</itemgap>
+									<orientation>horizontal</orientation>
+									<defaultcontrol always="true">8</defaultcontrol>
+									<!--configure-->
+									<control type="togglebutton" id="9">
+										<label>$LOCALIZE[24020]</label>
+										<include>global_Button</include>
+										<visible>Control.IsEnabled(9)</visible>
+									</control>
+									<!--update-->
+									<control type="button" id="8">
+										<label>$LOCALIZE[24069]</label>
+										<include>global_Button</include>
+										<visible>Control.IsEnabled(8)</visible>
+									</control>
+									<!--auto-update-->
+									<control type="radiobutton" id="13">
+										<width>150</width>
+										<label>$LOCALIZE[21340]</label>
+										<include>global_Button</include>
+										<include>global_Radio</include>
+										<visible>Control.IsEnabled(13)</visible>
+									</control>
+									<!--launch-->
+									<control type="button" id="12">
+										<label>$LOCALIZE[518]</label>
+										<include>global_Button</include>
+										<visible>Control.IsEnabled(12)</visible>
+									</control>
+									<!--uninstall-->
+									<control type="button" id="6">
+										<label>$LOCALIZE[24022]</label>
+										<include>global_Button</include>
+										<visible>Control.IsEnabled(6)</visible>
+									</control>
+									<!--disable-->
+									<control type="button" id="7">
+										<label>$LOCALIZE[24021]</label>
+										<include>global_Button</include>
+										<visible>Control.IsEnabled(7)</visible>
+									</control>
+									<!--changelog-->
+									<control type="button" id="10">
+										<label>$LOCALIZE[24036]</label>
+										<include>global_Button</include>
+										<visible>Control.IsEnabled(10)</visible>
+									</control>
+								</control>
+								<!--plot / descriptions-->
+								<control type="textbox" id="401">
+									<top>70</top>
+									<width>875</width>
+									<height min="0" max="325">auto</height>
+									<label>$INFO[ListItem.Property(Addon.Description,[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Disclaimer,[B]$LOCALIZE[24052][/B][CR],[CR][CR]]</label>
+									<include>detail_Text</include>
+									<visible>!Control.IsVisible(50)</visible>
+								</control>
+							</control>
+						</control>
+
+						<!--begin left column-->
+						<control type="group">
+							<left>40</left>
 							<top>40</top>
-							<include>dialog_Separator</include>
+							<control type="image">
+								<width>207</width>
+								<height>207</height>
+								<include>art_Frame-nf</include>
+							</control>
+							<control type="group">
+								<left>7</left>
+								<top>7</top>
+								<control type="image">	
+									<width>193</width>
+									<height>193</height>
+									<texture background="true">thumbs/default_Portrait.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<width>193</width>
+									<height>193</height>
+									<texture>$INFO[ListItem.ActualIcon]</texture>
+									<aspectratio align="center" aligny="top">scale</aspectratio>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+								<control type="image">
+									<width>193</width>
+									<height>193</height>
+									<texture>$INFO[ListItem.Art(thumb)]</texture>
+									<aspectratio align="center" aligny="top">scale</aspectratio>
+								</control>
+							</control>
+							<control type="textbox" id="401">
+								<top>227</top>
+								<width>200</width>
+								<height min="0" max="300">auto</height>
+								<align>right</align>
+								<label>$INFO[ListItem.Property(Addon.Type,[B]$LOCALIZE[467][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Version,[B]$LOCALIZE[19114][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.ID,[B]$LOCALIZE[560][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Status,[B]$LOCALIZE[126][/B][CR],[CR][CR]]</label>
+								<include>detail_Text</include>
+							</control>
 						</control>
-					</control>
-					<!--creator-->
-					<control type="group">
-						<width>655</width>
-						<height>40</height>
-						<control type="label">
-							<width>655</width>
-							<label>$LOCALIZE[21863]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="label">
-							<width>655</width>
-							<align>right</align>
-							<label>$INFO[ListItem.Property(Addon.Creator)]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="image">
-							<top>40</top>
-							<include>dialog_Separator</include>
-						</control>
-					</control>
-					<!--version-->
-					<control type="group">
-						<width>655</width>
-						<height>40</height>
-						<control type="label">
-							<width>655</width>
-							<label>$LOCALIZE[19114]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="label">
-							<width>655</width>
-							<align>right</align>
-							<label>$INFO[ListItem.Property(Addon.Version)]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="image">
-							<top>40</top>
-							<include>dialog_Separator</include>
-						</control>
-					</control>
-					<!--ID-->
-					<control type="group">
-						<width>655</width>
-						<height>40</height>
-						<control type="label">
-							<width>655</width>
-							<label>$LOCALIZE[560]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="label">
-							<width>655</width>
-							<align>right</align>
-							<label>$INFO[ListItem.Property(Addon.ID)]</label>
-							<include>dialog_ControlCommons</include>
-						</control>
-						<control type="image">
-							<top>40</top>
-							<include>dialog_Separator</include>
-						</control>
-					</control>
-					<!--disclaimer-->
+					</control>		
 				</control>
-				<!--description & disclaimer-->
-				<control type="group">
-					<left>15</left>	
-					<top>170</top>
-					<control type="textbox" id="400">
-						<width>790</width>
-						<height>255</height>
-						<label>$INFO[ListItem.Property(Addon.Description)]$INFO[ListItem.Property(Addon.Disclaimer), &#8226; ]</label>
-						<include>dialog_Text</include>
-						<visible>IsEmpty(ListItem.Property(Addon.broken))</visible>
-					</control>
-					<control type="textbox" id="400">
-						<width>790</width>
-						<height>165</height>
-						<label>$INFO[ListItem.Property(Addon.Description)]$INFO[ListItem.Property(Addon.Disclaimer), &#8226; ]</label>
-						<include>dialog_Text</include>
-						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
-					</control>
-				</control>
-				<!--status-->
-				<control type="group">
-					<top>370</top>
-					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
-					<control type="image">
-						<width>822</width>
-						<include>dialog_Separator</include>
-					</control>
-					<control type="image">
-						<left>15</left>
-						<top>9</top>
-						<width>48</width>
-						<height>48</height>
-						<texture>toast/error.png</texture>
-						<colordiffuse>Color4</colordiffuse>
-					</control>
-					<control type="group">
-						<left>75</left>
-						<top>7</top>
-						<control type="label">
-							<width>730</width>
-							<label>[B]$LOCALIZE[24096][/B]</label>
-							<include>dialog_Text</include>
+
+				<!--cast-->
+				<control type="panel" id="50">
+					<left>300</left>
+					<top>300</top>
+					<width>980</width>
+					<height>390</height>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>5</onup>
+					<ondown>noop</ondown>
+					<pagecontrol>501</pagecontrol>
+					<orientation>horizontal</orientation>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
+					<itemlayout width="229" height="350">
+						<include name="IconLayoutCommons">
+							<param name="FrameState" value="frames/frame-nf.png" />
+							<param name="FrameWidth" value="209"/>
+							<param name="FrameHeight" value="310"/>
+							<param name="ArtWidth" value="195"/>
+							<param name="ArtHeight" value="296"/>
+							<param name="IconSize" value="72"/>
+						</include>
+						<control type="textbox">
+							<left>7</left>
+							<top>325</top>
+							<width>195</width>
+							<height min="25" max="48">auto</height>
+							<font>condensed_Small</font>
+							<align>center</align>
+							<aligny>bottom</aligny>
+							<textcolor>Color1</textcolor>
+							<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
 						</control>
-						<control type="label">
-							<top>22</top>
-							<width>730</width>
-							<label>$INFO[ListItem.Property(Addon.Broken)]</label>
-							<include>dialog_Text</include>
+					</itemlayout>
+					<focusedlayout width="194" height="350">
+						<include name="IconLayoutCommons">
+							<param name="FrameState" value="frames/frame-fo.png" />
+							<param name="FrameWidth" value="209"/>
+							<param name="FrameHeight" value="310"/>
+							<param name="ArtWidth" value="195"/>
+							<param name="ArtHeight" value="296"/>
+							<param name="IconSize" value="72"/>
+						</include>
+						<control type="textbox">
+							<left>7</left>
+							<top>325</top>
+							<width>195</width>
+							<height min="25" max="48">auto</height>
+							<font>condensed_Small</font>
+							<align>center</align>
+							<aligny>bottom</aligny>
+							<textcolor>Color1</textcolor>
+							<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
 						</control>
-					</control>
+					</focusedlayout>
 				</control>
 			</control>
-			<!--dialog buttons-->
-			<control type="grouplist" id="10000">
-				<left>20</left>
-				<top>520</top>
-				<width>915</width>
-				<height>40</height>
-				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
-				<!--configure-->
-				<control type="button" id="9">
-					<label>$LOCALIZE[24020]</label>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--update-->
-				<control type="button" id="8">
-					<label>$LOCALIZE[24069]</label>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--launch-->
-				<control type="button" id="12">
-					<label>$LOCALIZE[518]</label>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--uninstall-->
-				<control type="button" id="6">
-					<label>$LOCALIZE[24022]</label>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--disable-->
-				<control type="button" id="7">
-					<label>$LOCALIZE[24021]</label>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--changelog-->
-				<control type="button" id="10">
-					<label>$LOCALIZE[24036]</label>
-					<width>135</width>
-					<include>dialog_WindowButton</include>
-				</control>
+
+			<!--pagecontrol-->
+			<control type="scrollbar" id="70">
+				<top>0</top>
+				<left>1272</left>
+				<width>8</width>
+				<height>720</height>
+				<onleft>4000</onleft>
+				<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
 			</control>
 		</control>
 	</controls>
