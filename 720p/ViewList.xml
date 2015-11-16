@@ -229,14 +229,14 @@
 						<param name="StatusColor">$VAR[view:List.TextColor]</param>
 					</include>
 				</focusedlayout>
-				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
+				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
 					<include>view_List-Data</include>
 					<include name="status_List">
 						<param name="Right">10</param>
 						<param name="Top">19</param>
 					</include>
 				</itemlayout>
-				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
+				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
 					<include name="view_List-Focus">
 						<param name="Height" value="67"/>
 					</include>

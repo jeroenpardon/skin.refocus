@@ -105,11 +105,11 @@
 
 
 	<include name="transition_Info">
-		<animation type="Conditional" condition="[Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml)]">
+		<animation type="Conditional" condition="[Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(addoninformation) | Window.IsActive(script-globalsearch-main.xml)]">
 			<effect type="zoom" time="transition_Close" start="100" end="95" tween="Sine" easing="Out" center="screen_Center"/>
 			<effect type="Fade" time="transition_Close" start="100" end="0" />
 		</animation>
-		<animation type="Conditional" condition="![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml)]">
+		<animation type="Conditional" condition="![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(addoninformation) | Window.IsActive(script-globalsearch-main.xml)]">
 			<effect type="zoom" time="transition_Close" start="95" end="100" tween="Sine" easing="Out" center="screen_Center"/>
 			<effect type="Fade" time="transition_Close" start="0" end="100" />
 		</animation>
