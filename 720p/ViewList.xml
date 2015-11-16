@@ -75,10 +75,20 @@
 		<control type="group">
 			<left>5</left>
 			<top>5</top>
+			<width>57</width>
+			<height>57</height>
 			<control type="image">	
 				<width>57</width>
 				<height>57</height>
 				<texture>thumbs/default_Square.png</texture>
+			</control>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>42</width>
+				<height>42</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<visible>IsEmpty(ListItem.Art(thumb))</visible>
 			</control>
 			<control type="image">
 				<width>57</width>
@@ -191,7 +201,7 @@
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 					</include>
 				</focusedlayout>
-				<itemlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="67">		
+				<itemlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">		
 					<include>view_List-Icon</include>
 					<include name="view_List-Data">
 						<param name="TextLeft" value="80"/>
