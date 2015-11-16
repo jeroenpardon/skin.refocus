@@ -78,12 +78,9 @@
 			<top>15</top>
 			<animation effect="slide" start="0" end="320" time="0" condition="StringCompare(Skin.String(homemenu.type),vertical)">Conditional</animation>
 			<include>fadeinout</include>
-
 			<visible>!Window.IsActive(busydialog) + !Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
-
 			<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + ![Skin.HasSetting(widgetheader.disable) + [Control.HasFocus(9000) | Control.HasFocus(9100)]]</visible>
 			<visible>![!Player.HasAudio + StringCompare(Container(9000).ListItem.Property(widget),NowPlaying)]</visible>
-
 			<control type="image">
 				<width>48</width>
 				<height>48</height>
