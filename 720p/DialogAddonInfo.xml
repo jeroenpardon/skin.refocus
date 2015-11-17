@@ -60,7 +60,7 @@
 							<control type="label">
 								<top>28</top>
 								<width>1164</width>
-								<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+								<label>$INFO[ListItem.Property(Addon.ID)]</label>
 								<font>regular_Small-U</font>
 								<include>osd_Sub</include>
 							</control>
@@ -91,51 +91,35 @@
 								<left>300</left>
 								<top>220</top>
 								<control type="grouplist" id="5000">
-									<width>100%</width>
+									<width>840</width>
 									<height>40</height>
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
 									<defaultcontrol always="true">8</defaultcontrol>
 									<!--configure-->
 									<control type="togglebutton" id="9">
+										<width>150</width>
 										<label>$LOCALIZE[24020]</label>
 										<include>global_Button</include>
 										<visible>Control.IsEnabled(9)</visible>
 									</control>
-									<!--update-->
-									<control type="button" id="8">
-										<label>$LOCALIZE[24069]</label>
-										<include>global_Button</include>
-										<visible>Control.IsEnabled(8)</visible>
-									</control>
-									<!--auto-update-->
-									<control type="radiobutton" id="13">
-										<width>150</width>
-										<label>$LOCALIZE[21340]</label>
-										<include>global_Button</include>
-										<include>global_Radio</include>
-										<visible>Control.IsEnabled(13)</visible>
-									</control>
 									<!--launch-->
 									<control type="button" id="12">
+										<width>150</width>
 										<label>$LOCALIZE[518]</label>
 										<include>global_Button</include>
 										<visible>Control.IsEnabled(12)</visible>
 									</control>
-									<!--uninstall-->
-									<control type="button" id="6">
-										<label>$LOCALIZE[24022]</label>
+									<!--manage-->
+									<control type="togglebutton" id="501">
+										<width>150</width>
+										<label>$LOCALIZE[16106]</label>
 										<include>global_Button</include>
-										<visible>Control.IsEnabled(6)</visible>
-									</control>
-									<!--disable-->
-									<control type="button" id="7">
-										<label>$LOCALIZE[24021]</label>
-										<include>global_Button</include>
-										<visible>Control.IsEnabled(7)</visible>
+										<onclick>ActivateWindow(1120)</onclick>
 									</control>
 									<!--changelog-->
 									<control type="button" id="10">
+										<width>150</width>
 										<label>$LOCALIZE[24036]</label>
 										<include>global_Button</include>
 										<visible>Control.IsEnabled(10)</visible>
@@ -146,7 +130,7 @@
 									<top>70</top>
 									<width>875</width>
 									<height min="0" max="325">auto</height>
-									<label>$INFO[ListItem.Property(Addon.Description,[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Disclaimer,[B]$LOCALIZE[24052][/B][CR],[CR][CR]]</label>
+									<label>$INFO[ListItem.Property(Addon.Description,[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Disclaimer,[B]$LOCALIZE[24052][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Broken,[B]$LOCALIZE[24096][/B][CR],[CR][CR]]</label>
 									<include>detail_Text</include>
 									<visible>!Control.IsVisible(50)</visible>
 								</control>
@@ -190,70 +174,15 @@
 								<width>200</width>
 								<height min="0" max="300">auto</height>
 								<align>right</align>
-								<label>$INFO[ListItem.Property(Addon.Type,[B]$LOCALIZE[467][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Version,[B]$LOCALIZE[19114][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.ID,[B]$LOCALIZE[560][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Status,[B]$LOCALIZE[126][/B][CR],[CR][CR]]</label>
+								<label>$INFO[ListItem.Property(Addon.Type,[B]$LOCALIZE[467][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Version,[B]$LOCALIZE[19114][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Creator,[B]$LOCALIZE[21863][/B][CR],[CR][CR]]$INFO[ListItem.Property(Addon.Status,[B]$LOCALIZE[126][/B][CR],[CR][CR]]</label>
 								<include>detail_Text</include>
 							</control>
 						</control>
 					</control>		
 				</control>
-
-				<!--cast-->
-				<control type="panel" id="50">
-					<left>300</left>
-					<top>300</top>
-					<width>980</width>
-					<height>390</height>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onup>5</onup>
-					<ondown>noop</ondown>
-					<pagecontrol>501</pagecontrol>
-					<orientation>horizontal</orientation>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
-					<itemlayout width="229" height="350">
-						<include name="IconLayoutCommons">
-							<param name="FrameState" value="frames/frame-nf.png" />
-							<param name="FrameWidth" value="209"/>
-							<param name="FrameHeight" value="310"/>
-							<param name="ArtWidth" value="195"/>
-							<param name="ArtHeight" value="296"/>
-							<param name="IconSize" value="72"/>
-						</include>
-						<control type="textbox">
-							<left>7</left>
-							<top>325</top>
-							<width>195</width>
-							<height min="25" max="48">auto</height>
-							<font>condensed_Small</font>
-							<align>center</align>
-							<aligny>bottom</aligny>
-							<textcolor>Color1</textcolor>
-							<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="194" height="350">
-						<include name="IconLayoutCommons">
-							<param name="FrameState" value="frames/frame-fo.png" />
-							<param name="FrameWidth" value="209"/>
-							<param name="FrameHeight" value="310"/>
-							<param name="ArtWidth" value="195"/>
-							<param name="ArtHeight" value="296"/>
-							<param name="IconSize" value="72"/>
-						</include>
-						<control type="textbox">
-							<left>7</left>
-							<top>325</top>
-							<width>195</width>
-							<height min="25" max="48">auto</height>
-							<font>condensed_Small</font>
-							<align>center</align>
-							<aligny>bottom</aligny>
-							<textcolor>Color1</textcolor>
-							<label>[B]$INFO[ListItem.Label][/B]$INFO[ListItem.Label2, [COLOR=Color3][CR],[/COLOR]]</label>
-						</control>
-					</focusedlayout>
-				</control>
 			</control>
+
+			
 
 			<!--pagecontrol-->
 			<control type="scrollbar" id="70">
