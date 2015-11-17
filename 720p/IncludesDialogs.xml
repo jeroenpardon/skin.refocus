@@ -64,7 +64,7 @@
 		<param name="OnUp" default="$PARAM[ID]"/>
 		<param name="OnDown" default="$PARAM[ID]"/>
 		<param name="PageControl"/>
-		<param name="IconSize" default="40"/>
+		<param name="IconSize" default="32"/>
 		<param name="Left" default="15"/>
 		<param name="Right" default="15"/>
 		<param name="ShowIcon" default="false"/>
@@ -89,7 +89,8 @@
 						<texture border="3">dialogs/select-nf.png</texture>
 					</control>
 					<control type="image">
-						<left>4</left>
+						<left>10</left>
+						<centerbottom>50%</centerbottom>
 						<width>$PARAM[IconSize]</width>
 						<height>$PARAM[IconSize]</height>
 						<colordiffuse>Color4</colordiffuse>
@@ -118,21 +119,35 @@
 				</itemlayout>
 				<focusedlayout width="$PARAM[ContainerWidth]" height="$PARAM[Height]">
 					<control type="image">
+						<left>4</left>
 						<width>$PARAM[ContainerWidth]</width>
 						<include>dialog_CommonList</include>
 						<visible>!Control.HasFocus($PARAM[ID])</visible>
 					</control>
 					<control type="image">
+						<left>4</left>
 						<width>$PARAM[ContainerWidth]</width>
 						<include>dialog_CommonListFocus</include>
 						<visible>Control.HasFocus($PARAM[ID])</visible>
 					</control>
 					<control type="image">
-						<left>4</left>
+						<left>10</left>
+						<centerbottom>50%</centerbottom>
 						<width>$PARAM[IconSize]</width>
 						<height>$PARAM[IconSize]</height>
 						<colordiffuse>Color1</colordiffuse>
 						<texture>$INFO[ListItem.ActualIcon]</texture>
+						<visible>Control.HasFocus($PARAM[ID])</visible>
+						<visible>$PARAM[ShowIcon]</visible>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<centerbottom>50%</centerbottom>
+						<width>$PARAM[IconSize]</width>
+						<height>$PARAM[IconSize]</height>
+						<colordiffuse>Color4</colordiffuse>
+						<texture>$INFO[ListItem.ActualIcon]</texture>
+						<visible>!Control.HasFocus($PARAM[ID])</visible>
 						<visible>$PARAM[ShowIcon]</visible>
 					</control>
 					<control type="label">
