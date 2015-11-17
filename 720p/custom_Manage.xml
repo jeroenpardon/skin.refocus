@@ -31,6 +31,7 @@
 				<onclick>Close</onclick>
 				<onclick>SendClick(2003,6)</onclick>
 				<include>dialog_MenuButton</include>
+				<visible>!Window.IsActive(addoninformation)</visible>
 			</control>
 			<!--artwork-->
 			<control type="button" id="502">
@@ -88,6 +89,48 @@
 				<include>dialog_MenuButton</include>
 				<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
+
+			<!--aupdate add-on-->
+			<control type="button" id="520">
+				<width>352</width>
+				<label>$LOCALIZE[24069]</label>
+				<onclick>Close</onclick>
+				<onclick>SendClick(10146,8)</onclick>
+				<include>dialog_MenuButton</include>
+				<include>dialog_Radio</include>
+				<visible>Window.IsActive(addoninformation)</visible>
+			</control>
+			<!--auto-update add-on-->
+			<control type="radiobutton" id="521">
+				<width>352</width>
+				<label>$LOCALIZE[21340]</label>
+				<onclick>Close</onclick>
+				<onclick>SendClick(10146,13)</onclick>
+				<include>dialog_MenuButton</include>
+				<include>dialog_Radio</include>
+				<visible>Window.IsActive(addoninformation)</visible>
+			</control>
+			<!--disable add-on-->
+			<control type="button" id="522">
+				<width>352</width>
+				<label>$LOCALIZE[24021]</label>
+				<onclick>Close</onclick>
+				<onclick>SendClick(10146,7)</onclick>
+				<include>dialog_MenuButton</include>
+				<visible>Window.IsActive(addoninformation)</visible>
+			</control>
+			<!--uninstall add-on-->
+			<control type="button" id="523">
+				<width>352</width>
+				<label>$LOCALIZE[24037]</label>
+				<onclick>Close</onclick>
+				<onclick>SendClick(10146,6)</onclick>
+				<include>dialog_MenuButton</include>
+				<visible>Window.IsActive(addoninformation)</visible>
+			</control>
+
+
+
 			<control type="image" id="513">
 				<width>352</width>
 				<height>20</height>
