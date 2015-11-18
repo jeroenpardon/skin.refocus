@@ -1,66 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-<!--PVR INFO-->
-	<include name="detail_PVR">
-		<control type="group">
-			<left>80</left>
-			<top>540</top>
-			<include>toggle_Menu</include>
-			<include>transition_Content</include>
+	<include name="view_TV-Column">
+		<param name="Texture" default="views/column-nf.png"/>
+		<param name="Left"/>
+		<param name="Width"/>
+		<param name="Height" default="42"/>
+		<param name="ColorDiffuse" default="column2"/>
+		<param name="TextLeft" default="15"/>
+		<param name="TextWidth"/>
+		<param name="TextHeight" default="40"/>
+		<param name="Color" default="Color1"/>
+		<param name="InfoLabel" default="$INFO[ListItem.Label]"/>
+		<definition>
 			<control type="image">
-				<width>142</width>
-				<height>142</height>
-				<include>art_Frame-nf</include>
+				<left>$PARAM[Left]</left>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture>$PARAM[Texture]</texture>
+				<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
 			</control>
+			<control type="label">
+				<left>$PARAM[TextLeft]</left>
+				<width>$PARAM[TextWidth]</width>
+				<label>$PARAM[InfoLabel]</label>
+				<height>$PARAM[TextHeight]</height>
+				<font>regular</font>
+				<textcolor>$PARAM[Color]</textcolor>
+				<selectedcolor>Selected</selectedcolor>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="view_TV-Status">
+		<param name="Left"/>
+		<param name="Top" default="7"/>
+		<param name="ColorDiffuse" default="Color1"/>
+		<param name="Size" default="28"/>
+		<definition>
 			<control type="group">
-				<left>7</left>
-				<top>7</top>
+				<left>$PARAM[Left]</left>
+				<top>$PARAM[Top]</top>
+				<visible>!IsEmpty(ListItem.StartTime)</visible>
 				<control type="image">
-					<width>128</width>
-					<height>128</height>
-					<texture>thumbs/default_Square.png</texture>
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
+					<texture>pvr/status/none-nf.png</texture>
+					<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
+					<!--!enabled +!recording active-->
+					<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 				</control>
 				<control type="image">
-					<centerleft>64</centerleft>
-					<centertop>64</centertop>
-					<width>72</width>
-					<height>72</height>
-					<texture>DefaultIconTV.png</texture>
-					<visible>IsEmpty(ListItem.Icon)</visible>
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
+					<texture>pvr/status/none-nf.png</texture>
+					<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
+					<!--!enabled +!recording active-->
+					<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 				</control>
 				<control type="image">
-					<width>128</width>
-					<height>128</height>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
+					<texture>pvr/status/enabled.png</texture>
+					<colordiffuse>rec2</colordiffuse>
+					<!--recording active-->
+					<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
+					<texture>pvr/status/enabled.png</texture>
+					<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
+					<!--enabled-->
+					<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 				</control>
 			</control>
-			<control type="grouplist">
-				<left>168</left>
-				<itemgap>0</itemgap>
-				<control type="label" id="1">
-					<width>950</width>
-					<label>$INFO[ListItem.Title]</label>
-					<include>detail_Title</include>
-				</control>
-				<control type="label" id="1">
-					<width>950</width>
-					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Premiered, &#8226; $LOCALIZE[20416] ]</label>
-					<include>detail_Sub</include>
-				</control>
-				<control type="label" id="1">
-					<label>-</label>
-					<height>5</height>
-				</control>
-				<control type="textbox">
-					<width>950</width>
-					<height>80</height>
-					<label>$INFO[ListItem.Plot]</label>
-					<include>detail_Text</include>
-				</control>
-			</control>
-		</control>
+		</definition>
 	</include>
 
 
@@ -215,63 +230,6 @@
 
 
 <!--GUIDE NOW-->
-	<include name="view_GuideNow-LayoutCommons">
-		<control type="group">
-			<control type="image">
-				<width>220</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>222</left>
-				<width>704</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>928</left>
-				<width>135</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>1065</left>
-				<width>135</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
-			<posx>15</posx>
-			<control type="label" id="1">
-				<width>205</width>
-				<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>222</left>
-				<width>637</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>928</left>
-				<width>553</width>
-				<label>$INFO[ListItem.StartTime]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>1065</left>
-				<width>400</width>
-				<label>$INFO[ListItem.Duration]</label>
-				<include>column_CommonListItem</include>
-			</control>
-		</control>
-	</include>
 	<include name="view_GuideNow">
 		<control type="group">
 			<left>39</left>
@@ -322,72 +280,73 @@
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<include>transition_Content</include>
 				<itemlayout width="1200" height="44">	
-					<include>view_GuideNow-LayoutCommons</include>
-					<control type="group">
-						<left>890</left>
-						<top>7</top>
-						<width>28</width>
-						<height>28</height>
-						<include>progress_PVR</include>
-					</control>
+					<include name="view_TV-Column">
+						<param name="Width" value="220"/>
+						<param name="TextWidth" value="200"/>
+						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="222"/>
+						<param name="Width" value="704"/>
+						<param name="TextLeft" value="237"/>
+						<param name="TextWidth" value="684"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="928"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="943"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="1065"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="1080"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="890"/>
+					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<control type="group">
-						<width>1200</width>
-						<height>44</height>
-						<include>container_Focus</include>
-						<control type="image">
-							<width>1200</width>
-							<height>42</height>
-							<include>column_CommonListFocus</include>
-						</control>
-						<control type="group">
-							<posx>15</posx>
-							<control type="label" id="1">
-								<width>205</width>
-								<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>222</left>
-								<width>637</width>
-								<label>$INFO[ListItem.Label]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>928</left>
-								<width>553</width>
-								<label>$INFO[ListItem.StartTime]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>1065</left>
-								<width>400</width>
-								<label>$INFO[ListItem.Duration]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-						</control>
-						<control type="group">
-							<left>890</left>
-							<top>7</top>
-							<width>28</width>
-							<height>28</height>
-							<include>progress_PVR-fo</include>
-						</control>
-					</control>
-					<control type="group">
-						<width>1200</width>
-						<height>44</height>
-						<include>container_Unfocus</include>
-						<include>view_GuideNow-LayoutCommons</include>
-						<control type="group">
-							<left>890</left>
-							<top>7</top>
-							<width>28</width>
-							<height>28</height>
-							<include>progress_PVR</include>
-						</control>
-					</control>
+					<include name="view_TV-Column">
+						<param name="Width" value="220"/>
+						<param name="TextWidth" value="200"/>
+						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="222"/>
+						<param name="Width" value="704"/>
+						<param name="TextLeft" value="237"/>
+						<param name="TextWidth" value="684"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="928"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="943"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="1065"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="1080"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="890"/>
+						<param name="ColorDiffuse" value="Color4"/>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>
@@ -395,67 +354,6 @@
 
 
 <!--GUIDE NEXT-->
-	<include name="view_GuideNext-LayoutCommons">
-		<control type="group">
-			<control type="image">
-				<width>220</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>222</left>
-				<width>704</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>928</left>
-				<width>135</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>1065</left>
-				<width>135</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
-			<posx>15</posx>
-			<control type="label" id="1">
-				<width>205</width>
-				<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>222</left>
-				<width>637</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>928</left>
-				<width>553</width>
-				<label>$INFO[ListItem.StartTime]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>1065</left>
-				<width>400</width>
-				<label>$INFO[ListItem.Duration]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="group">
-				<left>878</left>
-				<include>status_PVR</include>
-			</control>
-		</control>
-	</include>
 	<include name="view_GuideNext">
 		<control type="group">
 			<left>39</left>
@@ -506,55 +404,73 @@
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<include>transition_Content</include>
 				<itemlayout width="1200" height="44">
-					<include>view_GuideNext-LayoutCommons</include>
+					<include name="view_TV-Column">
+						<param name="Width" value="220"/>
+						<param name="TextWidth" value="200"/>
+						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="222"/>
+						<param name="Width" value="704"/>
+						<param name="TextLeft" value="237"/>
+						<param name="TextWidth" value="684"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="928"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="943"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="1065"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="1080"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="890"/>
+					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<control type="group">
-						<width>1200</width>
-						<height>44</height>
-						<include>container_Focus</include>
-						<control type="image">
-							<width>1200</width>
-							<height>42</height>
-							<include>column_CommonListFocus</include>
-						</control>
-						<control type="group">
-							<posx>15</posx>
-							<control type="label" id="1">
-								<width>205</width>
-								<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>222</left>
-								<width>637</width>
-								<label>$INFO[ListItem.Label]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>928</left>
-								<width>553</width>
-								<label>$INFO[ListItem.StartTime]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>1065</left>
-								<width>400</width>
-								<label>$INFO[ListItem.Duration]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="group">
-								<left>878</left>
-								<include>status_PVR-fo</include>
-							</control>
-						</control>
-					</control>
-					<control type="group">
-						<width>1200</width>
-						<height>44</height>
-						<include>container_Unfocus</include>
-						<include>view_GuideNext-LayoutCommons</include>
-					</control>
+					<include name="view_TV-Column">
+						<param name="Width" value="220"/>
+						<param name="TextWidth" value="200"/>
+						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="222"/>
+						<param name="Width" value="704"/>
+						<param name="TextLeft" value="237"/>
+						<param name="TextWidth" value="684"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="928"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="943"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="1065"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="1080"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="890"/>
+						<param name="ColorDiffuse" value="Color4"/>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>
@@ -562,50 +478,6 @@
 
 
 <!--GUIDE CHANNELS-->
-	<include name="view_GuideChannels-LayoutCommons">
-		<control type="group">
-			<control type="image">
-				<width>135</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>137</left>
-				<width>815</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>954</left>
-				<width>246</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
-			<posx>15</posx>
-			<control type="label" id="1">
-				<width>135</width>
-				<label>$INFO[ListItem.StartTime]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>137</left>
-				<width>637</width>
-				<label>$INFO[ListItem.Title]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>954</left>
-				<width>553</width>
-				<label>$INFO[ListItem.StartDate]</label>
-				<include>column_CommonListItem</include>
-			</control>
-		</control>
-	</include>
 	<include name="view_GuideChannels">
 		<control type="group">
 			<left>39</left>
@@ -651,59 +523,57 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<itemlayout width="1200" height="44">
-					<include>view_GuideChannels-LayoutCommons</include>
-					<control type="group">
-						<left>915</left>
-						<include>status_PVR</include>
-					</control>
+					<include name="view_TV-Column">
+						<param name="Width" value="135"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="137"/>
+						<param name="Width" value="815"/>
+						<param name="TextLeft" value="152"/>
+						<param name="TextWidth" value="795"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="954"/>
+						<param name="Width" value="246"/>
+						<param name="TextLeft" value="969"/>
+						<param name="TextWidth" value="226"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="915"/>
+					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<control type="group">
-						<width>1200</width>
-						<height>44</height>
-						<include>container_Focus</include>
-						<control type="image">
-							<width>1200</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column2</colordiffuse>
-						</control>
-						<control type="image">
-							<width>1200</width>
-							<height>42</height>
-							<include>column_CommonListFocus</include>
-						</control>
-						<control type="group">
-							<posx>15</posx>
-							<control type="label" id="1">
-								<width>135</width>
-								<label>$INFO[ListItem.StartTime]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>137</left>
-								<width>637</width>
-								<label>$INFO[ListItem.Title]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>954</left>
-								<width>553</width>
-								<label>$INFO[ListItem.StartDate]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-						</control>
-						<control type="group">
-							<left>915</left>
-							<include>status_PVR-fo</include>
-						</control>
-					</control>
-					<control type="group">
-						<width>1200</width>
-						<height>44</height>
-						<include>container_Unfocus</include>
-						<include>view_GuideChannels-LayoutCommons</include>
-					</control>
+					<include name="view_TV-Column">
+						<param name="Width" value="135"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="137"/>
+						<param name="Width" value="815"/>
+						<param name="TextLeft" value="152"/>
+						<param name="TextWidth" value="795"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="954"/>
+						<param name="Width" value="246"/>
+						<param name="TextLeft" value="969"/>
+						<param name="TextWidth" value="226"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="915"/>
+						<param name="ColorDiffuse" value="Color4"/>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>
@@ -711,68 +581,6 @@
 
 
 <!--SEARCH-->
-	<include name="view_PVR-search-Commons">
-		<control type="group">
-			<control type="image">
-				<width>220</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>222</left>
-				<width>593</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>817</left>
-				<width>246</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>1065</left>
-				<width>135</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
-			<left>15</left>
-			<control type="label" id="1">
-				<width>190</width>
-				<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label" id="1">
-				<left>222</left>
-				<width>563</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label" id="1">
-				<left>817</left>
-				<width>216</width>
-				<label>$INFO[ListItem.StartDate]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label" id="1">
-				<left>1065</left>
-				<width>105</width>
-				<label>$INFO[ListItem.StartTime]</label>
-				<include>column_CommonListItem</include>
-			</control>
-		</control>
-		<control type="group">
-			<left>778</left>
-			<include>status_PVR</include>
-			<visible>!IsEmpty(ListItem.ChannelName)</visible>
-		</control>
-	</include>
 	<include name="view_PVR-search">
 		<control type="group">
 			<left>40</left>
@@ -821,53 +629,73 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
 				<itemlayout height="44" width="1200">
-					<include>view_PVR-search-Commons</include>
+					<include name="view_TV-Column">
+						<param name="Width" value="220"/>
+						<param name="TextWidth" value="170"/>
+						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="222"/>
+						<param name="Width" value="593"/>
+						<param name="TextLeft" value="237"/>
+						<param name="TextWidth" value="543"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="817"/>
+						<param name="Width" value="246"/>
+						<param name="TextLeft" value="832"/>
+						<param name="TextWidth" value="196"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="1065"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="1080"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="778"/>
+					</include>
 				</itemlayout>
 				<focusedlayout height="44" width="1200">
-					<control type="group">
-						<include>container_Focus</include>
-						<control type="image">
-							<width>1200</width>
-							<height>42</height>
-							<texture>views/column-fo.png</texture>
-							<colordiffuse>column1</colordiffuse>
-						</control>
-						<control type="group">
-							<left>15</left>
-							<control type="label" id="1">
-								<width>190</width>
-								<label>[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label" id="1">
-								<left>222</left>
-								<width>563</width>
-								<label>$INFO[ListItem.Label]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label" id="1">
-								<left>817</left>
-								<width>216</width>
-								<label>$INFO[ListItem.StartDate]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label" id="1">
-								<left>1065</left>
-								<width>105</width>
-								<label>$INFO[ListItem.StartTime]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-						</control>
-						<control type="group">
-							<left>778</left>
-							<include>status_PVR-fo</include>
-							<visible>!IsEmpty(ListItem.ChannelName)</visible>
-						</control>
-					</control>
-					<control type="group">
-						<include>container_Unfocus</include>
-						<include>view_PVR-search-Commons</include>
-					</control>
+					<include name="view_TV-Column">
+						<param name="Width" value="220"/>
+						<param name="TextWidth" value="170"/>
+						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="222"/>
+						<param name="Width" value="593"/>
+						<param name="TextLeft" value="237"/>
+						<param name="TextWidth" value="543"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="817"/>
+						<param name="Width" value="246"/>
+						<param name="TextLeft" value="832"/>
+						<param name="TextWidth" value="196"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="1065"/>
+						<param name="Width" value="135"/>
+						<param name="TextLeft" value="1080"/>
+						<param name="TextWidth" value="115"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="778"/>
+						<param name="ColorDiffuse" value="Color4"/>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>
@@ -875,77 +703,6 @@
 
 
 <!--TIMERS-->
-	<include name="view_PVR-timers-Commons">
-		<control type="group">
-			<control type="image">
-				<width>200</width>
-				<height>42</height>
-				<texture>views/column-nf.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>202</left>
-				<width>776</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-			<control type="image">
-				<left>980</left>
-				<width>220</width>
-				<height>42</height>
-				<texture>views/column-fo.png</texture>
-				<colordiffuse>column2</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
-			<posx>15</posx>
-			<control type="label">
-				<width>180</width>
-				<label>$INFO[ListItem.StartDate]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>202</left>
-				<width>746</width>
-				<label>$INFO[ListItem.Label]</label>
-				<include>column_CommonListItem</include>
-			</control>
-			<control type="label">
-				<left>980</left>
-				<width>210</width>
-				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-				<include>column_CommonListItem</include>
-			</control>
-		</control>
-		<control type="group">
-			<left>943</left>
-			<top>7</top>
-			<visible>!IsEmpty(ListItem.StartTime)</visible>
-			<control type="image">
-				<width>28</width>
-				<height>28</height>
-				<texture>pvr/status/none-nf.png</texture>
-				<!--!enabled +!recording active-->
-				<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
-			</control>
-			<control type="image">
-				<width>28</width>
-				<height>28</height>
-				<texture>pvr/status/enabled.png</texture>
-				<colordiffuse>rec1</colordiffuse>
-				<!--recording active-->
-				<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
-			</control>
-			<control type="image">
-				<width>28</width>
-				<height>28</height>
-				<texture>pvr/status/enabled.png</texture>
-				<!--enabled-->
-				<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
-			</control>
-		</control>
-	</include>
 	<include name="view_PVR-timers">
 		<control type="group">
 			<left>40</left>
@@ -986,72 +743,125 @@
 				<onright>70</onright>
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
-				<itemlayout height="44">
-					<include>view_PVR-timers-Commons</include>
+				<itemlayout width="1200" height="44">
+					<include name="view_TV-Column">
+						<param name="Width" value="200"/>
+						<param name="TextWidth" value="180"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="202"/>
+						<param name="Width" value="776"/>
+						<param name="TextLeft" value="217"/>
+						<param name="TextWidth" value="756"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Left" value="980"/>
+						<param name="Width" value="220"/>
+						<param name="TextLeft" value="990"/>
+						<param name="TextWidth" value="200"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]"/>
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="943"/>
+					</include>
 				</itemlayout>
-				<focusedlayout height="44">
-					<control type="group">
-						<include>container_Focus</include>
-						<control type="image">
-							<width>1200</width>
-							<height>42</height>
-							<include>column_CommonListFocus</include>
-						</control>
-						<control type="group">
-							<posx>15</posx>
-							<control type="label">
-								<width>180</width>
-								<label>$INFO[ListItem.StartDate]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>202</left>
-								<width>746</width>
-								<label>$INFO[ListItem.Label]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-							<control type="label">
-								<left>980</left>
-								<width>210</width>
-								<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-								<include>column_CommonListItem-focus</include>
-							</control>
-						</control>
-						<control type="group">
-							<left>943</left>
-							<top>7</top>
-							<visible>!IsEmpty(ListItem.StartTime)</visible>
-							<control type="image">
-								<width>28</width>
-								<height>28</height>
-								<texture>pvr/status/none-nf.png</texture>
-								<colordiffuse>Color4</colordiffuse>
-								<!--!enabled +!recording active-->
-								<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
-							</control>
-							<control type="image">
-								<width>28</width>
-								<height>28</height>
-								<texture>pvr/status/enabled.png</texture>
-								<colordiffuse>rec2</colordiffuse>
-								<!--recording active-->
-								<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
-							</control>
-							<control type="image">
-								<width>28</width>
-								<height>28</height>
-								<texture>pvr/status/enabled.png</texture>
-								<colordiffuse>Color4</colordiffuse>
-								<!--enabled-->
-								<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
-							</control>
-						</control>
-					</control>
-					<control type="group">
-						<include>container_Unfocus</include>
-						<include>view_PVR-timers-Commons</include>
-					</control>
+				<focusedlayout width="1200" height="44">
+					 <include name="view_TV-Column">
+					 	<param name="Texture" value="views/column-fo.png"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Width" value="200"/>
+						<param name="TextWidth" value="180"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Texture" value="views/column-fo.png"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Left" value="202"/>
+						<param name="Width" value="776"/>
+						<param name="TextLeft" value="217"/>
+						<param name="TextWidth" value="756"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_TV-Column">
+						<param name="Texture" value="views/column-fo.png"/>
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Left" value="980"/>
+						<param name="Width" value="220"/>
+						<param name="TextLeft" value="990"/>
+						<param name="TextWidth" value="200"/>
+						<param name="InfoLabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]"/>
+						<param name="Color" value="Color5"/>		
+					</include>
+					<include name="view_TV-Status">
+						<param name="Left" value="943"/>
+						<param name="ColorDiffuse" value="Color4"/>
+					</include>
 				</focusedlayout>
+			</control>
+		</control>
+	</include>
+
+
+<!--PVR INFO-->
+	<include name="detail_PVR">
+		<control type="group">
+			<left>80</left>
+			<top>540</top>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<control type="image">
+				<width>142</width>
+				<height>142</height>
+				<include>art_Frame-nf</include>
+			</control>
+			<control type="group">
+				<left>7</left>
+				<top>7</top>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<texture>thumbs/default_Square.png</texture>
+				</control>
+				<control type="image">
+					<centerleft>64</centerleft>
+					<centertop>64</centertop>
+					<width>72</width>
+					<height>72</height>
+					<texture>DefaultIconTV.png</texture>
+					<visible>IsEmpty(ListItem.Icon)</visible>
+				</control>
+				<control type="image">
+					<width>128</width>
+					<height>128</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>168</left>
+				<itemgap>0</itemgap>
+				<control type="label" id="1">
+					<width>950</width>
+					<label>$INFO[ListItem.Title]</label>
+					<include>detail_Title</include>
+				</control>
+				<control type="label" id="1">
+					<width>950</width>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Premiered, &#8226; $LOCALIZE[20416] ]</label>
+					<include>detail_Sub</include>
+				</control>
+				<control type="label" id="1">
+					<label>-</label>
+					<height>5</height>
+				</control>
+				<control type="textbox">
+					<width>950</width>
+					<height>80</height>
+					<label>$INFO[ListItem.Plot]</label>
+					<include>detail_Text</include>
+				</control>
 			</control>
 		</control>
 	</include>
