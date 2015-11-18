@@ -89,7 +89,6 @@
 				<include>dialog_MenuButton</include>
 				<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
-
 			<!--aupdate add-on-->
 			<control type="button" id="520">
 				<width>352</width>
@@ -110,10 +109,10 @@
 				<include>dialog_Radio</include>
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
-			<!--disable add-on-->
+			<!--enable / disable add-on-->
 			<control type="button" id="522">
 				<width>352</width>
-				<label>$LOCALIZE[24021]</label>
+				<label>$VAR[information:AddonStatus]</label>
 				<onclick>Close</onclick>
 				<onclick>SendClick(10146,7)</onclick>
 				<include>dialog_MenuButton</include>
@@ -128,9 +127,6 @@
 				<include>dialog_MenuButton</include>
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
-
-
-
 			<control type="image" id="513">
 				<width>352</width>
 				<height>20</height>
