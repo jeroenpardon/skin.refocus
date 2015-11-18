@@ -130,7 +130,6 @@
 				<effect type="fade" start="100" end="0" tween="Quadratic" easing="Out" time="250"/>
 			</animation>
 			<control type="group" id="9200">
-				<top>0</top>
 				<left>320</left>
 				<include>screen_Dimensions</include>
 				<itemgap>0</itemgap>
@@ -177,6 +176,11 @@
 					<content limit="25" target="music" sortorder="ascending" sortby="date">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window(10000).Property(recentalbums)]</content>
 					<include>widget_ContainerCommons</include>
 					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)</visible>
+				</control>
+				<control type="list" id="9235">
+					<content>plugin://script.skin.helper.service/?action=favouritemedia&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</content>
+					<include>widget_ContainerCommons</include>
+					<visible>StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia)</visible>
 				</control>
 				<control type="list" id="9240">
 					<content>$INFO[Container(9000).ListItem.Property(widgetPlaylist)]</content>
