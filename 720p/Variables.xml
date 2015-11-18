@@ -548,6 +548,11 @@
 		<value condition="StringCompare(Window(Home).Property(extContent),youtube)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[ListItem.Label]</value>
 	</variable>
 
+	<variable name="information:AddonStatus">
+		<value condition="StringCompare(ListItem.Property(Addon.Status),Enabled)">$LOCALIZE[24021]</value>
+		<value condition="StringCompare(ListItem.Property(Addon.Status),Disabled)">$LOCALIZE[24022]</value>
+	</variable>
+
 
 <!--RATINGS-->
 	<variable name="rating:Song">
