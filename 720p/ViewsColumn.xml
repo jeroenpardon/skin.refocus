@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="view_TV-Column">
+	<include name="view_Column-Commons">
 		<param name="Texture" default="views/column-nf.png"/>
 		<param name="Left"/>
 		<param name="Width"/>
@@ -10,6 +10,7 @@
 		<param name="TextLeft" default="15"/>
 		<param name="TextWidth"/>
 		<param name="TextHeight" default="40"/>
+		<param name="Font" default="regular"/>
 		<param name="Color" default="Color1"/>
 		<param name="InfoLabel" default="$INFO[ListItem.Label]"/>
 		<definition>
@@ -25,14 +26,14 @@
 				<width>$PARAM[TextWidth]</width>
 				<label>$PARAM[InfoLabel]</label>
 				<height>$PARAM[TextHeight]</height>
-				<font>regular</font>
+				<font>$PARAM[Font]</font>
 				<textcolor>$PARAM[Color]</textcolor>
 				<selectedcolor>Selected</selectedcolor>
 			</control>
 		</definition>
 	</include>
-	
-	<include name="view_TV-Status">
+
+	<include name="view_Column-PVRStatus">
 		<param name="Left"/>
 		<param name="Top" default="7"/>
 		<param name="ColorDiffuse" default="Color1"/>
@@ -76,6 +77,136 @@
 				</control>
 			</control>
 		</definition>
+	</include>
+
+
+	<!--MUSIC PLAYLIST VIEW-->
+	<include name="view_Column-Playlist">
+		<control type="group">
+			<left>40</left>
+			<top>110</top>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<control type="group">
+				<left>10</left>
+				<control type="label">
+					<label>$LOCALIZE[369]</label>
+					<width>595</width>
+					<include>column_Header</include>
+				</control>
+				<control type="label">
+					<left>352</left>
+					<label>$LOCALIZE[557]</label>
+					<width>595</width>
+					<include>column_Header</include>
+				</control>
+				<control type="label">
+					<left>654</left>
+					<label>$LOCALIZE[558]</label>
+					<width>595</width>
+					<include>column_Header</include>
+				</control>
+			</control>
+			<control type="list" id="50">
+				<viewtype label="535">list</viewtype> 	
+				<top>35</top>
+				<width>1200</width>
+				<height>528</height>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<pagecontrol>70</pagecontrol>
+				<include>global_ListScroll</include>
+				<orientation>vertical</orientation>
+				<visible>Window.IsActive(musicplaylist)</visible>
+				<itemlayout width="1200" height="44">
+					<include name="view_Column-Commons">
+						<param name="Width" value="350"/>
+						<param name="TextLeft" value="10"/>
+						<param name="TextWidth" value="330"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Title]"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="Left" value="352"/>
+						<param name="Width" value="300"/>
+						<param name="TextLeft" value="362"/>
+						<param name="TextWidth" value="280"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Artist]"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="Left" value="654"/>
+						<param name="Width" value="300"/>
+						<param name="TextLeft" value="664"/>
+						<param name="TextWidth" value="280"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Album]"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="Left" value="956"/>
+						<param name="Width" value="106"/>
+						<param name="TextLeft" value="966"/>
+						<param name="TextWidth" value="86"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="Left" value="1064"/>
+						<param name="Width" value="150"/>
+						<param name="TextLeft" value="1071"/>
+						<param name="TextWidth" value="120"/>
+						<param name="Font" value="regular_Small-U"/>
+						<param name="InfoLabel" value="$VAR[rating:Song]"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="1440" height="44">
+					<include name="view_Column-Commons">
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Width" value="350"/>
+						<param name="TextLeft" value="10"/>
+						<param name="TextWidth" value="330"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Title]"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Left" value="352"/>
+						<param name="Width" value="300"/>
+						<param name="TextLeft" value="362"/>
+						<param name="TextWidth" value="280"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Artist]"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Left" value="654"/>
+						<param name="Width" value="300"/>
+						<param name="TextLeft" value="664"/>
+						<param name="TextWidth" value="280"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Album]"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Left" value="956"/>
+						<param name="Width" value="106"/>
+						<param name="TextLeft" value="966"/>
+						<param name="TextWidth" value="86"/>
+						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
+						<param name="Color" value="Color5"/>
+					</include>
+					<include name="view_Column-Commons">
+						<param name="ColorDiffuse" value="Color1"/>
+						<param name="Left" value="1064"/>
+						<param name="Width" value="150"/>
+						<param name="TextLeft" value="1071"/>
+						<param name="TextWidth" value="120"/>
+						<param name="Font" value="regular_Small-U"/>
+						<param name="InfoLabel" value="$VAR[rating:Song]"/>
+						<param name="Color" value="Color5"/>
+					</include>
+				</focusedlayout>
+			</control>
+		</control>
 	</include>
 
 
@@ -278,44 +409,44 @@
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<include>transition_Content</include>
 				<itemlayout width="1200" height="44">	
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="220"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="222"/>
 						<param name="Width" value="704"/>
 						<param name="TextLeft" value="237"/>
 						<param name="TextWidth" value="684"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="928"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="943"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="1065"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="1080"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="890"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="220"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="222"/>
 						<param name="Width" value="704"/>
 						<param name="TextLeft" value="237"/>
@@ -323,7 +454,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="928"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="943"/>
@@ -332,7 +463,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="1065"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="1080"/>
@@ -341,7 +472,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="890"/>
 						<param name="ColorDiffuse" value="Color4"/>
 					</include>
@@ -402,44 +533,44 @@
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<include>transition_Content</include>
 				<itemlayout width="1200" height="44">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="220"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="222"/>
 						<param name="Width" value="704"/>
 						<param name="TextLeft" value="237"/>
 						<param name="TextWidth" value="684"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="928"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="943"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="1065"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="1080"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.Duration]"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="890"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="220"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="222"/>
 						<param name="Width" value="704"/>
 						<param name="TextLeft" value="237"/>
@@ -447,7 +578,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="928"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="943"/>
@@ -456,7 +587,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="1065"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="1080"/>
@@ -465,7 +596,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="890"/>
 						<param name="ColorDiffuse" value="Color4"/>
 					</include>
@@ -521,37 +652,37 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<itemlayout width="1200" height="44">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="135"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="137"/>
 						<param name="Width" value="751"/>
 						<param name="TextLeft" value="152"/>
 						<param name="TextWidth" value="731"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="890"/>
 						<param name="Width" value="302"/>
 						<param name="TextLeft" value="905"/>
 						<param name="TextWidth" value="282"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="855"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="135"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="137"/>
 						<param name="Width" value="751"/>
 						<param name="TextLeft" value="152"/>
@@ -559,7 +690,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="890"/>
 						<param name="Width" value="302"/>
 						<param name="TextLeft" value="905"/>
@@ -568,7 +699,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="855"/>
 						<param name="ColorDiffuse" value="Color4"/>
 					</include>
@@ -627,44 +758,44 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">200</scrolltime>
 				<itemlayout height="44" width="1200">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="220"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="222"/>
 						<param name="Width" value="537"/>
 						<param name="TextLeft" value="237"/>
 						<param name="TextWidth" value="517"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="761"/>
 						<param name="Width" value="302"/>
 						<param name="TextLeft" value="776"/>
 						<param name="TextWidth" value="756"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="1065"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="1080"/>
 						<param name="TextWidth" value="115"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="724"/>
 					</include>
 				</itemlayout>
 				<focusedlayout height="44" width="1200">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="220"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.ChannelName]"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="222"/>
 						<param name="Width" value="537"/>
 						<param name="TextLeft" value="237"/>
@@ -672,7 +803,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="761"/>
 						<param name="Width" value="302"/>
 						<param name="TextLeft" value="776"/>
@@ -681,7 +812,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="1065"/>
 						<param name="Width" value="135"/>
 						<param name="TextLeft" value="1080"/>
@@ -690,7 +821,7 @@
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="724"/>
 						<param name="ColorDiffuse" value="Color4"/>
 					</include>
@@ -742,30 +873,30 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="Cubic" easing="Out">400</scrolltime>
 				<itemlayout width="1200" height="44">
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Width" value="302"/>
 						<param name="TextWidth" value="282"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="304"/>
 						<param name="Width" value="674"/>
 						<param name="TextLeft" value="319"/>
 						<param name="TextWidth" value="654"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Left" value="980"/>
 						<param name="Width" value="220"/>
 						<param name="TextLeft" value="990"/>
 						<param name="TextWidth" value="200"/>
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]"/>
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="943"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
-					 <include name="view_TV-Column">
+					 <include name="view_Column-Commons">
 					 	<param name="Texture" value="views/column-fo.png"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Width" value="302"/>
@@ -773,7 +904,7 @@
 						<param name="InfoLabel" value="$INFO[ListItem.StartDate]"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Texture" value="views/column-fo.png"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Left" value="304"/>
@@ -782,7 +913,7 @@
 						<param name="TextWidth" value="654"/>
 						<param name="Color" value="Color5"/>
 					</include>
-					<include name="view_TV-Column">
+					<include name="view_Column-Commons">
 						<param name="Texture" value="views/column-fo.png"/>
 						<param name="ColorDiffuse" value="Color1"/>
 						<param name="Left" value="980"/>
@@ -792,7 +923,7 @@
 						<param name="InfoLabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]"/>
 						<param name="Color" value="Color5"/>		
 					</include>
-					<include name="view_TV-Status">
+					<include name="view_Column-PVRStatus">
 						<param name="Left" value="943"/>
 						<param name="ColorDiffuse" value="Color4"/>
 					</include>
