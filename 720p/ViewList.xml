@@ -38,7 +38,7 @@
 				<control type="label">
 					<top>28</top>
 					<width>$PARAM[TextWidth]</width>
-					<label>$VAR[media:Info] $VAR[rating:Song]</label>
+					<label>$VAR[media:Info]$VAR[rating:Song, &#8226; ]</label>
 					<height>40</height>
 					<font>regular_Small-U</font>
 					<textcolor>$PARAM[TextColor2]</textcolor>
@@ -66,7 +66,7 @@
 				<width>$PARAM[Width]</width>
 				<height>$PARAM[Height]</height>
 				<texture>$PARAM[State]</texture>
-				<visible>!StringCompare(LIstItem.Label,..)</visible>
+				<visible>!StringCompare(ListItem.Label,..)</visible>
 			</control>
 		</definition>
 	</include>
