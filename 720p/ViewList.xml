@@ -23,13 +23,17 @@
 		<param name="TextColor" default="Color1"/>
 		<param name="TextColor2" default="Color2"/>
 		<param name="TextWidth" default="550"/>
+		<param name="MediaTitle" default="$VAR[media:Title]"/>
+		<param name="MediaInfo" default="$VAR[media:Info]$VAR[rating:Song, &#8226; ]"/>
+		<param name="Description" default="$VAR[media:Plot]"/>
+		<param name="ShowDescription" default="false"/>
 		<definition>
 			<control type="group">
 				<left>$PARAM[TextLeft]</left>
 				<control type="label">
 					<top>6</top>
 					<width>$PARAM[TextWidth]</width>
-					<label>$VAR[media:Title]</label>
+					<label>$PARAM[MediaTitle]</label>
 					<height>28</height>
 					<font>regular_Bigger</font>
 					<textcolor>$PARAM[TextColor]</textcolor>
@@ -38,7 +42,7 @@
 				<control type="label">
 					<top>28</top>
 					<width>$PARAM[TextWidth]</width>
-					<label>$VAR[media:Info]$VAR[rating:Song, &#8226; ]</label>
+					<label>$PARAM[MediaInfo]</label>
 					<height>40</height>
 					<font>regular_Small-U</font>
 					<textcolor>$PARAM[TextColor2]</textcolor>
@@ -48,10 +52,10 @@
 					<top>66</top>
 					<width>$PARAM[TextWidth]</width>
 					<height>59</height>
-					<label>$VAR[media:Plot]</label>
+					<label>$PARAM[Description]</label>
 					<textcolor>$PARAM[TextColor]</textcolor>
 					<selectedcolor>$PARAM[TextColor]</selectedcolor>
-					<visible>Control.IsVisible(51)</visible>
+					<visible>$PARAM[ShowDescription]</visible>
 				</control>
 			</control>
 		</definition>
@@ -85,8 +89,8 @@
 			<control type="image">
 				<centerleft>50%</centerleft>
 				<centertop>50%</centertop>
-				<width>42</width>
-				<height>42</height>
+				<width>36</width>
+				<height>36</height>
 				<texture>$INFO[ListItem.Icon]</texture>
 				<visible>IsEmpty(ListItem.Art(thumb))</visible>
 			</control>
@@ -162,15 +166,6 @@
 		</definition>
 	</include>
 
-	 <variable name="view:List.TextColor">
-		<value condition="![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
-		<value>Color1</value>
-	</variable>
-	<variable name="view:List.TextColor2">
-		<value condition="![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
-		<value>Color2</value>
-	</variable>
-
 	<include name="view_List">
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -195,7 +190,7 @@
 				<itemlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">		
 					<include>view_List-Data.Single</include>
 				</itemlayout>
-				<focusedlayout condition="IsEmpty(Container.FolderPath)" width="620" height="40">				
+				<focusedlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">				
 					<include>view_List-Focus</include>
 					<include name="view_List-Data.Single">
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
@@ -431,6 +426,7 @@
 					<include name="view_List-Data">
 						<param name="TextLeft" value="260"/>
 						<param name="TextWidth" value="920"/>
+						<param name="ShowDescription" value="true"/>
 					</include>
 					<include name="status_Info">
 						<param name="Left" value="196"/>
@@ -444,6 +440,7 @@
 						<param name="TextWidth" value="920"/>
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+						<param name="ShowDescription" value="true"/>
 					</include>
 					<include name="status_Info">
 						<param name="Left" value="196"/>
@@ -462,6 +459,7 @@
 					<include name="view_List-Data">
 						<param name="TextLeft" value="126"/>
 						<param name="TextWidth" value="1050"/>
+						<param name="ShowDescription" value="true"/>
 					</include>
 					<include name="status_Info">
 						<param name="Left" value="65"/>
@@ -482,6 +480,7 @@
 						<param name="TextWidth" value="1050"/>
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+						<param name="ShowDescription" value="true"/>
 					</include>
 					<include name="status_Info">
 						<param name="Left" value="65"/>

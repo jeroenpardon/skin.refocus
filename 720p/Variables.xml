@@ -924,4 +924,15 @@
 		<value>$LOCALIZE[31227]</value>
 	</variable>
 
+	<variable name="view:List.TextColor">
+		<value condition="Window.IsActive(script-globalsearch-main.xml) + !StringCompare(Window(Home).Property(category),focus)">Color4</value>
+		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
+		<value>Color1</value>
+	</variable>
+	<variable name="view:List.TextColor2">
+		<value condition="Window.IsActive(script-globalsearch-main.xml) + !StringCompare(Window(Home).Property(category),focus)">Color4</value>
+		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
+		<value>Color2</value>
+	</variable>
+
 </includes>
