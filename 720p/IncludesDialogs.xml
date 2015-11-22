@@ -71,7 +71,7 @@
 		<param name="ShowLabel2" default="false"/>
 		<definition>
 			<control type="list" id="$PARAM[ID]">
-				<left>$PARAM[ContainerLeft]</left>
+				<left>0</left>
 				<top>$PARAM[ContainerTop]</top>
 				<width>$PARAM[ContainerWidth]</width>
 				<height>$PARAM[ContainerHeight]</height>
@@ -119,13 +119,11 @@
 				</itemlayout>
 				<focusedlayout width="$PARAM[ContainerWidth]" height="$PARAM[Height]">
 					<control type="image">
-						<left>4</left>
 						<width>$PARAM[ContainerWidth]</width>
 						<include>dialog_CommonList</include>
 						<visible>!Control.HasFocus($PARAM[ID])</visible>
 					</control>
 					<control type="image">
-						<left>4</left>
 						<width>$PARAM[ContainerWidth]</width>
 						<include>dialog_CommonListFocus</include>
 						<visible>Control.HasFocus($PARAM[ID])</visible>
