@@ -507,6 +507,7 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
 	</variable>
 
 	<variable name="information:Sub">
@@ -516,6 +517,7 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, &#8226; ]</value>
 		<value condition="Container.Content(artists)">$VAR[information:Origin.Prefix] $VAR[information:Origin]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Year]$INFO[ListItem.Genre, &#8226; ]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Year]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
 	</variable>
 
 	<variable name="information:Consensus">
@@ -584,7 +586,7 @@
 		<value condition="Container.Content(movies)">resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[Listitem.Studio,flags/networks/,.png]</value>
 		<value condition="Container.Content(musicvideos)">resource://resource.images.recordlabels.white/$INFO[ListItem.Studio,,.png]</value>
-		<value condition="Window.IsVisible(music)">resource://resource.images.recordlabels.white/$INFO[Listitem.Property(Album_Label),,.png]</value>
+		<value condition="Container.Content(albums)">resource://resource.images.recordlabels.white/$INFO[Listitem.Property(Album_Label),,.png]</value>
 	</variable>
 
 	<variable name="flag:Type.Video">
