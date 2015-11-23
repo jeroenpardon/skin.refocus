@@ -940,17 +940,16 @@
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
 						<visible>Container(9000).HasFocus(8)</visible>
-						<itemlayout width="880" height="150">
+						<itemlayout width="880" height="154">
 							<include name="view_List-Art">
-								<param name="FrameWidth" value="104"/>
-								<param name="ArtWidth" value="90"/>
-								<param name="Fallback" value="thumbs/default_Portrait.png"/>
-								<param name="Type" value="$VAR[art:Portrait]"/>
-								<param name="ShowLogo" value="false"/>
+								<param name="FrameWidth" value="144"/>
+								<param name="ArtWidth" value="130"/>
+								<param name="Fallback" value="thumbs/default_Square.png"/>
+								<param name="Type" value="$INFO[ListItem.Icon]"/>
 							</include>
 							<include name="view_List-Data">
-								<param name="TextLeft" value="126"/>
-								<param name="TextWidth" value="740"/>
+								<param name="TextLeft" value="164"/>
+								<param name="TextWidth" value="700"/>
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), &#8226; ]"/>
@@ -961,25 +960,24 @@
 								<param name="Size" value="32"/>
 							</include>
 						</itemlayout>
-						<focusedlayout width="880" height="150">
+						<focusedlayout width="880" height="154">
 							<control type="group">
 								<visible>StringCompare(Window(Home).Property(category),nofocus)</visible>
 								<include name="view_List-Frame">
 									<param name="State" value="frames/frame-fo.png"/>
 									<param name="Width" value="880"/>
-									<param name="Height" value="150"/>
+									<param name="Height" value="154"/>
 								</include>
 							</control>
 							<include name="view_List-Art">
-								<param name="FrameWidth" value="104"/>
-								<param name="ArtWidth" value="90"/>
-								<param name="Fallback" value="thumbs/default_Portrait.png"/>
-								<param name="Type" value="$VAR[art:Portrait]"/>
-								<param name="ShowLogo" value="false"/>
+								<param name="FrameWidth" value="144"/>
+								<param name="ArtWidth" value="130"/>
+								<param name="Fallback" value="thumbs/default_Square.png"/>
+								<param name="Type" value="$INFO[ListItem.Icon]"/>
 							</include>
 							<include name="view_List-Data">
-								<param name="TextLeft" value="126"/>
-								<param name="TextWidth" value="740"/>
+								<param name="TextLeft" value="164"/>
+								<param name="TextWidth" value="700"/>
 								<param name="TextColor" value="$VAR[view:List.TextColor]"/>
 								<param name="TextColor2" value="$VAR[view:List.TextColor2]"/>
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
@@ -1007,7 +1005,7 @@
 					<control type="list" id="181">
 						<top>80</top>
 						<width>920</width>
-						<height>600</height>
+						<height>616</height>
 						<onup>171</onup>
 						<ondown>171</ondown>
 						<onleft>9000</onleft>
@@ -1017,17 +1015,16 @@
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
 						<visible>Container(9000).HasFocus(9)</visible>
-						<itemlayout width="880" height="150">
+						<itemlayout width="880" height="154">
 							<include name="view_List-Art">
-								<param name="FrameWidth" value="104"/>
-								<param name="ArtWidth" value="90"/>
-								<param name="Fallback" value="thumbs/default_Portrait.png"/>
-								<param name="Type" value="$VAR[art:Portrait]"/>
-								<param name="ShowLogo" value="false"/>
+								<param name="FrameWidth" value="144"/>
+								<param name="ArtWidth" value="130"/>
+								<param name="Fallback" value="thumbs/default_Square.png"/>
+								<param name="Type" value="$INFO[ListItem.Icon]"/>
 							</include>
 							<include name="view_List-Data">
-								<param name="TextLeft" value="126"/>
-								<param name="TextWidth" value="740"/>
+								<param name="TextLeft" value="164"/>
+								<param name="TextWidth" value="700"/>
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), &#8226; ]"/>
@@ -1038,25 +1035,24 @@
 								<param name="Size" value="32"/>
 							</include>
 						</itemlayout>
-						<focusedlayout width="880" height="150">
+						<focusedlayout width="880" height="154">
 							<control type="group">
 								<visible>StringCompare(Window(Home).Property(category),nofocus)</visible>
 								<include name="view_List-Frame">
 									<param name="State" value="frames/frame-fo.png"/>
 									<param name="Width" value="880"/>
-									<param name="Height" value="150"/>
+									<param name="Height" value="154"/>
 								</include>
 							</control>
 							<include name="view_List-Art">
-								<param name="FrameWidth" value="104"/>
-								<param name="ArtWidth" value="90"/>
-								<param name="Fallback" value="thumbs/default_Portrait.png"/>
-								<param name="Type" value="$VAR[art:Portrait]"/>
-								<param name="ShowLogo" value="false"/>
+								<param name="FrameWidth" value="144"/>
+								<param name="ArtWidth" value="130"/>
+								<param name="Fallback" value="thumbs/default_Square.png"/>
+								<param name="Type" value="$INFO[ListItem.Icon]"/>
 							</include>
 							<include name="view_List-Data">
-								<param name="TextLeft" value="126"/>
-								<param name="TextWidth" value="740"/>
+								<param name="TextLeft" value="164"/>
+								<param name="TextWidth" value="700"/>
 								<param name="TextColor" value="$VAR[view:List.TextColor]"/>
 								<param name="TextColor2" value="$VAR[view:List.TextColor2]"/>
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
