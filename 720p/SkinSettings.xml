@@ -479,27 +479,29 @@
 						<enable>System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(nextaired.disable)</enable>
 					</control>
 					<!--artistslideshow-->
-					<control type="radiobutton" id="830">
-						<label>$LOCALIZE[31261]</label>
-						<onclick>Skin.ToggleSetting(artistslideshow.disable)</onclick>
-						<selected>Skin.HasSetting(artistslideshow.disable)</selected>
-						<include>settings_Radiobutton</include>
+					<control type="button" id="830">
+						<label>Artist Slideshow $LOCALIZE[5]</label>
+						<onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
+						<selected>System.HasAddon(script.tvtunes)</selected>
+						<include>settings_Listbutton</include>
 						<enable>System.HasAddon(script.artistslideshow)</enable>
 					</control>
+					<!--not implemented yet
 					<control type="button" id="831">
-						<label>- $LOCALIZE[10140]</label>
-						<onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
-						<selected>System.HasAddon(script.artistslideshow)</selected>
+						<label>Download Artist Slideshow</label>
+						<onclick>InstallAddon(script.artistslideshow)</onclick>
+						<selected>System.HasAddon(script.tvtunes)</selected>
 						<include>settings_Listbutton</include>
-						<enable>System.HasAddon(script.artistslideshow) + !Skin.HasSetting(artistslideshow.disable)</enable>
+						<visible>!System.HasAddon(script.artistslideshow)</visible>
 					</control>
+					-->
 					<!--tvtunes-->
 					<control type="button" id="840">
 						<label>TV Tunes $LOCALIZE[5]</label>
 						<onclick>Addon.OpenSettings(script.tvtunes)</onclick>
 						<selected>System.HasAddon(script.tvtunes)</selected>
 						<include>settings_Listbutton</include>
-						<visible>System.HasAddon(script.tvtunes)</visible>
+						<enable>System.HasAddon(script.tvtunes)</enable>
 					</control>
 					<!--set default lyrics add-on-->
 					<control type="button" id="850">

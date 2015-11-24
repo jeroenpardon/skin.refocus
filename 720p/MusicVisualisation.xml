@@ -14,7 +14,7 @@
 				<texture>$VAR[player:Fanart]</texture>
 				<aspectratio align="center" aligny="top">scale</aspectratio>
 				<animation effect="fade" end="60" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
-				<visible>Skin.HasSetting(fanart.visualization) + Skin.HasSetting(artistslideshow.disable)</visible>
+				<visible>Skin.HasSetting(fanart.visualization) + ![System.HasAddon(script.artistslideshow) + Skin.HasSetting(artistslideshow.disable)]</visible>
 			</control>
 			<control type="multiimage">
 				<include>screen_Dimensions</include>
