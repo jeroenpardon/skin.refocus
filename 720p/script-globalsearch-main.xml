@@ -487,11 +487,6 @@
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Studio)][CR]$INFO[ListItem.Property(Premiered)]$INFO[ListItem.Property(Rating), &#8226; ]"/>
 							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
-							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
 							<control type="group">
@@ -563,11 +558,6 @@
 								<param name="MediaInfo" value="$INFO[ListItem.Property(TVShowTitle)]"/>
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Episode),, [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]"/>
-							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
 							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
@@ -641,11 +631,6 @@
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Plot]"/>
 							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
-							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
 							<control type="group">
@@ -718,11 +703,6 @@
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), &#8226; , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), &#8226; ]"/>
 							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
-							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
 							<control type="group">
@@ -782,23 +762,18 @@
 						<visible>Container(9000).HasFocus(6)</visible>
 						<itemlayout width="880" height="154">
 							<include name="view_List-Art">
-								<param name="FrameWidth" value="104"/>
-								<param name="ArtWidth" value="90"/>
-								<param name="Fallback" value="thumbs/default_Portrait.png"/>
-								<param name="Type" value="$VAR[art:Portrait]"/>
+								<param name="FrameWidth" value="245"/>
+								<param name="ArtWidth" value="231"/>
+								<param name="Fallback" value="thumbs/default_Landscape.png"/>
+								<param name="Type" value="$INFO[ListItem.Art(thumb)]"/>
 								<param name="ShowLogo" value="false"/>
 							</include>
 							<include name="view_List-Data">
-								<param name="TextLeft" value="126"/>
-								<param name="TextWidth" value="740"/>
+								<param name="TextLeft" value="265"/>
+								<param name="TextWidth" value="600"/>
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Genre), &#8226; ]$INFO[ListItem.Property(Duration), &#8226; ]"/>
-							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
 							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
@@ -811,15 +786,15 @@
 								</include>
 							</control>
 							<include name="view_List-Art">
-								<param name="FrameWidth" value="104"/>
-								<param name="ArtWidth" value="90"/>
-								<param name="Fallback" value="thumbs/default_Portrait.png"/>
-								<param name="Type" value="$VAR[art:Portrait]"/>
+								<param name="FrameWidth" value="245"/>
+								<param name="ArtWidth" value="231"/>
+								<param name="Fallback" value="thumbs/default_Landscape.png"/>
+								<param name="Type" value="$INFO[ListItem.Art(thumb)]"/>
 								<param name="ShowLogo" value="false"/>
 							</include>
 							<include name="view_List-Data">
-								<param name="TextLeft" value="126"/>
-								<param name="TextWidth" value="740"/>
+								<param name="TextLeft" value="265"/>
+								<param name="TextWidth" value="600"/>
 								<param name="TextColor" value="$VAR[view:List.TextColor]"/>
 								<param name="TextColor2" value="$VAR[view:List.TextColor2]"/>
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
@@ -871,11 +846,6 @@
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Genre)]"/>
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$VAR[information:Origin.Prefix,,: ]$VAR[information:Origin]"/>
-							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
 							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
@@ -948,11 +918,6 @@
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), &#8226; ]"/>
 							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
-							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">
 							<control type="group">
@@ -1022,11 +987,6 @@
 								<param name="MediaInfo" value="$INFO[ListItem.Property(Artist)]"/>
 								<param name="ShowDescription" value="true"/>
 								<param name="Description" value="$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), &#8226; ]"/>
-							</include>
-							<include name="status_Info">
-								<param name="Left" value="65"/>
-								<param name="Bottom" value="17"/>
-								<param name="Size" value="32"/>
 							</include>
 						</itemlayout>
 						<focusedlayout width="880" height="154">

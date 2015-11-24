@@ -110,6 +110,7 @@
 		<param name="Fallback" default="thumbs/default_Landscape.png"/>
 		<param name="Type" default="$VAR[art:Landscape]"/>
 		<param name="ShowLogo" default="true"/>
+		<param name="Aspectratio" default="scale"/>
 		<definition>
 			<control type="image">
 				<width>$PARAM[FrameWidth]</width>
@@ -138,7 +139,7 @@
 					<width>$PARAM[ArtWidth]</width>
 					<height>$PARAM[ArtHeight]</height>
 					<texture background="true">$PARAM[Type]</texture>
-					<aspectratio>scale</aspectratio>
+					<aspectratio>$PARAM[Aspectratio]</aspectratio>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
