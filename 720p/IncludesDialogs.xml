@@ -51,9 +51,39 @@
 		</definition>
 	</include>
 
+
+	<include name="dialog_List-layout">
+		<param name="ContainerLeft" default="0"/>
+		<param name="ContainerHeight" default="40"/>
+		<param name="ContainerWidth" />
+		<param name="Width" />
+		<param name="Left" default="15"/>
+		<param name="Right" default="15"/>
+		<param name="Height" default="38"/>
+		<param name="InfoLabel"/>
+		<definition>
+			<control type="group">
+				<width>$PARAM[ContainerWidth]</width>
+				<height>$PARAM[ContainerHeight]</height>
+				<control type="image">
+					<width>$PARAM[ContainerWidth]</width>
+					<height>$PARAM[ContainerHeight]</height>
+					<include>dialog_CommonList</include>
+				</control>
+				<control type="label">
+					<left>$PARAM[Left]</left>
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<label>$PARAM[InfoLabel]</label>
+					<include>dialog_CommonListItem</include>
+				</control>
+			</control>
+		</definition>
+	</include> 
+
 	<include name="dialog_Common-List">
 		<param name="ID"/>
-		<param name="ContainerLeft" default="0"/>
+		<param name="ContainerLeft" default="4"/>
 		<param name="ContainerTop"/>
 		<param name="ContainerWidth"/>
 		<param name="ContainerHeight"/>
@@ -71,7 +101,7 @@
 		<param name="ShowLabel2" default="false"/>
 		<definition>
 			<control type="list" id="$PARAM[ID]">
-				<left>0</left>
+				<left>$PARAM[ContainerLeft]</left>
 				<top>$PARAM[ContainerTop]</top>
 				<width>$PARAM[ContainerWidth]</width>
 				<height>$PARAM[ContainerHeight]</height>
