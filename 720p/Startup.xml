@@ -10,11 +10,12 @@
 			<texture>special://skin/fanart.jpg</texture>
 			<include>fadein</include>
 		</control>
+
 		<!--check if fanart grabber is ready-->
 		<control type="button" id="20">
 			<include>TriggerButton</include>
 			<!--ready or not installed, move to home window-->
-			<onfocus condition="!System.HasAddon(script.grab.fanart) | [System.HasAddon(script.grab.fanart) + StringCompare(Window(Home).Property(script.grab.fanart.Ready),true)]">AlarmClock(StartupDelay,ReplaceWindow($INFO[System.StartupWindow]),00:03)</onfocus>
+			<onfocus condition="!System.HasAddon(script.grab.fanart) | [System.HasAddon(script.grab.fanart) + StringCompare(Window(Home).Property(script.grab.fanart.Ready),true)]">AlarmClock(Startup,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
 			<!--not ready, re-check-->
 			<onfocus condition="System.HasAddon(script.grab.fanart) + !StringCompare(Window(Home).Property(script.grab.fanart.Ready),true)">SetFocus(20)</onfocus>
 		</control>
