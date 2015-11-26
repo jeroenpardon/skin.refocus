@@ -33,7 +33,7 @@
 			</control>
 			<control type="label" id="$PARAM[DialogHeaderID]">
 				<width>$PARAM[DialogWidth]</width>
-				<label>$PARAM[DialogHeaderName]</label>
+				<label>$PARAM[DialogHeader]</label>
 				<top>5</top>
 				<font>light_Dialog</font>
 				<align>center</align>
@@ -61,6 +61,10 @@
 		<param name="Right" default="15"/>
 		<param name="Height" default="38"/>
 		<param name="InfoLabel"/>
+		<param name="Font" default="regular"/>
+		<param name="Color" default="Color4"/>
+		<param name="SelectedColor" default="Selected"/>
+		<param name="Texture" default="dialogs/select-nf.png"/>
 		<definition>
 			<control type="group">
 				<width>$PARAM[ContainerWidth]</width>
@@ -68,14 +72,17 @@
 				<control type="image">
 					<width>$PARAM[ContainerWidth]</width>
 					<height>$PARAM[ContainerHeight]</height>
-					<include>dialog_CommonList</include>
+					<height>40</height>
+					<texture>$PARAM[Texture]</texture>
 				</control>
 				<control type="label">
 					<left>$PARAM[Left]</left>
 					<width>$PARAM[Width]</width>
 					<height>$PARAM[Height]</height>
 					<label>$PARAM[InfoLabel]</label>
-					<include>dialog_CommonListItem</include>
+					<font>$PARAM[Font]</font>
+					<textcolor>$PARAM[Color]</textcolor>
+					<selectedcolor>$PARAM[SelectedColor]</selectedcolor>
 				</control>
 			</control>
 		</definition>

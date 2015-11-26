@@ -719,16 +719,6 @@
 		<value condition="Window.IsActive(addonbrowser)">special://skin/backgrounds/defaults/addons.jpg</value>
 	</variable>
 
-	<variable name="window:NumItems">
-		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
-		<value condition="Window.IsActive(Weather)">[B]$INFO[Window(Weather).Property(Location)][/B] $INFO[Window(Weather).Property(Updated)]</value>
-		<value condition="Window.IsActive(filemanager) + Control.HasFocus(20)">[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]</value>
-		<value condition="Window.IsActive(filemanager) + Control.HasFocus(21)">[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]</value>
-		<value condition="Window.IsActive(tvrecordings)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]$INFO[Pvr.BackendDiskspace, &#8226; ]</value>
-		<value condition="SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
-		<value condition="Window.IsActive(custom_Browser.xml)">$INFO[Container(50).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), "[B],[/B]"]</value>
-	</variable>
-
 	<variable name="window:Title.Video">
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[157]</value>
 		<value condition="StringCompare(Container.FolderPath,sources://video/)">$LOCALIZE[744]</value>

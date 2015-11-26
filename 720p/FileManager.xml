@@ -6,14 +6,29 @@
 
 	<!--global includes-->
 		<include>global_Background</include>
-		<include>global_Includes</include>
-		<include>global_Itemcount</include>
+		<include>global_Clock</include>
+		<include>global_Sortletter</include>
+		<include>global_Playing</include>
 
 	<!--window header-->
 		<include name="windowTitle">
 			<param name="Left" value="32"/>
 			<param name="Label" value="$VAR[window:Title.System]"/>
 		</include>
+
+		<control type="group">
+			<visible>Control.HasFocus(20)</visible>
+			<include name="global_Itemcount">
+				<param name="InfoLabel" value="[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]"/>
+			</include>
+		</control>
+		<control type="group">
+			<visible>Control.HasFocus(21)</visible>
+			<include name="global_Itemcount">
+				<param name="InfoLabel" value="[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]"/>
+			</include>
+		</control>
+
 
 	<!--content-->
 		<control type="group">

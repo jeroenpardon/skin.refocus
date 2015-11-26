@@ -16,23 +16,9 @@
 			<param name="Label" value="$INFO[Window(Home).Property(extContent)]"/>
 		</include>
 
-	
-		<control type="label">
-			<label>$INFO[Window(Home).Property(extType)]</label>
-			<top>0</top>
-			<left>300</left>
-		</control>
-		<control type="label">
-			<label>$INFO[Window(Home).Property(extContent)]</label>
-			<top>20</top>
-			<left>300</left>
-		</control>
-		<control type="label">
-			<label>$INFO[Window(Home).Property(extQuery)]</label>
-			<top>40</top>
-			<left>300</left>
-		</control>
-		-->
+		<include name="global_Itemcount">
+			<param name="InfoLabel" value="$INFO[Container(50).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
+		</include>
 
 	<!--results-->
 		<control type="group">

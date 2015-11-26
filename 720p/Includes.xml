@@ -73,7 +73,6 @@
 	<include name="global_Includes">
 		<include>global_Clock</include>
 		<include>global_Sortletter</include>
-		<include>global_Itemcount</include>
 		<include>global_Playing</include>
 	</include>
 
@@ -147,7 +146,7 @@
 
 	<include name="global_Itemcount">
 		<param name="Left" default="35"/>
-		<param name="InfoLabel" default="$VAR[window:NumItems]"/>
+		<param name="InfoLabel" default="[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]"/>
 		<definition>
 			<control type="label">
 				<left>$PARAM[Left]</left>
@@ -1333,10 +1332,6 @@
 			</control>
 		</definition>
 	</include>
-
-
-
-
 
 	<include name="windowTitle_Video">
 		<control type="label">
