@@ -168,8 +168,8 @@
 									<height>40</height>
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
-									<visible>!Control.IsVisible(50) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 									<include>media_Flags</include>
+									<visible>!Control.IsVisible(50) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 								</control>
 								<control type="label">
 									<top>25</top>
@@ -177,6 +177,7 @@
 									<label>$INFO[ListItem.Path]</label>
 									<font>regular_Smaller-U</font>
 									<textcolor>Color3</textcolor>
+									<visible>!Control.IsVisible(50)</visible>
 								</control>
 							</control>
 						</control>
@@ -230,15 +231,16 @@
 					<ondown>noop</ondown>
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
+					<include>fadeinout</include>
 					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0)</visible>
 					<itemlayout width="229" height="350">
-						<include name="IconLayoutCommons">
-							<param name="FrameState" value="frames/frame-nf.png" />
-							<param name="FrameWidth" value="209"/>
-							<param name="FrameHeight" value="310"/>
-							<param name="ArtWidth" value="195"/>
-							<param name="ArtHeight" value="296"/>
-							<param name="IconSize" value="72"/>
+						<include name="view_Icon-Frame">
+							<param name="Width" value="209"/>
+							<param name="Height" value="310"/>
+						</include>
+						<include name="view_Icon-Art">
+							<param name="Width" value="195"/>
+							<param name="Height" value="296"/>
 						</include>
 						<control type="textbox">
 							<left>7</left>
@@ -253,13 +255,13 @@
 						</control>
 					</itemlayout>
 					<focusedlayout width="194" height="350">
-						<include name="IconLayoutCommons">
-							<param name="FrameState" value="frames/frame-fo.png" />
-							<param name="FrameWidth" value="209"/>
-							<param name="FrameHeight" value="310"/>
-							<param name="ArtWidth" value="195"/>
-							<param name="ArtHeight" value="296"/>
-							<param name="IconSize" value="72"/>
+						<include name="view_Icon-Frame">
+							<param name="Width" value="209"/>
+							<param name="Height" value="310"/>
+						</include>
+						<include name="view_Icon-Art">
+							<param name="Width" value="195"/>
+							<param name="Height" value="296"/>
 						</include>
 						<control type="textbox">
 							<left>7</left>
