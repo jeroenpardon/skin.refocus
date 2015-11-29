@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">20</defaultcontrol>
+	<defaultcontrol always="true">30</defaultcontrol>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,silent=True)</onload>
 	<onload condition="System.HasAddon(script.artistslideshow) + IsEmpty(Window(Visualisation).Property(ArtistSlideshowRunning)) + !Skin.HasSetting(artistslideshow.disable)">RunScript(script.artistslideshow, daemon=True)</onload>
 	<onload condition="System.HasAddon(script.grab.fanart)">RunScript(script.grab.fanart,mode=random,refresh=20)</onload>
@@ -18,6 +18,11 @@
 			<onfocus condition="!System.HasAddon(script.grab.fanart) | [System.HasAddon(script.grab.fanart) + StringCompare(Window(Home).Property(script.grab.fanart.Ready),true)]">AlarmClock(Startup,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
 			<!--not ready, re-check-->
 			<onfocus condition="System.HasAddon(script.grab.fanart) + !StringCompare(Window(Home).Property(script.grab.fanart.Ready),true)">SetFocus(20)</onfocus>
+		</control>
+
+		<control type="button" id="30">
+			<include>TriggerButton</include>
+			<onfocus>AlarmClock(Startup,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
 		</control>
 
 		<control type="label">
