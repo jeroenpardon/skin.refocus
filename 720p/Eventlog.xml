@@ -7,17 +7,13 @@
 		<include>global_Background</include>
 		<include>global_Includes</include>
 		<include>global_MenuGuide</include>
-		<include>windowTitle_System</include>
 
-		<!--trigger-->
-		<control type="button" id="50">
-			<onfocus>570</onfocus>
-			<onup>noop</onup>
-			<ondown>noop</ondown>
-			<onleft>6000</onleft>
-			<onright>noop</onright>
-			<include>TriggerButton</include>
-		</control>
+	<!--window header-->
+		<include name="windowTitle">
+			<param name="Label" value="$VAR[window:Title.System]"/>
+		</include>
+	
+		<include>global_Itemcount</include>
 
 		<control type="group">
 			<control type="list" id="570">
@@ -25,7 +21,7 @@
 				<left>30</left>
 				<top>90</top>
 				<width>1205</width>
-				<height>616</height>
+				<height>603</height>
 				<onup>570</onup>
 				<ondown>570</ondown>
 				<onleft>6000</onleft>
@@ -37,78 +33,38 @@
 				<include>transition_Info</include>
 				<include>transition_Content</include>
 				<itemlayout width="1205" height="67">
-					<control type="group">
-						<left>5</left>
-						<top>5</top>
-						<control type="image">	
-							<width>57</width>
-							<height>57</height>
-							<texture>thumbs/default_Square.png</texture>
-						</control>
-						<control type="image">
-							<width>57</width>
-							<height>57</height>
-							<texture>$INFO[Listitem.Icon]</texture>
-						</control>
-					</control>
-					<control type="group">
-						<left>80</left>
-						<top>6</top>
-						<control type="label">
-							<width>1110</width>
-							<height>27</height>
-							<label>$INFO[ListItem.Label]</label>
-							<include>container_Title</include>
-						</control>
-						<control type="label">
-							<top>22</top>
-							<width>1110</width>
-							<label>$INFO[ListItem.Label2,, ]$INFO[ListItem.Property(Event.Description),&#8226; ]</label>
-							<selectedcolor>Color2</selectedcolor>
-							<include>container_Sub</include>
-						</control>
-					</control>	
+					<include name="view_List-Icon">
+						<param name="IconSize" value="57"/>
+					</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="80"/>
+						<param name="TextWidth" value="1145"/>
+						<param name="Label1" value="$INFO[ListItem.Label]"/>
+						<param name="Label2" value="$INFO[ListItem.Label2,, ]$INFO[ListItem.Property(Event.Description),&#8226; ]"/>
+					</include>
 				</itemlayout>
 				<focusedlayout width="1205" height="67">
-					<control type="image">
-						<width>1205</width>
-						<height>67</height>
-						<texture>views/focus.png</texture>
-					</control>
-					<control type="group">
-						<left>5</left>
-						<top>5</top>
-						<control type="image">	
-							<width>57</width>
-							<height>57</height>
-							<texture>thumbs/default_Square.png</texture>
-						</control>
-						<control type="image">
-							<width>57</width>
-							<height>57</height>
-							<texture>$INFO[Listitem.Icon]</texture>
-						</control>
-					</control>
-					<control type="group">
-						<left>80</left>
-						<top>6</top>
-						<control type="label">
-							<width>1110</width>
-							<height>27</height>
-							<label>$INFO[ListItem.Label]</label>
-							<include>container_Title-focus</include>
-						</control>
-						<control type="label">
-							<top>22</top>
-							<width>1110</width>
-							<label>$INFO[ListItem.Label2,, ]$INFO[ListItem.Property(Event.Description),&#8226; ]</label>
-							<selectedcolor>Color2</selectedcolor>
-							<include>container_Sub-focus</include>
-						</control>
-					</control>
+					<include name="view_List-Focus">
+						<param name="Width" default="1205"/>
+						<param name="Height" default="67"/>
+					</include>
+					<include name="view_List-Icon">
+						<param name="IconSize" value="57"/>
+					</include>
+					<include name="view_List-Data">
+						<param name="TextLeft" value="80"/>
+						<param name="TextWidth" value="1145"/>
+						<param name="Label1" value="$INFO[ListItem.Label]"/>
+						<param name="Label2" value="$INFO[ListItem.Label2,, ]$INFO[ListItem.Property(Event.Description),&#8226; ]"/>
+						<param name="TextColor">$VAR[view:List.TextColor]</param>
+						<param name="TextColor2">$VAR[view:List.TextColor2]</param>
+					</include>
 				</focusedlayout>
 			</control>
 		</control>
+
+		<!--scrollbars-->
+		<include>PageControls</include>
 
 		<!--menu-->
 		<include>menu_Other</include>

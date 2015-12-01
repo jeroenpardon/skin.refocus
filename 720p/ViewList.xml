@@ -23,8 +23,8 @@
 		<param name="TextColor" default="Color1"/>
 		<param name="TextColor2" default="Color2"/>
 		<param name="TextWidth" default="550"/>
-		<param name="MediaTitle" default="$VAR[media:Title]"/>
-		<param name="MediaInfo" default="$VAR[media:Info]$VAR[rating:Song, &#8226; ]"/>
+		<param name="Label1" default="$VAR[media:Title]"/>
+		<param name="Label2" default="$VAR[media:Info]$VAR[rating:Song, &#8226; ]"/>
 		<param name="Description" default="$VAR[media:Plot]"/>
 		<param name="ShowDescription" default="false"/>
 		<definition>
@@ -33,7 +33,7 @@
 				<control type="label">
 					<top>6</top>
 					<width>$PARAM[TextWidth]</width>
-					<label>$PARAM[MediaTitle]</label>
+					<label>$PARAM[Label1]</label>
 					<height>28</height>
 					<font>regular_Bigger</font>
 					<textcolor>$PARAM[TextColor]</textcolor>
@@ -42,7 +42,7 @@
 				<control type="label">
 					<top>28</top>
 					<width>$PARAM[TextWidth]</width>
-					<label>$PARAM[MediaInfo]</label>
+					<label>$PARAM[Label2]</label>
 					<height>40</height>
 					<font>regular_Small-U</font>
 					<textcolor>$PARAM[TextColor2]</textcolor>
@@ -76,30 +76,35 @@
 	</include>
 
 	<include name="view_List-Icon">
-		<control type="group">
-			<left>5</left>
-			<top>5</top>
-			<width>57</width>
-			<height>57</height>
-			<control type="image">	
-				<width>57</width>
-				<height>57</height>
-				<texture>thumbs/default_Square.png</texture>
+		<param name="Margin" default="5"/>
+		<param name="ThumbSize" default="57"/>
+		<param name="IconSize" default="36"/>
+		<definition>
+			<control type="group">
+				<left>$PARAM[Margin]</left>
+				<top>$PARAM[Margin]</top>
+				<width>$PARAM[ThumbSize]</width>
+				<height>$PARAM[ThumbSize]</height>
+				<control type="image">	
+					<width>$PARAM[ThumbSize]</width>
+					<height>$PARAM[ThumbSize]</height>
+					<texture>thumbs/default_Square.png</texture>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>$PARAM[IconSize]</width>
+					<height>$PARAM[IconSize]</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[ThumbSize]</width>
+					<height>$PARAM[ThumbSize]</height>
+					<texture>$INFO[ListItem.Art(thumb)]</texture>
+				</control>
 			</control>
-			<control type="image">
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<width>36</width>
-				<height>36</height>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<visible>IsEmpty(ListItem.Art(thumb))</visible>
-			</control>
-			<control type="image">
-				<width>57</width>
-				<height>57</height>
-				<texture>$INFO[ListItem.Art(thumb)]</texture>
-			</control>
-		</control>
+		</definition>
 	</include>
 
 	<include name="view_List-Art">
