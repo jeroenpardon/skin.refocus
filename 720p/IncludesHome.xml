@@ -2,6 +2,7 @@
 <includes>
 	<include name="home_Background">
 		<control type="group">
+			<visible>!Control.HasFocus(9200)</visible>
 			<visible>![Control.HasFocus(9000) + Skin.HasSetting(widgets.push) + !IsEmpty(Container(9000).ListItem.Property(Widget))] | Skin.HasSetting(widgets.disable)</visible>
 			<include>fadeinout</include>
 			<control type="image">
@@ -25,6 +26,7 @@
 		<!--fanart slideshow info-->
 		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
+			<visible>!Control.HasFocus(9200) + IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
 			<visible>Skin.String(homebackground,fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
 			<control type="label">
 				<right>25</right>
@@ -99,187 +101,183 @@
 					<top>21</top>
 					<control type="label">
 						<width>1060</width>
-						<label>$VAR[widget:Header.Count]</label>
+						<label>$VAR[widget:Header]</label>
 						<font>regular_Small-U</font>
 						<textcolor>Color1</textcolor>
 						<include>fadeinout</include>
-						<visible>![Control.HasFocus(9000) | Control.HasFocus(9100)] | Skin.HasSetting(widgets.push) + [Control.HasFocus(9000) | Control.HasFocus(9100)]</visible>
-					</control>
-					<control type="label">
-						<width>1060</width>
-						<label>$VAR[widget:Header.Info]</label>
-						<font>regular_Small-U</font>
-						<textcolor>Color1</textcolor>
-						<include>fadeinout</include>
-						<visible>!Skin.HasSetting(widgets.push) + [Control.HasFocus(9000) | Control.HasFocus(9100)]</visible>
 					</control>
 				</control>
 			</control>
 		</control>
 	</include>
 
-	<include name="widget_Containers">
-		<control type="group">
-			<animation type="Conditional" condition="ControlGroup(9200).HasFocus | Skin.HasSetting(widgets.push)" reversible="false">
-				<effect type="fade" start="0" end="100" tween="Quadratic" easing="Out" time="250"/>
-			</animation>
-			<animation type="Conditional" condition="!ControlGroup(9200).HasFocus + !Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),vertical)" reversible="false">
-				<effect type="fade" start="100" end="0" tween="Quadratic" easing="Out" time="350"/>
-			</animation>
-			<animation type="Conditional" condition="!ControlGroup(9200).HasFocus + !Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),horizontal)" reversible="false">
-				<effect type="fade" start="100" end="0" tween="Quadratic" easing="Out" time="250"/>
-			</animation>
-			<control type="group" id="9200">
-				<left>320</left>
-				<include>screen_Dimensions</include>
-				<itemgap>0</itemgap>
-				<onleft>9000</onleft>
-				<onright>noop</onright>
+	<include name="widget_Container">
+		<param name="ContainerLeft" default="0"/>
+		<param name="ContainerTop" default="0"/>
+		<param name="ContainerWidth" default="1620"/>
+		<param name="ContainerHeight" default="screen_Height"/>
+		<param name="OnLeft" default="9000"/>
+		<param name="OnRight"/>
+		<param name="OnUp"/>
+		<param name="OnDown"/>
+		<param name="Orientation" default="vertical"/>
+		<param name="PageControl" definition="70"/>
+		<param name="ArtWidth" default="screen_Width"/>
+		<param name="ArtHeight" default="screen_Height"/>
+		<param name="ArtAspect" default="scale"/>
+		<param name="TextLeft" default="60"/>
+		<param name="TextTop" default="550"/>
+		<param name="HeaderLeft"/>
+		<param name="HeaderTop" default="15"/>
+		<definition>
+			<control type="list" id="9200">
+				<left>$PARAM[ContainerLeft]</left>
+				<top>$PARAM[ContainerTop]</top>
+				<width>$PARAM[ContainerWidth]</width>
+				<height>$PARAM[ContainerHeight]</height>
+				<onleft>$PARAM[OnLeft]</onleft>
+				<onright>$PARAM[OnRight]</onright>
+				<onup>$PARAM[OnUp]</onup>
+				<ondown>$PARAM[OnDown]</ondown>
 				<onback>9000</onback>
-				<animation effect="slide" start="0" end="-320" time="0" condition="StringCompare(Skin.String(homemenu.type),horizontal)">Conditional</animation>
-				<control type="list" id="9210">
-					<include>widget_ContainerCommons</include>
-					<content limit="25" target="video">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window(10000).Property(watchlistmovies)]</content>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies)</visible>
-				</control>
-				<control type="list" id="9211">
-					<content limit="25" target="video">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window(10000).Property(watchlistepisodes)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes)</visible>
-				</control>
-				<control type="list" id="9220">
-					<content limit="25" target="video" sortorder="ascending" sortby="date">plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos)</visible>
-				</control>
-				<control type="list" id="9221">
-					<content limit="25" target="video" sortorder="ascending" sortby="date">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window(10000).Property(recentmovies)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies)</visible>
-				</control>
-				<control type="list" id="9222">
-					<content limit="25" target="video" sortorder="ascending" sortby="date">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window(10000).Property(recentepisodes)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes)</visible>
-				</control>
-				<control type="list" id="9223">
-					<content limit="25" target="video" sortorder="ascending" sortby="date">special://skin/playlists/video/movies-unwatched.xsp</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies)</visible>
-				</control>
-				<control type="list" id="9230">
-					<content limit="25" target="music" sortorder="ascending" sortby="date">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window(10000).Property(recommendedalbums)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums)</visible>
-				</control>
-				<control type="list" id="9231">
-					<content limit="25" target="music" sortorder="ascending" sortby="date">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window(10000).Property(recentalbums)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)</visible>
-				</control>
-				<control type="list" id="9235">
-					<content>plugin://script.skin.helper.service/?action=favouritemedia&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia)</visible>
-				</control>
-				<control type="list" id="9240">
-					<content>$INFO[Container(9000).ListItem.Property(widgetPlaylist)]</content>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(widgetType),playlist)</visible>
-				</control>
-				<control type="group" id="9250">
-					<control type="multiimage">
-						<timeperimage>8000</timeperimage>
-						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-						<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))</visible>
+				<orientation>$PARAM[Orientation]</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>$PARAM[PageControl]</pagecontrol>
+				<autoscroll time="autoscroll_Widget">Control.HasFocus(9000) + Skin.HasSetting(widgets.autoscroll)</autoscroll>
+				<include>toggle_Widget</include>
+				<include>global_Scrolltime</include>
+				<itemlayout width="screen_Width" height="screen_Height">
+					<control type="image">
+						<width>$PARAM[ArtWidth]</width>
+						<height>$PARAM[ArtHeight]</height>
+						<texture background="true">$VAR[art:Fanart]</texture>
+						<aspectratio>$PARAM[ArtAspect]</aspectratio>
+						<fadetime>250</fadetime>
+					</control>
+					<control type="image">
+						<width>$PARAM[ArtWidth]</width>
+						<height>$PARAM[ArtHeight]</height>
+						<texture>overlays/vignette_full.png</texture>
+						<aspectratio>$PARAM[ArtAspect]</aspectratio>
+					</control>
+					<include>widget_Data</include>
+				</itemlayout>
+				<focusedlayout width="screen_Width" height="screen_Height">
+					<control type="image">
+						<width>$PARAM[ArtWidth]</width>
+						<height>$PARAM[ArtHeight]</height>
+						<texture background="true">$VAR[art:Fanart]</texture>
+						<aspectratio>$PARAM[ArtAspect]</aspectratio>
+						<fadetime>250</fadetime>
+					</control>
+					<control type="image">
+						<width>$PARAM[ArtWidth]</width>
+						<height>$PARAM[ArtHeight]</height>
+						<texture>overlays/vignette_full.png</texture>
+						<aspectratio>$PARAM[ArtAspect]</aspectratio>
 					</control>
 					<control type="group">
-						<visible>Control.HasFocus(9251) + Pvr.IsPlayingRadio</visible>
-						<control type="image">
-							<include>screen_Dimensions</include>
-							<texture>black.png</texture>
-							<aspectratio>stretch</aspectratio>
+						<left>$PARAM[TextLeft]</left>
+						<top>$PARAM[TextTop]</top>
+						<animation type="Conditional" condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">
+							<effect type="Fade" time="200" start="100" end="0" easing="In" delay="100"/>
+						</animation>
+						<control type="label">
+							<width>$PARAM[TextWidth]</width>
+							<label>$VAR[widget:Item.Title]</label>
+							<font>black_Title</font>
+							<textcolor>Color1</textcolor>
+							<selectedcolor>Color1</selectedcolor>
 						</control>
-						<control type="visualisation">
-							<include>screen_Dimensions</include>
+						<control type="label">
+							<top>28</top>
+							<width>$PARAM[TextWidth]</width>
+							<label>$VAR[widget:Item.Info]</label>
+							<font>semibold_Small-U</font>
+							<textcolor>Color1</textcolor>
+							<selectedcolor>Color1</selectedcolor>
+						</control>
+						<control type="textbox">
+							<top>60</top>
+							<width>$PARAM[TextWidth]</width>
+							<height>85</height>
+							<label>$VAR[widget:Item.Description]</label>
+							<include>detail_Text</include>
+							<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
+							<visible>!StringCompare(Window(Home).Property(WidgetState),open)</visible>
+						</control>
+						<control type="textbox">
+							<top>60</top>
+							<width>1170</width>
+							<height>85</height>
+							<label>$VAR[widget:Item.Description]</label>
+							<include>detail_Text</include>
+							<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
+							<visible>StringCompare(Window(Home).Property(WidgetState),open)</visible>
 						</control>
 					</control>
-					<control type="list" id="9251">
-						<include>widget_ContainerCommons</include>
-						<content>
-							<item>
-								<label>$INFO[MusicPlayer.Title]</label>
-								<label2>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, &#8226; ]</label2>
-								<property name="Description">$VAR[player:Description]</property>
-								<thumb>$VAR[widget:NowPlaying.Art]</thumb>
-								<onclick>ActivateWindow(musicplaylist)</onclick>
-							</item>
-						</content>
-						<visible>Player.HasAudio + StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)</visible>
-					</control>
-				</control>
-				<control type="group" id="9260">
-					<control type="multiimage">
-						<timeperimage>8000</timeperimage>
-						<imagepath background="true">$VAR[weather:Fanart]</imagepath>
-						<visible>Control.IsVisible(9261)</visible>
-					</control>
-					<control type="list" id="9261">
-						<include>widget_ContainerCommons</include>
-						<content>
-							<item>
-								<label>$INFO[Window(Weather).Property(Current.Condition)], $INFO[Window(Weather).Property(Current.FeelsLike)] $INFO[System.TemperatureUnits]</label>
-								<label2>$INFO[Window(Weather).Property(Location)]</label2>
-								<property name="ExtendedInfo1">$INFO[Window(Weather).Property(updated)]</property>
-								<property name="Description">$VAR[weather:widgetInfo]</property>
-								<thumb>$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</thumb>
-								<onclick>ActivateWindow(weather)</onclick>
-							</item>
-						</content>
-						<visible>StringCompare(Container(9000).ListItem.Property(Widget),Weather)</visible>
-					</control>
-				</control>
-				<control type="list" id="9270">
-					<content>plugin://script.extendedinfo?info=trendingmovies</content>
-					<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)</visible>
-				</control>
-				<control type="list" id="9271">
-					<content>plugin://script.extendedinfo?info=trendingshows</content>
-					<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
-					<include>widget_ContainerCommons</include>
-					<visible>StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows)</visible>
-				</control>
+				</focusedlayout>
+				<content target="$INFO[Container(9000).ListItem.Property(widgetTarget)]">$INFO[Container(9000).ListItem.Property(widgetPath)]</content>
+			</control>
+		</definition>
+	</include>
+</includes>
+	<!--
+
+	<control type="group" id="9250">
+		<control type="multiimage">
+			<timeperimage>8000</timeperimage>
+			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+			<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))</visible>
+		</control>
+		<control type="group">
+			<visible>Control.HasFocus(9251) + Pvr.IsPlayingRadio</visible>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture>black.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="visualisation">
+				<include>screen_Dimensions</include>
 			</control>
 		</control>
-	</include>
-
-	<include name="widget_ContainerCommons">
-		<width>1620</width>
-		<height>screen_Height</height>
-		<onback>9000</onback>
-		<include condition="StringCompare(Skin.String(homemenu.type),vertical)">widget_Vertical</include>
-		<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">widget_Horizontal</include>
-		<onleft condition="StringCompare(Skin.String(homemenu.type),vertical)">9000</onleft>
-		<onright condition="StringCompare(Skin.String(homemenu.type),vertical)">-</onright>
-		<ondown condition="StringCompare(Skin.String(homemenu.type),horizontal)">9000</ondown>
-		<onup condition="StringCompare(Skin.String(homemenu.type),horizontal)">-</onup>
-		<preloaditems>2</preloaditems>
-		<pagecontrol>70</pagecontrol>
-		<autoscroll time="autoscroll_Widget">Control.HasFocus(9000) + Skin.HasSetting(widgets.autoscroll)</autoscroll>
-		<include>global_Scrolltime</include>
-		<include condition="Skin.HasSetting(widgets.push)">fadeinout</include>
-		<itemlayout width="screen_Width" height="screen_Height">
-			<include>widget_ArtCommons</include>
-			<include>widget_InfoCommons</include>
-		</itemlayout>
-		<focusedlayout width="screen_Width" height="screen_Height">
-			<include>widget_ArtCommons</include>
-			<include>widget_InfoCommons</include>
-		</focusedlayout>
-	</include>
-
+		<control type="list" id="9251">
+			<include>widget_Container</include>
+			<content>
+				<item>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<label2>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, &#8226; ]</label2>
+					<property name="Description">$VAR[player:Description]</property>
+					<thumb>$VAR[widget:NowPlaying.Art]</thumb>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+				</item>
+			</content>
+			<visible>Player.HasAudio + StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)</visible>
+		</control>
+	</control>
+	<control type="group" id="9260">
+		<control type="multiimage">
+			<timeperimage>8000</timeperimage>
+			<imagepath background="true">$VAR[weather:Fanart]</imagepath>
+			<visible>Control.IsVisible(9261)</visible>
+		</control>
+		<control type="list" id="9261">
+			<include>widget_Container</include>
+			<content>
+				<item>
+					<label>$INFO[Window(Weather).Property(Current.Condition)], $INFO[Window(Weather).Property(Current.FeelsLike)] $INFO[System.TemperatureUnits]</label>
+					<label2>$INFO[Window(Weather).Property(Location)]</label2>
+					<property name="ExtendedInfo1">$INFO[Window(Weather).Property(updated)]</property>
+					<property name="Description">$VAR[weather:widgetInfo]</property>
+					<thumb>$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</thumb>
+					<onclick>ActivateWindow(weather)</onclick>
+				</item>
+			</content>
+			<visible>StringCompare(Container(9000).ListItem.Property(Widget),Weather)</visible>
+		</control>
+	</control>-->
+	
+	<!--
 	<include name="widget_ArtCommons">
 		<control type="image">
 			<texture background="true">$VAR[art:Fanart]</texture>
@@ -292,55 +290,4 @@
 			<aspectratio>scale</aspectratio>
 		</control>
 	</include>
-
-	<include name="widget_InfoCommons">
-		<control type="group">
-			<left>60</left>
-			<top>550</top>
-			<animation type="Conditional" condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">
-				<effect type="Fade" time="200" start="100" end="0" easing="In" delay="100"/>
-			</animation>
-			<control type="label">
-				<width>850</width>
-				<label>$VAR[widget:Item.Title]</label>
-				<selectedcolor>Color1</selectedcolor>
-				<include>osd_Title</include>
-			</control>
-			<control type="label">
-				<top>28</top>
-				<width>1170</width>
-				<label>$VAR[widget:Item.Info]</label>
-				<font>regular_Small-U</font>
-				<include>osd_Sub</include>
-			</control>
-			<control type="textbox">
-				<top>60</top>
-				<width>850</width>
-				<height>85</height>
-				<label>$VAR[widget:Item.Description]</label>
-				<include>detail_Text</include>
-				<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
-				<visible>StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Window(Home).Property(WidgetState),open)</visible>
-			</control>
-			<control type="textbox">
-				<top>60</top>
-				<width>1170</width>
-				<height>85</height>
-				<label>$VAR[widget:Item.Description]</label>
-				<include>detail_Text</include>
-				<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
-				<visible>[StringCompare(Skin.String(homemenu.type),vertical) + StringCompare(Window(Home).Property(WidgetState),open)] | StringCompare(Skin.String(homemenu.type),horizontal)</visible>
-			</control>
-		</control>
-	</include>
-
-	<include name="widget_Vertical">
-		<onleft>ClearProperty(WidgetState)</onleft>
-		<orientation>vertical</orientation>
-		<pagecontrol>70</pagecontrol>
-	</include>
-	<include name="widget_Horizontal">
-		<orientation>horizontal</orientation>
-		<pagecontrol>71</pagecontrol>
-	</include>
-</includes>
+	-->

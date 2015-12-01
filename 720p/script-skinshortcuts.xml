@@ -189,21 +189,22 @@
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32072]</label>
 						<include>dialog_ControlCommons</include>
-						<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
+						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
 					</control>
 					<!--set widget-->
-					<control type="button" id="309">
+					<control type="button" id="312">
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32044]</label>
 						<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
 						<include>dialog_ControlCommons</include>
-						<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
+						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
 						<enable>!Skin.HasSetting(widgets.disable)</enable>
 					</control>
 					<!--add item-->
 					<control type="button" id="301">
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32000]</label>
+						<onclick>SetFocus(401)</onclick>
 						<include>dialog_ControlCommons</include>
 					</control>
 				</control>
@@ -233,7 +234,7 @@
 				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000)</onclick>
 				<onclick>Close</onclick>
 				<include>dialog_WindowButton</include>
-				<visible>StringCompare(Window.Property("groupname"),mainmenu)</visible>
+				<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
 			</control>
 			<!--close-->
 			<control type="button" id="10">
@@ -246,7 +247,7 @@
 				<ondown>401</ondown>
 				<onclick>Close</onclick>
 				<include>dialog_WindowButton</include>
-				<visible>!StringCompare(Window.Property("groupname"),mainmenu)</visible>
+				<visible>!StringCompare(Window.Property(groupname),mainmenu)</visible>
 			</control>
 		</control>
 	</controls>

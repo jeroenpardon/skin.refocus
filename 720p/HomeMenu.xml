@@ -2,9 +2,14 @@
 <includes>	
 	<include name="home_Menu-vertical">
 		<control type="group">
-			<animation effect="Slide" time="250" start="0" end="-320" tween="Quadratic" easing="Out" reversible="false" condition="ControlGroup(9200).HasFocus()">Conditional</animation>
-			<animation effect="Slide" time="250" start="-320" end="0" tween="Quadratic" easing="Out" reversible="false" condition="!ControlGroup(9200).HasFocus()">Conditional</animation>
-			<include condition="!Skin.HasSetting(widgets.disable)">widget_Containers</include>
+			<animation effect="Slide" time="250" start="0" end="-320" tween="Quadratic" easing="Out" reversible="false" condition="Control.HasFocus(9200)">Conditional</animation>
+			<animation effect="Slide" time="250" start="-320" end="0" tween="Quadratic" easing="Out" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
+			<include condition="!Skin.HasSetting(widgets.disable)" name="widget_Container">
+				<param name="Orientation" value="vertical"/>
+				<param name="ContainerLeft" value="320"/>
+				<param name="OnLeft" value="9000"/>
+			</include>
+
 			<!--MAIN MENU-->
 			<control type="group" id="9109">
 				<width>320</width>
@@ -58,23 +63,8 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<onright>SetProperty(WidgetState,open,Home)</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + !Container(9210).IsUpdating">9210</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + !Container(9211).IsUpdating">9211</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + !Container(9220).IsUpdating">9220</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies) + !Container(9221).IsUpdating">9221</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes) + !Container(9222).IsUpdating">9222</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies) + !Container(9223).IsUpdating">9223</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums) + !Container(9230).IsUpdating">9230</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums) + !Container(9231).IsUpdating">9231</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia) + !Container(9235).IsUpdating">9235</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + !Container(9240).IsUpdating">9240</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + !Container(9270).IsUpdating">9270</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows) + !Container(9271).IsUpdating">9271</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),InTheaters) + !Container(9272).IsUpdating">9272</onright>
-					<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedMovies) + !Container(9280).IsUpdating">9280</onright>
+					<onright condition="!Container(9200).IsUpdating">SetProperty(WidgetState,open,Home)</onright>
+					<onright condition="!Container(9200).IsUpdating">9200</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -196,26 +186,26 @@
 			</control>
 		</control>
 		<control type="group">
-			<animation effect="Slide" time="250" start="0" end="-320" tween="Quadratic" easing="Out" reversible="false" condition="ControlGroup(9200).HasFocus()">Conditional</animation>
-			<animation effect="Slide" time="250" start="-320" end="0" tween="Quadratic" easing="Out" reversible="false" condition="!ControlGroup(9200).HasFocus()">Conditional</animation>
+			<animation effect="Slide" time="250" start="0" end="-320" tween="Quadratic" easing="Out" reversible="false" condition="Control.HasFocus(9200)">Conditional</animation>
+			<animation effect="Slide" time="250" start="-320" end="0" tween="Quadratic" easing="Out" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
 			<include condition="!Skin.HasSetting(widgets.disable)">widget_Header</include>
 		</control>
 	</include>
 	<include name="home_Menu-horizontal">
 		<control type="group">
-			<control type="group">
-				<animation effect="Slide" time="250" start="0,-340" end="0,0" tween="Cubic" reversible="false" condition="!Skin.HasSetting(widgets.push) + ControlGroup(9200).HasFocus()">Conditional</animation>
-				<animation effect="Slide" time="250" start="0,0" end="0,-340" tween="Cubic" reversible="false" condition="!Skin.HasSetting(widgets.push) + !ControlGroup(9200).HasFocus()">Conditional</animation>
-				<visible>!Skin.HasSetting(widgets.disable)</visible>
-				<include condition="!Skin.HasSetting(widgets.disable)">widget_Containers</include>
-			</control>
+			<include condition="!Skin.HasSetting(widgets.disable)" name="widget_Container">
+				<param name="Orientation" value="horizontal"/>
+				<param name="ContainerLeft" value="0"/>
+				<param name="OnLeft" value="9200"/>
+				<param name="OnDown" value="9000"/>
+			</include>
 			<!--MAIN MENU-->
 			<control type="group">
 				<left>50</left>
 				<top>450</top>
 				<animation effect="Slide" time="0" start="0,0" end="0,-70" tween="Cubic" reversible="false" condition="Skin.HasSetting(widgets.push)">Conditional</animation>
-				<animation effect="Slide" time="250" start="0,0" end="0,340" tween="Cubic" reversible="false" condition="ControlGroup(9200).HasFocus()">Conditional</animation>
-				<animation effect="Slide" time="250" start="0,340" end="0,0" tween="Cubic" reversible="false" condition="!ControlGroup(9200).HasFocus()">Conditional</animation>
+				<animation effect="Slide" time="250" start="0,0" end="0,340" tween="Cubic" reversible="false" condition="Control.HasFocus(9200)">Conditional</animation>
+				<animation effect="Slide" time="250" start="0,340" end="0,0" tween="Cubic" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
 				<control type="group">
 					<include>transition_Home-horizontal</include>
 					<control type="fixedlist" id="9000">
@@ -223,22 +213,8 @@
 						<height>70</height>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
-						<onup>SetProperty(WidgetState,open,Home)</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + !Container(9210).IsUpdating">9210</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + !Container(9211).IsUpdating">9211</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + !Container(9220).IsUpdating">9220</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies) + !Container(9221).IsUpdating">9221</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes) + !Container(9222).IsUpdating">9222</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies) + !Container(9223).IsUpdating">9223</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums) + !Container(9230).IsUpdating">9230</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums) + !Container(9231).IsUpdating">9231</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia) + !Container(9235).IsUpdating">9235</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + !Container(9240).IsUpdating">9240</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">9251</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">9261</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + !Container(9270).IsUpdating">9270</onup>
-						<onup condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows) + !Container(9271).IsUpdating">9271</onup>
-						<onright condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedMovies) + !Container(9281).IsUpdating">9281</onright>
+						<onup condition="!Container(9200).IsUpdating">SetProperty(WidgetState,open,Home)</onup>
+						<onup condition="!Container(9200).IsUpdating">9200</onup>
 						<ondown>9100</ondown>
 						<focusposition>2</focusposition>
 						<movement>2</movement>

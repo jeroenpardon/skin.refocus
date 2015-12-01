@@ -195,6 +195,18 @@
 		</animation>
 	</include>
 
+	<include name="toggle_Widget">
+		<animation type="Conditional" condition="Control.HasFocus(9200) | Skin.HasSetting(widgets.push)" reversible="false">
+			<effect type="fade" start="0" end="100" tween="Quadratic" easing="Out" time="250"/>
+		</animation>
+		<animation type="Conditional" condition="!Control.HasFocus(9200) + !Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),vertical)" reversible="false">
+			<effect type="fade" start="100" end="0" tween="Quadratic" easing="Out" time="350"/>
+		</animation>
+		<animation type="Conditional" condition="!Control.HasFocus(9200) + !Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),horizontal)" reversible="false">
+			<effect type="fade" start="100" end="0" tween="Quadratic" easing="Out" time="250"/>
+		</animation>
+	</include>
+
 	<include name="toggle_RSS">
 		<animation effect="slide" start="0,32" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 		<animation effect="slide" start="0,0" end="0,32" time="250" tween="Quadratic" easing="Out">WindowClose</animation>

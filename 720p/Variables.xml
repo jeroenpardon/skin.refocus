@@ -45,60 +45,11 @@
 
 
 <!--WIDGETS-->
-	<variable name="widget:Header.Count">
-		<value condition="StringCompare(Container(9000).ListItem.Property(widget),NowPlaying)">$INFO[Player.Time] / $INFO[Player.Duration]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + Container(9210).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies)">$LOCALIZE[31033] [B]$INFO[Container(9210).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9210).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + Container(9211).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes)">$LOCALIZE[31033] [B]$INFO[Container(9211).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9211).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + Container(9220).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos)">$LOCALIZE[31033] [B]$INFO[Container(9220).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9220).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies) + Container(9221).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies)">$LOCALIZE[31033] [B]$INFO[Container(9221).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9221).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes) + Container(9222).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes)">$LOCALIZE[31033] [B]$INFO[Container(9222).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9222).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies) + Container(9223).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies)">$LOCALIZE[31033] [B]$INFO[Container(9223).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9223).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums) + Container(9230).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums)">$LOCALIZE[31033] [B]$INFO[Container(9230).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9230).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums) + Container(9231).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)">$LOCALIZE[31033] [B]$INFO[Container(9231).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9231).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia) + Container(9235).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia)">$LOCALIZE[31033] [B]$INFO[Container(9235).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9235).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + Container(9240).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$LOCALIZE[31033] [B]$INFO[Container(9240).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9240).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">$INFO[Container(9261).ListItem(0).Property(ExtendedInfo1)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies) + Container(9270).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)">$LOCALIZE[31033] [B]$INFO[Container(9270).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9270).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows) + Container(9271).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows)">$LOCALIZE[31033] [B]$INFO[Container(9271).CurrentPage][/B] $LOCALIZE[20163] [B]$INFO[Container(9271).NumItems][/B]</value>
-	</variable>
-
-	<variable name="widget:Header.Info">
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies) + Container(9210).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistMovies)">$INFO[Container(9210).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes) + Container(9211).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),WatchlistEpisodes)">$INFO[Container(9211).ListItem(0).TVShowTitle]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos) + Container(9220).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentVideos)">$INFO[Container(9220).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies) + Container(9221).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentMovies)">$INFO[Container(9221).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies) + Container(9223).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),UnwatchedMovies)">$INFO[Container(9223).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes) + Container(9222).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentEpisodes)">$INFO[Container(9222).ListItem(0).TVShowTitle]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums) + Container(9230).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecommendedAlbums)">$INFO[Container(9230).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums) + Container(9231).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),RecentAlbums)">$INFO[Container(9231).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia) + Container(9235).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),FavouriteMedia)">$INFO[Container(9235).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist) + Container(9240).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[Container(9240).ListItem(0).Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)">$INFO[MusicPlayer.Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),Weather)">$INFO[Container(9261).ListItem(0).Label]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingMovies)">Trakt.tv</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),TraktTrendingShows)">Trakt.tv</value>
+	<variable name="widget:Header">
+		<value condition="Container(9200).IsUpdating">$LOCALIZE[31710]...</value>
+		<value condition="Control.HasFocus(9200)">$LOCALIZE[31033] [B]$INFO[Container(9200).CurrentItem][/B] $LOCALIZE[20163] [B]$INFO[Container(9200).NumItems][/B]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)]">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
+		<value>$INFO[Container(9200).ListItem(0).Title]</value>
 	</variable>
 
 	<variable name="widget:Item.Title">
@@ -109,12 +60,12 @@
 	</variable>
 
 	<variable name="widget:Item.Info">
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">$INFO[ListItem.Genre]$INFO[ListItem.Year, &#8226; ]</value>	
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),shows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),shows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),songs) | StringCompare(Container(9000).ListItem.Property(widgetType),musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),tvshows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, &#8226; ]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),mixed)">$INFO[ListItem.TVShowTitle,, &#8226; ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),mixed)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
