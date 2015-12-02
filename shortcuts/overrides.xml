@@ -11,13 +11,12 @@
 		</node>
 
 		<node label="32030">
-			<content>video</content>
-			<node label="32040">
-				<content>playlist-video</content>
-			</node>
 			<node label="31013">
 				<shortcut label="31013" type="342" name="poepjes" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
 				<shortcut label="31013" type="20360" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+			</node>
+			<node label="32040">
+				<content>playlist-video</content>
 			</node>
 			<node label="32010">
 				<shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
@@ -27,6 +26,7 @@
 				<content>videosources</content>
 				<content>upnp-video</content>
 			</node>
+			<content>video</content>
 		</node>
 		
 		<node label="32031">
@@ -115,8 +115,6 @@
 			<shortcut label="20360" type="32099" widgetName="$LOCALIZE[31148]" icon="DefaultIconEpisode.png" widget="Playlist" widgetType="episodes" widgetTarget="video">special://skin/playlists/video/episodes-unwatched.xsp</shortcut>
 			<shortcut label="20389" type="32099" widgetName="$LOCALIZE[31155]" icon="DefaultMusicVideos.png" widget="Playlist" widgetType="musicvideos" widgetTarget="video">special://skin/playlists/video/musicvideos-unwatched.xsp</shortcut>
 			<shortcut label="31156" type="32099" widgetName="$ADDON[script.skin.helper.service 32005]" icon="DefaultIconKodi.png" widget="Addon" widgetType="albums" widgetTarget="music" condition="System.HasAddon(script.skin.helper.service)">plugin://script.skin.helper.service/?action=recentmedia&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</shortcut>
-			<!--in progress-->
-			<shortcut label="31156" type="32099" widgetName="$ADDON[script.skin.helper.service 32007]" icon="DefaultMovies.png" widget="Addons" widgetType="movies" widgetTarget="video">plugin://script.skin.helper.service/?action=inprogressmedia&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</shortcut>
 		</node>
 
 		<!--extendedinfo-->
@@ -219,7 +217,7 @@
 	<availableshortcutlabel action="ActivateWindow(10025,videodb://recentlyaddedepisodes/,return)" type="20360">$LOCALIZE[31705]</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(10025,videodb://recentlyaddedmusicvideos/,return)" type="20389">$LOCALIZE[31705]</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(10502,musicdb://recentlyaddedalbums/,return)" type="132">$LOCALIZE[31705]</availableshortcutlabel>
-	<availableshortcutlabel action="ActivateWindow(10502,musicdb://recentlyplayedalbums,return)" type="132">$LOCALIZE[31016]</availableshortcutlabel>
+	<availableshortcutlabel action="ActivateWindow(10502,musicdb://recentlyplayedalbums/,return)" type="132">$LOCALIZE[31016]</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(MusicLibrary,Addons,return)" type="249">$LOCALIZE[24001]</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(Videos,Addons,return)" type="291">$LOCALIZE[24001]</availableshortcutlabel>
 	<availableshortcutlabel action="ActivateWindow(Pictures,Addons,return)" type="1">$LOCALIZE[24001]</availableshortcutlabel>
