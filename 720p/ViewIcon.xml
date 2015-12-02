@@ -67,6 +67,8 @@
 		<param name="Color1" default="Color1"/>
 		<param name="Color2" default="Color2"/>
 		<param name="Width" default="380"/>
+		<param name="Label1" default="$VAR[media:Title]"/>
+		<param name="Label2" default="$VAR[media:Info]"/>
 		<definition>
 			<control type="group">
 				<left>$PARAM[Left]</left>
@@ -74,7 +76,7 @@
 				<control type="label" id="110">
 					<width>$PARAM[Width]</width>
 					<height>28</height>
-					<label>$VAR[media:Title]</label>
+					<label>$PARAM[Label1]</label>
 					<font>$PARAM[Font]</font>
 					<textcolor>$PARAM[Color1]</textcolor>
 					<selectedcolor>Selected</selectedcolor>
@@ -83,7 +85,7 @@
 					<top>22</top>
 					<height>25</height>
 					<width>$PARAM[Width]</width>
-					<label>$VAR[media:Info]</label>
+					<label>$PARAM[Label2]</label>
 					<font>semibold_Small-U</font>
 					<textcolor>$PARAM[Color2]</textcolor>
 					<selectedcolor>Selected</selectedcolor>

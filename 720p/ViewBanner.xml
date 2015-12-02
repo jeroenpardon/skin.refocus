@@ -54,6 +54,8 @@
 		<param name="TextColor" default="Color1"/>
 		<param name="Width" default="590"/>
 		<param name="Height" default="190"/>
+		<param name="Label1" default="$VAR[media:Title]"/>
+		<param name="Label2" default="$VAR[media:Info]"/>
 		<definition>
 			<control type="group">
 				<left>7</left>
@@ -62,7 +64,7 @@
 				<height>$PARAM[Height]</height>
 				<control type="label">
 					<width>470</width>
-					<label>$VAR[media:Title]</label>
+					<label>$PARAM[Label1]</label>
 					<textcolor>$PARAM[TextColor]</textcolor>
 					<font>semibold_Big-U</font>
 					<textcolor>Color1</textcolor>
@@ -73,7 +75,7 @@
 					<visible>!StringCompare(ListItem.Label,..)</visible>
 					<control type="label">
 						<width>440</width>
-						<label>$VAR[media:Info]</label>
+						<label>$PARAM[Label2]</label>
 						<font>semibold_Small-U</font>
 						<textcolor>Color2</textcolor>
 						<selectedcolor>Selected</selectedcolor>
