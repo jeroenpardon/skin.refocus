@@ -337,53 +337,29 @@
 					<itemgap>2</itemgap>
 					<pagecontrol>70</pagecontrol>
 					<visible>Skin.String(SkinSettings,Views)</visible>
-					<!--sortletter-->
-					<control type="radiobutton" id="701">
-						<label>$LOCALIZE[31251]</label>
-						<onclick>Skin.ToggleSetting(sortletter.enable)</onclick>
-						<selected>Skin.HasSetting(sortletter.enable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>
-					<!--fullscreen button-->
-					<control type="button" id="702">
-						<label>$LOCALIZE[31252]</label>
-						<label2>$VAR[menu:Controls]</label2>
-						<onclick condition="IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
-						<include>settings_Listbutton</include>
-					</control>
-					<control type="radiobutton" id="703">
-						<label>- $LOCALIZE[31283]</label>
-						<onclick>Skin.ToggleSetting(menu.playlist)</onclick>
-						<selected>Skin.HasSetting(menu.playlist)</selected>
-						<enable>StringCompare(Skin.String(menu.controls),fullscreen)</enable>
-						<include>settings_Radiobutton</include>
-					</control>
 					<!--autoscroll descriptions-->
-					<control type="radiobutton" id="704">
+					<control type="radiobutton" id="701">
 						<label>$LOCALIZE[20189]</label>
 						<onclick>Skin.ToggleSetting(autoscroll.enable)</onclick>
 						<selected>Skin.HasSetting(autoscroll.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--movie ratings-->
-					<control type="radiobutton" id="705">
+					<control type="radiobutton" id="702">
 						<label>$LOCALIZE[31250]</label>
 						<onclick>Skin.ToggleSetting(ratings.movies.enable)</onclick>
 						<selected>Skin.HasSetting(ratings.movies.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--tv show ratings-->
-					<control type="radiobutton" id="706">
+					<control type="radiobutton" id="703">
 						<label>$LOCALIZE[31249]</label>
 						<onclick>Skin.ToggleSetting(ratings.tvshows.enable)</onclick>
 						<selected>Skin.HasSetting(ratings.tvshows.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--use user rating-->
-					<control type="radiobutton" id="707">
+					<control type="radiobutton" id="704">
 						<label>$LOCALIZE[31248]</label>
 						<onclick>Skin.ToggleSetting(ratings.user.enable)</onclick>
 						<selected>Skin.HasSetting(ratings.user.enable)</selected>
@@ -391,45 +367,45 @@
 						<enable>Skin.HasSetting(ratings.movies.enable) | Skin.HasSetting(ratings.tvshows.enable)</enable>
 					</control>
 					<!--media overlays-->
-					<control type="radiobutton" id="708">
+					<control type="radiobutton" id="705">
 						<label>$LOCALIZE[31253]</label>
 						<onclick>Skin.ToggleSetting(mediaoverlay.disable)</onclick>
 						<selected>Skin.HasSetting(mediaoverlay.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--unwatched status-->
-					<control type="radiobutton" id="709">
+					<control type="radiobutton" id="706">
 						<label>$LOCALIZE[31254]</label>
 						<onclick>Skin.ToggleSetting(overlay.movies.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.movies.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="710">
+					<control type="radiobutton" id="707">
 						<label>$LOCALIZE[31255]</label>
 						<onclick>Skin.ToggleSetting(overlay.tvshows.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.tvshows.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="711">
+					<control type="radiobutton" id="708">
 						<label>$LOCALIZE[31256]</label>
 						<onclick>Skin.ToggleSetting(overlay.episodes.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.episodes.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="712">
+					<control type="radiobutton" id="709">
 						<label>$LOCALIZE[31257]</label>
 						<onclick>Skin.ToggleSetting(overlay.files.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.files.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					<control type="radiobutton" id="713">
+					<control type="radiobutton" id="710">
 						<label>$LOCALIZE[31258]</label>
 						<onclick>Skin.ToggleSetting(overlay.resumable.disable)</onclick>
 						<selected>Skin.HasSetting(overlay.resumable.disable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--background video-->
-					<control type="radiobutton" id="714">
+					<control type="radiobutton" id="711">
 						<label>$LOCALIZE[31215]</label>
 						<onclick>Skin.ToggleSetting(backgroundvideo.global)</onclick>
 						<selected>Skin.HasSetting(backgroundvideo.global)</selected>
@@ -523,29 +499,53 @@
 					<itemgap>2</itemgap>
 					<pagecontrol>70</pagecontrol>
 					<visible>Skin.String(SkinSettings,Other)</visible>
-					<!--keyboard-->
+					<!--sortletter-->
 					<control type="radiobutton" id="901">
+						<label>$LOCALIZE[31251]</label>
+						<onclick>Skin.ToggleSetting(sortletter.enable)</onclick>
+						<selected>Skin.HasSetting(sortletter.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--fullscreen button-->
+					<control type="button" id="902">
+						<label>$LOCALIZE[31252]</label>
+						<label2>$VAR[menu:Controls]</label2>
+						<onclick condition="IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
+						<onclick condition="StringCompare(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
+						<onclick condition="StringCompare(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
+						<onclick condition="StringCompare(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
+						<include>settings_Listbutton</include>
+					</control>
+					<control type="radiobutton" id="903">
+						<label>- $LOCALIZE[31283]</label>
+						<onclick>Skin.ToggleSetting(menu.playlist)</onclick>
+						<selected>Skin.HasSetting(menu.playlist)</selected>
+						<enable>StringCompare(Skin.String(menu.controls),fullscreen)</enable>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--keyboard-->
+					<control type="radiobutton" id="904">
 						<label>$LOCALIZE[31263]</label>
 						<onclick>Skin.ToggleSetting(keyboard.enable)</onclick>
 						<selected>!Skin.HasSetting(keyboard.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--kiosk mode-->
-					<control type="radiobutton" id="902">
+					<control type="radiobutton" id="905">
 						<label>$LOCALIZE[31264]</label>
 						<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
 						<selected>Skin.HasSetting(global.kiosk)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--clean library-->
-					<control type="radiobutton" id="903">
+					<control type="radiobutton" id="906">
 						<label>$LOCALIZE[31265]</label>
 						<onclick>Skin.ToggleSetting(cleanlibrary.enable)</onclick>
 						<selected>Skin.HasSetting(cleanlibrary.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--epg timeline scrolling speed-->
-					<control type="button" id="904">
+					<control type="button" id="907">
 						<label>$LOCALIZE[31407]</label>
 						<label2>$VAR[epg:Scrolltime]</label2>
 						<onclick condition="IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
@@ -555,7 +555,7 @@
 						<include>settings_Listbutton</include>
 					</control>
 					<!--reset skin settings-->
-					<control type="button" id="905">
+					<control type="button" id="908">
 						<label>[COLOR=Warning]$LOCALIZE[31713][/COLOR]</label>
 						<!--ask confirmation-->
 						<onclick>RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[10035],text=$LOCALIZE[31716][CR]$LOCALIZE[750],yesaction=Skin.ResetSettings||ActivateWindow(SkinSettings)||SetFocus(9001),noaction=close,yeslabel=$LOCALIZE[107],nolabel=$LOCALIZE[106])</onclick>
@@ -564,13 +564,13 @@
 						<include>settings_Listbutton</include>
 					</control>
 					<!--backup-->
-					<control type="button" id="906">
+					<control type="button" id="909">
 						<label>$ADDON[script.skin.helper.service 32028]</label>
 						<onclick>RunScript(script.skin.helper.service,action=backup)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--restore-->
-					<control type="button" id="907">
+					<control type="button" id="910q">
 						<label>$ADDON[script.skin.helper.service 32032]</label>
 						<onclick>RunScript(script.skin.helper.service,action=restore)</onclick>
 						<include>settings_Listbutton</include>
