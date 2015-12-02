@@ -110,16 +110,18 @@
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
 			<!--enable / disable add-on-->
-			<control type="button" id="522">
+			<control type="togglebutton" id="522">
 				<width>352</width>
-				<label>$VAR[information:AddonStatus]</label>
+				<label>$LOCALIZE[24021]</label>
+				<altlabel>$LOCALIZE[24022]</altlabel>
 				<onclick>Close</onclick>
 				<onclick>SendClick(10146,7)</onclick>
 				<include>dialog_MenuButton</include>
+				<usealttexture>StringCompare(ListItem.Property(Addon.Status),Disabled)</usealttexture>
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
 			<!--uninstall add-on-->
-			<control type="button" id="523">
+			<control type="button" id="524">
 				<width>352</width>
 				<label>$LOCALIZE[24037]</label>
 				<onclick>Close</onclick>
