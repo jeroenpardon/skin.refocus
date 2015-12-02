@@ -140,6 +140,8 @@
 				<onup>$PARAM[OnUp]</onup>
 				<ondown>$PARAM[OnDown]</ondown>
 				<onback>9000</onback>
+				<oninfo condition="IsEmpty(Container(9200).ListItem.TVShowTitle) + IsEmpty(Container(9200).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(9200).ListItem.Title],imdb_id=$INFO[Container(9200).ListItem.IMDBNumber])</oninfo>
+				<oninfo condition="!IsEmpty(Container(9200).ListItem.TVShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(9200).ListItem.TVShowTitle],imdb_id=$INFO[Container(9200).ListItem.IMDBNumber])</oninfo>
 				<orientation>$PARAM[Orientation]</orientation>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>$PARAM[PageControl]</pagecontrol>
