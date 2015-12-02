@@ -1,34 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <shortcuts>
 	<shortcut>
+		<defaultID>31013</defaultID>
 		<label>$SKIN[31013|skin.refocus|Watchlist]</label>
 		<label2>Movies</label2>
-		<defaultID>31013</defaultID>
-		<icon>VideoWatchlist.png</icon>
+		<icon>DefaultIconWatchlist.png</icon>
 		<thumb />
 		<action>ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</action>
 	</shortcut>
 	<shortcut>
+		<defaultID>31705</defaultID>
 		<label>$SKIN[31705|skin.refocus|Recently Added]</label>
 		<label2>Movies</label2>
-		<defaultID>31705</defaultID>
 		<icon>DefaultRecentlyAddedMovies.png</icon>
 		<thumb />
-		<action>ActivateWindow(Videos,RecentlyAddedMovies,return)</action>
+		<action>ActivateWindow(10025,videodb://recentlyaddedmovies/,return)</action>
 	</shortcut>
 	<shortcut>
-		<label>16101</label>
-		<label2>Movies</label2>
-		<defaultID>16101</defaultID>
-		<icon>DefaultMovies.png</icon>
+		<defaultID>unwatched</defaultID>
+		<label>Unwatched</label>
+		<label2>Skin Playlist</label2>
+		<icon>DefaultPlaylist.png</icon>
 		<thumb />
-		<action>ActivateWindow(Videos,/Users/Jeroen/Library/Application Support/XBMC/addons/skin.refocus.dev/playlists/video/movies-unwatched.xsp,return))</action>
-	</shortcut>
-	<shortcut>
-		<label>$SKIN[31015|skin.refocus|Trailers]</label>
-		<label2>Movies</label2>
-		<defaultID>31015</defaultID>
-		<icon>DefaultMovies.png</icon>
-		<thumb />
-		<action>ActivateWindow(Videos,plugin://plugin.video.the.trailers/,return)</action>
+		<action>ActivateWindow(VideoLibrary,special://skin/playlists/video/movies-unwatched.xsp,return)</action>
 	</shortcut>
 </shortcuts>

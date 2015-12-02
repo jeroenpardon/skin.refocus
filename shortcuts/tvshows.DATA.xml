@@ -1,34 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <shortcuts>
 	<shortcut>
-		<label>$SKIN[31013|skin.refocus|Watchlist]</label>
-		<label2>TV Shows</label2>
 		<defaultID>31013</defaultID>
-		<icon>VideoWatchlist.png</icon>
+		<label>$SKIN[31013|skin.refocus|Watchlist]</label>
+		<label2>Episodes</label2>
+		<icon>DefaultIconWatchlist.png</icon>
 		<thumb />
 		<action>ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</action>
 	</shortcut>
 	<shortcut>
-		<label>$SKIN[31705|skin.refocus|Recently Added]</label>
-		<label2>Videos</label2>
 		<defaultID>31705</defaultID>
+		<label>$SKIN[31705|skin.refocus|Recently Added]</label>
+		<label2>Episodes</label2>
 		<icon>DefaultRecentlyAddedEpisodes.png</icon>
 		<thumb />
-		<action>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</action>
+		<action>ActivateWindow(10025,videodb://recentlyaddedepisodes/,return)</action>
 	</shortcut>
 	<shortcut>
-		<label>16101</label>
-		<label2>TV Shows</label2>
-		<defaultID>16101</defaultID>
-		<icon>DefaultShortcut.png</icon>
+		<defaultID>unwatched</defaultID>
+		<label>Unwatched</label>
+		<label2>Skin Playlist</label2>
+		<icon>DefaultPlaylist.png</icon>
 		<thumb />
-		<action>ActivateWindow(Videos,/Users/Jeroen/Library/Application Support/XBMC/addons/skin.refocus.dev/playlists/video/episodes-unwatched.xsp,return))</action>
-	</shortcut>
-	<shortcut>
-		<label>$SKIN[31606|skin.refocus|TV Guide]</label>
-		<label2>Program</label2>
-		<defaultID>31606</defaultID>
-		<icon>DefaultShortcut.png</icon>
-		<thumb />
-		<action>RunAddon(script.tv.show.next.aired)</action>
+		<action>ActivateWindow(VideoLibrary,special://skin/playlists/video/movies-unwatched.xsp,return)</action>
 	</shortcut>
 </shortcuts>
