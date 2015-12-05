@@ -24,6 +24,11 @@
 		</animation>
 	</include>
 
+	<include name="focus">
+		<animation effect="fade" start="0" end="100" time="250" tween="Quadratic" easing="Out">Visible</animation>
+		<animation effect="fade" start="100" end="0" time="250" tween="Quadratic" easing="Out">Hidden</animation>
+	</include>
+
 <!--menu guide-->
 	<include name="nav_IndicatorLeft">
 		<animation effect="rotate" center="auto" start="0" end="-180" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
