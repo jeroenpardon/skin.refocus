@@ -82,7 +82,7 @@
 			<include>fadeinout</include>
 			<visible>!Window.IsActive(busydialog) + !Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
 			<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + ![Skin.HasSetting(widgetheader.disable) + [Control.HasFocus(9000) | Control.HasFocus(9100)]]</visible>
-			<visible>![!Player.HasAudio + StringCompare(Container(9000).ListItem.Property(widget),NowPlaying)]</visible>
+			<visible>![!Player.HasAudio + StringCompare(Container(9000).ListItem.Property(widget),playingmusic)]</visible>
 			<control type="image">
 				<width>48</width>
 				<height>48</height>
@@ -130,7 +130,7 @@
 			<control type="group">
 				<width>screen_Width</width>
 				<height>screen_Height</height>
-				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),PlayingVideo)</visible>
+				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + Player.HasVideo</visible>
 				<control type="image">
 					<width>screen_Width</width>
 					<height>screen_Height</height>
@@ -141,7 +141,6 @@
 					<height>screen_Height</height>
 				</control>
 			</control>
-
 			<control type="image">
 				<width>screen_Width</width>
 				<height>screen_Height</height>
