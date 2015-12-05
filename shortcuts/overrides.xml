@@ -150,14 +150,11 @@
 			<shortcut label="$ADDON[script.skin.helper.service 32001]" type="32099" icon="DefaultIconFavourite.png" widget="Addon" widgetType="mixed" widgetTarget="video" condition="System.HasAddon(script.skin.helper.service)">plugin://script.skin.helper.service/?action=favouritemedia&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</shortcut>
 		</node>
 
-		<node label="$LOCALIZE[12600]">
-			<shortcut label="$LOCALIZE[12600]" type="32099" icon="DefaultAddonWeather.png" widget="WeatherForecast" widgetType="weather" condition="Weather.IsFetched">$INCLUDE[weather-widget]</shortcut> 
+		<node label="$LOCALIZE[14116]">
+			<shortcut label="$LOCALIZE[12600]" type="32099" icon="DefaultAddonWeather.png" widget="WeatherForecast" widgetType="weather" condition="Weather.IsFetched">$INCLUDE[weather-widget]</shortcut>
+			<shortcut label="$LOCALIZE[10517]" type="32099" icon="DefaultAddonWeather.png" widget="PlayingMusic" widgetType="playingmusic">playlistmusic://</shortcut>
+			<shortcut label="$LOCALIZE[10522]" type="32099" icon="DefaultAddonWeather.png" widget="PlayingVideo" widgetType="playingvideo">$INCLUDE[nowplaying-widget]</shortcut>
 		</node>
-
-		<node label="now playing">
-			<shortcut label="now playing" type="32099" icon="DefaultAddonWeather.png" widget="NowPlaying" widgetType="nowplaying">playlistmusic://</shortcut>
-			<shortcut label="::LOCAL::31035" type="31035" icon="DefaultAddonWeather.png" widget="PlayingVideo" widgetType="playingvideo">$INCLUDE[nowplaying-widget]</shortcut>
-		</node> 
 
 		<!--other-->
 		<node label="29921">

@@ -55,7 +55,7 @@
 	</variable>
 
 	<variable name="widget:Item.Label1">
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),nowplaying)">$INFO[ListItem.Title]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[ListItem.Title]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">[COLOR=Color3]$INFO[ListItem.Artist][/COLOR]$INFO[ListItem.Title, : ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">[COLOR=Color3]$INFO[ListItem.TVShowTitle,,: ][/COLOR]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
@@ -70,7 +70,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),mixed)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetName),YouTube)">$INFO[ListItem.Premiered]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),nowplaying)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 
@@ -89,12 +89,6 @@
 		<value condition="StringCompare(Skin.String(homemenu.type),horizontal)">navigation/D-Up.png</value>
 		<value condition="StringCompare(Skin.String(homemenu.type),vertical) + ![Control.HasFocus(9000) | Control.HasFocus(9100)]">navigation/D-UpDown.png</value>
 		<value condition="StringCompare(Skin.String(homemenu.type),vertical)">navigation/D-Right.png</value>
-	</variable>
-
-	<variable name="widget:NowPlaying.Art">
-		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Fanart_Image)) + [Skin.HasSetting(artistslideshow.disable) | !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))]">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
-		<value condition="Player.HasAudio + [Skin.HasSetting(artistslideshow.disable) | !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))]">$INFO[MusicPlayer.Cover]</value>
-		<value>colorize/0.png</value>
 	</variable>
 
 	<variable name="widget:ArtFallback">
