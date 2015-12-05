@@ -245,6 +245,14 @@
 					</control>
 					<control type="button" id="605">
 						<label>- $LOCALIZE[31232]</label>
+						<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
+						<onclick>RunScript(script.image.resource.select,property=WeatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(fanart.weather)</visible>
+					</control>
+					<!--
+					<control type="button" id="605">
+						<label>- $LOCALIZE[31232]</label>
 						<onclick>Skin.Reset(fanart.weather.path)</onclick>
 						<onclick>Skin.SetPath(fanart.weather.path)</onclick>
 						<label2>$INFO[Skin.String(fanart.weather.path)]</label2>
@@ -252,6 +260,7 @@
 						<include>settings_Listbutton</include>
 						<visible>Skin.HasSetting(fanart.weather)</visible>
 					</control>
+					-->
 					<!--visualization fanart-->
 					<control type="radiobutton" id="606">
 						<label>$LOCALIZE[31234]</label>
