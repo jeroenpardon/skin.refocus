@@ -1403,4 +1403,67 @@
 		<textcolor>magenta</textcolor>
 		<shadowcolor>black</shadowcolor>
 	</include>
+
+<!--WIDGETS-->
+	<include name="weather-widget">
+		<item id="0">
+			<label>$VAR[weather:LongDay]</label>
+			<label2>$INFO[Window(Weather).Property(Current.Condition)]</label2>
+			<icon>weather/$INFO[Window(Weather).Property(Current.FanartCode)].png</icon>
+			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)].jpg</thumb>
+			<onclick>noop</onclick>
+			<property name="Longday">$INFO[Window(Weather).Property(Current.Title)]</property>
+			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
+		</item>
+		<item id="1">
+			<label>$LOCALIZE[33006]</label>
+			<label2>$INFO[Window(Weather).Property(Day0.Outlook)]</label2>
+			<icon>weather/$INFO[Window(Weather).Property(Day0.FanartCode)].png</icon>
+			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)].jpg</thumb>
+			<onclick>noop</onclick>
+			<property name="Longday">$INFO[Window(Weather).Property(Day0.Title)]</property>
+		</item>
+		<item id="2">
+			<label>$VAR[weather:LongDay]</label>
+			<label2>$INFO[Window(Weather).Property(Day1.Outlook)]</label2>
+			<icon>weather/$INFO[Window(Weather).Property(Day1.FanartCode)].png</icon>
+			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day1.FanartCode)].jpg</thumb>
+			<onclick>noop</onclick>
+			<property name="Longday">$INFO[Window(Weather).Property(Day1.Title)]</property>
+		</item>
+		<item id="3">
+			<label>$VAR[weather:LongDay]</label>
+			<label2>$INFO[Window(Weather).Property(Day2.Outlook)]</label2>
+			<icon>weather/$INFO[Window(Weather).Property(Day2.FanartCode)].png</icon>
+			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day2.FanartCode)].jpg</thumb>
+			<onclick>noop</onclick>
+			<property name="Longday">$INFO[Window(Weather).Property(Day2.Title)]</property>
+		</item>
+		<item id="4">
+			<label>$VAR[weather:LongDay]</label>
+			<label2>$INFO[Window(Weather).Property(Day3.Outlook)]</label2>
+			<icon>weather/$INFO[Window(Weather).Property(Day3.FanartCode)].png</icon>
+			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day3.FanartCode)].jpg</thumb>
+			<onclick>noop</onclick>
+			<property name="Longday">$INFO[Window(Weather).Property(Day3.Title)]</property>
+		</item>
+		<item id="5">
+			<label>$VAR[weather:LongDay]</label>
+			<label2>$INFO[Window(Weather).Property(Day4.Outlook)]</label2>
+			<icon>weather/$INFO[Window(Weather).Property(Day4.FanartCode)].png</icon>
+			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day4.FanartCode)].jpg</thumb>
+			<onclick>noop</onclick>
+			<property name="Longday">$INFO[Window(Weather).Property(Day4.Title)]</property>
+		</item>
+	</include>
+
+	<include name="nowplaying-widget">
+		<item id="0">
+			<label>$VAR[player:Title]</label>
+			<label2>$VAR[player:Info]</label2>
+			<onclick>fullscreen</onclick>
+			<property name="Description">$VAR[player:Description]</property>
+		</item>
+	</include>
+
 </includes>

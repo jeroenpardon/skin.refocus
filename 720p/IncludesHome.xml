@@ -111,6 +111,107 @@
 		</control>
 	</include>
 
+	<include name="widget_Vertical-Art">
+		<definition>
+			<control type="image">
+				<width>screen_Width</width>
+				<height>screen_Height</height>
+				<texture>$VAR[widget:ArtFallback]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>	
+			<control type="multiimage">
+				<width>screen_Width</width>
+				<height>screen_Height</height>
+				<imagepath background="true">$INFO[ListItem.Property(MultiImage)]</imagepath>
+				<timeperimage>8000</timeperimage>
+				<aspectratio>scale</aspectratio>
+				<visible>SubString(Skin.String(WeatherFanart.path),.multi)</visible>
+			</control>
+			<control type="group">
+				<width>screen_Width</width>
+				<height>screen_Height</height>
+				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),PlayingVideo)</visible>
+				<control type="image">
+					<width>screen_Width</width>
+					<height>screen_Height</height>
+					<texture>black.png</texture>
+				</control>
+				<control type="videowindow">
+					<width>screen_Width</width>
+					<height>screen_Height</height>
+				</control>
+			</control>
+
+			<control type="image">
+				<width>screen_Width</width>
+				<height>screen_Height</height>
+				<texture>overlays/vignette_full.png</texture>
+			</control>
+		</definition>
+	</include>
+
+	<include name="widget_Vertical-Info">
+		<param name="TextWidth" default="860"/>
+		<definition>
+			<control type="group">
+				<left>50</left>
+				<top>550</top>
+				<animation type="Conditional" condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">
+					<effect type="Fade" time="200" start="100" end="0" easing="In" delay="100"/>
+				</animation>
+				<!--
+				<control type="image">
+					<width>64</width>
+					<height>64</height>
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<visible>StringCompare(Container(9000).ListItem.Property(widgetType),weather)</visible>
+					<colordiffuse>Color1</colordiffuse>
+				</control>
+				-->
+				<!--
+				<control type="image">
+					<width>1170</width>
+					<height>200</height>
+					<texture>colorize/100.png</texture>
+				</control>
+				-->
+				<control type="label">
+					<width>$PARAM[TextWidth]</width>
+					<label>$VAR[widget:Item.Label1]</label>
+					<font>black_Title</font>
+					<textcolor>Color1</textcolor>
+					<selectedcolor>Color1</selectedcolor>
+				</control>
+				<control type="label">
+					<top>28</top>
+					<width>$PARAM[TextWidth]</width>
+					<label>$VAR[widget:Item.Label2]</label>
+					<font>semibold_Small-U</font>
+					<textcolor>Color1</textcolor>
+					<selectedcolor>Color1</selectedcolor>
+				</control>
+				<control type="textbox">
+					<top>60</top>
+					<width>$PARAM[TextWidth]</width>
+					<height>85</height>
+					<label>$VAR[widget:Item.Description]</label>
+					<include>detail_Text</include>
+					<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
+					<visible>!Control.HasFocus(9200)</visible>
+				</control>
+				<control type="textbox">
+					<top>60</top>
+					<width>1170</width>
+					<height>85</height>
+					<label>$VAR[widget:Item.Description]</label>
+					<include>detail_Text</include>
+					<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
+					<visible>Control.HasFocus(9200)</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
 	<include name="widget_Container">
 		<param name="ContainerLeft" default="0"/>
 		<param name="ContainerTop" default="0"/>
@@ -130,7 +231,7 @@
 		<param name="HeaderLeft"/>
 		<param name="HeaderTop" default="15"/>
 		<definition>
-			<control type="list" id="9200">
+			<control type="list" id="19200">
 				<left>$PARAM[ContainerLeft]</left>
 				<top>$PARAM[ContainerTop]</top>
 				<width>$PARAM[ContainerWidth]</width>
@@ -219,77 +320,10 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<!--
 				<content target="$INFO[Container(9000).ListItem.Property(widgetTarget)]">$INFO[Container(9000).ListItem.Property(widgetPath)]</content>
+				-->
 			</control>
 		</definition>
 	</include>
 </includes>
-	<!--
-
-	<control type="group" id="9250">
-		<control type="multiimage">
-			<timeperimage>8000</timeperimage>
-			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-			<visible>Control.IsVisible(9251) + !Skin.HasSetting(artistslideshow.disable) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))</visible>
-		</control>
-		<control type="group">
-			<visible>Control.HasFocus(9251) + Pvr.IsPlayingRadio</visible>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<texture>black.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="visualisation">
-				<include>screen_Dimensions</include>
-			</control>
-		</control>
-		<control type="list" id="9251">
-			<include>widget_Container</include>
-			<content>
-				<item>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<label2>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, &#8226; ]</label2>
-					<property name="Description">$VAR[player:Description]</property>
-					<thumb>$VAR[widget:NowPlaying.Art]</thumb>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-				</item>
-			</content>
-			<visible>Player.HasAudio + StringCompare(Container(9000).ListItem.Property(Widget),NowPlaying)</visible>
-		</control>
-	</control>
-	<control type="group" id="9260">
-		<control type="multiimage">
-			<timeperimage>8000</timeperimage>
-			<imagepath background="true">$VAR[weather:Fanart]</imagepath>
-			<visible>Control.IsVisible(9261)</visible>
-		</control>
-		<control type="list" id="9261">
-			<include>widget_Container</include>
-			<content>
-				<item>
-					<label>$INFO[Window(Weather).Property(Current.Condition)], $INFO[Window(Weather).Property(Current.FeelsLike)] $INFO[System.TemperatureUnits]</label>
-					<label2>$INFO[Window(Weather).Property(Location)]</label2>
-					<property name="ExtendedInfo1">$INFO[Window(Weather).Property(updated)]</property>
-					<property name="Description">$VAR[weather:widgetInfo]</property>
-					<thumb>$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</thumb>
-					<onclick>ActivateWindow(weather)</onclick>
-				</item>
-			</content>
-			<visible>StringCompare(Container(9000).ListItem.Property(Widget),Weather)</visible>
-		</control>
-	</control>-->
-	
-	<!--
-	<include name="widget_ArtCommons">
-		<control type="image">
-			<texture background="true">$VAR[art:Fanart]</texture>
-			<include>screen_Dimensions</include>
-			<aspectratio align="center" aligny="top">scale</aspectratio>
-		</control>
-		<control type="image">
-			<include>screen_Dimensions</include>
-			<texture>overlays/vignette_full.png</texture>
-			<aspectratio>scale</aspectratio>
-		</control>
-	</include>
-	-->

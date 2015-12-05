@@ -4,11 +4,9 @@
 		<control type="group">
 			<animation effect="Slide" time="250" start="0" end="-320" tween="Quadratic" easing="Out" reversible="false" condition="Control.HasFocus(9200)">Conditional</animation>
 			<animation effect="Slide" time="250" start="-320" end="0" tween="Quadratic" easing="Out" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
-			<include condition="!Skin.HasSetting(widgets.disable)" name="widget_Container">
-				<param name="Orientation" value="vertical"/>
-				<param name="ContainerLeft" value="320"/>
-				<param name="OnLeft" value="9000"/>
-			</include>
+
+			<!--insert the widget template-->
+			<include name="skinshortcuts-template-widget_Vertical"></include>
 
 			<!--MAIN MENU-->
 			<control type="group" id="9109">
@@ -63,8 +61,8 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<onright condition="!Container(9200).IsUpdating">SetProperty(WidgetState,open,Home)</onright>
-					<onright condition="!Container(9200).IsUpdating">9200</onright>
+					<onright condition="Control.IsVisible(9200) + !Container(9200).IsUpdating">9200</onright>
+					<onright condition="Control.IsVisible(9200) + !Container(9200).IsUpdating">SetProperty(WidgetState,open,Home)</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -193,12 +191,10 @@
 	</include>
 	<include name="home_Menu-horizontal">
 		<control type="group">
-			<include condition="!Skin.HasSetting(widgets.disable)" name="widget_Container">
-				<param name="Orientation" value="horizontal"/>
-				<param name="ContainerLeft" value="0"/>
-				<param name="OnLeft" value="9200"/>
-				<param name="OnDown" value="9000"/>
-			</include>
+			
+			<!--insert the widget template-->
+			<include name="skinshortcuts-template-widget_Horizontal"></include>
+
 			<!--MAIN MENU-->
 			<control type="group">
 				<left>50</left>

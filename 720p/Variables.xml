@@ -47,19 +47,21 @@
 <!--WIDGETS-->
 	<variable name="widget:Header">
 		<value condition="Container(9200).IsUpdating">$LOCALIZE[31710]...</value>
-		<value condition="Control.HasFocus(9200)">$LOCALIZE[31033] [B]$INFO[Container(9200).CurrentItem][/B] $LOCALIZE[20163] [B]$INFO[Container(9200).NumItems][/B]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)]">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
-		<value>$INFO[Container(9200).ListItem(0).Title]</value>
+		<value condition="Control.HasFocus(9200) + StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo)">$INFO[VideoPlayer.TimeRemaining]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo)">$VAR[player:Duration,$LOCALIZE[31323] ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[Weather.Location]</value>
+		<value condition="!Skin.HasSetting(widgets.push)">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
+		<value condition="Skin.HasSetting(widgets.push) | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]">$LOCALIZE[31033] [B]$INFO[Container(9200).CurrentItem][/B] $LOCALIZE[20163] [B]$INFO[Container(9200).NumItems][/B]</value>
 	</variable>
 
-	<variable name="widget:Item.Title">
-		<value condition="StringCompare(Container(9000).ListItem.Property(widget),NowPlaying)">$INFO[ListItem.Label]</value>
+	<variable name="widget:Item.Label1">
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),nowplaying)">$INFO[ListItem.Title]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">[COLOR=Color3]$INFO[ListItem.Artist][/COLOR]$INFO[ListItem.Title, : ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">[COLOR=Color3]$INFO[ListItem.TVShowTitle,,: ][/COLOR]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 
-	<variable name="widget:Item.Info">
+	<variable name="widget:Item.Label2">
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),songs) | StringCompare(Container(9000).ListItem.Property(widgetType),musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),tvshows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
@@ -67,15 +69,17 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),mixed)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetName),YouTube)">$INFO[ListItem.Premiered]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),nowplaying)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 
 	<variable name="widget:Item.Description">
+		<value condition="!IsEmpty(ListItem.Property(Description))">$INFO[ListItem.Property(Description)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
-		<value condition="!IsEmpty(ListItem.Property(Description))">$INFO[ListItem.Property(Description)]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 
@@ -91,6 +95,11 @@
 		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Fanart_Image)) + [Skin.HasSetting(artistslideshow.disable) | !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))]">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="Player.HasAudio + [Skin.HasSetting(artistslideshow.disable) | !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))]">$INFO[MusicPlayer.Cover]</value>
 		<value>colorize/0.png</value>
+	</variable>
+
+	<variable name="widget:ArtFallback">
+		<value condition="![StringCompare(Container(9000).ListItem.Property(widgetType),weather)]">$INFO[ListItem.Art(fanart)]</value>
+		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 
 
@@ -317,6 +326,18 @@
 	</variable>
 
 
+	<variable name="weather:LongDay">
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Mon)">$LOCALIZE[11]</value>
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Tue)">$LOCALIZE[12]</value>
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Wed)">$LOCALIZE[13]</value>
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Thu)">$LOCALIZE[14]</value>
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Fri)">$LOCALIZE[15]</value>
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Sat)">$LOCALIZE[16]</value>
+		<value condition="StringCompare(Container(9200).ListItem(0).Property(Longday),Sun)">$LOCALIZE[17]</value>
+		<value>$LOCALIZE[31605]</value>
+	</variable>
+
+
 <!--OSD-->
 	<variable name="player:Title">
 		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Title]</value>
@@ -395,7 +416,7 @@
 		<value>$INFO[Player.StartTime(hh:mm:22)]</value>
 	</variable>
 
-	<variable name="player:Duration">ß	
+	<variable name="player:Duration">
 		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.Duration(hh:mm:ss)]</value>
 		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
 	</variable>
