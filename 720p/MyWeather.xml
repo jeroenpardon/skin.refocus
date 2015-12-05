@@ -15,11 +15,19 @@
 		<include>global_Background</include>
 
 	<!--weather images-->
-		<control type="multiimage">
-			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Weather.FanartCode].jpg</texture>
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
-			<visible>Skin.HasSetting(fanart.weather) + !IsEmpty(Skin.String(fanart.weather.path))</visible>
+		</control>
+
+		<control type="multiimage">
+			<include>screen_Dimensions</include>
+			<imagepath background="true">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Weather.FanartCode]</imagepath>
+			<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<visible>SubString(Skin.String(WeatherFanart.path),.multi)</visible>
 		</control>
 
 	<!--global includes-->
