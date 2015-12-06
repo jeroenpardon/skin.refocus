@@ -101,7 +101,7 @@
 
 		<!--recently added-->
 		<node label="31705">
-			<shortcut label="3" type="32099" widgetName="$ADDON[service.library.data.provider 32019]" icon="DefaultVideo.png" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]</shortcut>
+			<shortcut label="3" type="32099" widgetName="$ADDON[service.library.data.provider 32019]" icon="DefaultVideo.png" widget="Addon" widgetType="videos" widgetTarget="video" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]</shortcut>
 			<shortcut label="342" type="32099" widgetName="$ADDON[service.library.data.provider 32005]" icon="DefaultRecentlyAddedMovies.png" widget="Addon" widgetType="movies" widgetTarget="video" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window(10000).Property(recentmovies)]</shortcut>
 			<shortcut label="20360" type="32099" widgetName="$ADDON[service.library.data.provider 32008]" icon="DefaultRecentlyAddedEpisodes.png" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window(10000).Property(recentepisodes)]</shortcut>
 			<shortcut label="132" type="32099" widgetName="$ADDON[service.library.data.provider 32017]" icon="DefaultMusicAlbums.png" widget="Addon" widgetType="albums" widgetTarget="music" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</shortcut>
@@ -158,7 +158,7 @@
 		</node>
 
 		<!--library-->
-		<node label="14022">
+		<node label="29921">
 			<node label="32030">
 				<content>video</content>
 				<node label="32040">
@@ -264,7 +264,7 @@
 
 	<widgetdefaultnode defaultID="movies" group="mainmenu" label="31028" type="movies" path="plugin://script.watchlist/?type=movies" target="video">MoviesWatchlist</widgetdefaultnode>
 	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="31029" type="episodes" path="plugin://script.watchlist/?type=episodes" target="video">EpisodesWatchlist</widgetdefaultnode>
-	<widgetdefaultnode defaultID="videos" group="mainmenu" label="$ADDON[service.library.data.provider 32019]" type="episodes" path="plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]" target="video">RecentVideos</widgetdefaultnode>
+	<widgetdefaultnode defaultID="videos" group="mainmenu" label="$ADDON[service.library.data.provider 32019]" type="videos" path="plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]" target="video">RecentVideos</widgetdefaultnode>
 	<widgetdefaultnode defaultID="24001" group="mainmenu" label="YouTube" type="Addon" path="plugin://plugin.video.youtube/special/popular_right_now/" target="video" condition="System.HasAddon(plugin.video.youtube)">YouTubePopular</widgetdefaultnode>
 
 	<widgetdefaultnode defaultID="weather" group="mainmenu" label="Weather" type="weather" path="$INCLUDE[weather-widget]" target="static">WeatherWidget</widgetdefaultnode>

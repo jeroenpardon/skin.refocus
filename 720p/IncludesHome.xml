@@ -111,7 +111,7 @@
 		</control>
 	</include>
 
-	<include name="widget_Vertical-Art">
+	<include name="widget_Item-Art">
 		<definition>
 			<control type="image">
 				<width>screen_Width</width>
@@ -149,7 +149,7 @@
 		</definition>
 	</include>
 
-	<include name="widget_Vertical-Info">
+	<include name="widget_Item-Info">
 		<param name="TextWidth" default="860"/>
 		<definition>
 			<control type="group">
@@ -180,7 +180,7 @@
 					<label>$VAR[widget:Item.Description]</label>
 					<include>detail_Text</include>
 					<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
-					<visible>!Control.HasFocus(9200)</visible>
+					<visible>[!Control.HasFocus(9200) + StringCompare(Skin.String(homemenu.type),vertical)]</visible>
 				</control>
 				<control type="textbox">
 					<top>60</top>
@@ -189,7 +189,7 @@
 					<label>$VAR[widget:Item.Description]</label>
 					<include>detail_Text</include>
 					<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
-					<visible>Control.HasFocus(9200)</visible>
+					<visible>[Control.HasFocus(9200) + StringCompare(Skin.String(homemenu.type),vertical)] | StringCompare(Skin.String(homemenu.type),horizontal)</visible>
 				</control>
 			</control>
 		</definition>
