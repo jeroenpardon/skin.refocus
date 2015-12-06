@@ -53,7 +53,7 @@
 		<value condition="Control.HasFocus(9200) + StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo)">$INFO[VideoPlayer.TimeRemaining]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo)">$VAR[player:Duration,$LOCALIZE[31323] ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[Weather.Location]</value>
-		<value condition="!Skin.HasSetting(widgets.push)">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
+		<value condition="[!Skin.HasSetting(widgets.push) + !Control.HasFocus(9200)] | [Skin.HasSetting(widgets.push) + Skin.HasSetting(widgetinfo.onfocus) + !Control.HasFocus(9200)]">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
 		<value condition="Skin.HasSetting(widgets.push) | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]">$LOCALIZE[31033] [B]$INFO[Container(9200).CurrentItem][/B] $LOCALIZE[20163] [B]$INFO[Container(9200).NumItems][/B]</value>
 	</variable>
 

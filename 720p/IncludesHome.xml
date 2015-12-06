@@ -134,6 +134,8 @@
 				<width>screen_Width</width>
 				<height>screen_Height</height>
 				<texture>overlays/vignette_full.png</texture>
+				<include>fadeinout</include>
+				<visible>[Skin.HasSetting(widgets.push) + !Skin.HasSetting(widgetinfo.onfocus)] | [Skin.HasSetting(widgets.push) + Skin.HasSetting(widgetinfo.onfocus) + Control.HasFocus(9200)] | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]</visible>
 			</control>
 		</definition>
 	</include>
@@ -147,6 +149,8 @@
 				<animation type="Conditional" condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">
 					<effect type="Fade" time="200" start="100" end="0" easing="In" delay="100"/>
 				</animation>
+				<include>fadeinout</include>
+				<visible>[Skin.HasSetting(widgets.push) + !Skin.HasSetting(widgetinfo.onfocus)] | [Skin.HasSetting(widgets.push) + Skin.HasSetting(widgetinfo.onfocus) + Control.HasFocus(9200)] | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]</visible>
 				<control type="label">
 					<width>$PARAM[TextWidth]</width>
 					<label>$VAR[widget:Item.Label1]</label>
