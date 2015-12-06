@@ -18,6 +18,8 @@
 				</animation>
 			</control>
 
+
+
 			<control type="group">
 				<include>screen_Dimensions</include>
 				<include>transition_Content</include>
@@ -80,7 +82,7 @@
 							<control type="label">
 								<top>50</top>
 								<width min="0" max="1164">auto</width>
-								<label>$INFO[Window.Property(movie.Path)]</label>
+								<label>$INFO[Window.Property(movie.Studio)]</label>
 								<font>regular_Smaller-U</font>
 								<textcolor>Color3</textcolor>
 								<include>osd_Sub</include>
@@ -108,12 +110,18 @@
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
 									<defaultcontrol always="true">8</defaultcontrol>
-									<!--play / browse-->
+									<!--play-->
 									<control type="button" id="8">
 										<label>$LOCALIZE[208]</label>
-										<altlabel>$LOCALIZE[1024]</altlabel>
 										<ondown>399</ondown>
-										<onclick>PlayMedia($ESCINFO[ListItem.FilenameAndPath])</onclick>
+										<visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+										<include>global_Button</include>
+									</control>
+									<!--browse-->
+									<control type="button" id="120">
+										<label>$LOCALIZE[1024]</label>
+										<ondown>399</ondown>
+										<visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
 										<include>global_Button</include>
 									</control>
 									<!--cast / plot-->
@@ -122,29 +130,12 @@
 										<ondown>50</ondown>
 										<include>global_Button</include>
 									</control>
-									<!--cinema-->
-									<control type="button" id="5003">
-										<label>Cinema</label>
-										<ondown>399</ondown>
-										<onclick>Dialog.Close(movieinformation)</onclick>
-										<onclick>Playlist.Clear</onclick>
-										<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-										<include>global_Button</include>
-										<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
-									</control>
+									<!--similar-->
 									<control type="button" id="5004">
-										<label>$LOCALIZE[31506]</label>
+										<label>similar</label>
 										<onclick>ActivateWindow(1160)</onclick>
 										<ondown>399</ondown>
 										<include>global_Button</include>
-									</control>
-									<!--manage-->
-									<control type="button" id="5005">
-										<label>$LOCALIZE[16106]</label>
-										<onclick>ActivateWindow(1120)</onclick>
-										<ondown>399</ondown>
-										<include>global_Button</include>
-										<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 									</control>
 								</control>
 								<!--plot / descriptions-->
@@ -152,30 +143,9 @@
 									<top>70</top>
 									<width>875</width>
 									<height min="0" max="325">auto</height>
-									<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus]</label>
+									<label>[B]$INFO[Window.Property(movie.Tagline),,[CR][CR]][/B]$INFO[Window.Property(movie.Plot),,[CR][CR]]$VAR[information:Consensus]</label>
 									<include>detail_Text</include>
 									<visible>!Control.IsVisible(50)</visible>
-								</control>
-							</control>
-							<!--media flags-->
-							<control type="group">
-								<left>300</left>
-								<bottom>40</bottom>
-								<height>40</height>
-								<control type="grouplist">
-									<width>875</width>
-									<height>40</height>
-									<itemgap>10</itemgap>
-									<orientation>horizontal</orientation>
-									<visible>!Control.IsVisible(50) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
-									<include>media_Flags</include>
-								</control>
-								<control type="label">
-									<top>25</top>
-									<height>20</height>
-									<label>$INFO[ListItem.Path]</label>
-									<font>regular_Smaller-U</font>
-									<textcolor>Color3</textcolor>
 								</control>
 							</control>
 						</control>
@@ -210,7 +180,7 @@
 								<width>200</width>
 								<height min="0" max="300">auto</height>
 								<align>right</align>
-								<label>$INFO[ListItem.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[ListItem.Writer,[B]$LOCALIZE[20417][/B][CR],[CR][CR]]$INFO[ListItem.Cast,[B]$LOCALIZE[31505][/B][CR],[CR]]</label>
+								<label>$INFO[Window.Property(movie.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[Window.Property(movie.Writer,[B]$LOCALIZE[20417][/B][CR],[CR][CR]]$INFO[Window.Property(movie.Cast,[B]$LOCALIZE[31505][/B][CR],[CR]]</label>
 								<include>detail_Text</include>
 							</control>
 						</control>
