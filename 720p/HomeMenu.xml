@@ -61,8 +61,8 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<onright condition="Control.IsVisible(9200) + !Container(9200).IsUpdating">9200</onright>
-					<onright condition="Control.IsVisible(9200) + !Container(9200).IsUpdating">SetProperty(WidgetState,open,Home)</onright>
+					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo]">9200</onright>
+					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo]">SetProperty(WidgetState,open,Home)</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -209,8 +209,8 @@
 						<height>70</height>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
-						<onup condition="!Container(9200).IsUpdating">SetProperty(WidgetState,open,Home)</onup>
-						<onup condition="!Container(9200).IsUpdating">9200</onup>
+						<onup condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo]">9200</onup>
+						<onup condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo]">SetProperty(WidgetState,open,Home)</onup>
 						<ondown>9100</ondown>
 						<focusposition>2</focusposition>
 						<movement>2</movement>
