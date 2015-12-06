@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>	
-	<groupings>
 
+	<!--shortcuts-->
+	<groupings>
+		<!--common-->
 		<node label="32029">
 			<content>common</content>
 			<shortcut label="$LOCALIZE[24001]" type="::SCRIPT::32034" icon="DefaultAddonProgram.png">ActivateWindow(addonbrowser)</shortcut>
 			<shortcut label="::LOCAL::31210" type="::SCRIPT::32034" icon="DefaultIconSettings.png">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</shortcut>
 			<shortcut label="::LOCAL::13000" type="::SCRIPT::32034" icon="DefaultIconSettings.png">ActivateWindow(Settings)</shortcut>
 			<shortcut label="137" type="::SCRIPT::32034" icon="DefaultIconSearch.png" condition="System.HasAddon(script.globalsearch) + !Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
-			<shortcut label="31035" type="::SCRIPT::32034" icon="DefaultIconSearch.png" condition="System.HasAddon(script.globalsearch) + !Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</shortcut>
 		</node>
 
+		<!--video-->
 		<node label="32030">
 			<node label="31013">
-				<shortcut label="31013" type="342" name="poepjes" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
+				<shortcut label="31013" type="342" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
 				<shortcut label="31013" type="20360" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
 			</node>
 			<node label="32040">
@@ -30,6 +32,7 @@
 			<content>video</content>
 		</node>
 		
+		<!--music-->
 		<node label="32031">
 			<content>music</content>
 			<node label="32040">
@@ -44,6 +47,8 @@
 				<content>upnp-music</content>
 			</node>
 		</node>
+
+		<!--pvr-->
 		<node label="32017" condition="PVR.HasTVChannels" version="14">
 			<content>pvr</content>
 			<node label="19023">
@@ -56,9 +61,13 @@
 				<content>pvr-radio</content>
 			</node>
 		</node>
+
+		<!--pictures-->
 		<node label="32020">
 			<content>picturesources</content>
 		</node>
+
+		<!--add-ons-->
 		<node label="32007">
 			<node label="32009">
 				<shortcut label="10001" type="32021" icon="DefaultAddonProgram.png">ActivateWindow(Programs,Addons,return)</shortcut>
@@ -77,20 +86,26 @@
 				<content>addon-image</content>
 			</node>
 		</node>
+
+		<!--favourites-->
 		<node label="32006">
 			<content>favourite</content>
 		</node>
+
+		<!--settings-->
 		<node label="10004">
 			<content>settings</content>
 		</node>
+
+		<!--commands-->
 		<node label="32054">
 			<shortcut label="$LOCALIZE[13012]" type="$LOCALIZE[31704]" icon="DefaultIconKodi.png">ActivateWindow(shutdownmenu)</shortcut>
 			<content>commands</content>
 		</node>
 	</groupings>
 
+	<!--widgets-->
 	<widget-groupings>
-
         <content>widgets</content>
 
 		<!--watchlist-->
@@ -147,8 +162,8 @@
 		<!--information-->
 		<node label="$LOCALIZE[14116]">
 			<shortcut label="$LOCALIZE[12600]" type="32099" icon="DefaultAddonWeather.png" widget="WeatherForecast" widgetType="weather" condition="Weather.IsFetched">$INCLUDE[weather-widget]</shortcut>
-			<shortcut label="$LOCALIZE[10517]" type="32099" icon="DefaultAddonWeather.png" widget="PlayingMusic" widgetType="playingmusic">playlistmusic://</shortcut>
-			<shortcut label="$LOCALIZE[10522]" type="32099" icon="DefaultAddonWeather.png" widget="PlayingVideo" widgetType="playingvideo">$INCLUDE[nowplaying-widget]</shortcut>
+			<shortcut label="$LOCALIZE[10517]" type="32099" icon="DefaultMusicSongs.png" widget="PlayingMusic" widgetType="playingmusic">playlistmusic://</shortcut>
+			<shortcut label="$LOCALIZE[10522]" type="32099" icon="DefaultVideo.png" widget="PlayingVideo" widgetType="playingvideo" condition="Player.HasVideo">$INCLUDE[nowplaying-widget]</shortcut>
 		</node>
 
 		<!--favourites-->
@@ -207,9 +222,18 @@
 		</node>
 	</widget-groupings>
 
-<!--CUSTOM SHORTCUTS-->
-	<!--now playing
-	<shortcut label="::LOCAL::31035" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
+<!--default widgets-->
+	<widget label="Recent episodes" type="episodes" target="video" path="plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]">RecentEpisodes</widget>
+	<widgetdefault labelID="tvshows">RecentEpisodes</widgetdefault>
+	<widgetdefaultnode defaultID="movies" group="mainmenu" label="31028" type="movies" path="plugin://script.watchlist/?type=movies" target="video">MoviesWatchlist</widgetdefaultnode>
+	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="31029" type="episodes" path="plugin://script.watchlist/?type=episodes" target="video">EpisodesWatchlist</widgetdefaultnode>
+	<widgetdefaultnode defaultID="videos" group="mainmenu" label="$ADDON[service.library.data.provider 32019]" type="videos" path="plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]" target="video">RecentVideos</widgetdefaultnode>
+	<widgetdefaultnode defaultID="24001" group="mainmenu" label="YouTube" type="Addon" path="plugin://plugin.video.youtube/special/popular_right_now/" target="video" condition="System.HasAddon(plugin.video.youtube)">YouTubePopular</widgetdefaultnode>
+	<widgetdefaultnode defaultID="weather" group="mainmenu" label="Weather" type="weather" path="$INCLUDE[weather-widget]" target="static">WeatherWidget</widgetdefaultnode>
+
+<!--custom shortcuts-->
+	<!--now playing-->
+	<shortcut label="::LOCAL::31035" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png" condition="Player.HasMedia">fullscreen</shortcut>
 	<override action="fullscreen">
 		<condition>Player.HasVideo</condition>
 	</override>
@@ -217,7 +241,6 @@
 		<condition>Player.HasAudio</condition>
 		<action>ActivateWindow(musicplaylist)</action>
 	</override>
-	-->
 
 <!--settings removal warning-->
 	<warn heading="::LOCAL::19098" message="::LOCAL::31018">ActivateWindow(Settings)</warn>
@@ -257,17 +280,7 @@
 	<icon labelID="19040">DefaultIconTimer.png</icon><!--timers-->
 	<icon labelID="14111">DefaultIconEvents.png</icon><!--events-->
 
-
-	<!-- default widgets -->
-
-
-
-	<widgetdefaultnode defaultID="movies" group="mainmenu" label="31028" type="movies" path="plugin://script.watchlist/?type=movies" target="video">MoviesWatchlist</widgetdefaultnode>
-	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="31029" type="episodes" path="plugin://script.watchlist/?type=episodes" target="video">EpisodesWatchlist</widgetdefaultnode>
-	<widgetdefaultnode defaultID="videos" group="mainmenu" label="$ADDON[service.library.data.provider 32019]" type="videos" path="plugin://service.library.data.provider?type=recentvideos&amp;reload=$INFO[Window(10000).Property(recentvideos)]" target="video">RecentVideos</widgetdefaultnode>
-	<widgetdefaultnode defaultID="24001" group="mainmenu" label="YouTube" type="Addon" path="plugin://plugin.video.youtube/special/popular_right_now/" target="video" condition="System.HasAddon(plugin.video.youtube)">YouTubePopular</widgetdefaultnode>
-
-	<widgetdefaultnode defaultID="weather" group="mainmenu" label="Weather" type="weather" path="$INCLUDE[weather-widget]" target="static">WeatherWidget</widgetdefaultnode>
-
+<!--backgrounds-->
+	<backgroundBrowse default="special://skin/backgrounds/">True</backgroundBrowse>
 
 </overrides>

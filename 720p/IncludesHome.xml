@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="home_Background">
-		<control type="group">
-			<visible>!Control.HasFocus(9200)</visible>
-			<visible>![Control.HasFocus(9000) + Skin.HasSetting(widgets.push) + !IsEmpty(Container(9000).ListItem.Property(Widget))] | Skin.HasSetting(widgets.disable)</visible>
-			<include>fadeinout</include>
-			<control type="image">
-				<texture background="true" fallback="special://skin/backgrounds/defaults/kodi.jpg">$VAR[home:Background]</texture>
-				<include>home_Slideshow</include>
-				<visible>[Skin.String(homebackground,single) | Skin.String(homebackground,fanart) | IsEmpty(Skin.String(homebackground))] + ![Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
-			</control>
-			<control type="multiimage">
-				<timeperimage>slideshow_Timer</timeperimage>
-				<imagepath fallback="special://skin/backgrounds/">$VAR[home:Background]</imagepath>
-				<visible>Skin.String(homebackground,multi) | [Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
-			</control>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<texture>overlays/vignette_top.png</texture>
-				<aspectratio>scale</aspectratio>
-				<visible>!Skin.HasSetting(widgets.disable) | [Skin.HasSetting(widgets.disable) + Player.HasAudio + Skin.HasSetting(home.nowplaying)] | [!Skin.HasSetting(widgets.disable) + !IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(widgetheader.disable)]</visible>
-				<include>fadeinout</include>
-			</control>
+
+		<control type="multiimage">
+			<include>screen_Dimensions</include>
+			<timeperimage>slideshow_Timer</timeperimage>
+			<imagepath background="true">$VAR[home:Background]</imagepath>
 		</control>
+
 		<!--fanart slideshow info-->
 		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
-			<visible>!Control.HasFocus(9200) + IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
-			<visible>Skin.String(homebackground,fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
+			<visible>![Control.HasFocus(9200) + IsEmpty(Container(9000).ListItem.Property(widgetName))]</visible>
+			<visible>Skin.HasSetting(backgrounds.fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
 			<control type="label">
 				<right>25</right>
 				<bottom>25</bottom>
@@ -49,6 +34,7 @@
 				<visible>Skin.String(fanartinfo.logo,true)</visible>
 			</control>
 		</control>
+		
 		<!--now playing video-->
 		<control type="group">
 			<visible>Player.HasVideo + Skin.HasSetting(home.nowplaying)</visible>
@@ -130,15 +116,18 @@
 			<control type="group">
 				<width>screen_Width</width>
 				<height>screen_Height</height>
-				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + Player.HasVideo</visible>
+				<visible>Player.HasVideo</visible>
+				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo)</visible>
 				<control type="image">
 					<width>screen_Width</width>
 					<height>screen_Height</height>
 					<texture>black.png</texture>
+					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="videowindow">
 					<width>screen_Width</width>
 					<height>screen_Height</height>
+					<visible>Player.HasVideo</visible>
 				</control>
 			</control>
 			<control type="image">
