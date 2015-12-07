@@ -49,13 +49,13 @@
 		</node>
 
 		<!--pvr-->
-		<node label="32017" condition="PVR.HasTVChannels" version="14">
+		<node label="32017">
 			<content>pvr</content>
 			<node label="19023">
 				<content>pvr-tv</content>
 			</node>
 		</node>
-		<node label="32087" condition="PVR.HasRadioChannels" version="14">
+		<node label="32087">
 			<content>radio</content>
 			<node label="19024">
 				<content>pvr-radio</content>
@@ -163,7 +163,7 @@
 		<node label="$LOCALIZE[14116]">
 			<shortcut label="$LOCALIZE[12600]" type="32099" icon="DefaultAddonWeather.png" widget="WeatherForecast" widgetType="weather" condition="Weather.IsFetched">$INCLUDE[weather-widget]</shortcut>
 			<shortcut label="$LOCALIZE[10517]" type="32099" icon="DefaultMusicSongs.png" widget="PlayingMusic" widgetType="playingmusic">playlistmusic://</shortcut>
-			<shortcut label="$LOCALIZE[10522]" type="32099" icon="DefaultVideo.png" widget="PlayingVideo" widgetType="playingvideo">$INCLUDE[nowplaying-widget]</shortcut>
+			<shortcut label="$LOCALIZE[10522]" type="32099" icon="DefaultVideo.png" widget="PlayingVideo" widgetType="playingvideo">playlistvideo://</shortcut>
 		</node>
 
 		<!--favourites-->
@@ -223,7 +223,6 @@
 	</widget-groupings>
 
 <!--default widgets-->
-	<widget label="Recent episodes" type="episodes" target="video" path="plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]">RecentEpisodes</widget>
 	<widgetdefault labelID="tvshows">RecentEpisodes</widgetdefault>
 	<widgetdefaultnode defaultID="movies" group="mainmenu" label="31028" type="movies" path="plugin://script.watchlist/?type=movies" target="video">MoviesWatchlist</widgetdefaultnode>
 	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="31029" type="episodes" path="plugin://script.watchlist/?type=episodes" target="video">EpisodesWatchlist</widgetdefaultnode>
@@ -233,7 +232,7 @@
 
 <!--custom shortcuts-->
 	<!--now playing-->
-	<shortcut label="::LOCAL::31035" type="::SCRIPT::32034" grouping="common" icon="DefaultIconPlay.png" condition="Player.HasMedia">fullscreen</shortcut>
+	<shortcut label="31035" type="32034" grouping="common" icon="DefaultIconPlay.png">fullscreen</shortcut>
 	<override action="fullscreen">
 		<condition>Player.HasVideo</condition>
 	</override>
