@@ -257,30 +257,16 @@
 	<availableshortcutlabel action="ActivateWindow(Programs,Addons,return)" type="24001">$LOCALIZE[10506]</availableshortcutlabel>
 
 <!--icon overrides-->
-	<icon image="DefaultShortcut.png" grouping="commands">DefaultIconKodi.png</icon>
 	<icon image="DefaultShortcut.png" grouping="settings">DefaultIconSettings.png</icon>
-	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
-	<icon labelID="music">DefaultMusicSongs.png</icon>
-	<icon labelID="programs">DefaultProgram.png</icon>
-	<icon labelID="settings">DefaultIconSettings.png</icon>
 	<icon labelID="weather">DefaultAddonWeather.png</icon>
 	<icon labelID="1036">DefaultIconFavourite.png</icon>
+	<icon labelID="settings">DefaultIconSettings.png</icon>
+	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
+	<icon labelID="1036">DefaultIconFavourite.png</icon>
 	<icon labelID="10007">DefaultIconInfo.png</icon><!--system information-->
-	<icon labelID="10504">DefaultMusicTop100.png</icon>
-	<icon labelID="10505">DefaultMusicTop100.png</icon>
-	<icon labelID="livetv">DefaultIconTV.png</icon><!--pvr grouping-->
-	<icon labelID="19023">DefaultIconTV.png</icon><!--tv channels-->
-	<icon labelID="19024">DefaultIconTV.png</icon><!--radio channels-->
-	<icon labelID="19069">DefaultIconTV.png</icon><!--epg-->
-	<icon labelID="19163">DefaultIconTV.png</icon><!--recordings-->
-	<icon labelID="32066">DefaultIconTV.png</icon><!--last tv channel-->
-	<icon labelID="32067">DefaultIconTV.png</icon><!--last radio channel-->
-	<icon labelID="32068">DefaultIconTV.png</icon><!--last channel-->
-	<icon labelID="radio">DefaultIconRadio.png</icon><!--radio-->
-	<icon labelID="19040">DefaultIconTimer.png</icon><!--timers-->
-	<icon labelID="14111">DefaultIconEvents.png</icon><!--events-->
 
 <!--backgrounds-->
-	<backgroundBrowse>True</backgroundBrowse>
-
+	<backgroundBrowse default="">True</backgroundBrowse>
+	<background label="8">$INFO[Skin.String(WeatherFanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[weather:FanartExtension]</background>
+	<background label="smartshortcuts">||BROWSE||plugin://script.skin.helper.service/?action=backgrounds</background>
 </overrides>

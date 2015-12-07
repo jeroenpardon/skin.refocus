@@ -303,10 +303,10 @@
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 
-	<variable name="weather:Fanart">
-		<value condition="Skin.HasSetting(fanart.weather) + !IsEmpty(Skin.String(fanart.weather.path))">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</value>
-		<value>special://skin/backgrounds/weather.jpg</value>
-	</variable>
+	<variable name="weather:FanartExtension">
+       <value condition="SubString(Skin.String(WeatherFanart.path),.multi)">/</value>
+       <value>.jpg</value>
+     </variable>
 
 	<variable name="weather:widgetInfo">
 		<value condition="StringCompare(Weather.Plugin,weather.wunderground)">$LOCALIZE[402]$INFO[Window(Weather).Property(Current.FeelsLike),: ]$INFO[System.TemperatureUnits,, &#8226; ]$LOCALIZE[405]$INFO[Window(Weather).Property(Current.DewPoint),: ]$INFO[System.TemperatureUnits,, &#8226; ]$LOCALIZE[406]$INFO[Window(Weather).Property(Current.Humidity),: , &#8226; ]$LOCALIZE[404]$INFO[Window(Weather).Property(Current.Wind),: ][CR]$LOCALIZE[33027]$INFO[Window(Weather).Property(Today.Sunrise),: , &#8226; ]$LOCALIZE[33028]$INFO[Window(Weather).Property(Today.Sunset),: ]</value>
