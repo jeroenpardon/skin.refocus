@@ -154,7 +154,7 @@
 									<top>70</top>
 									<width>875</width>
 									<height min="0" max="325">auto</height>
-									<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus]</label>
+									<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus][CR][CR]$INFO[Window(Home).Property(SkinHelper.RottenTomatoesAwards)]</label>
 									<include>detail_Text</include>
 									<visible>!Control.IsVisible(50)</visible>
 								</control>
@@ -257,6 +257,7 @@
 					</itemlayout>
 					<focusedlayout width="194" height="350">
 						<include name="view_Icon-Frame">
+							<param name="State" value="frames/frame-fo.png"/>
 							<param name="Width" value="209"/>
 							<param name="Height" value="310"/>
 						</include>
