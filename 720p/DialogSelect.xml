@@ -60,21 +60,21 @@
 							<include>dialog_Separator-y</include>
 						</control>
 						<control type="image">
-							<width>84</width>
-							<height>84</height>
-							<texture>$INFO[ListItem.Art(thumb)]</texture>
-							<aspectratio align="center">keep</aspectratio>
-							<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-						</control>
-						<control type="image">
-							<left>6</left>
-							<top>6</top>
-							<width>72</width>
-							<height>72</height>
+							<left>10</left>
+							<top>10</top>
+							<width>64</width>
+							<height>64</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 							<colordiffuse>Color4</colordiffuse>
 							<aspectratio align="center">keep</aspectratio>
-							<visible>IsEmpty(ListItem.Art(thumb))</visible>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="image">
+							<width>84</width>
+							<height>84</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+							<visible>!SubString(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="group">
 							<left>90</left>
@@ -109,21 +109,21 @@
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
-							<width>84</width>
-							<height>84</height>
-							<texture>$INFO[ListItem.Art(thumb)]</texture>
-							<aspectratio align="center">keep</aspectratio>
-							<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-						</control>
-						<control type="image">
-							<left>6</left>
-							<top>6</top>
-							<width>72</width>
-							<height>72</height>
+							<left>10</left>
+							<top>10</top>
+							<width>64</width>
+							<height>64</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 							<colordiffuse>Color1</colordiffuse>
 							<aspectratio align="center">keep</aspectratio>
-							<visible>IsEmpty(ListItem.Art(thumb))</visible>
+							<visible>SubString(ListItem.Icon,Default)</visible>
+						</control>
+						<control type="image">
+							<width>84</width>
+							<height>84</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">scale</aspectratio>
+							<visible>!SubString(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="group">
 							<left>90</left>
