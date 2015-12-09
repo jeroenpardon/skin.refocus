@@ -216,17 +216,19 @@
 						<onleft>50</onleft>
 						<onright>50</onright>
 						<onup>5</onup>
-						<ondown>5011</ondown>
+						<ondown>50</ondown>
 						<pagecontrol>501</pagecontrol>
 						<orientation>vertical</orientation>
 						<itemlayout width="450" height="90">
-							<include name="IconLayoutCommons">
-								<param name="FrameState" value="frames/frame-nf.png" />
-								<param name="FrameWidth" value="78"/>
-								<param name="FrameHeight" value="78"/>
-								<param name="ArtWidth" value="64"/>
-								<param name="ArtHeight" value="64"/>
-								<param name="IconSize" value="32"/>
+							<include name="view_Icon-Frame">
+								<param name="Width" value="78"/>
+								<param name="Height" value="78"/>
+							</include>
+							<include name="view_Icon-Art">
+								<param name="Left" value="4"/>
+								<param name="Top" value="4"/>
+								<param name="Width" value="70"/>
+								<param name="Height" value="70"/>
 							</include>
 							<control type="group">
 								<left>95</left>
@@ -246,13 +248,16 @@
 							</control>
 						</itemlayout>
 						<focusedlayout width="450" height="90">
-							<include name="IconLayoutCommons">
-								<param name="FrameState" value="frames/frame-fo.png" />
-								<param name="FrameWidth" value="440"/>
-								<param name="FrameHeight" value="78"/>
-								<param name="ArtWidth" value="64"/>
-								<param name="ArtHeight" value="64"/>
-								<param name="IconSize" value="32"/>
+							<include name="view_Icon-Frame">
+								<param name="State" value="frames/frame-fo.png"/>
+								<param name="Width" value="440"/>
+								<param name="Height" value="78"/>
+							</include>
+							<include name="view_Icon-Art">
+								<param name="Left" value="4"/>
+								<param name="Top" value="4"/>
+								<param name="Width" value="70"/>
+								<param name="Height" value="70"/>
 							</include>
 							<control type="group">
 								<left>95</left>
