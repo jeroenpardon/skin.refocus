@@ -112,23 +112,6 @@
 				<aspectratio>scale</aspectratio>
 				<visible>SubString(Skin.String(WeatherFanart.path),.multi)</visible>
 			</control>
-			<control type="group">
-				<width>screen_Width</width>
-				<height>screen_Height</height>
-				<visible>Player.HasVideo</visible>
-				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo)</visible>
-				<control type="image">
-					<width>screen_Width</width>
-					<height>screen_Height</height>
-					<texture>black.png</texture>
-					<visible>Player.HasVideo</visible>
-				</control>
-				<control type="videowindow">
-					<width>screen_Width</width>
-					<height>screen_Height</height>
-					<visible>Player.HasVideo</visible>
-				</control>
-			</control>
 			<control type="image">
 				<width>screen_Width</width>
 				<height>screen_Height</height>
