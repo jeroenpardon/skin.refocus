@@ -15,6 +15,8 @@
 	</include>
 
 	<include name="view_Icon-Art">
+		<param name="Left" default="7"/>
+		<param name="Top" default="7"/>
 		<param name="Width" default="170"/>
 		<param name="Height" default="252"/>
 		<param name="Fallback" default="thumbs/default_Portrait.png"/>
@@ -24,8 +26,8 @@
 		<param name="ActualIcon" default="$INFO[ListItem.ActualIcon]"/>
 		<definition>
 			<control type="group">
-				<left>7</left>
-				<top>7</top>
+				<left>$PARAM[Left]</left>
+				<top>$PARAM[Top]</top>
 				<width>$PARAM[Width]</width>
 				<height>$PARAM[Height]</height>
 				<control type="image">
