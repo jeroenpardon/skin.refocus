@@ -6,7 +6,8 @@
 			<timeperimage>slideshow_Timer</timeperimage>
 			<imagepath background="true">$VAR[home:Background]</imagepath>
 			<!--make sure the background does not shine through on every scroll movement when multiimage weather fanart is selected-->
-			<visible>![StringCompare(Container(9000).ListItem.Property(widgetType),weather) + SubString(Skin.String(WeatherFanart.path),.multi)]</visible>
+			<visible>![StringCompare(Container(9000).ListItem.Property(widgetType),weather) + SubString(Skin.String(WeatherFanart.path),.multi) + Control.HasFocus(9200)]</visible>
+			<visible>![Skin.HasSetting(widgets.push) + !IsEmpty(Container(9000).ListItem.Property(widgetName))]</visible>
 		</control>
 		<!--fanart slideshow info-->
 		<control type="group">
