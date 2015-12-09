@@ -61,7 +61,7 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating">9200</onright>
+					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo]">9200</onright>
 					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo]">SetProperty(WidgetState,open,Home)</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
