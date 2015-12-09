@@ -1414,7 +1414,10 @@
 			<icon>weather/$INFO[Window(Weather).Property(Current.FanartCode)].png</icon>
 			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)].jpg</thumb>
 			<onclick>noop</onclick>
+			<property name="Updated">$INFO[Window(Weather).Property(Updated)]</property>
 			<property name="Longday">$INFO[Window(Weather).Property(Current.Title)]</property>
+			<property name="Temp">$INFO[Window(Weather).Property(Current.Temperature),$LOCALIZE[1375]: ]$INFO[System.TemperatureUnits]</property>
+			<property name="Feelslike">$INFO[Window(Weather).Property(Current.Feelslike),$LOCALIZE[402]: ]$INFO[System.TemperatureUnits]</property>
 			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 		</item>
 		<item id="1">
@@ -1424,6 +1427,8 @@
 			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)].jpg</thumb>
 			<onclick>noop</onclick>
 			<property name="Longday">$INFO[Window(Weather).Property(Day0.Title)]</property>
+			<property name="HighTemp">$INFO[Window(Weather).Property(Day0.HighTemp),$LOCALIZE[393]: ]$INFO[System.TemperatureUnits]</property>
+			<property name="LowTemp">$INFO[Window(Weather).Property(Day0.LowTemp),$LOCALIZE[391]: ]$INFO[System.TemperatureUnits]</property>
 			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 		</item>
 		<item id="2">
@@ -1433,6 +1438,8 @@
 			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day1.FanartCode)].jpg</thumb>
 			<onclick>noop</onclick>
 			<property name="Longday">$INFO[Window(Weather).Property(Day1.Title)]</property>
+			<property name="HighTemp">$INFO[Window(Weather).Property(Day1.HighTemp),$LOCALIZE[393]: ]$INFO[System.TemperatureUnits]</property>
+			<property name="LowTemp">$INFO[Window(Weather).Property(Day1.LowTemp),$LOCALIZE[391]: ]$INFO[System.TemperatureUnits]</property>
 			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 		</item>
 		<item id="3">
@@ -1442,6 +1449,8 @@
 			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day2.FanartCode)].jpg</thumb>
 			<onclick>noop</onclick>
 			<property name="Longday">$INFO[Window(Weather).Property(Day2.Title)]</property>
+			<property name="HighTemp">$INFO[Window(Weather).Property(Day2.HighTemp),$LOCALIZE[393]: ]$INFO[System.TemperatureUnits]</property>
+			<property name="LowTemp">$INFO[Window(Weather).Property(Day2.LowTemp),$LOCALIZE[391]: ]$INFO[System.TemperatureUnits]</property>
 			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 		</item>
 		<item id="4">
@@ -1451,6 +1460,8 @@
 			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day3.FanartCode)].jpg</thumb>
 			<onclick>noop</onclick>
 			<property name="Longday">$INFO[Window(Weather).Property(Day3.Title)]</property>
+			<property name="HighTemp">$INFO[Window(Weather).Property(Day3.HighTemp),$LOCALIZE[393]: ]$INFO[System.TemperatureUnits]</property>
+			<property name="LowTemp">$INFO[Window(Weather).Property(Day3.LowTemp),$LOCALIZE[391]: ]$INFO[System.TemperatureUnits]</property>
 			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 		</item>
 		<item id="5">
@@ -1460,6 +1471,8 @@
 			<thumb>$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Day4.FanartCode)].jpg</thumb>
 			<onclick>noop</onclick>
 			<property name="Longday">$INFO[Window(Weather).Property(Day4.Title)]</property>
+			<property name="HighTemp">$INFO[Window(Weather).Property(Day4.HighTemp),$LOCALIZE[393]: ]$INFO[System.TemperatureUnits]</property>
+			<property name="LowTemp">$INFO[Window(Weather).Property(Day4.LowTemp),$LOCALIZE[391]: ]$INFO[System.TemperatureUnits]</property>
 			<property name="MultiImage">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 		</item>
 	</include>

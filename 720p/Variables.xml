@@ -68,11 +68,18 @@
 	</variable>
 
 	<variable name="widget:Item.Description">
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[ListItem.Property(Temp)]$INFO[ListItem.Property(Feelslike), &#8226; ]$INFO[ListItem.Property(HighTemp)]$INFO[ListItem.Property(LowTemp), &#8226; ]$INFO[ListItem.Property(Wind), &#8226; ][CR]$INFO[ListItem.Property(Updated)]</value>
+
+
 		<value condition="!IsEmpty(ListItem.Property(Description))">$INFO[ListItem.Property(Description)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+
+		
+
+
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 
