@@ -38,6 +38,7 @@
 							<height>200</height>
 							<texture aligny="bottom">overlays/vignette_bottom.png</texture>
 							<aspectratio>stretch</aspectratio>
+							<visible>!IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<!--record label logos-->
 						<control type="image">
@@ -86,6 +87,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
+								<visible>!IsEmpty(ListItem.Art(fanart))</visible>
 							</control>
 							<!--main content area-->
 							<control type="group">
@@ -161,6 +163,8 @@
 						<control type="group">
 							<left>40</left>
 							<top>40</top>
+							<width>207</width>
+							<height>207</height>
 							<control type="image">
 								<width>207</width>
 								<height>207</height>
@@ -174,6 +178,14 @@
 									<height>193</height>
 									<texture background="true">thumbs/default_Portrait.png</texture>
 									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<centerleft>50%</centerleft>
+									<centertop>50%</centertop>
+									<width>96</width>
+									<height>96</height>
+									<texture background="true">DefaultMusicArtists.png</texture>
+									<visible>IsEmpty(LisItem.Art(thumb))</visible>
 								</control>
 								<control type="image">
 									<width>193</width>
