@@ -15,12 +15,6 @@
 			<!--load backgrounds-->
 			<include>home_Background</include>
 
-			<!--clock-->
-			<control type="group">
-				<visible>[Skin.HasSetting(home.time) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]] | [Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer]</visible>
-				<include>clock</include>
-			</control>
-
 			<!--call home menu-->
 			<include condition="StringCompare(Skin.String(homemenu.type),vertical) | !StringCompare(Skin.String(homemenu.type),horizontal) + !StringCompare(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
 			<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
@@ -55,6 +49,12 @@
 						<include>fadeinout</include>
 					</control>
 				</control>
+			</control>
+
+			<!--clock-->
+			<control type="group">
+				<visible>[Skin.HasSetting(home.time) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]] | [Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer]</visible>
+				<include>clock</include>
 			</control>
 
 			<!--widgets pagecontrol-->
