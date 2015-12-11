@@ -205,7 +205,6 @@
 						<label>$LOCALIZE[31216]</label>
 						<onclick>Skin.ToggleSetting(home.nowplaying)</onclick>
 						<selected>Skin.HasSetting(home.nowplaying)</selected>
-						<enable>Skin.HasSetting(widgets.disable)</enable>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--scheduled recordings overlay-->
@@ -459,15 +458,6 @@
 						<include>settings_Listbutton</include>
 						<enable>System.HasAddon(script.artistslideshow)</enable>
 					</control>
-					<!--not implemented yet
-					<control type="button" id="831">
-						<label>Download Artist Slideshow</label>
-						<onclick>InstallAddon(script.artistslideshow)</onclick>
-						<selected>System.HasAddon(script.tvtunes)</selected>
-						<include>settings_Listbutton</include>
-						<visible>!System.HasAddon(script.artistslideshow)</visible>
-					</control>
-					-->
 					<!--tvtunes-->
 					<control type="button" id="840">
 						<label>TV Tunes $LOCALIZE[5]</label>

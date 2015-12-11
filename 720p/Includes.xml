@@ -50,9 +50,11 @@
 		<onclick>noop</onclick>
 		<visible allowhiddenfocus="true">false</visible>
 	</include>
+
 	<include name="global_ListScroll">
 		<scrolltime tween="Quadratic" easing="Out">300</scrolltime>
 	</include>
+
 	<include name="global_Scrolltime">
 		<scrolltime tween="Quadratic" easing="Out">400</scrolltime>
 	</include>
@@ -100,7 +102,8 @@
 	</include>
 	<include name="clock">
 		<control type="group">
-			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | ControlGroup(9200).HasFocus()]</visible>
+			<include>fadeinout</include>
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | Control.HasFocus(9200)]</visible>
 			<control type="label">
 				<label>$VAR[toast:Top]</label>
 				<shadowcolor>black</shadowcolor>
@@ -115,13 +118,13 @@
 			<control type="group">
 				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 				<control type="image">
-					<top>16</top>
+					<top>20</top>
 					<colordiffuse>black</colordiffuse>
 					<include>toast_Icon</include>
 					<texture>$VAR[toast:Icon]</texture>
 				</control>
 				<control type="image">
-					<top>15</top>
+					<top>19</top>
 					<include>toast_Icon</include>
 					<texture>$VAR[toast:Icon]</texture>
 				</control>
@@ -218,8 +221,6 @@
 		<height>32</height>
 		<font>light_Header</font>
 	</include>
-
-
 	<include name="detail_Title">
 		<height>28</height>
 		<aligny>center</aligny>
@@ -369,62 +370,6 @@
 		</control>
 	</include>
 
-	<!--
-	<include name="detail_Flags">
-		<control type="grouplist">
-			<width>900</width>
-			<height>30</height>
-			<itemgap>10</itemgap>
-			<orientation>horizontal</orientation>
-			<visible>!SubString(ListItem.Icon,Default) + !ListItem.IsFolder + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(files)]</visible>
-			<control type="image">
-				<width>30</width>
-				<height>30</height> 
-				<texture>DefaultMovies.png</texture>
-				<colordiffuse>Color1</colordiffuse>
-				<aspectratio align="center">keep</aspectratio>
-			</control>
-			<control type="label">
-				<width min="50" max="200">auto</width>
-				<height>30</height>
-				<label>$INFO[ListItem.VideoCodec,, &#8226; ]$INFO[ListItem.VideoResolution,,P]</label>
-				<textcolor>Color1</textcolor>
-				<include>detail_Sub</include>
-			</control>
-			<control type="image">
-				<width>30</width>
-				<height>30</height> 
-				<texture>DefaultAudio.png</texture>
-				<colordiffuse>Color1</colordiffuse>
-				<aspectratio align="center">keep</aspectratio>
-			</control>
-			<control type="label">
-				<width min="50" max="200">auto</width>
-				<height>30</height>
-				<label>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</label>
-				<textcolor>Color1</textcolor>
-				<include>detail_Sub</include>
-			</control>
-			<control type="image">
-				<width>30</width>
-				<height>30</height> 
-				<texture>DefaultIconSubtitles.png</texture>
-				<colordiffuse>Color1</colordiffuse>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
-			</control>
-			<control type="label">
-				<width min="50" max="200">auto</width>
-				<height>30</height>
-				<label>$INFO[ListItem.SubtitleLanguage]</label>
-				<textcolor>Color1</textcolor>
-				<include>detail_Sub</include>
-				<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
-			</control>
-		</control>
-	</include>
--->
-
 	<include name="flag_Studio">
 		<width>96</width>
 		<height>48</height>
@@ -432,77 +377,6 @@
 		<colordiffuse>flag_1</colordiffuse>
 		<texture>$VAR[flag:Studio]</texture>
 	</include>
-
-<!--CONTAINER
-	<include name="container_Title">
-		<height>40</height>
-		<font>regular_Bigger</font>
-		<aligny>center</aligny>
-		<textcolor>Color1</textcolor>
-		<selectedcolor>Selected</selectedcolor>
-		<scroll>false</scroll>
-	</include>
-	<include name="container_Title-focus">
-		<height>40</height>
-		<font>regular_Bigger</font>
-		<aligny>center</aligny>
-		<textcolor>Focused</textcolor>
-		<selectedcolor>Color5</selectedcolor>
-		<scroll>true</scroll>
-	</include>
-	<include name="container_Sub">
-		<height>40</height>
-		<font>regular_Small-U</font>
-		<aligny>center</aligny>
-		<textcolor>Color2</textcolor>
-		<selectedcolor>Color5</selectedcolor>
-		<scroll>false</scroll>
-	</include>
-	<include name="container_Sub-focus">
-		<height>40</height>
-		<font>regular_Small-U</font>
-		<aligny>center</aligny>
-		<textcolor>Focused</textcolor>
-		<selectedcolor>Color5</selectedcolor>
-	</include>
-	<include name="container_Text">
-		<font>regular</font>
-		<aligny>top</aligny>
-		<textcolor>Color3</textcolor>
-	</include>
-	<include name="container_Text-focus">
-		<font>regular</font>
-		<aligny>top</aligny>
-		<textcolor>Color5</textcolor>
-		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="autoscroll_Repeat">Skin.HasSetting(autoscroll.enable)</autoscroll>
-	</include>
-	<include name="container_TextSmall">
-		<font>regular_Small</font>
-		<aligny>top</aligny>
-		<textcolor>Color3</textcolor>
-	</include>
-	<include name="container_TextSmall-focus">
-		<font>regular_Small</font>
-		<aligny>top</aligny>
-		<textcolor>Color5</textcolor>
-	</include>
-	<include name="container_Single">
-		<height>38</height>
-		<font>regular_Big</font>
-		<aligny>center</aligny>
-		<textcolor>Color1</textcolor>
-		<selectedcolor>Selected</selectedcolor>
-		<scroll>false</scroll>
-	</include>
-	<include name="container_Single-focus">
-		<height>38</height>
-		<font>regular_Big</font>
-		<aligny>center</aligny>
-		<textcolor>Focused</textcolor>
-		<selectedcolor>Selected</selectedcolor>
-		<scroll>false</scroll>
-	</include>
--->
 
 <!--COLUMN STYLES-->
 	<include name="column_Header">
@@ -728,6 +602,7 @@
 
 <!--NOTIFICATIONS-->
 	<include name="toast_Top">
+		<top>4</top>
 		<right>70</right>
 		<width>400</width>
 		<height>40</height>
@@ -738,7 +613,7 @@
 	</include>
 	<include name="toast_Bottom">
 		<right>70</right>
-		<top>26</top>
+		<top>30</top>
 		<width>400</width>
 		<align>right</align>
 		<font>regular_Small</font>
@@ -749,7 +624,7 @@
 	</include>
 	<include name="toast_Icon">
 		<right>26</right>
-		<top>15</top>
+		<top>19</top>
 		<width>32</width>
 		<height>32</height>
 		<aspectratio>keep</aspectratio>
