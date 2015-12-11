@@ -67,14 +67,15 @@
 				<onclick>Dialog.Close(movieinformation)</onclick>
 				<onclick>SetProperty(extType,poster,Home)</onclick>
 				<onclick>SetProperty(extContent,$LOCALIZE[31622],Home)</onclick>
-				<onclick>SetProperty(extDBID,$INFO[ListItem.DBID],Home)</onclick>
-				<onclick>SetProperty(extQuery,$INFO[ListItem.Label],Home)</onclick>
+				<!--<onclick>SetProperty(extDBID,$INFO[ListItem.DBID],Home)</onclick>-->
+				<onclick>SetProperty(extDBID,inception,Home)</onclick>
+				<onclick>SetProperty(extQuery,$INFO[ListItem.Title],Home)</onclick>
 				<onclick>ActivateWindow(1140)</onclick>
 				<include>dialog_MenuButton</include>
 				<visible>Container.Content(movies) + System.HasAddon(script.extendedinfo)</visible>
 			</control>
 			<!--artist discography-->
-			<control type="button" id="510">
+			<control type="button" id="505">
 				<width>352</width>
 				<label>$LOCALIZE[21888]</label>
 				<onclick>Close</onclick>
@@ -87,14 +88,14 @@
 				<visible>Container.Content(artists) + System.HasAddon(script.extendedinfo)</visible>
 			</control>
 			<!--search youtube-->
-			<control type="button" id="520">
+			<control type="button" id="506">
 				<width>352</width>
 				<label>$LOCALIZE[31609]</label>
 				<onclick>Close</onclick>
 				<onclick>Dialog.Close(musicinformation)</onclick>
 				<onclick>Dialog.Close(movieinformation)</onclick>
 				<onclick>SetProperty(extType,thumbnail,Home)</onclick>
-				<onclick>SetProperty(extContent,YouTube,Home)</onclick>
+				<onclick>SetProperty(extContent,youtube,Home)</onclick>
 				<onclick>SetProperty(extQuery,$INFO[ListItem.Label],Home)</onclick>
 				<onclick>ActivateWindow(1140)</onclick>
 				<include>dialog_MenuButton</include>
