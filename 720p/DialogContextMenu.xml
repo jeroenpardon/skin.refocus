@@ -53,7 +53,7 @@
 				<include>dialog_ControlCommons</include>
 				<label>$ADDON[script.extendedinfo 32009]</label>
 				<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(actors) | Container.Content(directors)</visible>
-				<onclick condition="Container.Content(Actors) | Container.Content(Directors) | Container.Content(Artists)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
+				<onclick condition="Container.Content(actors) | Container.Content(directors)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
 			</control>
 			<!--Kodi inserts buttons-->
 			<control type="button" id="1000">
