@@ -130,9 +130,10 @@
 				<left>50</left>
 				<top>550</top>
 				<animation type="Conditional" condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">
-					<effect type="Fade" time="200" start="100" end="0" easing="In" delay="100"/>
+					<effect type="Fade" time="200" start="100" end="0" easing="Out" delay="0"/>
 				</animation>
 				<include>fadeinout</include>
+				<visible>!StringCompare(Window(Home).Property(ExtInfo),open)</visible>
 				<visible>[Skin.HasSetting(widgets.push) + !Skin.HasSetting(widgetinfo.onfocus)] | [Skin.HasSetting(widgets.push) + Skin.HasSetting(widgetinfo.onfocus) + Control.HasFocus(9200)] | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]</visible>
 				<control type="label">
 					<width>$PARAM[TextWidth]</width>
