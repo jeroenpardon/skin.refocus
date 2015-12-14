@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol always="true">5000</defaultcontrol>
+	<onunload>ClearProperty(Extinfo)</onunload>
 	<controls>
 		<control type="group">
 			<include>screen_Dimensions</include>
@@ -17,8 +18,6 @@
 					<effect type="Fade" time="transition_Close" start="100" end="0" />
 				</animation>
 			</control>
-
-
 
 			<control type="group">
 				<include>screen_Dimensions</include>
@@ -68,21 +67,21 @@
 							<top>110</top>
 							<control type="label">
 								<width min="0" max="1164">auto</width>
-								<label>$INFO[Window.Property(movie.Title)]</label>
+								<label>$INFO[Window.Property(Title)]</label>
 								<selectedcolor>Color1</selectedcolor>
 								<include>osd_Title</include>
 							</control>
 							<control type="label">
 								<top>28</top>
 								<width>1164</width>
-								<label>$INFO[Window.Property(movie.Year)]$INFO[Window.Property(movie.Duration), &#8226; , $LOCALIZE[31701]]$INFO[Window.Property(movie.Genre), &#8226; ]</label>
+								<label>$INFO[Window.Property(Year)]$INFO[Window.Property(Duration), &#8226; , $LOCALIZE[31701]]$INFO[Window.Property(Genre), &#8226; ]</label>
 								<font>regular_Small-U</font>
 								<include>osd_Sub</include>
 							</control>
 							<control type="label">
 								<top>50</top>
 								<width min="0" max="1164">auto</width>
-								<label>$INFO[Window.Property(movie.Studio)]</label>
+								<label>$INFO[Window.Property(Studio)]</label>
 								<font>regular_Smaller-U</font>
 								<textcolor>Color3</textcolor>
 								<include>osd_Sub</include>
@@ -114,14 +113,14 @@
 									<control type="button" id="8">
 										<label>$LOCALIZE[208]</label>
 										<ondown>399</ondown>
-										<visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+										<visible>!IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
 										<include>global_Button</include>
 									</control>
 									<!--browse-->
 									<control type="button" id="120">
 										<label>$LOCALIZE[1024]</label>
 										<ondown>399</ondown>
-										<visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
+										<visible>!IsEmpty(Window.Property(DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
 										<include>global_Button</include>
 									</control>
 									<!--cast / plot-->
@@ -143,7 +142,7 @@
 									<top>70</top>
 									<width>875</width>
 									<height min="0" max="325">auto</height>
-									<label>[B]$INFO[Window.Property(movie.Tagline),,[CR][CR]][/B]$INFO[Window.Property(movie.Plot),,[CR][CR]]$VAR[information:Consensus]</label>
+									<label>[B]$INFO[Window.Property(Tagline),,[CR][CR]][/B]$INFO[Window.Property(Plot),,[CR][CR]]$VAR[information:Consensus]</label>
 									<include>detail_Text</include>
 									<visible>!Control.IsVisible(50)</visible>
 								</control>
@@ -171,7 +170,7 @@
 								<control type="image">
 									<width>193</width>
 									<height>286</height>
-									<texture background="true">$INFO[Window.Property(movie.thumb)]</texture>
+									<texture background="true">$INFO[Window.Property(thumb)]</texture>
 									<aspectratio align="center" aligny="top">scale</aspectratio>
 								</control>
 							</control>
@@ -180,7 +179,7 @@
 								<width>200</width>
 								<height min="0" max="300">auto</height>
 								<align>right</align>
-								<label>$INFO[Window.Property(movie.Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[Window.Property(movie.Writer,[B]$LOCALIZE[20417][/B][CR],[CR][CR]]$INFO[Window.Property(movie.Cast,[B]$LOCALIZE[31505][/B][CR],[CR]]</label>
+								<label>$INFO[Window.Property(Director,[B]$LOCALIZE[20339][/B][CR],[CR][CR]]$INFO[Window.Property(Writer,[B]$LOCALIZE[20417][/B][CR],[CR][CR]]$INFO[Window.Property(Cast,[B]$LOCALIZE[31505][/B][CR],[CR]]</label>
 								<include>detail_Text</include>
 							</control>
 						</control>
