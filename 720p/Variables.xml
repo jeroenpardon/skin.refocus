@@ -76,7 +76,6 @@
 	</variable>
 
 	<variable name="widget:Icon">
-		<value condition="Control.HasFocus(9261)">$INFO[Window(weather).Property(Current.FanartCode),weather/small/,.png]</value>
 		<value condition="StringCompare(Skin.String(homemenu.type),horizontal) + ![Control.HasFocus(9000) | Control.HasFocus(9100)]">navigation/D-LeftRight.png</value>
 		<value condition="StringCompare(Skin.String(homemenu.type),horizontal)">navigation/D-Up.png</value>
 		<value condition="StringCompare(Skin.String(homemenu.type),vertical) + ![Control.HasFocus(9000) | Control.HasFocus(9100)]">navigation/D-UpDown.png</value>
@@ -85,6 +84,7 @@
 
 	<variable name="widget:ArtFallback">
 		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(thumb)]</value>
 		<value>$INFO[ListItem.FilenameAndPath]</value>
 	</variable>
 

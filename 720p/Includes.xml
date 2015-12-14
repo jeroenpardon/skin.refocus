@@ -217,10 +217,6 @@
 	</include>
 
 <!--DETAILS-->
-	<include name="detail_Header">
-		<height>32</height>
-		<font>light_Header</font>
-	</include>
 	<include name="detail_Title">
 		<height>28</height>
 		<aligny>center</aligny>
@@ -241,13 +237,6 @@
 		<font>regular</font>
 		<aligny>top</aligny>
 		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="autoscroll_Repeat">Skin.HasSetting(autoscroll.enable)</autoscroll>
-	</include>
-	<include name="detail_StarRating">
-		<width>128</width>
-		<height>48</height>
-		<texture>$VAR[rating:Global]</texture>
-		<aspectratio>keep</aspectratio>
-		<visible>!SubString(Container.FolderPath,pvr://recordings/)</visible>
 	</include>
 
 	<include name="detail_Info">
@@ -406,33 +395,6 @@
 		<font>regular</font>
 		<textcolor>Color5</textcolor>
 		<selectedcolor>Selected</selectedcolor>
-	</include>
-	<include name="column_Button">
-		<width>125</width>
-		<font>regular</font>
-		<align>center</align>
-		<textoffsety>4</textoffsety>
-		<textcolor>Color3</textcolor>
-		<focusedcolor>Color5</focusedcolor>
-		<selectedcolor>Color5</selectedcolor>
-		<texturenofocus colordiffuse="column2">colorize/100.png</texturenofocus>
-		<texturefocus colordiffuse="Color1">colorize/100.png</texturefocus>
-	</include>
-	<include name="column_ListButton">
-		<height>42</height>
-		<texture colordiffuse="column2">colorize/100.png</texture>
-	</include>
-	<include name="column_ListButtonLabel">
-		<font>regular</font>
-		<height>40</height>
-		<textoffsety>4</textoffsety>
-		<textcolor>Color3</textcolor>
-		<focusedcolor>Color1</focusedcolor>
-		<selectedcolor>Color5</selectedcolor>
-	</include>
-	<include name="column_ListButtonFocus">
-		<height>42</height>
-		<texture colordiffuse="Color1">colorize/100.png</texture>
 	</include>
 
 <!--SETTINGS-->
