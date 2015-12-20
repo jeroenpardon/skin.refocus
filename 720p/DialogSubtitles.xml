@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
+	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>90</left>
-		<top>45</top>
+		<left>65</left>
+		<top>43</top>
 	</coordinates>
 	<controls>
 		<control type="group" id="250">
-			<include>transition_Dialog</include>
-			<control type="image">
-				<width>1150</width>
-				<height>630</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="140">
-				<width>1192</width>
-				<label>$LOCALIZE[287]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<width>1150</width>
+			<height>635</height>
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="1150" />
+				<param name="DialogHeight" value="635" />
+				<param name="DialogHeader" value="$LOCALIZE[287]"/>
+			</include>
 			<control type="image">
 				<left>4</left>
 				<top>55</top>
 				<width>1142</width>
 				<include>dialog_Separator</include>
 			</control>
-			<control type="image" id="110">
-				<description>Service Logo</description>
-				<visible>false</visible>
-			</control>
 			<control type="group">
-				<left>4</left>
 				<top>55</top>
 				<control type="image">
 					<top>38</top>
@@ -43,7 +35,7 @@
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="label">
-					<width>892</width>
+					<width>896</width>
 					<label>$LOCALIZE[24018]</label>
 					<include>dialog_Header</include>
 					<include>dialog_ControlCommons</include>
@@ -72,16 +64,16 @@
 				<control type="list" id="120">
 					<left>250</left>
 					<top>40</top>
-					<width>892</width>
+					<width>896</width>
 					<height>520</height>
 					<onleft>150</onleft>
 					<onright>noop</onright>
 					<onup>120</onup>
 					<ondown>120</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="892" height="40">
+					<itemlayout width="896" height="40">
 						<control type="image">
-							<width>892</width>
+							<width>896</width>
 							<height>40</height>
 							<include>dialog_CommonList</include>
 						</control>
@@ -96,7 +88,7 @@
 							<top>4</top>
 							<width>32</width>
 							<height>32</height>
-							<texture>flags/subtitles/flags/$INFO[ListItem.Art(thumb)].png</texture>
+							<texture>resource://resource.images.languageflags.colour/$INFO[ListItem.Art(thumb)].png</texture>
 						</control>
 						<control type="group">
 							<left>670</left>
@@ -131,11 +123,11 @@
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="892" height="40">
+					<focusedlayout width="896" height="40">
 						<control type="group">
 							<visible>!Control.HasFocus(120)</visible>
 							<control type="image">
-								<width>892</width>
+								<width>896</width>
 								<height>40</height>
 								<include>dialog_CommonList</include>
 								<visible>!Control.HasFocus(120)</visible>
@@ -151,7 +143,7 @@
 						<control type="group">
 							<visible>Control.HasFocus(120)</visible>
 							<control type="image">
-								<width>892</width>
+								<width>896</width>
 								<height>40</height>
 								<include>dialog_CommonListFocus</include>
 							</control>
@@ -199,7 +191,7 @@
 							<top>4</top>
 							<width>32</width>
 							<height>32</height>
-							<texture>flags/subtitles/flags/$INFO[ListItem.Art(thumb)].png</texture>
+							<texture>resource://resource.images.languageflags.colour/$INFO[ListItem.Art(thumb)].png</texture>
 						</control>
 						<control type="group">
 							<left>670</left>
@@ -238,24 +230,13 @@
 				</control>
 			</control>
 			<control type="button" id="160">
-				<left>24</left>
-				<bottom>164</bottom>
+				<left>20</left>
+				<bottom>20</bottom>
 				<width>212</width>
 				<onright>120</onright>
 				<onup>150</onup>
 				<ondown>161</ondown>
-				<label>$LOCALIZE[24120]</label>
-				<include>dialog_WindowButton</include>
-			</control>
-			<control type="button" id="161">
-				<left>24</left>
-				<bottom>114</bottom>
-				<width>212</width>
-				<onright>120</onright>
-				<onup>160</onup>
-				<ondown>150</ondown>
-				<label>$LOCALIZE[31329]</label>
-				<onclick>ActivateWindowAndFocus(videossettings, -96,0, -80,0)</onclick>
+				<label>$LOCALIZE[31330]</label>
 				<include>dialog_WindowButton</include>
 			</control>
 		</control>
