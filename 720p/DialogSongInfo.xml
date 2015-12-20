@@ -9,12 +9,13 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<visible>!Window.IsVisible(musicinformation)</visible>		
+			<width>662</width>
+			<height>540</height>
+			<visible>!Window.IsVisible(musicinformation)</visible>
 			<include name="dialog_WindowCommons">
 				<param name="DialogWidth" value="662"/>
 				<param name="DialogHeight" value="540"/>
-				<param name="DialogHeaderName" value="$LOCALIZE[658]"/>
-				<param name="DialogHeaderID" value="1"/>
+				<param name="DialogHeader" value="$LOCALIZE[658]"/>
 				<param name="DialogSeparator" value="true"/>
 			</include>
 			<control type="group">
@@ -133,13 +134,13 @@
 					<height>22</height>
 					<aspectratio align="right">keep</aspectratio>
 					<texture>$INFO[ListItem.StarRating,rating/fo-,]</texture>
-					<colordiffuse>Color4</colordiffuse>
+					<colordiffuse>Color5</colordiffuse>
 				</control>
 			</control>
 		<!--dialog controls-->
 			<control type="grouplist" id="901">
-				<left>20</left>
-				<top>480</top>
+				<centerleft>50%</centerleft>
+				<bottom>20</bottom>
 				<width>620</width>
 				<height>40</height>
 				<itemgap>10</itemgap>
@@ -149,7 +150,6 @@
 					<label>$LOCALIZE[21371]</label>
 					<onleft>11</onleft>
 					<onright>12</onright>
-					<onback>SendClick(10)</onback>
 					<width>200</width>
 					<include>dialog_WindowButton</include>
 				</control>
@@ -158,7 +158,6 @@
 					<label>$LOCALIZE[10523]</label>
 					<onleft>13</onleft>
 					<onright>10</onright>
-					<onback>SendClick(10)</onback>
 					<width>200</width>
 					<include>dialog_WindowButton</include>
 				</control>
@@ -167,7 +166,6 @@
 					<label>$LOCALIZE[38023]</label>
 					<onleft>13</onleft>
 					<onright>10</onright>
-					<onback>SendClick(10)</onback>
 					<width>200</width>
 					<include>dialog_WindowButton</include>
 				</control>

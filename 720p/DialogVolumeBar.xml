@@ -8,49 +8,46 @@
 	</coordinates>
 	<include>fadeinout</include>
 	<controls>
+		<include name="dialog_WindowCommons">
+			<param name="DialogWidth" value="300" />
+			<param name="DialogHeight" value="90" />
+		</include>
 		<control type="group">
-			<control type="image">
+			<visible>!Player.Passthrough</visible>
+			<control type="label">
+				<top>10</top>
 				<width>300</width>
-				<height>90</height>
-				<include>dialog_Window</include>
+				<label>$INFO[Player.Volume]</label>
+				<font>regular</font>
+				<align>center</align>
+				<textcolor>Color4</textcolor>
 			</control>
-			<control type="group">
-				<visible>!Player.Passthrough</visible>
-				<control type="label">
-					<top>10</top>
-					<width>300</width>
-					<label>$INFO[Player.Volume]</label>
-					<font>regular</font>
-					<align>center</align>
-					<textcolor>Color4</textcolor>
-				</control>
-				<control type="slider" id="1">
-					<left>19</left>
-					<top>40</top>
-					<width>266</width>
-					<height>32</height>
-					<include>dialog_Slider</include>
-					<info>Player.Volume</info>
-				</control>
+			<control type="slider" id="1">
+				<left>19</left>
+				<top>40</top>
+				<width>266</width>
+				<height>32</height>
+				<info>Player.Volume</info>
+				<include>dialog_Slider</include>
 			</control>
-			<control type="group">
-				<visible>Player.Passthrough</visible>
-				<control type="label">
-					<top>10</top>
-					<width>300</width>
-					<label>$LOCALIZE[29802]</label>
-					<font>regular</font>
-					<align>center</align>
-					<textcolor>Color4</textcolor>
-				</control>
-				<control type="slider" id="1">
-					<left>19</left>
-					<top>40</top>
-					<width>266</width>
-					<height>32</height>
-					<include>dialog_Slider</include>
-					<info>Player.Volume</info>
-				</control>
+		</control>
+		<control type="group">
+			<visible>Player.Passthrough</visible>
+			<control type="label">
+				<top>10</top>
+				<width>300</width>
+				<label>$LOCALIZE[29802]</label>
+				<font>regular</font>
+				<align>center</align>
+				<textcolor>Color4</textcolor>
+			</control>
+			<control type="slider" id="1">
+				<left>19</left>
+				<top>40</top>
+				<width>266</width>
+				<height>32</height>
+				<info>Player.Volume</info>
+				<include>dialog_Slider</include>
 			</control>
 		</control>
 	</controls>

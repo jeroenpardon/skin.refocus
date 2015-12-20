@@ -11,16 +11,12 @@
 		<control type="group">
 			<width>600</width>
 			<height>220</height>
-			<control type="image">
-				<width>600</width>
-				<height>220</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="1">
-				<width>592</width>
-				<label>$LOCALIZE[13406]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<include name="dialog_WindowCommons">
+				<param name="DialogWidth" value="600" />
+				<param name="DialogHeight" value="220" />
+				<param name="DialogHeaderID" value="1" />
+			</include>
+
 			<!--textbox-->
 			<control type="textbox" id="9">
 				<centerleft>50%</centerleft>
@@ -36,7 +32,7 @@
 			<control type="grouplist" id="9001">
 				<centerleft>50%</centerleft>
 				<bottom>20</bottom>
-				<width>254</width>
+				<width>250</width>
 				<height>40</height>
 				<itemgap>10</itemgap>
 				<orientation>horizontal</orientation>
