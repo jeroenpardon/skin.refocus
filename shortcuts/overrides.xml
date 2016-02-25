@@ -16,7 +16,7 @@
 		<node label="32030">
 			<node label="31013">
 				<shortcut label="31013" type="342" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
-				<shortcut label="31013" type="20360" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+				<shortcut label="31013" type="20360" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=100)</shortcut>
 			</node>
 			<node label="32040">
 				<content>playlist-video</content>
@@ -110,7 +110,7 @@
 		<!--watchlist-->
 		<node label="31013">
 			<shortcut label="342" type="32099" icon="DefaultIconWatchlist.png" widget="Addon" widgetType="movies" widgetTarget="video" condition="System.HasAddon(script.watchlist)">plugin://script.watchlist/?type=movies</shortcut>
-			<shortcut label="20360" type="32099" icon="DefaultIconWatchlist.png" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(script.watchlist)">plugin://script.watchlist/?type=episodes</shortcut>
+			<shortcut label="20360" type="32099" icon="DefaultIconWatchlist.png" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(script.skin.helper.service)">plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=100</shortcut>
 		</node>
 
 		<!--recently added-->
