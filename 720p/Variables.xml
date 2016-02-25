@@ -509,7 +509,7 @@
 	</variable>
 
 	<variable name="extContent:Thumbnail">
-		<value condition="StringCompare(Window(Home).Property(extContent),youtube)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[ListItem.Label]</value>
+		<value condition="StringCompare(Window(Home).Property(extContent),youtube)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[Window(Home).Property(extQuery)]</value>
 	</variable>
 
 
