@@ -91,7 +91,7 @@
 								<left>300</left>
 								<top>220</top>
 								<control type="grouplist" id="5000">
-									<width>900</width>
+									<width>1200</width>
 									<height>40</height>
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
@@ -103,6 +103,18 @@
 										<include>global_Button</include>
 										<visible>Control.IsEnabled(9)</visible>
 									</control>
+									<!--update-->
+									<control type="button" id="8">
+										<width>150</width>
+										<label>$LOCALIZE[24069]</label>
+										<include>global_Button</include>
+									</control>
+									<!--auto update-->
+									<control type="button" id="13">
+										<width>150</width>
+										<label>$LOCALIZE[21340]</label>
+										<include>global_Button</include>
+									</control>
 									<!--launch-->
 									<control type="button" id="12">
 										<width>150</width>
@@ -110,13 +122,27 @@
 										<include>global_Button</include>
 										<visible>Control.IsEnabled(12)</visible>
 									</control>
-									<!--manage-->
+									<!--install/uninstall-->
+									<control type="button" id="6">
+										<width>150</width>
+										<label>$LOCALIZE[24022]</label>
+										<include>global_Button</include>
+									</control>
+									<!--enable/disable-->
+									<control type="button" id="7">
+										<width>150</width>
+										<label>$LOCALIZE[24021]</label>
+										<include>global_Button</include>
+									</control>
+									<!--removed manage menu for now as it can't be made to properly show correct labels. revise in Krypton for possible solution
 									<control type="togglebutton" id="501">
 										<width>150</width>
 										<label>$LOCALIZE[16106]</label>
 										<include>global_Button</include>
+										<onclick condition="StringCompare(ListItem.Property(Addon.Installed),True)">Skin.SetString(addon.installed,true)</onclick>
 										<onclick>ActivateWindow(1120)</onclick>
 									</control>
+									-->
 									<!--changelog-->
 									<control type="button" id="10">
 										<width>150</width>
