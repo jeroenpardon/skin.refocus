@@ -110,7 +110,7 @@
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
 			<!--enable / disable add-on-->
-			<control type="togglebutton" id="522">
+			<control type="button" id="522">
 				<width>352</width>
 				<label>$LOCALIZE[24021]</label>
 				<altlabel>$LOCALIZE[24022]</altlabel>
@@ -120,14 +120,15 @@
 				<usealttexture>StringCompare(ListItem.Property(Addon.Status),Disabled)</usealttexture>
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
-			<!--uninstall add-on-->
+			<!--(un)install add-on-->
 			<control type="togglebutton" id="524">
 				<width>352</width>
-				<label>$LOCALIZE[24037]</label>
-				<altlabel>$LOCALIZE[24038]</altlabel>
+				<label>$LOCALIZE[24038]</label>
+				<altlabel>$LOCALIZE[24037]</altlabel>
 				<onclick>Close</onclick>
 				<onclick>SendClick(10146,6)</onclick>
 				<include>dialog_MenuButton</include>
+				<usealttexture>Skin.String(addon.installed,true)</usealttexture>
 				<visible>Window.IsActive(addoninformation)</visible>
 			</control>
 			<control type="image" id="513">
