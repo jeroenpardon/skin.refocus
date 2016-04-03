@@ -127,7 +127,7 @@
 	<variable name="media:Title">
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Label]</value>
-		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.TVShowTitle][COLOR=Color3]$INFO[ListItem.Title,: ][/COLOR]</value>
+		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Label]</value>
 		<value condition="Container.Content(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/) | SubString(Container.FolderPath,plugin://script.watchlist/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)">[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.Label]</value>
@@ -147,10 +147,11 @@
 		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.movies.enable)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$VAR[media:Rating, &#8226; ]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
+		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label)) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:Rating, &#8226; ]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
-		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
+		
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
