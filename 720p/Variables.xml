@@ -127,6 +127,9 @@
 	<variable name="media:Title">
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Label]</value>
+
+		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.TVShowTitle][COLOR=Color3]$INFO[ListItem.Title,: ][/COLOR]</value>
+
 		<value condition="Container.Content(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/) | SubString(Container.FolderPath,plugin://script.watchlist/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)">[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.Label]</value>
@@ -149,6 +152,7 @@
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label)) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:Rating, &#8226; ]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:NextAired.Info, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
+		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
@@ -678,13 +682,26 @@
 		<value condition="StringCompare(Container.FolderPath,addons://sources/video)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,plugin://plugin,left)">$INFO[Container.FolderName]</value>
 		<value condition="StringCompare(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[20012]</value>
-
+		<!--skin helper service-->
 		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextepisodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-
-
-		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/)">$LOCALIZE[31013]</value>
-		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/?type=episodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-		<value condition="StringCompare(Container.FolderPath,plugin://script.watchlist/?type=movies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedmovies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
+		<value condition="StringCompare(Container.FolderPath,plugin://script.skin.helper.service/)">$LOCALIZE[31625]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=favourites)">$ADDON[script.skin.helper.service 32000]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=favouritemedia)">$ADDON[script.skin.helper.service 32001]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedmedia)">$ADDON[script.skin.helper.service 32004]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recentmedia)">$ADDON[script.skin.helper.service 32005]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=similarmovies)">$ADDON[script.skin.helper.service 32006]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=similarshows)">$ADDON[script.skin.helper.service 32130]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=inprogressmedia)">$ADDON[script.skin.helper.service 32086]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=inprogressandrecommendedmedia)">$ADDON[script.skin.helper.service 32007]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recentalbums)">$LOCALIZE[359]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recentsongs)">$ADDON[script.skin.helper.service 32087]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recentlyplayedalbums)">$LOCALIZE[517]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recentlyplayedsongs)">$ADDON[script.skin.helper.service 32088]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedalbums)">$ADDON[script.skin.helper.service 32131]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedsongs)">$ADDON[script.skin.helper.service 32132]</value>
+		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$ADDON[script.skin.helper.service 32055]</value>
+		<!---->
 		<value condition="StringCompare(Container.FolderPath,videodb://movies/) | StringCompare(Container.FolderPath,library://video/movies/)">$LOCALIZE[342]</value>
 		<value condition="SubString(Container.FolderPath,movies-unwatched.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,movies-inprogress.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
