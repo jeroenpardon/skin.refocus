@@ -41,7 +41,9 @@
 	<variable name="widget:Header">
 		<value condition="Container(9200).IsUpdating">$LOCALIZE[31710]...</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[Weather.Location]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies) | StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),videos)">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
+		<!--<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies) | StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),videos)">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>-->
+		<value condition="!StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$LOCALIZE[31033] [B]$INFO[Container(9200).CurrentItem][/B] $LOCALIZE[20163] [B]$INFO[Container(9200).NumItems][/B]</value>
+
 		<value>$INFO[Container(9200).ListItem(0).Label]</value>
 	</variable>
 
@@ -53,6 +55,7 @@
 	</variable>
 
 	<variable name="widget:Item.Label2">
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),YouTube)">$INFO[ListItem.Premiered]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),songs) | StringCompare(Container(9000).ListItem.Property(widgetType),musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),tvshows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
@@ -61,7 +64,6 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),videos)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),albums)">$INFO[ListItem.Artist]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetName),YouTube)">$INFO[ListItem.Premiered]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
