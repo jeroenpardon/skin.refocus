@@ -155,7 +155,8 @@
 
 		<!--online sources-->
 		<node label="Online sources">
-			<shortcut label="$ADDON[plugin.video.youtube 30513]" type="YouTube" icon="DefaultIconYouTube.png" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/special/popular_right_now/</shortcut>
+			<shortcut label="$ADDON[plugin.video.youtube 30513]" widgetName="YouTube $ADDON[plugin.video.youtube 30513]" icon="DefaultIconYouTube.png" widget="Addon" widgetType="YouTube" widgetTarget="video" condition="System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/special/popular_right_now/</shortcut>
+			<shortcut label="$ADDON[plugin.video.youtube 30504]" widgetName="YouTube $ADDON[plugin.video.youtube 30504]" icon="DefaultIconYouTube.png" widget="Addon" widgetType="YouTube" widgetTarget="video" condition="System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/special/new_uploaded_videos_tv/</shortcut>
 			<shortcut label="$LOCALIZE[31015]" type="iTunes" icon="DefaultIconTrailers.png" widget="Addon" widgetType="movies" widgetTarget="video" condition="System.HasAddon(plugin.video.itunes_trailers)">plugin://plugin.video.itunes_trailers/</shortcut>
 			<shortcut label="$ADDON[script.extendedinfo 32047]" type="Trakt.tv" icon="DefaultIconTrakt.png" widget="Addon" widgetType="movies" widgetTarget="video" condition="System.HasAddon(script.extendedinfo)">plugin://script.extendedinfo?info=trendingmovies</shortcut>
 			<shortcut label="$ADDON[script.extendedinfo 32032]" type="Trakt.tv" icon="DefaultIconTrakt.png" widget="Addon" widgetType="tvshows" widgetTarget="video" condition="System.HasAddon(script.extendedinfo)">plugin://script.extendedinfo?info=trendingshows</shortcut>
