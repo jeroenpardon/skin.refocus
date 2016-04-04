@@ -47,7 +47,7 @@
 
 	<variable name="widget:Item.Label1">
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[ListItem.Title]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),music)">[COLOR=Color3]$INFO[ListItem.Artist][/COLOR]$INFO[ListItem.Title, : ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),albums)">$INFO[ListItem.Label]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">[COLOR=Color3]$INFO[ListItem.TVShowTitle,,: ][/COLOR]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
@@ -59,6 +59,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, &#8226; ]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),videos)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),albums)">$INFO[ListItem.Artist]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetName),YouTube)">$INFO[ListItem.Premiered]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
@@ -72,7 +73,7 @@
 		<value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
-		<value>$INFO[ListItem.Plot]</value>
+		<value>$INFO[ListItem.Year]</value>
 	</variable>
 
 	<variable name="widget:Icon">
@@ -311,7 +312,6 @@
 		<value condition="StringCompare(Weather.Plugin,weather.wunderground)">$LOCALIZE[402]$INFO[Window(Weather).Property(Current.FeelsLike),: ]$INFO[System.TemperatureUnits,, &#8226; ]$LOCALIZE[405]$INFO[Window(Weather).Property(Current.DewPoint),: ]$INFO[System.TemperatureUnits,, &#8226; ]$LOCALIZE[406]$INFO[Window(Weather).Property(Current.Humidity),: , &#8226; ]$LOCALIZE[404]$INFO[Window(Weather).Property(Current.Wind),: ][CR]$LOCALIZE[33027]$INFO[Window(Weather).Property(Today.Sunrise),: , &#8226; ]$LOCALIZE[33028]$INFO[Window(Weather).Property(Today.Sunset),: ]</value>
 		<value>$LOCALIZE[402]$INFO[Window(Weather).Property(Current.FeelsLike),: ]$INFO[System.TemperatureUnits,, &#8226; ]$LOCALIZE[405]$INFO[Window(Weather).Property(Current.DewPoint),: ]$INFO[System.TemperatureUnits,, &#8226; ]$LOCALIZE[406]$INFO[Window(Weather).Property(Current.Humidity),: , &#8226; ]$LOCALIZE[404]$INFO[Window(Weather).Property(Current.Wind),: ]</value>
 	</variable>
-
 
 	<variable name="weather:LongDay">
 		<value condition="StringCompare(Container(9200).ListItem.Property(Longday),$LOCALIZE[41])">$LOCALIZE[11]</value>
