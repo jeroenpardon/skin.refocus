@@ -111,6 +111,26 @@
 				<include>fadeinout</include>
 				<visible>[Skin.HasSetting(widgets.push) + !Skin.HasSetting(widgetinfo.onfocus)] | [Skin.HasSetting(widgets.push) + Skin.HasSetting(widgetinfo.onfocus) + Control.HasFocus(9200)] | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]</visible>
 			</control>
+			<!--youtube / add-on thumbnail-->
+			<control type="group">
+				<top>255</top>
+				<left>50</left>
+				<visible>StringCompare(Container(9000).ListItem.Property(widgetType),YouTube) + !IsEmpty(ListItem.Thumb)</visible>
+				<control type="image">
+					<width>367</width>
+					<height>211</height>
+					<texture>frames/frame-fo.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<top>7</top>
+					<left>7</left>
+					<width>350</width>
+					<height>197</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+			</control>
 		</definition>
 	</include>
 
