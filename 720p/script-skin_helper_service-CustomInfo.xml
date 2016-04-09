@@ -3,9 +3,8 @@
     <defaultcontrol always="true">4000</defaultcontrol>
     <onunload>ClearProperty(Extinfo)</onunload>
     <controls>
-		<!--fake list used as container -->
-		<!-- use Container(999).ListItem to get all info -->
-		<!-- all normal listitem properties will be available -->
+
+    	<!--fake list container-->
 		<control type="list" id="999">
 			<left>630</left>
 			<top>0</top>
@@ -84,9 +83,10 @@
 							<control type="label">
 								<top>28</top>
 								<width>1164</width>
-								<label>$INFO[Container(999).ListItem.Year]$INFO[Container(999).ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[Container(999).ListItem.Genre, &#8226; ]</label>
+								<label>$INFO[Container(999).ListItem.Premiered]$INFO[Container(999).ListItem.Year]$INFO[Container(999).ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[Container(999).ListItem.Genre, &#8226; ]</label>
 								<font>regular_Small-U</font>
 								<include>osd_Sub</include>
+								<!--<visible>!StringCompare(Container(999).ListItem.Property(type),movie)</visible>-->
 							</control>
 							<control type="label">
 								<top>50</top>
