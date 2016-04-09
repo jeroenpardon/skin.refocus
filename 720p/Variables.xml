@@ -38,6 +38,12 @@
 	</variable>
 
 <!--WIDGETS-->
+	
+	<variable name="widget:OnInfo">
+		<value condition="SubString(Container(9000).ListItem.Property(widgetType),movies) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,movieid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
+		<value condition="SubString(Container(9000).ListItem.Property(widgetType),episodes) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,episodeid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
+	</variable>
+
 	<variable name="widget:Header">
 		<value condition="Container(9200).IsUpdating">$LOCALIZE[31710]...</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[Weather.Location]</value>
