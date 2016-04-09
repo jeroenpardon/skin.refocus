@@ -6,7 +6,10 @@
 			<animation effect="Slide" time="250" start="-320" end="0" tween="Quadratic" easing="Out" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
 
 			<!--insert the widget template-->
-			<include name="skinshortcuts-template-widget_Vertical"></include>
+			<control type="group">
+				<visible>!Skin.HasSetting(widgets.disable)</visible>
+				<include name="skinshortcuts-template-widget_Vertical"></include>
+			</control>
 
 			<!--MAIN MENU-->
 			<control type="group" id="9109">
@@ -193,7 +196,10 @@
 		<control type="group">
 			
 			<!--insert the widget template-->
-			<include name="skinshortcuts-template-widget_Horizontal"></include>
+			<control type="group">
+				<visible>!Skin.HasSetting(widgets.disable)</visible>
+				<include name="skinshortcuts-template-widget_Horizontal"></include>
+			</control>
 
 			<!--MAIN MENU-->
 			<control type="group">
