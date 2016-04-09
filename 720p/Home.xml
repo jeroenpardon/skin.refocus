@@ -5,7 +5,7 @@
 	<onload condition="!StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
 	<onload>ClearProperty(WidgetState)</onload>
 	<onunload condition="Skin.HasSetting(homemenu.collapse) + StringCompare(Skin.String(homemenu.type),vertical)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
-	
+
 	<controls>
 		<control type="group">
 			<include>transition_Home</include>
@@ -124,12 +124,23 @@
 		<!--post startup-->
 		<control type="group">
 			<visible>Window.Previous(startup)</visible>
-			<animation effect="slide" center="screen_Center" start="0,0" end="0,720" time="600" tween="Cubic" easing="InOut" delay="10000" condition="!Container(9200).IsUpdating">Conditional</animation>
+			<include>screen_Dimensions</include>
+			<animation type="Conditional" condition="Skin.HasSetting(widgets.disable)">
+				<effect type="fade" start="0" end="100" time="0" delay="0"/>
+				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="7000"/>
+			</animation>
+			<animation type="Conditional" condition="!Skin.HasSetting(widgets.disable) + !Container(9200).IsUpdating">
+				<effect type="fade" start="0" end="100" time="0" delay="0"/>
+				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="500"/>
+			</animation>
 			<control type="image">
-				<top>0</top>
 				<include>screen_Dimensions</include>
+				<texture>black.png</texture>
+			</control>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
 				<texture>special://skin/fanart.jpg</texture>
-				<include>fadeinout</include>			
 			</control>
 			<!--status-->
 			<control type="label">
@@ -140,7 +151,6 @@
 				<font>regular_Small</font>
 				<align>center</align>
 				<textcolor>Color1</textcolor>
-				<include>fadeinout</include>
 			</control>
 		</control>
 	</controls>
