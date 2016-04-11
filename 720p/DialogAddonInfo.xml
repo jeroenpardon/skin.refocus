@@ -103,18 +103,20 @@
 										<include>global_Button</include>
 										<visible>Control.IsEnabled(9)</visible>
 									</control>
-									<!--update-->
+									<!--update
 									<control type="button" id="8">
 										<width>150</width>
 										<label>$LOCALIZE[24069]</label>
 										<include>global_Button</include>
 									</control>
-									<!--auto update-->
+									-->
+									<!--auto update
 									<control type="button" id="13">
 										<width>150</width>
 										<label>$LOCALIZE[21340]</label>
 										<include>global_Button</include>
 									</control>
+									-->
 									<!--launch-->
 									<control type="button" id="12">
 										<width>150</width>
@@ -134,15 +136,15 @@
 										<label>$LOCALIZE[24021]</label>
 										<include>global_Button</include>
 									</control>
-									<!--removed manage menu for now as it can't be made to properly show correct labels. revise in Krypton for possible solution
+									<!--removed most manage menu items for now as it can't be made to properly show correct labels. revise in Krypton for possible solution-->
 									<control type="togglebutton" id="501">
 										<width>150</width>
-										<label>$LOCALIZE[16106]</label>
+										<label>$LOCALIZE[24069]</label>
+										<!--<label>$LOCALIZE[16106]</label>-->
 										<include>global_Button</include>
 										<onclick condition="StringCompare(ListItem.Property(Addon.Installed),True)">Skin.SetString(addon.installed,true)</onclick>
 										<onclick>ActivateWindow(1120)</onclick>
 									</control>
-									-->
 									<!--changelog-->
 									<control type="button" id="10">
 										<width>150</width>
