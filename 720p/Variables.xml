@@ -41,8 +41,9 @@
 	
 	<variable name="widget:OnInfo">
 		<value condition="SubString(Container(9000).ListItem.Property(widgetType),movies) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,movieid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
-		<value condition="SubString(Container(9000).ListItem.Property(widgetType),episodes) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,episodeid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
-		<value condition="SubString(Container(9000).ListItem.Property(widgetType),tvshows) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,tvshowid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
+        <value condition="SubString(Container(9000).ListItem.Property(widgetType),tvshows) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,tvshowid=$INFO[Container(9200).ListItem.TVShowTitle)</value>
+        <value condition="SubString(Container(9000).ListItem.Property(widgetType),episodes) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,episodeid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
+        <value>RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(9200).ListItem.Title])</value>
 	</variable>
 
 	<variable name="widget:Header">
