@@ -1,37 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <shortcuts>
 	<shortcut>
-		<label>20387</label>
-		<label2>32014</label2>
+		<defaultID>31013</defaultID>
+		<label>$SKIN[31013|skin.refocus|Watchlist]</label>
+		<label2>Episodes</label2>
+		<icon>DefaultIconWatchlist.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=100)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>31705</defaultID>
+		<label>$SKIN[31705|skin.refocus|Recently Added]</label>
+		<label2>Episodes</label2>
 		<icon>DefaultRecentlyAddedEpisodes.png</icon>
 		<thumb />
 		<action>ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</action>
 	</shortcut>
 	<shortcut>
-		<label>369</label>
-		<label2>20343</label2>
-		<icon>DefaultTVShowTitle.png</icon>
+		<defaultID />
+		<label>Genres</label>
+		<label2>Videos</label2>
+		<icon>DefaultShortcut.png</icon>
 		<thumb />
-		<action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
-	</shortcut>
-	<shortcut>
-		<label>135</label>
-		<label2>20343</label2>
-		<icon>DefaultGenre.png</icon>
-		<thumb />
-		<action>ActivateWindow(Videos,videodb://tvshows/genres/,return)</action>
-	</shortcut>
-	<shortcut>
-		<label>562</label>
-		<label2>20343</label2>
-		<icon>DefaultYear.png</icon>
-		<thumb />
-		<action>ActivateWindow(Videos,videodb://tvshows/years/,return)</action>
-	</shortcut>
-	<shortcut>
-		<label>344</label>
-		<label2>20343</label2>
-		<icon>DefaultActor.png</icon>
-		<thumb />
-		<action>ActivateWindow(Videos,videodb://tvshows/actors/,return)</action>
+		<action>ActivateWindow(VideoLibrary,"library://video/tvshows/genres.xml/",return)</action>
 	</shortcut>
 </shortcuts>
