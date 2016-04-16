@@ -76,7 +76,6 @@
 				<control type="button" id="601">
 					<width>322</width>
 					<label>$LOCALIZE[250]</label>
-					<onback>SetFocus(599)</onback>
 					<onclick>Dialog.Close(MusicOSD,true)</onclick>
 					<onclick>Addon.Default.Set(xbmc.player.musicviz)</onclick>
 					<include>dialog_MenuButton</include>
@@ -85,16 +84,14 @@
 				<control type="button" id="602">
 					<width>322</width>
 					<label>$LOCALIZE[13388]</label>
-					<onback>SetFocus(599)</onback>
 					<include>dialog_MenuButton</include>
-					<onclick>ActivateWindow(122)</onclick>
+					<onclick>ActivateWindow(visualisationpresetlist)</onclick>
 					<enable>Visualisation.HasPresets</enable>
 				</control>
 				<!--Last.fm-->
 				<control type="button" id="603">
 					<width>322</width>
 					<label>$LOCALIZE[15200] $LOCALIZE[33079]</label>
-					<onback>SetFocus(599)</onback>
 					<include>dialog_MenuButton</include>
 					<onclick>Dialog.Close(MusicOSD,true)</onclick>
 					<onclick>XBMC.LastFM.Love</onclick>
@@ -103,7 +100,6 @@
 				<control type="button" id="604">
 					<width>322</width>
 					<label>$LOCALIZE[15200] $LOCALIZE[33080]</label>
-					<onback>SetFocus(599)</onback>
 					<include>dialog_MenuButton</include>
 					<onclick>Dialog.Close(MusicOSD,true)</onclick>
 					<onclick>XBMC.LastFM.Ban</onclick>
@@ -113,7 +109,6 @@
 				<control type="togglebutton" id="605">
 					<width>322</width>
 					<label>$LOCALIZE[31322]</label>
-					<onback>SetFocus(599)</onback>
 					<onclick>noop</onclick>
 					<onclick>Close</onclick>
 					<onclick>XBMC.RunScript($INFO[Skin.String(addon.lyrics.path)])</onclick>
@@ -128,7 +123,6 @@
 				<control type="button" id="606">
 					<width>322</width>
 					<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
-					<onback>SetFocus(599)</onback>
 					<include>dialog_MenuButton</include>
 					<onclick>XBMC.PlayerControl(Random)</onclick>
 				</control>
@@ -136,7 +130,6 @@
 				<control type="button" id="607">
 					<width>322</width>
 					<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
-					<onback>SetFocus(599)</onback>
 					<include>dialog_MenuButton</include>
 					<onclick>XBMC.PlayerControl(Repeat)</onclick>
 				</control>
