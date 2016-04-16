@@ -126,9 +126,9 @@
 		<control type="group">
 			<include>screen_Dimensions</include>
 			<!--widgets enabled-->
-			<animation type="Conditional" condition="!Skin.HasSetting(widgets.disable) + Skin.HasSetting(widgets.push)" reversible="false">
+			<animation type="Conditional" condition="!Skin.HasSetting(widgets.disable) + Skin.HasSetting(widgets.push) + !Container(9200).IsUpdating" reversible="false">
 				<effect type="fade" start="0" end="100" time="0" delay="0"/>
-				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="7000"/>
+				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="500"/>
 			</animation>
 			<!--widgets disabled-->
 			<animation type="Conditional" condition="Skin.HasSetting(widgets.disable) | !Skin.HasSetting(widgets.disable) + !Skin.HasSetting(widgets.push)" reversible="false">
