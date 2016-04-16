@@ -143,7 +143,7 @@
 				<control type="image">
 					<width>$PARAM[ArtWidth]</width>
 					<height>$PARAM[ArtHeight]</height>
-					<texture background="true">$PARAM[Type]</texture>
+					<texture background="true">black.png</texture>
 					<aspectratio>$PARAM[Aspectratio]</aspectratio>
 				</control>
 				<control type="image">
@@ -265,8 +265,6 @@
 				<include name="detail_ListInfo">
 					<param name="Width" value="532"/>
 					<param name="Height" value="295"/>
-					<param name="Fallback" value="thumbs/default_Landscape.png"/>
-					<param name="Type" value="$VAR[art:Landscape]"/>
 					<param name="ShowLogo" value="true"/>
 					<param name="ShowPlot" value="true"/>
 				</include>
@@ -278,10 +276,14 @@
 				<visible>Control.IsVisible(50)</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<include name="view_List-Frame">
-					<param name="Width" value="420"/>
+					<param name="Width" value="431"/>
 					<param name="Height" value="614"/>
 				</include>
 				<include name="detail_ListInfo">
+					<param name="Width" value="417"/>
+					<param name="Height" value="600"/>
+					<param name="Fallback" value="thumbs/default_Portrait.png"/>
+					<param name="Type" value="$VAR[art:Portrait]"/>
 				</include>
 			</control>
 			<!--square-->
@@ -408,7 +410,6 @@
 				<height>144</height>
 				<include>art_Frame-fo</include>
 				<visible>Control.IsVisible(51) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)]</visible>
-				<include>container_Focus</include>
 			</control>
 			<!--container-->
 			<control type="fixedlist" id="51">

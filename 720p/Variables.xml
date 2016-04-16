@@ -276,7 +276,6 @@
 	</variable>
 
 	<variable name="art:Portrait">
-		<value condition="Container.Content(movies) + SubString(Container.FolderPath,plugin://plugin.video.the.trailers/)">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="Container.Content(actors) + IsEmpty(ListItem.Art(thumb))">thumbs/default_Actor.png</value>
 		<value condition="Container.Content(actors) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -293,9 +292,8 @@
 	</variable>
 
 	<variable name="art:Square">
-		<value condition="Container.Content(albums) | Container.Content(songs) | Window.IsActive(pictures)">$INFO[ListItem.Art(thumb)]</value>
-		<value condition="Container.Content(addons) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-		<value>$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 
 	<variable name="weather:LongDay">
@@ -856,5 +854,13 @@
 		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
 		<value>Color2</value>
 	</variable>
+
+
+	<variable name="art:Fanart">
+ -		<value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+ -		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+ -		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+ -		<value>thumbs/default_Landscape.png</value>
+ -	</variable>
 
 </includes>
