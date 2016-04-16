@@ -2,81 +2,53 @@
 <window>
 	<defaultcontrol>9000</defaultcontrol>
 	<include>transition_Dialog</include>
-
 	<coordinates>
 		<left>186</left>
-        <top>88</top>
+        <top>60</top>
 	</coordinates>
-	
 	<controls>
 		<control type="group">
-			<width>908</width>
-			<height>545</height>
+			<width>1000</width>
+			<height>600</height>
 			<include name="dialog_WindowCommons">
-				<param name="DialogWidth" value="908"/>
-				<param name="DialogHeight" value="545"/>
+				<param name="DialogWidth" value="1000"/>
+				<param name="DialogHeight" value="600"/>
 				<param name="DialogHeaderID" value="20"/>
 				<param name="DialogHeader" value="$LOCALIZE[15020]"/>
 			</include>
 
+
 			<control type="group">
 				<left>4</left>
 				<top>60</top>
-				<control type="image">
-					<top>39</top>
-					<width>652</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<top>39</top>
-					<left>300</left>
-					<height>400</height>
-					<include>dialog_Separator-y</include>
-				</control>
-				<control type="image">
-					<top>39</top>
-					<left>600</left>
-					<height>400</height>
-					<include>dialog_Separator-y</include>
-				</control>
 
 				<!--modes-->
-				<control type="label" id="105">
-					<left>5</left>
-					<top>0</top>
-					<width>435</width>
-					<label>Modes</label>
-					<include>dialog_Header</include>
-					<include>dialog_ControlCommons</include>
-				</control>
 				<control type="list" id="9000">
 					<top>40</top>
-					<width>300</width>
+					<width>292</width>
 					<height>240</height>
-					<onleft>noop</onleft>
-					<onright>20</onright>
+					<onleft>21</onleft>
+					<onright>21</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
+					<itemlayout width="292" height="40">
 						<include name="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="$INFO[ListItem.Label]"/>
-							<param name="Left" value="20"/>
-							<param name="Width" value="795"/>
+							<param name="ContainerWidth" value="292"/>
+							<param name="Label1" value="$INFO[ListItem.Label]"/>
+							<param name="Width" value="272"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
+					<focusedlayout width="292" height="40">
 						<control type="group">
 							<visible>!Control.HasFocus(9000)</visible>
 							<include name="dialog_List-layout">
 								<param name="ContainerLeft"/>
-								<param name="ContainerWidth" value="663"/>
-								<param name="InfoLabel" value="$INFO[ListItem.Label]"/>
-								<param name="Left" value="20"/>
+								<param name="ContainerWidth" value="292"/>
+								<param name="Label1" value="$INFO[ListItem.Label]"/>
 								<param name="Texture" value="dialogs/select-nf.png"/>
-								<param name="Width" value="795"/>
+								<param name="Width" value="272"/>
 							</include>
 						</control>
 						<control type="group">
@@ -84,11 +56,10 @@
 							<include name="dialog_List-layout">
 								<param name="Color" value="Color1"/>
 								<param name="ContainerLeft"/>
-								<param name="ContainerWidth" value="663"/>
-								<param name="InfoLabel" value="$INFO[ListItem.Label]"/>
-								<param name="Left" value="20"/>
+								<param name="ContainerWidth" value="292"/>
+								<param name="Label1" value="$INFO[ListItem.Label]"/>
 								<param name="Texture" value="dialogs/select-fo.png"/>
-								<param name="Width" value="795"/>
+								<param name="Width" value="272"/>
 							</include>
 						</control>
 					</focusedlayout>
@@ -125,178 +96,130 @@
 						</item>
 					</content>
 				</control>
-				
-				<control type="group" id="200">
-					<left>300</left>
 
-					<!--available modes-->
-					<control type="group"> 
-						<control type="label" id="105">
-							<width>435</width>
-							<include>dialog_Header</include>
-							<include>dialog_ControlCommons</include>
-							<label>$LOCALIZE[15050]$INFO[Container(20).NumItems, (,)]</label>
-						</control>
-						<control type="list" id="20">
-							<top>40</top>
-							<width>300</width>
-							<height>370</height>
-							<onleft>9000</onleft>
-							<onright>21</onright>
-							<onup>20</onup>
-							<ondown>22</ondown>
-							<scrolltime>200</scrolltime>
-							<pagecontrol>60</pagecontrol>
-							<itemlayout height="40" width="416">
-								<include name="dialog_List-layout">
-									<param name="ContainerLeft"/>
-									<param name="ContainerWidth" value="663"/>
-									<param name="InfoLabel" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
-									<param name="Width" value="795"/>
-								</include>
-							</itemlayout>
-							<focusedlayout height="40" width="416">
-								<control type="group">
-									<visible>!Control.HasFocus(20)</visible>
-									<include name="dialog_List-layout">
-										<param name="ContainerLeft"/>
-										<param name="ContainerWidth" value="663"/>
-										<param name="InfoLabel" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
-										<param name="Width" value="795"/>
-									</include>
-								</control>
-								<control type="group">
-									<visible>Control.HasFocus(20)</visible>
-									<include name="dialog_List-layout">
-										<param name="Color" value="Color1"/>
-										<param name="ContainerLeft"/>
-										<param name="ContainerWidth" value="663"/>
-										<param name="Font" value="regular"/>
-										<param name="InfoLabel" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
-										<param name="Texture" value="dialogs/select-fo.png"/>
-										<param name="Width" value="795"/>
-									</include>
-								</control>
-							</focusedlayout>
-							<!--
-							<content>
-								<item id="91">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="92">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="93">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="94">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="95">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-							</content>
-							-->
-						</control>
-					</control>
+				<!--available modes-->
+				<control type="list" id="20">
+					<left>292</left>
+					<top>40</top>
+					<width>350</width>
+					<height>370</height>
+					<onleft>9000</onleft>
+					<onright>21</onright>
+					<onup>20</onup>
+					<ondown>22</ondown>
+					<scrolltime>200</scrolltime>
+					<pagecontrol>60</pagecontrol>
+					<itemlayout height="80" width="350">
+						<include name="dialog_List-layout">
+							<param name="ContainerLeft"/>
+							<param name="ContainerWidth" value="350"/>
+							<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
+							<param name="Left" value="10"/>
+							<param name="Width" value="330"/>
+						</include>
 
-					<control type="group"> 
-						<left>300</left>
-						<!--active modes-->
-						<control type="label" id="105">
-							<left>5</left>
-							<width>435</width>
-							<include>dialog_Header</include>
-							<include>dialog_ControlCommons</include>
-							<label>$LOCALIZE[15051]$INFO[Container(21).NumItems, (,)]</label>
-						</control>				
-						<control type="list" id="21">
-							<top>40</top>
-							<width>300</width>
-							<height>370</height>
-							<onleft>20</onleft>
-							<onright>noop</onright>
-							<onup>21</onup>
-							<ondown>21</ondown>
-							<scrolltime>200</scrolltime>
-							<pagecontrol>60</pagecontrol>
-							<itemlayout height="40" width="416">
-								<include name="dialog_List-layout">
-									<param name="ContainerLeft"/>
-									<param name="ContainerWidth" value="663"/>
-									<param name="InfoLabel" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
-									<param name="Width" value="795"/>
-								</include>
-							</itemlayout>
-							<focusedlayout height="40" width="416">
-								<control type="group">
-									<visible>!Control.HasFocus(21)</visible>
-									<include name="dialog_List-layout">
-										<param name="ContainerLeft"/>
-										<param name="ContainerWidth" value="663"/>
-										<param name="InfoLabel" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
-										<param name="Width" value="795"/>
-									</include>
-								</control>
-								<control type="group">
-									<visible>Control.HasFocus(21)</visible>
-									<include name="dialog_List-layout">
-										<param name="Color" value="Color1"/>
-										<param name="ContainerLeft"/>
-										<param name="ContainerWidth" value="663"/>
-										<param name="Font" value="regular"/>
-										<param name="InfoLabel" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
-										<param name="Texture" value="dialogs/select-fo.png"/>
-										<param name="Width" value="795"/>
-									</include>
-								</control>
-							</focusedlayout>
-							<!--
-							<content>
-								<item id="91">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="92">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="93">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="94">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-								<item id="95">
-									<label>Test 1</label>
-									<label2>Test 2</label2>
-									<onclick>noop</onclick>
-								</item>
-							</content>
-							-->
+					</itemlayout>
+					<focusedlayout height="80" width="350">
+						<control type="group">
+							<visible>!Control.HasFocus(20)</visible>
+							<include name="dialog_List-layout">
+								<param name="ContainerLeft"/>
+								<param name="ContainerWidth" value="350"/>
+								<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
+								<param name="Left" value="10"/>
+								<param name="Width" value="330"/>
+							</include>
 						</control>
-					</control>
+						<control type="group">
+							<visible>Control.HasFocus(20)</visible>
+							<include name="dialog_List-layout">
+								<param name="Color" value="Color1"/>
+								<param name="ContainerLeft"/>
+								<param name="ContainerWidth" value="350"/>
+								<param name="Font" value="regular"/>
+								<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
+								<param name="Texture" value="dialogs/select-fo.png"/>
+								<param name="Left" value="10"/>
+								<param name="Width" value="330"/>
+							</include>
+						</control>
+					</focusedlayout>
 				</control>
-				
+
+
+				<!--active modes-->
+				<control type="list" id="21">
+					<left>400</left>
+					<top>40</top>
+					<width>350</width>
+					<height>370</height>
+					<onleft>SetFocus(20)</onleft>
+					<onright>noop</onright>
+					<onup>21</onup>
+					<ondown>21</ondown>
+					<scrolltime>200</scrolltime>
+					<pagecontrol>60</pagecontrol>
+					<itemlayout height="80" width="350">
+						<include name="dialog_List-layout">
+							<param name="ContainerLeft"/>
+							<param name="ContainerWidth" value="350"/>
+							<param name="ContainerHeight" value="80"/>
+							<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
+							<param name="Left" value="10"/>
+							<param name="Width" value="330"/>
+						</include>
+
+						
+
+
+					</itemlayout>
+					<focusedlayout height="80" width="350">
+						<control type="group">
+							<visible>!Control.HasFocus(21)</visible>
+							<include name="dialog_List-layout">
+								<param name="ContainerLeft"/>
+								<param name="ContainerWidth" value="350"/>
+								<param name="ContainerHeight" value="80"/>
+								<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
+								<param name="Left" value="10"/>
+								<param name="Width" value="330"/>
+							</include>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(21)</visible>
+							<include name="dialog_List-layout">
+								<param name="Color" value="Color1"/>
+								<param name="ContainerLeft"/>
+								<param name="ContainerWidth" value="350"/>
+								<param name="ContainerHeight" value="80"/>
+								<param name="Font" value="regular"/>
+								<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
+								<param name="Texture" value="dialogs/select-fo.png"/>
+								<param name="Left" value="10"/>
+								<param name="Width" value="330"/>
+							</include>
+
+							<control type="label">
+								<left>10</left>
+								<top>40</top>
+								<width>330</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Property(Description)]</label>
+								<font>regular</font>
+								<textcolor>Color5</textcolor>
+							</control>
+
+
+						</control>
+					</focusedlayout>
+				</control>
+
+
+
 				<!--window controls-->
 				<control type="grouplist" id="9001">
-					<width>900</width>
+					<centerleft>50%</centerleft>
+					<width>920</width>
 					<height>40</height>
 					<bottom>20</bottom>
 					<align>center</align>
@@ -306,20 +229,20 @@
 					<itemgap>10</itemgap>
 					<!--apply directly-->
 					<control type="radiobutton" id="22">
-						<width>280</width>
+						<width>300</width>
 						<label>$LOCALIZE[31703]</label>
 						<include>dialog_Radio</include>
 						<include>dialog_WindowButton</include>
 					</control>
 					<!--apply-->
 					<control type="button" id="23">
-						<width>280</width>
+						<width>300</width>
 						<label>$LOCALIZE[14070]</label>
 						<include>dialog_WindowButton</include>
 					</control>
 					<!--clear active modes-->
 					<control type="button" id="24">
-						<width>280</width>
+						<width>300</width>
 						<label>15066</label>
 						<include>dialog_WindowButton</include>
 					</control>
