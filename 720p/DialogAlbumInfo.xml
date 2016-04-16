@@ -147,7 +147,6 @@
 								<left>300</left>
 								<bottom>40</bottom>
 								<height>40</height>
-								<include>media_Flags</include>
 								<visible>!Control.IsVisible(50)</visible>
 								<control type="label">
 									<top>25</top>
@@ -190,7 +189,7 @@
 								<control type="image">
 									<width>193</width>
 									<height>193</height>
-									<texture background="true">$VAR[art:Square]</texture>
+									<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 									<aspectratio align="center" aligny="top">scale</aspectratio>
 								</control>
 							</control>
@@ -241,6 +240,7 @@
 								<param name="Top" value="4"/>
 								<param name="Width" value="70"/>
 								<param name="Height" value="70"/>
+								<param name="ArtTexture" value="$INFO[ListItem.Icon]"/>
 							</include>
 							<control type="group">
 								<left>95</left>
