@@ -77,26 +77,30 @@
 							<visible>!SubString(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="group">
-							<left>90</left>
-							<top>7</top>
+							<left>85</left>
+							<top>8</top>
 							<control type="label">
 								<width>470</width>
 								<label>[B]$INFO[ListItem.Label][/B]</label>
 								<include>dialog_CommonListItem</include>
 							</control>
 							<control type="label">
-								<top>25</top>
+								<top>30</top>
 								<width>470</width>
+								<height>20</height>
 								<label>$INFO[ListItem.Label2,, &#8226; ]$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31142] ]</label>
 								<textcolor>Color5</textcolor>
+								<aligny>top</aligny>
 								<include>dialog_CommonListItem</include>
 								<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
 							<control type="label">
-								<top>25</top>
+								<top>30</top>
 								<width>470</width>
+								<height>20</height>
 								<label>$INFO[ListItem.Label2]</label>
 								<textcolor>Color5</textcolor>
+								<aligny>top</aligny>
 								<include>dialog_CommonListItem</include>
 								<visible>IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
@@ -126,7 +130,7 @@
 							<visible>!SubString(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="group">
-							<left>90</left>
+							<left>85</left>
 							<top>7</top>
 							<control type="label">
 								<width>470</width>
@@ -134,16 +138,22 @@
 								<include>dialog_CommonListItemFocus</include>
 							</control>
 							<control type="label">
-								<top>25</top>
+								<top>30</top>
 								<width>470</width>
+								<height>20</height>
 								<label>$INFO[ListItem.Label2,, &#8226; ]$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31144] ]</label>
+								<aligny>top</aligny>
+								<include>autoscroll_Line</include>
 								<include>dialog_CommonListItemFocus</include>
 								<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
 							<control type="label">
-								<top>25</top>
+								<top>30</top>
 								<width>470</width>
+								<height>20</height>
 								<label>$INFO[ListItem.Label2]</label>
+								<aligny>top</aligny>
+								<include>autoscroll_Line</include>
 								<include>dialog_CommonListItemFocus</include>
 								<visible>IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
