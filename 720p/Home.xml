@@ -124,6 +124,7 @@
 
 		<!--post startup-->
 		<control type="group">
+			<visible>Window.Previous(startup)</visible>
 			<include>screen_Dimensions</include>
 			<!--widgets enabled-->
 			<animation type="Conditional" condition="!Skin.HasSetting(widgets.disable) + Skin.HasSetting(widgets.push) + !Container(9200).IsUpdating" reversible="false">
