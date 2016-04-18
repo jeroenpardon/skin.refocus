@@ -131,7 +131,7 @@
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Label]</value>
 		<value condition="Container.Content(tvshows) + SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Label]</value>
-		<value condition="Container.Content(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/) | SubString(Container.FolderPath,plugin://script.watchlist/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
+		<value condition="Container.Content(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/) | SubString(Container.FolderPath,plugin://service.library.data.provider/?type=recommendedepisodes)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(tvrecordings) | Window.IsActive(radiorecordings)">[B]$INFO[ListItem.ChannelNumber,,  ][/B]$INFO[ListItem.Label]</value>
 		<value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -638,10 +638,10 @@
 		<value condition="StringCompare(Container.FolderPath,addons://sources/video)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,plugin://plugin,left)">$INFO[Container.FolderName]</value>
 		<value condition="StringCompare(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[20012]</value>
-		<!--skin helper service-->
-		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=nextepisodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedmovies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-		<value condition="StringCompare(Container.FolderPath,plugin://script.skin.helper.service/)">$LOCALIZE[31625]</value>
+		<!--plugins-->
+		<value condition="StringCompare(Container.FolderPath,plugin://service.library.data.provider/?type=recommendedepisodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
+		<value condition="StringCompare(Container.FolderPath,plugin://service.library.data.provider/?type=recommendedmovies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
+		<value condition="StringCompare(Container.FolderPath,plugin://service.library.data.provider/)">$LOCALIZE[31625]</value>
 		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=favourites)">$ADDON[script.skin.helper.service 32000]</value>
 		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=favouritemedia)">$ADDON[script.skin.helper.service 32001]</value>
 		<value condition="SubString(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedmedia)">$ADDON[script.skin.helper.service 32004]</value>
