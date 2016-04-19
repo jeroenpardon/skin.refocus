@@ -1163,6 +1163,7 @@
 				<include>transition_Info</include>
 				<include>toggle_Menu</include>
 				<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(9900)]</visible>
+				<animation effect="slide" start="$PARAM[Left]" end="-28" time="0" condition="Skin.HasSetting(global.kiosk) + ![Window.IsActive(settings) | Window.IsActive(skinsettings) | Window.IsActive(profiles) | Window.IsActive(systeminfo) | Window.IsActive(filemanager)]">Conditional</animation>
 			</control>
 		</definition>
 	</include>
