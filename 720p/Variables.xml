@@ -743,7 +743,7 @@
 
 	<variable name="window:Title.Playlists">
 		<value condition="Window.IsVisible(videoplaylist) + !Window.IsActive(movieinformation)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
-		<value condition="Window.IsVisible(musicplaylist) + !Window.IsActive(musicinformation)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
+		<value condition="Window.IsActive(musicplaylist) + !Window.IsActive(musicinformation)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 	</variable>
 
 	<variable name="window:Title.Weather">
