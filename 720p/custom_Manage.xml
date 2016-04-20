@@ -78,7 +78,7 @@
 				<onclick>RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[Window(Home).Property(TVShowPath)]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
 				<include>dialog_MenuButton</include>
 				<visible>System.HasAddon(script.tvtunes) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
-				<enable>Skin.HasSetting(tvtunes.enable)</enable>
+				<enable>System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable)</enable>
 			</control>
 			<!--set rating-->
 			<control type="button" id="507">
