@@ -410,7 +410,7 @@
 				<width>1200</width>
 				<height>144</height>
 				<include>art_Frame-fo</include>
-				<visible>Control.IsVisible(51) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)]</visible>
+				<visible>Control.IsVisible(51) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
 			</control>
 			<!--container-->
 			<control type="fixedlist" id="51">
