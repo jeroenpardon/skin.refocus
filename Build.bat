@@ -30,8 +30,8 @@ xcopy "language\Portuguese (Brazil)" "BUILD\skin.refocus\language\Portuguese (Br
 xcopy "language\Portuguese (Portugal)" "BUILD\skin.refocus\language\Portuguese (Portugal)" /E /Q /I /Y
 xcopy "language\Romanian" "BUILD\skin.refocus\language\Romanian" /E /Q /I /Y
 xcopy "language\Russian" "BUILD\skin.refocus\language\Russian" /E /Q /I /Y
-xcopy "language\Swedish" "BUILD\skin.refocus\language\Swedish" /E /Q /I /Y
 xcopy "language\Spanish" "BUILD\skin.refocus\language\Spanish" /E /Q /I /Y
+xcopy "language\Swedish" "BUILD\skin.refocus\language\Swedish" /E /Q /I /Y
 xcopy "playlists" "BUILD\skin.refocus\playlists" /E /Q /I /Y
 xcopy "shortcuts" "BUILD\skin.refocus\shortcuts" /E /Q /I /Y
 xcopy "sounds" "BUILD\skin.refocus\sounds" /E /Q /I /Y
