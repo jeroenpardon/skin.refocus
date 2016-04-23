@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload>ClearProperty(WidgetState)</onload>
+	<onload>ClearProperty(Extinfo)</onload>
 	<onload condition="Window.Previous(startup)">RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets|clonebackgrounds&amp;mainmenuID=9000)</onload>
 	<onload condition="!StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
-	<onload>ClearProperty(WidgetState)</onload>
 	<onunload condition="Skin.HasSetting(homemenu.collapse) + StringCompare(Skin.String(homemenu.type),vertical)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
-	<onload>ClearProperty(Extinfo)</onload>
 
 	<controls>
 		<control type="group">
@@ -126,15 +126,9 @@
 		<control type="group">
 			<visible>Window.Previous(startup)</visible>
 			<include>screen_Dimensions</include>
-			<!--widgets enabled-->
-			<animation type="Conditional" condition="!Skin.HasSetting(widgets.disable) + Skin.HasSetting(widgets.push) + !Container(9200).IsUpdating" reversible="false">
+			<animation type="WindowOpen" reversible="false">
 				<effect type="fade" start="0" end="100" time="0" delay="0"/>
-				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="500"/>
-			</animation>
-			<!--widgets disabled-->
-			<animation type="Conditional" condition="Skin.HasSetting(widgets.disable) | !Skin.HasSetting(widgets.disable) + !Skin.HasSetting(widgets.push)" reversible="false">
-				<effect type="fade" start="0" end="100" time="0" delay="0"/>
-				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="500"/>
+				<effect type="slide" start="0,0" end="0,720" time="500" easing="InOut" tween="Cubic" delay="5000"/>
 			</animation>
 			<control type="image">
 				<include>screen_Dimensions</include>
