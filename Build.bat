@@ -11,30 +11,30 @@ xcopy "backgrounds" "BUILD\skin.refocus\backgrounds" /E /Q /I /Y
 xcopy "colors" "BUILD\skin.refocus\colors" /E /Q /I /Y
 xcopy "fonts" "BUILD\skin.refocus\fonts" /E /Q /I /Y
 xcopy "language" "BUILD\skin.refocus\language" /E /Q /I /Y
-xcopy "language\Bulgarian" "BUILD\skin.refocus\language\Bulgarian" /E /Q /I /Y
-xcopy "language\Catalan" "BUILD\skin.refocus\language\Catalan" /E /Q /I /Y
-xcopy "language\Czech" "BUILD\skin.refocus\language\Czech" /E /Q /I /Y
-xcopy "language\Danish" "BUILD\skin.refocus\language\Danish" /E /Q /I /Y
-xcopy "language\Dutch" "BUILD\skin.refocus\language\Dutch" /E /Q /I /Y
-xcopy "language\English" "BUILD\skin.refocus\language\English" /E /Q /I /Y
-xcopy "language\Finnish" "BUILD\skin.refocus\language\Finnish" /E /Q /I /Y
-xcopy "language\French" "BUILD\skin.refocus\language\French" /E /Q /I /Y
-xcopy "language\Galician" "BUILD\skin.refocus\language\Galician" /E /Q /I /Y
-xcopy "language\German" "BUILD\skin.refocus\language\German" /E /Q /I /Y
-xcopy "language\Italian" "BUILD\skin.refocus\language\Italian" /E /Q /I /Y
-xcopy "language\Korean" "BUILD\skin.refocus\language\Korean" /E /Q /I /Y
-xcopy "language\Lithuanian" "BUILD\skin.refocus\language\Lithuanian" /E /Q /I /Y
-xcopy "language\Norwegian" "BUILD\skin.refocus\language\Norwegian" /E /Q /I /Y
-xcopy "language\Polish" "BUILD\skin.refocus\language\Polish" /E /Q /I /Y
-xcopy "language\Portuguese (Brazil)" "BUILD\skin.refocus\language\Portuguese (Brazil)" /E /Q /I /Y
-xcopy "language\Portuguese (Portugal)" "BUILD\skin.refocus\language\Portuguese (Portugal)" /E /Q /I /Y
-xcopy "language\Romanian" "BUILD\skin.refocus\language\Romanian" /E /Q /I /Y
-xcopy "language\Russian" "BUILD\skin.refocus\language\Russian" /E /Q /I /Y
-xcopy "language\Spanish" "BUILD\skin.refocus\language\Spanish" /E /Q /I /Y
-xcopy "language\Swedish" "BUILD\skin.refocus\language\Swedish" /E /Q /I /Y
+xcopy "language\resource.language.bg_bg" "BUILD\skin.refocus\language\resource.language.bg_bg" /E /Q /I /Y
+xcopy "language\resource.language.ca_es" "BUILD\skin.refocus\language\resource.language.ca_es" /E /Q /I /Y
+xcopy "language\resource.language.cs_cz" "BUILD\skin.refocus\language\resource.language.cs_cz" /E /Q /I /Y
+xcopy "language\resource.language.da_dk" "BUILD\skin.refocus\language\resource.language.da_dk" /E /Q /I /Y
+xcopy "language\resource.language.de_de" "BUILD\skin.refocus\language\resource.language.de_de" /E /Q /I /Y
+xcopy "language\resource.language.en_gb" "BUILD\skin.refocus\language\resource.language.en_gb" /E /Q /I /Y
+xcopy "language\resource.language.es_es" "BUILD\skin.refocus\language\resource.language.es_es" /E /Q /I /Y
+xcopy "language\resource.language.fi_fi" "BUILD\skin.refocus\language\resource.language.fi_fi" /E /Q /I /Y
+xcopy "language\resource.language.fr_fr" "BUILD\skin.refocus\language\resource.language.fr_fr" /E /Q /I /Y
+xcopy "language\resource.language.gl_es" "BUILD\skin.refocus\language\resource.language.gl_es" /E /Q /I /Y
+xcopy "language\resource.language.it_it" "BUILD\skin.refocus\language\resource.language.it_it" /E /Q /I /Y
+xcopy "language\resource.language.ko_ko" "BUILD\skin.refocus\language\resource.language.ko_ko" /E /Q /I /Y
+xcopy "language\resource.language.lt_lt" "BUILD\skin.refocus\language\resource.language.lt_lt" /E /Q /I /Y
+xcopy "language\resource.language.nb_no" "BUILD\skin.refocus\language\resource.language.nb_no" /E /Q /I /Y
+xcopy "language\resource.language.nl_nl" "BUILD\skin.refocus\language\resource.language.nl_nl" /E /Q /I /Y
+xcopy "language\resource.language.pt_br" "BUILD\skin.refocus\language\resource.language.pt_br" /E /Q /I /Y
+xcopy "language\resource.language.pt_pt" "BUILD\skin.refocus\language\resource.language.pt_pt" /E /Q /I /Y
+xcopy "language\resource.language.ro_ro" "BUILD\skin.refocus\language\resource.language.ro_ro" /E /Q /I /Y
+xcopy "language\resource.language.ru_ru" "BUILD\skin.refocus\language\resource.language.ru_ru" /E /Q /I /Y
+xcopy "language\resource.language.sv_se" "BUILD\skin.refocus\language\resource.language.sv_se" /E /Q /I /Y
+xcopy "language\resource.language.zh_cn" "BUILD\skin.refocus\language\resource.language.zh_cn" /E /Q /I /Y
 xcopy "playlists" "BUILD\skin.refocus\playlists" /E /Q /I /Y
 xcopy "shortcuts" "BUILD\skin.refocus\shortcuts" /E /Q /I /Y
-xcopy "sounds" "BUILD\skin.refocus\sounds" /E /Q /I /Y
+xcopy "extras" "BUILD\skin.refocus\extras" /E /Q /I /Y
 xcopy "*.xml" "BUILD\skin.refocus\" /Q /I /Y
 xcopy "*.txt" "BUILD\skin.refocus\" /Q /I /Y
 xcopy "*.png" "BUILD\skin.refocus\" /Q /I /Y
