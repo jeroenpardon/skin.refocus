@@ -6,7 +6,7 @@
 			<timeperimage>slideshow_Timer</timeperimage>
 			<imagepath background="true">$VAR[home:Background]</imagepath>
 			<!--make sure backgrounds are shown when widgets are enabled and focused, but contain no items-->
-			<visible>!IntegerGreaterThan(Container(9200).NumItems,0)</visible>
+			<visible>IsEmpty(Container(9000).ListItem.Property(widgetType)) | [!IsEmpty(Container(9000).ListItem.Property(widgetType)) + !IntegerGreaterThan(Container(9200).NumItems,0)]</visible>
 			<!--make sure the background does not shine through on every scroll movement when multiimage weather fanart is selected-->
 			<visible>![StringCompare(Container(9000).ListItem.Property(widgetType),weather) + SubString(Skin.String(WeatherFanart.path),.multi) + Control.HasFocus(9200)]</visible>
 			<visible>![Skin.HasSetting(widgets.push) + !IsEmpty(Container(9000).ListItem.Property(widgetType))]</visible>
