@@ -27,6 +27,7 @@ xcopy "language\resource.language.lt_lt" "BUILD\skin.refocus\language\resource.l
 xcopy "language\resource.language.nb_no" "BUILD\skin.refocus\language\resource.language.nb_no" /E /Q /I /Y
 xcopy "language\resource.language.nl_nl" "BUILD\skin.refocus\language\resource.language.nl_nl" /E /Q /I /Y
 xcopy "language\resource.language.pt_br" "BUILD\skin.refocus\language\resource.language.pt_br" /E /Q /I /Y
+xcopy "language\resource.language.pl_pl" "BUILD\skin.refocus\language\resource.language.pl_pl" /E /Q /I /Y
 xcopy "language\resource.language.pt_pt" "BUILD\skin.refocus\language\resource.language.pt_pt" /E /Q /I /Y
 xcopy "language\resource.language.ro_ro" "BUILD\skin.refocus\language\resource.language.ro_ro" /E /Q /I /Y
 xcopy "language\resource.language.ru_ru" "BUILD\skin.refocus\language\resource.language.ru_ru" /E /Q /I /Y
