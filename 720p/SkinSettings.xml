@@ -15,6 +15,10 @@
 			<param name="Left" value="32"/>
 			<param name="Label" value="$VAR[window:Title.System]"/>
 		</include>
+		
+		<include name="global_Itemcount">
+			<param name="InfoLabel" value="$INFO[Window(Home).Property(SkinHelper.skinVersion)]"/>
+		</include>
 
 		<control type="group">
 			<left>65</left>
@@ -573,43 +577,17 @@
 					<itemgap>2</itemgap>
 					<pagecontrol>70</pagecontrol>
 					<visible>Skin.String(SkinSettings,Credits)</visible>
-					<control type="grouplist" id="1000">
-						<width>850</width>
-						<height>44</height>
-						<itemgap>2</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="button" id="1001">
-							<width>425</width>
-							<label>[UPPERCASE]$LOCALIZE[31800][/UPPERCASE]</label>
-							<onclick>noop</onclick>
-							<textcolor>Color2</textcolor>
-							<include>settings_Listbutton</include>
-						</control>
-						<control type="button" id="1002">
-							<width>425</width>
-							<label>[UPPERCASE]$LOCALIZE[19114][/UPPERCASE]</label>
-							<onclick>noop</onclick>
-							<textcolor>Color2</textcolor>
-							<include>settings_Listbutton</include>
-						</control>
+					<control type="button" id="1001">
+						<label>[UPPERCASE]$LOCALIZE[31800][/UPPERCASE]</label>
+						<onclick>noop</onclick>
+						<textcolor>Color2</textcolor>
+						<include>settings_Listbutton</include>
 					</control>
-					<control type="grouplist" id="1003">
-						<width>850</width>
-						<height>44</height>
-						<itemgap>2</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="button" id="1004">
-							<width>425</width>
-							<label>Jeroen Pardon</label>
-							<onclick>noop</onclick>
-							<include>settings_Listbutton</include>
-						</control>
-						<control type="button" id="1005">
-							<width>425</width>
-							<label>$INFO[Window(Home).Property(SkinHelper.skinVersion)]</label>
-							<onclick>noop</onclick>
-							<include>settings_Listbutton</include>
-						</control>
+					<control type="button" id="1002">
+						<label>Jeroen Pardon</label>
+						<onclick>noop</onclick>
+						<textcolor>Color1</textcolor>
+						<include>settings_Listbutton</include>
 					</control>
 					<control type="button" id="1006">
 						<label>[UPPERCASE]$LOCALIZE[31801][/UPPERCASE]</label>

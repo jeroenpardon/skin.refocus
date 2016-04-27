@@ -12,15 +12,20 @@
 				<param name="Label" value="$VAR[window:Title.System]"/>
 			</include>
 
+			<include name="global_Itemcount">
+				<param name="InfoLabel" value="$INFO[System.FriendlyName]"/>
+			</include>
+
 			<control type="panel" id="50">
 				<left>90</left>
-				<top>80</top>
+				<top>95</top>
 				<width>1100</width>
 				<height>600</height>
-				<onleft>50</onleft>
+				<onleft>6000</onleft>
 				<onright>50</onright>
 				<onup>50</onup>
 				<ondown>50</ondown>
+				<include>toggle_Menu</include>
 				<include>global_ListScroll</include>
 				<include>transition_Content</include>	
 				<itemlayout width="550" height="100">
@@ -160,7 +165,11 @@
 						<onclick>ActivateWindow(systeminfo)</onclick>
 					</item>
 				</content>
-			</control>  
+			</control>
+
+		<!--menu-->
+			<include>menu_Settings</include>
+
 		</control>
 	</controls>
 </window>
