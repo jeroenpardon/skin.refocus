@@ -116,6 +116,7 @@
 									<width>100%</width>
 									<height>40</height>
 									<itemgap>10</itemgap>
+									<onright>71</onright>
 									<orientation>horizontal</orientation>
 									<defaultcontrol always="true">8</defaultcontrol>
 									<!--biography-->
@@ -148,8 +149,9 @@
 								<control type="textbox" id="401">
 									<top>70</top>
 									<width>875</width>
-									<height min="0" max="405">auto</height>
+									<height>405</height>
 									<label>$INFO[Window.Property(Biography)]</label>
+									<pagecontrol>71</pagecontrol>
 									<include>detail_Text</include>
 									<visible>Skin.String(actor,biography)</visible>
 								</control>
@@ -309,7 +311,6 @@
 						</focusedlayout>
 					</control>
 				</control>
-
 				<control type="panel" id="450">
 					<visible>false</visible>
 					<itemlayout>
@@ -327,13 +328,12 @@
 			</control>
 
 			<!--pagecontrol-->
-			<control type="scrollbar" id="70">
+			<control type="scrollbar" id="71">
 				<top>0</top>
 				<left>1272</left>
 				<width>8</width>
 				<height>720</height>
 				<onleft>4000</onleft>
-				<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
 			</control>
 		</control>
 	</controls>
