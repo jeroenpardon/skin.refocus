@@ -483,6 +483,12 @@
 		<value condition="!IsEmpty(ListItem.Property(Artist_Disbanded))">$LOCALIZE[21896]</value>
 	</variable>
 
+	<variable name="information:Toggle">
+		<value condition="StringCompare(Skin.String(info.toggle),plot)">$LOCALIZE[206]</value>
+		<value condition="StringCompare(Skin.String(info.toggle),cast)">$LOCALIZE[207]</value>
+		<value>$LOCALIZE[206]</value>
+	</variable>
+
 	<variable name="extContent:Poster">
 		<value condition="StringCompare(Window(Home).Property(extContent),$LOCALIZE[31622])">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(Home).Property(extDBID)]</value>
 		<value condition="StringCompare(Window(Home).Property(extContent),$LOCALIZE[31620])">plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(Home).Property(extQuery)]</value>
