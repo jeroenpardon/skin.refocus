@@ -18,3 +18,6 @@ For instructions please see the wiki [here] (https://github.com/jeroenpardon/ski
 [reFocus forum](http://forum.kodi.tv/forumdisplay.php?fid=72)
 
 [Kodi](http://www.kodi.tv/)
+
+### Links
+If you like reFocus and would like to buy me a beer (or coffee), a [donation](http://bit.ly/refocusdonate) is greatly appreciated.
