@@ -17,5 +17,5 @@ For instructions please see the wiki [here] (https://github.com/jeroenpardon/ski
 
 [Kodi](http://www.kodi.tv/)
 
-### Links
+### Support
 If you like reFocus and would like to buy me a beer (or coffee), a [donation](http://bit.ly/refocusdonate) is greatly appreciated.
