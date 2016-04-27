@@ -171,14 +171,14 @@
 			<left>20</left>
 			<top>16</top>
 			<include>toggle_Menu</include>
-			<visible>!Skin.HasSetting(global.kiosk) + [Window.IsActive(eventlog) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(programs) | Window.IsActive(weather) | Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Control.IsVisible(9900)</visible>
+			<visible>!Skin.HasSetting(global.kiosk) + [Window.IsActive(eventlog) | Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(programs) | Window.IsActive(weather) | Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Control.IsVisible(9900)</visible>
 			<include>transition_Indicator</include>
 			<include>transition_Info</include>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(501) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(574) | Control.IsVisible(575) | Window.IsActive(weather) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(501) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(574) | Control.IsVisible(575) | Window.IsActive(weather) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<include>nav_IndicatorLeft</include>
 			</control>
 			<control type="image">
@@ -1163,7 +1163,7 @@
 				<include>transition_Info</include>
 				<include>toggle_Menu</include>
 				<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(9900)]</visible>
-				<animation effect="slide" start="$PARAM[Left]" end="-28" time="0" condition="Skin.HasSetting(global.kiosk) + ![Window.IsActive(settings) | Window.IsActive(skinsettings) | Window.IsActive(profiles) | Window.IsActive(systeminfo) | Window.IsActive(filemanager)]">Conditional</animation>
+				<animation effect="slide" start="$PARAM[Left]" end="-28" time="0" condition="Skin.HasSetting(global.kiosk) + ![Window.IsActive(profiles) | Window.IsActive(systeminfo) | Window.IsActive(filemanager)]">Conditional</animation>
 			</control>
 		</definition>
 	</include>

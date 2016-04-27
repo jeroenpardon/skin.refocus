@@ -9,20 +9,20 @@
 	<!--global includes-->
 		<include>global_Background</include>
 		<include>global_Includes</include>
+		<include>global_MenuGuide</include>
 		
 	<!--window header-->
 		<include name="windowTitle">
-			<param name="Left" value="32"/>
 			<param name="Label" value="$VAR[window:Title.System]"/>
 		</include>
-		
 		<include name="global_Itemcount">
 			<param name="InfoLabel" value="$INFO[Window(Home).Property(SkinHelper.skinVersion)]"/>
 		</include>
 
-		<control type="group">
+		<control type="group" id="50">
 			<left>65</left>
 			<top>90</top>
+			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 
 		<!--CATEGORIES-->
@@ -36,6 +36,7 @@
 						<label>$LOCALIZE[31200]</label>
 						<onfocus>Skin.SetString(SkinSettings,Home)</onfocus>
 						<onup>19</onup>
+						<onleft>6000</onleft>
 						<onright>SetFocus(100)</onright>
 						<ondown>15</ondown>
 						<include>settings_Menu</include>
@@ -47,6 +48,7 @@
 					<control type="button" id="15">
 						<label>$LOCALIZE[31201]</label>
 						<onfocus>Skin.SetString(SkinSettings,Artwork)</onfocus>
+						<onleft>6000</onleft>
 						<onright>600</onright>
 						<onup>10</onup>
 						<ondown>16</ondown>
@@ -59,6 +61,7 @@
 					<control type="button" id="16">
 						<label>$LOCALIZE[31202]</label>
 						<onfocus>Skin.SetString(SkinSettings,Views)</onfocus>
+						<onleft>6000</onleft>
 						<onright>700</onright>
 						<onup>15</onup>
 						<ondown>17</ondown>
@@ -71,6 +74,7 @@
 					<control type="button" id="17">
 						<label>$LOCALIZE[24001]</label>
 						<onfocus>Skin.SetString(SkinSettings,Addons)</onfocus>
+						<onleft>6000</onleft>
 						<onright>800</onright>
 						<onup>16</onup>
 						<ondown>18</ondown>
@@ -83,6 +87,7 @@
 					<control type="button" id="18">
 						<label>$LOCALIZE[31203]</label>
 						<onfocus>Skin.SetString(SkinSettings,Other)</onfocus>
+						<onleft>6000</onleft>
 						<onright>900</onright>
 						<onup>17</onup>
 						<ondown>19</ondown>
@@ -95,6 +100,7 @@
 					<control type="button" id="19">
 						<label>$LOCALIZE[31204] reFocus</label>
 						<onfocus>Skin.SetString(SkinSettings,Credits)</onfocus>
+						<onleft>6000</onleft>
 						<onright>70</onright>
 						<onup>18</onup>
 						<ondown>10</ondown>
@@ -523,6 +529,8 @@
 					<control type="radiobutton" id="905">
 						<label>$LOCALIZE[31264]</label>
 						<onclick>Skin.ToggleSetting(global.kiosk)</onclick>
+						<!--reload the skin so that the window title in skin settings is updated to the correct position too-->
+						<onclick>ReloadSkin()</onclick>
 						<selected>Skin.HasSetting(global.kiosk)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
@@ -650,19 +658,24 @@
 					</control>
 				</control>
 			</control>
+
+			<control type="image">
+				<top>525</top>
+				<width>200</width>
+				<texture>logos/refocuslogo.png</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<include>transition_Content</include>
+			</control>
+
 		</control>
 		<control type="scrollbar" id="70">
 			<left>1272</left>
 			<height>screen_Height</height>
 			<onleft>9001</onleft>
 		</control>
-		<control type="image">
-			<left>75</left>
-			<top>600</top>
-			<width>200</width>
-			<texture>logos/refocuslogo.png</texture>
-			<aspectratio align="left">keep</aspectratio>
-			<include>transition_Content</include>
-		</control>
+		
+
+		<!--menu-->
+		<include>menu_Settings</include>
 	</controls>
 </window>
