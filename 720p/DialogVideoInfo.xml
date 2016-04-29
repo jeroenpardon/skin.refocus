@@ -115,7 +115,7 @@
 									<control type="togglebutton" id="8">
 										<label>$LOCALIZE[208]</label>
 										<altlabel>$LOCALIZE[1024]</altlabel>
-										<ondown>399</ondown>
+										<ondown>5050</ondown>
 										<onclick>Dialog.Close(MovieInformation)</onclick>
 										<include>global_Button</include>
 										<usealttexture>Container.Content(tvshows)</usealttexture>
@@ -139,7 +139,7 @@
 									<!--cinema-->
 									<control type="button" id="5003">
 										<label>Cinema</label>
-										<ondown>399</ondown>
+										<ondown>5050</ondown>
 										<onclick>Dialog.Close(movieinformation)</onclick>
 										<onclick>Playlist.Clear</onclick>
 										<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
@@ -150,14 +150,14 @@
 									<control type="button" id="5004">
 										<label>$LOCALIZE[31506]</label>
 										<onclick>ActivateWindow(1160)</onclick>
-										<ondown>399</ondown>
+										<ondown>5050</ondown>
 										<include>global_Button</include>
 									</control>
 									<!--manage-->
 									<control type="button" id="5005">
 										<label>$LOCALIZE[16106]</label>
 										<onclick>ActivateWindow(1120)</onclick>
-										<ondown>399</ondown>
+										<ondown>5050</ondown>
 										<include>global_Button</include>
 										<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 									</control>
@@ -316,7 +316,9 @@
 						<include name="view_Icon-Art">
 							<param name="Width" value="195"/>
 							<param name="Height" value="296"/>
-							<param name="ArtTexture" value="$INFO[ListItem.Icon]"/>
+							<param name="Fallback" value="thumbs/default_Portrait.png"/>
+							<param name="ShowActualIcon" value="false"/>
+							<param name="Art" value="$INFO[ListItem.Icon]"/>
 						</include>
 						<control type="textbox">
 							<left>7</left>
@@ -339,7 +341,9 @@
 						<include name="view_Icon-Art">
 							<param name="Width" value="195"/>
 							<param name="Height" value="296"/>
-							<param name="ArtTexture" value="$INFO[ListItem.Icon]"/>
+							<param name="Fallback" value="thumbs/default_Portrait.png"/>
+							<param name="ShowActualIcon" value="false"/>
+							<param name="Art" value="$INFO[ListItem.Icon]"/>
 						</include>
 						<control type="textbox">
 							<left>7</left>
@@ -495,11 +499,11 @@
 
 			<!--pagecontrol-->
 			<control type="scrollbar" id="71">
-				<top>0</top>
 				<left>1272</left>
 				<width>8</width>
 				<height>720</height>
 				<onleft>4000</onleft>
+				<onright>8</onright>
 			</control>
 		</control>
 	</controls>

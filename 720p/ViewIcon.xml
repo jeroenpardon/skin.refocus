@@ -21,8 +21,9 @@
 		<param name="Height" default="252"/>
 		<param name="Fallback" default="thumbs/default_Portrait.png"/>
 		<param name="IconSize" default="72"/>
+		<param name="ShowActualIcon" default="IsEmpty(ListItem.Art(thumb))"/>
 		<param name="ShowLogo" default="false"/>
-		<param name="ArtTexture" default="$VAR[art:Portrait]"/>
+		<param name="Art" default="$VAR[art:Portrait]"/>
 		<param name="ActualIcon" default="$INFO[ListItem.ActualIcon]"/>
 		<definition>
 			<control type="group">
@@ -34,7 +35,7 @@
 					<width>$PARAM[Width]</width>
 					<height>$PARAM[Height]</height>
 					<texture background="true">$PARAM[Fallback]</texture>
-					<aspectratio>stretch</aspectratio>
+					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="image">
 					<texture>$PARAM[ActualIcon]</texture>
@@ -42,12 +43,12 @@
 					<height>$PARAM[IconSize]</height>
 					<centerleft>50%</centerleft>
 					<centertop>50%</centertop>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>$PARAM[ShowActualIcon]</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[Width]</width>
 					<height>$PARAM[Height]</height>
-					<texture background="true">$PARAM[ArtTexture]</texture>
+					<texture background="true">$PARAM[Art]</texture>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="image">
@@ -241,7 +242,7 @@
 					<include name="view_Icon-Art">
 						<param name="Width" value="164"/>
 						<param name="Height" value="164"/>
-						<param name="ArtTexture" value="$VAR[art:Square]"/>
+						<param name="Art" value="$VAR[art:Square]"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="188" height="188">
@@ -253,7 +254,7 @@
 					<include name="view_Icon-Art">
 						<param name="Width" value="164"/>
 						<param name="Height" value="164"/>
-						<param name="ArtTexture" value="$VAR[art:Square]"/>
+						<param name="Art" value="$VAR[art:Square]"/>
 					</include>
 				</focusedlayout>
 			</control>
@@ -299,7 +300,7 @@
 					<include name="view_Icon-Art">
 						<param name="Width" value="160"/>
 						<param name="Height" value="160"/>
-						<param name="ArtTexture" value="$VAR[art:Square]"/>
+						<param name="Art" value="$VAR[art:Square]"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="184" height="184">
@@ -311,7 +312,7 @@
 					<include name="view_Icon-Art">
 						<param name="Width" value="160"/>
 						<param name="Height" value="160"/>
-						<param name="ArtTexture" value="$VAR[art:Square]"/>
+						<param name="Art" value="$VAR[art:Square]"/>
 					</include>
 				</focusedlayout>
 			</control>
@@ -355,7 +356,7 @@
 					<param name="Height" value="205"/>
 					<param name="Fallback" value="thumbs/default_Landscape.png"/>
 					<param name="ShowLogo" value="true"/>
-					<param name="ArtTexture" value="$VAR[art:Landscape]"/>
+					<param name="Art" value="$VAR[art:Landscape]"/>
 				</include>
 				<include name="status_Info">
 					<param name="Left" value="345"/>
@@ -374,7 +375,7 @@
 					<param name="Height" value="205"/>
 					<param name="Fallback" value="thumbs/default_Landscape.png"/>
 					<param name="ShowLogo" value="true"/>
-					<param name="ArtTexture" value="$VAR[art:Landscape]"/>
+					<param name="Art" value="$VAR[art:Landscape]"/>
 				</include>
 				<include name="status_Info">
 					<param name="Left" value="345"/>
