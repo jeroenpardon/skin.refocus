@@ -97,6 +97,7 @@
 									<width>100%</width>
 									<height>40</height>
 									<itemgap>10</itemgap>
+									<onright>71</onright>
 									<orientation>horizontal</orientation>
 									<defaultcontrol always="true">8</defaultcontrol>
 									<!--play / browse-->
@@ -138,6 +139,7 @@
 									<width>875</width>
 									<height min="0" max="325">auto</height>
 									<label>$VAR[media:Plot]</label>
+									<pagecontrol>71</pagecontrol>
 									<include>detail_Text</include>
 									<visible>!Control.IsVisible(50)</visible>
 								</control>
@@ -291,6 +293,15 @@
 						</focusedlayout>
 					</control>
 				</control>
+			</control>
+
+			<!--pagecontrol-->
+			<control type="scrollbar" id="71">
+				<left>1272</left>
+				<width>8</width>
+				<height>720</height>
+				<onleft>4000</onleft>
+				<onright>8</onright>
 			</control>
 		</control>
 	</controls>
