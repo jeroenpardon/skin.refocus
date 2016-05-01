@@ -1185,6 +1185,17 @@
 	</include>
 
 <!--WIDGETS-->
+	<include name="nowplaying-widget">
+		<item id="0">
+			<label>$INFO[MusicPlayer.Title]</label>
+			<label2>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, &#8226; ]$INFO[MusicPlayer.Year, &#8226; ]</label2>
+			<property name="Label3">$VAR[media:PlayingDescription]</property>
+			<icon>$INFO[MusicPlayer.Property(Fanart_Image)]</icon>
+			<thumb>$INFO[MusicPlayer.Property(Fanart_Image)]</thumb>
+			<onclick>ActivateWindow(musicplaylist)</onclick>
+		</item>
+	</include>
+
 	<include name="weather-widget">
 		<item id="0">
 			<label>$LOCALIZE[31605]</label>

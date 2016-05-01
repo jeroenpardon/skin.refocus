@@ -44,6 +44,7 @@
 		<value condition="!IntegerGreaterThan(Container(9200).NumItems,0)">$LOCALIZE[284]</value>
 		<value condition="Container(9200).IsUpdating">$LOCALIZE[31710]...</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[Weather.Location]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),static) + Player.HasAudio">$INFO[MusicPlayer.Title]</value>
 		<value condition="!StringCompare(Container(9000).ListItem.Property(widgetType),weather) + StringCompare(Window(Home).Property(WidgetState),open) | Skin.HasSetting(widgets.push)">$LOCALIZE[31033] [B]$INFO[Container(9200).CurrentItem][/B] $LOCALIZE[20163] [B]$INFO[Container(9200).NumItems][/B]</value>
 		<value condition="!StringCompare(Container(9000).ListItem.Property(widgetType),weather) + !StringCompare(Window(Home).Property(WidgetState),open) | Skin.HasSetting(widgets.push)">$INFO[Container(9200).ListItem(0).TVShowTitle,,: ]$INFO[Container(9200).ListItem(0).Title]</value>
 	</variable>
@@ -71,6 +72,7 @@
 
 	<variable name="widget:Item.Description">
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),weather)">$INFO[ListItem.Property(Temp)]$INFO[ListItem.Property(Feelslike), &#8226; ]$INFO[ListItem.Property(HighTemp)]$INFO[ListItem.Property(LowTemp), &#8226; ]$INFO[ListItem.Property(Wind), &#8226; ][CR]$INFO[ListItem.Property(Updated)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),static)">$INFO[ListItem.Property(Label3)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Description))">$INFO[ListItem.Property(Description)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
@@ -214,6 +216,11 @@
 		<value condition="Control.IsVisible(50) + Container.Content(tvshows) + !IsEmpty(ListItem.Plot)">[UPPERCASE][B]$VAR[media:NextAired.Info,,[CR]][/B][/UPPERCASE]$INFO[ListItem.Plot]</value>
 		<value condition="!IsEmpty(ListItem.Plotoutline)">$INFO[ListItem.Plotoutline]</value>
 		<value>$INFO[ListItem.Plot]</value>
+	</variable>
+
+	<variable name="media:PlayingDescription">
+		<value condition="!IsEmpty(MusicPlayer.Property(Album_Description))">$INFO[MusicPlayer.Property(Album_Description)]</value>
+		<value condition="!IsEmpty(MusicPlayer.Property(Artist_Description))">$INFO[MusicPlayer.Property(Artist_Description)]</value>
 	</variable>
 
 	<variable name="media:NextAired.Info">
@@ -692,6 +699,7 @@
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[2]</value>
 		<value condition="StringCompare(Container.FolderPath,sources://music/)">$LOCALIZE[744]</value>
 		<value condition="StringCompare(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
+		<value condition="StringCompare(Container.FolderPath,playlistmusic://)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,recentlyaddedalbums,Right)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
 		<value condition="SubString(Container.FolderPath,recentlyplayedalbums,Right)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[31016][/COLOR]</value>
