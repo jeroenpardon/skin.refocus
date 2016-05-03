@@ -188,8 +188,8 @@
 						<label>$LOCALIZE[31213]</label>
 						<onclick>Skin.ToggleSetting(backgrounds.custom)</onclick>
 						<onclick>Skin.ToggleSetting(backgrounds.fanart)</onclick>
-						<selected>Skin.HasSetting(backgrounds.custom)</selected>
-						<onclick condition="!Skin.HasSetting(backgrounds.custom)">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
+						<selected>!Skin.HasSetting(backgrounds.custom)</selected>
+						<onclick condition="Skin.HasSetting(backgrounds.custom)">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
 						<include>settings_Radiobutton</include>
 						<enable>!Skin.HasSetting(backgrounds.Fanartgrabber)</enable>
 					</control>
