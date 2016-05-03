@@ -115,7 +115,8 @@
 									<control type="togglebutton" id="8">
 										<label>$LOCALIZE[208]</label>
 										<altlabel>$LOCALIZE[1024]</altlabel>
-										<ondown>5050</ondown>
+										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
+										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<onclick>Dialog.Close(MovieInformation)</onclick>
 										<include>global_Button</include>
 										<usealttexture>Container.Content(tvshows)</usealttexture>
@@ -129,17 +130,26 @@
 									</control>
 									<control type="button" id="55">
 										<label>$VAR[information:Toggle]</label>
-										<ondown>5050</ondown>
+										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
+										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<onclick condition="IsEmpty(Skin.String(info.toggle))">Skin.SetString(info.toggle,plot)</onclick>
 										<onclick condition="StringCompare(Skin.String(info.toggle),cast)">Skin.SetString(info.toggle,plot)</onclick>
 										<onclick condition="StringCompare(Skin.String(info.toggle),plot)">Skin.SetString(info.toggle,cast)</onclick>
 										<include>global_Button</include>
 										<visible>System.HasAddon(script.extendedinfo)</visible>
 									</control>
+									<!--director-->
+									<control type="button" id="13">
+										<label>$LOCALIZE[20339]</label>
+										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
+										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
+										<include>global_Button</include>
+									</control>
 									<!--cinema-->
 									<control type="button" id="5003">
 										<label>Cinema</label>
-										<ondown>5050</ondown>
+										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
+										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<onclick>Dialog.Close(movieinformation)</onclick>
 										<onclick>Playlist.Clear</onclick>
 										<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
@@ -150,14 +160,16 @@
 									<control type="button" id="5004">
 										<label>$LOCALIZE[31506]</label>
 										<onclick>ActivateWindow(1160)</onclick>
-										<ondown>5050</ondown>
+										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
+										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
 									</control>
 									<!--manage-->
 									<control type="button" id="5005">
 										<label>$LOCALIZE[16106]</label>
 										<onclick>ActivateWindow(1120)</onclick>
-										<ondown>5050</ondown>
+										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
+										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
 										<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 									</control>
@@ -243,12 +255,12 @@
 					<height>390</height>
 					<onleft>50</onleft>
 					<onright>50</onright>
-					<onup>5</onup>
-					<ondown>noop</ondown>
+					<onup>5000</onup>
+					<ondown>5050</ondown>
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
 					<include>fadeinout</include>
-					<visible allowhiddenfocus="true">[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo) + StringCompare(Skin.String(info.toggle),cast)</visible>
+					<visible allowhiddenfocus="true">[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo)</visible>
 					<itemlayout width="229" height="350">
 						<include name="view_Icon-Frame">
 							<param name="Width" value="209"/>
@@ -302,7 +314,7 @@
 					<height>390</height>
 					<onleft>5050</onleft>
 					<onright>5050</onright>
-					<onup>55</onup>
+					<onup>5000</onup>
 					<ondown>noop</ondown>
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
