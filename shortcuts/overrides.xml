@@ -118,6 +118,7 @@
 		<!--commands-->
 		<node label="$LOCALIZE[32054]">
 			<shortcut label="$LOCALIZE[13012]" type="$LOCALIZE[31704]" icon="DefaultIconKodi.png">ActivateWindow(shutdownmenu)</shortcut>
+			<shortcut label="$LOCALIZE[12005]" type="$LOCALIZE[31704]" icon="DefaultIconKodi.png">Action(fullscreen)</shortcut>
 			<content>commands</content>
 		</node>
 	</groupings>
@@ -257,6 +258,9 @@
 		<action>ActivateWindow(musicplaylist)</action>
 	</override>
 
+
+
+
 <!--settings removal warning-->
 	<warn heading="::LOCAL::19098" message="::LOCAL::31018">ActivateWindow(Settings)</warn>
 
@@ -281,7 +285,24 @@
 	<icon labelID="32058">DefaultAddonWebSkin.png</icon><!--create shortcut here-->
 	<icon labelID="1036">DefaultIconFavourite.png</icon>
 	<icon labelID="10007">DefaultIconInfo.png</icon><!--system information-->
-
+	<!--commands-->
+	<icon labelID="13013">DefaultIconKodi.png</icon><!--reboot-->
+	<icon labelID="13005">DefaultIconKodi.png</icon><!--shutdown-->
+	<icon labelID="13016">DefaultIconKodi.png</icon><!--power off system-->
+	<icon labelID="13009">DefaultIconKodi.png</icon><!--quit-->
+	<icon labelID="13010">DefaultIconKodi.png</icon><!--hibernate-->
+	<icon labelID="13011">DefaultIconKodi.png</icon>><!--suspend-->
+	<icon labelID="19026">DefaultIconKodi.png</icon><!--add timer-->
+	<icon labelID="20151">DefaultIconKodi.png</icon><!--cancel shutdown timer-->
+	<icon labelID="24008">DefaultIconKodi.png</icon><!--screensaver-->
+	<icon labelID="13014">DefaultIconKodi.png</icon><!--minimise-->
+	<icon labelID="13013">DefaultIconKodi.png</icon><!--master mode-->
+	<icon labelID="15023">DefaultIconKodi.png</icon><!--rip audio cd-->
+	<icon labelID="32046">DefaultIconKodi.png</icon><!--update video library-->
+	<icon labelID="32047">DefaultIconKodi.png</icon><!--update audio library-->
+	<icon labelID="32055">DefaultIconKodi.png</icon><!--clean video library-->
+	<icon labelID="32056">DefaultIconKodi.png</icon><!--clean audio library-->
+	
 <!--backgrounds-->
 	<backgroundBrowse default="">True</backgroundBrowse>
 	<background label="8">$INFO[Skin.String(WeatherFanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[weather:FanartExtension]</background>
