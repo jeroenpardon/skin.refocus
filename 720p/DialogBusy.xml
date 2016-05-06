@@ -3,7 +3,7 @@
 	<defaultcontrol>-</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>59</left><!--32-->
+		<left>32</left><!--59-->
 		<top>15</top>
 	</coordinates>
 	<controls>
@@ -11,9 +11,10 @@
 			<!--move busy label to the right when vertical home menu is active to prevent overlapping-->
 			<animation effect="slide" time="0" end="290" condition="Window.IsActive(home) + StringCompare(Skin.String(homemenu.type),vertical) + Control.HasFocus(9000)">Conditional</animation>
 
-			<!--move busy label to the left when horizontal home menu is active (to align with player status label in fullscreenvideo)-->
+			<!--move busy label to the left when horizontal home menu is active (to align with player status label in fullscreenvideo)
 			<animation effect="slide" time="0" end="-20,10" condition="Window.IsActive(home) + StringCompare(Skin.String(homemenu.type),horizontal)">Conditional</animation>
-
+			-->
+			
 			<!--correct "working" label position for windows with no menu indicator-->
 			<animation effect="slide" time="0" end="-27" condition="Window.IsActive(settings) | Window.IsActive(systeminformation)">Conditional</animation>
 
