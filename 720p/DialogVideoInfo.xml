@@ -144,6 +144,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
+										<visible>Container.Content(movies) + !SubString(Container.FolderPath,plugin://)</visible>
 									</control>
 									<!--cinema-->
 									<control type="button" id="5003">
@@ -163,6 +164,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
+										<visible>Container.Content(movies) + !SubString(Container.FolderPath,plugin://)</visible>
 									</control>
 									<!--manage-->
 									<control type="button" id="5005">
@@ -198,7 +200,7 @@
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
 									<include>media_Flags</include>
-									<visible>![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+									<visible>![Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://)]</visible>
 								</control>
 								<control type="label">
 									<top>25</top>

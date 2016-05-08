@@ -113,7 +113,7 @@
 		<param name="ArtWidth" default="231"/>
 		<param name="ArtHeight" default="130"/>
 		<param name="Fallback" default="thumbs/default_Landscape.png"/>
-		<param name="Type" default="$VAR[art:Landscape]"/>
+		<param name="Art" default="$VAR[art:Landscape]"/>
 		<param name="ShowLogo" default="true"/>
 		<param name="Aspectratio" default="scale"/>
 		<definition>
@@ -267,7 +267,8 @@
 					<param name="Height" value="295"/>
 					<param name="ShowLogo" value="true"/>
 					<param name="ShowPlot" value="true"/>
-					<param name="Type" value="$VAR[art:Landscape]"/>
+					<param name="Fallback" value="thumbs/default_Landscape.png"/>
+					<param name="Art" value="$VAR[art:Landscape]"/>
 				</include>
 			</control>
 			<!--portrait-->
@@ -284,7 +285,7 @@
 					<param name="Width" value="417"/>
 					<param name="Height" value="600"/>
 					<param name="Fallback" value="thumbs/default_Portrait.png"/>
-					<param name="Type" value="$VAR[art:Portrait]"/>
+					<param name="Art" value="$VAR[art:Portrait]"/>
 				</include>
 			</control>
 			<!--square-->
@@ -335,7 +336,7 @@
 		<param name="IconSize" default="112"/>
 		<param name="ShowLogo" default="false"/>
 		<param name="ShowPlot" default="false"/>
-		<param name="Type" default="$VAR[art:Portrait]"/>
+		<param name="Art" default="$VAR[art:Portrait]"/>
 		<param name="BorderSize"/>
 		<param name="BorderTexture"/>
 		<param name="Aspect" default="scale"/>
@@ -368,12 +369,12 @@
 				<control type="image">
 					<width>$PARAM[Width]</width>
 					<height>$PARAM[Height]</height>
-					<texture background="true">$PARAM[Type]</texture>
+					<texture background="true">$PARAM[Art]</texture>
 					<fadetime>fadetime_Thumb</fadetime>
 					<bordertexture border="$PARAM[BorderSize]">$PARAM[BorderTexture]</bordertexture>
 					<bordersize>$PARAM[BorderSize]</bordersize>
-					<aspectratio align="left" aligny="top">$PARAM[Aspect]</aspectratio>
-					<visible>!SubString(ListItem.Icon,Default)</visible>
+					<aspectratio align="center" aligny="middle">$PARAM[Aspect]</aspectratio>
+					<visible>!StringCompare(ListItem.Label,..)</visible>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
@@ -462,7 +463,7 @@
 						<param name="FrameWidth" value="104"/>
 						<param name="ArtWidth" value="90"/>
 						<param name="Fallback" value="thumbs/default_Portrait.png"/>
-						<param name="Type" value="$VAR[art:Portrait]"/>
+						<param name="Art" value="$VAR[art:Portrait]"/>
 						<param name="ShowLogo" value="false"/>
 					</include>
 					<include name="view_List-Data">
@@ -481,7 +482,7 @@
 						<param name="FrameWidth" value="104"/>
 						<param name="ArtWidth" value="90"/>
 						<param name="Fallback" value="thumbs/default_Portrait.png"/>
-						<param name="Type" value="$VAR[art:Portrait]"/>
+						<param name="Art" value="$VAR[art:Portrait]"/>
 						<param name="ShowLogo" value="false"/>
 					</include>
 					<include name="view_List-Data">
