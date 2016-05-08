@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
+	<onload condition="IsEmpty(Window(home).Property(WindowColor))">SetProperty(WindowColor,FFFFFFFF,home)</onload>
+	<views>500,50</views>
+	<!--
+	     <onload condition="IsEmpty(Window(home).Property(WindowColor))">SetProperty(WindowColor,$VAR[AreaColorVar],home)</onload> -->
+	<onunload>ClearProperty(WindowColor,home)</onunload>
 	<defaultcontrol always="true">500</defaultcontrol>
 	<controls>
+		
+
 
 		<!--global includes-->
 		<include>global_Background</include>
@@ -25,8 +32,15 @@
 			<include>TriggerButton</include>
 		</control>
 
-		<control type="group">
-			<include>transition_Content</include>
+
+
+			
+			
+
+			<control type="group">
+
+
+				<include>transition_Content</include>
 			<include>toggle_Menu</include>
 			<control type="image">
 				<left>20</left>
@@ -51,41 +65,32 @@
 				<param name="InfoLabel" value="[B]$INFO[Window.Property(TotalItems)][/B] $ADDON[script.extendedinfo 32124], $LOCALIZE[31144] $INFO[Window.Property(Sort_Label)]$INFO[Window.Property(Filter_Label), • ]"/>
 			</include>
 
-			<!--results container-->	
-			<control type="group">
-				<include>transition_Content</include>
-				<include>toggle_Menu</include>
-				<include>transition_Info</include>
+
 				<control type="panel" id="500">
 					<left>55</left>
 					<top>90</top>
 					<width>1164</width>
 					<height>554</height>
+
+					<viewtype label="Wall">list</viewtype>
+			
+
+					<scrolltime tween="quadratic">300</scrolltime>
+
 					<onleft>9000</onleft>
 					<onright>70</onright>
 					<onup>57</onup>
 					<ondown>57</ondown>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
 					<orientation>vertical</orientation>
-					<include>global_ListScroll</include>
 					<itemlayout width="194" height="277">
-						<include>view_Icon-Frame</include>
+						<include name="view_Icon-Frame">
+							<param name="State" value="frames/frame-nf.png" />
+						</include>
 						<include>view_Icon-Art</include>
 						<include name="status_Info">
 							<param name="Left" value="135"/>
 							<param name="Bottom" value="18"/>
 						</include>
-						<!--
-						<control type="image">
-							<width>55</width>
-							<height>55</height>
-							<top>30</top>
-							<left>149</left>
-							<texture>flags/local.png</texture>
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
-						</control>
-						-->
 					</itemlayout>                                           
 					<focusedlayout width="194" height="277">
 						<include name="view_Icon-Frame">
@@ -98,28 +103,24 @@
 						</include>
 					</focusedlayout>
 				</control>
-				<control type="group">
-					<include name="detail_Info">
-						<param name="Left" value="60"/>
-						<param name="Top" value="645"/>
-						<param name="Width" value="645"/>
-						<param name="ShowPlot" value="false"/>
-						<param name="ShowStudio" value="false"/>
-						<param name="InfoLabel" value="$INFO[Container(500).ListItem(0).Label]"/>
-						<param name="InfoLabel2" value="$INFO[Container(500).ListItem(0).Property(Genre)]"/>
-					</include>
-				</control>
+
+
+
 			</control>
 
-			<!--scrollbar-->
-			<control type="scrollbar" id="70">
-				<left>1272</left>
-				<height>screen_Height</height>
-				<onleft>500</onleft>
-			</control>
-		</control>
 
-		<!--options menu-->
+
+
+
+
+
+
+
+
+		
+
+
+<!--options menu-->
 		<control type="group">
 			<left>-262</left>
 			<control type="image" id="1">
@@ -202,5 +203,6 @@
 				</control>
 			</control>			
 		</control>
+
 	</controls>
 </window>
