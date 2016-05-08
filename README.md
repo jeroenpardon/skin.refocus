@@ -1,7 +1,7 @@
 reFocus for Kodi
 ============
 
-### Warning
+### About
 reFocus is a graphical interface for Kodi that understands your media is what truly matters. Elegance, simplicity, refinement, consistency and balanced design are keywords for this skin.
 
 ### Download and installation
