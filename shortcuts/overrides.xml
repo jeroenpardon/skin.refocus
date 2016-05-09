@@ -51,19 +51,19 @@
 
 		<!--dynamic content-->
 		<node label="31625">
-			<shortcut label="$ADDON[script.skin.helper.service 32000]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=favourites,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32001]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=favouritemedia,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32004]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recommendedmedia,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32005]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentmedia,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32086]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=inprogressmedia,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32007]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=inprogressandrecommendedmedia,return)</shortcut>
-			<shortcut label="$LOCALIZE[359]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentalbums,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32087]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentsongs,return)</shortcut>
-			<shortcut label="$LOCALIZE[517]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentlyplayedalbums,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32088]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentlyplayedsongs,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32131]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recommendedalbums,return)</shortcut>
-			<shortcut label="$ADDON[script.skin.helper.service 32132]" type="31626" icon="DefaultPlaylist.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recommendedsongs,return)</shortcut>
-			<shortcut label="$LOCALIZE[31030]" type="31626" icon="DefaultTVShows.png">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=nextairedtvshows,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32000]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=favourites,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32001]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=favouritemedia,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32004]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recommendedmedia,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32005]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentmedia,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32086]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=inprogressmedia,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32007]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=inprogressandrecommendedmedia,return)</shortcut>
+			<shortcut label="$LOCALIZE[359]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentalbums,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32087]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentsongs,return)</shortcut>
+			<shortcut label="$LOCALIZE[517]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentlyplayedalbums,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32088]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recentlyplayedsongs,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32131]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recommendedalbums,return)</shortcut>
+			<shortcut label="$ADDON[script.skin.helper.service 32132]" type="31626" icon="DefaultPlaylist.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=recommendedsongs,return)</shortcut>
+			<shortcut label="$LOCALIZE[31030]" type="31626" icon="DefaultTVShows.png" condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(VideoLibrary,plugin://script.skin.helper.service/?action=nextairedtvshows,return)</shortcut>
 		</node>
 
 		<!--pvr-->
