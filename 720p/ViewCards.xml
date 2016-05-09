@@ -55,7 +55,7 @@
 					<visible>IsEmpty(ListItem.Art(landscape))</visible>
 				</control>
 				<control type="group">
-					<visible>IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+					<visible>IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(clearlogo)) + !StringCompare(ListItem.Label,..)</visible>
 					<control type="label">
 						<width>$PARAM[Width]</width>
 						<top>11</top>
