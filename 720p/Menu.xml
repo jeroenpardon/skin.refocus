@@ -418,43 +418,50 @@
 						<onclick>Container.SetViewMode(522)</onclick>
 						<visible>Container.Content(addons)</visible>
 					</control>
-					<!--thumbnails portrait-->
+					<!--landscape-->
 					<control type="button" id="407">
+						<label>$LOCALIZE[31115]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(56)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(cards.enable)</visible>
+					</control>
+					<!--thumbnails portrait-->
+					<control type="button" id="408">
 						<label>$LOCALIZE[31113]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(57)</onclick>
 						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors) | Container.Content(artists)</visible>
 					</control>
 					<!--thumbnails landscape-->
-					<control type="button" id="408">
+					<control type="button" id="409">
 						<label>$LOCALIZE[31113]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(575)</onclick>
 						<visible>Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]</visible>
 					</control>
 					<!--thumbnails square-->
-					<control type="button" id="409">
+					<control type="button" id="410">
 						<label>$LOCALIZE[31113]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(572)</onclick>
 						<visible>[Container.Content(addons) | [Container.Content(files) + !Container.HasFiles + SubString(Container.FolderPath,plugin://)]]</visible>
 					</control>
 					<!--banners-->
-					<control type="button" id="410">
+					<control type="button" id="411">
 						<label>$LOCALIZE[31110]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(541)</onclick>
 						<visible>[Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]] + !SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 					<!--gallery-->
-					<control type="button" id="411">
+					<control type="button" id="412">
 						<label>$LOCALIZE[31111]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(53)</onclick>
 						<visible>[Container.Content(tvshows) | Container.Content(movies)] + !SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 					<!--tiles-->
-					<control type="button" id="412">
+					<control type="button" id="413">
 						<label>$LOCALIZE[31109]</label>
 						<include>menu_Button</include>
 						<onclick>Container.SetViewMode(58)</onclick>

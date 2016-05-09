@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="view_Cards-Frame">
+		<param name="Width" default="289"/>
+		<param name="Height" default="169"/>
+		<param name="State" default="frames/frame-nf.png"/>
+		<definition>
+			<control type="image">
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<texture>$PARAM[State]</texture>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Cards-Art">
+		<param name="Width" default="275"/>
+		<param name="Height" default="155"/>
+		<param name="Fallback" default="thumbs/default_Landscape.png"/>
+		<param name="Size" default="72"/>
+		<param name="ShowLogo" default="false"/>
+		<definition>
+			<control type="group">
+				<left>7</left>
+				<top>7</top>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$PARAM[Fallback]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<texture>$INFO[ListItem.ActualIcon]</texture>
+					<width>$PARAM[Size]</width>
+					<height>$PARAM[Size]</height>
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[Width]</width>
+					<height>$PARAM[Height]</height>
+					<texture background="true">$VAR[art:Cards]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<bottom>10</bottom>
+					<height>50%</height>
+					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>IsEmpty(ListItem.Art(landscape))</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="view_Cards">
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<control type="panel" id="56">
+				<viewtype label="31110">wide</viewtype> 	
+				<left>50</left>
+				<top>100</top>
+				<width>1180</width>
+				<height>620</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>55</onup>
+				<ondown>55</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<include>global_ListScroll</include>
+				<visible>[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(cards.enable)</visible>
+				<itemlayout width="295" height="175">
+					<include>view_Cards-Frame</include>
+					<include>view_Cards-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="240"/>
+						<param name="Bottom" value="13"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="295" height="175">
+					<include name="view_Cards-Frame">
+						<param name="State" value="frames/frame-fo.png" />
+					</include>
+					<include>view_Cards-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="240"/>
+						<param name="Bottom" value="13"/>
+					</include>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(55)</visible>
+				<include name="detail_Info">
+					<param name="Left" value="640"/>
+					<param name="Top" value="90"/>
+					<param name="Width" value="590"/>
+					<param name="StudioBottom" value="25"/>
+				</include>
+			</control>
+		</control>
+	</include>
+</includes>
