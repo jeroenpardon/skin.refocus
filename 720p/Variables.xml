@@ -284,13 +284,11 @@
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 
-
 	<variable name="art:Cards">
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="Container.Content(movies) | Container.Content(tvshows)">$INFO[ListItem.Art(landscape)]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
-
 
 	<variable name="art:Portrait">
 		<value condition="Container.Content(actors) + IsEmpty(ListItem.Art(thumb))">thumbs/default_Actor.png</value>

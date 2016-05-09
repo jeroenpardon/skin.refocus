@@ -54,6 +54,25 @@
 					<aspectratio>keep</aspectratio>
 					<visible>IsEmpty(ListItem.Art(landscape))</visible>
 				</control>
+				<control type="group">
+					<visible>IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+					<control type="label">
+						<width>$PARAM[Width]</width>
+						<top>11</top>
+						<font>condensed-U</font>
+						<align>center</align>
+						<textcolor>black</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<width>$PARAM[Width]</width>
+						<top>10</top>
+						<font>condensed-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</control>
 			</control>
 		</definition>
 	</include>
