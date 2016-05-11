@@ -163,6 +163,7 @@
 				<include>transition_Info</include>
 				<include>toggle_Menu</include>
 				<visible>!Control.IsVisible(531)</visible>
+				<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)]</visible>
 			</control>
 		</definition>
 	</include>
@@ -179,14 +180,14 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(501) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(574) | Control.IsVisible(575) | Window.IsActive(weather) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(501) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(574) | Control.IsVisible(575) | Window.IsActive(weather) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(eventlog)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)]</visible>
 				<include>nav_IndicatorLeft</include>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/up.png</texture>
-				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
+				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(53) | Control.IsVisible(58)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)] + !Window.IsActive(weather)</visible>
 				<include>nav_IndicatorUp</include>
 			</control>
 		</control>
@@ -209,8 +210,8 @@
 	</include>
 
 	<include name="global_Radio">
-		<radiowidth>24</radiowidth>
-		<radioheight>24</radioheight>
+		<radiowidth>18</radiowidth>
+		<radioheight>18</radioheight>
 		<textureradioonnofocus colordiffuse="Color3">dialogs/radio/on-nf.png</textureradioonnofocus>
 		<textureradiooffnofocus colordiffuse="Color3">dialogs/radio/off-nf.png</textureradiooffnofocus>
 		<textureradioonfocus colordiffuse="Color5">dialogs/radio/on-fo.png</textureradioonfocus>
@@ -536,7 +537,8 @@
 		<param name="Right"/>
 		<param name="Bottom" default="11"/>
 		<param name="Size" default="42"/>
-		<param name="Visible" default="true"/>
+		<param name="Visible" default="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,sources://)]"/>
+		<param name="Texture" default="$VAR[status:Info]"/>
 		<definition>
 			<control type="group">
 				<left>$PARAM[Left]</left>
@@ -544,11 +546,10 @@
 				<width>$PARAM[Size]</width>
 				<height>$PARAM[Size]</height>
 				<bottom>$PARAM[Bottom]</bottom>
-				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
 				<control type="image">
 					<width>$PARAM[Size]</width>
 					<height>$PARAM[Size]</height>
-					<texture>$VAR[status:Info]</texture>
+					<texture>$PARAM[Texture]</texture>
 					<visible>$PARAM[Visible]</visible>
 				</control>
 			</control>
@@ -1218,7 +1219,7 @@
 				<include>transition_WindowTitle</include>
 				<include>transition_Info</include>
 				<include>toggle_Menu</include>
-				<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsVisible(busydialog)]</visible>
+				<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(busydialog)]</visible>
 				<animation effect="slide" start="$PARAM[Left]" end="-28" time="0" condition="Skin.HasSetting(global.kiosk) + ![Window.IsActive(profiles) | Window.IsActive(systeminfo) | Window.IsActive(filemanager)]">Conditional</animation>
 			</control>
 		</definition>
