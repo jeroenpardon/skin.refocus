@@ -143,7 +143,7 @@
 				<control type="image">
 					<width>$PARAM[ArtWidth]</width>
 					<height>$PARAM[ArtHeight]</height>
-					<texture background="true">$PARAM[Type]</texture>
+					<texture background="true">$PARAM[Art]</texture>
 					<aspectratio>$PARAM[Aspectratio]</aspectratio>
 				</control>
 				<control type="image">
@@ -167,7 +167,8 @@
 				<width>$PARAM[Width]</width>
 				<height>$PARAM[Height]</height>
 				<texture>views/focus.png</texture>
-				<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]</visible>
+				<!--9050 = nextaired tv guide days list-->
+				<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99) | ControlGroup(9050).HasFocus]</visible>
 			</control>
 		</definition>
 	</include>
@@ -373,7 +374,7 @@
 					<fadetime>fadetime_Thumb</fadetime>
 					<bordertexture border="$PARAM[BorderSize]">$PARAM[BorderTexture]</bordertexture>
 					<bordersize>$PARAM[BorderSize]</bordersize>
-					<aspectratio align="center" aligny="middle">$PARAM[Aspect]</aspectratio>
+					<aspectratio align="center" aligny="bottom">$PARAM[Aspect]</aspectratio>
 					<visible>!StringCompare(ListItem.Label,..)</visible>
 				</control>
 				<control type="image">

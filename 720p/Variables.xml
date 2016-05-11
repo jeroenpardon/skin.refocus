@@ -266,6 +266,7 @@
 		<value condition="Container.Content(movies) + Skin.HasSetting(logos.movies.enable) + [IsEmpty(ListItem.Art(landscape)) | [!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(landscapethumb.enable)]]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="Container.Content(tvshows) + Skin.HasSetting(logos.tvshows.enable) + [IsEmpty(ListItem.Art(landscape)) | [!IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(landscapethumb.enable)]]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="Container.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [StringCompare(Container.FolderPath,videodb://recentlyaddedepisodes/) | StringCompare(Container.FolderPath,special://skin/playlists/video/episodes-unwatched.xsp) | SubString(Container.FolderPath,plugin://service.library.data.provider/)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">$INFO[ListItem.Property(Art(clearlogo))]</value>
 	</variable>
 
 	<variable name="art:Container">
@@ -869,12 +870,14 @@
 
 	<variable name="view:List.TextColor">
 		<value condition="Window.IsActive(script-globalsearch-main.xml) + !StringCompare(Window(Home).Property(category),focus)">Color4</value>
-		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
+		<!--9050 = nextaired tv guide days list-->
+		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99) | ControlGroup(9050).HasFocus()]">Color4</value>
 		<value>Color1</value>
 	</variable>
 	<variable name="view:List.TextColor2">
 		<value condition="Window.IsActive(script-globalsearch-main.xml) + !StringCompare(Window(Home).Property(category),focus)">Color4</value>
-		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99)]">Color4</value>
+		<!--9050 = nextaired tv guide days list-->
+		<value condition="!Window.IsActive(script-globalsearch-main.xml) + ![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99) | ControlGroup(9050).HasFocus()]">Color4</value>
 		<value>Color2</value>
 	</variable>
 
