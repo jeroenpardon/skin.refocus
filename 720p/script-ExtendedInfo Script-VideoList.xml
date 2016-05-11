@@ -30,7 +30,7 @@
 
 			<!--window header-->
 			<include name="windowTitle">
-				<param name="Label" value="Extended Info"/>
+				<param name="Label" value="themoviedb"/>
 			</include>
 
 			<include name="global_Itemcount">
@@ -84,6 +84,18 @@
 					</include>
 				</focusedlayout>
 			</control>
+
+			<control type="group">
+				<include name="detail_Info">
+					<param name="Left" value="60"/>
+					<param name="Top" value="645"/>
+					<param name="Width" value="645"/>
+					<param name="ShowPlot" value="false"/>
+					<param name="ShowStudio" value="false"/>
+					<param name="InfoLabel2" value="$INFO[ListItem.Genre]$INFO[ListItem.Rating, &#8226; $LOCALIZE[563]: ]"/>
+				</include>
+			</control>
+
 		</control>
 
 <!--options menu-->
