@@ -9,7 +9,7 @@
 			<!--background-->
 			<control type="image">
 				<include>screen_Dimensions</include>
-				<texture background="true">$VAR[art:Container]</texture>
+				<texture background="true">$INFO[Window.Property(fanart)]</texture>
 				<aspectratio>scale</aspectratio>
 				<animation type="WindowOpen">
 					<effect type="Fade" time="transition_Open" start="0" end="100" />
@@ -17,6 +17,13 @@
 				<animation type="WindowClose">
 					<effect type="Fade" time="transition_Close" start="100" end="0" />
 				</animation>
+			</control>
+
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture background="true">overlays/base_color.png</texture>
+				<colordiffuse>base_1</colordiffuse>
+				<visible>IsEmpty(Window.Property(fanart))</visible>
 			</control>
 
 			<control type="group">
@@ -39,6 +46,7 @@
 							<height>200</height>
 							<texture>overlays/vignette_bottom.png</texture>
 							<aspectratio aligny="bottom">stretch</aspectratio>
+							<visible>!IsEmpty(Window.Property(fanart))</visible>
 						</control>
 						<!--studio / network logos-->
 						<control type="image">
@@ -98,6 +106,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
+								<visible>!IsEmpty(Window.Property(fanart))</visible>
 							</control>
 							<!--begin main content area-->
 							<control type="group">
