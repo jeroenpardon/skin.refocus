@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-	<onload condition="IsEmpty(Window(home).Property(WindowColor))">SetProperty(WindowColor,FFFFFFFF,home)</onload>
 	<views>500,50</views>
-	<!--
-	     <onload condition="IsEmpty(Window(home).Property(WindowColor))">SetProperty(WindowColor,$VAR[AreaColorVar],home)</onload> -->
-	<onunload>ClearProperty(WindowColor,home)</onunload>
 	<defaultcontrol always="true">500</defaultcontrol>
 	<controls>
-		
-
-
 		<!--global includes-->
 		<include>global_Background</include>
 		<include>global_Clock</include>
@@ -24,24 +17,26 @@
 			<onfocus>SetFocus(500)</onfocus>
 			<include>TriggerButton</include>
 		</control>
-
 		<control type="button" id="6000">
 			<include>TriggerButton</include>
 		</control>
 		<control type="button" id="7000">
 			<include>TriggerButton</include>
 		</control>
-
-
-
-			
-			
-
-			<control type="group">
-
-
-				<include>transition_Content</include>
+		
+		<control type="group">
+			<include>transition_Content</include>
 			<include>toggle_Menu</include>
+
+			<!--window header-->
+			<include name="windowTitle">
+				<param name="Label" value="Extended Info"/>
+			</include>
+
+			<include name="global_Itemcount">
+				<param name="InfoLabel" value="[B]$INFO[Window.Property(TotalItems)][/B] $ADDON[script.extendedinfo 32124], $LOCALIZE[31144] $INFO[Window.Property(Sort_Label)]$INFO[Window.Property(Filter_Label), • ]"/>
+			</include>
+			
 			<control type="image">
 				<left>20</left>
 				<top>16</top>
@@ -56,69 +51,40 @@
 				<effect type="slide" time="350" start="0" end="262" tween="Quadratic" easing="Out" />
 			</animation>
 
-		<!--window header-->
-			<include name="windowTitle">
-				<param name="Label" value="Extended Info"/>
-			</include>
-
-			<include name="global_Itemcount">
-				<param name="InfoLabel" value="[B]$INFO[Window.Property(TotalItems)][/B] $ADDON[script.extendedinfo 32124], $LOCALIZE[31144] $INFO[Window.Property(Sort_Label)]$INFO[Window.Property(Filter_Label), • ]"/>
-			</include>
-
-
-				<control type="panel" id="500">
-					<left>55</left>
-					<top>90</top>
-					<width>1164</width>
-					<height>554</height>
-
-					<viewtype label="Wall">list</viewtype>
-			
-
-					<scrolltime tween="quadratic">300</scrolltime>
-
-					<onleft>9000</onleft>
-					<onright>70</onright>
-					<onup>57</onup>
-					<ondown>57</ondown>
-					<orientation>vertical</orientation>
-					<itemlayout width="194" height="277">
-						<include name="view_Icon-Frame">
-							<param name="State" value="frames/frame-nf.png" />
-						</include>
-						<include>view_Icon-Art</include>
-						<include name="status_Info">
-							<param name="Left" value="135"/>
-							<param name="Bottom" value="18"/>
-						</include>
-					</itemlayout>                                           
-					<focusedlayout width="194" height="277">
-						<include name="view_Icon-Frame">
-							<param name="State" value="frames/frame-fo.png" />
-						</include>
-						<include>view_Icon-Art</include>
-						<include name="status_Info">
-							<param name="Left" value="135"/>
-							<param name="Bottom" value="18"/>
-						</include>
-					</focusedlayout>
-				</control>
-
-
-
+			<control type="panel" id="500">
+				<left>55</left>
+				<top>90</top>
+				<width>1164</width>
+				<height>554</height>
+				<viewtype label="Wall">list</viewtype>
+				<scrolltime tween="quadratic">300</scrolltime>
+				<onleft>9000</onleft>
+				<onright>70</onright>
+				<onup>57</onup>
+				<ondown>57</ondown>
+				<orientation>vertical</orientation>
+				<itemlayout width="194" height="277">
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-nf.png" />
+					</include>
+					<include>view_Icon-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="135"/>
+						<param name="Bottom" value="18"/>
+					</include>
+				</itemlayout>                                           
+				<focusedlayout width="194" height="277">
+					<include name="view_Icon-Frame">
+						<param name="State" value="frames/frame-fo.png" />
+					</include>
+					<include>view_Icon-Art</include>
+					<include name="status_Info">
+						<param name="Left" value="135"/>
+						<param name="Bottom" value="18"/>
+					</include>
+				</focusedlayout>
 			</control>
-
-
-
-
-
-
-
-
-
-
-		
-
+		</control>
 
 <!--options menu-->
 		<control type="group">
@@ -203,6 +169,5 @@
 				</control>
 			</control>			
 		</control>
-
 	</controls>
 </window>
