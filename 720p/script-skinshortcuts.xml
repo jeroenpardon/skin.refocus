@@ -197,6 +197,7 @@
 						<label2>$INFO[Container(211).ListItem.Property(Background)]</label2>
 						<include>dialog_ControlCommons</include>
 						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+						<enable>!Skin.HasSetting(backgrounds.fanart) + System.HasAddon(script.grab.fanart)</enable>
 					</control>
 					<!--set widget-->
 					<control type="button" id="312">

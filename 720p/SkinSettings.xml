@@ -153,6 +153,33 @@
 						<include>settings_Radiobutton</include>
 						<enable>StringCompare(Skin.String(homemenu.type),vertical)</enable>
 					</control>
+					<!--custom backgrounds-->
+					<!--
+					<control type="radiobutton" id="120">
+						<label>$LOCALIZE[31213]</label>
+						<onclick>Skin.ToggleSetting(backgrounds.custom)</onclick>
+						<onclick>Skin.ToggleSetting(backgrounds.fanart)</onclick>
+						<selected>!Skin.HasSetting(backgrounds.custom)</selected>
+						<onclick condition="Skin.HasSetting(backgrounds.custom)">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
+						<include>settings_Radiobutton</include>
+						<enable>!Skin.HasSetting(backgrounds.Fanartgrabber)</enable>
+					</control>
+					-->
+					<!--fanart background-->
+					<control type="radiobutton" id="105">
+						<label>$LOCALIZE[31214]</label>
+						<onclick>Skin.ToggleSetting(backgrounds.fanart)</onclick>
+						<!--<onclick>Skin.ToggleSetting(backgrounds.custom)</onclick>-->
+						<selected>Skin.HasSetting(backgrounds.fanart)</selected>
+						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.grab.fanart)</enable>
+					</control>
+					<control type="button" id="106">
+						<label>- $LOCALIZE[33063]</label>
+						<onclick>ActivateWindow(1110)</onclick>
+						<include>settings_Listbutton</include>
+						<visible>Skin.HasSetting(backgrounds.fanart)</visible>
+					</control>
 					<!--widgets-->
 					<control type="radiobutton" id="110">
 						<label>$LOCALIZE[31223]</label>
@@ -182,26 +209,6 @@
 						<selected>Skin.HasSetting(widgetheader.disable)</selected>
 						<include>settings_Radiobutton</include>
 						<enable>!Skin.HasSetting(widgets.disable) + !Skin.HasSetting(widgets.push)</enable>
-					</control>
-					<!--custom backgrounds-->
-					<control type="radiobutton" id="120">
-						<label>$LOCALIZE[31213]</label>
-						<onclick>Skin.ToggleSetting(backgrounds.custom)</onclick>
-						<onclick>Skin.ToggleSetting(backgrounds.fanart)</onclick>
-						<selected>!Skin.HasSetting(backgrounds.custom)</selected>
-						<onclick condition="Skin.HasSetting(backgrounds.custom)">RunScript(script.skinshortcuts,type=manage&amp;nolabels=True&amp;group=mainmenu)</onclick>
-						<include>settings_Radiobutton</include>
-						<enable>!Skin.HasSetting(backgrounds.Fanartgrabber)</enable>
-					</control>
-					<!--fanart background-->
-					<control type="radiobutton" id="121">
-						<label>$LOCALIZE[31214]</label>
-						<onclick>Skin.ToggleSetting(backgrounds.fanart)</onclick>
-						<onclick>Skin.ToggleSetting(backgrounds.custom)</onclick>
-						<selected>Skin.HasSetting(backgrounds.fanart)</selected>
-						<onclick condition="!Skin.HasSetting(backgrounds.fanart)">ActivateWindow(1110)</onclick>
-						<include>settings_Radiobutton</include>
-						<enable>System.HasAddon(script.grab.fanart)</enable>
 					</control>
 					<!--date & time-->
 					<control type="radiobutton" id="130">
