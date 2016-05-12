@@ -50,7 +50,7 @@
 					<height>$PARAM[Height]</height>
 					<texture background="true">$PARAM[Art]</texture>
 					<aspectratio>scale</aspectratio>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
+					<visible>!SubString(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
