@@ -31,7 +31,7 @@
 				<onclick>Close</onclick>
 				<onclick>SendClick(2003,6)</onclick>
 				<include>dialog_MenuButton</include>
-				<visible>!Window.IsActive(addoninformation)</visible>
+				<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
 			</control>
 			<!--artwork-->
 			<control type="button" id="502">
@@ -87,7 +87,7 @@
 				<onclick>Close</onclick>
 				<onclick>SendClick(7)</onclick>
 				<include>dialog_MenuButton</include>
-				<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)</visible>
 			</control>
 			<!--update add-on-->
 			<control type="button" id="520">
