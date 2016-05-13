@@ -23,7 +23,7 @@
 				<textcolor>Color1</textcolor>
 				<shadowcolor>Color5</shadowcolor>
 				<align>right</align>
-				<visible>Skin.String(fanartinfo.text,true)</visible>
+				<visible>StringCompare(Skin.String(fanartinfo),text)</visible>
 			</control>
 			<control type="image">
 				<right>25</right>
@@ -32,7 +32,7 @@
 				<height>99</height>
 				<texture>$VAR[home:Slideshow.Info]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>Skin.String(fanartinfo.logo,true)</visible>
+				<visible>StringCompare(Skin.String(fanartinfo),logo)</visible>
 			</control>
 		</control>
 		

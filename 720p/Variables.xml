@@ -10,20 +10,31 @@
 
 <!--HOME-->
 	<variable name="home:Background">
-		<value condition="!Skin.HasSetting(backgrounds.custom) + !IsEmpty(Container(9000).ListItem.Property(Background))">$INFO[Container(9000).ListItem.Property(Background)]</value>
+		<value condition="!Skin.HasSetting(backgrounds.fanart) + !IsEmpty(Container(9000).ListItem.Property(Background))">$INFO[Container(9000).ListItem.Property(Background)]</value>
+		<value condition="Skin.HasSetting(backgrounds.fanart) + Skin.String(fanarttype,video) | IsEmpty(Skin.String(fanarttype))">$INFO[Window(Home).Property(script.grab.fanart.Video.FanArt)]</value>
+		<value condition="Skin.HasSetting(backgrounds.fanart) + Skin.String(fanarttype,music)">$INFO[Window(Home).Property(script.grab.fanart.Music.FanArt)]</value>
+		<value condition="Skin.HasSetting(backgrounds.fanart) + Skin.String(fanarttype,mixed)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
+		<value>special://skin/backgrounds/kodi.jpg</value>
+	</variable>
+	<!--
+	<variable name="home:Background">
+		<value condition="!Skin.HasSetting(backgrounds.fanart) + !IsEmpty(Container(9000).ListItem.Property(Background))">$INFO[Container(9000).ListItem.Property(Background)]</value>
 		<value condition="Skin.HasSetting(backgrounds.fanart) + Skin.String(fanarttype.video,true)">$INFO[Window(Home).Property(script.grab.fanart.Video.FanArt)]</value>
 		<value condition="Skin.HasSetting(backgrounds.fanart) + Skin.String(fanarttype.music,true)">$INFO[Window(Home).Property(script.grab.fanart.Music.FanArt)]</value>
 		<value condition="Skin.HasSetting(backgrounds.fanart) + Skin.String(fanarttype.mixed,true)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 		<value>special://skin/backgrounds/kodi.jpg</value>
 	</variable>
-
+	-->
 	<variable name="home:Slideshow.Info">
-		<value condition="Skin.String(fanarttype.video,true) + Skin.String(fanartinfo.text,true)">$INFO[Window(Home).Property(script.grab.fanart.Video.Title)]</value>
-		<value condition="Skin.String(fanarttype.music,true) + Skin.String(fanartinfo.text,true)">$INFO[Window(Home).Property(script.grab.fanart.Music.Title)]</value>
-		<value condition="Skin.String(fanarttype.mixed,true) + Skin.String(fanartinfo.text,true)">$INFO[Window(Home).Property(script.grab.fanart.Global.Title)]</value>
-		<value condition="Skin.String(fanarttype.video,true) + Skin.String(fanartinfo.logo,true)">$INFO[Window(Home).Property(script.grab.fanart.Video.Logo)]</value>
-		<value condition="Skin.String(fanarttype.music,true) + Skin.String(fanartinfo.logo,true)">$INFO[Window(Home).Property(script.grab.fanart.Music.Logo)]</value>
-		<value condition="Skin.String(fanarttype.mixed,true) + Skin.String(fanartinfo.logo,true)">$INFO[Window(Home).Property(script.grab.fanart.Global.Logo)]</value>
+		<value condition="Skin.String(fanarttype,video) + Skin.String(fanartinfo,text)">$INFO[Window(Home).Property(script.grab.fanart.Video.Title)]</value>
+		<value condition="Skin.String(fanarttype,music) + Skin.String(fanartinfo,text)">$INFO[Window(Home).Property(script.grab.fanart.Music.Title)]</value>
+		<value condition="Skin.String(fanarttype,mixed) + Skin.String(fanartinfo,text)">$INFO[Window(Home).Property(script.grab.fanart.Global.Title)]</value>
+
+		<value condition="Skin.String(fanarttype,video) + Skin.String(fanartinfo,logo)">$INFO[Window(Home).Property(script.grab.fanart.Video.Logo)]</value>
+		<value condition="Skin.String(fanarttype,music) + Skin.String(fanartinfo,logo)">$INFO[Window(Home).Property(script.grab.fanart.Music.Logo)]</value>
+		<value condition="Skin.String(fanarttype,mixed) + Skin.String(fanartinfo,logo)">$INFO[Window(Home).Property(script.grab.fanart.Global.Logo)]</value>
+
+		<value>$INFO[Window(Home).Property(script.grab.fanart.Video.Logo)]</value>
 	</variable>
 
 	<variable name="home:MenuType">

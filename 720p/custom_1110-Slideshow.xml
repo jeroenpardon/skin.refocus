@@ -52,30 +52,24 @@
 					<control type="radiobutton" id="112">
 						<width>592</width>
 						<label>$LOCALIZE[342] &amp; $LOCALIZE[20343]</label>
-						<onclick>Skin.SetString(fanarttype.video,true)</onclick>
-						<selected>Skin.String(fanarttype.video,true)</selected>
-						<onclick>Skin.Reset(fanarttype.music)</onclick>
-						<onclick>Skin.Reset(fanarttype.mixed)</onclick>
+						<onclick>Skin.SetString(fanarttype,video)</onclick>
+						<selected>Skin.String(fanarttype,video)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="radiobutton" id="113">
 						<width>592</width>
 						<label>$LOCALIZE[2]</label>
-						<onclick>Skin.SetString(fanarttype.music,true)</onclick>
-						<selected>Skin.String(fanarttype.music,true)</selected>
-						<onclick>Skin.Reset(fanarttype.video)</onclick>
-						<onclick>Skin.Reset(fanarttype.mixed)</onclick>
+						<onclick>Skin.SetString(fanarttype,music)</onclick>
+						<selected>Skin.String(fanarttype,music)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="radiobutton" id="114">
 						<width>592</width>
 						<label>$LOCALIZE[20395]</label>
-						<onclick>Skin.SetString(fanarttype.mixed,true)</onclick>
-						<selected>Skin.String(fanarttype.mixed,true)</selected>
-						<onclick>Skin.Reset(fanarttype.video)</onclick>
-						<onclick>Skin.Reset(fanarttype.music)</onclick>
+						<onclick>Skin.SetString(fanarttype,mixed)</onclick>
+						<selected>Skin.String(fanarttype,mixed)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 					</control>
@@ -98,56 +92,37 @@
 					<control type="radiobutton" id="122">
 						<width>592</width>
 						<label>$LOCALIZE[31220]</label>
-						<onclick>Skin.SetString(fanartinfo.text,true)</onclick>
-						<selected>Skin.String(fanartinfo.text,true)</selected>
-						<onclick>Skin.Reset(fanartinfo.logo)</onclick>
-						<onclick>Skin.Reset(fanartinfo.none)</onclick>
+						<onclick>Skin.SetString(fanartinfo,text)</onclick>
+						<selected>Skin.String(fanartinfo,text)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<control type="radiobutton" id="123">
 						<width>592</width>
 						<label>$LOCALIZE[31221]</label>
-						<onclick>Skin.SetString(fanartinfo.logo,true)</onclick>
-						<selected>Skin.String(fanartinfo.logo,true)</selected>
-						<onclick>Skin.Reset(fanartinfo.text)</onclick>
-						<onclick>Skin.Reset(fanartinfo.none)</onclick>
+						<onclick>Skin.SetString(fanartinfo,logo)</onclick>
+						<selected>Skin.String(fanartinfo,logo)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
-						<enable>Skin.String(fanarttype.video,true) | Skin.String(fanarttype.mixed,true)</enable>
 					</control>
 					<control type="radiobutton" id="124">
 						<width>592</width>
 						<label>$LOCALIZE[31222]</label>
-						<onclick>Skin.SetString(fanartinfo.none,true)</onclick>
-						<selected>Skin.String(fanartinfo.none,true)</selected>
-						<onclick>Skin.Reset(fanartinfo.logo)</onclick>
-						<onclick>Skin.Reset(fanartinfo.text)</onclick>
+						<onclick>Skin.SetString(fanartinfo,none)</onclick>
+						<selected>Skin.String(fanartinfo,none)</selected>
 						<include>dialog_Radio</include>
 						<include>dialog_ControlCommons</include>
 					</control>
 				</control>
-				<control type="grouplist" id="200">
+				<!--OK-->
+				<control type="button" id="11">
 					<right>20</right>
 					<bottom>20</bottom>
+					<label>$LOCALIZE[186]</label>
+					<onclick>Close</onclick>
 					<onup>124</onup>
 					<ondown>112</ondown>
-					<width>250</width>
-					<height>40</height>
-					<itemgap>10</itemgap>
-					<orientation>horizontal</orientation>
-					<!--cancel-->
-					<control type="button" id="11">
-						<label>$LOCALIZE[222]</label>
-						<onclick>Close</onclick>
-						<include>dialog_WindowButton</include>
-					</control>
-					<!--ask logout permission-->
-					<control type="button" id="10">
-						<label>$LOCALIZE[31405]</label>
-						<onclick>RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[20183],text=$LOCALIZE[31714][CR]$LOCALIZE[31715],yesaction=Dialog.Close(all,true)||ReplaceWindow(startup),noaction=Close,yeslabel=$LOCALIZE[107],nolabel=$LOCALIZE[106])</onclick>
-						<include>dialog_WindowButton</include>
-					</control>
+					<include>dialog_WindowButton</include>
 				</control>
 			</control>
 		</control>
