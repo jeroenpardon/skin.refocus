@@ -285,10 +285,12 @@
 					<param name="Height" value="614"/>
 				</include>
 				<include name="detail_ListInfo">
-					<param name="Width" value="417"/>
+					<param name="Width" value="399"/>
 					<param name="Height" value="600"/>
 					<param name="Fallback" value="thumbs/default_Portrait.png"/>
 					<param name="Art" value="$VAR[art:Portrait]"/>
+					<param name="Aspect" value="scale"/>
+					<param name="Visible" value="!SubString(ListItem.Icon,DefaultFolder)"/>
 				</include>
 			</control>
 			<!--square-->
@@ -325,6 +327,7 @@
 						<param name="ShowFrame" value="false"/>
 						<param name="ShowPlot" value="true"/>
 						<param name="PlotTop" value="270"/>
+						<param name="Fallback" value="thumbs/default_Square.png"/>
 					</include>
 				</control>
 			</control>
@@ -345,6 +348,7 @@
 		<param name="Aspect" default="keep"/>
 		<param name="ShowFrame" default="true"/>
 		<param name="PlotTop" default="315"/>
+		<param name="Visible" default="!SubString(ListItem.Icon,Defaultfolder)"/>
 		<definition>
 			<control type="group">
 				<left>7</left>
