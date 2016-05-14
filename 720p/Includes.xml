@@ -289,7 +289,7 @@
 						<height>$PARAM[PlotHeight]</height>
 						<label>$VAR[media:Plot]</label>
 						<include>detail_Text</include>
-						<visible>!SubString(ListItem.Icon,default)</visible>
+						<visible>!SubString(ListItem.Icon,DefaultFolder)</visible>
 						<visible>$PARAM[ShowPlot]</visible>
 					</control>
 				</control>
@@ -509,7 +509,7 @@
 				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | SubString(Container.FolderPath,pvr://recordings/) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable) + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
 			</control>
 			<control type="group">
-				<visible>SubString(Container.FolderPath,pvr://channels/) + !SubString(ListItem.Icon,default)</visible>
+				<visible>SubString(Container.FolderPath,pvr://channels/) + !SubString(ListItem.Icon,DefaultFolder)</visible>
 				<control type="image">
 					<top>$PARAM[Top]</top>
 					<right>$PARAM[Right]</right>
