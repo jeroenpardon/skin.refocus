@@ -16,7 +16,7 @@
 		<param name="Width" default="183"/>
 		<param name="Height" default="280"/>
 		<param name="Fallback" default="thumbs/default_Portrait.png"/>
-		<param name="Type" default="$VAR[art:Portrait]"/>
+		<param name="Art" default="$VAR[art:Portrait]"/>
 		<param name="IconSize" default="72"/>
 		<param name="ShowLogo" default="false"/>
 		<definition>
@@ -42,8 +42,8 @@
 				<control type="image">
 					<width>$PARAM[Width]</width>
 					<height>$PARAM[Height]</height>
-					<texture background="true">$PARAM[Type]</texture>
-					<aspectratio align="center" aligny="top">scale</aspectratio>
+					<texture background="true">$PARAM[Art]</texture>
+					<aspectratio align="center" aligny="middle">scale</aspectratio>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
@@ -153,7 +153,7 @@
 					<include name="view_Slide-Art">
 						<param name="Width" value="425"/>
 						<param name="Height" value="239"/>
-						<param name="Type" value="$VAR[art:Landscape]"/>
+						<param name="Art" value="$VAR[art:Landscape]"/>
 						<param name="Fallback" value="thumbs/default_Landscape.png"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
@@ -174,7 +174,7 @@
 						<include name="view_Slide-Art">
 							<param name="Width" value="425"/>
 							<param name="Height" value="239"/>
-							<param name="Type" value="$VAR[art:Landscape]"/>
+							<param name="Art" value="$VAR[art:Landscape]"/>
 							<param name="Fallback" value="thumbs/default_Landscape.png"/>
 							<param name="ShowLogo" default="true"/>
 						</include>
@@ -216,7 +216,7 @@
 				<include name="view_Slide-Art">
 					<param name="Width" value="260"/>
 					<param name="Height" value="260"/>
-					<param name="Type" value="$VAR[art:Square]"/>
+					<param name="Art" value="$VAR[art:Square]"/>
 					<param name="Fallback" value="thumbs/default_Square.png"/>
 				</include>
 			</itemlayout>
@@ -230,7 +230,7 @@
 					<include name="view_Slide-Art">
 						<param name="Width" value="260"/>
 						<param name="Height" value="260"/>
-						<param name="Type" value="$VAR[art:Square]"/>
+						<param name="Art" value="$VAR[art:Square]"/>
 						<param name="Fallback" value="thumbs/default_Square.png"/>
 					</include>
 				</control>
