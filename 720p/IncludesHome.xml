@@ -13,7 +13,7 @@
 		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
 			<visible>![Control.HasFocus(9200) + IsEmpty(Container(9000).ListItem.Property(widgetName))]</visible>
-			<visible>Skin.HasSetting(backgrounds.fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
+			<visible>Skin.HasSetting(backgrounds.fanart)</visible>
 			<control type="label">
 				<right>25</right>
 				<bottom>25</bottom>
@@ -23,7 +23,7 @@
 				<textcolor>Color1</textcolor>
 				<shadowcolor>Color5</shadowcolor>
 				<align>right</align>
-				<visible>StringCompare(Skin.String(fanartinfo),text)</visible>
+				<visible>StringCompare(Skin.String(fanartinfo),text) | [Player.HasAudio + Skin.HasSetting(home.nowplaying)]</visible>
 			</control>
 			<control type="image">
 				<right>25</right>
