@@ -356,10 +356,10 @@
 	</variable>
 
 	<variable name="player:Fanart">
-		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
-		<value condition="Player.HasAudio + IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Cover]</value>
-		<value condition="Player.HasVideo + IsEmpty(Player.Art(fanart))">$INFO[Player.Art(thumb)]</value>
-		<value condition="Player.HasVideo + !IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+		<value condition="!IsEmpty(Window(Visualisation).Property(ArtistSlideshow)) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</value>
+		<value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+		<value condition="!IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
+		<value>special://skin/backgrounds/music.jpg</value>
 	</variable>
 
 	<variable name="player:Description">

@@ -9,13 +9,6 @@
 		</control>
 		<control type="group">
 			<include>transition_Background</include>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<texture>$VAR[player:Fanart]</texture>
-				<aspectratio align="center" aligny="top">scale</aspectratio>
-				<animation effect="fade" end="60" time="0" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
-				<visible>Skin.HasSetting(fanart.visualization) + !System.HasAddon(script.artistslideshow)</visible>
-			</control>
 			<control type="multiimage">
 				<include>screen_Dimensions</include>
 				<aspectratio align="center">scale</aspectratio>
@@ -23,9 +16,9 @@
 				<loop>yes</loop>
 				<timeperimage>8000</timeperimage>
 				<fadetime>fadetime_Slideshow</fadetime>
-				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+				<imagepath background="true">$VAR[player:Fanart]</imagepath>
 				<animation effect="fade" end="60" time="250" condition="Skin.HasSetting(fanart.visualization.blend)">Conditional</animation>
-				<visible>Skin.HasSetting(fanart.visualization) + System.HasAddon(script.artistslideshow) + !IsEmpty(Window.Property(ArtistSlideshow.ArtworkReady))</visible>
+				<visible>Skin.HasSetting(fanart.visualization)</visible>
 			</control>
 		</control>
 		<control type="group">
