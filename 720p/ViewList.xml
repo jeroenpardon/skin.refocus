@@ -285,11 +285,11 @@
 					<param name="Height" value="614"/>
 				</include>
 				<include name="detail_ListInfo">
-					<param name="Width" value="399"/>
+					<param name="Width" value="417"/>
 					<param name="Height" value="600"/>
 					<param name="Fallback" value="thumbs/default_Portrait.png"/>
 					<param name="Art" value="$VAR[art:Portrait]"/>
-					<param name="Aspect" value="scale"/>
+					<param name="Aspect" value="keep"/>
 					<param name="Visible" value="!SubString(ListItem.Icon,DefaultFolder)"/>
 				</include>
 			</control>
@@ -317,6 +317,7 @@
 					<left>700</left>
 					<top>80</top>
 					<visible>Control.IsVisible(50)</visible>
+					<visible>!StringCompare(ListItem.Label,$LOCALIZE[593]) + !SubString(ListItem.Icon,DefaultAddon,Left)</visible>
 					<visible>[[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin) | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
 					<include name="detail_ListInfo">
 						<param name="Width" value="510"/>
@@ -327,7 +328,6 @@
 						<param name="ShowFrame" value="false"/>
 						<param name="ShowPlot" value="true"/>
 						<param name="PlotTop" value="270"/>
-						<param name="Fallback" value="thumbs/default_Square.png"/>
 					</include>
 				</control>
 			</control>
@@ -372,7 +372,7 @@
 					<bordertexture border="$PARAM[BorderSize]">$PARAM[BorderTexture]</bordertexture>
 					<bordersize>$PARAM[BorderSize]</bordersize>
 					<aspectratio align="left" aligny="top">$PARAM[Aspect]</aspectratio>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
+					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
