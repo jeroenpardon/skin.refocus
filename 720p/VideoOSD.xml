@@ -7,7 +7,7 @@
 			<visible>![Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
 			<control type="group">
 				<left>479</left>
-				<top>190</top>
+				<top>110</top>
 				<width>322</width>
 				<include>transition_Dialog</include>
 				<include>player_Controls-commons</include>
@@ -24,7 +24,7 @@
 					<control type="button" id="601">
 						<width>322</width>
 						<label>$LOCALIZE[22020]$INFO[VideoPlayer.ChannelName, - ]</label>
-						<onclick>XBMC.ActivateWindow(PVROSDGuide)</onclick>
+						<onclick>ActivateWindow(PVROSDGuide)</onclick>
 						<include>dialog_MenuButton</include>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
@@ -42,7 +42,7 @@
 						<label>$LOCALIZE[23050]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(teletext)</onclick>
+						<onclick>ActivateWindow(teletext)</onclick>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<!--get subtitles-->
@@ -111,7 +111,7 @@
 						<label>$LOCALIZE[298]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(videobookmarks)</onclick>
+						<onclick>ActivateWindow(videobookmarks)</onclick>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<!--dvd menu-->
@@ -129,7 +129,7 @@
 						<label>$LOCALIZE[13395]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(osdvideosettings)</onclick>
+						<onclick>ActivateWindow(osdvideosettings)</onclick>
 					</control>
 					<!--audio settings-->
 					<control type="button" id="613">
@@ -137,21 +137,29 @@
 						<label>$LOCALIZE[13396]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
-						<onclick>XBMC.ActivateWindow(osdaudiosettings)</onclick>
+						<onclick>ActivateWindow(osdaudiosettings)</onclick>
 					</control>
 					<!--random-->
 					<control type="button" id="614">
 						<width>322</width>
 						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
 						<include>dialog_MenuButton</include>
-						<onclick>XBMC.PlayerControl(Random)</onclick>
+						<onclick>PlayerControl(Random)</onclick>
 					</control>
 					<!--repeat-->
 					<control type="button" id="615">
 						<width>322</width>
 						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
 						<include>dialog_MenuButton</include>
-						<onclick>XBMC.PlayerControl(Repeat)</onclick>
+						<onclick>PlayerControl(Repeat)</onclick>
+					</control>
+					<!--information-->
+					<control type="button" id="620">
+						<width>322</width>
+						<label>$VAR[player:InfoToggle]</label>
+						<include>dialog_MenuButton</include>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(fullscreeninfo)</onclick>
 					</control>
 					<control type="image" id="616">
 						<width>322</width>

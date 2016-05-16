@@ -409,6 +409,14 @@
 		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
 	</variable>
 
+	<variable name="player:InfoToggle">
+		<value condition="VideoPlayer.Content(livetv)">$LOCALIZE[19047]</value>
+		<value condition="VideoPlayer.Content(movies)">$LOCALIZE[24007]</value>
+		<value condition="VideoPlayer.Content(episodes)">$LOCALIZE[20352]</value>
+		<value condition="VideoPlayer.Content(musicvideos)">$LOCALIZE[20393]</value>
+		<value>$LOCALIZE[20159]</value>
+	</variable>
+
 	<variable name="playlist_Type">
 		<value condition="Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
 		<value condition="Window.IsActive(musiclibrary) + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
