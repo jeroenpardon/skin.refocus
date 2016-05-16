@@ -12,8 +12,9 @@
 		<!--fanart slideshow info-->
 		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
-			<visible>![Control.HasFocus(9200) + IsEmpty(Container(9000).ListItem.Property(widgetName))]</visible>
 			<visible>Skin.HasSetting(backgrounds.fanart)</visible>
+			<visible>![Control.HasFocus(9200) + IsEmpty(Container(9000).ListItem.Property(widgetName))]</visible>			
+			<visible>![Skin.HasSetting(widgets.push) + !IsEmpty(Container(9000).ListItem.Property(widgetType))]</visible>
 			<control type="label">
 				<right>25</right>
 				<bottom>25</bottom>
