@@ -128,17 +128,17 @@
 				<itemlayout width="572" height="123">
 					<include>view_Banner-Frame</include>
 					<include>view_Banner-Art</include>
-					<include name="status_Info">
+					<include content="status_Info">
 						<param name="Left" value="523"/>
 						<param name="Bottom" value="13"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="572" height="123">
-					<include name="view_Banner-Frame">
+					<include content="view_Banner-Frame">
 						<param name="State" value="frames/frame-fo.png" />
 					</include>
 					<include>view_Banner-Art</include>
-					<include name="status_Info">
+					<include content="status_Info">
 						<param name="Left" value="523"/>
 						<param name="Bottom" value="13"/>
 					</include>
@@ -146,7 +146,7 @@
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(54)</visible>
-				<include name="detail_Info">
+				<include content="detail_Info">
 					<param name="Left" value="640"/>
 					<param name="Top" value="90"/>
 					<param name="Width" value="590"/>
@@ -177,38 +177,38 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
 			<itemlayout width="620" height="190">
-				<include name="view_Banner-Frame">
+				<include content="view_Banner-Frame">
 					<param name="Width" value="604"/>
 					<param name="Height" value="123"/>
 				</include>
-				<include name="view_Banner-Art">
+				<include content="view_Banner-Art">
 					<param name="Width" value="590"/>
 					<param name="Height" value="109"/>
 				</include>
-				<include name="view_Banner-Data">
+				<include content="view_Banner-Data">
 					<param name="Right" value="23"/>
 					<param name="Bottom" value="74"/>
 				</include>
-				<include name="status_Info">
+				<include content="status_Info">
 					<param name="Left" value="555"/>
 					<param name="Bottom" value="74"/>
 				</include>
 			</itemlayout>
 			<focusedlayout width="620" height="190">
-				<include name="view_Banner-Frame">
+				<include content="view_Banner-Frame">
 					<param name="Width" value="604"/>
 					<param name="Height" value="123"/>
 					<param name="State" value="frames/frame-fo.png" />
 				</include>
-				<include name="view_Banner-Art">
+				<include content="view_Banner-Art">
 					<param name="Width" value="590"/>
 					<param name="Height" value="109"/>
 				</include>
-				<include name="view_Banner-Data">
+				<include content="view_Banner-Data">
 					<param name="Right" value="23"/>
 					<param name="Bottom" value="74"/>
 				</include>
-				<include name="status_Info">
+				<include content="status_Info">
 					<param name="Left" value="555"/>
 					<param name="Bottom" value="74"/>
 				</include>

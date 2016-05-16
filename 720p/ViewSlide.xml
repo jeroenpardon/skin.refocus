@@ -90,7 +90,7 @@
 				<itemlayout width="200" height="300">
 					<include>view_Slide-Frame</include>
 					<include>view_Slide-Art</include>
-					<include name="status_Info">
+					<include content="status_Info">
 						<param name="Left" value="150"/>
 						<param name="Bottom" value="11"/>
 					</include>
@@ -100,7 +100,7 @@
 					<control type="group">
 						<include>view_Slide-Frame</include>
 						<include>view_Slide-Art</include>
-						<include name="status_Info">
+						<include content="status_Info">
 							<param name="Left" value="150"/>
 							<param name="Bottom" value="11"/>
 						</include>
@@ -111,7 +111,7 @@
 			<include>view_Slide-Studio</include>
 			<control type="group">
 				<visible>Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522)</visible>
-				<include name="detail_Info">
+				<include content="detail_Info">
 					<param name="Left" value="192"/>
 					<param name="Top" value="477"/>
 					<param name="Width" value="1050"/>
@@ -209,11 +209,11 @@
 			<include>toggle_Menu</include>
 			<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(singles) | Container.Content(artists) | Container.Content(addons) | Window.IsActive(radiorecordings)</visible>
 			<itemlayout height="280" width="280">
-				<include name="view_Slide-Frame">
+				<include content="view_Slide-Frame">
 					<param name="Width" value="280"/>
 					<param name="Height" value="280"/>
 				</include>
-				<include name="view_Slide-Art">
+				<include content="view_Slide-Art">
 					<param name="Width" value="260"/>
 					<param name="Height" value="260"/>
 					<param name="Art" value="$VAR[art:Square]"/>
@@ -223,11 +223,11 @@
 			<focusedlayout height="280" width="280">
 				<control type="group">
 					<include>focus_SlideMusic</include>
-					<include name="view_Slide-Frame">
+					<include content="view_Slide-Frame">
 						<param name="Width" value="280"/>
 						<param name="Height" value="280"/>
 					</include>
-					<include name="view_Slide-Art">
+					<include content="view_Slide-Art">
 						<param name="Width" value="260"/>
 						<param name="Height" value="260"/>
 						<param name="Art" value="$VAR[art:Square]"/>

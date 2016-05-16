@@ -40,7 +40,7 @@
 					<height>$PARAM[Size]</height>
 					<centerleft>50%</centerleft>
 					<centertop>50%</centertop>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[Width]</width>
@@ -97,7 +97,7 @@
 							<textcolor>Color2</textcolor>
 							<selectedcolor>Selected</selectedcolor>
 							<aligny>top</aligny>
-							<visible>[Container.Content(movies) | Container.Content(tvshows)] + !String.IsEqual(ListItem.Label,..)</visible>
+							<visible>[Container.Content(movies) | Container.Content(tvshows)] + !StringCompare(ListItem.Label,..)</visible>
 						</control>
 						<control type="label">
 							<label>[UPPERCASE]$INFO[ListItem.PictureResolution,$LOCALIZE[21805] - ][/UPPERCASE]</label>
@@ -164,30 +164,30 @@
 				<orientation>horizontal</orientation>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures)</visible>
 				<itemlayout width="770" height="442">
-					<include name="view_Gallery-Frame">
+					<include content="view_Gallery-Frame">
 						<param name="Width" value="770"/>
 						<param name="Height" value="442"/>
 					</include>
-					<include name="view_Gallery-Art">
+					<include content="view_Gallery-Art">
 						<param name="Fallback" value="thumbs/default_Landscape.png"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
-					<include name="status_Info">
+					<include content="status_Info">
 							<param name="Left" value="718"/>
 							<param name="Bottom" value="10"/>
 						</include>
 				</itemlayout>
 				<focusedlayout width="770" height="442">
-					<include name="view_Gallery-Frame">
+					<include content="view_Gallery-Frame">
 						<param name="Width" value="770"/>
 						<param name="Height" value="442"/>
 					</include>
 					<control type="group">
-						<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !String.IsEmpty(ListItem.Title)">Conditional</animation>
-						<include name="view_Gallery-Art">
+						<animation effect="zoom" start="100" end="173" time="200" center="363,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+						<include content="view_Gallery-Art">
 							<param name="ShowLogo" default="true"/>
 						</include>
-						<include name="status_Info">
+						<include content="status_Info">
 							<param name="Left" value="718"/>
 							<param name="Bottom" value="10"/>
 							<param name="Visible" value="!Control.HasFocus(8000)"/>
@@ -203,7 +203,7 @@
 				<height>442</height>
 				<aspectratio align="center">stretch</aspectratio>
 				<texture>frames/frame_Landscape-fo.png</texture>
-				<animation type="Conditional" condition="Control.HasFocus(8000) + !String.IsEmpty(ListItem.Title)" reversible="true">
+				<animation type="Conditional" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)" reversible="true">
 					<effect type="zoom" time="200" center="640,330" start="100"  end="173" tween="Cubic" />
 					<effect type="Fade" time="200" start="100" end="0" tween="Cubic" />
 				</animation>
@@ -229,7 +229,7 @@
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			<itemlayout width="screen_Width" height="screen_Height">
-				<include name="view_Gallery-Art">
+				<include content="view_Gallery-Art">
 					<param name="Left" value="0"/>
 					<param name="Top" value="0"/>
 					<param name="Width" value="screen_Width"/>
@@ -237,7 +237,7 @@
 				</include>
 			</itemlayout>
 			<focusedlayout height="screen_Height" width="screen_Width">
-				<include name="view_Gallery-Art">
+				<include content="view_Gallery-Art">
 					<param name="Left" value="0"/>
 					<param name="Top" value="0"/>
 					<param name="Width" value="screen_Width"/>
@@ -250,7 +250,7 @@
 			<include>toggle_Menu</include>
 			<include>fadeinout</include>
 			<include>transition_Info</include>
-			<visible>[[Control.IsVisible(53) + Control.HasFocus(8000)] | Control.IsVisible(531)] + !Window.IsActive(Pictures) + !String.IsEmpty(ListItem.Title)</visible>
+			<visible>[[Control.IsVisible(53) + Control.HasFocus(8000)] | Control.IsVisible(531)] + !Window.IsActive(Pictures) + !IsEmpty(ListItem.Title)</visible>
 			<control type="image">
 				<texture>overlays/vignette_bottom.png</texture>
 				<include>screen_Dimensions</include>
@@ -285,7 +285,7 @@
 					<label>$VAR[media:Plot]</label>
 					<font>condensed-U</font>
 					<textcolor>Color3</textcolor>
-					<visible>!String.Contains(ListItem.Icon,default)</visible>
+					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
 			</control>
 		</control>
