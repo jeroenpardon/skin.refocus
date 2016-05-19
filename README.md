@@ -1,6 +1,9 @@
 reFocus for Kodi
 ============
 
+### Warning !
+Master branch is very early Kodi 17.0 / Krypton and should be considered unstable. No support and if something breaks you get to keep the pieces.
+
 ### About
 reFocus is a graphical interface for Kodi that understands your media is what truly matters. Elegance, simplicity, refinement, consistency and balanced design are keywords for this skin.
 
