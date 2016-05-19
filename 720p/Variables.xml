@@ -197,7 +197,7 @@
 	<variable name="media:Info.Addon">
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
-		<value condition="Container.Content(episodes) + !IsEmpty($INFO[ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,, &#8226; $LOCALIZE[20359]]$INFO[ListItem.Premiered]</value>
+		<value condition="Container.Content(episodes) + !IsEmpty($INFO[ListItem.Season])">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,, &#8226; $LOCALIZE[20359]]$INFO[ListItem.Premiered]</value>
 		<value>$INFO[ListItem.Studio]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[12391]]$INFO[ListItem.Date, &#8226; ]</value>
 	</variable>
 
