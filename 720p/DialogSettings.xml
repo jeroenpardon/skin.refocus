@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>5</defaultcontrol>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<left>230</left>
+		<top>118</top>
+	</coordinates>
+
+	<controls>
+		<control type="group">
+			<width>820</width>
+			<height>595</height>
+			<visible>!Window.IsVisible(sliderdialog)</visible>
+			<include content="dialog_WindowCommons">
+				<param name="DialogHeaderID" value="2"/>
+				<param name="DialogWidth" value="820"/>
+				<param name="DialogHeight" value="484"/>
+			</include>
+
+			<control type="group">
+				<left>14</left>
+				<top>60</top>
+
+				<!--control area-->
+				<control type="grouplist" id="5">
+					<width>642</width>
+					<height>750</height>
+					<onright>9000</onright>
+					<onup>5</onup>
+					<ondown>5</ondown>
+					<itemgap>0</itemgap>
+				</control>
+
+				<!--default button-->
+				<control type="button" id="7">
+					<include>dialog_ControlCommons</include>
+				</control>
+				<!--default radiobutton-->
+				<control type="radiobutton" id="8">
+					<include>dialog_ControlCommons</include>
+					<include>dialog_Radio</include>
+				</control>
+				<!--default spincontrol-->
+				<control type="spincontrolex" id="9">
+					<include>dialog_ControlCommons</include>
+					<include>dialog_Spin</include>
+				</control>
+				<!--default edit control-->
+				<control type="edit" id="12">
+					<include>dialog_ControlCommons</include>
+					<include>dialog_Edit</include>
+				</control>
+				<!--default slider control-->
+				<control type="sliderex" id="13">
+					<include>dialog_ControlCommons</include>
+					<include>dialog_Slider</include>
+				</control>
+				<!--default label-->
+				<control type="label" id="14">
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+				</control>
+				<!--separator image-->
+				<control type="image" id="11">
+					<include>dialog_Separator</include>
+				</control>
+
+				<!--dialog controls-->
+				<control type="grouplist" id="9000">
+					<right>14</right>
+					<width>140</width>
+					<height min="40" max="140">auto</height>
+					<itemgap>10</itemgap>
+					<onleft>5</onleft>
+					<orientation>vertical</orientation>
+					<include content="dialog_WindowButton">
+						<param name="Width" value="140" />
+						<param name="ID" value="28" />
+						<param name="Label" value="-" />
+					</include>
+					<include content="dialog_WindowButton">
+						<param name="Width" value="140" />
+						<param name="ID" value="29" />
+						<param name="Label" value="-" />
+					</include>
+					<include content="dialog_WindowButton">
+						<param name="Width" value="140" />
+						<param name="ID" value="30" />
+						<param name="Label" value="-" />
+					</include>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
