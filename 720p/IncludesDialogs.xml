@@ -230,17 +230,33 @@
 		<textcolor>Color4</textcolor>
 		<scroll>false</scroll>
 	</include>
-	<include name="dialog_WindowButton">	
-		<width>120</width>
-		<height>40</height>
-		<font>regular_Small-U-B</font>
-		<align>center</align>
-		<textoffsetx>10</textoffsetx>
-		<textoffsety>6</textoffsety>
-		<textcolor>Color4</textcolor>
-		<focusedcolor>Color1</focusedcolor>
-		<texturenofocus border="2">dialogs/button-nf.png</texturenofocus>
-		<texturefocus>dialogs/button-fo.png</texturefocus>
+	
+	<include name="dialog_WindowButton">
+		<param name="ID"/>
+		<param name="Label"/>
+		<param name="Width" default="120"/>
+		<param name="Height" default="40"/>
+		<param name="OnUp"/>
+		<param name="OnDown"/>
+		<param name="OnLeft"/>
+		<param name="OnRight"/>
+		<param name="OnFocus"/>
+		<param name="OnClick"/>
+		<definition>
+			<control type="button" id="$PARAM[ID]">
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<label>$PARAM[Label]</label>
+				<font>regular_Small-U-B</font>
+				<align>center</align>
+				<textoffsetx>10</textoffsetx>
+				<textoffsety>6</textoffsety>
+				<textcolor>Color4</textcolor>
+				<focusedcolor>Color1</focusedcolor>
+				<texturenofocus border="2">dialogs/button-nf.png</texturenofocus>
+				<texturefocus>dialogs/button-fo.png</texturefocus>
+			</control>
+		</definition>
 	</include>
 
 <!--global-->
