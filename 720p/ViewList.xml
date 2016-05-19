@@ -71,7 +71,7 @@
 				<width>$PARAM[Width]</width>
 				<height>$PARAM[Height]</height>
 				<texture>$PARAM[State]</texture>
-				<visible>!StringCompare(ListItem.Label,..)</visible>
+				<visible>!String.IsEqual(ListItem.Label,..)</visible>
 			</control>
 		</definition>
 	</include>
@@ -98,7 +98,7 @@
 					<width>$PARAM[IconSize]</width>
 					<height>$PARAM[IconSize]</height>
 					<texture>$INFO[ListItem.Icon]</texture>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[ThumbSize]</width>
@@ -196,16 +196,16 @@
 				<onright>70</onright>
 				<pagecontrol>70</pagecontrol>
 				<include>global_ListScroll</include>
-				<itemlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">		
+				<itemlayout condition="String.IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">		
 					<include>view_List-Data.Single</include>
 				</itemlayout>
-				<focusedlayout condition="IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">				
+				<focusedlayout condition="String.IsEmpty(Container.FolderPath) | [Container.Content(files) + !Container.HasFiles]" width="620" height="40">				
 					<include>view_List-Focus</include>
 					<include name="view_List-Data.Single">
 						<param name="TextColor">$VAR[view:List.TextColor]</param>
 					</include>
 				</focusedlayout>
-				<itemlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">		
+				<itemlayout condition="String.Contains(Container.FolderPath,pvr://)" width="620" height="67">		
 					<include>view_List-Icon</include>
 					<include name="view_List-Data">
 						<param name="TextLeft" value="80"/>
@@ -216,7 +216,7 @@
 						<param name="Top">19</param>
 					</include>
 				</itemlayout>
-				<focusedlayout condition="SubString(Container.FolderPath,pvr://)" width="620" height="67">				
+				<focusedlayout condition="String.Contains(Container.FolderPath,pvr://)" width="620" height="67">				
 					<include name="view_List-Focus">
 						<param name="Height" value="67"/>
 					</include>
@@ -233,14 +233,14 @@
 						<param name="StatusColor">$VAR[view:List.TextColor]</param>
 					</include>
 				</focusedlayout>
-				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
+				<itemlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | [Container.Content(files) + Container.HasFiles] | String.Contains(Container.FolderPath,addons://sources/,left)" width="620" height="67">
 					<include>view_List-Data</include>
 					<include name="status_List">
 						<param name="Right">10</param>
 						<param name="Top">19</param>
 					</include>
 				</itemlayout>
-				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | [Container.Content(files) + Container.HasFiles] | SubString(Container.FolderPath,addons://sources/,left)" width="620" height="67">
+				<focusedlayout condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | [Container.Content(files) + Container.HasFiles] | String.Contains(Container.FolderPath,addons://sources/,left)" width="620" height="67">
 					<include name="view_List-Focus">
 						<param name="Height" value="67"/>
 					</include>
@@ -260,7 +260,7 @@
 				<left>680</left>
 				<top>80</top>
 				<visible>Control.IsVisible(50)</visible>
-				<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !SubString(Container.FolderPath,plugin://)] | Container.Content(episodes) | [Container.Content(artists) + Skin.HasSetting(view.list.artistfanart)]</visible>
+				<visible>[[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(view.list.fanart) + !String.Contains(Container.FolderPath,plugin://)] | Container.Content(episodes) | [Container.Content(artists) + Skin.HasSetting(view.list.artistfanart)]</visible>
 				<include name="view_List-Frame">
 					<param name="Width" value="546"/>
 					<param name="Height" value="309"/>
@@ -279,7 +279,7 @@
 				<left>750</left>
 				<top>80</top>
 				<visible>Control.IsVisible(50)</visible>
-				<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | SubString(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows)] + [!Skin.HasSetting(view.list.fanart) | String.Contains(Container.FolderPath,plugin://)] | Container.Content(actors) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<include name="view_List-Frame">
 					<param name="Width" value="431"/>
 					<param name="Height" value="614"/>
@@ -290,7 +290,7 @@
 					<param name="Fallback" value="thumbs/default_Portrait.png"/>
 					<param name="Art" value="$VAR[art:Portrait]"/>
 					<param name="Aspect" value="keep"/>
-					<param name="Visible" value="!SubString(ListItem.Icon,DefaultFolder)"/>
+					<param name="Visible" value="!String.Contains(ListItem.Icon,DefaultFolder)"/>
 				</include>
 			</control>
 			<!--square-->
@@ -299,7 +299,7 @@
 					<left>700</left>
 					<top>80</top>
 					<visible>Control.IsVisible(50)</visible>
-					<visible>!SubString(Container.FolderPath,plugin://plugin)</visible>
+					<visible>!String.Contains(Container.FolderPath,plugin://plugin)</visible>
 					<visible>[[Container.Content(musicvideos) | Container.Content(files)] + Container.HasFiles] | [Container.Content(artists) + !Skin.HasSetting(view.list.artistfanart)] | Container.Content(albums) | Container.Content(songs)</visible>
 					<include name="detail_ListInfo">
 						<param name="Width" value="510"/>
@@ -317,8 +317,8 @@
 					<left>700</left>
 					<top>80</top>
 					<visible>Control.IsVisible(50)</visible>
-					<visible>!StringCompare(ListItem.Label,$LOCALIZE[593]) + !SubString(ListItem.Icon,DefaultAddon,Left)</visible>
-					<visible>[[SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin://plugin) | [SubString(Container.FolderPath,pvr://recordings) + Container.HasFiles]] + ![StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
+					<visible>!String.IsEqual(ListItem.Label,$LOCALIZE[593]) + !String.Contains(ListItem.Icon,DefaultAddon,Left)</visible>
+					<visible>[[String.Contains(Container.FolderPath,addons://) | String.Contains(Container.FolderPath,plugin://plugin) | [String.Contains(Container.FolderPath,pvr://recordings) + Container.HasFiles]] + ![String.IsEqual(Container.FolderPath,addons://enabled/) | String.IsEqual(Container.FolderPath,addons://all/)] + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]]</visible>
 					<include name="detail_ListInfo">
 						<param name="Width" value="510"/>
 						<param name="Height" value="256"/>
@@ -348,7 +348,7 @@
 		<param name="Aspect" default="keep"/>
 		<param name="ShowFrame" default="true"/>
 		<param name="PlotTop" default="315"/>
-		<param name="Visible" default="!SubString(ListItem.Icon,Defaultfolder)"/>
+		<param name="Visible" default="!String.Contains(ListItem.Icon,Defaultfolder)"/>
 		<definition>
 			<control type="group">
 				<left>7</left>
@@ -362,7 +362,7 @@
 					<centerleft>50%</centerleft>
 					<centertop>50%</centertop>
 					<fadetime>fadetime_Thumb</fadetime>
-					<visible>IsEmpty(ListItem.Thumb)</visible>
+					<visible>String.IsEmpty(ListItem.Thumb)</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[Width]</width>
@@ -372,7 +372,7 @@
 					<bordertexture border="$PARAM[BorderSize]">$PARAM[BorderTexture]</bordertexture>
 					<bordersize>$PARAM[BorderSize]</bordersize>
 					<aspectratio align="left" aligny="top">$PARAM[Aspect]</aspectratio>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>!String.Contains(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
@@ -429,7 +429,7 @@
 				<orientation>vertical</orientation>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
 				<!--landscape layout-->
-				<itemlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
+				<itemlayout condition="!String.Contains(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
 					<include>view_List-Art</include>
 					<include name="view_List-Data">
 						<param name="TextLeft" value="260"/>
@@ -441,7 +441,7 @@
 						<param name="Bottom" value="17"/>
 					</include>
 				</itemlayout>
-				<focusedlayout condition="!SubString(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
+				<focusedlayout condition="!String.Contains(Container.FolderPath,plugin://) + [[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(view.biglist.posters)] | Container.Content(episodes)" width="1205" height="154">
 					<include>view_List-Art</include>
 					<include name="view_List-Data">
 						<param name="TextLeft" value="260"/>
@@ -456,7 +456,7 @@
 					</include>
 				</focusedlayout>
 				<!--portrait layout-->
-				<itemlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
+				<itemlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + String.Contains(Container.FolderPath,plugin://)]" width="1205" height="154">
 					<include name="view_List-Art">
 						<param name="FrameWidth" value="104"/>
 						<param name="ArtWidth" value="90"/>
@@ -475,7 +475,7 @@
 						<param name="Size" value="32"/>
 					</include>
 				</itemlayout>
-				<focusedlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + SubString(Container.FolderPath,plugin://)]" width="1205" height="154">
+				<focusedlayout condition="[[Container.Content(tvshows) | Container.Content(movies)] + Skin.HasSetting(view.biglist.posters)] | [[Container.Content(tvshows) | Container.Content(movies)] + String.Contains(Container.FolderPath,plugin://)]" width="1205" height="154">
 					<include name="view_List-Art">
 						<param name="FrameWidth" value="104"/>
 						<param name="ArtWidth" value="90"/>

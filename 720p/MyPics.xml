@@ -38,7 +38,7 @@
 		<control type="group">
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-			<visible>Control.IsVisible(50) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons)</visible>
+			<visible>Control.IsVisible(50) + !String.IsEmpty(Container.FolderPath) + !String.Contains(Container.FolderPath,addons)</visible>
 			<control type="group">
 				<left>680</left>
 				<top>80</top>
@@ -49,7 +49,7 @@
 					<bordersize>7</bordersize>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<fadetime>fadetime_Thumb</fadetime>
-					<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack)</visible>
+					<visible>ListItem.IsFolder + !String.Contains(ListItem.Icon,DefaultFolderBack)</visible>
 				</control>
 				<control type="image">
 					<width>532</width>

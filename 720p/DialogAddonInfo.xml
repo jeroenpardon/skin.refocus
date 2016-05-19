@@ -22,7 +22,7 @@
 				<include>screen_Dimensions</include>
 				<texture background="true">overlays/base_color.png</texture>
 				<colordiffuse>base_1</colordiffuse>
-				<visible>IsEmpty(ListItem.Art(fanart))</visible>
+				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
 
 			<control type="group">
@@ -45,7 +45,7 @@
 							<height>200</height>
 							<texture>overlays/vignette_bottom.png</texture>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+							<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<!--begin main column-->
 						<control type="group">
@@ -53,7 +53,7 @@
 							<top>110</top>
 							<control type="label">
 								<width min="0" max="900">auto</width>
-								<label>$INFO[ListItem.Property(Addon.Name)]</label>
+								<label>$INFO[ListItem.AddonName]</label>
 								<selectedcolor>Color1</selectedcolor>
 								<include>osd_Title</include>
 							</control>
@@ -67,7 +67,7 @@
 							<control type="label">
 								<top>50</top>
 								<width min="0" max="900">auto</width>
-								<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+								<label>$INFO[ListItem.AddonSummary]</label>
 								<font>regular_Smaller-U</font>
 								<textcolor>Color3</textcolor>
 								<include>osd_Sub</include>
@@ -84,7 +84,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
-								<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+								<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 							</control>
 							<!--begin main content area-->
 							<control type="group">
@@ -142,7 +142,7 @@
 										<label>$LOCALIZE[24069]</label>
 										<!--<label>$LOCALIZE[16106]</label>-->
 										<include>global_Button</include>
-										<onclick condition="StringCompare(ListItem.Property(Addon.Installed),True)">Skin.SetString(addon.installed,true)</onclick>
+										<onclick condition="String.IsEqual(ListItem.Property(Addon.Installed),True)">Skin.SetString(addon.installed,true)</onclick>
 										<onclick>ActivateWindow(1120)</onclick>
 									</control>
 									<!--changelog-->
@@ -158,7 +158,7 @@
 									<top>70</top>
 									<width>900</width>
 									<height min="0" max="325">auto</height>
-									<label>$INFO[ListItem.Property(Addon.Description),[B]$LOCALIZE[21821][CR][/B]][CR][CR]$INFO[ListItem.Property(Addon.Disclaimer),[B]$LOCALIZE[24052][CR][/B]][CR][CR]$INFO[ListItem.Property(Addon.Broken),[B]$LOCALIZE[24096][CR][/B]]</label>
+									<label>$INFO[ListItem.AddonDescription,[B]$LOCALIZE[21821][CR][/B]][CR][CR]$INFO[ListItem.AddonDisclaimer,[B]$LOCALIZE[24052][CR][/B]][CR][CR]$INFO[ListItem.AddonBroken,[B]$LOCALIZE[24096][CR][/B]]</label>
 									<include>detail_Text</include>
 									<visible>!Control.IsVisible(50)</visible>
 								</control>
@@ -188,7 +188,7 @@
 									<height>193</height>
 									<texture>$INFO[ListItem.ActualIcon]</texture>
 									<aspectratio align="center" aligny="top">scale</aspectratio>
-									<visible>IsEmpty(ListItem.Thumb)</visible>
+									<visible>String.IsEmpty(ListItem.Thumb)</visible>
 								</control>
 								<control type="image">
 									<width>193</width>
@@ -202,7 +202,7 @@
 								<width>200</width>
 								<height min="0" max="325">auto</height>
 								<align>right</align>
-								<label>$INFO[ListItem.Property(Addon.Type),[B]$LOCALIZE[467][CR][/B]][CR][CR]$INFO[ListItem.Property(Addon.Version),[B]$LOCALIZE[19114][CR][/B]][CR][CR]$INFO[ListItem.Property(Addon.Creator),[B]$LOCALIZE[21863][CR][/B]][CR][CR]$INFO[ListItem.Property(Addon.Status),[B]$LOCALIZE[126][CR][/B]]</label>
+								<label>$INFO[ListItem.AddonType,[B]$LOCALIZE[467][CR][/B]][CR][CR]$INFO[ListItem.AddonVersion,[B]$LOCALIZE[19114][CR][/B]][CR][CR]$INFO[ListItem.AddonCreator,[B]$LOCALIZE[21863][CR][/B]][CR][CR]$INFO[ListItem.Property(Addon.Status),[B]$LOCALIZE[126][CR][/B]]</label>
 								<include>detail_Text</include>
 							</control>
 						</control>

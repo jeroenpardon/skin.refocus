@@ -86,7 +86,7 @@
 								<label>$INFO[Container(999).ListItem.Premiered]$INFO[Container(999).ListItem.Year]$INFO[Container(999).ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[Container(999).ListItem.Genre, &#8226; ]</label>
 								<font>regular_Small-U</font>
 								<include>osd_Sub</include>
-								<!--<visible>!StringCompare(Container(999).ListItem.Property(type),movie)</visible>-->
+								<!--<visible>!String.IsEqual(Container(999).ListItem.Property(type),movie)</visible>-->
 							</control>
 							<control type="label">
 								<top>50</top>

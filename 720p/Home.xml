@@ -5,8 +5,8 @@
 	<onload>ClearProperty(Extinfo)</onload>
 	<onload condition="Window.Previous(startup)">Skin.SetString(HomeLoaded,True)</onload>
 	<onload condition="Window.Previous(startup)">RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets|clonebackgrounds&amp;mainmenuID=9000)</onload>
-	<onload condition="!StringCompare(Skin.String(homemenu.type),vertical) + !StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
-	<onunload condition="Skin.HasSetting(homemenu.collapse) + StringCompare(Skin.String(homemenu.type),vertical)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
+	<onload condition="!String.IsEqual(Skin.String(homemenu.type),vertical) + !String.IsEqual(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
+	<onunload condition="Skin.HasSetting(homemenu.collapse) + String.IsEqual(Skin.String(homemenu.type),vertical)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
 
 	<controls>
 		<control type="group">
@@ -16,14 +16,14 @@
 			<include>home_Background</include>
 
 			<!--call home menu-->
-			<include condition="StringCompare(Skin.String(homemenu.type),vertical) | !StringCompare(Skin.String(homemenu.type),horizontal) + !StringCompare(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
-			<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
+			<include condition="String.IsEqual(Skin.String(homemenu.type),vertical) | !String.IsEqual(Skin.String(homemenu.type),horizontal) + !String.IsEqual(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
+			<include condition="String.IsEqual(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
 
 			<!--now playing (widgets disabled)-->
 			<control type="group">
 				<left>25</left>
 				<top>15</top>
-				<animation effect="slide" start="0" end="320" time="0" condition="StringCompare(Skin.String(homemenu.type),vertical)">Conditional</animation>
+				<animation effect="slide" start="0" end="320" time="0" condition="String.IsEqual(Skin.String(homemenu.type),vertical)">Conditional</animation>
 				<include>fadeinout</include>
 				<visible>Skin.HasSetting(widgets.disable) + Player.HasAudio + Skin.HasSetting(home.nowplaying)</visible>
 				<control type="image">
@@ -63,7 +63,7 @@
 				<height>screen_Height</height>
 				<onleft>50</onleft>
 				<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
-				<visible allowhiddenfocus="true">StringCompare(Skin.String(homemenu.type),vertical) + Control.HasFocus(9200) + !Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+				<visible allowhiddenfocus="true">String.IsEqual(Skin.String(homemenu.type),vertical) + Control.HasFocus(9200) + !Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
 			</control>
 			<control type="scrollbar" id="71">
 				<top>712</top>
@@ -71,7 +71,7 @@
 				<orientation>horizontal</orientation>
 				<onup>50</onup>
 				<texturesliderbar border="0">views/pagecontrol/grip-fo.png</texturesliderbar>
-				<visible allowhiddenfocus="true">StringCompare(Skin.String(homemenu.type),horizontal) + Control.HasFocus(9200)</visible>
+				<visible allowhiddenfocus="true">String.IsEqual(Skin.String(homemenu.type),horizontal) + Control.HasFocus(9200)</visible>
 			</control>
 
 			<!--RSS-->
@@ -81,7 +81,7 @@
 					<left>320</left>
 					<top>690</top>
 					<include>toggle_RSS</include>
-					<visible>StringCompare(Skin.String(homemenu.type),vertical) + Control.HasFocus(9000) + !Skin.HasSetting(homemenu.compact)</visible>
+					<visible>String.IsEqual(Skin.String(homemenu.type),vertical) + Control.HasFocus(9000) + !Skin.HasSetting(homemenu.compact)</visible>
 					<control type="image">
 						<width>screen_Width</width>
 						<height>30</height>
@@ -102,7 +102,7 @@
 				<control type="group">
 					<top>690</top>
 					<include>toggle_RSS</include>
-					<visible>[StringCompare(Skin.String(homemenu.type),horizontal) + [Control.HasFocus(9000) | Control.HasFocus(9100)]] | [StringCompare(Skin.String(homemenu.type),vertical) + Skin.HasSetting(homemenu.compact)]</visible>
+					<visible>[String.IsEqual(Skin.String(homemenu.type),horizontal) + [Control.HasFocus(9000) | Control.HasFocus(9100)]] | [String.IsEqual(Skin.String(homemenu.type),vertical) + Skin.HasSetting(homemenu.compact)]</visible>
 					<control type="image">
 						<width>screen_Width</width>
 						<height>30</height>

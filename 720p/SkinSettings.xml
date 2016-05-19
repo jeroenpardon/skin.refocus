@@ -132,9 +132,9 @@
 					<control type="button" id="102">
 						<label>$LOCALIZE[31206]</label>
 						<label2>$VAR[home:MenuType]</label2>
-						<onclick condition="IsEmpty(Skin.String(homemenu.type))">Skin.SetString(homemenu.type,vertical)</onclick>
-						<onclick condition="StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onclick>
-						<onclick condition="StringCompare(Skin.String(homemenu.type),vertical)">Skin.SetString(homemenu.type,horizontal)</onclick>
+						<onclick condition="String.IsEmpty(Skin.String(homemenu.type))">Skin.SetString(homemenu.type,vertical)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(homemenu.type),vertical)">Skin.SetString(homemenu.type,horizontal)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--compact menu-->
@@ -143,7 +143,7 @@
 						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
 						<selected>Skin.HasSetting(homemenu.compact)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>!Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),vertical)</enable>
+						<enable>!Skin.HasSetting(widgets.push) + String.IsEqual(Skin.String(homemenu.type),vertical)</enable>
 					</control>
 					<!--automatically collapse submenus-->
 					<control type="radiobutton" id="104">
@@ -151,7 +151,7 @@
 						<onclick>Skin.ToggleSetting(homemenu.collapse)</onclick>
 						<selected>Skin.HasSetting(homemenu.collapse)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>StringCompare(Skin.String(homemenu.type),vertical)</enable>
+						<enable>String.IsEqual(Skin.String(homemenu.type),vertical)</enable>
 					</control>
 					<!--custom backgrounds-->
 					<!--
@@ -502,17 +502,17 @@
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
 						<label2>$VAR[menu:Controls]</label2>
-						<onclick condition="IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
+						<onclick condition="String.IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="radiobutton" id="903">
 						<label>- $LOCALIZE[31283]</label>
 						<onclick>Skin.ToggleSetting(menu.playlist)</onclick>
 						<selected>Skin.HasSetting(menu.playlist)</selected>
-						<enable>StringCompare(Skin.String(menu.controls),fullscreen)</enable>
+						<enable>String.IsEqual(Skin.String(menu.controls),fullscreen)</enable>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--keyboard-->
@@ -542,10 +542,10 @@
 					<control type="button" id="907">
 						<label>$LOCALIZE[31407]</label>
 						<label2>$VAR[epg:Scrolltime]</label2>
-						<onclick condition="IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
-						<onclick condition="StringCompare(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
-						<onclick condition="StringCompare(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
-						<onclick condition="StringCompare(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
+						<onclick condition="String.IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--reset skin settings-->

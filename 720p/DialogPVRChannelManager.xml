@@ -18,13 +18,13 @@
 				<width>892</width>
 				<label>$LOCALIZE[19199] - $LOCALIZE[19023]</label>
 				<include>dialog_Windowtitle</include>
-				<visible>IsEmpty(Window.Property(IsRadio))</visible>
+				<visible>String.IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
 			<control type="label" id="1">
 				<width>892</width>
 				<label>$LOCALIZE[19199] - $LOCALIZE[19024]</label>
 				<include>dialog_Windowtitle</include>
-				<visible>!IsEmpty(Window.Property(IsRadio))</visible>
+				<visible>!String.IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
 		<!--main-->
 			<control type="group">
@@ -43,7 +43,7 @@
 					<onright>6</onright>
 					<onup>noop</onup>
 					<ondown>20</ondown>
-					<usealttexture>IsEmpty(Window.Property(IsRadio))</usealttexture>
+					<usealttexture>String.IsEmpty(Window.Property(IsRadio))</usealttexture>
 					<include>dialog_ControlCommons</include>
 					<include>dialog_Spin</include>
 				</control>
@@ -262,7 +262,7 @@
 							<height>119</height>
 							<aspectratio align="center">keep</aspectratio>
 							<info>ListItem.Property(Icon)</info>
-							<visible>!IsEmpty(ListItem.Icon)</visible>
+							<visible>!String.IsEmpty(ListItem.Icon)</visible>
 						</control>
 					</control>
 					<control type="image">

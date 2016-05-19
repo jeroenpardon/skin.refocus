@@ -188,7 +188,7 @@
 						<width>492</width>
 						<label>$ADDON[script.skinshortcuts 32072]</label>
 						<include>dialog_ControlCommons</include>
-						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					</control>
 					<!--set background-->
 					<control type="button" id="310">
@@ -196,7 +196,7 @@
 						<label>$ADDON[script.skinshortcuts 32045]</label>
 						<label2>$INFO[Container(211).ListItem.Property(Background)]</label2>
 						<include>dialog_ControlCommons</include>
-						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 						<enable>!Skin.HasSetting(backgrounds.fanart) + System.HasAddon(script.grab.fanart)</enable>
 					</control>
 					<!--set widget-->
@@ -205,7 +205,7 @@
 						<label>$ADDON[script.skinshortcuts 32044]</label>
 						<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
 						<include>dialog_ControlCommons</include>
-						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 						<enable>!Skin.HasSetting(widgets.disable)</enable>
 					</control>
 					<!--add item-->
@@ -242,7 +242,7 @@
 				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets|clonebackgrounds&amp;mainmenuID=9000)</onclick>
 				<onclick>Close</onclick>
 				<include>dialog_WindowButton</include>
-				<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+				<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 			</control>
 			<!--close-->
 			<control type="button" id="10">
@@ -255,7 +255,7 @@
 				<ondown>401</ondown>
 				<onclick>Close</onclick>
 				<include>dialog_WindowButton</include>
-				<visible>!StringCompare(Window.Property(groupname),mainmenu)</visible>
+				<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 			</control>
 		</control>
 	</controls>

@@ -109,7 +109,7 @@
 				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>System.LogOff</onclick>
 				<include>dialog_MenuButton</include>
-				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+				<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
 				<visible>System.Loggedon</visible>
 			</control>
 			<!--master mode-->

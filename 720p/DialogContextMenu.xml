@@ -45,7 +45,7 @@
 				<label>$LOCALIZE[20410]</label>
 				<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
 				<include>dialog_ControlCommons</include>
-				<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
+				<visible>Container.Content(movies) + !String.IsEmpty(ListItem.Trailer)</visible>
 			</control>
 			<!--actor information-->
 			<control type="button" id="2009">

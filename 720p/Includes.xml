@@ -83,7 +83,7 @@
 		<control type="group">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
+			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
 			<control type="label">
 				<label>$VAR[toast:Top]</label>
 				<include>toast_Top</include>
@@ -97,7 +97,7 @@
 				<top>15</top>
 				<include>toast_Icon</include>
 				<texture>$VAR[toast:Icon]</texture>
-				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
+				<visible>!Player.Muted + Integer.IsGreater(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</include>
@@ -117,7 +117,7 @@
 				<include>toast_Bottom</include>
 			</control>
 			<control type="group">
-				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
+				<visible>!Player.Muted + Integer.IsGreater(Player.Volume,0)</visible>
 				<control type="image">
 					<top>20</top>
 					<colordiffuse>black</colordiffuse>
@@ -144,7 +144,7 @@
 			<label>[B]$INFO[ListItem.SortLetter][/B]</label>
 			<include>transition_WindowTitle</include>
 			<include>toggle_Menu</include>
-			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
 		</control>
 	</include>
 
@@ -173,7 +173,7 @@
 			<left>20</left>
 			<top>16</top>
 			<include>toggle_Menu</include>
-			<visible>!Skin.HasSetting(global.kiosk) + [Window.IsActive(eventlog) | Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(programs) | Window.IsActive(weather) | Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | SubString(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Control.IsVisible(9900)</visible>
+			<visible>!Skin.HasSetting(global.kiosk) + [Window.IsActive(eventlog) | Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(programs) | Window.IsActive(weather) | Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | String.Contains(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Control.IsVisible(9900)</visible>
 			<include>transition_Indicator</include>
 			<include>transition_Info</include>
 			<control type="image">
@@ -232,7 +232,7 @@
 		<font>semibold_Small-U</font>
 		<textcolor>Color2</textcolor>
 		<selectedcolor>Selected</selectedcolor>
-		<visible>!StringCompare(ListItem.Label,..)</visible>
+		<visible>!String.IsEqual(ListItem.Label,..)</visible>
 	</include>
 	<include name="detail_Text">
 		<textcolor>Color7</textcolor>
@@ -274,7 +274,7 @@
 						<font>semibold_Small-U</font>
 						<textcolor>Color2</textcolor>
 						<aligny>top</aligny>
-						<visible>!SubString(Container.FolderPath,plugin) + !StringCompare(ListItem.Label,..)</visible>
+						<visible>!String.Contains(Container.FolderPath,plugin) + !String.IsEqual(ListItem.Label,..)</visible>
 					</control>
 					<control type="textbox">
 						<width>$PARAM[Width]</width>
@@ -282,14 +282,14 @@
 						<label>$VAR[media:Info.Addon]</label>
 						<font>semibold_Small-U</font>
 						<textcolor>Color2</textcolor>
-						<visible>SubString(Container.FolderPath,plugin) + !StringCompare(ListItem.Label,..)</visible>
+						<visible>String.Contains(Container.FolderPath,plugin) + !String.IsEqual(ListItem.Label,..)</visible>
 					</control>
 					<control type="textbox">
 						<width>$PARAM[Width]</width>
 						<height>$PARAM[PlotHeight]</height>
 						<label>$VAR[media:Plot]</label>
 						<include>detail_Text</include>
-						<visible>!SubString(ListItem.Icon,DefaultFolder)</visible>
+						<visible>!String.Contains(ListItem.Icon,DefaultFolder)</visible>
 						<visible>$PARAM[ShowPlot]</visible>
 					</control>
 				</control>
@@ -307,7 +307,7 @@
 					<itemgap>10</itemgap>
 					<orientation>horizontal</orientation>
 					<visible>$PARAM[ShowFlags]</visible>
-					<visible>!StringCompare(ListItem.Label,..) + !ListItem.IsFolder + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(files)]</visible>
+					<visible>!String.IsEqual(ListItem.Label,..) + !ListItem.IsFolder + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(files)]</visible>
 					<include>media_Flags</include>
 				</control>
 			</control>
@@ -349,7 +349,7 @@
 			<texture>DefaultIconSubtitles.png</texture>
 			<colordiffuse>Color1</colordiffuse>
 			<aspectratio align="center">keep</aspectratio>
-			<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+			<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
 		</control>
 		<control type="label">
 			<width min="50" max="200">auto</width>
@@ -357,7 +357,7 @@
 			<label>$INFO[ListItem.SubtitleLanguage]</label>
 			<textcolor>Color1</textcolor>
 			<include>detail_Sub</include>
-			<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+			<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
 		</control>
 	</include>
 
@@ -480,7 +480,7 @@
 	<include name="art_DefaultIcon">
 		<texture>$INFO[ListItem.ActualIcon]</texture>
 		<aspectratio>keep</aspectratio>
-		<visible>IsEmpty(ListItem.Art(thumb))</visible>
+		<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 	</include>
 	<include name="art_Frame-nf">
 		<texture>frames/frame-nf.png</texture>
@@ -506,10 +506,10 @@
 				<height>$PARAM[Size]</height>
 				<colordiffuse>$PARAM[StatusColor]</colordiffuse>
 				<texture>$VAR[status:List]</texture>
-				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | SubString(Container.FolderPath,pvr://recordings/) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable) + ![SubString(Container.FolderPath,plugin://) | SubString(Container.FolderPath,sources://)]</visible>
+				<visible>[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | String.Contains(Container.FolderPath,pvr://recordings/) + Container.HasFiles + !Skin.HasSetting(overlay.files.disable) + ![String.Contains(Container.FolderPath,plugin://) | String.Contains(Container.FolderPath,sources://)]</visible>
 			</control>
 			<control type="group">
-				<visible>SubString(Container.FolderPath,pvr://channels/) + !SubString(ListItem.Icon,DefaultFolder)</visible>
+				<visible>String.Contains(Container.FolderPath,pvr://channels/) + !String.Contains(ListItem.Icon,DefaultFolder)</visible>
 				<control type="image">
 					<top>$PARAM[Top]</top>
 					<right>$PARAM[Right]</right>
@@ -537,7 +537,7 @@
 		<param name="Right"/>
 		<param name="Bottom" default="11"/>
 		<param name="Size" default="42"/>
-		<param name="Visible" default="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | SubString(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + !SubString(Container.FolderPath,sources://) + !SubString(ListItem.Icon,DefaultFolder)"/>
+		<param name="Visible" default="[Container.Content(movies) + !Skin.HasSetting(overlay.movies.disable)] | [Container.Content(tvshows) + !Skin.HasSetting(overlay.tvshows.disable)] | [Container.Content(episodes) + !Skin.HasSetting(overlay.episodes.disable)] | [Container.Content(seasons) + !Skin.HasSetting(overlay.tvshows.disable)] | [[Container.Content(Files) | String.Contains(Container.FolderPath,pvr://recordings/)] + Container.HasFiles + !Skin.HasSetting(overlay.files.disable)] + !String.Contains(Container.FolderPath,sources://) + !String.Contains(ListItem.Icon,DefaultFolder)"/>
 		<param name="Texture" default="$VAR[status:Info]"/>
 		<definition>
 			<control type="group">
@@ -695,7 +695,7 @@
 	<include name="global_Playing">
 		<control type="group">
 			<include>transition_Info</include>
-			<visible>Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsVisible(busydialog)] + IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+			<visible>Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsVisible(busydialog)] + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
 			<control type="label">
 				<right>70</right>
 				<label>$VAR[toast:PlayingTitle]</label>
@@ -709,7 +709,7 @@
 			<control type="image">
 				<include>toast_Icon</include>
 				<texture>toast/play.png</texture>
-				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
+				<visible>!Player.Muted + Integer.IsGreater(Player.Volume,0)</visible>
 			</control>
 		</control>
 	</include>
@@ -943,7 +943,7 @@
 						<height>64</height>
 						<texture>DefaultVideoCover.png</texture>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<visible>IsEmpty(Player.Art(thumb))</visible>
+						<visible>String.IsEmpty(Player.Art(thumb))</visible>
 					</control>
 					<control type="image">
 						<centerleft>50%</centerleft>
@@ -1121,13 +1121,13 @@
 					<width>532</width>
 					<label>$VAR[media:Title]</label>
 					<include>detail_Title</include>
-					<visible>!SubString(Container.FolderPath,pvr://channels/)</visible>
+					<visible>!String.Contains(Container.FolderPath,pvr://channels/)</visible>
 				</control>
 				<control type="label">
 					<width>532</width>
 					<label>$VAR[pvr:Title]</label>
 					<include>detail_Title</include>
-					<visible>SubString(Container.FolderPath,pvr://channels/)</visible>
+					<visible>String.Contains(Container.FolderPath,pvr://channels/)</visible>
 				</control>
 				<control type="label">
 					<width>532</width>

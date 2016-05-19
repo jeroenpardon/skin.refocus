@@ -54,7 +54,7 @@
 					<height>3</height>
 					<texture background="true">colorize/100.png</texture>
 					<colordiffuse>base_3</colordiffuse>
-					<visible>Skin.HasSetting(homemenu.compact) + IntegerGreaterThan(Container(9000).NumItems,11)</visible>
+					<visible>Skin.HasSetting(homemenu.compact) + Integer.IsGreater(Container(9000).NumItems,11)</visible>
 				</control>
 				<control type="list" id="9000">
 					<left>0</left>
@@ -64,8 +64,8 @@
 					<onback>9000</onback>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![StringCompare(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">9200</onright>
-					<onright condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![StringCompare(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">SetProperty(WidgetState,open,Home)</onright>
+					<onright condition="Control.IsVisible(9200) + Integer.IsGreater(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">9200</onright>
+					<onright condition="Control.IsVisible(9200) + Integer.IsGreater(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">SetProperty(WidgetState,open,Home)</onright>
 					<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onleft>
 					<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 					<pagecontrol>80</pagecontrol>
@@ -86,7 +86,7 @@
 								<texture colordiffuse="base_2">colorize/100.png</texture>
 								<bordertexture colordiffuse="base_3">colorize/100.png</bordertexture>
 								<bordersize>0.35</bordersize>
-								<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+								<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 							</control>
 							<control type="image">
 								<width>314</width>
@@ -94,7 +94,7 @@
 								<texture colordiffuse="accent_2">colorize/100.png</texture>
 								<bordertexture colordiffuse="base_3">colorize/100.png</bordertexture>
 								<bordersize>0.35</bordersize>
-								<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+								<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 							</control>
 						</control>
 						<control type="group">
@@ -105,7 +105,7 @@
 								<font>condensed_HomeSmall</font>
 								<textcolor>Color3</textcolor>
 								<label>$INFO[ListItem.Label]</label>
-								<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+								<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 							</control>
 							<control type="label">
 								<width>260</width>
@@ -113,7 +113,7 @@
 								<font>condensed_HomeSub</font>
 								<textcolor>Color3</textcolor>
 								<label>$INFO[ListItem.Label]</label>
-								<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+								<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 							</control>
 							<control type="label">
 								<right>20</right>
@@ -123,8 +123,8 @@
 								<font>regular</font>
 								<align>right</align>
 								<textcolor>Color3</textcolor>
-								<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
-								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+								<visible>String.Contains(ListItem.Property(hasSubmenu),True)</visible>
+								<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 							</control>
 						</control>
 					</itemlayout>
@@ -133,7 +133,7 @@
 							<width>320</width>
 							<height>62</height>
 							<texture colordiffuse="base_3">colorize/100.png</texture>
-							<visible>Skin.HasSetting(homemenu.compact) + IsEmpty(Container(9000).ListItemNoWrap(1).Label) + Control.HasFocus(9000) + ![Window.IsActive(virtualkeyboard) | Window.IsActive(script-skinshortcuts.xml)]</visible>
+							<visible>Skin.HasSetting(homemenu.compact) + String.IsEmpty(Container(9000).ListItemNoWrap(1).Label) + Control.HasFocus(9000) + ![Window.IsActive(virtualkeyboard) | Window.IsActive(script-skinshortcuts.xml)]</visible>
 						</control>
 						<control type="image">
 							<width>320</width>
@@ -157,7 +157,7 @@
 								<font>condensed_HomeSmall</font>
 								<textcolor>Focused</textcolor>
 								<label>$INFO[ListItem.Label]</label>
-								<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+								<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 							</control>
 							<control type="label">
 								<height>55</height>
@@ -165,7 +165,7 @@
 								<font>condensed_HomeSub</font>
 								<textcolor>Focused</textcolor>
 								<label>$INFO[ListItem.Label]</label>
-								<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+								<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 							</control>
 							<control type="label">
 								<right>20</right>
@@ -175,8 +175,8 @@
 								<font>regular</font>
 								<align>right</align>
 								<textcolor>Focused</textcolor>
-								<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
-								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+								<visible>String.Contains(ListItem.Property(hasSubmenu),True)</visible>
+								<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 							</control>
 						</control>
 					</focusedlayout>
@@ -215,15 +215,15 @@
 						<height>70</height>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
-						<onup condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![StringCompare(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">9200</onup>
-						<onup condition="Control.IsVisible(9200) + IntegerGreaterThan(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![StringCompare(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![StringCompare(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">SetProperty(WidgetState,open,Home)</onup>
+						<onup condition="Control.IsVisible(9200) + Integer.IsGreater(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">9200</onup>
+						<onup condition="Control.IsVisible(9200) + Integer.IsGreater(Container(9200).NumItems,0) + !Container(9200).IsUpdating + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),playingvideo) + !Player.HasVideo] + ![String.IsEqual(Container(9000).ListItem.Property(widgetType),static) + !Player.HasAudio]">SetProperty(WidgetState,open,Home)</onup>
 						<ondown>9100</ondown>
 						<focusposition>2</focusposition>
 						<movement>2</movement>
 						<orientation>horizontal</orientation>
 						<include>global_ListScroll</include>
-						<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9000).NumItems,2)">Conditional</animation>
-						<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9000).NumItems,4)">Conditional</animation>
+						<animation effect="slide" start="0" end="-118" condition="String.IsEqual(Container(9000).NumItems,2)">Conditional</animation>
+						<animation effect="slide" start="0" end="-118" condition="String.IsEqual(Container(9000).NumItems,4)">Conditional</animation>
 						<itemlayout width="236" height="70">
 							<control type="image">
 								<width>238</width>
@@ -296,8 +296,8 @@
 						<movement>2</movement>
 						<include>global_ListScroll</include>
 						<orientation>horizontal</orientation>
-						<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9100).NumItems,2)">Conditional</animation>
-						<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(9100).NumItems,4)">Conditional</animation>
+						<animation effect="slide" start="0" end="-118" condition="String.IsEqual(Container(9100).NumItems,2)">Conditional</animation>
+						<animation effect="slide" start="0" end="-118" condition="String.IsEqual(Container(9100).NumItems,4)">Conditional</animation>
 						<itemlayout width="236" height="50">
 							<control type="image">
 								<width>238</width>

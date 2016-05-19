@@ -92,7 +92,7 @@
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>StereoModeToMono</onclick>
 						<altclick>StereoModeToMono</altclick>
-						<usealttexture>StringCompare(System.StereoscopicMode,7)</usealttexture>
+						<usealttexture>String.IsEqual(System.StereoscopicMode,7)</usealttexture>
 						<include>dialog_MenuButton</include>
 						<visible>VideoPlayer.IsStereoscopic</visible>
 					</control>

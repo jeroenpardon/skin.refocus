@@ -65,7 +65,7 @@
 				<!--scrapers-->
 				<control type="group" id="9004">
 					<top>100</top>
-					<visible>!SubString(Control.GetLabel(20),$LOCALIZE[231])</visible>
+					<visible>!String.Contains(Control.GetLabel(20),$LOCALIZE[231])</visible>
 					<control type="label">
 						<width>613</width>
 						<label>$LOCALIZE[20195]</label>
@@ -92,7 +92,7 @@
 				<!--options-->
 				<control type="group" id="9005">
 					<top>280</top>
-					<animation effect="slide" start="0,0" end="0,-180"  time="0" condition="SubString(Control.GetLabel(3),$LOCALIZE[231])">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-180"  time="0" condition="String.Contains(Control.GetLabel(3),$LOCALIZE[231])">Conditional</animation>
 					<control type="label">
 						<width>652</width>
 						<label>$LOCALIZE[33063]</label>

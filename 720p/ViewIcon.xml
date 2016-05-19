@@ -21,7 +21,7 @@
 		<param name="Height" default="252"/>
 		<param name="Fallback" default="thumbs/default_Portrait.png"/>
 		<param name="IconSize" default="72"/>
-		<param name="ShowActualIcon" default="IsEmpty(ListItem.Art(thumb))"/>
+		<param name="ShowActualIcon" default="String.IsEmpty(ListItem.Art(thumb))"/>
 		<param name="ShowLogo" default="false"/>
 		<param name="Art" default="$VAR[art:Portrait]"/>
 		<param name="ActualIcon" default="$INFO[ListItem.ActualIcon]"/>
@@ -50,7 +50,7 @@
 					<height>$PARAM[Height]</height>
 					<texture background="true">$PARAM[Art]</texture>
 					<aspectratio>scale</aspectratio>
-					<visible>!SubString(ListItem.Icon,DefaultFolder)</visible>
+					<visible>!String.Contains(ListItem.Icon,DefaultFolder)</visible>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
@@ -93,7 +93,7 @@
 					<font>semibold_Small-U</font>
 					<textcolor>$PARAM[Color2]</textcolor>
 					<selectedcolor>Selected</selectedcolor>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
+					<visible>!String.IsEqual(ListItem.Label,..)</visible>
 				</control>
 			</control>
 		</definition>
@@ -346,7 +346,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]] | Window.IsActive(tvrecordings) + !StringCompare(Container.FolderPath,special://videoplaylists/)</visible>
+			<visible>[Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(files) + Container.HasFiles]] | Window.IsActive(tvrecordings) + !String.IsEqual(Container.FolderPath,special://videoplaylists/)</visible>
 			<itemlayout width="404" height="286">
 				<include name="view_Icon-Frame">
 					<param name="Width" value="394"/>
@@ -406,7 +406,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
-			<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)] | Window.IsActive(radiorecordings)</visible>
+			<visible>Container.Content(addons) | String.Contains(Container.FolderPath,addons://sources/) | String.Contains(Container.FolderPath,plugin://) | [Container.Content(files) + !String.Contains(Container.FolderPath,plugin://)] | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | String.Contains(Container.FolderPath,addons://sources/) | [Window.IsActive(Pictures) + !String.Contains(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !String.IsEmpty(Container.FolderPath)] | Window.IsActive(radiorecordings)</visible>
 			<itemlayout width="520" height="85">
 				<include name="view_Icon-Frame">
 					<param name="Width" value="78"/>

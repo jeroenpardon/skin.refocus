@@ -38,7 +38,7 @@
 							<height>200</height>
 							<texture>overlays/vignette_bottom.png</texture>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+							<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<!--record label logos-->
 						<control type="image">
@@ -87,7 +87,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
-								<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+								<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 							</control>
 							<!--main content area-->
 							<control type="group">
@@ -130,7 +130,7 @@
 										<ondown>50</ondown>
 										<width min="120" max="200">auto</width>
 										<include>global_Button</include>
-										<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
+										<visible>!String.Contains(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 									</control>
 								</control>
 								<!--plot / descriptions-->
@@ -186,7 +186,7 @@
 									<width>96</width>
 									<height>96</height>
 									<texture background="true">DefaultMusicArtists.png</texture>
-									<visible>IsEmpty(LisItem.Art(thumb))</visible>
+									<visible>String.IsEmpty(LisItem.Art(thumb))</visible>
 								</control>
 								<control type="image">
 									<width>193</width>
@@ -222,7 +222,7 @@
 					<left>300</left>
 					<top>300</top>
 					<height>600</height>
-					<visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
+					<visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
 					<control type="panel" id="50">
 						<width>900</width>
 						<height>360</height>

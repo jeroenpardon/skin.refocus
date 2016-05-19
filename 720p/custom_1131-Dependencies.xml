@@ -65,14 +65,14 @@
 							<texture>DefaultAddon.png</texture>
 							<aspectratio align="center">scale</aspectratio>
 							<colordiffuse>Color4</colordiffuse>
-							<visible>IsEmpty(ListItem.Icon)</visible>
+							<visible>String.IsEmpty(ListItem.Icon)</visible>
 						</control>
 						<control type="image">
 							<width>84</width>
 							<height>84</height>
 							<texture fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">scale</aspectratio>
-							<visible>!IsEmpty(ListItem.Icon)</visible>
+							<visible>!String.IsEmpty(ListItem.Icon)</visible>
 						</control>
 						<control type="group">
 							<left>85</left>
@@ -90,7 +90,7 @@
 								<textcolor>Color5</textcolor>
 								<aligny>top</aligny>
 								<include>dialog_CommonListItem</include>
-								<visible>!IsEmpty(ListItem.Label2)</visible>
+								<visible>!String.IsEmpty(ListItem.Label2)</visible>
 							</control>
 							<control type="label">
 								<top>30</top>
@@ -100,7 +100,7 @@
 								<textcolor>Color5</textcolor>
 								<aligny>top</aligny>
 								<include>dialog_CommonListItem</include>
-								<visible>IsEmpty(ListItem.Label2)</visible>
+								<visible>String.IsEmpty(ListItem.Label2)</visible>
 							</control>
 						</control>
 					</itemlayout>
@@ -116,14 +116,14 @@
 							<texture>DefaultAddon.png</texture>
 							<aspectratio align="center">scale</aspectratio>
 							<colordiffuse>Color1</colordiffuse>
-							<visible>IsEmpty(ListItem.Icon)</visible>
+							<visible>String.IsEmpty(ListItem.Icon)</visible>
 						</control>
 						<control type="image">
 							<width>84</width>
 							<height>84</height>
 							<texture fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">scale</aspectratio>
-							<visible>!IsEmpty(ListItem.Icon)</visible>
+							<visible>!String.IsEmpty(ListItem.Icon)</visible>
 						</control>
 						<control type="group">
 							<left>85</left>
@@ -141,7 +141,7 @@
 								<aligny>top</aligny>
 								<include>autoscroll_Line</include>
 								<include>dialog_CommonListItemFocus</include>
-								<visible>!IsEmpty(ListItem.Label2)</visible>
+								<visible>!String.IsEmpty(ListItem.Label2)</visible>
 							</control>
 							<control type="label">
 								<top>30</top>
@@ -150,7 +150,7 @@
 								<label>$LOCALIZE[31725]</label>
 								<aligny>top</aligny>
 								<include>dialog_CommonListItemFocus</include>
-								<visible>IsEmpty(ListItem.Label2)</visible>
+								<visible>String.IsEmpty(ListItem.Label2)</visible>
 							</control>
 						</control>
 					</focusedlayout>

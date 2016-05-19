@@ -31,7 +31,7 @@
 				<onclick>SendClick(2003,11)</onclick>
 				<include>dialog_MenuButton</include>
 				<visible>Container.Content(movies)</visible>
-				<enable>!IsEmpty(ListItem.Trailer)</enable>
+				<enable>!String.IsEmpty(ListItem.Trailer)</enable>
 			</control>
 			<!--director movies-->
 			<control type="button" id="502">

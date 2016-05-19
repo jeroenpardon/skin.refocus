@@ -27,7 +27,7 @@
 			<imagepath background="true">$INFO[Skin.String(WeatherFanart.path)]/$INFO[Weather.FanartCode]</imagepath>
 			<include>transition_Content</include>
 			<include>toggle_Menu</include>
-			<visible>SubString(Skin.String(WeatherFanart.path),.multi)</visible>
+			<visible>String.Contains(Skin.String(WeatherFanart.path),.multi)</visible>
 		</control>
 
 	<!--global includes-->

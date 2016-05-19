@@ -42,14 +42,14 @@
 			<control type="group">
 				<left>$PARAM[Left]</left>
 				<top>$PARAM[Top]</top>
-				<visible>!IsEmpty(ListItem.StartTime)</visible>
+				<visible>!String.IsEmpty(ListItem.StartTime)</visible>
 				<control type="image">
 					<width>$PARAM[Size]</width>
 					<height>$PARAM[Size]</height>
 					<texture>pvr/status/none-nf.png</texture>
 					<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
 					<!--!enabled +!recording active-->
-					<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !String.IsEqual(ListItem.Comment,$LOCALIZE[19162])</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[Size]</width>
@@ -57,7 +57,7 @@
 					<texture>pvr/status/none-nf.png</texture>
 					<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
 					<!--!enabled +!recording active-->
-					<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !String.IsEqual(ListItem.Comment,$LOCALIZE[19162])</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[Size]</width>
@@ -65,7 +65,7 @@
 					<texture>pvr/status/enabled.png</texture>
 					<colordiffuse>rec2</colordiffuse>
 					<!--recording active-->
-					<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
+					<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[19162])</visible>
 				</control>
 				<control type="image">
 					<width>$PARAM[Size]</width>
@@ -73,7 +73,7 @@
 					<texture>pvr/status/enabled.png</texture>
 					<colordiffuse>$PARAM[ColorDiffuse]</colordiffuse>
 					<!--enabled-->
-					<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
+					<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305])</visible>
 				</control>
 			</control>
 		</definition>
@@ -319,7 +319,7 @@
 					<bordersize>1</bordersize>
 					<texture>pvr/genres/none.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<visible>StringCompare(ListItem.Property(GenreType),0) | StringCompare(ListItem.Property(GenreType),10) | StringCompare(ListItem.Property(GenreType),20) | StringCompare(ListItem.Property(GenreType),30)</visible>
+					<visible>String.IsEqual(ListItem.Property(GenreType),0) | String.IsEqual(ListItem.Property(GenreType),10) | String.IsEqual(ListItem.Property(GenreType),20) | String.IsEqual(ListItem.Property(GenreType),30)</visible>
 				</control>
 				<control type="image" id="2">
 					<width>100</width>
@@ -343,7 +343,7 @@
 					<bordersize>2</bordersize>
 					<texture>pvr/genres/none.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<visible>StringCompare(ListItem.Property(GenreType),0) | StringCompare(ListItem.Property(GenreType),10) | StringCompare(ListItem.Property(GenreType),20) | StringCompare(ListItem.Property(GenreType),30)</visible>
+					<visible>String.IsEqual(ListItem.Property(GenreType),0) | String.IsEqual(ListItem.Property(GenreType),10) | String.IsEqual(ListItem.Property(GenreType),20) | String.IsEqual(ListItem.Property(GenreType),30)</visible>
 				</control>
 				<control type="image" id="2">
 					<width>100</width>

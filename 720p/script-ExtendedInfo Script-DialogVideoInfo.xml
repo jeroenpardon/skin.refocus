@@ -23,7 +23,7 @@
 				<include>screen_Dimensions</include>
 				<texture background="true">overlays/base_color.png</texture>
 				<colordiffuse>base_1</colordiffuse>
-				<visible>IsEmpty(Window.Property(fanart))</visible>
+				<visible>String.IsEmpty(Window.Property(fanart))</visible>
 			</control>
 
 			<control type="group">
@@ -46,7 +46,7 @@
 							<height>200</height>
 							<texture>overlays/vignette_bottom.png</texture>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<visible>!IsEmpty(Window.Property(fanart))</visible>
+							<visible>!String.IsEmpty(Window.Property(fanart))</visible>
 						</control>
 						<!--studio / network logos-->
 						<control type="image">
@@ -106,7 +106,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
-								<visible>!IsEmpty(Window.Property(fanart))</visible>
+								<visible>!String.IsEmpty(Window.Property(fanart))</visible>
 							</control>
 							<!--begin main content area-->
 							<control type="group">
@@ -122,23 +122,23 @@
 									<control type="button" id="8">
 										<label>$LOCALIZE[208]</label>
 										<width>200</width>
-										<visible>!IsEmpty(Window.Property(DBID)) + !StringCompare(Window.Property(Type),tvshow)</visible>
+										<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEqual(Window.Property(Type),tvshow)</visible>
 										<include>global_Button</include>
 									</control>
 									<!--browse-->
 									<control type="button" id="120">
 										<label>$LOCALIZE[1024]</label>
 										<width>200</width>
-										<visible>!IsEmpty(Window.Property(DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
+										<visible>!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow)</visible>
 										<include>global_Button</include>
 									</control>
 									<!--set rating-->
 									<control type="togglebutton" id="6001">
 										<label>$LOCALIZE[38023]</label>
 										<width>200</width>
-										<usealttexture>!IsEmpty(Window.Property(rated))</usealttexture>
+										<usealttexture>!String.IsEmpty(Window.Property(rated))</usealttexture>
 										<include>global_Button</include>
-										<enable>!IsEmpty(Window.Property(tmdb_logged_in)) + [!StringCompare(Window.Property(type),season) + !StringCompare(Window.Property(type),episode)]</enable>
+										<enable>!String.IsEmpty(Window.Property(tmdb_logged_in)) + [!String.IsEqual(Window.Property(type),season) + !String.IsEqual(Window.Property(type),episode)]</enable>
 									</control>
 									<!--add to list-->
 									<control type="radiobutton" id="6005">
@@ -146,7 +146,7 @@
 										<width>200</width>
 										<include>global_Button</include>
 										<include>global_Radio</include>
-										<enable>!IsEmpty(Window.Property(tmdb_logged_in)) + [!StringCompare(Window.Property(type),season) + !StringCompare(Window.Property(type),episode)]</enable>
+										<enable>!String.IsEmpty(Window.Property(tmdb_logged_in)) + [!String.IsEqual(Window.Property(type),season) + !String.IsEqual(Window.Property(type),episode)]</enable>
 									</control>									
 								</control>
 								<!--plot / descriptions-->

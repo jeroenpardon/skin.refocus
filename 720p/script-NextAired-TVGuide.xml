@@ -11,49 +11,49 @@
 				<texture background="true">$INFO[Container(200).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),monday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),monday)</visible>
 			</control>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<texture background="true">$INFO[Container(201).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),tuesday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),tuesday)</visible>
 			</control>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<texture background="true">$INFO[Container(202).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),wednesday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),wednesday)</visible>
 			</control>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<texture background="true">$INFO[Container(203).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),thursday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),thursday)</visible>
 			</control>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<texture background="true">$INFO[Container(204).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),friday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),friday)</visible>
 			</control>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<texture background="true">$INFO[Container(205).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),saturday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),saturday)</visible>
 			</control>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<texture background="true">$INFO[Container(206).ListItem.Property(Art(fanart))]</texture>
 				<fadetime>fadetime_Fanart</fadetime>
 				<include>fadeinout</include>
-				<visible>StringCompare(Window(Home).Property(tvguide),sunday)</visible>
+				<visible>String.IsEqual(Window(Home).Property(tvguide),sunday)</visible>
 			</control>
 		</control>
 
@@ -96,7 +96,7 @@
 						<onup>9007</onup>
 						<ondown>9002</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(200).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(200).NumItems,0)</enable>
 					</control>
 				</control>
 				<control type="group">
@@ -109,7 +109,7 @@
 						<onup>9001</onup>
 						<ondown>9003</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(201).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(201).NumItems,0)</enable>
 					</control>
 				</control>
 				<control type="group">
@@ -122,7 +122,7 @@
 						<onup>9002</onup>
 						<ondown>9004</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(202).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(202).NumItems,0)</enable>
 					</control>
 				</control>
 				<control type="group">
@@ -135,7 +135,7 @@
 						<onup>9003</onup>
 						<ondown>9005</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(203).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(203).NumItems,0)</enable>
 					</control>
 				</control>
 				<control type="group">
@@ -148,7 +148,7 @@
 						<onup>9004</onup>
 						<ondown>9006</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(204).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(204).NumItems,0)</enable>
 					</control>
 				</control>
 				<control type="group">
@@ -161,7 +161,7 @@
 						<onup>9005</onup>
 						<ondown>9007</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(205).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(205).NumItems,0)</enable>
 					</control>
 				</control>
 				<control type="group">
@@ -174,7 +174,7 @@
 						<onup>9006</onup>
 						<ondown>9001</ondown>
 						<include>settings_Menu</include>
-						<enable>IntegerGreaterThan(Container(206).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(206).NumItems,0)</enable>
 					</control>
 				</control>
 			</control>
@@ -193,7 +193,7 @@
 					<orientation>vertical</orientation>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),monday) + IntegerGreaterThan(Container(200).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),monday) + Integer.IsGreater(Container(200).NumItems,0)</visible>
 				</control>
 				<control type="list" id="201">
 					<width>880</width>
@@ -204,7 +204,7 @@
 					<onright>70</onright>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),tuesday) + IntegerGreaterThan(Container(201).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),tuesday) + Integer.IsGreater(Container(201).NumItems,0)</visible>
 				</control>
 				<control type="list" id="202">
 					<width>880</width>
@@ -215,7 +215,7 @@
 					<onright>70</onright>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),wednesday) + IntegerGreaterThan(Container(202).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),wednesday) + Integer.IsGreater(Container(202).NumItems,0)</visible>
 				</control>
 				<control type="list" id="203">
 					<width>880</width>
@@ -226,7 +226,7 @@
 					<onright>70</onright>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),thursday) + IntegerGreaterThan(Container(203).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),thursday) + Integer.IsGreater(Container(203).NumItems,0)</visible>
 				</control>
 				<control type="list" id="204">
 					<width>880</width>
@@ -237,7 +237,7 @@
 					<onright>70</onright>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),friday) + IntegerGreaterThan(Container(204).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),friday) + Integer.IsGreater(Container(204).NumItems,0)</visible>
 				</control>
 				<control type="list" id="205">
 					<width>880</width>
@@ -248,7 +248,7 @@
 					<onright>70</onright>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),saturday) + IntegerGreaterThan(Container(205).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),saturday) + Integer.IsGreater(Container(205).NumItems,0)</visible>
 				</control>
 				<control type="list" id="206">
 					<width>880</width>
@@ -259,7 +259,7 @@
 					<onright>70</onright>
 					<include>fadeinout</include>
 					<include>TVGuideLayout</include>
-					<visible>StringCompare(Window(Home).Property(tvguide),sunday) + IntegerGreaterThan(Container(206).NumItems,0)</visible>
+					<visible>String.IsEqual(Window(Home).Property(tvguide),sunday) + Integer.IsGreater(Container(206).NumItems,0)</visible>
 				</control>
 			</control>
 		</control>

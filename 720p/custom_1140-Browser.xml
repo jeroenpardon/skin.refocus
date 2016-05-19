@@ -4,9 +4,9 @@
 	<onunload>ClearProperty(extContent)</onunload>
 	<onunload>ClearProperty(extQuery)</onunload>
 
-	<onload condition="StringCompare(Window(Home).Property(extType),poster)">SetFocus(50)</onload>
-	<onload condition="StringCompare(Window(Home).Property(extType),square)">SetFocus(55)</onload>
-	<onload condition="StringCompare(Window(Home).Property(extType),thumbnail)">SetFocus(60)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(extType),poster)">SetFocus(50)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(extType),square)">SetFocus(55)</onload>
+	<onload condition="String.IsEqual(Window(Home).Property(extType),thumbnail)">SetFocus(60)</onload>
 	
 	<controls>
 
@@ -20,13 +20,13 @@
 			<param name="Label" value="$INFO[Window(Home).Property(extContent)]"/>
 		</include>
 
-		<include name="global_Itemcount" condition="StringCompare(Window(Home).Property(extType),poster)">
+		<include name="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),poster)">
 			<param name="InfoLabel" value="$INFO[Container(50).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
 		</include>
-		<include name="global_Itemcount" condition="StringCompare(Window(Home).Property(extType),square)">
+		<include name="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),square)">
 			<param name="InfoLabel" value="$INFO[Container(55).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
 		</include>
-		<include name="global_Itemcount" condition="StringCompare(Window(Home).Property(extType),thumbnail)">
+		<include name="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),thumbnail)">
 			<param name="InfoLabel" value="$INFO[Container(60).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
 		</include>
 
@@ -70,7 +70,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
 				<include>global_ListScroll</include>
-				<visible>StringCompare(Window(Home).Property(extType),poster)</visible>
+				<visible>String.IsEqual(Window(Home).Property(extType),poster)</visible>
 				<itemlayout width="194" height="277">
 					<include>view_Icon-Frame</include>
 					<include>view_Icon-Art</include>
@@ -84,7 +84,7 @@
 				<content sortorder="ascending" sortby="label">$VAR[extContent:Poster]</content>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Window(Home).Property(extType),poster)</visible>
+				<visible>String.IsEqual(Window(Home).Property(extType),poster)</visible>
 				<control type="image">
 					<right>80</right>
 					<bottom>23</bottom>
@@ -122,7 +122,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
 				<include>global_ListScroll</include>
-				<visible>StringCompare(Window(Home).Property(extType),square)</visible>
+				<visible>String.IsEqual(Window(Home).Property(extType),square)</visible>
 				<itemlayout width="188" height="188">
 					<include name="view_Icon-Frame">
 						<param name="Width" value="178"/>
@@ -149,7 +149,7 @@
 			<control type="group">
 				<left>87</left>
 				<top>652</top>
-				<visible>StringCompare(Window(Home).Property(extType),square)</visible>
+				<visible>String.IsEqual(Window(Home).Property(extType),square)</visible>
 				<control type="label">
 					<label>$INFO[Container(55).ListItem(0).Label]</label>
 					<width>1000</width>
@@ -183,7 +183,7 @@
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<include>global_ListScroll</include>
-				<visible>StringCompare(Window(Home).Property(extType),thumbnail)</visible>
+				<visible>String.IsEqual(Window(Home).Property(extType),thumbnail)</visible>
 				<itemlayout width="404" height="286">
 					<include name="view_Icon-Frame">
 						<param name="Width" value="394"/>

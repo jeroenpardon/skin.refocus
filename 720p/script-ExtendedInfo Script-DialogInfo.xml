@@ -23,7 +23,7 @@
 				<include>screen_Dimensions</include>
 				<texture background="true">overlays/base_color.png</texture>
 				<colordiffuse>base_1</colordiffuse>
-				<visible>IsEmpty(Container(750).ListItem(0).Property(original))</visible>
+				<visible>String.IsEmpty(Container(750).ListItem(0).Property(original))</visible>
 			</control>
 
 			<control type="group">
@@ -46,7 +46,7 @@
 							<height>200</height>
 							<texture>overlays/vignette_bottom.png</texture>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<visible>!IsEmpty(Container(750).ListItem(0).Property(original))</visible>
+							<visible>!String.IsEmpty(Container(750).ListItem(0).Property(original))</visible>
 						</control>
 						<!--studio / network logos-->
 						<control type="image">
@@ -106,7 +106,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>base_1</colordiffuse>
-								<visible>!IsEmpty(Container(750).ListItem(0).Property(original))</visible>
+								<visible>!String.IsEmpty(Container(750).ListItem(0).Property(original))</visible>
 							</control>
 							<!--begin main content area-->
 							<control type="group">
