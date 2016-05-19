@@ -2,7 +2,7 @@ reFocus for Kodi
 ============
 
 ### Warning !
-Master branch is very early Kodi 17.0 / Krypton and should be considered unstable. No support and if something breaks you get to keep the pieces.
+Master branch is very early Kodi 17.0 / Krypton and should be considered unstable. No support, if something breaks you get to keep the pieces. Use the Jarvis-3.2.1 branch on Kodi 16 instead.
 
 ### About
 reFocus is a graphical interface for Kodi that understands your media is what truly matters. Elegance, simplicity, refinement, consistency and balanced design are keywords for this skin.
