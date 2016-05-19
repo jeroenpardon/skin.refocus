@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
-	<defaultcontrol>3</defaultcontrol>
+	<defaultcontrol>6</defaultcontrol>
 	<include>transition_Dialog</include>			
 	<coordinates>
 		<system>1</system>
-		<left>340</left>
+		<left>294</left>
 		<top>35</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>600</width>
+			<width>692</width>
 			<height>650</height>
 			<animation effect="fade" start="400" end="50" time="500" condition="Window.IsActive(virtualkeyboard)">Conditional</animation>
-			<control type="image">
-				<width>600</width>
-				<height>650</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="1">
-				<width>592</width>
-				<scroll>true</scroll>
-				<include>dialog_Windowtitle</include>
-			</control>
+			
+			<include content="dialog_WindowCommons">
+				<param name="DialogHeaderID" value="1"/>
+				<param name="DialogWidth" value="692"/>
+				<param name="DialogHeight" value="632"/>
+			</include>
+			
 			<control type="group">
+				<left>14</left>
 				<top>60</top>
 				<control type="image">
 					<width>592</width>
 					<include>dialog_Separator</include>
 				</control>
-				<include name="dialog_Common-List">
+				<include content="dialog_Common-List">
 					<param name="ID" value="3"/>
 					<param name="ContainerWidth" value="592"/>
 					<param name="ContainerHeight" value="480"/>
@@ -41,17 +39,17 @@
 				<control type="list" id="6">
 					<left>4</left>
 					<top>1</top>
-					<width>596</width>
-					<height>504</height>
-					<onleft>5</onleft>
-					<onright>5</onright>
+					<width>500</width>
+					<height>552</height>
+					<onleft>noop</onleft>
+					<onright>9000</onright>
 					<onup>6</onup>
 					<ondown>6</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="592" height="84">
+					<itemlayout width="592" height="92">
 						<control type="image">
 							<width>592</width>
-							<height>84</height>
+							<height>92</height>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="image">
@@ -70,6 +68,8 @@
 							<visible>String.Contains(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="image">
+							<left>4</left>
+							<top>4</top>
 							<width>84</width>
 							<height>84</height>
 							<texture>$INFO[ListItem.Icon]</texture>
@@ -87,8 +87,8 @@
 							<control type="label">
 								<top>30</top>
 								<width>470</width>
-								<height>20</height>
 								<label>$INFO[ListItem.Label2,, &#8226; ]$INFO[ListItem.AddonCreator,$LOCALIZE[31142] ]</label>
+								<height>20</height>
 								<textcolor>Color5</textcolor>
 								<aligny>top</aligny>
 								<include>dialog_CommonListItem</include>
@@ -102,14 +102,14 @@
 								<textcolor>Color5</textcolor>
 								<aligny>top</aligny>
 								<include>dialog_CommonListItem</include>
-								<visible>String.IsEmpty(ListItem.AddonCreator)</visible>
+								<visible>String.IsEmpty(ListItem.Addon.Creator)</visible>
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="592" height="84">
+					<focusedlayout width="592" height="92">
 						<control type="image">
 							<width>592</width>
-							<height>84</height>
+							<height>92</height>
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
@@ -123,6 +123,8 @@
 							<visible>String.Contains(ListItem.Icon,Default)</visible>
 						</control>
 						<control type="image">
+							<left>4</left>
+							<top>4</top>
 							<width>84</width>
 							<height>84</height>
 							<texture>$INFO[ListItem.Icon]</texture>
@@ -140,11 +142,11 @@
 							<control type="label">
 								<top>30</top>
 								<width>470</width>
+								<label>$INFO[ListItem.Label2,, &#8226; ]$INFO[ListItem.AddonCreator,$LOCALIZE[31142] ]</label>
 								<height>20</height>
-								<label>$INFO[ListItem.Label2,, &#8226; ]$INFO[ListItem.AddonCreator,$LOCALIZE[31144] ]</label>
 								<aligny>top</aligny>
 								<include>autoscroll_Line</include>
-								<include>dialog_CommonListItemFocus</include>
+§								<include>dialog_CommonListItemFocus</include>
 								<visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
 							</control>
 							<control type="label">
@@ -160,18 +162,27 @@
 						</control>
 					</focusedlayout>
 				</control>
-			</control>
-		<!--manual-->
-			<control type="button" id="5">
-				<left>20</left>
-				<bottom>20</bottom>
-				<width>250</width>
-				<label>$LOCALIZE[368]</label>
-				<onleft>3</onleft>
-				<onright>3</onright>
-				<onup>3</onup>
-				<ondown>3</ondown>
-				<include>dialog_WindowButton</include>
+				
+			<!--dialog controls-->
+				<control type="grouplist" id="9000">
+					<left>520</left>
+					<width>140</width>
+					<height min="40" max="140">auto</height>
+					<itemgap>10</itemgap>
+					<onleft>6</onleft>
+					<onright>6</onright>
+					<orientation>vertical</orientation>
+					<!--more / defaults-->
+					<include content="dialog_WindowButton">
+						<param name="ID" value="5" />
+						<param name="Label" value="$LOCALIZE[368]" />
+					</include>
+					<!--cancel-->
+					<include content="dialog_WindowButton">
+						<param name="ID" value="7" />
+						<param name="Label" value="$LOCALIZE[222]" />
+					</include>
+				</control>
 			</control>
 		</control>
 	</controls>
