@@ -10,7 +10,7 @@
 		<control type="group">
 			<width>1000</width>
 			<height>600</height>
-			<include content="dialog_WindowCommons">
+			<include name="dialog_WindowCommons">
 				<param name="DialogWidth" value="1000"/>
 				<param name="DialogHeight" value="600"/>
 				<param name="DialogHeaderID" value="20"/>
@@ -20,19 +20,18 @@
 			<control type="group">
 				<left>4</left>
 				<top>60</top>
-
 				<!--modes-->
 				<control type="list" id="9000">
 					<top>40</top>
 					<width>292</width>
-					<height>240</height> 
+					<height>240</height>
 					<onleft>21</onleft>
 					<onright>21</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<include>global_ListScroll</include>
 					<itemlayout width="292" height="40">
-						<include content="dialog_List-layout">
+						<include name="dialog_List-layout">
 							<param name="ContainerLeft"/>
 							<param name="ContainerWidth" value="292"/>
 							<param name="Label1" value="$INFO[ListItem.Label]"/>
@@ -42,7 +41,7 @@
 					<focusedlayout width="292" height="40">
 						<control type="group">
 							<visible>!Control.HasFocus(9000)</visible>
-							<include content="dialog_List-layout">
+							<include name="dialog_List-layout">
 								<param name="ContainerLeft"/>
 								<param name="ContainerWidth" value="292"/>
 								<param name="Label1" value="$INFO[ListItem.Label]"/>
@@ -52,7 +51,7 @@
 						</control>
 						<control type="group">
 							<visible>Control.HasFocus(9000)</visible>
-							<include content="dialog_List-layout">
+							<include name="dialog_List-layout">
 								<param name="Color" value="Color1"/>
 								<param name="ContainerLeft"/>
 								<param name="ContainerWidth" value="292"/>
@@ -62,6 +61,38 @@
 							</include>
 						</control>
 					</focusedlayout>
+					<content>
+						<item id="91">
+							<label>$LOCALIZE[15057]</label>
+							<label2>$LOCALIZE[15114]</label2>
+							<onclick>noop</onclick>
+							<property name="currentMode">InputResampling</property>
+						</item>
+						<item id="92">
+							<label>$LOCALIZE[15058]</label>
+							<label2>$LOCALIZE[15113]</label2>
+							<onclick>noop</onclick>
+							<property name="currentMode">Preprocessing</property>
+						</item>
+						<item id="93">
+							<label>$LOCALIZE[15059]</label>
+							<label2>$LOCALIZE[15115]</label2>
+							<onclick>noop</onclick>
+							<property name="currentMode">Masterprocessing</property>
+						</item>
+						<item id="94">
+							<label>$LOCALIZE[15060]</label>
+							<label2>$LOCALIZE[15117]</label2>
+							<onclick>noop</onclick>
+							<property name="currentMode">Postprocessing</property>
+						</item>
+						<item id="95">
+							<label>$LOCALIZE[15061]</label>
+							<label2>$LOCALIZE[15116]</label2>
+							<onclick>noop</onclick>
+							<property name="currentMode">OutputResampling</property>
+						</item>
+					</content>
 				</control>
 
 				<!--available modes-->
@@ -77,7 +108,7 @@
 					<scrolltime>200</scrolltime>
 					<pagecontrol>60</pagecontrol>
 					<itemlayout height="80" width="350">
-						<include content="dialog_List-layout">
+						<include name="dialog_List-layout">
 							<param name="ContainerLeft"/>
 							<param name="ContainerWidth" value="350"/>
 							<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
@@ -88,7 +119,7 @@
 					<focusedlayout height="80" width="350">
 						<control type="group">
 							<visible>!Control.HasFocus(20)</visible>
-							<include content="dialog_List-layout">
+							<include name="dialog_List-layout">
 								<param name="ContainerLeft"/>
 								<param name="ContainerWidth" value="350"/>
 								<param name="Label1" value="$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]"/>
@@ -98,7 +129,7 @@
 						</control>
 						<control type="group">
 							<visible>Control.HasFocus(20)</visible>
-							<include content="dialog_List-layout">
+							<include name="dialog_List-layout">
 								<param name="Color" value="Color1"/>
 								<param name="ContainerLeft"/>
 								<param name="ContainerWidth" value="350"/>
@@ -125,7 +156,7 @@
 					<scrolltime>200</scrolltime>
 					<pagecontrol>60</pagecontrol>
 					<itemlayout height="80" width="350">
-						<include content="dialog_List-layout">
+						<include name="dialog_List-layout">
 							<param name="ContainerLeft"/>
 							<param name="ContainerWidth" value="350"/>
 							<param name="ContainerHeight" value="80"/>
@@ -137,7 +168,7 @@
 					<focusedlayout height="80" width="350">
 						<control type="group">
 							<visible>!Control.HasFocus(21)</visible>
-							<include content="dialog_List-layout">
+							<include name="dialog_List-layout">
 								<param name="ContainerLeft"/>
 								<param name="ContainerWidth" value="350"/>
 								<param name="ContainerHeight" value="80"/>
@@ -148,7 +179,7 @@
 						</control>
 						<control type="group">
 							<visible>Control.HasFocus(21)</visible>
-							<include content="dialog_List-layout">
+							<include name="dialog_List-layout">
 								<param name="Color" value="Color1"/>
 								<param name="ContainerLeft"/>
 								<param name="ContainerWidth" value="350"/>
