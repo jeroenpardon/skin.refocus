@@ -50,7 +50,7 @@
 							<aspectratio align="right">keep</aspectratio>
 							<colordiffuse>flag_1</colordiffuse>
 							<texture>$VAR[flag:Studio]</texture>
-							<visible>!Container.Content(movies)</visible>
+							<visible>!String.IsEqual(ListItem.DBType,movie)</visible>
 						</control>
 						<control type="image">
 							<right>40</right>
@@ -60,7 +60,7 @@
 							<aspectratio align="right">keep</aspectratio>
 							<colordiffuse>flag_1</colordiffuse>
 							<texture>$VAR[flag:Studio]</texture>
-							<visible>Container.Content(movies)</visible>
+							<visible>String.IsEqual(ListItem.DBType,movie)</visible>
 						</control>
 						<!--begin main column-->
 						<control type="group">
@@ -119,7 +119,7 @@
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<onclick>Dialog.Close(MovieInformation)</onclick>
 										<include>global_Button</include>
-										<usealttexture>Container.Content(tvshows)</usealttexture>
+										<usealttexture>String.IsEqual(ListItem.DBType,tvshow)</usealttexture>
 									</control>
 									<!--cast / plot-->
 									<control type="button" id="5">
@@ -132,9 +132,9 @@
 										<label>$VAR[information:Toggle]</label>
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
-										<onclick condition="String.IsEmpty(Skin.String(info.toggle))">Skin.SetString(info.toggle,plot)</onclick>
-										<onclick condition="String.IsEqual(Skin.String(info.toggle),cast)">Skin.SetString(info.toggle,plot)</onclick>
-										<onclick condition="String.IsEqual(Skin.String(info.toggle),plot)">Skin.SetString(info.toggle,cast)</onclick>
+										<onclick condition="IsEmpty(Skin.String(info.toggle))">Skin.SetString(info.toggle,plot)</onclick>
+										<onclick condition="StringCompare(Skin.String(info.toggle),cast)">Skin.SetString(info.toggle,plot)</onclick>
+										<onclick condition="StringCompare(Skin.String(info.toggle),plot)">Skin.SetString(info.toggle,cast)</onclick>
 										<include>global_Button</include>
 										<visible>System.HasAddon(script.extendedinfo)</visible>
 									</control>
@@ -144,7 +144,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
-										<visible>Container.Content(movies) + !String.Contains(Container.FolderPath,plugin://)</visible>
+										<visible>String.IsEqual(ListItem.DBType,movie) + !SubString(ListItem.FolderPath,plugin://)</visible>
 									</control>
 									<!--cinema-->
 									<control type="button" id="5003">
@@ -155,7 +155,7 @@
 										<onclick>Playlist.Clear</onclick>
 										<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 										<include>global_Button</include>
-										<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !String.Contains(ListItem.Path,plugin://)</visible>
+										<visible>String.IsEqual(ListItem.DBType,movie) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
 									</control>
 									<!--explore-->
 									<control type="button" id="5004">
@@ -164,7 +164,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
-										<visible>Container.Content(movies) + !String.Contains(Container.FolderPath,plugin://)</visible>
+										<visible>String.IsEqual(ListItem.DBType,movie) + !SubString(ListItem.FolderPath,plugin://)</visible>
 									</control>
 									<!--manage-->
 									<control type="button" id="5005">
@@ -173,7 +173,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
-										<visible>!String.Contains(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
+										<visible>!SubString(ListItem.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 									</control>
 								</control>
 								<!--plot / descriptions-->
@@ -184,7 +184,7 @@
 									<label>[B]$INFO[ListItem.Tagline,,[CR][CR]][/B]$INFO[ListItem.Plot,,[CR][CR]]$VAR[information:Consensus][CR][CR]$INFO[Window(movieinformation).Property(SkinHelper.RottenTomatoesAwards)]</label>
 									<pagecontrol>71</pagecontrol>
 									<include>detail_Text</include>
-									<visible>String.IsEqual(Skin.String(info.toggle),plot) | String.IsEmpty(Skin.String(info.toggle))</visible>
+									<visible>StringCompare(Skin.String(info.toggle),plot) | IsEmpty(Skin.String(info.toggle))</visible>
 								</control>
 							</control>
 							<!--media flags-->
@@ -199,7 +199,7 @@
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
 									<include>media_Flags</include>
-									<visible>![Container.Content(tvshows) | Container.Content(seasons) | String.Contains(Container.FolderPath,plugin://)]</visible>
+									<visible>![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | SubString(ListItem.FolderPath,plugin://)]</visible>
 								</control>
 								<control type="label">
 									<top>25</top>
@@ -261,7 +261,7 @@
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
 					<include>fadeinout</include>
-					<visible allowhiddenfocus="true">[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + Integer.IsGreater(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo)</visible>
+					<visible allowhiddenfocus="true">[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + IntegerGreaterThan(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo)</visible>
 					<itemlayout width="229" height="350">
 						<include name="view_Icon-Frame">
 							<param name="Width" value="209"/>
@@ -320,7 +320,7 @@
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
 					<include>fadeinout</include>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + System.HasAddon(script.extendedinfo) + String.IsEqual(Skin.String(info.toggle),cast)</visible>
+					<visible>[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + System.HasAddon(script.extendedinfo) + StringCompare(Skin.String(info.toggle),cast)</visible>
 					<itemlayout width="229" height="350">
 						<include name="view_Icon-Frame">
 							<param name="Width" value="209"/>
@@ -378,7 +378,7 @@
 							<onclick>SetProperty(ActorID,0)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(0).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(0).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(0).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(1).Label]</label>
@@ -387,7 +387,7 @@
 							<onclick>SetProperty(ActorID,1)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(1).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(1).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(1).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(2).Label]</label>
@@ -396,7 +396,7 @@
 							<onclick>SetProperty(ActorID,2)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(2).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(2).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(2).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(3).Label]</label>
@@ -405,7 +405,7 @@
 							<onclick>SetProperty(ActorID,3)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(3).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(3).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(3).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(4).Label]</label>
@@ -414,7 +414,7 @@
 							<onclick>SetProperty(ActorID,4)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(4).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(4).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(4).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(5).Label]</label>
@@ -423,7 +423,7 @@
 							<onclick>SetProperty(ActorID,5)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(5).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(5).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(5).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(6).Label]</label>
@@ -432,7 +432,7 @@
 							<onclick>SetProperty(ActorID,6)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(6).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(6).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(6).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(7).Label]</label>
@@ -441,7 +441,7 @@
 							<onclick>SetProperty(ActorID,7)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(7).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(7).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(7).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(8).Label]</label>
@@ -450,7 +450,7 @@
 							<onclick>SetProperty(ActorID,8)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(8).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(8).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(8).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(9).Label]</label>
@@ -459,7 +459,7 @@
 							<onclick>SetProperty(ActorID,9)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(9).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(9).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(9).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(10).Label]</label>
@@ -468,7 +468,7 @@
 							<onclick>SetProperty(ActorID,10)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(10).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(10).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(10).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(11).Label]</label>
@@ -477,7 +477,7 @@
 							<onclick>SetProperty(ActorID,11)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(11).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(11).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(11).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(12).Label]</label>
@@ -486,7 +486,7 @@
 							<onclick>SetProperty(ActorID,12)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(12).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(12).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(12).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(13).Label]</label>
@@ -495,7 +495,7 @@
 							<onclick>SetProperty(ActorID,13)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(13).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(13).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(13).Label)</visible>
 						</item>
 						<item>
 							<label>$INFO[Container(50).ListItemAbsolute(14).Label]</label>
@@ -504,7 +504,7 @@
 							<onclick>SetProperty(ActorID,14)</onclick>
 							<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(14).Label])</onclick>
 							<onclick>ActivateWindow(1130)</onclick>
-							<visible>!String.IsEmpty(Container(50).ListItemAbsolute(14).Label)</visible>
+							<visible>!IsEmpty(Container(50).ListItemAbsolute(14).Label)</visible>
 						</item>
 					</content>
 				</control>
