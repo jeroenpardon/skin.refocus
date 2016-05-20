@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+<!--
+<window type="dialog" id="1132">
+-->
+	<defaultcontrol always="true">3</defaultcontrol>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<left>230</left>
+		<top>118</top>
+	</coordinates>
+
+	<controls>
+		<control type="group">
+			<width>983</width>
+			<height>480</height>
+
+			<include content="dialog_WindowCommons">
+				<param name="DialogHeader" value="$LOCALIZE[35058]"/>
+				<param name="DialogHeaderID" value="2"/>
+				<param name="DialogWidth" value="983"/>
+				<param name="DialogHeight" value="480"/>
+			</include>
+
+			<control type="group">
+				<left>14</left>
+				<top>60</top>
+
+				<!--controller types heading-->
+				<control type="label">
+					<width>225</width>
+					<height>40</height>
+					<label>$LOCALIZE[35050]</label>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+				</control>
+
+				<!--controller types grouplist-->
+				<control type="grouplist" id="3">
+					<top>40</top>
+					<width>225</width>
+					<height>280</height>
+					<onleft>20</onleft>
+					<onright>5</onright>
+					<orientation>vertical</orientation>
+					<itemgap>0</itemgap>
+					<!--test controls
+					<control type="button" id="330">
+						<label>Kodi</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="331">
+						<label>Sega Genesis</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="332">
+						<label>Game Boy Advance</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="333">
+						<label>Dreamcast</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="334">
+						<label>Super Nintendo</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="335">
+						<label>NES</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="336">
+						<label>Playstation</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					-->
+				</control>
+
+				<!--default controller types button-->
+				<control type="button" id="10">
+					<include>dialog_ControlCommons</include>
+				</control>
+
+				<!--test control
+				<control type="image">
+					<left>240</left>
+					<width>470</width>
+					<height>320</height>
+					<texture>black.png</texture>
+				</control>
+				-->
+
+				<control type="gamecontroller" id="31">
+					<left>240</left>
+					<width>470</width>
+					<height>320</height>
+				</control>
+
+				<!--feature types heading-->
+				<control type="label">
+					<left>725</left>
+					<width>225</width>
+					<height>40</height>
+					<label>$LOCALIZE[35059]</label>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+				</control>
+
+				<!--feature types grouplist-->
+				<control type="grouplist" id="5">
+					<left>725</left>
+					<top>40</top>
+					<width>225</width>
+					<height>280</height>
+					<onleft>3</onleft>
+					<onright>17</onright>
+					<orientation>vertical</orientation>
+					<itemgap>0</itemgap>
+					<!--test controls
+					<control type="button" id="440">
+						<label>A</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="441">
+						<label>B</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="442">
+						<label>X</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="443">
+						<label>Y</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="444">
+						<label>Start</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="445">
+						<label>Back</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="446">
+						<label>Guide</label>
+						<height>40</height>
+						<width>225</width>
+						<include>dialog_ControlCommons</include>
+					</control>
+					-->
+				</control>
+
+				<!--default controller types button-->
+				<control type="button" id="7">
+					<include>dialog_ControlCommons</include>
+				</control>
+
+				<!--dialog controls-->
+				<control type="grouplist" id="9001">
+					<bottom>20</bottom>
+					<width>983</width>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<align>center</align>
+					<onleft>3</onleft>
+					<onright>5</onright>
+					<orientation>horizontal</orientation>
+					<!--ok-->
+					<include content="dialog_WindowButton">
+						<param name="Width" value="160" />
+						<param name="ID" value="20" />
+						<param name="Label" value="$LOCALIZE[21452]" />
+					</include>
+					<!--reset-->
+					<include content="dialog_WindowButton">
+						<param name="Width" value="160" />
+						<param name="ID" value="19" />
+						<param name="Label" value="$LOCALIZE[10035]" />
+					</include>
+					<!--get more...-->
+					<include content="dialog_WindowButton">
+						<param name="Width" value="160" />
+						<param name="ID" value="18" />
+						<param name="Label" value="$LOCALIZE[186]" />
+					</include>
+					<!--help-->
+					<include content="dialog_WindowButton">
+						<param name="Width" value="160" />
+						<param name="ID" value="17" />
+						<param name="Label" value="$LOCALIZE[10043]" />
+					</include>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
