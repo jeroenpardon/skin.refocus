@@ -39,7 +39,7 @@
 							<height>200</height>
 							<texture>overlays/vignette_bottom.png</texture>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<visible>!String.String.IsEmpty(ListItem.Art(fanart))</visible>
+							<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<!--record label logos-->
 						<control type="image">
@@ -88,7 +88,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture background="true">overlays/base_color.png</texture>
 								<colordiffuse>Color.Primary.Dark</colordiffuse>
-								<visible>!String.String.IsEmpty(ListItem.Art(fanart))</visible>
+								<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 							</control>
 							<!--main content area-->
 							<control type="group">
@@ -114,7 +114,7 @@
 										<label>$INFO[Window.Property(InfoSwitch)]</label>
 										<ondown>50</ondown>
 										<width min="130" max="200">auto</width>
-										<onclick condition="String.String.IsEmpty(Window.Property(InfoSwitch))">SetProperty(InfoSwitch,$LOCALIZE[21821])</onclick>
+										<onclick condition="String.IsEmpty(Window.Property(InfoSwitch))">SetProperty(InfoSwitch,$LOCALIZE[21821])</onclick>
 										<onclick condition="String.IsEqual(Window.Property(InfoSwitch),$LOCALIZE[21888])">SetProperty(InfoSwitch,$LOCALIZE[21821])</onclick>
 										<onclick condition="String.IsEqual(Window.Property(InfoSwitch),$LOCALIZE[21821])">SetProperty(InfoSwitch,$LOCALIZE[21888])</onclick>
 										<include>global_Button</include>
@@ -145,7 +145,7 @@
 									<label>$VAR[media:Plot]</label>
 									<pagecontrol>71</pagecontrol>
 									<include>detail_Text</include>
-									<visible>String.String.IsEmpty(Window.Property(InfoSwitch)) | String.IsEqual(Window.Property(InfoSwitch),$LOCALIZE[21821])</visible>
+									<visible>String.IsEmpty(Window.Property(InfoSwitch)) | String.IsEqual(Window.Property(InfoSwitch),$LOCALIZE[21821])</visible>
 								</control>
 							</control>
 							<!--media flags-->
@@ -190,7 +190,7 @@
 									<width>96</width>
 									<height>96</height>
 									<texture background="true">DefaultMusicArtists.png</texture>
-									<visible>String.String.IsEmpty(LisItem.Art(thumb))</visible>
+									<visible>String.IsEmpty(LisItem.Art(thumb))</visible>
 								</control>
 								<control type="image">
 									<width>193</width>
