@@ -2,82 +2,70 @@
 <window>
 	<defaultcontrol always="true">300</defaultcontrol>
 	<include>transition_Dialog</include>
+
+
 	<coordinates>
 		<system>1</system>
-		<left>190</left>
-		<top>28</top>
+		<left>183</left>
+		<top>68</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<visible>!Window.IsVisible(yesnodialog)</visible>
-			<control type="image">
-				<width>900</width>
-				<height>665</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="500">
-				<label>-</label>
-				<width>892</width>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<width>913</width>
+			<height>665</height>
+
+			<include content="dialog_WindowCommons">
+				<param name="DialogHeaderID" value="500"/>
+				<param name="DialogWidth" value="913"/>
+				<param name="DialogHeight" value="585"/>
+			</include>
+
+
 			<control type="group">
-				<left>4</left>
+				<left>14</left>
 				<top>60</top>		
-				<control type="image">
-					<width>892</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<left>400</left>
-					<height>520</height>
-					<include>dialog_Separator-y</include>
-				</control>
-				<control type="image">
-					<top>520</top>
-					<width>892</width>
-					<include>dialog_Separator</include>
-				</control>
+
 			<!--shortcuts-->	
 				<control type="list" id="211">
-					<width>400</width>
+					<width>350</width>
 					<height>520</height>
 					<onleft>300</onleft>
 					<onright>303</onright>
 					<onup>211</onup>
 					<ondown>211</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="400" height="40">
+					<itemlayout width="350" height="40">
 						<control type="image">
-							<width>400</width>
+							<width>350</width>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
-							<width>260</width>
+							<width>210</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="400" height="40">
+					<focusedlayout width="350" height="40">
 						<control type="image">
-							<width>281</width>
+							<width>231</width>
 							<height>40</height>
 							<include>dialog_CommonListFocus</include>
 							<visible>Control.HasFocus(211)</visible>
 						</control>
 						<control type="image">
-							<width>400</width>
+							<width>350</width>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<width>260</width>
+							<width>210</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>Control.HasFocus(211)</visible>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<width>260</width>
+							<width>210</width>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Selected</textcolor>
 							<include>dialog_CommonListItem</include>
@@ -87,7 +75,7 @@
 				</control>
 			<!--inline controls-->
 				<control type="group" id="1000">
-					<left>280</left>
+					<left>230</left>
 					<animation effect="slide" end="0,40" time="0" condition="Container(211).Row(1)">Conditional</animation>
 					<animation effect="slide" end="0,80" time="0" condition="Container(211).Row(2)">Conditional</animation>
 					<animation effect="slide" end="0,120" time="0" condition="Container(211).Row(3)">Conditional</animation>
@@ -108,20 +96,7 @@
 					<animation effect="slide" end="0,720" time="0" condition="Container(211).Row(18)">Conditional</animation>
 					<animation effect="slide" end="0,760" time="0" condition="Container(211).Row(19)">Conditional</animation>
 					<animation effect="slide" end="0,800" time="0" condition="Container(211).Row(20)">Conditional</animation>
-					<control type="image">
-						<height>40</height>
-						<include>dialog_Separator-y</include>
-					</control>
-					<control type="image">
-						<left>40</left>
-						<height>40</height>
-						<include>dialog_Separator-y</include>
-					</control>
-					<control type="image">
-						<left>80</left>
-						<height>40</height>
-						<include>dialog_Separator-y</include>
-					</control>
+	
 					<!--move up-->
 					<control type="button" id="303">
 						<label>-</label>
@@ -154,109 +129,136 @@
 				</control>
 			<!---control area-->	
 				<control type="grouplist" id="300">
-					<left>400</left>
-					<width>492</width>
+					<left>365</left>
+					<width>350</width>
 					<height>520</height>
 					<onleft>302</onleft>
-					<onright>10</onright>
+					<onright>9000</onright>
 					<onup>300</onup>
 					<ondown>300</ondown>
 					<itemgap>0</itemgap>
 					<include>global_ListScroll</include>
+
+					<!--add item-->
+					<control type="button" id="301">
+						<width>350</width>
+						<label>$ADDON[script.skinshortcuts 32000]</label>
+						<onclick>SetFocus(401)</onclick>
+						<include>dialog_ControlCommons</include>
+					</control>
 					<!--change shortcut-->
 					<control type="button" id="401">
-						<width>492</width>
+						<width>350</width>
 						<label>$ADDON[script.skinshortcuts 32048]</label>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<!--change label-->
-					<control type="button" id="305">
-						<width>492</width>
+					<control type="label" id="402">
+						<width>350</width> 
 						<label>$ADDON[script.skinshortcuts 32025]</label>
-						<label2>$INFO[Container(211).ListItem.Label]</label2>
+						<include>dialog_Header</include>
 						<include>dialog_ControlCommons</include>
-					</control>			
+					</control>
+					<control type="button" id="305">
+						<width>350</width>
+						<label fallback="$LOCALIZE[31611]:">$INFO[Container(211).ListItem.Label]</label>
+						<include>dialog_ControlCommons</include>
+					</control>		
 					<!--change action-->
-					<control type="button" id="307">
-						<width>492</width>
+					<control type="label" id="306">
+						<width>350</width> 
 						<label>$ADDON[script.skinshortcuts 32027]</label>
-						<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+						<include>dialog_Header</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="307">
+						<width>350</width>
+						<label fallback="$LOCALIZE[31611]:">$INFO[Container(211).ListItem.Property(displaypath)]</label>
 						<include>dialog_ControlCommons</include>
 					</control>
 					<!--edit sub-menu-->
+					<control type="label" id="404">
+						<width>350</width> 
+						<label>$ADDON[script.skinshortcuts 32027]</label>
+						<include>dialog_Header</include>
+						<include>dialog_ControlCommons</include>
+					</control>
 					<control type="button" id="405">
-						<width>492</width>
+						<width>350</width>
 						<label>$ADDON[script.skinshortcuts 32072]</label>
 						<include>dialog_ControlCommons</include>
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					</control>
 					<!--set background-->
-					<control type="button" id="310">
-						<width>492</width>
+					<control type="label" id="309">
+						<width>350</width> 
 						<label>$ADDON[script.skinshortcuts 32045]</label>
-						<label2>$INFO[Container(211).ListItem.Property(Background)]</label2>
+						<include>dialog_Header</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="310">
+						<width>350</width>
+						<label fallback="$LOCALIZE[31611]:">$INFO[Container(211).ListItem.Property(Background)]</label>
 						<include>dialog_ControlCommons</include>
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 						<enable>!Skin.HasSetting(backgrounds.fanart) + System.HasAddon(script.grab.fanart)</enable>
 					</control>
 					<!--set widget-->
-					<control type="button" id="312">
-						<width>492</width>
+					<control type="label" id="311">
+						<width>350</width> 
 						<label>$ADDON[script.skinshortcuts 32044]</label>
-						<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
+						<include>dialog_Header</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="button" id="312">
+						<width>350</width>
+						<label fallback="$LOCALIZE[31611]:">$INFO[Container(211).ListItem.Property(widgetName)]</label>
 						<include>dialog_ControlCommons</include>
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 						<enable>!Skin.HasSetting(widgets.disable)</enable>
 					</control>
-					<!--add item-->
-					<control type="button" id="301">
-						<width>492</width>
-						<label>$ADDON[script.skinshortcuts 32000]</label>
-						<onclick>SetFocus(401)</onclick>
-						<include>dialog_ControlCommons</include>
-					</control>
 				</control>
 			</control>
-			<!--reset-->
-			<control type="button" id="308">
-				<left>19</left>
-				<top>600</top>
-				<width>250</width>
-				<label>$ADDON[script.skinshortcuts 32028]</label>
-				<onup>211</onup>
-				<ondown>noop</ondown>
-				<onleft>noop</onleft>
-				<onright>10</onright>
-				<include>dialog_WindowButton</include>
+			
+			<!--build menu trigger button-->
+			<control type="button" id="8000">
+				<onfocus>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets|clonebackgrounds&amp;mainmenuID=9000)</onfocus>
+				<onfocus>Close</onfocus>
+				<include>TriggerButton</include>
 			</control>
-			<!--apply-->
-			<control type="button" id="10">
-				<left>756</left>
-				<top>600</top>
-				<label>$LOCALIZE[186]</label>
-				<onup>301</onup>
-				<onleft>308</onleft>
-				<onright>noop</onright>
-				<ondown>401</ondown>
-				<onback>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets|clonebackgrounds&amp;mainmenuID=9000)</onback>
-				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets|clonebackgrounds&amp;mainmenuID=9000)</onclick>
-				<onclick>Close</onclick>
-				<include>dialog_WindowButton</include>
-				<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+
+			<!--dialog controls-->
+			<control type="grouplist" id="9000">
+				<top>60</top>
+				<right>20</right>
+				<width>150</width>
+				<height>140</height>
+				<itemgap>10</itemgap>
+				<onleft>300</onleft>
+				<orientation>vertical</orientation>
+				<!--reset-->
+				<include content="dialog_WindowButton">
+					<param name="Width" value="150" />
+					<param name="ID" value="308" />
+					<param name="Label" value="$LOCALIZE[10035]" />
+				</include>
+				<!--apply-->
+				<include content="dialog_WindowButton">
+					<param name="Width" value="150" />
+					<param name="ID" value="10" />
+					<param name="Label" value="$LOCALIZE[31405]" />
+					<param name="OnClick" value="SetFocus(8000)" />
+					<param name="Visible" value="String.IsEqual(Window.Property(groupname),mainmenu)"/>
+				</include>
+				<!--ok-->
+				<include content="dialog_WindowButton">
+					<param name="Width" value="150" />
+					<param name="ID" value="11" />
+					<param name="Label" value="$LOCALIZE[186]" />
+					<param name="OnClick" value="Close" />
+				</include>
 			</control>
-			<!--close-->
-			<control type="button" id="10">
-				<left>756</left>
-				<top>600</top>
-				<label>$LOCALIZE[186]</label>
-				<onup>301</onup>
-				<onleft>308</onleft>
-				<onright>noop</onright>
-				<ondown>401</ondown>
-				<onclick>Close</onclick>
-				<include>dialog_WindowButton</include>
-				<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-			</control>
+
 		</control>
 	</controls>
 </window>

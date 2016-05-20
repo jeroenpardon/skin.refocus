@@ -241,7 +241,7 @@
 		<param name="OnLeft"/>
 		<param name="OnRight"/>
 		<param name="OnFocus"/>
-		<param name="OnClick"/>
+		<param name="OnClick" default="noop"/>
 		<param name="Visible"/>
 		<definition>
 			<control type="button" id="$PARAM[ID]">
@@ -256,6 +256,8 @@
 				<focusedcolor>Color1</focusedcolor>
 				<texturenofocus border="2">dialogs/button-nf.png</texturenofocus>
 				<texturefocus>dialogs/button-fo.png</texturefocus>
+				<onclick>$PARAM[OnClick]</onclick> 
+				<onback>$PARAM[OnBack]</onback>
 				<visible>$PARAM[Visible]</visible>
 			</control>
 		</definition>
