@@ -50,7 +50,7 @@
 							<aspectratio align="right">keep</aspectratio>
 							<colordiffuse>flag_1</colordiffuse>
 							<texture>$VAR[flag:Studio]</texture>
-							<visible>!String.IsEqual(ListItem.DBType,movie)</visible>
+							<visible>!Container.Content(movies)</visible>
 						</control>
 						<control type="image">
 							<right>40</right>
@@ -60,7 +60,7 @@
 							<aspectratio align="right">keep</aspectratio>
 							<colordiffuse>flag_1</colordiffuse>
 							<texture>$VAR[flag:Studio]</texture>
-							<visible>String.IsEqual(ListItem.DBType,movie)</visible>
+							<visible>Container.Content(movies)</visible>
 						</control>
 						<!--begin main column-->
 						<control type="group">
@@ -119,7 +119,7 @@
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<onclick>Dialog.Close(MovieInformation)</onclick>
 										<include>global_Button</include>
-										<usealttexture>String.IsEqual(ListItem.DBType,tvshow)</usealttexture>
+										<usealttexture>Container.Content(tvshows)</usealttexture>
 									</control>
 									<!--cast / plot-->
 									<control type="button" id="5">
@@ -144,7 +144,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
-										<visible>String.IsEqual(ListItem.DBType,movie) + !SubString(ListItem.FolderPath,plugin://)</visible>
+										<visible>Container.Content(movies) + !SubString(Container.FolderPath,plugin://)</visible>
 									</control>
 									<!--cinema-->
 									<control type="button" id="5003">
@@ -155,7 +155,7 @@
 										<onclick>Playlist.Clear</onclick>
 										<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 										<include>global_Button</include>
-										<visible>String.IsEqual(ListItem.DBType,movie) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
+										<visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
 									</control>
 									<!--explore-->
 									<control type="button" id="5004">
@@ -164,7 +164,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
-										<visible>String.IsEqual(ListItem.DBType,movie) + !SubString(ListItem.FolderPath,plugin://)</visible>
+										<visible>Container.Content(movies) + !SubString(Container.FolderPath,plugin://)</visible>
 									</control>
 									<!--manage-->
 									<control type="button" id="5005">
@@ -173,7 +173,7 @@
 										<ondown condition="System.HasAddon(script.extendedinfo)">5050</ondown>
 										<ondown condition="!System.HasAddon(script.extendedinfo)">50</ondown>
 										<include>global_Button</include>
-										<visible>!SubString(ListItem.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
+										<visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
 									</control>
 								</control>
 								<!--plot / descriptions-->
@@ -199,7 +199,7 @@
 									<itemgap>10</itemgap>
 									<orientation>horizontal</orientation>
 									<include>media_Flags</include>
-									<visible>![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | SubString(ListItem.FolderPath,plugin://)]</visible>
+									<visible>![Container.Content(tvshows) | Container.Content(seasons) | SubString(Container.FolderPath,plugin://)]</visible>
 								</control>
 								<control type="label">
 									<top>25</top>
@@ -261,7 +261,7 @@
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
 					<include>fadeinout</include>
-					<visible allowhiddenfocus="true">[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + IntegerGreaterThan(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo)</visible>
+					<visible allowhiddenfocus="true">[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IntegerGreaterThan(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo)</visible>
 					<itemlayout width="229" height="350">
 						<include name="view_Icon-Frame">
 							<param name="Width" value="209"/>
@@ -320,7 +320,7 @@
 					<pagecontrol>501</pagecontrol>
 					<orientation>horizontal</orientation>
 					<include>fadeinout</include>
-					<visible>[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + System.HasAddon(script.extendedinfo) + StringCompare(Skin.String(info.toggle),cast)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + System.HasAddon(script.extendedinfo) + StringCompare(Skin.String(info.toggle),cast)</visible>
 					<itemlayout width="229" height="350">
 						<include name="view_Icon-Frame">
 							<param name="Width" value="209"/>
