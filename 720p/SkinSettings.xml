@@ -622,20 +622,19 @@
 						<textcolor>Color2</textcolor>
 						<include>settings_Listbutton</include>
 					</control>
-					<control type="button" id="10020">
-						<label>Alcatr4zz, alewik, Artashes Amatuni, bcubic, bo1e, Diazz, epoke, fabiodacosta, for1real, Frisson, Galefury,</label>
-						<onclick>noop</onclick>
-						<include>settings_Listbutton</include>
-					</control>
-					<control type="button" id="10021">
-						<label>hyuomola, Jucgshu, legostrike, LoADrunner, mcmjau, NEOhidra, nicolai92, Okashu, Olart, peppe_sr, piodio</label>
-						<onclick>noop</onclick>
-						<include>settings_Listbutton</include>
-					</control>
-					<control type="button" id="10022">
-						<label>Rafał Wójcik, rootsun, rosiste, samuelmanso, Seque, speedwings, thedarer, Zapata11, ZZRX, xurxo</label>
-						<onclick>noop</onclick>
-						<include>settings_Listbutton</include>
+					<control type="group">
+						<height>44</height>
+						<control type="image">
+							<height>44</height>
+							<texture colordiffuse="column2">views/focus.png</texture>
+						</control>
+						<control type="label" id="10020">
+							<label>Alcatr4zz, alewik, Artashes Amatuni, bcubic, bo1e, Diazz, epoke, fabiodacosta, for1real, Frisson, Galefury, hyuomola, Jucgshu, legostrike, LoADrunner, mcmjau, NEOhidra, nicolai92, Okashu, Olart, peppe_sr, piodio, Rafał Wójcik, rootsun, rosiste, samuelmanso, Seque, speedwings, thedarer, Zapata11, ZZRX, xurxo</label>
+							<onclick>noop</onclick>
+							<scroll>true</scroll>
+							<scrollspeed>autoscroll_Speed</scrollspeed>
+							<include>settings_Listbutton</include>
+						</control>
 					</control>
 					<control type="button" id="1040">
 						<label>[UPPERCASE]$LOCALIZE[31804][/UPPERCASE]</label>
@@ -663,14 +662,13 @@
 				<aspectratio align="left">keep</aspectratio>
 				<include>transition_Content</include>
 			</control>
-
 		</control>
+
 		<control type="scrollbar" id="70">
 			<left>1272</left>
 			<height>screen_Height</height>
 			<onleft>9001</onleft>
 		</control>
-		
 
 		<!--menu-->
 		<include>menu_Settings</include>
