@@ -4,31 +4,32 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>340</left>
-		<top>80</top>
+		<left>325</left>
+		<top>78</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<include name="dialog_WindowCommons">
-				<param name="DialogWidth" value="600" />
-				<param name="DialogHeight" value="560" />
-				<param name="DialogHeaderName" value="$LOCALIZE[1036]" />
+			<width>630</width>
+			<height>570</height>
+			<include content="dialog_WindowCommons">
+				<param name="DialogWidth" value="630" />
+				<param name="DialogHeight" value="565" />
+				<param name="DialogHeader" value="$LOCALIZE[1036]" />
 				<param name="DialogHeaderID" value="1" />
 				<param name="DialogSeparator" value="true" />
 			</include>
 
-			<include name="dialog_Common-List">
+			<include content="dialog_Common-List">
 				<param name="ID" value="450"/>
-				<param name="ContainerLeft" value="4"/>
+				<param name="ContainerLeft" value="15"/>
 				<param name="ContainerTop" value="60"/>
-				<param name="ContainerWidth" value="592"/>
+				<param name="ContainerWidth" value="600"/>
 				<param name="ContainerHeight" value="440"/>
-				<param name="Width" value="592"/>
+				<param name="Width" value="570"/>
 			</include>
-			
 			<control type="label">
-				<top>507</top>
-				<width>600</width>
+				<bottom>20</bottom>
+				<width>630</width>
 				<label>$INFO[Container(450).CurrentItem]/$INFO[Container(450).NumItems]</label>
 				<align>center</align>
 				<include>dialog_ControlCommons</include>

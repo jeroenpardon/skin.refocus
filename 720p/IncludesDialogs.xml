@@ -64,6 +64,8 @@
 		<param name="Color" default="Color4"/>
 		<param name="SelectedColor" default="Selected"/>
 		<param name="Texture" default="dialogs/select-nf.png"/>
+		<param name="Onup"/>
+		<param name="OnDown"/>
 		<definition>
 			<control type="group">
 				<width>$PARAM[ContainerWidth]</width>
@@ -112,8 +114,8 @@
 				<height>$PARAM[ContainerHeight]</height>
 				<onleft>$PARAM[OnLeft]</onleft>
 				<onright>$PARAM[OnRight]</onright>
-				<onup>$PARAM[OnUp]</onup>
-				<ondown>$PARAM[OnDown]</ondown>
+				<onup>$PARAM[ID]</onup>
+				<ondown>$PARAM[ID]</ondown>
 				<pagecontrol>$PARAM[PageControl]</pagecontrol>
 				<preloaditems>4</preloaditems>
 				<include>global_ListScroll</include>

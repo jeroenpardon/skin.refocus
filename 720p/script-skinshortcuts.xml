@@ -2,24 +2,21 @@
 <window>
 	<defaultcontrol always="true">300</defaultcontrol>
 	<include>transition_Dialog</include>
-
-
 	<coordinates>
 		<system>1</system>
-		<left>183</left>
+		<left>198</left>
 		<top>68</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>913</width>
+			<width>883</width>
 			<height>665</height>
 
 			<include content="dialog_WindowCommons">
 				<param name="DialogHeaderID" value="500"/>
-				<param name="DialogWidth" value="913"/>
+				<param name="DialogWidth" value="883"/>
 				<param name="DialogHeight" value="585"/>
 			</include>
-
 
 			<control type="group">
 				<left>14</left>
@@ -29,7 +26,6 @@
 				<control type="list" id="211">
 					<width>350</width>
 					<height>520</height>
-					<onleft>300</onleft>
 					<onright>303</onright>
 					<onup>211</onup>
 					<ondown>211</ondown>
@@ -231,20 +227,14 @@
 			<control type="grouplist" id="9000">
 				<top>60</top>
 				<right>20</right>
-				<width>150</width>
+				<width>120</width>
 				<height>140</height>
 				<itemgap>10</itemgap>
 				<onleft>300</onleft>
 				<orientation>vertical</orientation>
-				<!--reset-->
-				<include content="dialog_WindowButton">
-					<param name="Width" value="150" />
-					<param name="ID" value="308" />
-					<param name="Label" value="$LOCALIZE[10035]" />
-				</include>
 				<!--apply-->
 				<include content="dialog_WindowButton">
-					<param name="Width" value="150" />
+					<param name="Width" value="120" />
 					<param name="ID" value="10" />
 					<param name="Label" value="$LOCALIZE[31405]" />
 					<param name="OnClick" value="SetFocus(8000)" />
@@ -252,10 +242,16 @@
 				</include>
 				<!--ok-->
 				<include content="dialog_WindowButton">
-					<param name="Width" value="150" />
+					<param name="Width" value="120" />
 					<param name="ID" value="11" />
 					<param name="Label" value="$LOCALIZE[186]" />
 					<param name="OnClick" value="Close" />
+				</include>
+				<!--reset-->
+				<include content="dialog_WindowButton">
+					<param name="Width" value="120" />
+					<param name="ID" value="308" />
+					<param name="Label" value="$LOCALIZE[10035]" />
 				</include>
 			</control>
 		</control>
