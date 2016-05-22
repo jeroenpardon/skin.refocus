@@ -65,8 +65,9 @@
 				<width>352</width>
 				<label>Artwork Downloader</label>
 				<onclick>Close</onclick>
-				<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-				<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="Container.Content(movies) + System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="Container.Content(tvshows) + System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
 				<include>dialog_MenuButton</include>
 				<visible>Window.IsActive(movieinformation) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)] + System.HasAddon(script.artwork.downloader)</visible>
 			</control>
@@ -75,6 +76,7 @@
 				<width>352</width>
 				<label>$LOCALIZE[31521]</label>
 				<onclick>Close</onclick>
+				<onclick>RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[Window(Home).Property(TVShowPath)]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
 				<onclick>RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[Window(Home).Property(TVShowPath)]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
 				<include>dialog_MenuButton</include>
 				<visible>System.HasAddon(script.tvtunes) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + String.IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
