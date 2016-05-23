@@ -3,91 +3,93 @@
 	<defaultcontrol always="true">10</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>290</left>
-		<top>113</top>
+		<left>263</left>
+		<top>145</top>
 	</coordinates>
 	<include>transition_Dialog</include>
 	<controls>
 		<control type="group">
+			<width>770</width>
+			<height>495</height>
 			<include content="dialog_WindowCommons">
-				<param name="DialogWidth" value="700"/>
-				<param name="DialogHeight" value="495"/>
+				<param name="DialogWidth" value="755"/>
+				<param name="DialogHeight" value="430"/>
 				<param name="DialogHeaderID" value="2"/>
-				<param name="DialogSeparator" value="true"/>
-				<param name="DialogSeparatorTop" value="100"/>
 			</include>
+
 			<!--sources-->
 			<control type="group">
-				<left>4</left>
+				<left>15</left>
 				<top>60</top>
 				<control type="label">
-					<width>692</width>
+					<width>670</width>
 					<label>$LOCALIZE[1021]</label>
+					<textoffsetx>10</textoffsetx>
 					<include>dialog_Header</include>
 					<include>dialog_ControlCommons</include>
 				</control>
 				<control type="image">
 					<top>40</top>
-					<width>692</width>
+					<width>740</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<top>80</top>
-					<width>692</width>
+					<width>585</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<top>120</top>
-					<width>692</width>
+					<width>585</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<top>160</top>
-					<width>692</width>
+					<width>585</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<top>200</top>
-					<width>692</width>
+					<width>585</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
 					<top>240</top>
-					<width>692</width>
+					<width>585</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="list" id="10">
 					<top>40</top>
-					<width>572</width>
+					<width>585</width>
 					<height>200</height>
-					<onup>9001</onup>
+					<onup>12</onup>
 					<onleft>noop</onleft>
 					<onright>9000</onright>
 					<ondown>12</ondown>
 					<include>global_ListScroll</include>
 					<itemlayout height="40">
 						<control type="label">
-							<width>543</width>
-							<info>ListItem.Label</info>
+							<width>445</width>
+							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="40">
 						<control type="image">
-							<width>572</width>
+							<width>465</width>
 							<include>dialog_CommonListFocus</include>
 							<visible>Control.HasFocus(10)</visible>
 						</control>
 						<control type="label">
-							<width>552</width>
-							<info>ListItem.Label</info>
+							<width>445</width>
+							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Color4</textcolor>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>!Control.HasFocus(10)</visible>
 						</control>
 						<control type="label">
-							<width>552</width>
-							<info>ListItem.Label</info>
+							<width>445</width>
+							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>Control.HasFocus(10)</visible>
 						</control>
@@ -95,27 +97,13 @@
 				</control>
 				<!--browse controls-->
 				<control type="group" id="9000">
-					<left>572</left>
+					<left>465</left>
 					<top>40</top>
 					<animation effect="slide" end="0,40" time="0" condition="Container(10).Row(1)">Conditional</animation>
 					<animation effect="slide" end="0,80" time="0" condition="Container(10).Row(2)">Conditional</animation>
 					<animation effect="slide" end="0,120" time="0" condition="Container(10).Row(3)">Conditional</animation>
 					<animation effect="slide" end="0,160" time="0" condition="Container(10).Row(4)">Conditional</animation>
 					<animation effect="slide" end="0,200" time="0" condition="Container(10).Row(5)">Conditional</animation>
-					<control type="image">
-						<height>40</height>
-						<include>dialog_Separator-y</include>
-					</control>
-					<control type="image">
-						<left>40</left>
-						<height>40</height>
-						<include>dialog_Separator-y</include>
-					</control>
-					<control type="image">
-						<left>80</left>
-						<height>40</height>
-						<include>dialog_Separator-y</include>
-					</control>
 					<!--browse-->
 					<control type="button" id="11">
 						<label>-</label>
@@ -141,7 +129,7 @@
 						<label>-</label>
 						<onup>10</onup>
 						<onleft>14</onleft>
-						<onright>noop</onright>
+						<onright>9001</onright>
 						<ondown>10</ondown>
 						<include>dialog_Inline-add</include>
 					</control>
@@ -149,15 +137,15 @@
 			</control>
 			<!--set source name-->
 			<control type="group">
-				<left>4</left>
+				<left>15</left>
 				<top>330</top>
 				<control type="image">
 					<top>39</top>
-					<width>692</width>
+					<width>585</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="label">
-					<width>692</width>
+					<width>585</width>
 					<label>$LOCALIZE[1022]</label>
 					<include>dialog_Header</include>
 					<include>dialog_ControlCommons</include>
@@ -165,36 +153,39 @@
 				<!--set name-->
 				<control type="edit" id="12">
 					<top>40</top>
-					<width>692</width>
+					<width>585</width>
 					<label>-</label>
 					<hinttext>551</hinttext>
 					<onleft>noop</onleft>
-					<onright>noop</onright>
+					<onright>9001</onright>
 					<onup>10</onup>
-					<ondown>9001</ondown>
+					<ondown>10</ondown>
 					<include>dialog_ControlCommons</include>
 				</control>
 			</control>
-			<!--dialog buttons-->
+
+			<!--dialog controls-->
 			<control type="grouplist" id="9001">
-				<left>430</left>
-				<top>435</top>
-				<height>40</height>
-				<onup>12</onup>
-				<ondown>10</ondown>
+				<top>100</top>
+				<right>15</right>
+				<width>140</width>
+				<height min="40" max="90">auto</height>
 				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
+				<onleft>10</onleft>
+				<onright>noop</onright>
+				<orientation>vertical</orientation>
 				<!--ok-->
-				<control type="button" id="18">
-					<label>$LOCALIZE[186]</label>
-					<include>dialog_WindowButton</include>
-				</control>
+				<include content="dialog_WindowButton">
+					<param name="ID" value="18" />
+					<param name="Label" value="$LOCALIZE[186]" />
+				</include>
 				<!--cancel-->
-				<control type="button" id="19">
-					<label>$LOCALIZE[222]</label>
-					<include>dialog_WindowButton</include>
-				</control>
+				<include content="dialog_WindowButton">
+					<param name="ID" value="19" />
+					<param name="Label" value="$LOCALIZE[222]" />
+				</include>
 			</control>
+
 		</control>
 	</controls>
 </window>
