@@ -25,6 +25,13 @@
 
 <!--window-->
 	<include name="dialog_WindowCommons">
+		<param name="DialogWidth" />
+		<param name="DialogHeight" />
+		<param name="DialogHeader" />
+		<param name="DialogHeaderID" />
+		<param name="DialogSubHeader" />
+		<param name="DialogSubHeaderID" />
+		<param name="DialogSubHeaderPath" default="false" />
 		<definition>
 			<control type="image">
 				<width>$PARAM[DialogWidth]</width>
@@ -42,11 +49,13 @@
 				<textcolor>Color4</textcolor>
 				<scroll>false</scroll>
 			</control>
-			<control type="image">
-				<top>$PARAM[DialogSeparatorTop]</top>
+			<control type="label" id="$PARAM[DialogSubHeaderID]">
+				<top>45</top>
 				<width>$PARAM[DialogWidth]</width>
-				<include>dialog_Separator</include>
-				<visible>$PARAM[DialogSeparator]</visible>
+				<haspath>$PARAM[DialogSubHeaderPath]</haspath>
+				<align>center</align>
+				<include>dialog_Header</include>
+				<include>dialog_ControlCommons</include>
 			</control>
 		</definition>
 	</include>
@@ -90,7 +99,7 @@
 
 	<include name="dialog_Common-List">
 		<param name="ID"/>
-		<param name="ContainerLeft" default="115"/>
+		<param name="ContainerLeft" default="15"/>
 		<param name="ContainerTop"/>
 		<param name="ContainerWidth"/>
 		<param name="ContainerHeight"/>

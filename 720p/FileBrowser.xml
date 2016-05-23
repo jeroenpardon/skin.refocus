@@ -4,130 +4,111 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>240</left>
+		<left>238</left>
 		<top>70</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>800</width>
+			<width>805</width>
 			<height>580</height>
-			<control type="image">
-				<width>800</width>
-				<height>580</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="411">
-				<width>792</width>
-				<label>$LOCALIZE[1023]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
-			<control type="group">
-				<left>4</left>
-				<top>60</top>
-				<control type="image">
-					<width>792</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<top>40</top>
-					<width>792</width>
-					<include>dialog_SectionSeparator</include>
-				</control>
-				<control type="image">
-					<top>439</top>
-					<width>792</width>
-					<include>dialog_Separator</include>
-				</control>
-			</control>
+
+			<include content="dialog_WindowCommons">
+				<param name="DialogHeaderID" value="411"/>
+				<param name="DialogHeader" value="$LOCALIZE[1023]"/>
+				<param name="DialogWidth" value="805"/>
+				<param name="DialogHeight" value="580"/>
+				<param name="DialogSubHeaderID" value="412"/>
+				<param name="DialogSubHeaderPath" value="true" />
+			</include>
+
 			<control type="group" id="9002">
-				<!--path label-->
-				<control type="label" id="412">
-					<left>4</left>
-					<top>60</top>
-					<width>792</width>
-					<haspath>true</haspath>
-					<textcolor>Color4</textcolor>
-					<include>dialog_ControlCommons</include>
-				</control>
+				<top>60</top>
 				<!--text list-->
 				<include content="dialog_Common-List">
 					<param name="ID" value="450"/>
-					<param name="ContainerTop" value="100"/>
-					<param name="ContainerWidth" value="796"/>
+					<param name="ContainerTop" value="40"/>
+					<param name="ContainerWidth" value="600"/>
 					<param name="ContainerHeight" value="400"/>
 					<param name="Width" value="715"/>
 					<param name="OnUp" value="450"/>
 					<param name="OnDown" value="450"/>
 					<param name="OnLeft" value="415"/>
-					<param name="OnRight" value="9001"/>
+					<param name="OnRight" value="9000"/>
 					<param name="PageControl" value="60"/>
 					<param name="Left" value="60"/>
 					<param name="ShowIcon" value="true"/>
 				</include>
+
 				<!--thumbnail list-->
 				<control type="panel" id="451">
-					<left>4</left>
-					<top>102</top>
-					<width>792</width>
-					<height>400</height>
-					<onup>9001</onup>
-					<ondown>9001</ondown>
-					<orientation>horizontal</orientation>
+					<left>15</left>
+					<top>40</top>
+					<width>600</width>
+					<height>460</height>
+					<onup>451</onup>
+					<ondown>451</ondown>
+					<onleft>noop</onleft>
+					<onright>9000</onright>
+					<orientation>vertical</orientation>
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>4</preloaditems>
 					<include>global_ListScroll</include>
-					<itemlayout width="264" height="199">
+					<itemlayout width="200" height="200">
 						<control type="image">
-							<centerleft>132</centerleft>
-							<top>37</top>
-							<width>96</width>
-							<height>96</height>
+							<centerleft>50%</centerleft>
+							<centertop>50%</centertop>
+							<width>72</width>
+							<height>72</height>
 							<texture>$INFO[ListItem.ActualIcon]</texture>
 							<colordiffuse>Color4</colordiffuse>
+							<aspectratio>keep</aspectratio>
 							<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<left>10</left>
-							<top>10</top>
-							<width>245</width>
+							<centerleft>50%</centerleft>
+							<width>190</width>
 							<height>150</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<top>154</top>
-							<width>264</width>
+							<centerleft>50%</centerleft>
+							<bottom>10</bottom>
+							<width>190</width>
+							<height>40</height>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_ControlCommons</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="264" height="199">
+					<focusedlayout width="200" height="200">
 						<control type="image">
-							<width>264</width>
+							<width>200</width>
 							<height>199</height>
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
-							<centerleft>132</centerleft>
-							<top>37</top>
-							<width>96</width>
-							<height>96</height>
+							<centerleft>50%</centerleft>
+							<centertop>50%</centertop>
+							<width>72</width>
+							<height>72</height>
 							<texture>$INFO[ListItem.ActualIcon]</texture>
 							<colordiffuse>Color1</colordiffuse>
+							<aspectratio>keep</aspectratio>
 							<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<left>10</left>
-							<top>10</top>
-							<width>245</width>
+							<centerleft>50%</centerleft>
+							<width>190</width>
 							<height>150</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<top>154</top>
-							<width>264</width>
+							<centerleft>50%</centerleft>
+							<bottom>10</bottom>
+							<width>190</width>
+							<height>40</height>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Color1</textcolor>
@@ -135,53 +116,34 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="60">
-					<top>500</top>
-					<width>796</width>
-					<height>4</height>
-					<include>dialog_Scrollbar</include>
-					<orientation>horizontal</orientation>
-					<visible>Control.IsVisible(451)</visible>
-				</control>
-			</control>
 
-		<!--dialog buttons--> 
-			<control type="group" id="9001">
-				<bottom>20</bottom>
-				<width>800</width>
-				<height>40</height>
-				<!--new folder-->
-				<control type="button" id="415">
-					<left>20</left>
-					<label>$LOCALIZE[119]</label>
-					<onup>9002</onup>
-					<ondown>9002</ondown>
-					<onleft>414</onleft>
-					<onright>414</onright>
+			<!--dialog controls-->
+				<control type="grouplist" id="9000">
+					<right>15</right>
+					<top>40</top>
 					<width>160</width>
-					<include>dialog_WindowButton</include>
-				</control>
-				<control type="grouplist">
-					<right>20</right>
-					<width>254</width>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onup>9002</onup>
-					<ondown>9002</ondown>
-					<orientation>horizontal</orientation>
+					<height min="40" max="160">auto</height>
 					<itemgap>10</itemgap>
+					<onleft>450</onleft>
+					<orientation>vertical</orientation>
 					<!--ok-->
-					<control type="button" id="413">
-						<left>363</left>
-						<label>$LOCALIZE[186]</label>
-						<include>dialog_WindowButton</include>
-					</control>
+					<include content="dialog_WindowButton">
+						<param name="ID" value="413" />
+						<param name="Width" value="160" />
+						<param name="Label" value="$LOCALIZE[186]" />
+					</include>
 					<!--cancel-->
-					<control type="button" id="414">
-						<left>493</left>
-						<label>$LOCALIZE[222]</label>
-						<include>dialog_WindowButton</include>
-					</control>
+					<include content="dialog_WindowButton">
+						<param name="ID" value="414" />
+						<param name="Width" value="160" />
+						<param name="Label" value="$LOCALIZE[222]" />
+					</include>
+					<!--new folder-->
+					<include content="dialog_WindowButton">
+						<param name="ID" value="415" />
+						<param name="Width" value="160" />
+						<param name="Label" value="$LOCALIZE[119]" />
+					</include>
 				</control>
 			</control>
 		</control>
