@@ -180,6 +180,25 @@
 		</animation>
 	</include>
 
+	<include name="transition_Slider">
+		<animation type="WindowOpen">
+			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="150,45"/>
+			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In" />
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="zoom" time="transition_DialogClose" start="100" end="90" tween="Sine" easing="Out" center="150,45"/>
+			<effect type="Fade" time="transition_DialogClose" start="100" end="0" tween="Sine" easing="Out" />
+		</animation>
+		<animation type="Visible">
+			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="150,45"/>
+			<effect type="Fade" time="transition_DialogOpen" start="0" end="100" tween="Sine" easing="In" />
+		</animation>			
+		<animation type="Hidden">
+			<effect type="zoom" time="transition_DialogClose" start="100" end="90" tween="Sine" easing="Out" center="150,45"/>
+			<effect type="Fade" time="transition_DialogClose" start="100" end="0" tween="Sine" easing="Out" />
+		</animation>
+	</include>
+
 <!--toggles-->
 	<include name="toggle_Menu">
 		<animation type="Conditional" condition="[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus] + !Skin.HasSetting(global.kiosk) + !Window.IsActive(virtualkeyboard)" reversible="true">
