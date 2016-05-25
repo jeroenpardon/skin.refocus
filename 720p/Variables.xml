@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+	<variable name="subtitles:Flags.nf">
+		<value condition="ListItem.Property(hearing_imp) | ListItem.Property(sync)">glyph_nf</value>
+		<value>Color3</value>
+	</variable>
+	<variable name="subtitles:Flags.fo">
+		<value condition="ListItem.Property(hearing_imp) | ListItem.Property(sync)">glyph_fo</value>
+		<value>Color5</value>
+	</variable>
+
 <!--STARTUP-->
 	<variable name="login:Hello">
 		<value condition="System.Time(00:00,12:00)">$LOCALIZE[31718]</value>

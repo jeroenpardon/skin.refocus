@@ -3,8 +3,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>65</left>
-		<top>43</top>
+		<left>88</left>
+		<top>60</top>
 	</coordinates>
 	<controls>
 		<control type="group" id="250">
@@ -14,11 +14,11 @@
 				<param name="DialogWidth" value="1105"/>
 				<param name="DialogHeight" value="600"/>
 				<param name="DialogHeaderID" value="140"/>
-				<param name="DialogSubHeader" value="$INFO[Player.Filename]"/>
 			</include>
-				
+		
+			<!--services-->
 			<control type="group">
-				<top>100</top>
+				<top>60</top>
 				<control type="label">
 					<width>700</width>
 					<label>$LOCALIZE[24018]</label>
@@ -26,14 +26,12 @@
 					<include>dialog_Header</include>
 					<include>dialog_ControlCommons</include>
 					<wrapmultiline>true</wrapmultiline>
-				</control>
-
-			<!--services-->
+				</control>			
 				<include content="dialog_Common-List">
 					<param name="ID" value="150"/>
-					<param name="ContainerTop" value="0"/>
+					<param name="ContainerTop" value="40"/>
 					<param name="ContainerWidth" value="200"/>
-					<param name="ContainerHeight" value="440"/>
+					<param name="ContainerHeight" value="480"/>
 					<param name="Width" value="200"/>
 					<param name="OnRight" value="120"/>
 					<param name="OnUp" value="161"/>
@@ -41,11 +39,21 @@
 				</include>
 			</control>
 
-
 			<!--search results-->
+			<control type="group">
+				<top>60</top>
+				<left>215</left>
+				<control type="label">
+					<width>700</width>
+					<label>$INFO[Player.Filename]</label>
+					<textoffsetx>15</textoffsetx>
+					<include>dialog_Header</include>
+					<include>dialog_ControlCommons</include>
+					<wrapmultiline>true</wrapmultiline>
+				</control>	
 				<control type="list" id="120">
-					<top>100</top>
-					<left>230</left>
+					<top>40</top>
+					<left>15</left>
 					<width>700</width>
 					<height>490</height>
 					<onleft>150</onleft>
@@ -76,21 +84,19 @@
 						<control type="grouplist">
 							<right>10</right>
 							<top>8</top>
-							<width min="0" max="106">auto</width>
-							<height>32</height>
+							<width>106</width>
+							<height>32</height> 
 							<itemgap>10</itemgap>
 							<orientation>horizontal</orientation>	
 							<control type="image">
 								<width>48</width>
 								<height>24</height>
-								<texture colordiffuse="glyph_nf">flags/subtitles/icon_cc2.png</texture>
-								<visible>!ListItem.Property(hearing_imp)</visible>
+								<texture colordiffuse="$VAR[subtitles:Flags.nf]">flags/subtitles/icon_cc2.png</texture>
 							</control>
 							<control type="image">
 								<width>48</width>
 								<height>24</height>
-								<texture colordiffuse="glyph_nf">flags/subtitles/icon_sync2.png</texture>
-								<visible>!ListItem.Property(sync)</visible>
+								<texture colordiffuse="$VAR[subtitles:Flags.nf]">flags/subtitles/icon_sync2.png</texture>
 							</control>
 						</control>
 					</itemlayout>
@@ -126,14 +132,12 @@
 								<control type="image">
 									<width>48</width>
 									<height>24</height>
-									<texture colordiffuse="glyph_fo">flags/subtitles/icon_cc2.png</texture>
-									<visible>!ListItem.Property(hearing_imp)</visible>
+									<texture colordiffuse="$VAR[subtitles:Flags.fo]">flags/subtitles/icon_cc2.png</texture>
 								</control>
 								<control type="image">
 									<width>48</width>
 									<height>24</height>
-									<texture colordiffuse="glyph_fo">flags/subtitles/icon_sync2.png</texture>
-									<visible>!ListItem.Property(sync)</visible>
+									<texture colordiffuse="$VAR[subtitles:Flags.fo]">flags/subtitles/icon_sync2.png</texture>
 								</control>
 							</control>
 						</control>
@@ -181,7 +185,7 @@
 						</control> 
 					</focusedlayout>
 				</control>
-
+			</control>
 
 		<!--dialog controls-->
 			<control type="grouplist" id="9000">
