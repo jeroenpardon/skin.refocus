@@ -86,52 +86,101 @@
 						</control>
 					</itemlayout>
 					<focusedlayout width="500" height="90">
-						<control type="image">
-							<width>500</width>
-							<height>90</height>
-							<include>dialog_CommonListFocus</include>
-						</control>
-						<control type="image">
-							<left>10</left>
-							<top>10</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-							<colordiffuse>Color1</colordiffuse>
-							<aspectratio align="center">keep</aspectratio>
-							<visible>String.Contains(ListItem.Icon,Default)</visible>
-						</control>
-						<control type="image">
-							<left>4</left>
-							<top>4</top>
-							<width>82</width>
-							<height>82</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center">scale</aspectratio>
-							<visible>!String.Contains(ListItem.Icon,Default)</visible>
+						<control type="group">
+							<visible>Control.HasFocus(6)</visible>
+							<control type="image">
+								<width>500</width>
+								<height>90</height>
+								<include>dialog_CommonListFocus</include>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<top>10</top>
+								<width>64</width>
+								<height>64</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<colordiffuse>Color1</colordiffuse>
+								<aspectratio align="center">keep</aspectratio>
+								<visible>String.Contains(ListItem.Icon,Default)</visible>
+							</control>
+							<control type="image">
+								<left>4</left>
+								<top>4</top>
+								<width>82</width>
+								<height>82</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio align="center">scale</aspectratio>
+								<visible>!String.Contains(ListItem.Icon,Default)</visible>
+							</control>
+							<control type="group">
+								<left>85</left>
+								<top>7</top>
+								<control type="label">
+									<width>385</width>
+									<label>[B]$INFO[ListItem.Label][/B]</label>
+									<include>dialog_CommonListItemFocus</include>
+								</control>
+								<control type="label">
+									<top>30</top>
+									<width>385</width>
+									<height>20</height>
+									<label>$INFO[ListItem.Label2]</label>
+									<aligny>top</aligny>
+									<include>autoscroll_Line</include>
+									<include>dialog_CommonListItemFocus</include>
+								</control>
+							</control>
 						</control>
 						<control type="group">
-							<left>85</left>
-							<top>7</top>
-							<control type="label">
-								<width>385</width>
-								<label>[B]$INFO[ListItem.Label][/B]</label>
-								<include>dialog_CommonListItemFocus</include>
+							<visible>!Control.HasFocus(6)</visible>
+							<control type="image">
+								<left>4</left>
+								<width>496</width>
+								<height>90</height>
+								<include>dialog_CommonList</include>
 							</control>
-							<control type="label">
-								<top>30</top>
-								<width>385</width>
-								<height>20</height>
-								<label>$INFO[ListItem.Label2]</label>
-								<aligny>top</aligny>
-								<include>autoscroll_Line</include>
-								<include>dialog_CommonListItemFocus</include>
+							<control type="image">
+								<left>10</left>
+								<top>10</top>
+								<width>64</width>
+								<height>64</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<colordiffuse>Color4</colordiffuse>
+								<aspectratio align="center">keep</aspectratio>
+								<visible>String.Contains(ListItem.Icon,Default)</visible>
+							</control>
+							<control type="image">
+								<left>4</left>
+								<top>4</top>
+								<width>82</width>
+								<height>82</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio align="center">scale</aspectratio>
+								<visible>!String.Contains(ListItem.Icon,Default)</visible>
+							</control>
+							<control type="group">
+								<left>85</left>
+								<top>8</top>
+								<control type="label">
+									<width>385</width>
+									<label>[B]$INFO[ListItem.Label][/B]</label>
+									<include>dialog_CommonListItem</include>
+								</control>
+								<control type="label">
+									<top>30</top>
+									<width>385</width>
+									<height>20</height>
+									<label>$INFO[ListItem.Label2]</label>
+									<textcolor>Color5</textcolor>
+									<aligny>top</aligny>
+									<include>dialog_CommonListItem</include>
+								</control>
 							</control>
 						</control>
 					</focusedlayout>
 				</control>
 				
-			<!--dialog controls-->
+				<!--dialog controls-->
 				<control type="grouplist" id="9000">
 					<right>15</right>
 					<width>140</width>
@@ -151,7 +200,6 @@
 						<param name="Label" value="$LOCALIZE[222]" />
 					</include>
 				</control>
-
 			</control>
 		</control>
 	</controls>
