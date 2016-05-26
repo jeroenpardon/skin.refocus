@@ -19,38 +19,6 @@
 			<include condition="String.IsEqual(Skin.String(homemenu.type),vertical) | !String.IsEqual(Skin.String(homemenu.type),horizontal) + !String.IsEqual(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
 			<include condition="String.IsEqual(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
 
-			<!--now playing (widgets disabled)-->
-			<control type="group">
-				<left>25</left>
-				<top>15</top>
-				<animation effect="slide" start="0" end="320" time="0" condition="String.IsEqual(Skin.String(homemenu.type),vertical)">Conditional</animation>
-				<include>fadeinout</include>
-				<visible>Skin.HasSetting(widgets.disable) + Player.HasAudio + Skin.HasSetting(home.nowplaying)</visible>
-				<control type="image">
-					<width>48</width>
-					<height>48</height>
-					<texture>DefaultIconPlay.png</texture>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-				</control>
-				<control type="group">
-					<left>55</left>
-					<control type="label">
-						<width>550</width>
-						<label>$INFO[MusicPlayer.Title]</label>
-						<font>semibold-U</font>
-						<textcolor>Color1</textcolor>
-					</control>
-					<control type="label">
-						<top>21</top>
-						<width>550</width>
-						<label>$INFO[MusicPlayer.Artist]</label>
-						<font>regular_Small-U</font>
-						<textcolor>Color1</textcolor>
-						<include>fadeinout</include>
-					</control>
-				</control>
-			</control>
-
 			<!--clock-->
 			<control type="group">
 				<visible>[Skin.HasSetting(home.time) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]] | [Skin.HasSetting(overlay.pvr) + PVR.HasNonRecordingTimer]</visible>
