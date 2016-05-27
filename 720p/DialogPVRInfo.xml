@@ -1,183 +1,212 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window>
-	<defaultcontrol always="true">9000</defaultcontrol>
-	<include>transition_Dialog</include>
-	<coordinates>
-		<system>1</system>
-		<left>225</left>
-		<top>100</top>
-	</coordinates>
+	<defaultcontrol always="true">5000</defaultcontrol>
+	<onload>Skin.SetString(info.toggle,plot)</onload>
+	<onunload>Skin.SetString(info.toggle,plot)</onunload>
 	<controls>
 		<control type="group">
-			<width>830</width>
-			<height>520</height>
+			<include>screen_Dimensions</include>
+
+			<!--background-->
 			<control type="image">
-				<width>830</width>
-				<height>520</height>
-				<include>dialog_Window</include>
+				<include>screen_Dimensions</include>
+				<texture background="true">$VAR[art:Container]</texture>
+				<aspectratio>scale</aspectratio>
+				<animation type="WindowOpen">
+					<effect type="Fade" time="transition_Open" start="0" end="100" />
+				</animation>			
+				<animation type="WindowClose">
+					<effect type="Fade" time="transition_Close" start="100" end="0" />
+				</animation>
 			</control>
-			<control type="label">
-				<width>830</width>
-				<label>$INFO[ListItem.EpisodeName]</label>
-				<include>dialog_Windowtitle</include>
+
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture background="true">overlays/base_color.png</texture>
+				<colordiffuse>base_1</colordiffuse>
+				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
+
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
-				<control type="image">
-					<width>822</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="list" id="100">
-					<width>822</width>
-					<height>500</height>
-					<onup>100</onup>
-					<ondown>100</ondown>
-					<include>global_ListScroll</include>
-					<itemlayout height="40">
+				<include>screen_Dimensions</include>
+				<include>transition_Content</include>
+				<!--main container-->
+				<control type="grouplist" id="4000">
+					<include>screen_Dimensions</include>
+					<onright>70</onright>
+					<pagecontrol>70</pagecontrol>
+					<include>global_Scrolltime</include>
+					<orientation>vertical</orientation>
+					<itemgap>0</itemgap>
+					<!--banner window-->
+					<control type="group">
+						<width>100%</width>
+						<height>250</height>
 						<control type="image">
-							<width>822</width>
-							<height>40</height>
-							<include>dialog_CommonList</include>
+							<width>100%</width>
+							<height>200</height>
+							<texture>overlays/vignette_bottom.png</texture>
+							<aspectratio aligny="bottom">stretch</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
-						<control type="label">
-							<width>200</width>
-							<height>36</height>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-						<control type="label">
-							<right>20</right>
-							<width>788</width>
-							<height>36</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label2]</label>
-							<include>dialog_CommonListItem</include>
-						</control>
-					</itemlayout>
-					<focusedlayout height="40">
+						<!--studio / network logos-->
 						<control type="image">
-							<width>822</width>
-							<include>dialog_CommonList</include>
+							<right>40</right>
+							<bottom>60</bottom>
+							<width>96</width>
+							<height>48</height>
+							<aspectratio align="right">keep</aspectratio>
+							<colordiffuse>flag_1</colordiffuse>
+							<texture>$VAR[flag:Studio]</texture>
+							<visible>!String.IsEqual(ListItem.DBType,movie)</visible>
 						</control>
-						<control type="label">
-							<width>622</width>
-							<height>36</height>
-							<label>$INFO[ListItem.Label]</label>
-							<include>dialog_CommonListItem</include>
+						<control type="image">
+							<right>40</right>
+							<bottom>60</bottom>
+							<width>128</width>
+							<height>64</height>
+							<aspectratio align="right">keep</aspectratio>
+							<colordiffuse>flag_1</colordiffuse>
+							<texture>$VAR[flag:Studio]</texture>
+							<visible>String.IsEqual(ListItem.DBType,movie)</visible>
 						</control>
-						<control type="label">
-							<right>20</right>
-							<width>788</width>
-							<height>36</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label2]</label>
-							<include>dialog_CommonListItem</include>
+						<!--begin main column-->
+						<control type="group">
+							<left>300</left>
+							<top>110</top>
+							<control type="label">
+								<width min="0" max="1164">auto</width>
+								<label>$INFO[ListItem.Title]</label>
+								<selectedcolor>Color1</selectedcolor>
+								<include>osd_Title</include>
+							</control>
+							<control type="label">
+								<top>28</top>
+								<width>1164</width>
+								<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])</label>
+								<font>regular_Small-U</font>
+								<include>osd_Sub</include>
+							</control>
+							<control type="label">
+								<top>50</top>
+								<width min="0" max="1164">auto</width>
+								<label>$INFO[ListItem.ChannelName]</label>
+								<font>regular_Smaller-U</font>
+								<textcolor>Color3</textcolor>
+								<include>osd_Sub</include>
+							</control>
 						</control>
-					</focusedlayout>
-					<content>
-						<item id="1">
-							<label>$LOCALIZE[20373]</label>
-							<label2>$INFO[ListItem.Season]</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Season)</visible>
-						</item>
-						<item id="2">
-							<label>$LOCALIZE[20359]</label>
-							<label2>$INFO[ListItem.Episode]</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Episode)</visible>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[19148]</label>
-							<label2>$INFO[ListItem.ChannelName]</label2>
-							<onclick>noop</onclick>
-						</item>
-						<item id="4">
-							<label>$LOCALIZE[142]</label>
-							<label2>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])</label2>
-							<onclick>noop</onclick>
-						</item>
-						<item id="5">
-							<label>$LOCALIZE[180]</label>
-							<label2>$INFO[ListItem.Duration]</label2>
-							<onclick>noop</onclick>
-						</item>
-						<item id="6">
-							<label>$LOCALIZE[515]</label>
-							<label2>$INFO[ListItem.Genre]</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Genre)</visible>
-						</item>
-						<item id="7">
-							<label>$LOCALIZE[20417]</label>
-							<label2>$INFO[ListItem.Writer]</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Writer)</visible>
-						</item>
-						<item id="8">
-							<label>$LOCALIZE[20339]</label>
-							<label2>$INFO[ListItem.Director]</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Director)</visible>
-						</item>
-						<item id="9">
-							<label>$LOCALIZE[206]</label>
-							<label2>$INFO[ListItem.Cast]</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Cast)</visible>
-						</item>
-					</content>
+
+						<control type="group">
+							<width>100%</width>
+							<height>screen_Height</height>
+							<control type="image">
+								<top>200</top>	
+								<width>100%</width>
+								<height>520</height>	
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">overlays/base_color.png</texture>
+								<colordiffuse>base_1</colordiffuse>
+								<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+							</control>
+							<!--begin main content area-->
+							<control type="group">
+								<left>300</left>
+								<top>220</top>
+								<control type="grouplist" id="5000">
+									<width>100%</width>
+									<height>40</height>
+									<itemgap>10</itemgap>
+									<onright>71</onright>
+									<orientation>horizontal</orientation>
+									<defaultcontrol always="true">8</defaultcontrol>
+									<!--ok-->
+									<control type="button" id="7">
+										<label>$LOCALIZE[186]</label>
+										<include>global_Button</include>
+										<oninfo>Action(Back)</oninfo>
+									</control>
+									<!--find similar-->
+									<control type="button" id="4">
+										<label>$LOCALIZE[19003]</label>
+										<include>global_Button</include>
+										<oninfo>Action(Back)</oninfo>
+									</control>
+									<!--switch-->
+									<control type="button" id="5">
+										<label>$LOCALIZE[19165]</label>
+										<include>global_Button</include>
+										<oninfo>Action(Back)</oninfo>
+									</control>
+									<!--play recording-->
+									<control type="button" id="8">
+										<label>$LOCALIZE[19687]</label>
+										<include>global_Button</include>
+										<oninfo>Action(Back)</oninfo>
+									</control>
+									<!--record-->
+									<control type="button" id="6">
+										<include>global_Button</include>
+										<oninfo>Action(Back)</oninfo>
+									</control>
+								</control>
+								<!--plot / descriptions-->
+								<control type="textbox" id="401">
+									<top>70</top>
+									<width>875</width>
+									<height min="0" max="325">auto</height>
+									<label>$INFO[ListItem.Plot]</label>
+									<pagecontrol>71</pagecontrol>
+									<include>detail_Text</include>
+								</control>
+							</control>
+						</control>
+
+						<!--begin left column-->
+						<control type="group">
+							<left>40</left>
+							<top>40</top>
+							<control type="image">
+								<width>207</width>
+								<height>207</height>
+								<include>art_Frame-nf</include>
+							</control>
+							<control type="group">
+								<left>7</left>
+								<top>7</top>
+								<control type="image">	
+									<width>193</width>
+									<height>193</height>
+									<texture background="true">thumbs/default_Square.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<width>193</width>
+									<height>193</height>
+									<texture background="true">$VAR[art:Square]</texture>
+									<aspectratio align="center" aligny="top">scale</aspectratio>
+								</control>
+							</control>
+							<control type="textbox" id="401">
+								<top>320</top>
+								<width>200</width>
+								<height min="0" max="300">auto</height>
+								<align>right</align>
+								<label>$INFO[ListItem.Season,[B]$LOCALIZE[20373][/B][CR],[CR][CR]]$INFO[ListItem.Episode,[B]$LOCALIZE[20359][/B][CR],[CR][CR]]$INFO[ListItem.Genre,[B]$LOCALIZE[515][/B][CR],[CR]]$INFO[ListItem.Writer,[B]$LOCALIZE[20417][/B][CR],[CR]]$INFO[ListItem.Director,[B]$LOCALIZE[20339][/B][CR],[CR]]$INFO[ListItem.Cast,[B]$LOCALIZE[206][/B][CR],[CR]]</label>
+								<include>detail_Text</include>
+							</control>
+						</control>
+					</control>		
 				</control>
 			</control>
-			<!--dialog controls-->
-			<control type="grouplist" id="9000">
-				<left>20</left>
-				<width>600</width>
-				<bottom>20</bottom>
-				<height>40</height>
-				<onleft>7</onleft>
-				<onright>7</onright>
-				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
-				<!--find similar-->
-				<control type="button" id="4">
-					<label>$LOCALIZE[19003]</label>
-					<width>150</width>
-					<oninfo>Back</oninfo>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--switch-->
-				<control type="button" id="5">
-					<label>$LOCALIZE[19165]</label>
-					<width>150</width>
-					<oninfo>Back</oninfo>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--play recording-->
-				<control type="button" id="8">
-					<label>$LOCALIZE[19687]</label>
-					<width>150</width>
-					<oninfo>Back</oninfo>
-					<include>dialog_WindowButton</include>
-				</control>
-				<!--record-->
-				<control type="button" id="6">
-					<label>-</label>
-					<width>150</width>
-					<oninfo>Back</oninfo>
-					<include>dialog_WindowButton</include>
-				</control>
-			</control>
-			<!--ok-->
-			<control type="button" id="7">
-				<right>20</right>
-				<bottom>20</bottom>
-				<onleft>6</onleft>
-				<onright>4</onright>
-				<label>$LOCALIZE[186]</label>
-				<width>150</width>
-				<include>dialog_WindowButton</include>
+
+			<!--pagecontrol-->
+			<control type="scrollbar" id="71">
+				<left>1272</left>
+				<width>8</width>
+				<height>720</height>
+				<onleft>4000</onleft>
+				<onright>8</onright>
 			</control>
 		</control>
 	</controls>
