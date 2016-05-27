@@ -243,7 +243,7 @@
 		<scroll>false</scroll>
 	</include>
 	
-	<include name="dialog_WindowButton">
+	<include name="dialog_Button">
 		<param name="ID"/>
 		<param name="Label"/>
 		<param name="Width" default="120"/>
@@ -271,6 +271,42 @@
 				<onclick>$PARAM[OnClick]</onclick> 
 				<onback>$PARAM[OnBack]</onback>
 				<visible>$PARAM[Visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="dialog_ToggleButton">
+		<param name="ID"/>
+		<param name="Label"/>
+		<param name="AltLabel"/>
+		<param name="UseAltLabel"/>
+		<param name="Width" default="120"/>
+		<param name="Height" default="40"/>
+		<param name="OnUp"/>
+		<param name="OnDown"/>
+		<param name="OnLeft"/>
+		<param name="OnRight"/>
+		<param name="OnFocus"/>
+		<param name="OnClick" default="noop"/>
+		<param name="Visible"/>
+		<definition>
+			<control type="togglebutton" id="$PARAM[ID]">
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Height]</height>
+				<label>$PARAM[Label]</label>
+				<altlabel>$PARAM[AltLabel]</altlabel>
+				<font>regular_Small-U-B</font>
+				<align>center</align>
+				<textoffsetx>10</textoffsetx>
+				<textoffsety>6</textoffsety>
+				<textcolor>Color4</textcolor>
+				<focusedcolor>Color1</focusedcolor>
+				<texturenofocus border="2">dialogs/button-nf.png</texturenofocus>
+				<texturefocus>dialogs/button-fo.png</texturefocus>
+				<onclick>$PARAM[OnClick]</onclick> 
+				<onback>$PARAM[OnBack]</onback>
+				<visible>$PARAM[Visible]</visible>
+				<usealttexture>$PARAM[UseAltLabel]</usealttexture>
 			</control>
 		</definition>
 	</include>
