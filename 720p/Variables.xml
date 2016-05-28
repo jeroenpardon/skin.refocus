@@ -122,12 +122,6 @@
 		<value condition="Player.HasAudio | !Player.HasMedia">$LOCALIZE[13350]</value>
 	</variable>
 
-	<variable name="menu:Controls">
-		<value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
-		<value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
-		<value>$LOCALIZE[36502]</value>
-	</variable>
-
 	<variable name="menu:ChannelSwitch">
 		<value condition="Window.IsActive(tvchannels)">$LOCALIZE[19020]$INFO[Container(50).FolderName,: ]</value>
 		<value condition="Window.IsActive(radiochannels)">$LOCALIZE[19021]$INFO[Container(50).FolderName,: ]</value>
@@ -610,6 +604,11 @@
 		<value condition="IntegerGreaterThan(ListItem.Progress,10)">status/progress/10.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Progress,0)">status/progress/00.png</value>
 		<value>status/progress/none.png</value>
+	</variable>
+
+	<variable name="pvr:ChannelManagerHeader">
+		<value condition="!String.IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19199] - $LOCALIZE[19024]</value>
+		<value>$LOCALIZE[19199] - $LOCALIZE[19023]</value>
 	</variable>
 
 

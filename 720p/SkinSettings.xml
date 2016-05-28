@@ -488,11 +488,18 @@
 					<!--fullscreen button-->
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
-						<label2>$VAR[menu:Controls]</label2>
-						<onclick condition="IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
-						<onclick condition="StringCompare(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
+						<label2>$INFO[Skin.String(menu.controls)]</label2>
+
+						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
+
+
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31284])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,fullscreen))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31285])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,player))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[36502])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,disabled))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Options menu player controls)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="radiobutton" id="903">
@@ -655,7 +662,6 @@
 			<height>screen_Height</height>
 			<onleft>9001</onleft>
 		</control>
-		
 
 		<!--menu-->
 		<include>menu_Settings</include>
