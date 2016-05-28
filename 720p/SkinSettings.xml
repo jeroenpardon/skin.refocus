@@ -131,10 +131,14 @@
 					<!--menu layout-->
 					<control type="button" id="102">
 						<label>$LOCALIZE[31206]</label>
-						<label2>$VAR[home:MenuType]</label2>
-						<onclick condition="IsEmpty(Skin.String(homemenu.type))">Skin.SetString(homemenu.type,vertical)</onclick>
-						<onclick condition="StringCompare(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onclick>
-						<onclick condition="StringCompare(Skin.String(homemenu.type),vertical)">Skin.SetString(homemenu.type,horizontal)</onclick>
+
+						<label2>$INFO[Skin.String(homemenu.type)]</label2>
+						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31207])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(homemenu.type,$LOCALIZE[31207]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31208])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(homemenu.type,$LOCALIZE[31208]))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=none)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--compact menu-->
@@ -489,17 +493,14 @@
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
 						<label2>$INFO[Skin.String(menu.controls)]</label2>
-
 						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
-
-
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31284])</onclick>
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,fullscreen))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31285])</onclick>
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,player))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[36502])</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,disabled))</onclick>
-						<onclick>RunScript(script.toolbox,info=selectdialog,header=Options menu player controls)</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=none)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="radiobutton" id="903">
