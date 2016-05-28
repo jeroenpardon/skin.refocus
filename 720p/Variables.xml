@@ -680,9 +680,9 @@
 		<value condition="String.Contains(Container.FolderPath,plugin://plugin,left)">$INFO[Container.FolderName]</value>
 		<value condition="String.IsEqual(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[20012]</value>
 		<!--plugins-->
-		<value condition="String.IsEqual(Container.FolderPath,plugin://service.library.data.provider/?type=recommendedepisodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-		<value condition="String.IsEqual(Container.FolderPath,plugin://service.library.data.provider/?type=recommendedmovies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
-		<value condition="String.IsEqual(Container.FolderPath,plugin://service.library.data.provider/)">$LOCALIZE[31625]</value>
+		<value condition="String.IsEqual(Container.FolderPath,plugin://script.watchlist/)">$LOCALIZE[31013]</value>
+ +		<value condition="String.IsEqual(Container.FolderPath,plugin://script.watchlist/?type=episodes)">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
+ +		<value condition="String.IsEqual(Container.FolderPath,plugin://script.watchlist/?type=movies)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31013][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,plugin://script.skin.helper.service/?action=favourites)">$ADDON[script.skin.helper.service 32000]</value>
 		<value condition="String.Contains(Container.FolderPath,plugin://script.skin.helper.service/?action=favouritemedia)">$ADDON[script.skin.helper.service 32001]</value>
 		<value condition="String.Contains(Container.FolderPath,plugin://script.skin.helper.service/?action=recommendedmedia)">$ADDON[script.skin.helper.service 32004]</value>
