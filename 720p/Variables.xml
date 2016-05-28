@@ -659,6 +659,7 @@
 	</variable>
 
 	<variable name="window:Title.Video">
+		<value condition="Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">[B]$INFO[ListItem.SortLetter][/B]</value>
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[157]</value>
 		<value condition="StringCompare(Container.FolderPath,sources://video/)">$LOCALIZE[744]</value>
 		<value condition="StringCompare(Container.FolderPath,addons://sources/video)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
@@ -707,6 +708,7 @@
 	</variable>
 
 	<variable name="window:Title.Music">
+		<value condition="Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">[B]$INFO[ListItem.SortLetter][/B]</value>
 		<value condition="IsEmpty(Container.FolderPath)">$LOCALIZE[2]</value>
 		<value condition="StringCompare(Container.FolderPath,sources://music/)">$LOCALIZE[744]</value>
 		<value condition="StringCompare(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
@@ -736,6 +738,7 @@
 	</variable>
 
 	<variable name="window:Title.Addons">
+		<value condition="Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">[B]$INFO[ListItem.SortLetter][/B]</value>
 		<value condition="SubString(Container.FolderPath,addons://enabled/)">$LOCALIZE[24062]</value>
 		<value condition="SubString(Container.FolderPath,addons://disabled/)">$LOCALIZE[24039]</value>
 		<value condition="SubString(Container.FolderPath,addons://downloading/)">$LOCALIZE[24067]</value>
@@ -764,11 +767,13 @@
 	</variable>
 
 	<variable name="window:Title.Pictures">
+		<value condition="Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">[B]$INFO[ListItem.SortLetter][/B]</value>
 		<value condition="!SubString(Container.FolderPath,plugin)">$LOCALIZE[1]</value>
 		<value>$INFO[Container.FolderName]</value>
 	</variable>
 
 	<variable name="window:Title.Playlists">
+		<value condition="Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">[B]$INFO[ListItem.SortLetter][/B]</value>
 		<value condition="Window.IsVisible(videoplaylist) + !Window.IsActive(movieinformation)">$LOCALIZE[157] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 		<value condition="Window.IsActive(musicplaylist) + !Window.IsActive(musicinformation)">$LOCALIZE[2] [COLOR=Color2]$LOCALIZE[559][/COLOR]</value>
 	</variable>
@@ -779,6 +784,7 @@
 	</variable>
 
 	<variable name="window:Title.Programs">
+		<value condition="Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]">[B]$INFO[ListItem.SortLetter][/B]</value>
 		<value condition="Window.IsVisible(Programs)">$LOCALIZE[0] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value>$LOCALIZE[12600]</value>
 	</variable>
