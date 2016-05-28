@@ -75,7 +75,6 @@
 	</include>
 	<include name="global_Includes">
 		<include>global_Clock</include>
-		<include>global_Sortletter</include>
 		<include>global_Playing</include>
 	</include>
 
@@ -130,21 +129,6 @@
 					<texture>$VAR[toast:Icon]</texture>
 				</control>
 			</control>
-		</control>
-	</include>
-
-	<include name="global_Sortletter">
-		<control type="label" id="9900">
-			<left>34</left>
-			<top>14</top>
-			<width>950</width>
-			<aligny>center</aligny>
-			<font>light_Window</font>
-			<textcolor>Color1</textcolor>
-			<label>[B]$INFO[ListItem.SortLetter][/B]</label>
-			<include>transition_WindowTitle</include>
-			<include>toggle_Menu</include>
-			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
 		</control>
 	</include>
 
@@ -1158,7 +1142,7 @@
 		<param name="Left" default="59"/>
 		<param name="Top" default="14"/>
 		<param name="Width" default="950"/>
-		<param name="Label" default="Fallback"/>
+		<param name="Label"/>
 		<definition>
 			<!--busy label-->
 			<control type="list" id="9998">
