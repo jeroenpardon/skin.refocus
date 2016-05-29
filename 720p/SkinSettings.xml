@@ -131,14 +131,13 @@
 					<!--menu layout-->
 					<control type="button" id="102">
 						<label>$LOCALIZE[31206]</label>
-
-						<label2>$INFO[Skin.String(homemenu.type)]</label2>
+						<label2>$VAR[home:MenuType]</label2>
 						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31207])</onclick>
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(homemenu.type,$LOCALIZE[31207]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31208])</onclick>
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(homemenu.type,$LOCALIZE[31208]))</onclick>
-						<onclick>RunScript(script.toolbox,info=selectdialog,header=none)</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31206])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--compact menu-->
@@ -489,18 +488,19 @@
 						<selected>Skin.HasSetting(sortletter.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
+					
 					<!--fullscreen button-->
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
-						<label2>$INFO[Skin.String(menu.controls)]</label2>
+						<label2>$VAR[menu:Controls]</label2>
 						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31284])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,fullscreen))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,$LOCALIZE[31284]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31285])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,player))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,$LOCALIZE[31285]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[36502])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,disabled))</onclick>
-						<onclick>RunScript(script.toolbox,info=selectdialog,header=none)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,$LOCALIZE[1223]))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31252])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="radiobutton" id="903">
@@ -621,7 +621,7 @@
 						<height>44</height>
 						<control type="image">
 							<height>44</height>
-							<texture colordiffuse="column2">colorize/70.pngcolorize/70.png</texture>
+							<texture colordiffuse="column2">colorize/70.png</texture>
 						</control>
 						<control type="label" id="10020">
 							<label>Alcatr4zz, alewik, Artashes Amatuni, bcubic, bo1e, Diazz, epoke, fabiodacosta, for1real, Frisson, Galefury, hyuomola, Jucgshu, legostrike, LoADrunner, mcmjau, NEOhidra, nicolai92, Okashu, Olart, peppe_sr, piodio, Rafał Wójcik, rootsun, rosiste, samuelmanso, Seque, speedwings, thedarer, Zapata11, ZZRX, xurxo</label> 

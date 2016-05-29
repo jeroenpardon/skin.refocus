@@ -31,6 +31,11 @@
 		<value condition="![Player.HasAudio + Skin.HasSetting(home.nowplaying)] + Skin.String(fanarttype,mixed) + Skin.String(fanartinfo,logo)">$INFO[Window(Home).Property(script.grab.fanart.Global.Logo)]</value>
 	</variable>
 
+	<variable name="home:MenuType">
+		<value condition="!IsEmpty(Skin.String(homemenu.type))">$INFO[Skin.String(homemenu.type)]</value>
+		<value>$LOCALIZE[31207]</value>
+	</variable>
+
 <!--WIDGETS-->
 	<variable name="widget:OnInfo">
 		<value condition="SubString(Container(9000).ListItem.Property(widgetType),movies) + !IsEmpty(Container(9200).ListItem.Property(DBID))">RunScript(script.skin.helper.service,action=showinfo,movieid=$INFO[Container(9200).ListItem.Property(dbid)])</value>
@@ -117,9 +122,8 @@
 	</variable>
 
 	<variable name="menu:Controls">
-		<value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
-		<value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
-		<value>$LOCALIZE[36502]</value>
+		<value condition="!IsEmpty(Skin.String(menu.controls))">$INFO[Skin.String(menu.controls)]</value>
+		<value>$LOCALIZE[1223]</value>
 	</variable>
 
 	<variable name="menu:ChannelSwitch">
