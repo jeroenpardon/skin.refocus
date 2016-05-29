@@ -651,6 +651,7 @@
 
 <!--WINDOW-->
 	<variable name="window:Background">
+		<value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/youtube.jpg</value>
 		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/video.jpg</value>
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/video.jpg</value>
