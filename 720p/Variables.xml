@@ -343,6 +343,7 @@
 	</variable>
 
 	<variable name="player:Art">
+		<value condition="Player.HasAudio">$INFO[MusicPlayer.Cover]</value>
 		<value condition="VideoPlayer.Content(LiveTV)">$INFO[Player.Art(thumb)]</value>
 		<value condition="VideoPlayer.Content(movies) + [[Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)]">$INFO[Player.Art(fanart)]</value>
 		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>

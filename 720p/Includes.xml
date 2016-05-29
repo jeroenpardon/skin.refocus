@@ -715,9 +715,13 @@
 
 	<include name="osd_Info">
 		<param name="Icon" default="DefaultVideoCover.png"/>
+		<param name="Top" default="545"/>
+		<param name="Height" default="175"/>
 		<param name="ArtLeft" default="7"/>
 		<param name="ArtWidth" default="213"/>
+		<param name="ArtHeight" default="120"/>
 		<param name="TextLeft" default="235"/>
+		<param name="TextTop" default="15"/>
 		<param name="IconType" default="220"/>
 		<definition>
 			<control type="label">
@@ -729,15 +733,15 @@
 				<font>light_Header</font>
 			</control>
 			<control type="group">
-				<bottom>0</bottom>
-				<height>175</height>
+				<top>$PARAM[Top]</top>
+				<height>$PARAM[Height]</height>
 				<control type="group">
 					<width>screen_Width</width>
 					<height>175</height>
 					<visible>Window.IsVisible(fullscreeninfo) | Player.Paused</visible>
 					<control type="image">
 						<width>screen_Width</width>
-						<height>135</height>
+						<height>$PARAM[Height]</height>
 						<texture border="29">colorize/100.png</texture>
 						<colordiffuse>base_2</colordiffuse>
 					</control>
@@ -748,11 +752,11 @@
 						<height>120</height>
 						<control type="image">
 							<width>$PARAM[ArtWidth]</width>
-							<height>120</height>
+							<height>$PARAM[ArtHeight]</height>
 							<texture>$VAR[player:Art]</texture>
 							<bordertexture border="0">frames/frame-nf.png</bordertexture>
 							<bordersize>7</bordersize>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
 						</control>
 						<control type="image">
 							<centerleft>50%</centerleft>
@@ -772,7 +776,7 @@
 					</control>
 					<control type="group">
 						<left>$PARAM[TextLeft]</left>
-						<top>15</top>
+						<top>$PARAM[TextTop]</top>
 						<control type="label">
 							<width>1050</width>
 							<label>$VAR[player:Title]</label>
@@ -797,7 +801,7 @@
 				<control type="group">
 					<width>screen_Width</width>
 					<height>40</height>
-					<top>135</top>
+					<top>$PARAM[Height]</top>
 					<visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(musicosd)</visible>
 					<control type="image">
 						<width>screen_Width</width>
