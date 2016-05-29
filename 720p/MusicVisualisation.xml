@@ -54,9 +54,17 @@
 				</control>
 			</control>
 		</control>
+		
 		<control type="group">
-			<include>transition_OSD</include>
-			<include>osd_Music</include>
+			<visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
+			<include name="osd_Info">
+				<param name="ArtWidth" value="120"/>
+				<param name="TextLeft" value="140"/>
+				<param name="Icon" default="DefaultMusicSongs.png"/>
+			</include>
+			<include name="osd_Seekbar">
+			</include>
 		</control>
+		
 	</controls>
 </window>
