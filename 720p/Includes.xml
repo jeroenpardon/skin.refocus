@@ -716,7 +716,7 @@
 	<include name="osd_Info">
 		<param name="Icon" default="DefaultVideoCover.png"/>
 		<param name="Top" default="545"/>
-		<param name="Height" default="175"/>
+		<param name="Height" default="135"/>
 		<param name="ArtLeft" default="7"/>
 		<param name="ArtWidth" default="213"/>
 		<param name="ArtHeight" default="120"/>
@@ -738,7 +738,7 @@
 				<control type="group">
 					<width>screen_Width</width>
 					<height>175</height>
-					<visible>Window.IsVisible(fullscreeninfo) | Player.Paused</visible>
+					<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | Player.Paused</visible>
 					<control type="image">
 						<width>screen_Width</width>
 						<height>$PARAM[Height]</height>
@@ -802,7 +802,7 @@
 					<width>screen_Width</width>
 					<height>40</height>
 					<top>$PARAM[Height]</top>
-					<visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(musicosd)</visible>
+					<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
 					<control type="image">
 						<width>screen_Width</width>
 						<height>40</height>
