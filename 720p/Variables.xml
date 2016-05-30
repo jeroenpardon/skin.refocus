@@ -478,12 +478,12 @@
 	</variable>
 	
 	<variable name="information:Header">
+		<value condition="Container.Content(artists)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(movies)">$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !Skin.HasSetting(nextaired.disable) + !String.IsEmpty(Window(Home).Property(NextAired.Status))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), &#8226; $LOCALIZE[31153]: ]$INFO[ListItem.Studio, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !Skin.HasSetting(nextaired.disable)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
 		<value condition="Container.Content(tvshows) + Skin.HasSetting(nextaired.disable) | String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[media:EpisodeCount,, &#8226; $LOCALIZE[31153]: ]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle]</value>
-		<value condition="Container.Content(artists)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
 	</variable>
@@ -661,6 +661,7 @@
 
 <!--WINDOW-->
 	<variable name="window:Background">
+		<value condition="!Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/youtube.jpg</value>
 		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/video.jpg</value>
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/video.jpg</value>
