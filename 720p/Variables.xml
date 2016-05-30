@@ -381,7 +381,7 @@
 		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekStepSize]</value>
 		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekOffset]</value>
 		<value condition="!Player.DisplayAfterSeek + Player.Seeking">$LOCALIZE[773]</value>
-		<value condition="Player.Paused">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
+		<value condition="Player.Paused + Player.Caching + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
 		<value condition="Player.Paused + !Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[112]</value>
 		<value condition="Player.Forwarding2x">$LOCALIZE[31300]</value>
 		<value condition="Player.Forwarding4x">$LOCALIZE[31301]</value>
@@ -654,7 +654,7 @@
 
 <!--WINDOW-->
 	<variable name="window:Background">
-		<value condition="Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+		<value condition="!Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/youtube.jpg</value>
 		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/video.jpg</value>
 		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/video.jpg</value>
