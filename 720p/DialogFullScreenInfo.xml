@@ -12,21 +12,22 @@
 			<oninfo>Back</oninfo>
 			<include>TriggerButton</include>
 		</control>
-		<control type="group">
+		<control type="group">			
 			<visible>![Window.IsVisible(videoosd) | Window.IsVisible(subtitlesearch) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels)]</visible>
-			<include>clock</include>
-			<include>transition_OSD</include>
 			<control type="group">
-				<visible>!VideoPlayer.Content(livetv)</visible>
+				<include>transition_OSD</include>
 				<include>osd_Info</include>
+				<include>osd_Seekbar</include>
+				<visible>!VideoPlayer.Content(livetv)</visible>
 			</control>
 			<control type="group">
-				<visible>VideoPlayer.Content(livetv)</visible>
+				<include>transition_OSD</include>
 				<include name="osd_Info">
 					<param name="ArtWidth" value="120"/>
 					<param name="TextLeft" value="140"/>
 					<param name="Icon" default="DefaultAddonPVRClient.png"/>
 				</include>
+				<visible>VideoPlayer.Content(livetv)</visible>
 			</control>
 		</control>
 	</controls>

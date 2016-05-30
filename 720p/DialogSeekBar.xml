@@ -5,11 +5,15 @@
 	<visible>!VideoPlayer.Content(livetv)</visible>
 	<controls>
 		<control type="group">
-			<include>transition_OSD</include>
-			<include>osd_Info</include>
+
+			<control type="group">
+				<include>transition_OSD</include>
+				<include>osd_Seekbar</include>
+				<visible>Player.ShowInfo | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
+			</control>
 			<control type="group">
 				<visible>Player.Paused</visible>
-				<include>clock</include>
+				<include>osd_Info</include>
 			</control>
 		</control>
 	</controls>

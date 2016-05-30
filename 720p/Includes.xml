@@ -713,6 +713,74 @@
 		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="autoscroll_Repeat">Skin.HasSetting(autoscroll.enable)</autoscroll>
 	</include>
 
+	<include name="osd_Seekbar">
+		<control type="label">
+			<left>40</left>
+			<top>30</top>
+			<width>screen_Width</width>
+			<label>$VAR[player:Status]</label>
+			<textcolor>Color1</textcolor>
+			<font>light_Header</font>
+		</control>
+		<control type="group">
+			<top>680</top>
+			<width>screen_Width</width>
+			<height>40</height>
+			<top>$PARAM[Height]</top>
+			
+			<control type="image">
+				<width>screen_Width</width>
+				<height>40</height>
+				<texture>colorize/100.png</texture>
+				<colordiffuse>accent_1</colordiffuse>
+			</control>
+			<control type="group">
+				<left>100</left>
+				<top>5</top>
+				<!--cache progress-->
+				<control type="progress" id="12">
+					<width>1080</width>
+					<height>32</height>
+					<info>Player.ProgressCache</info>
+					<texturebg colordiffuse="Color3">player/progress_Background.png</texturebg>
+					<lefttexture>-</lefttexture>
+					<midtexture colordiffuse="Color2">player/progress_Background.png</midtexture>
+					<righttexture>-</righttexture>
+				</control>
+				<control type="slider" id="23">
+					<width>1080</width>
+					<height>32</height>
+					<sliderwidth>125</sliderwidth>
+					<info>Player.Progress</info>
+					<action>seek</action>
+					<sliderheight>32</sliderheight>
+					<texturesliderbar>player/progress_Opaque.png</texturesliderbar>
+					<textureslidernib colordiffuse="Color3">player/progress_Slider.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="Color1">player/progress_Slider.png</textureslidernibfocus>
+				</control>
+			</control>
+			<control type="group">
+				<left>20</left>
+				<top>6</top>
+				<control type="label">
+					<width>70</width>
+					<label>$VAR[player:Time]</label>
+					<font>regular_Small-U</font>
+					<align>center</align>
+					<textcolor>Color3</textcolor>
+				</control>
+				<control type="label">
+					<right>20</right>
+					<width>70</width>
+					<label>$VAR[player:Duration]</label>
+					<align>center</align>
+					<font>regular_Small-U</font>
+					<textcolor>Color3</textcolor>
+				</control>
+			</control>
+		</control>
+	</include>
+
 	<include name="osd_Info">
 		<param name="Icon" default="DefaultVideoCover.png"/>
 		<param name="Top" default="545"/>
@@ -724,14 +792,6 @@
 		<param name="TextTop" default="15"/>
 		<param name="IconType" default="220"/>
 		<definition>
-			<control type="label">
-				<left>40</left>
-				<top>30</top>
-				<width>screen_Width</width>
-				<label>$VAR[player:Status]</label>
-				<textcolor>Color1</textcolor>
-				<font>light_Header</font>
-			</control>
 			<control type="group">
 				<top>$PARAM[Top]</top>
 				<height>$PARAM[Height]</height>
@@ -798,61 +858,15 @@
 						</control>
 					</control>
 				</control>
-				<control type="group">
-					<width>screen_Width</width>
-					<height>40</height>
-					<top>$PARAM[Height]</top>
-					<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
-					<control type="image">
-						<width>screen_Width</width>
-						<height>40</height>
-						<texture>colorize/100.png</texture>
-						<colordiffuse>accent_1</colordiffuse>
-					</control>
-					<control type="group">
-						<left>100</left>
-						<top>5</top>
-						<!--cache progress-->
-						<control type="progress" id="12">
-							<width>1080</width>
-							<height>32</height>
-							<info>Player.ProgressCache</info>
-							<texturebg colordiffuse="Color3">player/progress_Background.png</texturebg>
-							<lefttexture>-</lefttexture>
-							<midtexture colordiffuse="Color2">player/progress_Background.png</midtexture>
-							<righttexture>-</righttexture>
-						</control>
-						<control type="slider" id="23">
-							<width>1080</width>
-							<height>32</height>
-							<sliderwidth>125</sliderwidth>
-							<info>Player.Progress</info>
-							<action>seek</action>
-							<sliderheight>32</sliderheight>
-							<texturesliderbar>player/progress_Opaque.png</texturesliderbar>
-							<textureslidernib colordiffuse="Color3">player/progress_Slider.png</textureslidernib>
-							<textureslidernibfocus colordiffuse="Color1">player/progress_Slider.png</textureslidernibfocus>
-						</control>
-					</control>
-					<control type="group">
-						<left>20</left>
-						<top>6</top>
-						<control type="label">
-							<width>70</width>
-							<label>$VAR[player:Time]</label>
-							<font>regular_Small-U</font>
-							<align>center</align>
-							<textcolor>Color3</textcolor>
-						</control>
-						<control type="label">
-							<right>20</right>
-							<width>70</width>
-							<label>$VAR[player:Duration]</label>
-							<align>center</align>
-							<font>regular_Small-U</font>
-							<textcolor>Color3</textcolor>
-						</control>
-					</control>
+				
+				<control type="image">
+					<right>20</right>
+					<top>17</top>
+					<width>120</width>
+					<height>24</height>
+					<texture>$INFO[Player.StarRating,rating/fo-,]</texture>
+					<aspectratio align="right">keep</aspectratio>
+					<visible>Player.HasAudio + !Pvr.IsPlayingRadio</visible>
 				</control>
 			</control>
 		</definition>
