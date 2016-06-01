@@ -96,6 +96,7 @@
 				<height>screen_Height</height>
 				<texture>$VAR[widget:ArtFallback]</texture>
 				<aspectratio>scale</aspectratio>
+				<visible>![!StringCompare(Window(Home).Property(WidgetState),open) + !Skin.HasSetting(widgets.push)]</visible>
 			</control>	
 			<control type="multiimage">
 				<width>screen_Width</width>
@@ -109,8 +110,8 @@
 				<width>screen_Width</width>
 				<height>screen_Height</height>
 				<texture>overlays/vignette_full.png</texture>
-				<include>fadeinout</include>
-				<visible>[Skin.HasSetting(widgets.push) + !Skin.HasSetting(widgetinfo.onfocus)] | [Skin.HasSetting(widgets.push) + Skin.HasSetting(widgetinfo.onfocus) + Control.HasFocus(9200)] | [!Skin.HasSetting(widgets.push) + Control.HasFocus(9200)]</visible>
+				<visible>![Skin.HasSetting(widgetinfo.onfocus) + !StringCompare(Window(Home).Property(WidgetState),open)]</visible>
+				<visible>![!StringCompare(Window(Home).Property(WidgetState),open) + !Skin.HasSetting(widgets.push)]</visible>
 			</control>
 			<!--youtube / add-on thumbnail-->
 			<control type="group">
