@@ -220,6 +220,7 @@
 		</definition>
 	</include>
 
+
 	<include name="dialog_Common-List2">
 		<param name="ID"/>
 		<param name="ContainerLeft" default="0"/>
@@ -240,11 +241,14 @@
 		<param name="TextColorFocus" default="Color1"/>
 		<param name="Texture" default="dialogs/select-nf.png"/>
 		<param name="TextureFocus" default="dialogs/select-fo.png"/>
-		<param name="Label1" default="test$INFO[ListItem.Label]"/>
-		<param name="Label2" default="test$INFO[ListItem.Label2]"/>
+		<param name="Label1" default="$INFO[ListItem.Label]"/>
+		<param name="Label2" default="$INFO[ListItem.Label2]"/>
 		<param name="IconSize" default="72"/>
 		<param name="Icon"/>
 		<definition>
+			<control type="scrollbar" id="$PARAM[PageControl]">
+				<visible>false</visible>
+			</control>
 			<control type="list" id="$PARAM[ID]">
 				<left>$PARAM[ContainerLeft]</left>
 				<top>$PARAM[ContainerTop]</top>
@@ -254,6 +258,7 @@
 				<onright>$PARAM[OnRight]</onright>
 				<onup>$PARAM[OnUp]</onup>
 				<ondown>$PARAM[OnDown]</ondown>
+				<pagecontrol>$PARAM[PageControl]</pagecontrol>
 				<itemlayout height="80" width="$PARAM[ContainerWidth]">
 					<control type="image">
 						<width>$PARAM[ContainerWidth]</width>
