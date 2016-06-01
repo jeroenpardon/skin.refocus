@@ -122,8 +122,9 @@
 	</variable>
 
 	<variable name="menu:Controls">
-		<value condition="!IsEmpty(Skin.String(menu.controls))">$INFO[Skin.String(menu.controls)]</value>
-		<value>$LOCALIZE[1223]</value>
+		<value condition="StringCompare(Skin.String(menu.controls),fullscreen)">$LOCALIZE[31284]</value>
+		<value condition="StringCompare(Skin.String(menu.controls),player)">$LOCALIZE[31285]</value>
+		<value>$LOCALIZE[36502]</value>
 	</variable>
 
 	<variable name="menu:ChannelSwitch">

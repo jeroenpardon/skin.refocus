@@ -132,7 +132,6 @@
 					<control type="button" id="102">
 						<label>$LOCALIZE[31206]</label>
 						<label2>$VAR[home:MenuType]</label2>
-						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31207])</onclick>
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(homemenu.type,vertical))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31208])</onclick>
@@ -488,18 +487,16 @@
 						<selected>Skin.HasSetting(sortletter.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
-					
 					<!--fullscreen button-->
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
 						<label2>$VAR[menu:Controls]</label2>
-						<onclick>SetProperty(DialogSelect,custom,home)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31284])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,$LOCALIZE[31284]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,fullscreen))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31285])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,$LOCALIZE[31285]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,player))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[36502])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,$LOCALIZE[1223]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,none))</onclick>
 						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31252])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
@@ -537,10 +534,13 @@
 					<control type="button" id="907">
 						<label>$LOCALIZE[31407]</label>
 						<label2>$VAR[epg:Scrolltime]</label2>
-						<onclick condition="IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
-						<onclick condition="StringCompare(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
-						<onclick condition="StringCompare(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
-						<onclick condition="StringCompare(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31227])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(epg.scrolltime,normal))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31228])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(epg.scrolltime,fast))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31229])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(epg.scrolltime,instant))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31407])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--reset skin settings-->

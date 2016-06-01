@@ -196,12 +196,12 @@
 			<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
 			<onclick condition="!Player.HasMedia">$VAR[playlist_Type]</onclick>
 			<include>menu_Button</include>
-			<visible>StringCompare(Skin.String(menu.controls),$LOCALIZE[31284]) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !StringCompare(Playlist.Length(music),0)]]]</visible>
+			<visible>StringCompare(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !StringCompare(Playlist.Length(music),0)]]]</visible>
 		</control>
 		<!--player controls-->
 		<control type="group" id="230">
 			<onright>50</onright>
-			<visible>Player.HasMedia + StringCompare(Skin.String(menu.controls),$LOCALIZE[31285])</visible>
+			<visible>Player.HasMedia + StringCompare(Skin.String(menu.controls),player)</visible>
 			<control type="image">
 				<texture colordiffuse="column2">colorize/100.png</texture>
 				<width>270</width>
