@@ -28,6 +28,17 @@
 					<width>1000</width>
 					<include>dialog_Separator</include>
 				</control>
+				<control type="image">
+					<left>500</left>
+					<top>106</top>
+					<height>323</height>
+					<include>dialog_Separator-y</include>
+				</control>
+				<control type="image">
+					<bottom>80</bottom>
+					<width>1000</width>
+					<include>dialog_Separator</include>
+				</control>
 
 				<!--processing mode selection list-->
 				<control type="list" id="9000">
@@ -35,7 +46,6 @@
 					<height>40</height>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
-					<onup>9001</onup>
 					<ondown>200</ondown>
 					<orientation>horizontal</orientation>
 					<include>global_ListScroll</include>
@@ -51,19 +61,34 @@
 						</control>
 					</itemlayout>
 					<focusedlayout width="200" height="40">
-						<control type="image">
-							<width>200</width>
-							<height>40</height>
-							<texture>dialogs/select-fo.png</texture>
+						<control type="group">
+							<visible>Control.HasFocus(9000) | ControlGroup(200).HasFocus(0)</visible>
+							<control type="image">
+								<width>200</width>
+								<height>40</height>
+								<texture>dialogs/select-fo.png</texture>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<width>200</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>regular</font>
+								<align>center</align>
+								<textcolor>Color1</textcolor>
+							</control>
 						</control>
-						<control type="label">
-							<left>0</left>
-							<width>200</width>
-							<height>40</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>regular</font>
-							<align>center</align>
-							<textcolor>Color1</textcolor>
+						<control type="group">
+							<visible>!Control.HasFocus(9000) + !ControlGroup(200).HasFocus(0)</visible>
+							<control type="label">
+								<left>0</left>
+								<width>200</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>regular</font>
+								<align>center</align>
+								<textcolor>Color4</textcolor>
+							</control>
 						</control>
 					</focusedlayout>
 					<content>
@@ -139,6 +164,7 @@
 							<param name="DefaultIcon" value="DefaultAddonAudioDSP.png"/>
 							<param name="OnRight" value="21" />
 							<param name="OnUp" value="9000" />
+							<param name="OnDown" value="9001" />
 							<param name="PageControl" value="60" />
 						</include>
 					</control>
@@ -158,6 +184,7 @@
 							<param name="DefaultIcon" value="DefaultAddonAudioDSP.png"/>
 							<param name="OnLeft" value="20" />
 							<param name="OnUp" value="9000" />
+							<param name="OnDown" value="9001" />
 							<param name="PageControl" value="60" />
 						</include>
 					</control>
@@ -170,8 +197,7 @@
 				<bottom>20</bottom>
 				<width>950</width>
 				<height>40</height>
-				<onup>2</onup>
-				<ondown>2</ondown>
+				<onup>200</onup>
 				<orientation>horizontal</orientation>
 				<itemgap>10</itemgap>
 				<!--defaults-->
