@@ -18,12 +18,12 @@ excerpt:
 
 ![Image of Yaktocat](http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png)
 
+### Support
+If you like reFocus and would like to buy me a beer (or coffee), a [donation](http://bit.ly/refocusdonate) is greatly appreciated.
+
 ### Links
 [FAQ](https://github.com/jeroenpardon/skin.refocus/wiki)
 
 [reFocus forum](http://forum.kodi.tv/forumdisplay.php?fid=72)
 
 [Kodi](http://www.kodi.tv/)
-
-### Support
-If you like reFocus and would like to buy me a beer (or coffee), a [donation](http://bit.ly/refocusdonate) is greatly appreciated.
