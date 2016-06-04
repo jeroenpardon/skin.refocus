@@ -10,6 +10,9 @@ For instructions please see the wiki [here] (https://github.com/jeroenpardon/ski
 ### License
 [Attribution-NonCommercial-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
+excerpt:
+"NonCommercial — You may not use the material for commercial purposes."
+
 ### Links
 [FAQ](https://github.com/jeroenpardon/skin.refocus/wiki)
 
