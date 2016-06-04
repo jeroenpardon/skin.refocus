@@ -8,10 +8,12 @@ reFocus is a graphical interface for Kodi that understands your media is what tr
 For instructions please see the wiki [here] (https://github.com/jeroenpardon/skin.refocus/wiki#installing-refocus)
 
 ### License
-[Attribution-NonCommercial-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+This software is licensed under a [Attribution-NonCommercial-ShareAlike 3.0 Unported license](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 excerpt:
 "NonCommercial — You may not use the material for commercial purposes."
+
+![Image of Yaktocat](http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png)
 
 ### Links
 [FAQ](https://github.com/jeroenpardon/skin.refocus/wiki)
