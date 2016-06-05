@@ -682,7 +682,7 @@
 		<value condition="String.IsEmpty(Container.FolderPath)">$LOCALIZE[157]</value>
 		<value condition="String.IsEqual(Container.FolderPath,sources://video/)">$LOCALIZE[744]</value>
 		<value condition="String.IsEqual(Container.FolderPath,addons://sources/video)">$LOCALIZE[157] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
-		<value condition="String.Contains(Container.FolderPath,plugin://plugin,left)">$INFO[Container.FolderName]</value>
+		<value condition="String.Contains(Container.FolderPath,plugin://plugin)">$INFO[Container.FolderName]</value>
 		<value condition="String.IsEqual(Container.FolderPath,special://videoplaylists/)">$LOCALIZE[20012]</value>
 		<!--plugins-->
 		<value condition="String.IsEqual(Container.FolderPath,plugin://script.watchlist/)">$LOCALIZE[31013]</value>
@@ -707,7 +707,7 @@
 		<value condition="String.IsEqual(Container.FolderPath,videodb://movies/) | String.IsEqual(Container.FolderPath,library://video/movies/)">$LOCALIZE[342]</value>
 		<value condition="String.Contains(Container.FolderPath,movies-unwatched.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,movies-inprogress.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
-		<value condition="String.Contains(Container.FolderPath,videodb://movies/,left)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://movies/)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,videodb://recentlyaddedmovies/)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
 		<value condition="Container.Content(seasons) + String.IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[Container().ListItem(1).TVShowTitle]</value>
 		<value condition="Container.Content(seasons)">$INFO[Container().ListItem().TVShowTitle]</value>
@@ -718,7 +718,7 @@
 		<value condition="Container.Content(episodes) + String.Contains(Container.FolderPath,videodb://)">$INFO[Container().ListItem().TVShowTitle]</value>
 		<value condition="String.IsEqual(Container.FolderName,$LOCALIZE[626])">$LOCALIZE[20343] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
 		<value condition="String.IsEqual(Container.FolderPath,videodb://tvshows/) | String.IsEqual(Container.FolderPath,library://video/tvshows/)">$LOCALIZE[20343]</value>
-		<value condition="String.Contains(Container.FolderPath,videodb://tvshows/,Left)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://tvshows)">$LOCALIZE[20343] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="String.IsEqual(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389]</value>
 		<value condition="String.Contains(Container.FolderPath,videodb://musicvideos/)">$LOCALIZE[20389] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,videodb://recentlyaddedmusicvideos/)">$LOCALIZE[20389] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
