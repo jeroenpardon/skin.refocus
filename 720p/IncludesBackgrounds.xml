@@ -9,6 +9,7 @@
 				<texture background="true">$VAR[window:Background]</texture>
 				<visible>!Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531)</visible>
 				<include>fadeinout</include>
+				<aspectratio align="center">keep</aspectratio>
 				<fadetime>fadetime_Fanart</fadetime>
 			</control>
 			<!--use the fanart image of the first real item in the list as a fallback for the "parent folder" entry. seasons and episodes level only.-->
@@ -17,6 +18,7 @@
 				<include>toggle_Menu</include>
 				<texture background="true">$INFO[Container().ListItem(1).Property(Fanart_Image)]</texture>
 				<visible>StringCompare(Listitem.Icon,DefaultFolderBack.png) + [Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531)</visible>
+				<aspectratio align="center">scale</aspectratio>
 				<fadetime>fadetime_Fanart</fadetime>
 			</control>
 			<!--playing video background-->
