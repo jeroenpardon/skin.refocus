@@ -2,19 +2,31 @@
 <window>
 	<defaultcontrol>-</defaultcontrol>
 	<visible>!Window.IsActive(videoosd) + Window.IsActive(fullscreenvideo)</visible>
-	<visible>!VideoPlayer.Content(livetv)</visible>
+	
 	<controls>
 		<control type="group">
+			<include>clock</include>
 			<visible>!Window.IsVisible(subtitlesearch)</visible>
+			<visible>Player.ShowInfo | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
+
 			<control type="group">
+				<visible>!VideoPlayer.Content(livetv)</visible>
 				<include>transition_OSD</include>
-				<include>osd_Seekbar</include>
-				<visible>Player.ShowInfo | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
-			</control>
-			<control type="group">
-				<visible>[Player.Paused + !Player.Caching]</visible>
 				<include>osd_Info</include>
+				<include>osd_Seekbar</include>
 			</control>
+
+			<control type="group">
+				<visible>VideoPlayer.Content(livetv)</visible>
+				<include>transition_OSD</include>
+				<include name="osd_Info">
+					<param name="ArtWidth" value="120"/>
+					<param name="TextLeft" value="140"/>
+					<param name="Icon" default="DefaultAddonPVRClient.png"/>
+				</include>
+				<include>osd_Seekbar</include>
+			</control>
+			
 		</control>
 	</controls>
 </window>
