@@ -239,6 +239,16 @@
 		<value condition="StringCompare(ListItem.Property(UnWatchedEpisodes),1)">$LOCALIZE[31147]</value>
 	</variable>
 
+	<variable name="media:Flags">
+		<value condition="Window.IsActive(movieinformation)">$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[Window(Home).Property(SkinHelper.ListItemLanguages), &#8226; ]</value>
+		<value>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</value>
+	</variable>
+
+	<variable name="media:Subtitles">
+		<value condition="Window.IsActive(movieinformation)">$INFO[Window(Home).Property(SkinHelper.ListItemSubtitles)]</value>
+		<value>$INFO[ListItem.SubtitleLanguage]</value>
+	</variable>
+
 	<variable name="info:MovieCount">
 		<value condition="IntegerGreaterThan(Window.Property(actor.DBMovies),1) | StringCompare(Window.Property(actor.DBMovies),0)">$LOCALIZE[36901]</value>
 		<value condition="StringCompare(Window.Property(actor.DBMovies),1)">$LOCALIZE[36900]</value>

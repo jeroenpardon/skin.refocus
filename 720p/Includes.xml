@@ -234,8 +234,8 @@
 		<param name="StudioBottom" default="60"/>
 		<param name="ShowFlags" default="false"/>
 		<param name="FlagsBottom" default="30"/>
-		<param name="InfoLabel" default="$INFO[ListItem.Label]"/>
-		<param name="InfoLabel2" default="$VAR[media:Info]"/>
+		<param name="Label1" default="$INFO[ListItem.Label]"/>
+		<param name="Label2" default="$VAR[media:Info]"/>
 		<definition>
 			<control type="group">
 				<left>$PARAM[Left]</left>
@@ -245,7 +245,7 @@
 					<control type="label">
 						<width>$PARAM[Width]</width>
 						<height>24</height>
-						<label>$PARAM[InfoLabel]</label>
+						<label>$PARAM[Label1]</label>
 						<font>semibold_Big-U</font>
 						<textcolor>Color1</textcolor>
 						<aligny>top</aligny>
@@ -253,7 +253,7 @@
 					<control type="textbox">
 						<width>$PARAM[Width]</width>
 						<height min="34">auto</height>
-						<label>$PARAM[InfoLabel2]</label>
+						<label>$PARAM[Label2]</label>
 						<font>semibold_Small-U</font>
 						<textcolor>Color2</textcolor>
 						<aligny>top</aligny>
@@ -322,7 +322,7 @@
 		<control type="label">
 			<width min="50" max="200">auto</width>
 			<height>30</height>
-			<label>$INFO[ListItem.AudioCodec]$VAR[flag:Channels, &#8226; ]$INFO[ListItem.AudioLanguage, &#8226; ]</label>
+			<label>$VAR[media:Flags]</label>
 			<textcolor>Color1</textcolor>
 			<include>detail_Sub</include>
 		</control>
@@ -337,7 +337,7 @@
 		<control type="label">
 			<width min="50" max="200">auto</width>
 			<height>30</height>
-			<label>$INFO[ListItem.SubtitleLanguage]</label>
+			<label>$VAR[media:Subtitles]</label>
 			<textcolor>Color1</textcolor>
 			<include>detail_Sub</include>
 			<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
