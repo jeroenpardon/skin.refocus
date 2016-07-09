@@ -344,7 +344,7 @@
 
 	<variable name="player:Info">
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.Artist]</value>
-		<value condition="VideoPlayer.Content(files)">$INFO[Player.FolderPath]$INFO[VideoPlayer.VideoResolution, &#8226; ,P]</value>
+		<value condition="VideoPlayer.Content(files)">$INFO[VideoPlayer.VideoResolution,,P]$INFO[VideoPlayer.VideoCodec, &#8226; ]$VAR[flag:Channels, &#8226; ]$INFO[VideoPlayer.AudioCodec, &#8226; ]</value>
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre]$INFO[VideoPlayer.Director, &#8226; ]$INFO[VideoPlayer.Studio, &#8226; ]$INFO[VideoPlayer.Year, &#8226; ]$INFO[VideoPlayer.VideoResolution, &#8226; ,P]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]$INFO[VideoPlayer.VideoResolution, &#8226; ,P]</value>
 		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, &#8226; ]$INFO[VideoPlayer.Year, &#8226; ]$INFO[VideoPlayer.VideoResolution, &#8226; ,P]</value>
@@ -383,8 +383,8 @@
 		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Album_Description)) + !Window.IsVisible(visualisation)">$INFO[MusicPlayer.Property(Album_Description)]</value>
 		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Artist_Description)) + !Window.IsVisible(visualisation)">$INFO[MusicPlayer.Property(Artist_Description)]</value>
 		<value condition="Player.HasVideo + !IsEmpty(VideoPlayer.Plotoutline)">$INFO[VideoPlayer.Plotoutline]</value>
-		<value condition="Player.HasVideo">$INFO[VideoPlayer.Plot]</value>
-		<value>$LOCALIZE[3152]</value>
+		<value condition="Player.HasVideo + !IsEmpty(VideoPlayer.Plot)">$INFO[VideoPlayer.Plot]</value>
+		<value>$INFO[Player.FolderPath]</value>
 	</variable>
 
 	<variable name="player:Status">
@@ -575,6 +575,14 @@
 		<value condition="StringCompare(ListItem.AudioChannels,5)">4.1</value>
 		<value condition="StringCompare(ListItem.AudioChannels,6)">5.1</value>
 		<value condition="StringCompare(ListItem.AudioChannels,8)">7.1</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,1)">1.0</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,2)">2.0</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,3)">2.1</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,4)">4.0</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,5)">4.1</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,6)">5.1</value>
+		<value condition="StringCompare(VideoPlayer.AudioChannels,8)">7.1</value>
+
 	</variable>
 
 
