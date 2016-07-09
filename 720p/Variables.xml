@@ -363,7 +363,8 @@
 		<value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
-		<value condition="IsEmpty(Player.Art(thumb))">thumbs/default_Landscape.png</value>
+		<value condition="!IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
+		<value condition="IsEmpty(Player.Art(thumb))">thumbs/default_Landscape.png</value>§
 	</variable>
 
 	<variable name="player:Logo">
