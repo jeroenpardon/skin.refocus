@@ -82,7 +82,7 @@
 		<control type="group">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
+			<visible>[![Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable)] | [Player.HasMedia + !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] + ![Window.IsActive(Notification) | Window.IsActive(extendedprogressdialog) | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(weather)]</visible>
 			<control type="label">
 				<label>$VAR[toast:Top]</label>
 				<include>toast_Top</include>
@@ -103,7 +103,7 @@
 	<include name="clock">
 		<control type="group">
 			<include>fadeinout</include>
-			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | Control.HasFocus(9200) | Window.IsVisible(subtitlesearch)]</visible>
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(Notification) | Control.HasFocus(9200) | Window.IsVisible(subtitlesearch)]</visible>
 			<control type="label">
 				<label>$VAR[toast:Top]</label>
 				<shadowcolor>black</shadowcolor>
@@ -157,7 +157,7 @@
 			<left>20</left>
 			<top>16</top>
 			<include>toggle_Menu</include>
-			<visible>!Skin.HasSetting(global.kiosk) + [Window.IsActive(eventlog) | Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(programs) | Window.IsActive(weather) | Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(pictures) | String.Contains(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Control.IsVisible(9900)</visible>
+			<visible>!Skin.HasSetting(global.kiosk) + [Window.IsActive(eventlog) | Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(programs) | Window.IsActive(weather) | Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(Videos) | Window.IsActive(Music) | Window.IsActive(Music) | Window.IsActive(pictures) | String.Contains(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)] + !Control.IsVisible(9900)</visible>
 			<include>transition_Indicator</include>
 			<include>transition_Info</include>
 			<control type="image">
@@ -679,7 +679,7 @@
 	<include name="global_Playing">
 		<control type="group">
 			<include>transition_Info</include>
-			<visible>Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsVisible(busydialog)] + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+			<visible>Player.HasMedia + !Skin.HasSetting(mediaoverlay.disable) + ![Window.IsActive(Notification) | Window.IsActive(extendedprogressdialog) | Window.IsActive(home) | Window.IsActive(fullscreenvideo) | Window.IsVisible(busydialog)] + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
 			<control type="label">
 				<right>70</right>
 				<label>$VAR[toast:PlayingTitle]</label>

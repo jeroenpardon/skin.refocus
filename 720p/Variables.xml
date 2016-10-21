@@ -430,8 +430,8 @@
 	</variable>
 
 	<variable name="playlist_Type">
-		<value condition="Window.IsActive(videolibrary) + !String.IsEqual(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
-		<value condition="Window.IsActive(musiclibrary) + !String.IsEqual(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
+		<value condition="Window.IsActive(Videos) + !String.IsEqual(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
+		<value condition="Window.IsActive(Music) + !String.IsEqual(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
 	</variable>
 
 
@@ -667,9 +667,9 @@
 		<value condition="!Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="Window.IsActive(custom_Youtube.xml)">special://skin/backgrounds/youtube.jpg</value>
 		<value condition="Window.IsActive(custom_Browser.xml)">special://skin/backgrounds/video.jpg</value>
-		<value condition="[Window.IsActive(VideoLibrary) | Window.IsActive(Videos)]">special://skin/backgrounds/video.jpg</value>
+		<value condition="[Window.IsActive(Videos) | Window.IsActive(Videos)]">special://skin/backgrounds/video.jpg</value>
 		<value condition="[String.Contains(Container.FolderPath,pvr://) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(tvsearch) | Window.IsActive(radiosearch)]">special://skin/backgrounds/livetv.jpg</value>
-		<value condition="[Window.IsActive(musiclibrary) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/music.jpg</value>
+		<value condition="[Window.IsActive(Music) | Window.IsActive(musicplaylisteditor)]">special://skin/backgrounds/music.jpg</value>
 		<value condition="Window.IsActive(pictures) + !Control.IsVisible(531)">special://skin/backgrounds/pictures.jpg</value>
 		<value condition="Window.IsActive(programs)">special://skin/backgrounds/programs.jpg</value>
 		<value condition="Window.IsActive(weather) + !Skin.HasSetting(fanart.weather)">special://skin/backgrounds/weather.jpg</value>
@@ -745,6 +745,7 @@
 		<value condition="Window.IsActive(LibrarySettings)">$LOCALIZE[14202] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
 		<value condition="Window.IsActive(ServiceSettings)">$LOCALIZE[14036] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
 		<value condition="Window.IsActive(SkinSettings)">$LOCALIZE[166] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
+		<value condition="Window.IsActive(SystemSettings)">$LOCALIZE[13000] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
 		<value condition="Window.IsActive(profiles)">$LOCALIZE[13200] [COLOR=Color2]$LOCALIZE[5][/COLOR]</value>
 		<value condition="Window.IsActive(systeminfo)">$LOCALIZE[13000] [COLOR=Color2]$LOCALIZE[19033][/COLOR]</value>
 		<value condition="Window.IsActive(filemanager)">$LOCALIZE[7]</value>

@@ -161,8 +161,8 @@
 			<label>$LOCALIZE[653]</label>
 			<altlabel>$LOCALIZE[13353]</altlabel>
 			<onclick>SetFocus(50)</onclick>
-			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(videolibrary)">XBMC.CleanLibrary(video)</onclick>
-			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(musiclibrary)">XBMC.CleanLibrary(music)</onclick>
+			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(Videos)">XBMC.CleanLibrary(video)</onclick>
+			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(Music)">XBMC.CleanLibrary(music)</onclick>
 			<onclick>SendClick(20)</onclick>
 			<usealttexture>Library.IsScanningVideo | Library.IsScanningMusic</usealttexture>
 			<include>menu_Button</include>
@@ -196,7 +196,7 @@
 			<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
 			<onclick condition="!Player.HasMedia">$VAR[playlist_Type]</onclick>
 			<include>menu_Button</include>
-			<visible>String.IsEqual(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !String.IsEqual(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !String.IsEqual(Playlist.Length(music),0)]]]</visible>
+			<visible>String.IsEqual(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(Videos) + !String.IsEqual(Playlist.Length(video),0)] | [[Window.IsActive(Music) | Window.IsActive(Music)]+ !String.IsEqual(Playlist.Length(music),0)]]]</visible>
 		</control>
 		<!--player controls-->
 		<control type="group" id="230">
