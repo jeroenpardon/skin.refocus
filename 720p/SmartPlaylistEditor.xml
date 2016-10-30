@@ -4,25 +4,23 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>315</left>
-		<top>28</top>
+		<left>223</left>
+		<top>60</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>650</width>
-			<height>665</height>
-			<control type="image">
-				<width>650</width>
-				<height>665</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="2">
-				<width>648</width>
-				<label>$LOCALIZE[21432]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
-			<control type="group">
-				<left>4</left>
+			<width>835</width>
+			<height>600</height>
+
+			<include content="dialog_WindowCommons">
+				<param name="DialogWidth" value="839"/>
+				<param name="DialogHeight" value="600"/>
+				<param name="DialogHeaderID" value="2"/>
+				<param name="DialogHeader" value="21432"/>
+			</include>
+
+			<control type="group" id="5000">
+				<left>15</left>
 				<top>60</top>
 				<control type="image">
 					<width>642</width>
@@ -32,12 +30,11 @@
 				<control type="group">
 					<!--set playlist type-->
 					<control type="button" id="22">
-						<top>0</top>
 						<width>642</width>
 						<label>$LOCALIZE[467]</label>
 						<onleft>22</onleft>
-						<onright>10</onright>
-						<onup>9001</onup>
+						<onright>9001</onright>
+						<onup>24</onup>
 						<ondown>12</ondown>
 						<include>dialog_ControlCommons</include>
 						<include>dialog_Spin</include>
@@ -47,9 +44,9 @@
 						<top>40</top>
 						<width>642</width>
 						<onup>22</onup>
-						<ondown>10</ondown>
+						<ondown>9000</ondown>
 						<onleft>noop</onleft>
-						<onright>9000</onright>
+						<onright>9001</onright>
 						<label>$LOCALIZE[551]</label>
 						<hinttext>$LOCALIZE[16012]</hinttext>
 						<include>dialog_ControlCommons</include>
@@ -94,7 +91,7 @@
 						<param name="OnUp" value="12"/>
 						<param name="OnDown" value="16"/>
 						<param name="OnLeft" value="22"/>
-						<param name="OnRight" value="9000"/>
+						<param name="OnRight" value="9001"/>
 					</include>
 				
 					<!--list controls-->
@@ -128,8 +125,8 @@
 							<label>-</label>
 							<onleft>10</onleft>
 							<onright>14</onright>
-							<onup>10</onup>
-							<ondown>10</ondown>
+							<onup>12</onup>
+							<ondown>16</ondown>
 							<include>dialog_Inline-edit</include>
 						</control>
 						<!--remove rule button-->
@@ -138,8 +135,8 @@
 							<label>-</label>
 							<onleft>15</onleft>
 							<onright>13</onright>
-							<onup>10</onup>
-							<ondown>10</ondown>
+							<onup>12</onup>
+							<ondown>16</ondown>
 							<include>dialog_Inline-remove</include>
 						</control>
 						<!--add rule button-->
@@ -147,9 +144,9 @@
 							<left>80</left>
 							<label>-</label>
 							<onleft>14</onleft>
-							<onright>noop</onright>
-							<onup>10</onup>
-							<ondown>10</ondown>
+							<onright>9001</onright>
+							<onup>12</onup>
+							<ondown>16</ondown>
 							<include>dialog_Inline-add</include>
 						</control>
 					</control>
@@ -176,7 +173,7 @@
 							<label>$LOCALIZE[21424]</label>
 							<onleft>10</onleft>
 							<onright>9001</onright>
-							<onup>10</onup>
+							<onup>9000</onup>
 							<ondown>17</ondown>
 							<include>dialog_ControlCommons</include>
 							<include>dialog_Spin</include>
@@ -238,34 +235,38 @@
 							<onleft>10</onleft>
 							<onright>9001</onright>
 							<onup>23</onup>
-							<ondown>9001</ondown>
+							<ondown>22</ondown>
 							<include>dialog_ControlCommons</include>
 							<include>dialog_Radio</include>
 						</control>
 					</control>
 				</control>
 			</control>
-			<!--dialog buttons-->
+
+			<!--dialog controls-->
 			<control type="grouplist" id="9001">
-				<right>20</right>
-				<bottom>20</bottom>
-				<width>254</width>
-				<height>40</height>
-				<onup>24</onup>
-				<ondown>22</ondown>
+				<top>60</top>
+				<right>15</right>
+				<width>150</width>
+				<height min="40" max="90">auto</height>
 				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
+				<onleft>5000</onleft>
+				<onright>5000</onright>
+				<orientation>vertical</orientation>
 				<!--ok-->
-				<control type="button" id="20">
-					<label>$LOCALIZE[186]</label>
-					<include>dialog_Button</include>
-				</control>
+				<include content="dialog_Button">
+					<param name="ID" value="20" />
+					<param name="Width" value="150" />
+					<param name="Label" value="$LOCALIZE[186]" />
+				</include>
 				<!--cancel-->
-				<control type="button" id="21">
-					<label>$LOCALIZE[222]</label>
-					<include>dialog_Button</include>
-				</control>
+				<include content="dialog_Button">
+					<param name="ID" value="21" />
+					<param name="Width" value="150" />
+					<param name="Label" value="$LOCALIZE[222]" />
+				</include>
 			</control>
+
 		</control>
 	</controls>
 </window>
