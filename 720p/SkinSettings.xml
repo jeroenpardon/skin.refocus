@@ -12,10 +12,10 @@
 		<include>global_MenuGuide</include>
 		
 	<!--window header-->
-		<include content="windowTitle">
+		<include name="windowTitle">
 			<param name="Label" value="$VAR[window:Title.System]"/>
 		</include>
-		<include content="global_Itemcount">
+		<include name="global_Itemcount">
 			<param name="InfoLabel" value="$INFO[Window(Home).Property(SkinHelper.skinVersion)]"/>
 		</include>
 
@@ -132,9 +132,11 @@
 					<control type="button" id="102">
 						<label>$LOCALIZE[31206]</label>
 						<label2>$VAR[home:MenuType]</label2>
-						<onclick condition="String.IsEmpty(Skin.String(homemenu.type))">Skin.SetString(homemenu.type,vertical)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(homemenu.type),vertical)">Skin.SetString(homemenu.type,horizontal)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31207])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(homemenu.type,vertical))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31208])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(homemenu.type,horizontal))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31206])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--compact menu-->
@@ -143,7 +145,7 @@
 						<onclick>Skin.ToggleSetting(homemenu.compact)</onclick>
 						<selected>Skin.HasSetting(homemenu.compact)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>!Skin.HasSetting(widgets.push) + String.IsEqual(Skin.String(homemenu.type),vertical)</enable>
+						<enable>!Skin.HasSetting(widgets.push) + StringCompare(Skin.String(homemenu.type),vertical)</enable>
 					</control>
 					<!--automatically collapse submenus-->
 					<control type="radiobutton" id="104">
@@ -151,15 +153,15 @@
 						<onclick>Skin.ToggleSetting(homemenu.collapse)</onclick>
 						<selected>Skin.HasSetting(homemenu.collapse)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>String.IsEqual(Skin.String(homemenu.type),vertical)</enable>
+						<enable>StringCompare(Skin.String(homemenu.type),vertical)</enable>
 					</control>
 					<!--fanart background-->
 					<control type="radiobutton" id="105">
 						<label>$LOCALIZE[31214]</label>
-						<onclick condition="System.HasAddon(script.grab.fanart)">Skin.ToggleSetting(backgrounds.fanart)</onclick>
-						<onclick condition="!System.HasAddon(script.grab.fanart)">InstallAddon(script.grab.fanart)</onclick>
+						<onclick>Skin.ToggleSetting(backgrounds.fanart)</onclick>
 						<selected>Skin.HasSetting(backgrounds.fanart)</selected>
 						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.grab.fanart)</enable>
 					</control>
 					<control type="button" id="106">
 						<label>- $LOCALIZE[33063]</label>
@@ -276,11 +278,11 @@
 						<onclick>Skin.ToggleSetting(logos.tvshows.enable)</onclick>
 						<selected>Skin.HasSetting(logos.tvshows.enable)</selected>
 						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</control>
 					<control type="button" id="615">
 						<label>- $LOCALIZE[31238]</label>
-						<onclick condition="System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=tvshow, silent=true, clearlogo)</onclick>
-						<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=tvshow, silent=true, clearlogo)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--movie clearlogos-->
@@ -289,11 +291,11 @@
 						<onclick>Skin.ToggleSetting(logos.movies.enable)</onclick>
 						<selected>Skin.HasSetting(logos.movies.enable)</selected>
 						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</control>
 					<control type="button" id="617">
 						<label>- $LOCALIZE[31238]</label>
-						<onclick condition="System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=movie, silent=true, clearlogo)</onclick>
-						<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=movie, silent=true, clearlogo)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--movie banners-->
@@ -302,11 +304,11 @@
 						<onclick>Skin.ToggleSetting(banner.movies.enable)</onclick>
 						<selected>Skin.HasSetting(banner.movies.enable)</selected>
 						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</control>
 					<control type="button" id="619">
 						<label>- $LOCALIZE[31240]</label>
-						<onclick condition="System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=movie, silent=true, banner)</onclick>
-						<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=movie, silent=true, banner)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--prefer landscape-->
@@ -315,11 +317,11 @@
 						<onclick>Skin.ToggleSetting(landscapethumb.enable)</onclick>
 						<selected>Skin.HasSetting(landscapethumb.enable)</selected>
 						<include>settings_Radiobutton</include>
+						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</control>
 					<control type="button" id="622">
 						<label>- $LOCALIZE[31242]</label>
-						<onclick condition="System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=custom, silent=true, landscape)</onclick>
-						<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, silent=true, landscape)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 				</control>
@@ -345,8 +347,7 @@
 					</control>
 					<control type="button" id="702">
 						<label>- $LOCALIZE[31242]</label>
-						<onclick condition="System.HasAddon(script.artwork.downloader)">RunScript(script.artwork.downloader, mode=custom, silent=true, landscape)</onclick>
-						<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
+						<onclick>XBMC.RunScript(script.artwork.downloader, mode=custom, silent=true, landscape)</onclick>
 						<include>settings_Listbutton</include>
 						<visible>Skin.HasSetting(cards.enable)</visible>
 					</control>
@@ -371,13 +372,20 @@
 						<selected>Skin.HasSetting(ratings.tvshows.enable)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
+					<!--tv episodes ratings-->
+					<control type="radiobutton" id="721">
+						<label>$LOCALIZE[31286]</label>
+						<onclick>Skin.ToggleSetting(ratings.episodes.enable)</onclick>
+						<selected>Skin.HasSetting(ratings.episodes.enable)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
 					<!--use user rating-->
 					<control type="radiobutton" id="713">
 						<label>$LOCALIZE[31248]</label>
 						<onclick>Skin.ToggleSetting(ratings.user.enable)</onclick>
 						<selected>Skin.HasSetting(ratings.user.enable)</selected>
 						<include>settings_Radiobutton</include>
-						<enable>Skin.HasSetting(ratings.movies.enable) | Skin.HasSetting(ratings.tvshows.enable)</enable>
+						<enable>Skin.HasSetting(ratings.movies.enable) | Skin.HasSetting(ratings.tvshows.enable) | Skin.HasSetting(ratings.episodes.enable)</enable>
 					</control>
 					<!--media overlays-->
 					<control type="radiobutton" id="714">
@@ -490,17 +498,20 @@
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
 						<label2>$VAR[menu:Controls]</label2>
-						<onclick condition="String.IsEmpty(Skin.String(menu.controls))">Skin.SetString(menu.controls,none)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(menu.controls),none)">Skin.SetString(menu.controls,player)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(menu.controls),player)">Skin.SetString(menu.controls,fullscreen)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(menu.controls),fullscreen)">Skin.SetString(menu.controls,none)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31284])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(menu.controls,fullscreen))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31285])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(menu.controls,player))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[36502])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(menu.controls,none))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31252])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="radiobutton" id="903">
 						<label>- $LOCALIZE[31283]</label>
 						<onclick>Skin.ToggleSetting(menu.playlist)</onclick>
 						<selected>Skin.HasSetting(menu.playlist)</selected>
-						<enable>String.IsEqual(Skin.String(menu.controls),fullscreen)</enable>
+						<enable>StringCompare(Skin.String(menu.controls),fullscreen)</enable>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--keyboard-->
@@ -530,10 +541,13 @@
 					<control type="button" id="907">
 						<label>$LOCALIZE[31407]</label>
 						<label2>$VAR[epg:Scrolltime]</label2>
-						<onclick condition="String.IsEmpty(Skin.String(epg.scrolltime))">Skin.SetString(epg.scrolltime,normal)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(epg.scrolltime),normal)">Skin.SetString(epg.scrolltime,fast)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(epg.scrolltime),fast)">Skin.SetString(epg.scrolltime,instant)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(epg.scrolltime),instant)">Skin.SetString(epg.scrolltime,normal)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31227])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(epg.scrolltime,normal))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31228])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(epg.scrolltime,fast))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31229])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(epg.scrolltime,instant))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31407])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
 					<!--reset skin settings-->
@@ -660,8 +674,8 @@
 				<aspectratio align="left">keep</aspectratio>
 				<include>transition_Content</include>
 			</control>
-		</control>
 
+		</control>
 		<control type="scrollbar" id="70">
 			<left>1272</left>
 			<height>screen_Height</height>
