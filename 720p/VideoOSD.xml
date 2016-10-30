@@ -14,7 +14,7 @@
 				<control type="grouplist" id="600">
 					<top>60</top>
 					<width>322</width>
-					<height>660</height>
+					<height>700</height>
 					<onleft>700</onleft>
 					<onright>700</onright>
 					<onup>700</onup>
@@ -139,29 +139,38 @@
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>ActivateWindow(AudioDSPManager)</onclick>
 					</control>
-					<!--random-->
+					<!--color management settings-->
 					<control type="button" id="614">
+						<width>322</width>
+						<label>$LOCALIZE[36560]</label>
+						<include>dialog_MenuButton</include>
+						<onclick>Dialog.Close(VideoOSD,true)</onclick>
+						<onclick>ActivateWindow(osdcmssettings)</onclick>
+						<visible>System.HasCMS</visible>
+					</control>
+					<!--random-->
+					<control type="button" id="620">
 						<width>322</width>
 						<label>$LOCALIZE[13319]$INFO[Playlist.Random,: ]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>PlayerControl(Random)</onclick>
 					</control>
 					<!--repeat-->
-					<control type="button" id="615">
+					<control type="button" id="621">
 						<width>322</width>
 						<label>$LOCALIZE[486]$INFO[Playlist.Repeat,: ]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>PlayerControl(Repeat)</onclick>
 					</control>
 					<!--information-->
-					<control type="button" id="616">
+					<control type="button" id="622">
 						<width>322</width>
 						<label>$VAR[player:InfoToggle]</label>
 						<include>dialog_MenuButton</include>
 						<onclick>Close</onclick>
 						<onclick>ActivateWindow(fullscreeninfo)</onclick>
 					</control>
-					<control type="image" id="620">
+					<control type="image" id="630">
 						<width>322</width>
 						<height>20</height>
 						<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
