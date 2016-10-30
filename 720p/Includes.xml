@@ -135,6 +135,7 @@
 	<include name="global_Itemcount">
 		<param name="Left" default="35"/>
 		<param name="InfoLabel" default="[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]"/>
+		<param name="Visible" default="true"/>
 		<definition>
 			<control type="label">
 				<left>$PARAM[Left]</left>
@@ -146,6 +147,7 @@
 				<include>transition_WindowTitle</include>
 				<include>transition_Info</include>
 				<include>toggle_Menu</include>
+				<visible>$PARAM[Visible]</visible>
 				<visible>!Control.IsVisible(531)</visible>
 				<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)]</visible>
 			</control>

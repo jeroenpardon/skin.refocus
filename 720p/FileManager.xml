@@ -16,19 +16,15 @@
 			<param name="Label" value="$VAR[window:Title.System]"/>
 		</include>
 
-		<control type="group">
-			<visible>Control.HasFocus(20)</visible>
-			<include name="global_Itemcount">
-				<param name="InfoLabel" value="[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]"/>
-			</include>
-		</control>
-		<control type="group">
-			<visible>Control.HasFocus(21)</visible>
-			<include name="global_Itemcount">
-				<param name="InfoLabel" value="[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]"/>
-			</include>
-		</control>
+		<include content="global_Itemcount">
+			<param name="InfoLabel" value="[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]"/>
+			<param name="Visible" value="Control.HasFocus(20)"/>
+		</include>
 
+		<include content="global_Itemcount">
+			<param name="InfoLabel" value="[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]"/>
+			<param name="Visible" value="Control.HasFocus(21)"/>
+		</include>
 
 	<!--content-->
 		<control type="group">
