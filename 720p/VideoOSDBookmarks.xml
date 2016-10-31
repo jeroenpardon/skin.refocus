@@ -4,36 +4,31 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>239</left>
-		<top>70</top>
+		<left>135</left>
+		<top>43</top>
 	</coordinates>
 	<controls>
-		<control type="group">
+
+		<control type="group" id="250">
+			<width>1010</width>
+			<height>635</height>
 			<visible>Player.HasVideo</visible>
-			<control type="image" id="1">
-				<include>dialog_Window</include>
-				<width>803</width>
-				<height>505</height>
-			</control>
-			<control type="label">
-				<width>795</width>
-				<label>$LOCALIZE[298]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
+			<include content="dialog_WindowCommons">
+				<param name="DialogWidth" value="1015"/>
+				<param name="DialogHeight" value="635"/>
+				<param name="DialogHeader" value="298"/>
+			</include>
+
 			<control type="group">
-				<left>4</left>
+				<left>15</left>
 				<top>60</top>
-				<control type="image">
-					<width>795</width>
-					<include>dialog_Separator</include>
-				</control>
 				<control type="panel" id="11">
 					<width>795</width>
-					<height>380</height>
+					<height>555</height>
 					<onleft>noop</onleft>
-					<onright>noop</onright>
-					<onup>noop</onup>
-					<ondown>2</ondown>
+					<onright>999</onright>
+					<onup>11</onup>
+					<ondown>11</ondown>
 					<orientation>vertical</orientation>
 					<include>global_Scrolltime</include>
 					<include>fadeinout</include>
@@ -94,41 +89,39 @@
 						</control>
 					</focusedlayout>	
 				</control>
-				<control type="image">
-					<top>185</top>
-					<width>796</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="image">
-					<top>370</top>
-					<width>796</width>
-					<include>dialog_Separator</include>
-				</control>
 			</control>
+
+			<!--dialog controls-->
 			<control type="grouplist" id="999">
-				<left>47</left>
-				<top>445</top>
-				<onup>11</onup>
-				<ondown>noop</ondown>
+				<top>70</top>
+				<right>15</right>
+				<width>180</width>
+				<height min="40" max="140">auto</height>
 				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
-				<include>fadeinout</include>
-				<control type="button" id="2">
-					<width>230</width>
-					<label>$LOCALIZE[294]</label>
-					<include>dialog_Button</include>
-				</control>
-				<control type="button" id="3">
-					<width>230</width>
-					<label>$LOCALIZE[296]</label>
-					<include>dialog_Button</include>
-				</control>
-				<control type="button" id="4">
-					<width>230</width>
-					<label>$LOCALIZE[20406]</label>
-					<include>dialog_Button</include>
-					<enable>VideoPlayer.Content(episodes)</enable>
-				</control>
+				<onup>999</onup>
+				<ondown>999</ondown>
+				<onleft>11</onleft>
+				<onright>noop</onright>
+				<orientation>vertical</orientation>
+				<!--manual-->
+				<include content="dialog_Button">
+					<param name="ID" value="2" />
+					<param name="Width" value="180" />
+					<param name="Label" value="$LOCALIZE[31331]" />
+				</include>
+				<!--cancel-->
+				<include content="dialog_Button">
+					<param name="ID" value="3" />
+					<param name="Width" value="180" />
+					<param name="Label" value="$LOCALIZE[192]" />
+				</include>
+				<!--cancel-->
+				<include content="dialog_Button">
+					<param name="ID" value="4" />
+					<param name="Width" value="180" />
+					<param name="Label" value="$LOCALIZE[31332]" />
+					<param name="Enabled" value="VideoPlayer.Content(episodes)" />
+				</include>
 			</control>
 		</control>
 	</controls>
