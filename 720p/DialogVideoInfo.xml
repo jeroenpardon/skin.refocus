@@ -263,11 +263,11 @@
 					<include>fadeinout</include>
 					<visible allowhiddenfocus="true">[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + IntegerGreaterThan(Container(50).NumItems,0) + !System.HasAddon(script.extendedinfo)</visible>
 					<itemlayout width="229" height="350">
-						<include name="view_Icon-Frame">
+						<include content="view_Icon-Frame">
 							<param name="Width" value="209"/>
 							<param name="Height" value="310"/>
 						</include>
-						<include name="view_Icon-Art">
+						<include content="view_Icon-Art">
 							<param name="Width" value="195"/>
 							<param name="Height" value="296"/>
 						</include>
@@ -284,12 +284,12 @@
 						</control>
 					</itemlayout>
 					<focusedlayout width="194" height="350">
-						<include name="view_Icon-Frame">
+						<include content="view_Icon-Frame">
 							<param name="State" value="frames/frame-fo.png"/>
 							<param name="Width" value="209"/>
 							<param name="Height" value="310"/>
 						</include>
-						<include name="view_Icon-Art">
+						<include content="view_Icon-Art">
 							<param name="Width" value="195"/>
 							<param name="Height" value="296"/>
 						</include>
@@ -322,11 +322,11 @@
 					<include>fadeinout</include>
 					<visible>[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + System.HasAddon(script.extendedinfo) + StringCompare(Skin.String(info.toggle),cast)</visible>
 					<itemlayout width="229" height="350">
-						<include name="view_Icon-Frame">
+						<include content="view_Icon-Frame">
 							<param name="Width" value="209"/>
 							<param name="Height" value="310"/>
 						</include>
-						<include name="view_Icon-Art">
+						<include content="view_Icon-Art">
 							<param name="Width" value="195"/>
 							<param name="Height" value="296"/>
 							<param name="Fallback" value="thumbs/default_Portrait.png"/>
@@ -346,12 +346,12 @@
 						</control>
 					</itemlayout>
 					<focusedlayout width="194" height="350">
-						<include name="view_Icon-Frame">
+						<include content="view_Icon-Frame">
 							<param name="State" value="frames/frame-fo.png"/>
 							<param name="Width" value="209"/>
 							<param name="Height" value="310"/>
 						</include>
-						<include name="view_Icon-Art">
+						<include content="view_Icon-Art">
 							<param name="Width" value="195"/>
 							<param name="Height" value="296"/>
 							<param name="Fallback" value="thumbs/default_Portrait.png"/>
