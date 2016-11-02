@@ -712,8 +712,7 @@
 		<value condition="String.Contains(Container.FolderPath,movies-inprogress.xsp,Right)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[575][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,videodb://movies/)">$LOCALIZE[342] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,videodb://recentlyaddedmovies/)">$LOCALIZE[342] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
-		<value condition="Container.Content(seasons) + String.IsEmpty(Container().ListItem(0).TVShowTitle)">$INFO[Container().ListItem(1).TVShowTitle]</value>
-		<value condition="Container.Content(seasons)">$INFO[Container().ListItem().TVShowTitle]</value>
+		<value condition="Container.Content(seasons)">$INFO[Container.ShowTitle]</value>
 		<value condition="String.IsEqual(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20360] [COLOR=Color2]$LOCALIZE[31705][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,episodes-unwatched.xsp,Right)">$LOCALIZE[20360] [COLOR=Color2]$LOCALIZE[16101][/COLOR]</value>
 		<value condition="String.Contains(Container.FolderPath,plugin://plugin)">$LOCALIZE[24001] [COLOR=Color2]$INFO[Container.FolderName][/COLOR]</value>
