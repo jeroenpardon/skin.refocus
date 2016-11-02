@@ -15,9 +15,10 @@
 	
 		<include>global_Itemcount</include>
 
+
+
 		<control type="group">
 			<control type="list" id="570">
-				<viewtype label="535">list</viewtype> 	
 				<left>30</left>
 				<top>90</top>
 				<width>1205</width>
@@ -33,10 +34,10 @@
 				<include>transition_Info</include>
 				<include>transition_Content</include>
 				<itemlayout width="1205" height="67">
-					<include name="view_List-Icon">
+					<include content="view_List-Icon">
 						<param name="IconSize" value="57"/>
 					</include>
-					<include name="view_List-Data">
+					<include content="view_List-Data">
 						<param name="TextLeft" value="80"/>
 						<param name="TextWidth" value="1145"/>
 						<param name="Label1" value="$INFO[ListItem.Label]"/>
@@ -44,14 +45,14 @@
 					</include>
 				</itemlayout>
 				<focusedlayout width="1205" height="67">
-					<include name="view_List-Focus">
+					<include content="view_List-Focus">
 						<param name="Width" default="1205"/>
 						<param name="Height" default="67"/>
 					</include>
-					<include name="view_List-Icon">
+					<include content="view_List-Icon">
 						<param name="IconSize" value="57"/>
 					</include>
-					<include name="view_List-Data">
+					<include content="view_List-Data">
 						<param name="TextLeft" value="80"/>
 						<param name="TextWidth" value="1145"/>
 						<param name="Label1" value="$INFO[ListItem.Label]"/>
