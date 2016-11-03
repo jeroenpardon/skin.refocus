@@ -19,6 +19,9 @@
 				<visible>String.IsEqual(Listitem.Icon,DefaultFolderBack.png) + [Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531)</visible>
 				<fadetime>fadetime_Fanart</fadetime>
 			</control>
+
+			<include condition="Window.IsActive(script-globalsearch-main.xml)">search_Background</include>
+
 			<!--playing video background-->
 			<control type="group">
 				<visible>Skin.HasSetting(backgroundvideo.global) + Player.HasVideo + !Window.IsActive(weather)</visible>
@@ -42,4 +45,83 @@
 			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(visualisation)] + !Window.IsActive(weather)</visible>
 		</control>
 	</include>
+
+
+	<include name="search_Background">
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture>colorize/100.png</texture>
+			<colordiffuse>black</colordiffuse>
+		</control>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/video.jpg">$INFO[Container(111).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(111) | Container(9000).HasFocus(1)</visible>
+		</control>
+		<!--tv shows-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/video.jpg">$INFO[Container(121).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(121) | Container(9000).HasFocus(2)</visible>
+		</control>
+		<!--seasons-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/video.jpg">$INFO[Container(131).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(131) | Container(9000).HasFocus(3)</visible>
+		</control>
+		<!--episodes-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/video.jpg">$INFO[Container(141).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>=
+			<visible>Control.HasFocus(141) | Container(9000).HasFocus(4)</visible>
+		</control>
+		<!--actors-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/video.jpg">$INFO[Container(211).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(211) | Container(9000).HasFocus(5)</visible>
+		</control>
+		<!--music videos-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/music.jpg">$INFO[Container(151).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(151) | Container(9000).HasFocus(6)</visible>
+		</control>
+		<!--artists-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/music.jpg">$INFO[Container(161).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(161) | Container(9000).HasFocus(7)</visible>
+		</control>
+		<!--albums-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/music.jpg">$INFO[Container(171).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(171) | Container(9000).HasFocus(8)</visible>
+		</control>
+		<!--songs-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true" fallback="special://skin/backgrounds/music.jpg">$INFO[Container(181).ListItem.Property(Fanart)]</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Control.HasFocus(181) | Container(9000).HasFocus(9)</visible>
+		</control>
+		<!--new search-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">special://skin/backgrounds/programs.jpg</texture>
+			<fadetime>fadetime_Fanart</fadetime>
+			<visible>Container(9000).HasFocus(10)</visible>
+		</control>
+	</include>
+
 </includes>

@@ -20,48 +20,46 @@
 		<control type="group">
 			<width>670</width>
 			<height>595</height>
-			<control type="image">
-				<width>670</width>
-				<height>595</height>
-				<include>dialog_Window</include>
-			</control>
-			<control type="label" id="1">
-				<width>670</width>
-				<label>$INFO[Container(100).ListItem.Label]</label>
-				<include>dialog_Windowtitle</include>
-			</control>
+
+			<include content="dialog_WindowCommons">
+				<param name="DialogWidth" value="670" />
+				<param name="DialogHeight" value="595" />
+				<param name="DialogHeaderID" value="1" />
+				<param name="DialogHeader" value="$INFO[Container(100).ListItem.Label]" />
+			</include>
+
 		<!--MAIN CONTAINER-->
 			<control type="group" id="101">
-				<left>4</left>
+				<left>15</left>
 				<top>60</top>
 				<control type="image">
-					<width>663</width>
+					<width>640</width>
 					<include>dialog_Separator</include>
 				</control>
 
 			<!--MOVIES-->
 				<control type="list" id="110">
-					<width>663</width>
+					<width>640</width>
 					<height>240</height>
 					<onleft>190</onleft>
 					<onright>190</onright>
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -138,20 +136,20 @@
 					<onup>120</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -204,20 +202,20 @@
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -258,20 +256,20 @@
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -348,20 +346,20 @@
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -433,20 +431,20 @@
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -517,20 +515,20 @@
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -607,20 +605,20 @@
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<itemlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
 					</itemlayout>
-					<focusedlayout width="663" height="40">
-						<include name="dialog_List-layout">
+					<focusedlayout width="640" height="40">
+						<include content="dialog_List-layout">
 							<param name="ContainerLeft"/>
-							<param name="ContainerWidth" value="663"/>
-							<param name="InfoLabel" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
+							<param name="ContainerWidth" value="640"/>
+							<param name="Label1" value="[B]$INFO[ListItem.Label][/B] $INFO[ListItem.Label2]"/>
 							<param name="Right" value="20"/>
 							<param name="Width" value="795"/>
 						</include>
@@ -731,50 +729,45 @@
 						<include>dialog_Text</include>
 					</control>
 				</control>
-				<control type="image">
-					<top>455</top>
-					<width>663</width>
-					<include>dialog_Separator</include>
-				</control>
 			</control>
 
 		<!--dialog controls-->
 			<control type="grouplist" id="190">
-				<left>20</left>
+				<left>80</left>
 				<bottom>20</bottom>
-				<width>820</width>
+				<width>510</width>
 				<height>40</height>
 				<onup>5</onup>
 				<ondown>5</ondown>
 				<itemgap>10</itemgap>
 				<orientation>horizontal</orientation>
 				<!--ok-->
-				<control type="button" id="191">
-					<width>150</width>
-					<label>$LOCALIZE[186]</label>
-					<include>dialog_Button</include>
-				</control>
-				<!--clear-->
-				<control type="button" id="192">
-					<width>150</width>
-					<label>-</label>
-					<include>dialog_Button</include>
-				</control>
+				<include content="dialog_Button">
+					<param name="Width" value="120" />
+					<param name="ID" value="191" />
+					<param name="Label" value="$LOCALIZE[186]" />
+				</include>
+				<!--play-->
+				<include content="dialog_Button">
+					<param name="Width" value="120" />
+					<param name="ID" value="192" />
+					<param name="Label" value="-" />
+				</include>
 				<!--trailer-->
-				<control type="button" id="193">
-					<width>150</width>
-					<label>-</label>
-					<include>dialog_Button</include>
-				</control>
+				<include content="dialog_Button">
+					<param name="Width" value="120" />
+					<param name="ID" value="193" />
+					<param name="Label" value="-" />
+				</include>
 				<!--tmdb-->
-				<control type="button" id="194">
-					<width>150</width>
-					<label>tMDB</label>
-					<include>dialog_Button</include>
-				</control>
+				<include content="dialog_Button">
+					<param name="Width" value="120" />
+					<param name="ID" value="194" />
+					<param name="Label" value="tMDB" />
+				</include>
 			</control>
-
 		</control>
+
 		<!--unused-->
 		<control type="spincontrol" id="195">
 			<visible>false</visible>

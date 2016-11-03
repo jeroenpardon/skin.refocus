@@ -164,12 +164,14 @@
 	<include name="view_List-Focus">
 		<param name="Width" default="620"/>
 		<param name="Height" default="40"/>
+		<param name="Visible" default="true"/>
 		<definition>
 			<control type="image">
 				<width>$PARAM[Width]</width>
 				<height>$PARAM[Height]</height>
 				<texture>colorize/70.png</texture>
 				<!--9050 = nextaired tv guide days -->
+				<visible>$PARAM[Visible]</visible>
 				<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus | Control.HasFocus(70) | Control.HasFocus(99) | ControlGroup(9050).HasFocus]</visible>
 			</control>
 		</definition>
