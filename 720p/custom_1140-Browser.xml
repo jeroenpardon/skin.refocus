@@ -20,13 +20,13 @@
 			<param name="Label" value="$INFO[Window(Home).Property(extContent)]"/>
 		</include>
 
-		<include name="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),poster)">
+		<include content="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),poster)">
 			<param name="InfoLabel" value="$INFO[Container(50).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
 		</include>
-		<include name="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),square)">
+		<include content="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),square)">
 			<param name="InfoLabel" value="$INFO[Container(55).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
 		</include>
-		<include name="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),thumbnail)">
+		<include content="global_Itemcount" condition="String.IsEqual(Window(Home).Property(extType),thumbnail)">
 			<param name="InfoLabel" value="$INFO[Container(60).NumItems,[B],[/B]] $LOCALIZE[31608]$INFO[Window(Home).Property(extQuery), [B],[/B]]"/>
 		</include>
 
@@ -76,8 +76,11 @@
 					<include>view_Icon-Art</include>
 				</itemlayout>
 				<focusedlayout width="194" height="277">
-					<include name="view_Icon-Frame">
+					<include content="view_Icon-Frame">
 						<param name="State" value="frames/frame-fo.png" />
+						<param name="Width" value="184"/>
+						<param name="Height" value="267"/>
+						<param name="Visible" value="String.IsEqual(Window(Home).Property(category),nofocus)"/>
 					</include>
 					<include>view_Icon-Art</include>
 				</focusedlayout>
@@ -101,7 +104,7 @@
 					</control>
 					<control type="label">
 						<top>25</top>
-						<label>$INFO[Container(50).ListItem(0).Property(Year)]$INFO[Container(50).ListItem(0).Property(Rating), &#8226; ,]$INFO[Container(50).ListItem.Votes, (, $LOCALIZE[20350])]</label>
+						<label>$INFO[Container(50).ListItem(0).Year]</label>
 						<width>1028</width>
 						<include>detail_Sub</include>
 					</control>
@@ -124,22 +127,22 @@
 				<include>global_ListScroll</include>
 				<visible>String.IsEqual(Window(Home).Property(extType),square)</visible>
 				<itemlayout width="188" height="188">
-					<include name="view_Icon-Frame">
+					<include content="view_Icon-Frame">
 						<param name="Width" value="178"/>
 						<param name="Height" value="178"/>
 					</include>
-					<include name="view_Icon-Art">
+					<include content="view_Icon-Art">
 						<param name="Width" value="164"/>
 						<param name="Height" value="164"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="188" height="188">
-					<include name="view_Icon-Frame">
+					<include content="view_Icon-Frame">
 						<param name="State" value="frames/frame-fo.png"/>
 						<param name="Width" value="178"/>
 						<param name="Height" value="178"/>
 					</include>
-					<include name="view_Icon-Art">
+					<include content="view_Icon-Art">
 						<param name="Width" value="164"/>
 						<param name="Height" value="164"/>
 					</include>
@@ -185,33 +188,33 @@
 				<include>global_ListScroll</include>
 				<visible>String.IsEqual(Window(Home).Property(extType),thumbnail)</visible>
 				<itemlayout width="404" height="286">
-					<include name="view_Icon-Frame">
+					<include content="view_Icon-Frame">
 						<param name="Width" value="394"/>
 						<param name="Height" value="219"/>
 					</include>
-					<include name="view_Icon-Art">
+					<include content="view_Icon-Art">
 						<param name="Width" value="380"/>
 						<param name="Height" value="205"/>
 						<param name="Fallback" value="thumbs/default_Landscape.png"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
-					<include name="view_Icon-Data">
+					<include content="view_Icon-Data">
 						<param name="Font" value="Condensed"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="404" height="286">
-					<include name="view_Icon-Frame">
+					<include content="view_Icon-Frame">
 						<param name="Width" value="394"/>
 						<param name="Height" value="219"/>
 						<param name="State" value="frames/frame-fo.png"/>
 					</include>
-					<include name="view_Icon-Art">
+					<include content="view_Icon-Art">
 						<param name="Width" value="380"/>
 						<param name="Height" value="205"/>
 						<param name="Fallback" value="thumbs/default_Landscape.png"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
-					<include name="view_Icon-Data">
+					<include content="view_Icon-Data">
 						<param name="Font" value="Condensed"/>
 					</include>
 				</focusedlayout>
