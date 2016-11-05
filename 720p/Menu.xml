@@ -817,10 +817,9 @@
 				</control>
 				<!--channels-->
 				<control type="button" id="100">
-					<label>$VAR[menu:ChannelSwitch]</label>
+					<label>$LOCALIZE[19019]</label>
 					<include>menu_Button</include>
 					<onback>PreviousMenu</onback>
-					<onclick condition="Window.IsActive(tvchannels) | Window.IsActive(radiochannels)">NextChannelGroup</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvchannels)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiochannels)</onclick>
 				</control>
@@ -890,7 +889,7 @@
 					<label>-</label>
 					<include>menu_Button</include>
 					<onback>PreviousMenu</onback>
-					<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels)</visible>
+					<visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(radioguide) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 				</control>
 				<!--toggle hidden channels-->
 				<control type="radiobutton" id="6">
