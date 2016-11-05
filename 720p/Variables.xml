@@ -157,24 +157,25 @@
 	</variable>
 
 	<variable name="media:Rating">
-		<value condition="Skin.HasSetting(ratings.user.enable)">$INFO[ListItem.UserRating,$LOCALIZE[563]: ]</value>
-		<value>$INFO[ListItem.RatingAndVotes]</value>
+		<value condition="!Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.pg.enable)">$INFO[ListItem.MPAA]</value>
+		<value condition="Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.user.enable) + Skin.HasSetting(ratings.pg.enable) + !IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating,$LOCALIZE[563]: ]$INFO[ListItem.MPAA, &#8226; ]</value>
+		<value condition="Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.user.enable)">$INFO[ListItem.UserRating,$LOCALIZE[563]: ]</value>
+		<value condition="Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.pg.enable)">$INFO[ListItem.Rating]$INFO[ListItem.MPAA, &#8226; ]</value>
+		<value condition="Skin.HasSetting(ratings.enable)">$INFO[ListItem.Rating]</value>
+		<value condition="Skin.HasSetting(ratings.enable)">$INFO[ListItem.Rating]</value>
+		<value></value>
 	</variable>
 
 	<variable name="media:Info">
-		<value condition="Container.Content(movies) + Skin.HasSetting(ratings.movies.enable)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$VAR[media:Rating, &#8226; ]$INFO[ListItem.Genre, &#8226; ]</value>
-		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
+		<value condition="Container.Content(movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$VAR[media:Rating, &#8226; ]$INFO[ListItem.Genre, &#8226; ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
-		<value condition="Container.Content(tvshows) + String.Contains(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
-		<value condition="Container.Content(tvshows) + !String.IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
+		<value condition="Container.Content(tvshows) + String.Contains(Container.FolderPath,plugin://script.skin.helper.service/?action=nextairedtvshows)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$VAR[media:Rating, &#8226; ]</value>
+		<value condition="Container.Content(tvshows) + !String.IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]$VAR[media:Rating, &#8226; ]</value>
   		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[media:UnwatchedCount]</value>
   		<value condition="Container.Content(seasons)">$INFO[ListItem.Genre]</value>
- +		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial) + Skin.HasSetting(ratings.tvshows.enable)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, &#8226; ]$INFO[ListItem.Rating, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
-  		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
- +		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Season) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, &#8226; ]$INFO[ListItem.Rating, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
-  		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
- +		<value condition="Container.Content(episodes) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Studio]$INFO[ListItem.Genre,,&#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[12391]]$INFO[ListItem.Date, &#8226; ]$INFO[ListItem.Rating, &#8226; ]</value>
-  		<value condition="Container.Content(episodes)">$INFO[ListItem.Studio]$INFO[ListItem.Genre,,&#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[12391]]$INFO[ListItem.Date, &#8226; ]</value>
+ +		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, &#8226; ]$INFO[ListItem.Rating, &#8226; ]$VAR[flag:Type.Video, &#8226; ]$VAR[media:Rating, &#8226; ]</value>
+ +		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, &#8226; ]$VAR[media:Rating, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
+ +		<value condition="Container.Content(episodes)">$INFO[ListItem.Studio]$INFO[ListItem.Genre,,&#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[12391]]$INFO[ListItem.Date, &#8226; ]$VAR[media:Rating, &#8226; ]</value>
   		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]$VAR[flag:Type.Video, &#8226; ]</value>
   		<value condition="Container.Content(files) + !String.Contains(Container.FolderPath,plugin://)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Date]$INFO[ListItem.Size, &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[12391]]</value>
 		<value condition="Container.Content(artists) + !String.IsEmpty(ListItem.Property(Artist_Genre))">$INFO[ListItem.Property(Artist_Genre)]</value>
@@ -479,7 +480,7 @@
 	
 	<variable name="information:Header">
 		<value condition="Container.Content(artists)">$INFO[ListItem.Genre]</value>
-		<value condition="Container.Content(movies)">$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]</value>
+		<value condition="Container.Content(movies)">$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !Skin.HasSetting(nextaired.disable) + !String.IsEmpty(Window(Home).Property(NextAired.Status))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextDate), &#8226; $LOCALIZE[31153]: ]$INFO[ListItem.Studio, &#8226; ]</value>
 		<value condition="Container.Content(tvshows) + !Skin.HasSetting(nextaired.disable)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
 		<value condition="Container.Content(tvshows) + Skin.HasSetting(nextaired.disable) | String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[media:EpisodeCount,, &#8226; $LOCALIZE[31153]: ]</value>
