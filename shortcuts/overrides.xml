@@ -15,8 +15,8 @@
 		<!--video-->
 		<node label="$LOCALIZE[32030]">
 			<node label="$LOCALIZE[31013]">
-				<shortcut label="$LOCALIZE[31013]" type="342" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=movies,return)</shortcut>
-				<shortcut label="$LOCALIZE[31013]" type="20360" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.watchlist?type=episodes,return)</shortcut>
+				<shortcut label="$LOCALIZE[31013]" type="342" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.skin.helper.service/?action=recommendedmovies,return)</shortcut>
+				<shortcut label="$LOCALIZE[31013]" type="20360" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,plugin://script.skin.helper.service/?action=nextepisodes,return)</shortcut>
 				<shortcut label="$LOCALIZE[575]" type="20343" icon="DefaultIconWatchlist.png">ActivateWindow(Videos,library://video/inprogressshows.xml,return)</shortcut>
 			</node>
 			<node label="$LOCALIZE[32040]">
@@ -128,8 +128,8 @@
 	<content>widgets</content>
 		<!--watchlist-->
 		<node label="$LOCALIZE[31013]">
-			<shortcut label="$LOCALIZE[342]" type="32099" icon="DefaultIconWatchlist.png" widgetName="31028" widget="Addon" widgetType="movies" widgetTarget="video" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</shortcut>
-			<shortcut label="$LOCALIZE[20360]" type="32099" icon="DefaultIconWatchlist.png" widgetName="31029" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(service.library.data.provider)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</shortcut>
+			<shortcut label="$LOCALIZE[342]" type="32099" icon="DefaultIconWatchlist.png" widgetName="31028" widget="Addon" widgetType="movies" widgetTarget="video" condition="System.HasAddon(script.skin.helper.service)">plugin://script.skin.helper.service/?action=recommendedmovies</shortcut>
+			<shortcut label="$LOCALIZE[20360]" type="32099" icon="DefaultIconWatchlist.png" widgetName="31029" widget="Addon" widgetType="episodes" widgetTarget="video" condition="System.HasAddon(script.skin.helper.service)">plugin://script.skin.helper.service/?action=nextepisodes</shortcut>
 		</node>
 
 		<!--recently-->
