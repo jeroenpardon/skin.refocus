@@ -132,7 +132,6 @@
 					<ondown>300</ondown>
 					<itemgap>0</itemgap>
 					<include>global_ListScroll</include>
-
 					<!--add item-->
 					<control type="button" id="301">
 						<width>350</width>
@@ -173,13 +172,14 @@
 					<!--edit sub-menu-->
 					<control type="label" id="404">
 						<width>350</width> 
-						<label>$ADDON[script.skinshortcuts 32027]</label>
+						<label>$ADDON[script.skinshortcuts 32072]</label>
 						<include>dialog_Header</include>
 						<include>dialog_ControlCommons</include>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					</control>
 					<control type="button" id="405">
 						<width>350</width>
-						<label>$ADDON[script.skinshortcuts 32072]</label>
+						<label>$LOCALIZE[31037]</label>
 						<include>dialog_ControlCommons</include>
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					</control>
@@ -189,13 +189,13 @@
 						<label>$ADDON[script.skinshortcuts 32045]</label>
 						<include>dialog_Header</include>
 						<include>dialog_ControlCommons</include>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(backgrounds.fanart) + System.HasAddon(script.grab.fanart)</visible>
 					</control>
 					<control type="button" id="310">
 						<width>350</width>
 						<label fallback="$LOCALIZE[31611]:">$INFO[Container(211).ListItem.Property(Background)]</label>
 						<include>dialog_ControlCommons</include>
-						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-						<enable>!Skin.HasSetting(backgrounds.fanart) + System.HasAddon(script.grab.fanart)</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(backgrounds.fanart) + System.HasAddon(script.grab.fanart)</visible>
 					</control>
 					<!--set widget-->
 					<control type="label" id="311">
@@ -203,13 +203,13 @@
 						<label>$ADDON[script.skinshortcuts 32044]</label>
 						<include>dialog_Header</include>
 						<include>dialog_ControlCommons</include>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(widgets.disable)</visible>
 					</control>
 					<control type="button" id="312">
 						<width>350</width>
 						<label fallback="$LOCALIZE[31611]:">$INFO[Container(211).ListItem.Property(widgetName)]</label>
 						<include>dialog_ControlCommons</include>
-						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-						<enable>!Skin.HasSetting(widgets.disable)</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(widgets.disable)</visible>
 					</control>
 				</control>
 			</control>
