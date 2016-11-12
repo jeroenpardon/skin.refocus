@@ -2,7 +2,7 @@
 <includes>
 	<include name="TVGuideLayout">
 		<itemlayout width="880" height="150">
-			<include name="view_List-Art">
+			<include content="view_List-Art">
 				<param name="FrameWidth" value="245"/>
 				<param name="ArtWidth" value="231"/>
 				<param name="Fallback" value="thumbs/default_Portrait.png"/>
@@ -10,7 +10,7 @@
 				<texture background="true">$INFO[ListItem.Property(Art(fanart))]</texture>
 				<param name="ShowLogo" value="true"/>
 			</include>
-			<include name="view_List-Data">
+			<include content="view_List-Data">
 				<param name="TextLeft" value="265"/>
 				<param name="TextWidth" value="485"/>
 				<param name="Label1" value="$INFO[ListItem.Label,,: ]$INFO[ListItem.Property(NextTitle)]"/>
@@ -21,11 +21,11 @@
 		</itemlayout>
 		<focusedlayout width="880" height="150">
 			<control type="group">
-				<include name="view_List-Focus">
+				<include content="view_List-Focus">
 					<param name="Width" value="880"/>
 					<param name="Height" value="144"/>
 				</include>
-				<include name="view_List-Art">
+				<include content="view_List-Art">
 					<param name="FrameWidth" value="245"/>
 					<param name="ArtWidth" value="231"/>
 					<param name="Fallback" value="thumbs/default_Portrait.png"/>
@@ -33,7 +33,7 @@
 					<texture background="true">$INFO[ListItem.Property(Art(fanart))]</texture>
 					<param name="ShowLogo" value="true"/>
 				</include>
-				<include name="view_List-Data">
+				<include content="view_List-Data">
 					<param name="TextLeft" value="265"/>
 					<param name="TextWidth" value="485"/>
 					<param name="Label1" value="$INFO[ListItem.Label,,: ]$INFO[ListItem.Property(NextTitle)]"/>
