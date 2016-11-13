@@ -85,4 +85,63 @@
 			</control>
 		</controls>
 	</other>
+
+	<other include="widget_Classic">
+		<!-- This will match against any menu items with a <property name="widgetPath" /> element -->
+		<condition tag="property" attribute="name|widgetPath"></condition>
+
+		<!-- Pull out the widgetPath and widgetTarget properties from the menu item -->
+		<property name="path" tag="property" attribute="name|widgetPath" />
+		<property name="target" tag="property" attribute="name|widgetTarget" />
+
+		<controls>
+			<control type="list" id="9200">
+				<skinshortcuts>visibility</skinshortcuts>
+				<left>400</left>
+				<top>210</top>
+				<width>880</width>
+				<height>300</height>
+				<onleft>9000</onleft>
+				<onleft>ClearProperty(WidgetState)</onleft>
+				<onleft>noop</onleft>
+				<onup>9200</onup>
+				<ondown>9200</ondown>
+				<onback>ClearProperty(WidgetState)</onback>
+				<onback>9000</onback>
+				<oninfo>SetProperty(ExtInfo,open,Home)</oninfo>
+				<oninfo>$VAR[widget:OnInfo]</oninfo>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>70</pagecontrol>
+				<include>transition_Home</include>
+				<include>global_Scrolltime</include>
+
+<!--
+<animation effect="Slide" time="250" start="0" end="-200" tween="Cubic" reversible="false" condition="Control.HasFocus(9200)">Conditional</animation>
+<animation effect="Slide" time="250" start="-200" end="0" tween="Cubic" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
+-->
+
+				<itemlayout width="193" height="300">
+					<include>view_Icon-Frame</include>
+					<include>view_Icon-Art</include>
+				</itemlayout>
+				<focusedlayout width="193" height="300">
+					<control type="group">
+						<visible>Control.HasFocus(9200)</visible>
+						<include content="view_Icon-Frame">
+							<param name="State" value="frames/frame-fo.png" />
+						</include>
+						<include>view_Icon-Art</include>
+					</control>
+					<control type="group">
+						<visible>!Control.HasFocus(9200)</visible>
+						<include>view_Icon-Frame</include>
+						<include>view_Icon-Art</include>
+					</control>
+				</focusedlayout>
+				<!--insert the properties pulled from the main menu-->
+				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
+			</control>
+		</controls>
+	</other>
 </template>
