@@ -546,8 +546,17 @@
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=epg.scrolltime,header=$LOCALIZE[31407])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
-					<!--reset skin settings-->
 					<control type="button" id="908">
+						<label>$LOCALIZE[31721]</label>
+						<onclick>SetProperty(Dialog.1.Label,$ADDON[script.skin.helper.service 32028])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,RunScript(script.skin.helper.service,action=backup))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$ADDON[script.skin.helper.service 32032])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,RunScript(script.skin.helper.service,action=restore))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31721])</onclick> 
+						<include>settings_Listbutton</include>
+					</control>
+					<!--reset skin settings-->
+					<control type="button" id="909">
 						<label>[COLOR=Warning]$LOCALIZE[31713][/COLOR]</label>
 						<!--ask confirmation-->
 						<onclick>RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[10035],text=$LOCALIZE[31716][CR]$LOCALIZE[750],yesaction=Skin.ResetSettings||Skin.SetString(HomeLoaded,True)||ActivateWindow(SkinSettings)||SetFocus(9001),noaction=close,yeslabel=$LOCALIZE[107],nolabel=$LOCALIZE[106])</onclick>
@@ -555,17 +564,16 @@
 						<onclick>SetFocus(9001)</onclick>
 						<include>settings_Listbutton</include>
 					</control>
-					<!--backup-->
-					<control type="button" id="909">
-						<label>$ADDON[script.skin.helper.service 32028]</label>
-						<onclick>RunScript(script.skin.helper.service,action=backup)</onclick>
-						<include>settings_Listbutton</include>
+					<!--debug-->
+					<control type="radiobutton" id="920">
+						<label>$LOCALIZE[31726]</label>
+						<onclick>Skin.ToggleSetting(dev.grid)</onclick>
+						<include>settings_Radiobutton</include>
 					</control>
-					<!--restore-->
-					<control type="button" id="910">
-						<label>$ADDON[script.skin.helper.service 32032]</label>
-						<onclick>RunScript(script.skin.helper.service,action=restore)</onclick>
-						<include>settings_Listbutton</include>
+					<control type="radiobutton" id="921">
+						<label>$LOCALIZE[31727]</label>
+						<onclick>Skin.ToggleSetting(dev.overlay)</onclick>
+						<include>settings_Radiobutton</include>
 					</control>
 				</control>
 

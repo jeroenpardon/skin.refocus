@@ -14,18 +14,19 @@
 		</control>
 		<!--info-->
 		<control type="group">
+			<left>300</left>
+			<bottom>80</bottom>
+			<height>208</height>
 			<visible>Skin.HasSetting(dev.overlay)</visible>	
 			<control type="grouplist">
-				<left>10</left>
-				<top>80</top>
-				<height>640</height>
+				<height>208</height>
 				<itemgap>0</itemgap>
 				<control type="label" id="1">
 					<label>Container.ViewMode: $VAR[window:Debug]$INFO[Container.Viewmode, - ]</label>
 					<include>debug_Label</include>
 				</control>
 				<control type="label" id="2">
-					<label>System.CurrentControl: $INFO[System.CurrentControl]</label>
+					<label>System.CurrentControl: $INFO[System.CurrentControl] $INFO[System.CurrentControlID, (ID=,)]</label>
 					<include>debug_Label</include>
 				</control>
 				<control type="label" id="3">
