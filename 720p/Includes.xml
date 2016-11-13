@@ -103,7 +103,7 @@
 	<include name="clock">
 		<control type="group">
 			<include>fadeinout</include>
-			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(Notification) | Control.HasFocus(9200) | Window.IsVisible(subtitlesearch)]</visible>
+			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(Notification) | [Control.HasFocus(9200) + !String.IsEqual(Skin.String(homemenu.type),alternate) ] | Window.IsVisible(subtitlesearch)]</visible>
 			<control type="label">
 				<label>$VAR[toast:Top]</label>
 				<shadowcolor>black</shadowcolor>
