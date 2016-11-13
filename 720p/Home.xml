@@ -5,8 +5,8 @@
 	<onload>ClearProperty(WidgetState)</onload>
 	<onload>ClearProperty(Extinfo)</onload>
 	<onload condition="Window.Previous(startup)">Skin.SetString(HomeLoaded,True)</onload>
-	<onload condition="!String.IsEqual(Skin.String(homemenu.type),vertical) + !String.IsEqual(Skin.String(homemenu.type),horizontal)">Skin.SetString(homemenu.type,vertical)</onload>
-	<onunload condition="Skin.HasSetting(homemenu.collapse) + String.IsEqual(Skin.String(homemenu.type),vertical)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
+	<onload condition="!String.IsEqual(Skin.String(homemenu.type),vertical) + !String.IsEqual(Skin.String(homemenu.type),horizontal) + !String.IsEqual(Skin.String(homemenu.type),alternate)">Skin.SetString(homemenu.type,vertical)</onload>
+	<onunload condition="Skin.HasSetting(homemenu.collapse) + [String.IsEqual(Skin.String(homemenu.type),vertical) | String.IsEqual(Skin.String(homemenu.type),classic)]">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
 
 	<controls>
 		<control type="group">
@@ -16,8 +16,9 @@
 			<include>home_Background</include>
 
 			<!--call home menu-->
-			<include condition="String.IsEqual(Skin.String(homemenu.type),vertical) | !String.IsEqual(Skin.String(homemenu.type),horizontal) + !String.IsEqual(Skin.String(homemenu.type),vertical)">home_Menu-vertical</include>
+			<include condition="String.IsEqual(Skin.String(homemenu.type),vertical) | !String.IsEqual(Skin.String(homemenu.type),horizontal) + !String.IsEqual(Skin.String(homemenu.type),vertical) + !String.IsEqual(Skin.String(homemenu.type),alternate)">home_Menu-vertical</include>
 			<include condition="String.IsEqual(Skin.String(homemenu.type),horizontal)">home_Menu-horizontal</include>
+			<include condition="String.IsEqual(Skin.String(homemenu.type),alternate)">home_Menu-alternate</include>
 
 			<!--clock-->
 			<control type="group">

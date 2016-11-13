@@ -101,6 +101,7 @@
 	</variable>
 
 	<variable name="widget:ArtFallback">
+		<value condition="String.IsEqual(Skin.String(homemenu.type),alternate)">$INFO[ListItem.Art(poster)]</value>
 		<value condition="String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value>$INFO[ListItem.FilenameAndPath]</value>
