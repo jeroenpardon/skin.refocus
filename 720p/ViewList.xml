@@ -162,11 +162,15 @@
 	</include>
 
 	<include name="view_List-Focus">
+		<param name="Left" default="0"/>
+		<param name="Right" default="0"/>
 		<param name="Width" default="620"/>
 		<param name="Height" default="40"/>
 		<param name="Visible" default="true"/>
 		<definition>
 			<control type="image">
+				<left>$PARAM[Left]</left>
+				<right>$PARAM[Right]</right>
 				<width>$PARAM[Width]</width>
 				<height>$PARAM[Height]</height>
 				<texture>colorize/70.png</texture>
