@@ -131,7 +131,7 @@
 					<!--menu layout-->
 					<control type="button" id="102">
 						<label>$LOCALIZE[31206]</label>
-						<label2>$INFO[Skin.String(homemenu.type)]</label2>
+						<label2>$INFO[Skin.String(homemenu.type.label)]</label2>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=homemenu.type,header=$LOCALIZE[31124])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
@@ -378,61 +378,11 @@
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--media overlays-->
-					<!--
-					<control type="radiobutton" id="715">
-						<label>$LOCALIZE[31253]</label>
-						<onclick>Skin.ToggleSetting(mediaoverlay.disable)</onclick>
-						<selected>Skin.HasSetting(mediaoverlay.disable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>
-					-->
-					<!--unwatched status-->
-					<!--
-					<control type="radiobutton" id="716">
-						<label>$LOCALIZE[31254]</label>
-						<onclick>Skin.ToggleSetting(overlay.movies.disable)</onclick>
-						<selected>Skin.HasSetting(overlay.movies.disable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>
-					<control type="radiobutton" id="717">
-						<label>$LOCALIZE[31255]</label>
-						<onclick>Skin.ToggleSetting(overlay.tvshows.disable)</onclick>
-						<selected>Skin.HasSetting(overlay.tvshows.disable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>
-					<control type="radiobutton" id="718">
-						<label>$LOCALIZE[31256]</label>
-						<onclick>Skin.ToggleSetting(overlay.episodes.disable)</onclick>
-						<selected>Skin.HasSetting(overlay.episodes.disable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>
-					<control type="radiobutton" id="719">
-						<label>$LOCALIZE[31257]</label>
-						<onclick>Skin.ToggleSetting(overlay.files.disable)</onclick>
-						<selected>Skin.HasSetting(overlay.files.disable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>
-					<control type="radiobutton" id="720">
-						<label>$LOCALIZE[31258]</label>
-						<onclick>Skin.ToggleSetting(overlay.resumable.disable)</onclick>
-						<selected>Skin.HasSetting(overlay.resumable.disable)</selected>
-						<include>settings_Radiobutton</include>
-					</control>-->
-
-
-
 					<control type="button" id="725">
 						<label>$LOCALIZE[31253]</label>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=mediaoverlay.disable,header=$LOCALIZE[31253])</onclick>
 						<include>settings_Radiobutton</include>
 					</control>
-
-
-
-
-
-
-
 					<!--background video-->
 					<control type="radiobutton" id="730">
 						<label>$LOCALIZE[31215]</label>
@@ -505,7 +455,7 @@
 					<!--fullscreen button-->
 					<control type="button" id="902">
 						<label>$LOCALIZE[31252]</label>
-						<label2>$INFO[Skin.String(menu.controls)]</label2>
+						<label2>$INFO[Skin.String(menu.controls.label)]</label2>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=menu.controls,header=$LOCALIZE[31252])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
@@ -542,7 +492,7 @@
 					<!--epg timeline scrolling speed-->
 					<control type="button" id="907">
 						<label>$LOCALIZE[31407]</label>
-						<label2>$INFO[Skin.String(epg.scrolltime)]</label2>
+						<label2>$INFO[Skin.String(epg.scrolltime.label)]</label2>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=epg.scrolltime,header=$LOCALIZE[31407])</onclick>
 						<include>settings_Listbutton</include>
 					</control>
