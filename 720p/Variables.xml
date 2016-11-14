@@ -374,22 +374,20 @@
 	</variable>
 
 	<variable name="player:Status">
-		<value condition="VideoPlayer.Content(LiveTV) + [Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]]">$LOCALIZE[19020]$INFO[VideoPlayer.ChannelGroup, - ]</value>
+		<value condition="[Player.Paused + !Player.Caching] + !Player.Seeking">$LOCALIZE[112]</value>
 		<value condition="!String.IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekStepSize]</value>
-		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekOffset]</value>
+		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31034] $INFO[Player.SeekOffset]</value>
 		<value condition="!Player.DisplayAfterSeek + Player.Seeking">$LOCALIZE[773]</value>
-		<value condition="Player.Paused + Player.Caching + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
-		<value condition="Player.Paused + !Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[112]</value>
-		<value condition="Player.Forwarding2x">$LOCALIZE[31300]</value>
-		<value condition="Player.Forwarding4x">$LOCALIZE[31301]</value>
-		<value condition="Player.Forwarding8x">$LOCALIZE[31302]</value>
-		<value condition="Player.Forwarding16x">$LOCALIZE[31303]</value>
-		<value condition="Player.Forwarding32x">$LOCALIZE[31304]</value>
-		<value condition="Player.Rewinding2x">$LOCALIZE[31305]</value>
-		<value condition="Player.Rewinding4x">$LOCALIZE[31306]</value>
-		<value condition="Player.Rewinding8x">$LOCALIZE[31307]</value>
-		<value condition="Player.Rewinding16x">$LOCALIZE[31308]</value>
-		<value condition="Player.Rewinding32x">$LOCALIZE[31309]</value>
+		<value condition="Player.Rewinding">$LOCALIZE[31300] $VAR[player:Speed]</value>
+		<value condition="Player.Forwarding">$LOCALIZE[31301] $VAR[player:Speed]</value>
+	</variable>
+
+	<variable name="player:Speed">
+		<value condition="Player.Forwarding2x | Player.Rewinding2x">2x</value>
+		<value condition="Player.Forwarding4x | Player.Rewinding4x">4x</value>
+		<value condition="Player.Forwarding8x | Player.Rewinding8x">8x</value>
+		<value condition="Player.Forwarding16x | Player.Rewinding16x">16x</value>
+		<value condition="Player.Forwarding32x | Player.Rewinding32x">32x</value>
 	</variable>
 
 	<variable name="player:Subtitles">
