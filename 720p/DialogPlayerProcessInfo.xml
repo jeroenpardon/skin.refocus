@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<controls>
+		<control type="image">
+			<width>300</width>
+			<height>720</height>
+			<texture border="29">colorize/50.png</texture>
+			<colordiffuse>black</colordiffuse>
+		</control>
+		<control type="grouplist">
+			<left>10</left>
+			<top>5</top>
+			<width>280</width>
+			<height>Screen_Height</height>
+			<itemgap>0</itemgap>
+			<orientation>vertical</orientation>
+			<control type="label">
+				<label>[B]$LOCALIZE[31305][/B]</label>
+				<height>40</height>
+				<textcolor>Color1</textcolor>
+				<font>semibold_Small-U</font>
+			</control>
+			<!--video-->
+			<control type="label">
+				<label>[B]$LOCALIZE[157][/B]</label>
+				<height>20</height>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="label">
+				<label>$VAR[player:Decoder]</label>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="label">
+				<label>$LOCALIZE[157]: $INFO[Player.Process(videodecoder),,]$INFO[Player.Process(pixformat), / ,]</label>
+				<include>osd_Tech</include>
+				<visible>!String.IsEmpty(Player.Process(videodecoder)) | !String.IsEmpty(Player.Process(pixformat))</visible>
+			</control>
+			<control type="label">
+				<label>$INFO[Player.Process(deintmethod),$LOCALIZE[16038]: ]</label>
+				<include>osd_Tech</include>
+				<visible>!String.IsEmpty(Player.Process(deintmethod))</visible>
+			</control>
+			<control type="label">
+				<label>$LOCALIZE[169]: $INFO[Player.Process(videowidth),,x]$INFO[Player.Process(videoheight),,px]$INFO[Player.Process(videodar), ,AR]$INFO[Player.Process(videofps), ,FPS]</label>
+				<include>osd_Tech</include>
+				<visible>!String.IsEmpty(Player.Process(videowidth)) | !String.IsEmpty(Player.Process(videoheight)) | !String.IsEmpty(Player.Process(videodar))</visible>
+			</control>
+			<control type="label">
+				<label></label>
+				<include>osd_Tech</include>	
+			</control>
+			<!--audio-->
+			<control type="label">
+				<label>[B]$LOCALIZE[292][/B]</label>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="label">
+				<label>$LOCALIZE[292]: $INFO[Player.Process(audiodecoder),Decoder ',']$INFO[Player.Process(audiobitspersample), ,Bit]$INFO[Player.Process(audiosamplerate), ,Hz]</label>
+				<include>osd_Tech</include>
+				<visible>!String.IsEmpty(Player.Process(audiodecoder)) | !String.IsEmpty(Player.Process(audiosamplerate)) | !String.IsEmpty(Player.Process(audiobitspersample))</visible>
+			</control>
+			<control type="label">
+				<label>$INFO[Player.Process(audiochannels),$LOCALIZE[19019]: ]</label>
+				<include>osd_Tech</include>
+				<visible>!String.IsEmpty(Player.Process(audiochannels))</visible>
+			</control>
+			<control type="label">
+				<label></label>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="label">
+				<label>[B]$LOCALIZE[13000][/B]</label>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="group">
+				<height>30</height>
+				<control type="label">
+					<label>$INFO[System.CpuUsage,$LOCALIZE[13271] ]</label>
+					<include>osd_Tech</include>
+				</control>
+				<control type="progress">
+					<left>1</left>
+					<top>23</top>
+					<width>275</width>
+					<height>4</height>
+					<include>progress_Light</include>
+					<info>System.CpuUsage</info>
+				</control>
+			</control>
+			<control type="group">
+				<height>30</height>
+				<control type="label">
+					<label>$INFO[System.Memory(used.percent),$LOCALIZE[31302]: ]</label>
+					<include>osd_Tech</include>
+				</control>
+				<control type="progress">
+					<left>1</left>
+					<top>23</top>
+					<width>275</width>
+					<height>4</height>
+					<include>progress_Light</include>
+					<info>System.Memory</info>
+				</control>
+			</control>
+			<control type="label">
+				<label></label>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="label">
+				<label>[B]PVR[/B]</label>
+				<include>osd_Tech</include>	
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamClient,$LOCALIZE[19012]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamDevice,$LOCALIZE[19006]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamStatus,$LOCALIZE[19008]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="group">
+				<height>30</height>
+				<control type="label">
+					<label>$INFO[PVR.ActStreamSNR,$LOCALIZE[19009]: ]</label>
+					<include>osd_Tech</include>
+				</control>
+				<control type="progress">
+					<left>1</left>
+					<top>23</top>
+					<width>275</width>
+					<height>4</height>
+					<include>progress_Light</include>
+					<info>PVR.ActStreamSNR</info>
+				</control>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamBER,$LOCALIZE[19010]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamUNC,$LOCALIZE[19011]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamServiceName,$LOCALIZE[19099]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamEncryptionName,$LOCALIZE[19015]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamProviderName,$LOCALIZE[19101]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+			<control type="label">
+				<label>$INFO[PVR.ActStreamMux,$LOCALIZE[19100]: ]</label>
+				<include>osd_Tech</include>
+			</control>
+		</control>
+	</controls>
+</window>
