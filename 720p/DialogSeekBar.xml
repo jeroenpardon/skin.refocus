@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>-</defaultcontrol>
-	<visible>!Window.IsActive(videoosd) + Window.IsActive(fullscreenvideo)</visible>
+	<visible>!Window.IsActive(videoosd) + !Window.IsActive(playerprocessinfo) + Window.IsActive(fullscreenvideo)</visible>
 	<visible>!VideoPlayer.Content(livetv)</visible>
 	<controls>
 		<control type="group">
