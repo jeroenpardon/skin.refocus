@@ -97,15 +97,15 @@
 		<controls>
 			<control type="list" id="9200">
 				<skinshortcuts>visibility</skinshortcuts>
-				<left>400</left>
+				<left>375</left>
 				<top>210</top>
-				<width>880</width>
+				<width>905</width>
 				<height>300</height>
 				<onleft>9000</onleft>
 				<onleft>ClearProperty(WidgetState)</onleft>
-				<onleft>noop</onleft>
-				<onup>9200</onup>
-				<ondown>9200</ondown>
+				<onright>9200</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
 				<onback>ClearProperty(WidgetState)</onback>
 				<onback>9000</onback>
 				<oninfo>SetProperty(ExtInfo,open,Home)</oninfo>
@@ -115,15 +115,11 @@
 				<pagecontrol>70</pagecontrol>
 				<include>transition_Home</include>
 				<include>global_Scrolltime</include>
-
-<!--
-<animation effect="Slide" time="250" start="0" end="-200" tween="Cubic" reversible="false" condition="Control.HasFocus(9200)">Conditional</animation>
-<animation effect="Slide" time="250" start="-200" end="0" tween="Cubic" reversible="false" condition="!Control.HasFocus(9200)">Conditional</animation>
--->
-
+				<include>fadeinout</include>
 				<itemlayout width="193" height="300">
 					<include>view_Icon-Frame</include>
 					<include>view_Icon-Art</include>
+					
 				</itemlayout>
 				<focusedlayout width="193" height="300">
 					<control type="group">

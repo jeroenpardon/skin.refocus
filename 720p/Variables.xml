@@ -67,14 +67,11 @@
 	<variable name="widget:Item.Label2">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),YouTube)">$INFO[ListItem.Premiered]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),songs) | String.IsEqual(Container(9000).ListItem.Property(widgetType),musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.RatingandVotes, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$VAR[widget:Rating, &#8226; ]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)">$INFO[ListItem.Property(Status)]$INFO[ListItem.Year &#8226; ]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
-		
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes) + Skin.HasSetting(ratings.tvshows.enable)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Rating, &#8226; ]$INFO[ListItem.Studio, &#8226; ]</value>
-
-	
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),videos)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$INFO[ListItem.MPAA, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[ListItem.Year]$INFO[ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[ListItem.Genre, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$VAR[widget:Rating, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Studio, &#8226; ]$VAR[widget:Rating, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),videos)">$INFO[ListItem.TVShowTitle,,: ]$INFO[ListItem.Season,$LOCALIZE[20373] ]$INFO[ListItem.Episode, - $LOCALIZE[20359] ]$INFO[ListItem.Genre]$INFO[ListItem.Director, &#8226; ]$INFO[ListItem.Studio, &#8226; ]$INFO[ListItem.Year, &#8226; ]$VAR[widget:Rating, &#8226; ]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),albums)">$INFO[ListItem.Artist]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[ListItem.Season,$LOCALIZE[20373]]$INFO[ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[ListItem.Genre,, &#8226; ]$INFO[ListItem.Studio,, &#8226; ]$INFO[ListItem.Year]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[ListItem.Artist]$INFO[ListItem.Album, &#8226; ]</value>
@@ -91,6 +88,36 @@
 		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Year]</value>
 	</variable>
+
+	<variable name="widget:Container.Label1">
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[Player.Filename]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),albums)">$INFO[Container(9200).ListItem(0).Label]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes)">[COLOR=Color3]$INFO[Container(9200).ListItem(0).TVShowTitle,,: ][/COLOR]$INFO[Container(9200).ListItem(0).Title]</value>
+		<value>$INFO[Container(9200).ListItem(0).Label]</value>
+	</variable>
+
+	<variable name="widget:Container.Label2">
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),YouTube)">$INFO[Container(9200).ListItem.Premiered]$INFO[Container(9200).ListItem.Duration, &#8226; , $LOCALIZE[31701]]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),songs) | String.IsEqual(Container(9000).ListItem.Property(widgetType),musicvideos)">$INFO[Container(9200).ListItem.Artist]$INFO[Container(9200).ListItem.Album, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)">$INFO[Container(9200).ListItem.Property(Status)]$INFO[Container(9200).ListItem.Year &#8226; ]$INFO[Container(9200).ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[Container(9200).ListItem.Genre, &#8226; ]$INFO[Container(9200).ListItem.Studio, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),movies)">$VAR[flag:Type.Video,, &#8226; ]$INFO[Container(9200).ListItem.Year]$INFO[Container(9200).ListItem.Duration, &#8226; , $LOCALIZE[31701]]$INFO[Container(9200).ListItem.Genre, &#8226; ]$VAR[widget:Rating, &#8226; ]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[Container(9200).ListItem.Season,$LOCALIZE[20373] ]$INFO[Container(9200).ListItem.Episode, - $LOCALIZE[20359] ]$VAR[widget:Rating, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),videos)">$INFO[Container(9200).ListItem.TVShowTitle,,: ]$INFO[Container(9200).ListItem.Season,$LOCALIZE[20373] ]$INFO[Container(9200).ListItem.Episode, - $LOCALIZE[20359] ]$INFO[Container(9200).ListItem.Genre]$INFO[Container(9200).ListItem.Year, &#8226; ]$VAR[widget:Rating, &#8226; ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),albums)">$INFO[Container(9200).ListItem.Artist]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),playlist)">$INFO[Container(9200).ListItem.Season,$LOCALIZE[20373]]$INFO[Container(9200).ListItem.Episode, - $LOCALIZE[20359] , &#8226; ]$INFO[Container(9200).ListItem.Genre,, &#8226; ]$INFO[Container(9200).ListItem.Studio,, &#8226; ]$INFO[Container(9200).ListItem.Year]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),playingmusic)">$INFO[Container(9200).ListItem.Artist]$INFO[Container(9200).ListItem.Album, &#8226; ]</value>
+		<value>$INFO[Container(9200).ListItem.Label2]</value>
+	</variable>
+
+	<variable name="widget:Rating">
+		<value condition="!Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.pg.enable)">$INFO[Container(9200).ListItem.MPAA]</value>
+		<value condition="Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.user.enable) + Skin.HasSetting(ratings.pg.enable) + !IsEmpty(ListItem.UserRating)">$INFO[Container(9200).ListItem.UserRating,$LOCALIZE[563]: ]$INFO[Container(9200).ListItem.MPAA, &#8226; ]</value>
+		<value condition="Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.user.enable)">$INFO[Container(9200).ListItem.UserRating,$LOCALIZE[563]: ]</value>
+		<value condition="Skin.HasSetting(ratings.enable) + Skin.HasSetting(ratings.pg.enable)">$INFO[Container(9200).ListItem.Rating]$INFO[Container(9200).ListItem.MPAA, &#8226; ]</value>
+		<value condition="Skin.HasSetting(ratings.enable)">$INFO[Container(9200).ListItem.Rating]</value>
+		<value></value>
+	</variable>
+
 
 	<variable name="widget:Icon">
 		<value condition="!Integer.IsGreater(Container(9200).NumItems,0)">navigation/D-None.png</value>
