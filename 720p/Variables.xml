@@ -432,6 +432,11 @@
 		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
 	</variable>
 
+	<variable name="player:Decoder">
+		<value condition="Player.Process(videohwdecoder)">$LOCALIZE[31303]</value>
+		<value>$LOCALIZE[31304]</value>
+	</variable>
+
 	<variable name="player:InfoToggle">
 		<value condition="VideoPlayer.Content(livetv)">$LOCALIZE[19047]</value>
 		<value condition="VideoPlayer.Content(movies)">$LOCALIZE[24007]</value>
