@@ -18,10 +18,10 @@
 			</include>
 
 			<control type="panel" id="50">
-				<left>90</left>
-				<top>160</top>
-				<width>1100</width>
-				<height>400</height>
+				<left>165</left>
+				<top>120</top>
+				<width>950</width>
+				<height>560</height>
 				<onleft>6000</onleft>
 				<onright>50</onright>
 				<onup>50</onup>
@@ -29,109 +29,113 @@
 				<include>toggle_Menu</include>
 				<include>global_ListScroll</include>
 				<include>transition_Content</include>	
-				<itemlayout width="550" height="100">
+				<itemlayout width="950" height="70">
 					<control type="image">
-						<width>94</width>
-						<height>94</height>
+						<width>62</width>
+						<height>62</height>
 						<include>art_Frame-nf</include>
 					</control>
 					<control type="image">
 						<left>7</left>
 						<top>7</top>
-						<width>80</width>
-						<height>80</height>
+						<width>48</width>
+						<height>48</height>
 						<info>ListItem.Icon</info>
 					</control>
-					<control type="label">
-						<left>110</left>
-						<top>10</top>
-						<width>410</width>
-						<height>40</height>
-						<font>light_Category</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<top>46</top>
-						<width>410</width>
-						<height>34</height>
-						<label>$INFO[ListItem.Label2]</label>
-						<include>detail_Sub</include>
+					<control type="group">
+						<left>77</left>
+						<top>0</top>
+						<control type="label">	
+							<width>980</width>
+							<height>40</height>
+							<font>light_ColumnHeader</font>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<top>30</top>
+							<width>980</width>
+							<height>34</height>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>regular_Smaller-U-B</font>
+							<textcolor>Color2</textcolor>
+						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="550" height="100">
+				<focusedlayout width="950" height="70">
 					<control type="image">
-						<width>540</width>
-						<height>94</height>
+						<width>1090</width>
+						<height>62</height>
 						<include>art_Frame-fo</include>
 					</control>
 					<control type="image">
 						<left>7</left>
 						<top>7</top>
-						<width>80</width>
-						<height>80</height>
+						<width>48</width>
+						<height>48</height>
 						<info>ListItem.Icon</info>
 						<colordiffuse>Color.Dark.Primary</colordiffuse>
 					</control>
-					<control type="label">
-						<left>110</left>
-						<top>10</top>
-						<width>410</width>
-						<height>40</height>
-						<font>light_Category</font>
-						<textcolor>Color5</textcolor>
-						<label>$INFO[ListItem.Label]</label>
+					<control type="group">
+						<left>77</left>
+						<top>0</top>
+						<control type="label">	
+							<width>980</width>
+							<height>40</height>
+							<font>light_ColumnHeader</font>
+							<textcolor>Color5</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<top>30</top>
+							<width>980</width>
+							<height>34</height>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>regular_Smaller-U-B</font>
+							<textcolor>Color5</textcolor>
+						</control>
 					</control>
-					<control type="label">
-						<left>110</left>
-						<top>46</top>
-						<width>410</width>
-						<height>34</height>
-						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>Color5</textcolor>
-						<include>detail_Sub</include>
-					</control>
+
 				</focusedlayout>
 			 	<content>
 			 		<item id="1">
 						<label>$LOCALIZE[14207]</label>
-						<label2>$LOCALIZE[166] &#8226; $LOCALIZE[248] &#8226; $LOCALIZE[360]</label2>
+						<label2>$LOCALIZE[166] &#8226; $LOCALIZE[14222] &#8226; $LOCALIZE[24008] &#8226; $LOCALIZE[12360] &#8226; $LOCALIZE[14224]</label2>
 						<icon>DefaultAddonSkin.png</icon>
 						<onclick>ActivateWindow(InterfaceSettings)</onclick>
 					</item>
 					<item id="2">
 						<label>reFocus</label>
-						<label2>$LOCALIZE[31200] &#8226; $LOCALIZE[24140] &#8226; $LOCALIZE[31201]</label2>
+						<label2>$LOCALIZE[31200] &#8226; $LOCALIZE[31201] &#8226; $LOCALIZE[31100] &#8226; $LOCALIZE[31722] &#8226; $LOCALIZE[14224]</label2>
 						<icon>DefaultIconreFocus.png</icon>
 						<onclick>ActivateWindow(SkinSettings)</onclick>
 					</item>
 			 		<item id="3">
 						<label>$LOCALIZE[14201]</label>
-						<label2>$LOCALIZE[14086] &#8226; $LOCALIZE[14087] &#8226; $LOCALIZE[37032] &#8226; $LOCALIZE[248]</label2>
+						<label2>$LOCALIZE[14086] &#8226; $LOCALIZE[14087] &#8226; $LOCALIZE[1] &#8226; $LOCALIZE[248] &#8226; $LOCALIZE[37032]</label2>
 						<icon>DefaultMovies.png</icon>
 						<onclick>ActivateWindow(PlayerSettings)</onclick>
 					</item>
 					<item id="4">
 						<label>$LOCALIZE[13000]</label>
-						<label2>$LOCALIZE[131] &#8226; $LOCALIZE[14221] &#8226; $LOCALIZE[14095] &#8226; $LOCALIZE[14092]</label2>
+						<label2>$LOCALIZE[131] &#8226; $LOCALIZE[14221] &#8226; $LOCALIZE[14125] &#8226; $LOCALIZE[798] &#8226; $LOCALIZE[14095] &#8226; $LOCALIZE[24001] &#8226; $LOCALIZE[14092]</label2>
 						<icon>DefaultIconSettings.png</icon>
 						<onclick>ActivateWindow(SystemSettings)</onclick>
 					</item>
 					<item id="5">
 						<label>$LOCALIZE[14203]</label>
-						<label2>$LOCALIZE[544] &#8226; $LOCALIZE[14219] &#8226; $LOCALIZE[14081]</label2>
+						<label2>$LOCALIZE[14219] &#8226; $LOCALIZE[544] &#8226; $LOCALIZE[14081] &#8226; $LOCALIZE[21412]</label2>
 						<icon>DefaultAddonLibrary.png</icon>
 						<onclick>ActivateWindow(MediaSettings)</onclick>
 					</item>
 					<item id="6">
 						<label>$LOCALIZE[14036]</label>
-						<label2>UPnP &#8226; $LOCALIZE[33101] &#8226; Zeroconf &#8226; AirPlay</label2>
+						<label2>$LOCALIZE[790] &#8226; $LOCALIZE[20187] &#8226; $LOCALIZE[1273] &#8226; $LOCALIZE[1200] &#8226; $LOCALIZE[12600] &#8226;</label2>
 						<icon>DefaultAddonService.png</icon>
 						<onclick>ActivateWindow(ServiceSettings)</onclick>
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[19020]</label>
-						<label2>$LOCALIZE[19019] &#8226; $LOCALIZE[19069] &#8226; $LOCALIZE[14086] &#8226; $LOCALIZE[19043]</label2>
+						<label2>$LOCALIZE[19019] &#8226; $LOCALIZE[19181] &#8226; $LOCALIZE[19222] &#8226; $LOCALIZE[14086] &#8226; $LOCALIZE[19043] &#8226; $LOCALIZE[14095] &#8226; $LOCALIZE[19259]</label2>
 						<icon>DefaultIconTV.png</icon>
 						<onclick>ActivateWindow(PVRSettings)</onclick>
 					</item>
