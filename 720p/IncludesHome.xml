@@ -50,6 +50,15 @@
 				<include>screen_Dimensions</include>
 			</control>
 		</control>
+
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/base_color.png</texture>
+			<colordiffuse>base_1</colordiffuse>
+			<visible>String.IsEqual(Skin.String(homemenu.type),alternate)</visible>
+		</control>
+
 	</include>
 
 	<include name="widget_Header">

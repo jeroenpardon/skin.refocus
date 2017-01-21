@@ -432,6 +432,11 @@
 		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
 	</variable>
 
+	<variable name="player:Progress">
+		<value condition="!VideoPlayer.Content(LiveTV)">Player.Progress</value>
+		<value>Pvr.Progress</value>
+	</variable>
+
 	<variable name="player:Decoder">
 		<value condition="Player.Process(videohwdecoder)">$LOCALIZE[31303]</value>
 		<value>$LOCALIZE[31304]</value>
