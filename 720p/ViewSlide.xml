@@ -146,18 +146,18 @@
 				<include>global_Scrolltime</include>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !String.Contains(Container.FolderPath,plugin://plugin)] | Window.IsActive(tvrecordings)</visible>
 				<itemlayout width="445" height="259">
-					<include name="view_Slide-Frame">
+					<include content="view_Slide-Frame">
 						<param name="Width" value="445"/>
 						<param name="Height" value="258"/>
 					</include>
-					<include name="view_Slide-Art">
+					<include content="view_Slide-Art">
 						<param name="Width" value="425"/>
 						<param name="Height" value="239"/>
 						<param name="Art" value="$VAR[art:Landscape]"/>
 						<param name="Fallback" value="thumbs/default_Landscape.png"/>
 						<param name="ShowLogo" default="true"/>
 					</include>
-					<include name="status_Info">
+					<include content="status_Info">
 						<param name="Left" value="392"/>
 						<param name="Bottom" value="11"/>
 					</include>
@@ -167,18 +167,18 @@
 						<width>445</width>
 						<height>258</height>
 						<include>focus_SlideWide</include>
-						<include name="view_Slide-Frame">
+						<include content="view_Slide-Frame">
 							<param name="Width" value="445"/>
 							<param name="Height" value="258"/>
 						</include>
-						<include name="view_Slide-Art">
+						<include content="view_Slide-Art">
 							<param name="Width" value="425"/>
 							<param name="Height" value="239"/>
 							<param name="Art" value="$VAR[art:Landscape]"/>
 							<param name="Fallback" value="thumbs/default_Landscape.png"/>
 							<param name="ShowLogo" default="true"/>
 						</include>
-						<include name="status_Info">
+						<include content="status_Info">
 							<param name="Left" value="392"/>
 							<param name="Bottom" value="10"/>
 						</include>
