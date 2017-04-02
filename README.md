@@ -18,6 +18,8 @@ excerpt:
 
 ![Image of Yaktocat](http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png)
 
+To Kodi box sellers / streambox sellers, etc: This means you are not allowed to sell products with reFocus (pre)installed without my prior written consent!
+
 ### Support
 If you like reFocus and would like to buy me a beer (or coffee), a [donation](http://bit.ly/refocusdonate) is greatly appreciated.
 
