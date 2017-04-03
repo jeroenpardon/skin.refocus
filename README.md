@@ -8,7 +8,7 @@ Master branch is very early Kodi 17.0 / Krypton and should be considered unstabl
 reFocus is a graphical interface for Kodi that understands your media is what truly matters. Elegance, simplicity, refinement, consistency and balanced design are keywords for this skin.
 
 ### Download and installation
-For instructions please see the wiki [here] (https://github.com/jeroenpardon/skin.refocus/wiki#installing-refocus)
+For instructions please see the wiki (https://github.com/jeroenpardon/skin.refocus/wiki#installing-refocus)
 
 ### License
 This software is licensed under a [Attribution-NonCommercial-ShareAlike 3.0 Unported license](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -16,7 +16,7 @@ This software is licensed under a [Attribution-NonCommercial-ShareAlike 3.0 Unpo
 excerpt:
 "NonCommercial — You may not use the material for commercial purposes."
 
-![Image of Yaktocat](http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png)
+![licensebadge](http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png)
 
 To Kodi box sellers / streambox sellers, etc: This means you are not allowed to sell products with reFocus (pre)installed without my prior written consent!
 
