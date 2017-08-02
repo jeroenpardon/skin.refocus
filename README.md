@@ -2,7 +2,10 @@ reFocus for Kodi
 ============
 
 ### Warning !
-Master branch is very early Kodi 17.0 / Krypton and should be considered unstable. No support, if something breaks you get to keep the pieces. Use the Jarvis branch on Kodi 16 instead.
+This project is no longer being actively maintained. The master branch should run without big problems on Kodi 17.0 / Krypton however.
+
+I have started a new skin for Kodi called Grid. At the moment it is in private beta, but you can see a preview [here](https://forum.kodi.tv/showthread.php?tid=318152).
+
 
 ### About
 reFocus is a graphical interface for Kodi that understands your media is what truly matters. Elegance, simplicity, refinement, consistency and balanced design are keywords for this skin.
