@@ -4,7 +4,7 @@ reFocus for Kodi
 ### Warning !
 This project is no longer being actively maintained. The master branch should run without big problems on Kodi 17.0 / Krypton however.
 
-I have started a new skin for Kodi called Grid. At the moment it is in private beta, but you can see a preview [here](https://forum.kodi.tv/showthread.php?tid=318152).
+I have started a new skin for Kodi called Grid, which is currently in beta stages. More information and download instructions are available [here](https://forum.kodi.tv/showthread.php?tid=318152).
 
 
 ### About
