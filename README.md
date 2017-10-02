@@ -32,3 +32,8 @@ If you like reFocus and would like to buy me a beer (or coffee), a [donation](ht
 [reFocus forum](http://forum.kodi.tv/forumdisplay.php?fid=72)
 
 [Kodi](http://www.kodi.tv/)
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/jeroenpardon/skin.refocus/badge.svg?style=beer-square)](https://beerpay.io/jeroenpardon/skin.refocus)  [![Beerpay](https://beerpay.io/jeroenpardon/skin.refocus/make-wish.svg?style=flat-square)](https://beerpay.io/jeroenpardon/skin.refocus?focus=wish)
